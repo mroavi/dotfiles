@@ -54,6 +54,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Automatically clears search highlight when cursor is moved
 Plug 'junegunn/vim-slash'
 
+" Shows the contents of " and @ registers in a sidebar when the respective key is pressed
+Plug 'junegunn/vim-peekaboo'
+
 " Colorschemes
 Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
