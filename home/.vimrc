@@ -63,6 +63,10 @@ Plug 'junegunn/vim-peekaboo'
 " fired)
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+" Defines a new text object representing lines of code at the same indent level
+Plug 'michaeljsmith/vim-indent-object'
+" Plug 'kana/vim-textobj-indent'
+
 " Colorschemes
 Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
