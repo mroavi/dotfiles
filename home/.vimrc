@@ -27,7 +27,9 @@ set showmatch " live match highlighting
 set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
-syntax enable
+
+" Disable Ctl+z (which kills the process in vim-gnome)
+noremap <c-z> <Nop>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
@@ -57,20 +59,25 @@ Plug 'junegunn/vim-slash'
 " Shows the contents of " and @ registers in a sidebar when the respective key is pressed
 Plug 'junegunn/vim-peekaboo'
 
+" A file system explorer for the Vim editor (load when NerdTreeToggle is
+" fired)
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
 " Colorschemes
 Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
 
-" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-plug
+" END -  vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-" Set monokai colorscheme
+syntax enable
 colorscheme monokai
 
 " Use 'jk' to exit insert mode
 inoremap jk <ESC>
+
+" Toggle NERDTree with with the '\' key
+nnoremap <Leader> :NERDTreeToggle<CR>
