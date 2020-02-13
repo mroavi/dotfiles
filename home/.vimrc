@@ -67,6 +67,12 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'michaeljsmith/vim-indent-object'
 " Plug 'kana/vim-textobj-indent'
 
+" Lean & mean status/tabline for vim that's light as air.
+Plug 'vim-airline/vim-airline'
+
+" See: https://github.com/vim-airline/vim-airline/wiki/Screenshots
+Plug 'vim-airline/vim-airline-themes'
+
 " Colorschemes
 Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
@@ -77,11 +83,18 @@ call plug#end()
 " END -  vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Set the color scheme
 syntax enable
 colorscheme monokai
 
-" Use 'jk' to exit insert mode
+" Set the airline theme
+let g:airline_theme='luna'
+
+" Use 'jk' or 'kj' to return to normal  mode
 inoremap jk <ESC>
+inoremap kj <ESC>
+vnoremap jk <ESC>
+vnoremap kj <ESC>
 
 " Toggle NERDTree with with the '\' key
 nnoremap <Leader> :NERDTreeToggle<CR>
