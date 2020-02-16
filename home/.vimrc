@@ -104,12 +104,16 @@ vnoremap kj <ESC>
 " Toggle NERDTree with with the '\' key
 nnoremap <Leader> :NERDTreeToggle<CR>
 
-" Tab navigation like Chorme (not working)
-nnoremap <C-S-tab>  :tabprevious<CR>
-nnoremap <C-tab>    :tabnext<CR>
+" Chorme-like tab commands
+" based on: https://stackoverflow.com/a/31961401/1706778
+set timeout timeoutlen=1000 ttimeoutlen=100
+set <F13>=[27;5;9~
+nnoremap <F13> gt
+set <F14>=[27;6;9~
+nnoremap <F14> gT
+
 nnoremap <C-t>      :tabnew<CR>
 nnoremap <C-w>      :tabclose<CR> 
-inoremap <C-S-tab>  <Esc>:tabprevious<CR>
-inoremap <C-tab>    <Esc>:tabnext<CR>
 inoremap <C-t>      <Esc>:tabnew<CR>
 inoremap <C-w>      <Esc>:tabclose<CR> 
+

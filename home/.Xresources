@@ -83,3 +83,9 @@ xterm*ScrollBar: true
 
 ! stop output to terminal from jumping down to bottom of scroll again
 xterm*scrollTtyOutput: false
+
+! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
+! Based on: https://stackoverflow.com/a/31961401/1706778
+xterm*VT100.Translations: #override \
+             Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
+             Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~")
