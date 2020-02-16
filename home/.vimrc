@@ -6,6 +6,7 @@
 set nocompatible
 
 set number " show line numbers
+set relativenumber " each line in your file is numbered relative to the cursor’s current position
 set showmode " show mode in status bar (insert/replace/...)
 set showcmd " show typed command in status bar
 set ruler " show cursor position in status bar
@@ -27,9 +28,7 @@ set showmatch " live match highlighting
 set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
-
-" Disable Ctl+z (which kills the process in vim-gnome)
-noremap <c-z> <Nop>
+set t_Co=256 " needed so that colorschemes take effect in xterm
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
@@ -74,8 +73,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Colorschemes
-Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
+Plug 'joshdick/onedark.vim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -86,9 +86,13 @@ call plug#end()
 " Set the color scheme
 syntax enable
 colorscheme monokai
+"colorscheme solarized
 
 " Set the airline theme
 let g:airline_theme='luna'
+
+" Disable Ctl+z (which kills the process in vim-gnome)
+noremap <c-z> <Nop>
 
 " Use 'jk' or 'kj' to return to normal  mode
 inoremap jk <ESC>
@@ -98,3 +102,13 @@ vnoremap kj <ESC>
 
 " Toggle NERDTree with with the '\' key
 nnoremap <Leader> :NERDTreeToggle<CR>
+
+" Tab navigation like Chorme (not working)
+nnoremap <C-S-tab>  :tabprevious<CR>
+nnoremap <C-tab>    :tabnext<CR>
+nnoremap <C-t>      :tabnew<CR>
+nnoremap <C-w>      :tabclose<CR> 
+inoremap <C-S-tab>  <Esc>:tabprevious<CR>
+inoremap <C-tab>    <Esc>:tabnext<CR>
+inoremap <C-t>      <Esc>:tabnew<CR>
+inoremap <C-w>      <Esc>:tabclose<CR> 
