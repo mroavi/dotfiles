@@ -29,6 +29,7 @@ set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
 set t_Co=256 " needed so that colorschemes take effect in xterm
+set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
