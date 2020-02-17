@@ -88,4 +88,5 @@ xterm*scrollTtyOutput: false
 ! Based on: https://stackoverflow.com/a/31961401/1706778
 xterm*VT100.Translations: #override \
              Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
-             Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~")
+             Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n\
+             Ctrl Shift <Key>w: string(0x1b) string("[27;7;9~")

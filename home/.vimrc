@@ -107,13 +107,15 @@ nnoremap <Leader> :NERDTreeToggle<CR>
 " Chorme-like tab commands
 " based on: https://stackoverflow.com/a/31961401/1706778
 set timeout timeoutlen=1000 ttimeoutlen=100
+" Ctl+tab -> next tab
 set <F13>=[27;5;9~
 nnoremap <F13> gt
+" Ctl + Shift + tab -> previous tab
 set <F14>=[27;6;9~
 nnoremap <F14> gT
-
+" Ctl + Shift + w -> close tab
+set <F15>=[27;7;9~
+nnoremap <F15> :tabclose<CR>
+" Ctl + t -> new tab
 nnoremap <C-t>      :tabnew<CR>
-nnoremap <C-w>      :tabclose<CR> 
-inoremap <C-t>      <Esc>:tabnew<CR>
-inoremap <C-w>      <Esc>:tabclose<CR> 
 
