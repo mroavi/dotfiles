@@ -73,6 +73,10 @@ Plug 'vim-airline/vim-airline'
 " See: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plug 'vim-airline/vim-airline-themes'
 
+" Allows you to navigate seamlessly between vim and tmux splits using a
+" consistent set of hotkeys 
+Plug 'toranb/tmux-navigator'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
@@ -107,15 +111,19 @@ nnoremap <Leader> :NERDTreeToggle<CR>
 " Chorme-like tab commands
 " based on: https://stackoverflow.com/a/31961401/1706778
 set timeout timeoutlen=1000 ttimeoutlen=100
+
 " Ctl+tab -> next tab
 set <F13>=[27;5;9~
 nnoremap <F13> gt
+
 " Ctl + Shift + tab -> previous tab
 set <F14>=[27;6;9~
 nnoremap <F14> gT
+
 " Ctl + Shift + w -> close tab
 set <F15>=[27;7;9~
 nnoremap <F15> :tabclose<CR>
+
 " Ctl + t -> new tab
 nnoremap <C-t>      :tabnew<CR>
 
