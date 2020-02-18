@@ -97,11 +97,11 @@ colorscheme monokai
 " Set the airline theme
 let g:airline_theme='luna'
 
-" Remap Ctrl+w to Ctrl+Q
-nnoremap <C-Q> <C-W>
+" Remap Ctrl+w to Ctrl+a 
+nnoremap <c-a> <c-w>
 
 " Close tab with Ctrl+w
-nnoremap <C-W> :tabclose<CR>
+nnoremap <c-w> :tabclose<CR>
 
 " Disable Ctl+z (which kills the process in vim-gnome)
 noremap <c-z> <Nop>
@@ -128,8 +128,8 @@ set <F14>=[27;6;9~
 nnoremap <F14> gT
 
 " Ctl + Shift + w -> close tab
-set <F15>=[27;7;9~
-nnoremap <F15> :tabclose<CR>
+set <F15>=[27;6;48~
+nnoremap <F15> :close<CR>
 
 " Ctl + t -> new tab
 nnoremap <C-t> :tabnew<CR>

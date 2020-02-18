@@ -43,8 +43,11 @@ xterm*ScrollBar: true
 xterm*scrollTtyOutput: false
 
 ! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
-! Based on: https://stackoverflow.com/a/31961401/1706778
+! Based on: https://stackoverflow.com/a/31961401/1706778 
+! Hack: the code for the Ctrl+Shift+w actually corresponds to a 0
+! See: https://github.com/tmux/tmux/blob/master/xterm-keys.c
 xterm*VT100.Translations: #override \
              Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
              Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n\
-             Ctrl Shift <Key>w: string(0x1b) string("[27;7;9~")
+             Ctrl Shift <Key>w: string(0x1b) string("[27;6;48~")
+
