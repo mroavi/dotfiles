@@ -97,11 +97,8 @@ colorscheme monokai
 " Set the airline theme
 let g:airline_theme='luna'
 
-" Remap horizontal split
-"nnoremap <C-S-s> :split<CR>
-
-" Remap vertical split
-"nnoremap <C-S-v> :vsplit<CR>
+" Remap :FZF to Ctrl+o
+nnoremap <C-o> :FZF<CR>
 
 " Remap default prefix from Ctrl+w to Ctrl+a 
 nnoremap <C-a> <C-w>
