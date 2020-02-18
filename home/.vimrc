@@ -24,7 +24,7 @@ set smartindent " Intellegently dedent / indent new lines based on rules.
 set noswapfile " They're just annoying. Who likes them?
 
 set incsearch " live incremental searching
-set showmatch " live match highlighting
+set noshowmatch " no live match highlighting (brief jumping)
 set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
@@ -108,7 +108,7 @@ vnoremap kj <ESC>
 " Toggle NERDTree with with the '\' key
 nnoremap <Leader> :NERDTreeToggle<CR>
 
-" Chorme-like tab commands
+" Chorme-like tab commands (conflicts with tmux)
 " based on: https://stackoverflow.com/a/31961401/1706778
 set timeout timeoutlen=1000 ttimeoutlen=100
 
@@ -125,5 +125,5 @@ set <F15>=[27;7;9~
 nnoremap <F15> :tabclose<CR>
 
 " Ctl + t -> new tab
-nnoremap <C-t>      :tabnew<CR>
+nnoremap <C-t> :tabnew<CR>
 
