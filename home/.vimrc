@@ -2,6 +2,7 @@
 " Based on: 
 " - https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
 
+
 " We don't need Vi compatibility
 set nocompatible
 
@@ -95,6 +96,12 @@ colorscheme monokai
 
 " Set the airline theme
 let g:airline_theme='luna'
+
+" Remap Ctrl+w to Ctrl+Q
+nnoremap <C-Q> <C-W>
+
+" Close tab with Ctrl+w
+nnoremap <C-W> :tabclose<CR>
 
 " Disable Ctl+z (which kills the process in vim-gnome)
 noremap <c-z> <Nop>
