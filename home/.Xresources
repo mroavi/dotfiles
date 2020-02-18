@@ -49,5 +49,7 @@ xterm*scrollTtyOutput: false
 xterm*VT100.Translations: #override \
              Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
              Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n\
-             Ctrl Shift <Key>w: string(0x1b) string("[27;6;48~")
+             Ctrl Shift <Key>w: string(0x1b) string("[27;6;48~") \n\
+             Ctrl Shift <Key>s: string(0x1b) string("[27;6;49~") \n\
+             Ctrl Shift <Key>v: string(0x1b) string("[27;6;46~")
 

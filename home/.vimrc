@@ -97,14 +97,20 @@ colorscheme monokai
 " Set the airline theme
 let g:airline_theme='luna'
 
-" Remap Ctrl+w to Ctrl+a 
-nnoremap <c-a> <c-w>
+" Remap horizontal split
+"nnoremap <C-S-s> :split<CR>
+
+" Remap vertical split
+"nnoremap <C-S-v> :vsplit<CR>
+
+" Remap default prefix from Ctrl+w to Ctrl+a 
+nnoremap <C-a> <C-w>
 
 " Close tab with Ctrl+w
-nnoremap <c-w> :tabclose<CR>
+nnoremap <C-w> :tabclose<CR>
 
 " Disable Ctl+z (which kills the process in vim-gnome)
-noremap <c-z> <Nop>
+noremap <C-z> <Nop>
 
 " Use 'jk' or 'kj' to return to normal  mode
 inoremap jk <ESC>
@@ -123,14 +129,22 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 set <F13>=[27;5;9~
 nnoremap <F13> gt
 
-" Ctl + Shift + tab -> previous tab
+" Ctrl+Shift + tab -> previous tab
 set <F14>=[27;6;9~
 nnoremap <F14> gT
 
-" Ctl + Shift + w -> close tab
+" Ctrl+Shift+w -> close tab
 set <F15>=[27;6;48~
 nnoremap <F15> :close<CR>
 
-" Ctl + t -> new tab
+" Ctrl+Shift+v -> vertical split
+set <F16>=[27;6;49~
+nnoremap <F16> :split<CR>
+
+" Ctrl+Shift+s -> horizontal split 
+set <F17>=[27;6;46~
+nnoremap <F17> :vsplit<CR>
+
+" Ctrl+t -> new tab
 nnoremap <C-t> :tabnew<CR>
 
