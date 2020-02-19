@@ -140,6 +140,9 @@ Plug 'vim-latex/vim-latex'
 " FocusGained and FocusLost autocommand events in terminal vim
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
+" Automatically saves changes to disk without having to use :w
+Plug '907th/vim-auto-save'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
@@ -158,13 +161,28 @@ colorscheme monokai
 "let g:solarized_termcolors=256
 "colorscheme solarized
 
-" Set the airline theme
-let g:airline_theme='luna'
+let g:airline_theme='luna' " set the airline theme
+let g:auto_save = 1  " enable AutoSave on Vim startup
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " latex-suite settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin on " this makes vim invoke Late-Suite when you open a tex file
 filetype indent on " enables automatic indentation as you type
 let g:tex_flavor='latex'
-let Tex_FoldedSections=""
-let Tex_FoldedEnvironments=""
-let Tex_FoldedMisc=""
+let g:Tex_DefaultTargetFormat='pdf' " set pdf as default
+"let g:auto_save_silent = 1 " do not display the auto-save notification
+
+" Use the autosave feature with the file types specified below
+let g:auto_save = 0
+augroup ft_tex
+    au!
+    au FileType tex let b:auto_save = 1
+augroup END
+
+" disable code folding in vim-latex
+" https://stackoverflow.com/questions/3322453/how-can-i-disable-code-folding-in-vim-with-vim-latex
+let Tex_FoldedSections="" " disable code folding
+let Tex_FoldedEnvironments="" " disable code folding
+let Tex_FoldedMisc="" " disable code folding
+
