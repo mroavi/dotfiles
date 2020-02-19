@@ -31,6 +31,16 @@ set gdefault " use the `g` flag by default.
 set t_Co=256 " needed so that colorschemes take effect in xterm
 set background=dark
 
+" Refresh changed content of file opened in vi(m)
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+    \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' |  checktime | endif
+
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 " Remap :FZF to Ctrl+o
 nnoremap <C-o> :FZF<CR>
 
@@ -127,6 +137,9 @@ Plug 'toranb/tmux-navigator'
 
 " A rich tool of features for editing latex files
 Plug 'vim-latex/vim-latex'
+
+" FocusGained and FocusLost autocommand events in terminal vim
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
