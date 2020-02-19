@@ -2,8 +2,7 @@
 " Based on: 
 " - https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
 
-" We don't need Vi compatibility
-set nocompatible
+set nocompatible " We don't need Vi compatibility
 
 set number " show line numbers
 set relativenumber " each line in your file is numbered relative to the cursor’s current position
@@ -166,3 +165,6 @@ let g:airline_theme='luna'
 filetype plugin on " this makes vim invoke Late-Suite when you open a tex file
 filetype indent on " enables automatic indentation as you type
 let g:tex_flavor='latex'
+let Tex_FoldedSections=""
+let Tex_FoldedEnvironments=""
+let Tex_FoldedMisc=""
