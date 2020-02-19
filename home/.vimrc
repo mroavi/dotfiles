@@ -130,12 +130,12 @@ Plug 'vim-airline/vim-airline'
 " See: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plug 'vim-airline/vim-airline-themes'
 
+" A rich tool of features for editing latex files
+Plug 'vim-latex/vim-latex'
+
 " Allows you to navigate seamlessly between vim and tmux splits using a
 " consistent set of hotkeys 
 Plug 'toranb/tmux-navigator'
-
-" A rich tool of features for editing latex files
-Plug 'vim-latex/vim-latex'
 
 " FocusGained and FocusLost autocommand events in terminal vim
 Plug 'tmux-plugins/vim-tmux-focus-events'
