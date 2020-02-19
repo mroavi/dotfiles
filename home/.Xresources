@@ -13,6 +13,11 @@ xterm*savelines: 16384
 ! double-click to select whole URLs :D
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
+! send the right keysym when using the Alt key
+! Source: https://www.gnu.org/software/emacs/manual/html_node/efaq/Meta-key-does-not-work-in-xterm.html
+XTerm*eightBitInput: false
+XTerm*eightBitOutput: true
+
 ! Monokai theme
 ! source: https://github.com/cemmanouilidis/monokai-xterm/blob/master/xtermcontrol
 xterm*background:   #1D1D19
