@@ -78,6 +78,9 @@ Plug 'vim-airline/vim-airline-themes'
 " consistent set of hotkeys 
 Plug 'toranb/tmux-navigator'
 
+" A rich tool of features for editing latex files
+Plug 'vim-latex/vim-latex'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
