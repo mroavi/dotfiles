@@ -2,7 +2,6 @@
 " Based on: 
 " - https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
 
-
 " We don't need Vi compatibility
 set nocompatible
 
@@ -31,6 +30,54 @@ set gdefault " use the `g` flag by default.
 
 set t_Co=256 " needed so that colorschemes take effect in xterm
 set background=dark
+
+" Remap :FZF to Ctrl+o
+nnoremap <C-o> :FZF<CR>
+
+" Remap default prefix from Ctrl+w to Ctrl+a 
+nnoremap <C-a> <C-w>
+
+" Close tab with Ctrl+w
+nnoremap <C-w> :tabclose<CR>
+
+" Disable Ctl+z (which kills the process in vim-gnome)
+noremap <C-z> <Nop>
+
+" Use 'jk' or 'kj' to return to normal  mode
+inoremap jk <ESC>
+vnoremap jk <ESC>
+inoremap kj <ESC>
+vnoremap kj <ESC>
+
+" Toggle NERDTree with with the '\' key
+nnoremap <Leader> :NERDTreeToggle<CR>
+
+" Chorme-like tab commands (conflicts with tmux)
+" based on: https://stackoverflow.com/a/31961401/1706778
+set timeout timeoutlen=1000 ttimeoutlen=100
+
+" Ctl+tab -> next tab
+set <F13>=[27;5;9~
+nnoremap <F13> gt
+
+" Ctrl+Shift + tab -> previous tab
+set <F14>=[27;6;9~
+nnoremap <F14> gT
+
+" Ctrl+Shift+w -> close tab
+set <F15>=[27;6;48~
+nnoremap <F15> :close<CR>
+
+" Ctrl+Shift+v -> vertical split
+set <F16>=[27;6;49~
+nnoremap <F16> :split<CR>
+
+" Ctrl+Shift+s -> horizontal split 
+set <F17>=[27;6;46~
+nnoremap <F17> :vsplit<CR>
+
+" Ctrl+t -> new tab
+nnoremap <C-t> :tabnew<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
@@ -95,56 +142,14 @@ call plug#end()
 " Set the color scheme
 syntax enable
 colorscheme monokai
+"set background=dark
+"let g:solarized_termcolors=256
 "colorscheme solarized
 
 " Set the airline theme
 let g:airline_theme='luna'
 
-" Remap :FZF to Ctrl+o
-nnoremap <C-o> :FZF<CR>
-
-" Remap default prefix from Ctrl+w to Ctrl+a 
-nnoremap <C-a> <C-w>
-
-" Close tab with Ctrl+w
-nnoremap <C-w> :tabclose<CR>
-
-" Disable Ctl+z (which kills the process in vim-gnome)
-noremap <C-z> <Nop>
-
-" Use 'jk' or 'kj' to return to normal  mode
-inoremap jk <ESC>
-inoremap kj <ESC>
-vnoremap jk <ESC>
-vnoremap kj <ESC>
-
-" Toggle NERDTree with with the '\' key
-nnoremap <Leader> :NERDTreeToggle<CR>
-
-" Chorme-like tab commands (conflicts with tmux)
-" based on: https://stackoverflow.com/a/31961401/1706778
-set timeout timeoutlen=1000 ttimeoutlen=100
-
-" Ctl+tab -> next tab
-set <F13>=[27;5;9~
-nnoremap <F13> gt
-
-" Ctrl+Shift + tab -> previous tab
-set <F14>=[27;6;9~
-nnoremap <F14> gT
-
-" Ctrl+Shift+w -> close tab
-set <F15>=[27;6;48~
-nnoremap <F15> :close<CR>
-
-" Ctrl+Shift+v -> vertical split
-set <F16>=[27;6;49~
-nnoremap <F16> :split<CR>
-
-" Ctrl+Shift+s -> horizontal split 
-set <F17>=[27;6;46~
-nnoremap <F17> :vsplit<CR>
-
-" Ctrl+t -> new tab
-nnoremap <C-t> :tabnew<CR>
-
+" latex-suite settings
+filetype plugin on " this makes vim invoke Late-Suite when you open a tex file
+filetype indent on " enables automatic indentation as you type
+let g:tex_flavor='latex'
