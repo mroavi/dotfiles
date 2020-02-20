@@ -130,8 +130,8 @@ Plug 'vim-airline/vim-airline'
 " See: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plug 'vim-airline/vim-airline-themes'
 
-" A rich tool of features for editing latex files
-Plug 'vim-latex/vim-latex'
+" Provides support for writing LaTeX documents
+Plug 'lervag/vimtex'
 
 " Allows you to navigate seamlessly between vim and tmux splits using a
 " consistent set of hotkeys 
@@ -142,6 +142,9 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Automatically saves changes to disk without having to use :w
 Plug '907th/vim-auto-save'
+
+" Pairs of handy bracket mappings
+Plug 'tpope/vim-unimpaired'
 
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
@@ -162,15 +165,13 @@ colorscheme monokai
 "colorscheme solarized
 
 let g:airline_theme='luna' " set the airline theme
-let g:auto_save = 1  " enable AutoSave on Vim startup
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" latex-suite settings
+" vimtex settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype plugin on " this makes vim invoke Late-Suite when you open a tex file
-filetype indent on " enables automatic indentation as you type
-let g:tex_flavor='latex'
-let g:Tex_DefaultTargetFormat='pdf' " set pdf as default
+let g:vimtex_compiler_latexmk = {
+            \ 'build_dir' : 'build',
+            \}
 "let g:auto_save_silent = 1 " do not display the auto-save notification
 
 " Use the autosave feature with the file types specified below
@@ -179,10 +180,4 @@ augroup ft_tex
     au!
     au FileType tex let b:auto_save = 1
 augroup END
-
-" disable code folding in vim-latex
-" https://stackoverflow.com/questions/3322453/how-can-i-disable-code-folding-in-vim-with-vim-latex
-let Tex_FoldedSections="" " disable code folding
-let Tex_FoldedEnvironments="" " disable code folding
-let Tex_FoldedMisc="" " disable code folding
 
