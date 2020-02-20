@@ -29,9 +29,10 @@ set gdefault " use the `g` flag by default.
 
 set t_Co=256 " needed so that colorschemes take effect in xterm
 set background=dark
-set spell spelllang=en_us
 set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
+"set spell spelllang=en_us
+:map <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Refresh changed content of file opened in vi(m)
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim
