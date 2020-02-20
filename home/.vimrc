@@ -149,9 +149,6 @@ Plug '907th/vim-auto-save'
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
 
-" Shows 'Nth match out of M' at every search
-Plug 'henrik/vim-indexed-search'
-
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
