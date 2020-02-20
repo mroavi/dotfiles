@@ -172,7 +172,12 @@ let g:airline_theme='luna' " set the airline theme
 let g:vimtex_compiler_latexmk = {
             \ 'build_dir' : 'build',
             \}
-"let g:auto_save_silent = 1 " do not display the auto-save notification
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-auto-save options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Do not display the auto-save notification
+"let g:auto_save_silent = 1 
 
 " Use the autosave feature with the file types specified below
 let g:auto_save = 0
