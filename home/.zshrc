@@ -117,3 +117,5 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# mrv: change zsh-autosuggestions color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=2'
