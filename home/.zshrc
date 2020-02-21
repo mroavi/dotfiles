@@ -118,4 +118,4 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # mrv: change zsh-autosuggestions color
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=2'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
