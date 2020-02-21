@@ -25,7 +25,7 @@ xterm*scrollTtyOutput: false
 
 ! turn off the display of bold typeface for bold text for solarized colors
 ! https://github.com/seebi/dircolors-solarized
-!xterm*boldFont: fixed
+xterm*boldFont: fixed
 
 ! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
 ! Based on: https://stackoverflow.com/a/31961401/1706778 
@@ -43,10 +43,40 @@ xterm*VT100.Translations: #override \
 !####################
 ! http://web.archive.org/web/20090130061234/http://phraktured.net/terminal-colors/
 
-!-------- Theme: Solarized {{{
+!-------- Theme: Solarized Dark {{{
 !------------------------------------------------------
+!*background:            #002b36
+!*foreground:            #839496
+!*fadeColor:             #002b36
+!*cursorColor:           #93a1a1
+!*pointerColorBackground:#586e75
+!*pointerColorForeground:#93a1a1
+!! black dark/light
+!*color0:                #073642
+!*color8:                #002b36
+!!! red dark/light
+!*color1:                #dc322f
+!*color9:                #cb4b16
+!!! green dark/light
+!*color2:                #859900
+!*color10:               #586e75
+!!! yellow dark/light
+!*color3:                #b58900
+!*color11:               #657b83
+!!! blue dark/light
+!*color4:                #268bd2
+!*color12:               #839496
+!!! magenta dark/light
+!*color5:                #d33682
+!*color13:               #6c71c4
+!!! cyan dark/light
+!*color6:                #2aa198
+!*color14:               #93a1a1
+!!! white dark/light
+!*color7:                #eee8d5
+!*color15:               #fdf6e3
 
-!!!Source http://github.com/altercation/solarized
+
 !*background: #002b36
 !*foreground: #657b83
 !!!*fading: 40
@@ -80,24 +110,100 @@ xterm*VT100.Translations: #override \
 !*color15: #fdf6e3
 
 
-! Monokai theme
-! source: https://github.com/cemmanouilidis/monokai-xterm/blob/master/xtermcontrol
-xterm*background:   #1D1D19
-xterm*foreground:   #F6F5EE
-xterm*color0:       #1C1D19 
-xterm*color1:       #D01B24
-xterm*color2:       #A7D32C
-xterm*color3:       #D8CF67
-xterm*color4:       #61B8D0
-xterm*color5:       #695ABB
-xterm*color6:       #D53864
-xterm*color7:       #FEFFFE
-xterm*color8:       #1C1D19
-xterm*color9:       #D12A24
-xterm*color10:      #A7D32C
-xterm*color11:      #D8CF67
-xterm*color12:      #61B8D0
-xterm*color13:      #695ABB
-xterm*color14:      #D53864
-xterm*color15:      #FEFFFE
-xterm*cursorColor:  #D6D6D6
+!Background & foreground
+!Source https://github.com/maniat1k/Solarizedxterm/blob/master/.Xdefaults
+!XTerm*faceName: Bitstream Vera Serif Mono
+!XTerm*background: #002B36
+!XTerm*foreground: #D2D2D2
+!XTerm*borderColor: #343434
+!XTerm*color0: #222222
+!XTerm*color8: #454545
+!XTerm*color1: #9E5641
+!XTerm*color9: #CC896D
+!XTerm*color2: #6C7E55
+!XTerm*color10: #C4DF90
+!XTerm*color3: #CAAF2B
+!XTerm*color11: #FFE080
+!XTerm*color4: #7FB8D8
+!XTerm*color12: #B8DDEA
+!XTerm*color5: #956D9D
+!XTerm*color13: #C18FCB
+!XTerm*color6: #4c8ea1
+!XTerm*color14: #6bc1d0
+!XTerm*color7: #808080
+!XTerm*color15: #cdcdcd
+
+
+!-------- Theme: Solarized Light {{{
+!------------------------------------------------------
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+*background:            S_base3
+*foreground:            S_base00
+*fadeColor:             S_base3
+*cursorColor:           S_base01
+*pointerColorBackground:S_base1
+*pointerColorForeground:S_base01
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+! black dark/light
+*color0:                S_base02
+*color8:                S_base03
+!! red dark/light
+*color1:                S_red
+*color9:                S_orange
+!! green dark/light
+*color2:                S_green
+*color10:               S_base01
+!! yellow dark/light
+*color3:                S_yellow
+*color11:               S_base00
+!! blue dark/light
+*color4:                S_blue
+*color12:               S_base0
+!! magenta dark/light
+*color5:                S_magenta
+*color13:               S_violet
+!! cyan dark/light
+*color6:                S_cyan
+*color14:               S_base1
+!! white dark/light
+*color7:                S_base2
+*color15:               S_base3
+
+
+!-------- Theme: Monokai {{{
+!------------------------------------------------------
+
+!! source: https://github.com/cemmanouilidis/monokai-xterm/blob/master/xtermcontrol
+!xterm*background:   #1D1D19
+!xterm*foreground:   #F6F5EE
+!xterm*color0:       #1C1D19
+!xterm*color1:       #D01B24
+!xterm*color2:       #A7D32C
+!xterm*color3:       #D8CF67
+!xterm*color4:       #61B8D0
+!xterm*color5:       #695ABB
+!xterm*color6:       #D53864
+!xterm*color7:       #FEFFFE
+!xterm*color8:       #1C1D19
+!xterm*color9:       #D12A24
+!xterm*color10:      #A7D32C
+!xterm*color11:      #D8CF67
+!xterm*color12:      #61B8D0
+!xterm*color13:      #695ABB
+!xterm*color14:      #D53864
+!xterm*color15:      #FEFFFE
+!xterm*cursorColor:  #D6D6D6

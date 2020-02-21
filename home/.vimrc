@@ -28,7 +28,7 @@ set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
 set t_Co=256 " needed so that colorschemes take effect in xterm
-set colorcolumn=80 " highlight column
+"set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
 
 " Use F5 to toggle the spelling check!
@@ -160,18 +160,21 @@ Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" END -  vim-plug
+" Colorscheme and airline theme settings 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set the color scheme
 syntax enable
-colorscheme monokai
-"set background=dark
-"let g:solarized_termcolors=256
-"colorscheme solarized
 
-let g:airline_theme='luna' " set the airline theme
+"colorscheme monokai
+"let g:airline_theme='luna' " set the airline theme
+
+set background=light
+colorscheme solarized
+let g:airline_theme='solarized' " set the airline theme
+"g:airline_solarized_bg='dark'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
