@@ -169,12 +169,11 @@ call plug#end()
 syntax enable
 
 "colorscheme monokai
-"let g:airline_theme='luna' " set the airline theme
+"let g:airline_theme='luna'
 
-set background=light
+set background=dark
 colorscheme solarized
-let g:airline_theme='solarized' " set the airline theme
-"g:airline_solarized_bg='dark'
+let g:airline_theme='solarized' 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
