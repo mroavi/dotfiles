@@ -65,6 +65,9 @@ vnoremap kj <ESC>
 " Toggle NERDTree with with the '\' key
 nnoremap <Leader> :NERDTreeToggle<CR>
 
+" Ctrl+t -> new tab
+nnoremap <C-t> :tabnew<CR>
+
 " Chorme-like tab commands (conflicts with tmux)
 " based on: https://stackoverflow.com/a/31961401/1706778
 set timeout timeoutlen=1000 ttimeoutlen=100
@@ -82,15 +85,13 @@ set <F15>=[27;6;48~
 nnoremap <F15> :close<CR>
 
 " Ctrl+Shift+v -> vertical split
-set <F16>=[27;6;49~
-nnoremap <F16> :split<CR>
+"set <F16>=[27;6;49~
+"nnoremap <F16> :split<CR>
 
 " Ctrl+Shift+s -> horizontal split 
-set <F17>=[27;6;46~
-nnoremap <F17> :vsplit<CR>
+"set <F17>=[27;6;46~
+"nnoremap <F17> :vsplit<CR>
 
-" Ctrl+t -> new tab
-nnoremap <C-t> :tabnew<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug

@@ -30,6 +30,8 @@ xterm*boldFont: fixed
 ! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
 ! Based on: https://stackoverflow.com/a/31961401/1706778 
 ! Hack: the code for the Ctrl+Shift+w actually corresponds to a 0
+! Hack: the code for the Ctrl+Shift+s actually corresponds to a 1
+! Hack: the code for the Ctrl+Shift+v actually corresponds to a .
 ! See: https://github.com/tmux/tmux/blob/master/xterm-keys.c
 xterm*VT100.Translations: #override \
              Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
