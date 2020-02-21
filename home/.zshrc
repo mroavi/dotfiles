@@ -119,3 +119,6 @@ fi
 
 # mrv: change zsh-autosuggestions color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+
+# mrv: aliases
+alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
