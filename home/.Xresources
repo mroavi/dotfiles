@@ -16,6 +16,70 @@ xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 ! send the right keysym when using the Alt key
 XTerm.vt100.metaSendsEscape: true
 
+! right hand side scrollbar...
+xterm*rightScrollBar: true
+xterm*ScrollBar: true
+
+! stop output to terminal from jumping down to bottom of scroll again
+xterm*scrollTtyOutput: false
+
+! turn off the display of bold typeface for bold text for solarized colors
+! https://github.com/seebi/dircolors-solarized
+!xterm*boldFont: fixed
+
+! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
+! Based on: https://stackoverflow.com/a/31961401/1706778 
+! Hack: the code for the Ctrl+Shift+w actually corresponds to a 0
+! See: https://github.com/tmux/tmux/blob/master/xterm-keys.c
+xterm*VT100.Translations: #override \
+             Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
+             Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n\
+             Ctrl Shift <Key>w: string(0x1b) string("[27;6;48~") \n\
+             Ctrl Shift <Key>s: string(0x1b) string("[27;6;49~") \n\
+             Ctrl Shift <Key>v: string(0x1b) string("[27;6;46~")
+
+!####################
+!###### Themes ######
+!####################
+! http://web.archive.org/web/20090130061234/http://phraktured.net/terminal-colors/
+
+!-------- Theme: Solarized {{{
+!------------------------------------------------------
+
+!!!Source http://github.com/altercation/solarized
+!*background: #002b36
+!*foreground: #657b83
+!!!*fading: 40
+!*fadeColor: #002b36
+!*cursorColor: #93a1a1
+!*pointerColorBackground: #586e75
+!*pointerColorForeground: #93a1a1
+!!! black dark/light
+!*color0: #073642
+!*color8: #002b36
+!!! red dark/light
+!*color1: #dc322f
+!*color9: #cb4b16
+!!! green dark/light
+!*color2: #859900
+!*color10: #586e75
+!!! yellow dark/light
+!*color3: #b58900
+!*color11: #657b83
+!!! blue dark/light
+!*color4: #268bd2
+!*color12: #839496
+!!! magenta dark/light
+!*color5: #d33682
+!*color13: #6c71c4
+!!! cyan dark/light
+!*color6: #2aa198
+!*color14: #93a1a1
+!!! white dark/light
+!*color7: #eee8d5
+!*color15: #fdf6e3
+
+
 ! Monokai theme
 ! source: https://github.com/cemmanouilidis/monokai-xterm/blob/master/xtermcontrol
 xterm*background:   #1D1D19
@@ -37,22 +101,3 @@ xterm*color13:      #695ABB
 xterm*color14:      #D53864
 xterm*color15:      #FEFFFE
 xterm*cursorColor:  #D6D6D6
-
-! right hand side scrollbar...
-xterm*rightScrollBar: true
-xterm*ScrollBar: true
-
-! stop output to terminal from jumping down to bottom of scroll again
-xterm*scrollTtyOutput: false
-
-! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
-! Based on: https://stackoverflow.com/a/31961401/1706778 
-! Hack: the code for the Ctrl+Shift+w actually corresponds to a 0
-! See: https://github.com/tmux/tmux/blob/master/xterm-keys.c
-xterm*VT100.Translations: #override \
-             Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
-             Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n\
-             Ctrl Shift <Key>w: string(0x1b) string("[27;6;48~") \n\
-             Ctrl Shift <Key>s: string(0x1b) string("[27;6;49~") \n\
-             Ctrl Shift <Key>v: string(0x1b) string("[27;6;46~")
-

@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Based on: 
 " - https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
 
@@ -28,10 +28,10 @@ set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
 set t_Co=256 " needed so that colorschemes take effect in xterm
-set background=dark
 set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
-"set spell spelllang=en_us
+
+" Use F5 to toggle the spelling check!
 :map <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Refresh changed content of file opened in vi(m)
@@ -150,6 +150,9 @@ Plug '907th/vim-auto-save'
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
 
+" Comment functions so powerful—no comment necessary
+Plug 'scrooloose/nerdcommenter'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
@@ -190,3 +193,23 @@ augroup ft_tex
     au FileType tex let b:auto_save = 1
 augroup END
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDComment options 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Do not create default mappings 
+let g:NERDCreateDefaultMappings = 0
+
+" NerdCommentToggle will comment all selected lines if there is at least one
+" that is not connected
+let g:NERDToggleCheckAllLines = 1
+
+" Delete leftover whitespace when uncommenting empty lines
+let g:NERDTrimTrailingWhitespace = 1
+
+let g:NERDDefaultAlign = 'start'
+
+" Remap Ctrl+/ to NERDCommentToggle in normal and visual modes! 
+set <F18>=
+nnoremap <F18> :call NERDComment(0,"toggle")<C-m>
+vnoremap <F18> :call NERDComment(0,"toggle")<C-m>
