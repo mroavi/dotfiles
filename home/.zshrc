@@ -132,4 +132,4 @@ export KEYTIMEOUT=1
 # mrv: accept autosuggest with ctrl+tab 
 # Important: place this at the end since other commands (such as enabling FZF) override it
 bindkey '	' autosuggest-accept
-
+bindkey '^ ' menu-complete
