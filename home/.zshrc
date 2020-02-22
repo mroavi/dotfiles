@@ -123,11 +123,13 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 # mrv: aliases
 alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
 
-# mrv: accept autosuggest with ctrl+space
-bindkey '	' autosuggest-accept
-
 # enable FZF (mrv: installed by FZF installer)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
+
+# mrv: accept autosuggest with ctrl+tab 
+# Important: place this at the end since other commands (such as enabling FZF) override it
+bindkey '	' autosuggest-accept
+
