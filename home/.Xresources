@@ -7,6 +7,10 @@ xterm*faceSize: 11
 ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
 xterm*loginshell: true
 
+! right hand side scrollbar...
+xterm*rightScrollBar: true
+xterm*ScrollBar: true
+
 ! I like a LOT of scrollback...
 xterm*savelines: 16384
 
