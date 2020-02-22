@@ -117,7 +117,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# mrv: change zsh-autosuggestions color
+# mrv: Change zsh-autosuggestions color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 
 # mrv: aliases
@@ -127,9 +127,17 @@ alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
-export KEYTIMEOUT=1
+export KEYTIMEOUT=2
 
-# mrv: accept autosuggest with ctrl+tab 
+# ===============================================
+# Custom key binding
+# ===============================================
+
+# mrv: Accept autosuggest with ctrl+tab 
 # Important: place this at the end since other commands (such as enabling FZF) override it
 bindkey '	' autosuggest-accept
 bindkey '^ ' menu-complete
+
+# mrv: Switch to normal mode using 'jk'
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M viins 'kj' vi-cmd-mode
