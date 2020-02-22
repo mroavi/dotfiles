@@ -16,10 +16,6 @@ xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 ! send the right keysym when using the Alt key
 XTerm.vt100.metaSendsEscape: true
 
-! right hand side scrollbar...
-xterm*rightScrollBar: true
-xterm*ScrollBar: true
-
 ! stop output to terminal from jumping down to bottom of scroll again
 xterm*scrollTtyOutput: false
 
@@ -44,97 +40,73 @@ xterm*VT100.Translations: #override \
 !####################
 !###### Themes ######
 !####################
+
 ! http://web.archive.org/web/20090130061234/http://phraktured.net/terminal-colors/
 
 !-------- Theme: Solarized Dark {{{
 !------------------------------------------------------
 ! source: https://github.com/solarized/xresources/blob/master/Xresources.dark
 
-xterm*background:            #002b36
-xterm*foreground:            #839496
-xterm*cursorColor:           #93a1a1
-! black dark/light
-xterm*color0:                #073642
-xterm*color8:                #002b36
-! red dark/light
-xterm*color1:                #dc322f
-xterm*color9:                #cb4b16
-! green dark/light
-xterm*color2:                #859900
-xterm*color10:               #586e75
-! yellow dark/light
-xterm*color3:                #b58900
-xterm*color11:               #657b83
-! blue dark/light
-xterm*color4:                #268bd2
-xterm*color12:               #839496
-! magenta dark/light
-xterm*color5:                #d33682
-xterm*color13:               #6c71c4
-! cyan dark/light
-xterm*color6:                #2aa198
-xterm*color14:               #93a1a1
-! white dark/light
-xterm*color7:                #eee8d5
-xterm*color15:               #fdf6e3
-
-
-! Solarized dark alternative:
-! source https://github.com/maniat1k/Solarizedxterm/blob/master/.Xdefaults
-
-!XTerm*faceName: Bitstream Vera Serif Mono
-!XTerm*background: #002B36
-!XTerm*foreground: #D2D2D2
-!XTerm*borderColor: #343434
-!XTerm*color0: #222222
-!XTerm*color8: #454545
-!XTerm*color1: #9E5641
-!XTerm*color9: #CC896D
-!XTerm*color2: #6C7E55
-!XTerm*color10: #C4DF90
-!XTerm*color3: #CAAF2B
-!XTerm*color11: #FFE080
-!XTerm*color4: #7FB8D8
-!XTerm*color12: #B8DDEA
-!XTerm*color5: #956D9D
-!XTerm*color13: #C18FCB
-!XTerm*color6: #4c8ea1
-!XTerm*color14: #6bc1d0
-!XTerm*color7: #808080
-!XTerm*color15: #cdcdcd
+!xterm*background:            #002b36
+!xterm*foreground:            #839496
+!xterm*cursorColor:           #93a1a1
+!! black dark/light
+!xterm*color0:                #073642
+!xterm*color8:                #002b36
+!! red dark/light
+!xterm*color1:                #dc322f
+!xterm*color9:                #cb4b16
+!! green dark/light
+!xterm*color2:                #859900
+!xterm*color10:               #586e75
+!! yellow dark/light
+!xterm*color3:                #b58900
+!xterm*color11:               #657b83
+!! blue dark/light
+!xterm*color4:                #268bd2
+!xterm*color12:               #839496
+!! magenta dark/light
+!xterm*color5:                #d33682
+!xterm*color13:               #6c71c4
+!! cyan dark/light
+!xterm*color6:                #2aa198
+!xterm*color14:               #93a1a1
+!! white dark/light
+!xterm*color7:                #eee8d5
+!xterm*color15:               #fdf6e3
 
 
 !!-------- Theme: Solarized Light {{{
 !------------------------------------------------------
 !source: https://github.com/solarized/xresources/blob/master/Xresources.light
 
-!xterm*background:            #fdf6e3
-!xterm*foreground:            #657b83
-!xterm*cursorColor:           #586e75
-!! black dark/light
-!xterm*color0:                #073642
-!xterm*color8:                #002b36
-!!! red dark/light
-!xterm*color1:                #dc322f
-!xterm*color9:                #cb4b16
-!!! green dark/light
-!xterm*color2:                #859900
-!xterm*color10:               #586e75
-!!! yellow dark/light
-!xterm*color3:                #b58900
-!xterm*color11:               #657b83
-!!! blue dark/light
-!xterm*color4:                #268bd2
-!xterm*color12:               #839496
-!!! magenta dark/light
-!xterm*color5:                #d33682
-!xterm*color13:               #6c71c4
-!!! cyan dark/light
-!xterm*color6:                #2aa198
-!xterm*color14:               #93a1a1
-!!! white dark/light
-!xterm*color7:                #eee8d5
-!xterm*color15:               #fdf6e3
+xterm*background:            #fdf6e3
+xterm*foreground:            #657b83
+xterm*cursorColor:           #586e75
+! black dark/light
+xterm*color0:                #073642
+xterm*color8:                #002b36
+!! red dark/light
+xterm*color1:                #dc322f
+xterm*color9:                #cb4b16
+!! green dark/light
+xterm*color2:                #859900
+xterm*color10:               #586e75
+!! yellow dark/light
+xterm*color3:                #b58900
+xterm*color11:               #657b83
+!! blue dark/light
+xterm*color4:                #268bd2
+xterm*color12:               #839496
+!! magenta dark/light
+xterm*color5:                #d33682
+xterm*color13:               #6c71c4
+!! cyan dark/light
+xterm*color6:                #2aa198
+xterm*color14:               #93a1a1
+!! white dark/light
+xterm*color7:                #eee8d5
+xterm*color15:               #fdf6e3
 
 
 !-------- Theme: Monokai {{{

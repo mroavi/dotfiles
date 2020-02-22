@@ -172,7 +172,7 @@ syntax enable
 "colorscheme monokai
 "let g:airline_theme='luna'
 
-set background=dark
+set background=light
 colorscheme solarized
 let g:airline_theme='solarized' 
 
