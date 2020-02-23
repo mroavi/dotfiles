@@ -131,12 +131,9 @@ export KEYTIMEOUT=2
 unsetopt AUTO_CD
 
 # mrv: Set solarized theme type
-# 0 -> light
-# 1 -> dark
+SOLARIZED_THEME_TYPE=dark
 
-solarized_theme_type=1
-
-if ((solarized_theme_type)); then
+if [ "$SOLARIZED_THEME_TYPE" = "dark" ]; then
 
     # replace the background config line in .vimrc
     sed -i --follow-symlinks 's/set background=light/set background=dark/g' ~/.vimrc
@@ -151,11 +148,14 @@ if ((solarized_theme_type)); then
 
     # reload the .Xresources file
     xrdb -DUSE_DARK_THEME ~/.Xresources
-else
+elif [ "$SOLARIZED_THEME_TYPE" = "light" ]; then
     sed -i --follow-symlinks 's/set background=dark/set background=light/g' ~/.vimrc
     sed -i --follow-symlinks 's/tmux source-file ~\/\.tmux.solarized-dark.theme/tmux source-file ~\/\.tmux.solarized-light.theme/g' ~/.tmux.conf
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
     xrdb -DUSE_LIGHT_THEME ~/.Xresources
+else
+    echo "Warning: Solarized theme type could not be read"
+    xrdb ~/.Xresources
 fi
 
 # ===============================================
