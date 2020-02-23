@@ -72,6 +72,7 @@ plugins=(
     git
     zsh-autosuggestions
     jump
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
