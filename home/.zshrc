@@ -129,6 +129,30 @@ alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=2
 
+# mrv: Set solarized theme type
+# 0 -> light
+# 1 -> dark
+
+solarized_theme_type=1
+
+if ((solarized_theme_type)); then
+
+    # replace the background config line in .vimrc
+    sed -i 's/set background=light/set background=dark/g' ~/.vimrc
+
+    # replace the tmux status bar config line in .tmux.conf
+    # run 'Ctrl+b r' for the change to take effect 
+    # TODO: Use env variable like here: https://www.onwebsecurity.com/configuration/customize-and-theme-tmux-the-easy-way.html
+    sed -i 's/tmux source-file ~\/\.tmux.solarized-light.theme/tmux source-file ~\/\.tmux.solarized-dark.theme/g' ~/.tmux.conf
+
+    # reload the .Xresources file
+    xrdb -DDARK_THEME ~/.Xresources
+else
+    sed -i 's/set background=dark/set background=light/g' ~/.vimrc
+    sed -i 's/tmux source-file ~\/\.tmux.solarized-dark.theme/tmux source-file ~\/\.tmux.solarized-light.theme/g' ~/.tmux.conf
+    xrdb -DLIGHT_THEME ~/.Xresources
+fi
+
 # ===============================================
 # Custom key binding
 # ===============================================
