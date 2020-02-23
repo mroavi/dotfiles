@@ -129,6 +129,10 @@ alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=2
 
+# mrv: disable auto cd
+# see https://unix.stackexchange.com/questions/126719/how-to-disable-auto-cd-in-zsh-with-oh-my-zsh
+unsetopt AUTO_CD
+
 # mrv: Set solarized theme type
 # 0 -> light
 # 1 -> dark
