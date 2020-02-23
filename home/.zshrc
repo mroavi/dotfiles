@@ -138,19 +138,19 @@ solarized_theme_type=1
 if ((solarized_theme_type)); then
 
     # replace the background config line in .vimrc
-    sed -i 's/set background=light/set background=dark/g' ~/.vimrc
+    sed -i --follow-symlinks 's/set background=light/set background=dark/g' ~/.vimrc
 
     # replace the tmux status bar config line in .tmux.conf
     # run 'Ctrl+b r' for the change to take effect 
     # TODO: Use env variable like here: https://www.onwebsecurity.com/configuration/customize-and-theme-tmux-the-easy-way.html
-    sed -i 's/tmux source-file ~\/\.tmux.solarized-light.theme/tmux source-file ~\/\.tmux.solarized-dark.theme/g' ~/.tmux.conf
+    sed -i --follow-symlinks 's/tmux source-file ~\/\.tmux.solarized-light.theme/tmux source-file ~\/\.tmux.solarized-dark.theme/g' ~/.tmux.conf
 
     # reload the .Xresources file
-    xrdb -DDARK_THEME ~/.Xresources
+    xrdb -DUSE_DARK_THEME ~/.Xresources
 else
-    sed -i 's/set background=dark/set background=light/g' ~/.vimrc
-    sed -i 's/tmux source-file ~\/\.tmux.solarized-dark.theme/tmux source-file ~\/\.tmux.solarized-light.theme/g' ~/.tmux.conf
-    xrdb -DLIGHT_THEME ~/.Xresources
+    sed -i --follow-symlinks 's/set background=dark/set background=light/g' ~/.vimrc
+    sed -i --follow-symlinks 's/tmux source-file ~\/\.tmux.solarized-dark.theme/tmux source-file ~\/\.tmux.solarized-light.theme/g' ~/.tmux.conf
+    xrdb -DUSE_LIGHT_THEME ~/.Xresources
 fi
 
 # ===============================================

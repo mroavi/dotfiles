@@ -45,40 +45,41 @@ xterm*VT100.Translations: #override \
 !###### Themes ######
 !####################
 
-! http://web.archive.org/web/20090130061234/http://phraktured.net/terminal-colors/
-
 !-------- Theme: Solarized Dark {{{
 !------------------------------------------------------
 ! source: https://github.com/solarized/xresources/blob/master/Xresources.dark
 
-!xterm*background:            #002b36
-!xterm*foreground:            #839496
-!xterm*cursorColor:           #93a1a1
-!! black dark/light
-!xterm*color0:                #073642
-!xterm*color8:                #002b36
-!! red dark/light
-!xterm*color1:                #dc322f
-!xterm*color9:                #cb4b16
-!! green dark/light
-!xterm*color2:                #859900
-!xterm*color10:               #586e75
-!! yellow dark/light
-!xterm*color3:                #b58900
-!xterm*color11:               #657b83
-!! blue dark/light
-!xterm*color4:                #268bd2
-!xterm*color12:               #839496
-!! magenta dark/light
-!xterm*color5:                #d33682
-!xterm*color13:               #6c71c4
-!! cyan dark/light
-!xterm*color6:                #2aa198
-!xterm*color14:               #93a1a1
-!! white dark/light
-!xterm*color7:                #eee8d5
-!xterm*color15:               #fdf6e3
+#if defined(USE_DARK_THEME) 
 
+xterm*background:            #002b36
+xterm*foreground:            #839496
+xterm*cursorColor:           #93a1a1
+! black dark/light
+xterm*color0:                #073642
+xterm*color8:                #002b36
+! red dark/light
+xterm*color1:                #dc322f
+xterm*color9:                #cb4b16
+! green dark/light
+xterm*color2:                #859900
+xterm*color10:               #586e75
+! yellow dark/light
+xterm*color3:                #b58900
+xterm*color11:               #657b83
+! blue dark/light
+xterm*color4:                #268bd2
+xterm*color12:               #839496
+! magenta dark/light
+xterm*color5:                #d33682
+xterm*color13:               #6c71c4
+! cyan dark/light
+xterm*color6:                #2aa198
+xterm*color14:               #93a1a1
+! white dark/light
+xterm*color7:                #eee8d5
+xterm*color15:               #fdf6e3
+
+#elif defined(USE_LIGHT_THEME)
 
 !!-------- Theme: Solarized Light {{{
 !------------------------------------------------------
@@ -112,27 +113,30 @@ xterm*color14:               #93a1a1
 xterm*color7:                #eee8d5
 xterm*color15:               #fdf6e3
 
+#else
 
 !-------- Theme: Monokai {{{
 !------------------------------------------------------
 ! source: https://github.com/cemmanouilidis/monokai-xterm/blob/master/xtermcontrol
 
-!xterm*background:   #1D1D19
-!xterm*foreground:   #F6F5EE
-!xterm*color0:       #1C1D19
-!xterm*color1:       #D01B24
-!xterm*color2:       #A7D32C
-!xterm*color3:       #D8CF67
-!xterm*color4:       #61B8D0
-!xterm*color5:       #695ABB
-!xterm*color6:       #D53864
-!xterm*color7:       #FEFFFE
-!xterm*color8:       #1C1D19
-!xterm*color9:       #D12A24
-!xterm*color10:      #A7D32C
-!xterm*color11:      #D8CF67
-!xterm*color12:      #61B8D0
-!xterm*color13:      #695ABB
-!xterm*color14:      #D53864
-!xterm*color15:      #FEFFFE
-!xterm*cursorColor:  #D6D6D6
+xterm*background:   #1D1D19
+xterm*foreground:   #F6F5EE
+xterm*color0:       #1C1D19
+xterm*color1:       #D01B24
+xterm*color2:       #A7D32C
+xterm*color3:       #D8CF67
+xterm*color4:       #61B8D0
+xterm*color5:       #695ABB
+xterm*color6:       #D53864
+xterm*color7:       #FEFFFE
+xterm*color8:       #1C1D19
+xterm*color9:       #D12A24
+xterm*color10:      #A7D32C
+xterm*color11:      #D8CF67
+xterm*color12:      #61B8D0
+xterm*color13:      #695ABB
+xterm*color14:      #D53864
+xterm*color15:      #FEFFFE
+xterm*cursorColor:  #D6D6D6
+
+#endif
