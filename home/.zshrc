@@ -117,9 +117,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# mrv: Change zsh-autosuggestions color
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
-
 # mrv: aliases
 alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
 
@@ -149,11 +146,15 @@ if ((solarized_theme_type)); then
     # TODO: Use env variable like here: https://www.onwebsecurity.com/configuration/customize-and-theme-tmux-the-easy-way.html
     sed -i --follow-symlinks 's/tmux source-file ~\/\.tmux.solarized-light.theme/tmux source-file ~\/\.tmux.solarized-dark.theme/g' ~/.tmux.conf
 
+    # mrv: Change zsh-autosuggestions color
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+
     # reload the .Xresources file
     xrdb -DUSE_DARK_THEME ~/.Xresources
 else
     sed -i --follow-symlinks 's/set background=dark/set background=light/g' ~/.vimrc
     sed -i --follow-symlinks 's/tmux source-file ~\/\.tmux.solarized-dark.theme/tmux source-file ~\/\.tmux.solarized-light.theme/g' ~/.tmux.conf
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
     xrdb -DUSE_LIGHT_THEME ~/.Xresources
 fi
 
