@@ -170,3 +170,12 @@ bindkey '^ ' menu-complete
 # mrv: Switch to normal mode using 'jk'
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
+
+
+
+
+# mrv: Start up tmux automatically
+# If not running interactively, do not do anything
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
