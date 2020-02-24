@@ -36,7 +36,7 @@ ZSH_THEME="pygmalion"
 # DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -73,6 +73,7 @@ plugins=(
     zsh-autosuggestions
     jump
     zsh-syntax-highlighting
+    k
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,20 +107,30 @@ source $ZSH/oh-my-zsh.sh
 # mrv: Set vi mode!  
 set -o vi
 
-# mrv (from .bashrc):  enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+# ===============================================
+# Aliases
+# ===============================================
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# mrv: aliases
+# mrv: go to dotfiles home dir 
 alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
+
+# mrv: use a function to alias ls -al with k -ha
+# see: https://superuser.com/questions/105375/bash-spaces-in-alias-name
+ls() { if [[ $@ == "-al" ]]; then k -ha | more; else k "$@"; fi; }
+
+# mrv (from .bashrc):  enable color support of ls and also add handy aliases
+#if [ -x /usr/bin/dircolors ]; then
+#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#    alias ls='ls --color=auto'
+#    #alias dir='dir --color=auto'
+#    #alias vdir='vdir --color=auto'
+
+#    alias grep='grep --color=auto'
+#    alias fgrep='fgrep --color=auto'
+#    alias egrep='egrep --color=auto'
+#fi
+
+
 
 # enable FZF (mrv: installed by FZF installer)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
