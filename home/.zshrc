@@ -114,6 +114,9 @@ set -o vi
 # mrv: go to dotfiles home dir 
 alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
 
+# mrv: connect to TU/e's VPN
+alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
+
 # mrv: use a function to alias ls -al with k -ha
 # see: https://superuser.com/questions/105375/bash-spaces-in-alias-name
 ls() { if [[ $@ == "-al" ]]; then k -ha | more; else k "$@"; fi; }
