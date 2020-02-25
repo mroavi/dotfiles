@@ -117,9 +117,12 @@ alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
 # mrv: connect to TU/e's VPN
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 
+# mrv: cd to the paper I'm currently writing (temp)
+alias paper="cd ~/Dropbox/Apps/Overleaf/Martin-2020-SCOPES-Real-Time-Audio-Processing-in-Julia-for-Hearing-Aids" 
+
 # mrv: use a function to alias ls -al with k -ha
 # see: https://superuser.com/questions/105375/bash-spaces-in-alias-name
-ls() { if [[ $@ == "-al" ]]; then k -ha | more; else k "$@"; fi; }
+ls() { if [[ $@ == "-al" ]]; then k -ha; else k "$@"; fi; }
 
 # mrv (from .bashrc):  enable color support of ls and also add handy aliases
 #if [ -x /usr/bin/dircolors ]; then
@@ -180,7 +183,11 @@ fi
 # mrv: Accept autosuggest with ctrl+tab 
 # Important: place this at the end since other commands (such as enabling FZF) override it
 bindkey '	' autosuggest-accept
-bindkey '^ ' menu-complete
+
+# Defines behavior of 'Tab' (default in ohmyzsh is 'menu-complete') 
+# See: http://zsh.sourceforge.net/Guide/zshguide06.html
+#bindkey '^ ' menu-complete
+bindkey '^ ' complete-word
 
 # mrv: Switch to normal mode using 'jk'
 bindkey -M viins 'jk' vi-cmd-mode
