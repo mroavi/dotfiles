@@ -180,16 +180,17 @@ fi
 # Custom key binding
 # ===============================================
 
-# mrv: Accept autosuggest with ctrl+tab 
 # Important: place this at the end since other commands (such as enabling FZF) override it
-bindkey '	' autosuggest-accept
+#bindkey '	' autosuggest-accept
+bindkey '	' complete-word
 
 # Defines behavior of 'Tab' (default in ohmyzsh is 'menu-complete') 
 # See: http://zsh.sourceforge.net/Guide/zshguide06.html
 #bindkey '^ ' menu-complete
-bindkey '^ ' complete-word
+#bindkey '^ ' complete-word
+bindkey '^ ' autosuggest-accept
 
-# mrv: Switch to normal mode using 'jk'
+# mrv: Switch to normal mode using 'jk' (specific to zsh(?))
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
 
