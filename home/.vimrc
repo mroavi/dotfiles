@@ -67,12 +67,12 @@ nnoremap <C-t> :tabnew<CR>
 set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Ctl+tab -> next tab
-set <F13>=[27;5;9~
-nnoremap <F13> gt
+"set <F13>=[27;5;9~
+"nnoremap <F13> gt
 
 " Ctrl+Shift + tab -> previous tab
-set <F14>=[27;6;9~
-nnoremap <F14> gT
+"set <F14>=[27;6;9~
+"nnoremap <F14> gT
 
 " Ctrl+Shift+w -> close tab
 set <F15>=[27;6;48~
