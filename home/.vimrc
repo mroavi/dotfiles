@@ -160,6 +160,9 @@ Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 
+" Enables transparent pasting into vim. (i.e. no more :set paste!)
+Plug 'conradirwin/vim-bracketed-paste'
+
 call plug#end()
 
 
