@@ -155,6 +155,7 @@ Plug 'zhou13/vim-easyescape'
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -172,6 +173,10 @@ syntax enable
 set background=dark
 colorscheme solarized
 let g:airline_theme='solarized' 
+
+"set background=dark
+"colorscheme gruvbox
+"let g:airline_theme='gruvbox'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
