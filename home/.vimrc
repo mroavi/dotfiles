@@ -56,12 +56,6 @@ nnoremap <C-w> :tabclose<CR>
 " Disable Ctl+z (which kills the process in vim-gnome)
 noremap <C-z> <Nop>
 
-" Use 'jk' or 'kj' to return to normal  mode
-inoremap jk <ESC>
-vnoremap jk <ESC>
-inoremap kj <ESC>
-vnoremap kj <ESC>
-
 " Toggle NERDTree with with the '\' key
 nnoremap <Leader> :NERDTreeToggle<CR>
 
@@ -154,6 +148,9 @@ Plug 'tpope/vim-unimpaired'
 " Comment functions so powerful—no comment necessary
 Plug 'scrooloose/nerdcommenter'
 
+" vim-easyescape makes exiting insert mode easy and distraction free
+Plug 'zhou13/vim-easyescape'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
@@ -216,3 +213,12 @@ let g:NERDDefaultAlign = 'start'
 set <F18>=
 nnoremap <F18> :call NERDComment(0,"toggle")<C-m>
 vnoremap <F18> :call NERDComment(0,"toggle")<C-m>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM-EASYESCAPE options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:easyescape_chars = { "j": 1, "k": 1 }
+let g:easyescape_timeout = 100
+cnoremap jk <ESC>
+cnoremap kj <ESC>
