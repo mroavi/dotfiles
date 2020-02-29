@@ -254,3 +254,7 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" Disable automatic comment insertion
+" https://superuser.com/a/271024/1087113
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
