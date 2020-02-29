@@ -151,6 +151,9 @@ Plug 'scrooloose/nerdcommenter'
 " vim-easyescape makes exiting insert mode easy and distraction free
 Plug 'zhou13/vim-easyescape'
 
+" t takes the <no.> out of <no.>w or <number>f{char} by highlighting all possible choices
+Plug 'easymotion/vim-easymotion'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
@@ -227,3 +230,24 @@ let g:easyescape_chars = { "j": 1, "k": 1 }
 let g:easyescape_timeout = 100
 cnoremap jk <ESC>
 cnoremap kj <ESC>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EasyMotion options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+"nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
