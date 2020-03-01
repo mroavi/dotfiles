@@ -31,6 +31,9 @@ set t_Co=256 " needed so that colorschemes take effect in xterm
 "set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
 
+" Associate different settings with different filetypes based on the files inside ~/.vim/ftplugin 
+filetype plugin on
+
 " Use F5 to toggle the spelling check!
 :map <F5> :setlocal spell! spelllang=en_us<CR>
 
