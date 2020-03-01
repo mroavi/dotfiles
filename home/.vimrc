@@ -197,7 +197,6 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme and airline theme settings 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Set the color scheme
 syntax enable
 
@@ -253,7 +252,6 @@ set <F18>=
 nnoremap <F18> :call NERDComment(0,"toggle")<C-m>
 vnoremap <F18> :call NERDComment(0,"toggle")<C-m>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-EASYESCAPE options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -262,14 +260,11 @@ let g:easyescape_timeout = 100
 cnoremap jk <ESC>
 cnoremap kj <ESC>
 
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable automatic comment insertion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" https://superuser.com/a/271024/1087113
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " EasyMotion options
@@ -290,7 +285,6 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 "" JK motions: Line motions
 "map <Leader>j <Plug>(easymotion-j)
 "map <Leader>k <Plug>(easymotion-k)
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
