@@ -179,6 +179,9 @@ Plug 'zhou13/vim-easyescape'
 " t takes the <no.> out of <no.>w or <number>f{char} by highlighting all possible choices
 Plug 'easymotion/vim-easymotion'
 
+" shows a git diff in the 'gutter' (sign column)
+Plug 'airblade/vim-gitgutter'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
@@ -290,3 +293,8 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-gitgutter options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The delay is governed by vim's updatetime option
+set updatetime=100
