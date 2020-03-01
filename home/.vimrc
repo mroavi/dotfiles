@@ -109,6 +109,9 @@ nnoremap <F15> :close<CR>
 "nnoremap <F17> :vsplit<CR>
 
 
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -257,6 +260,14 @@ cnoremap jk <ESC>
 cnoremap kj <ESC>
 
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable automatic comment insertion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" https://superuser.com/a/271024/1087113
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " EasyMotion options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -277,8 +288,5 @@ cnoremap kj <ESC>
 "map <Leader>j <Plug>(easymotion-j)
 "map <Leader>k <Plug>(easymotion-k)
 
-"" Disable automatic comment insertion
-"" https://superuser.com/a/271024/1087113
-"autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 
