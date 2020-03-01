@@ -161,30 +161,40 @@ if [ "$THEME" = "solarized-dark" ]; then
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
 
-    # replace the tmux status bar config line in .tmux.conf
-    # run 'Ctrl+b r' for the change to take effect 
-    # TODO: Use env variable like here: https://www.onwebsecurity.com/configuration/customize-and-theme-tmux-the-easy-way.html
-    sed -i --follow-symlinks 's/tmux source-file ~\/\.tmux.solarized-light.theme/tmux source-file ~\/\.tmux.solarized-dark.theme/g' ~/.tmux.conf
+    # replace theme in .tmux.conf
+    sed -i --follow-symlinks "s/set -g @plugin.*# theme/set -g @plugin 'seebi\/tmux-colors-solarized' # theme/g" ~/.tmux.conf
+    sed -i --follow-symlinks "s/.*set -g @colors-solarized.*/set -g @colors-solarized 'dark'/g" ~/.tmux.conf
 
     # mrv: Change zsh-autosuggestions color
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 
     # reload the .Xresources file
     xrdb -DUSE_SOLARIZED_DARK ~/.Xresources
+
 elif [ "$THEME" = "solarized-light" ]; then
+    
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=light/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
+    sed -i --follow-symlinks "s/set -g @plugin .* # theme/set -g @plugin 'seebi\/tmux-colors-solarized' # theme/g" ~/.tmux.conf
+    sed -i --follow-symlinks "s/.*set -g @colors-solarized.*/set -g @colors-solarized 'light'/g" ~/.tmux.conf
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
     xrdb -DUSE_SOLARIZED_LIGHT ~/.Xresources
+
 elif [ "$THEME" = "gruvbox-dark" ]; then
+    
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='gruvbox'/g" ~/.vimrc
+    sed -i --follow-symlinks "s/set -g @plugin.*# theme/set -g @plugin 'egel\/tmux-gruvbox' # theme/g" ~/.tmux.conf
+    sed -i --follow-symlinks "s/.*set -g @colors-solarized.*/#set -g @colors-solarized 'light'/g" ~/.tmux.conf
     xrdb -DUSE_GRUVBOX_DARK ~/.Xresources
+    
 else
+    
     echo "Warning: Theme type could not be read"
     xrdb ~/.Xresources
+    
 fi
 
 # ===============================================
@@ -204,7 +214,6 @@ bindkey '^ ' autosuggest-accept
 # mrv: Switch to normal mode using 'jk' (specific to zsh(?))
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
-
 
 
 
