@@ -148,13 +148,18 @@ export KEYTIMEOUT=2
 # see https://unix.stackexchange.com/questions/126719/how-to-disable-auto-cd-in-zsh-with-oh-my-zsh
 unsetopt AUTO_CD
 
-# mrv: Set solarized theme type
-SOLARIZED_THEME_TYPE=dark
+# ===============================================
+# Theme 
+# ===============================================
+# mrv: Set theme 
+THEME=gruvbox-dark
 
-if [ "$SOLARIZED_THEME_TYPE" = "dark" ]; then
+if [ "$THEME" = "solarized-dark" ]; then
 
-    # replace the background config line in .vimrc
-    sed -i --follow-symlinks 's/set background=light/set background=dark/g' ~/.vimrc
+    # replace the colorcheme, background and airline config line in .vimrc
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized/g' ~/.vimrc
+    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
+    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
 
     # replace the tmux status bar config line in .tmux.conf
     # run 'Ctrl+b r' for the change to take effect 
@@ -165,14 +170,20 @@ if [ "$SOLARIZED_THEME_TYPE" = "dark" ]; then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 
     # reload the .Xresources file
-    xrdb -DUSE_DARK_THEME ~/.Xresources
-elif [ "$SOLARIZED_THEME_TYPE" = "light" ]; then
-    sed -i --follow-symlinks 's/set background=dark/set background=light/g' ~/.vimrc
-    sed -i --follow-symlinks 's/tmux source-file ~\/\.tmux.solarized-dark.theme/tmux source-file ~\/\.tmux.solarized-light.theme/g' ~/.tmux.conf
+    xrdb -DUSE_SOLARIZED_DARK ~/.Xresources
+elif [ "$THEME" = "solarized-light" ]; then
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized/g' ~/.vimrc
+    sed -i --follow-symlinks 's/set background=.*/set background=light/g' ~/.vimrc
+    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
-    xrdb -DUSE_LIGHT_THEME ~/.Xresources
+    xrdb -DUSE_SOLARIZED_LIGHT ~/.Xresources
+elif [ "$THEME" = "gruvbox-dark" ]; then
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox/g' ~/.vimrc
+    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
+    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='gruvbox'/g" ~/.vimrc
+    xrdb -DUSE_GRUVBOX_DARK ~/.Xresources
 else
-    echo "Warning: Solarized theme type could not be read"
+    echo "Warning: Theme type could not be read"
     xrdb ~/.Xresources
 fi
 

@@ -37,7 +37,7 @@ set noshowmatch " no live match highlighting (brief jumping)
 set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
-set t_Co=256 " needed so that colorschemes take effect in xterm
+set t_Co=256 " needed so that colorscheme gruvbox
 "set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
 
@@ -200,16 +200,12 @@ call plug#end()
 " Set the color scheme
 syntax enable
 
-"colorscheme monokai
-"let g:airline_theme='luna'
-
-set background=dark
-colorscheme solarized
-let g:airline_theme='solarized' 
-
-"set background=dark
 "colorscheme gruvbox
 "let g:airline_theme='gruvbox'
+
+set background=dark
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings

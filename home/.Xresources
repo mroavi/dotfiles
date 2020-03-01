@@ -49,7 +49,7 @@ xterm*VT100.Translations: #override \
 !------------------------------------------------------
 ! source: https://github.com/solarized/xresources/blob/master/Xresources.dark
 
-#if defined(USE_DARK_THEME) 
+#if defined(USE_SOLARIZED_DARK) 
 
 xterm*background:            #002b36
 xterm*foreground:            #839496
@@ -79,7 +79,7 @@ xterm*color14:               #93a1a1
 xterm*color7:                #eee8d5
 xterm*color15:               #fdf6e3
 
-#elif defined(USE_LIGHT_THEME)
+#elif defined(USE_SOLARIZED_LIGHT)
 
 !!-------- Theme: Solarized Light {{{
 !------------------------------------------------------
@@ -112,6 +112,47 @@ xterm*color14:               #93a1a1
 !! white dark/light
 xterm*color7:                #eee8d5
 xterm*color15:               #fdf6e3
+
+
+#elif defined(USE_GRUVBOX_DARK)
+
+!!-------- Theme: Gruvbox Dark {{{
+!------------------------------------------------------
+! File: gruvbox-dark.xresources
+! Description: Retro groove colorscheme generalized
+! Author: morhetz <morhetz@gmail.com>
+! Source: https://github.com/morhetz/gruvbox-generalized
+! Last Modified: 6 Sep 2014
+! -----------------------------------------------------
+
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
 #else
 
