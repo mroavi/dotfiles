@@ -44,6 +44,16 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 autocmd FileChangedShellPost *
     \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
+" Use enter to create new lines w/o entering insert mode
+" https://github.com/colbycheeze/dotfiles/blob/master/vimrc
+nnoremap <CR> o<Esc>
+"Below is to fix issues with the ABOVE mappings in quickfix window
+autocmd CmdwinEnter * nnoremap <CR> <CR>
+autocmd BufReadPost quickfix nnoremap <CR> <CR>
+
+" https://www.reddit.com/r/vim/comments/1ttes1/disable_escape_keys_to_make_vim_faster/
+set timeout timeoutlen=1000 ttimeoutlen=100
+
 " Remap :FZF to Ctrl+o
 nnoremap <C-o> :FZF<CR>
 
@@ -64,7 +74,6 @@ nnoremap <C-t> :tabnew<CR>
 
 " Chorme-like tab commands (conflicts with tmux)
 " based on: https://stackoverflow.com/a/31961401/1706778
-set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Ctl+tab -> next tab
 "set <F13>=[27;5;9~
