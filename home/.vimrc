@@ -79,7 +79,7 @@ nnoremap <C-w> :tabclose<CR>
 " Disable Ctl+z (which kills the process in vim-gnome)
 noremap <C-z> <Nop>
 
-" Map toggle NERDTree
+" Map toggle NERDTree to Ctrl+Space
 nnoremap <C-@> :NERDTreeToggle<CR>
 
 " Ctrl+t -> new tab
