@@ -4,6 +4,16 @@
 
 set nocompatible " We don't need Vi compatibility
 
+" https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
+set viminfo=%,<800,'10,/50,:100,h,f1
+"           | |    |   |   |    | + store file marks 0-9,A-Z
+"           | |    |   |   |    + disable 'hlsearch' while loading viminfo
+"           | |    |   |   + maximum number of items in the command-line history to be saved 
+"           | |    |   + maximum number of items in the search pattern history to be saved
+"           | |    + files marks saved
+"           | + maximum num of lines saved each register (old name for <, vi6.2)
+"           + save/restore buffer list
+
 set number " show line numbers
 set relativenumber " each line in your file is numbered relative to the cursor’s current position
 set showmode " show mode in status bar (insert/replace/...)
@@ -69,8 +79,8 @@ nnoremap <C-w> :tabclose<CR>
 " Disable Ctl+z (which kills the process in vim-gnome)
 noremap <C-z> <Nop>
 
-" Toggle NERDTree with with the '\' key
-nnoremap <Leader> :NERDTreeToggle<CR>
+" Map toggle NERDTree
+nnoremap <C-@> :NERDTreeToggle<CR>
 
 " Ctrl+t -> new tab
 nnoremap <C-t> :tabnew<CR>
@@ -250,23 +260,25 @@ cnoremap kj <ESC>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " EasyMotion options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
+"let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-nmap s <Plug>(easymotion-overwin-f)
-" or
-" `s{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-"nmap s <Plug>(easymotion-overwin-f2)
+"" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+"" `s{char}{label}`
+"nmap s <Plug>(easymotion-overwin-f)
+"" or
+"" `s{char}{char}{label}`
+"" Need one more keystroke, but on average, it may be more comfortable.
+""nmap s <Plug>(easymotion-overwin-f2)
 
-" Turn on case-insensitive feature
-let g:EasyMotion_smartcase = 1
+"" Turn on case-insensitive feature
+"let g:EasyMotion_smartcase = 1
 
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+"" JK motions: Line motions
+"map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
 
-" Disable automatic comment insertion
-" https://superuser.com/a/271024/1087113
-autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+"" Disable automatic comment insertion
+"" https://superuser.com/a/271024/1087113
+"autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+
