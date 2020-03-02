@@ -267,6 +267,9 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
+" Jump anywhere with s
+nmap s <Plug>(easymotion-s)
+
 "" Jump to anywhere you want with minimal keystrokes, with just one key binding.
 "" `s{char}{label}`
 "nmap s <Plug>(easymotion-overwin-f)
