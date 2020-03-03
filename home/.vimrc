@@ -176,11 +176,14 @@ Plug 'scrooloose/nerdcommenter'
 " vim-easyescape makes exiting insert mode easy and distraction free
 Plug 'zhou13/vim-easyescape'
 
-" t takes the <no.> out of <no.>w or <number>f{char} by highlighting all possible choices
+" Takes the <no.> out of <no.>w or <number>f{char} by highlighting all possible choices
 Plug 'easymotion/vim-easymotion'
 
-" shows a git diff in the 'gutter' (sign column)
+" Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
+
+" Shows status flags inside NERDTree
+Plug 'xuyuanp/nerdtree-git-plugin'
 
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
