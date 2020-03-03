@@ -270,21 +270,11 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " Jump anywhere with s
 nmap s <Plug>(easymotion-s)
 
-"" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-"" `s{char}{label}`
-"nmap s <Plug>(easymotion-overwin-f)
-"" or
-"" `s{char}{char}{label}`
-"" Need one more keystroke, but on average, it may be more comfortable.
-""nmap s <Plug>(easymotion-overwin-f2)
+" Jump forward on the current line 
+nmap f <Plug>(easymotion-lineforward)
 
-"" Turn on case-insensitive feature
-"let g:EasyMotion_smartcase = 1
-
-"" JK motions: Line motions
-"map <Leader>j <Plug>(easymotion-j)
-"map <Leader>k <Plug>(easymotion-k)
-
+" Jump backwards on the current line 
+nmap F <Plug>(easymotion-linebackward)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter options
