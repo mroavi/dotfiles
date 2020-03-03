@@ -301,3 +301,6 @@ autocmd VimEnter * NERDTree | wincmd p
 " Automatically quit vim if NERDTree is last and only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Show hidden files by default
+let NERDTreeShowHidden=1
+
