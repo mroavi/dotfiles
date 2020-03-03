@@ -291,3 +291,13 @@ nmap s <Plug>(easymotion-s)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The delay is governed by vim's updatetime option
 set updatetime=100
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree options 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto-open NERDTree in vim and focus on file 
+autocmd VimEnter * NERDTree | wincmd p
+
+" Automatically quit vim if NERDTree is last and only buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
