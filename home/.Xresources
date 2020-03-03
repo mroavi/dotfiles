@@ -1,4 +1,5 @@
 xterm*termName: xterm-256color
+!xterm*termName: xterm
 
 ! Use a nice truetype font and size by default... 
 xterm*faceName: DejaVu Sans Mono Book
@@ -25,7 +26,7 @@ xterm*scrollTtyOutput: false
 
 ! turn off the display of bold typeface for bold text for solarized colors
 ! https://github.com/seebi/dircolors-solarized
-xterm*boldFont: fixed
+!xterm*boldFont: fixed
 
 ! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
 ! Based on: https://stackoverflow.com/a/31961401/1706778 
