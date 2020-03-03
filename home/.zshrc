@@ -154,8 +154,13 @@ unsetopt AUTO_CD
 # ===============================================
 # Theme 
 # ===============================================
-# mrv: Set theme 
+## mrv: Set theme (pick one)
+#THEME=solarized-light
+#THEME=solarized-dark
 THEME=gruvbox-dark
+
+# mrv: To cleanly kill all tmux open sessions (and server) run:
+# tmux kill-server
 
 if [ "$THEME" = "solarized-dark" ]; then
 
@@ -220,8 +225,8 @@ bindkey -M viins 'kj' vi-cmd-mode
 
 
 
-# mrv: Start up tmux automatically
-# If not running interactively, do not do anything
+## mrv: Start up tmux automatically
+## If not running interactively, do not do anything
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi

@@ -108,7 +108,6 @@ nnoremap <F15> :close<CR>
 "set <F17>=[27;6;46~
 "nnoremap <F17> :vsplit<CR>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -154,8 +153,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Provides support for writing LaTeX documents
 Plug 'lervag/vimtex'
 
-" Allows you to navigate seamlessly between vim and tmux splits using a
-" consistent set of hotkeys 
+" Allows you to navigate seamlessly between vim and tmux splits using a consistent set of hotkeys 
 Plug 'toranb/tmux-navigator'
 
 " FocusGained and FocusLost autocommand events in terminal vim
@@ -193,15 +191,11 @@ Plug 'conradirwin/vim-bracketed-paste'
 
 call plug#end()
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme and airline theme settings 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set the color scheme
 syntax enable
-
-"colorscheme gruvbox
-"let g:airline_theme='gruvbox'
 
 set background=dark
 colorscheme gruvbox
@@ -226,7 +220,6 @@ augroup ft_tex
     au!
     au FileType tex let b:auto_save = 1
 augroup END
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDComment options 
@@ -311,11 +304,9 @@ function! SyncTree()
 endfunction
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
-" Fix: needed to highlight currently open buffer when vim is fisrt started 
+" Fix: needed to highlight currently open buffer when vim is started 
 autocmd VimEnter * call SyncTree()
 """"""
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
