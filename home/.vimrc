@@ -109,9 +109,6 @@ nnoremap <F15> :close<CR>
 "nnoremap <F17> :vsplit<CR>
 
 
-
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -288,6 +285,8 @@ set updatetime=100
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto-open NERDTree in vim and focus on file 
+autocmd VimEnter * NERDTree | wincmd p
 
 " Automatically quit vim if NERDTree is last and only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -312,10 +311,11 @@ function! SyncTree()
 endfunction
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
+" Fix: needed to highlight currently open buffer when vim is fisrt started 
+autocmd VimEnter * call SyncTree()
 """"""
 
-" Auto-open NERDTree in vim and focus on file 
-autocmd VimEnter * NERDTree | wincmd p
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
