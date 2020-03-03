@@ -154,7 +154,7 @@ unsetopt AUTO_CD
 # ===============================================
 # Theme 
 # ===============================================
-## mrv: Set theme (pick one)
+## mrv: Set theme (use one)
 #THEME=solarized-light
 #THEME=solarized-dark
 THEME=gruvbox-dark
