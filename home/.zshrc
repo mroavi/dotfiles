@@ -120,6 +120,9 @@ alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --
 # mrv: cd to the paper I'm currently writing (temp)
 alias paper="cd ~/Dropbox/Apps/Overleaf/Martin-2020-SCOPES-Real-Time-Audio-Processing-in-Julia-for-Hearing-Aids" 
 
+# mrv: shortcut for vim
+alias v="vim"
+
 # mrv: use a function to alias ls -al with k -ha
 # see: https://superuser.com/questions/105375/bash-spaces-in-alias-name
 ls() { if [[ $@ == "-al" ]]; then k -ha; else k "$@"; fi; }
@@ -156,7 +159,7 @@ THEME=gruvbox-dark
 
 if [ "$THEME" = "solarized-dark" ]; then
 
-    # replace the colorcheme, background and airline config line in .vimrc
+    # replace the colorscheme, background and airline config line in .vimrc
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
