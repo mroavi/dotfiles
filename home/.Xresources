@@ -11,15 +11,11 @@ xterm*loginshell: true
 ! I like a LOT of scrollback...
 xterm*savelines: 16384
 
-! send the right keysym when using the Alt key
+! Send the right keysym when using the Alt key
 XTerm.vt100.metaSendsEscape: true
 
-! stop output to terminal from jumping down to bottom of scroll again
+! Stop output to terminal from jumping down to bottom of scroll again
 xterm*scrollTtyOutput: false
-
-! turn off the display of bold typeface for bold text for solarized colors
-! https://github.com/seebi/dircolors-solarized
-!xterm*boldFont: fixed
 
 ! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
 ! Based on: https://stackoverflow.com/a/31961401/1706778 
