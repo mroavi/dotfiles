@@ -315,6 +315,7 @@ let NERDTreeShowHidden=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" see https://github.com/junegunn/fzf.vim/issues/121
+" Ignore files specified by .gitignore
+" https://github.com/junegunn/fzf.vim/issues/121
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
