@@ -104,9 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# mrv: Set vi mode!  
-set -o vi
-
 # ===============================================
 # Aliases
 # ===============================================
@@ -146,6 +143,9 @@ fi
 
 # enable FZF (mrv: installed by FZF installer)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# mrv: Set vi mode!  
+set -o vi
 
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=2
