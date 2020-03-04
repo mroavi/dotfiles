@@ -68,7 +68,7 @@ autocmd BufReadPost quickfix nnoremap <CR> <CR>
 set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Remap :FZF to Ctrl+o
-nnoremap <C-o> :FZF<CR>
+nnoremap <C-p> :FZF<CR>
 
 " Remap default prefix from Ctrl+w to Ctrl+a 
 nnoremap <C-a> <C-w>
