@@ -194,7 +194,7 @@ elif [ "$THEME" = "gruvbox-dark" ]; then
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='gruvbox'/g" ~/.vimrc
-    sed -i --follow-symlinks "s/set -g @plugin.*# theme/set -g @plugin 'egel\/tmux-gruvbox' # theme/g" ~/.tmux.conf
+    sed -i --follow-symlinks "s/set -g @plugin.*# theme/set -g @plugin 'mroavi\/tmux-gruvbox' # theme/g" ~/.tmux.conf
     sed -i --follow-symlinks "s/.*set -g @colors-solarized.*/#set -g @colors-solarized 'light'/g" ~/.tmux.conf
     xrdb -DUSE_GRUVBOX_DARK ~/.Xresources
     
