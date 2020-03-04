@@ -123,6 +123,9 @@ alias paper="cd ~/Dropbox/Apps/Overleaf/Martin-2020-SCOPES-Real-Time-Audio-Proce
 # mrv: shortcut for vim
 alias v="vim"
 
+# mrv: shortcut to open files
+alias o="xdg-open"
+
 ## mrv: use a function to alias ls -al with k -ha
 ## see: https://superuser.com/questions/105375/bash-spaces-in-alias-name
 #ls() { if [[ $@ == "-al" ]]; then k -ha; else k "$@"; fi; }
