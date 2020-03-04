@@ -79,9 +79,6 @@ nnoremap <C-w> :tabclose<CR>
 " Disable Ctl+z (which kills the process in vim-gnome)
 noremap <C-z> <Nop>
 
-" Map toggle NERDTree to Ctrl+Space
-nnoremap <C-@> :NERDTreeToggle<CR>
-
 " Ctrl+t -> new tab
 nnoremap <C-t> :tabnew<CR>
 
@@ -278,6 +275,8 @@ set updatetime=100
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Map toggle NERDTree to Ctrl+Space
+nnoremap <C-@> :NERDTreeToggle<CR>
 
 " Automatically quit vim if NERDTree is last and only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
