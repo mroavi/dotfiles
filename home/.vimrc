@@ -1,4 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Based on: 
 " - https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
 
@@ -278,8 +278,6 @@ set updatetime=100
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Auto-open NERDTree in vim and focus on file 
-autocmd VimEnter * NERDTree | wincmd p
 
 " Automatically quit vim if NERDTree is last and only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -287,26 +285,29 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Show hidden files by default
 let NERDTreeShowHidden=1
 
+""""""""
+"" Auto-open NERDTree in vim and focus on file
+"autocmd VimEnter * NERDTree | wincmd p
+"" AND
+"" Highlight currently opened file
+"" https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
+"" Check if NERDTree is open or active
+"function! IsNERDTreeOpen()
+"  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+"endfunction
+"" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+"" file, and we're not in vimdiff
+"function! SyncTree()
+"  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"    NERDTreeFind
+"    wincmd p
+"  endif
+"endfunction
+"" Highlight currently open buffer in NERDTree
+"autocmd BufEnter * call SyncTree()
+"" mrv Fix: needed to highlight currently open buffer when vim is started
+"autocmd VimEnter * call SyncTree()
 """""""
-" Highlight currently opened file
-" https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
-" Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
-" Fix: needed to highlight currently open buffer when vim is started 
-autocmd VimEnter * call SyncTree()
-""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
