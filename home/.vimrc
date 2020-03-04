@@ -177,14 +177,14 @@ Plug 'airblade/vim-gitgutter'
 " Shows status flags inside NERDTree
 Plug 'xuyuanp/nerdtree-git-plugin'
 
+" Enables transparent pasting into vim. (i.e. no more :set paste!)
+Plug 'conradirwin/vim-bracketed-paste'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
-
-" Enables transparent pasting into vim. (i.e. no more :set paste!)
-Plug 'conradirwin/vim-bracketed-paste'
 
 call plug#end()
 
@@ -201,6 +201,7 @@ let g:airline_theme='gruvbox'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Compile files into a 'build' dir
 let g:vimtex_compiler_latexmk = {
             \ 'build_dir' : 'build',
             \}
@@ -224,8 +225,7 @@ augroup END
 " Do not create default mappings 
 let g:NERDCreateDefaultMappings = 0
 
-" NerdCommentToggle will comment all selected lines if there is at least one
-" that is not connected
+" Make NerdCommentToggle comment all selected lines if there is at least one that is not connected
 let g:NERDToggleCheckAllLines = 1
 
 " Delete leftover whitespace when uncommenting empty lines
@@ -249,13 +249,14 @@ cnoremap kj <ESC>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable automatic comment insertion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" https://superuser.com/a/271024/1087113
+" https://superuser.com/a/271024/1087113
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " EasyMotion options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Disable default mappings
+"let g:EasyMotion_do_mapping = 0 
 
 " Jump anywhere with s
 nmap s <Plug>(easymotion-s)
@@ -271,6 +272,9 @@ nmap F <Plug>(easymotion-linebackward)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The delay is governed by vim's updatetime option
 set updatetime=100
+
+" Always show sign column
+set signcolumn=yes
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree options 
