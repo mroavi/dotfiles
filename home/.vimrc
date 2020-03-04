@@ -180,6 +180,9 @@ Plug 'xuyuanp/nerdtree-git-plugin'
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
 
+" A code-completion engine for Vim
+Plug 'valloric/youcompleteme'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
