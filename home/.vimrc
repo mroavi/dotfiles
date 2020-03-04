@@ -319,3 +319,8 @@ let NERDTreeShowHidden=1
 " https://github.com/junegunn/fzf.vim/issues/121
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" julia-vim options 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable matchit plugin (this plugin is distributed with Vim)
+runtime macros/matchit.vim
