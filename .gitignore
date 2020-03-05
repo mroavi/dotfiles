@@ -1,4 +1,4 @@
 home/.vim/plugged
 home/.vim/autoload
 home/.vim/*.netrwhist
-
+vifminfo
