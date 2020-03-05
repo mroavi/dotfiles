@@ -181,13 +181,17 @@ Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'conradirwin/vim-bracketed-paste'
 
 " A code-completion engine for Vim
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
+
+" Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
+Plug 'nlknguyen/papercolor-theme'
 
 call plug#end()
 
@@ -197,6 +201,7 @@ call plug#end()
 " Set the color scheme
 syntax enable
 
+let g:gruvbox_contrast_dark='soft' 
 set background=dark
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
@@ -282,8 +287,9 @@ set signcolumn=yes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map toggle NERDTree to Ctrl+Space
-nnoremap <C-@> :NERDTreeToggle<CR>
+" Map toggle NERDTree to 
+set <F18>=\
+nnoremap <F18> :NERDTreeToggle<CR>
 
 " Automatically quit vim if NERDTree is last and only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
