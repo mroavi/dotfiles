@@ -214,7 +214,9 @@ fi
 
 # Important: place this at the end since other commands (such as enabling FZF) override it
 #bindkey '	' autosuggest-accept
-bindkey '	' complete-word
+#bindkey '	' complete-word
+setopt noautomenu
+setopt nomenucomplete
 
 # Defines behavior of 'Tab' (default in ohmyzsh is 'menu-complete') 
 # See: http://zsh.sourceforge.net/Guide/zshguide06.html
