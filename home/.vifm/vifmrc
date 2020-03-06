@@ -489,3 +489,5 @@ nnoremap <f8> :delete<cr>
 " Show hidden files and dirs on startup
 set dotfiles
 
+" Remap default prefix from Ctrl+w to Ctrl+a 
+nnoremap <C-a> <C-w>
