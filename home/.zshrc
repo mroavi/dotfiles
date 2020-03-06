@@ -233,5 +233,5 @@ bindkey -M viins 'kj' vi-cmd-mode
 ## mrv: Start up tmux automatically
 ## If not running interactively, do not do anything
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+  exec tmux a
 fi
