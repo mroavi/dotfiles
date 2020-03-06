@@ -60,7 +60,7 @@ set vimhelp
 " If you would like to run an executable file when you
 " press return on the file name set this.
 
-set norunexec
+set runexec
 
 " Selected color scheme
 
@@ -481,3 +481,11 @@ nnoremap <f8> :delete<cr>
 "     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
 "
 " let $VIFM_SERVER_NAME = v:servername
+
+" ----------------------------------------------------------------------
+" mrv
+" ----------------------------------------------------------------------
+
+" Show hidden files and dirs on startup
+set dotfiles
+
