@@ -67,7 +67,7 @@ autocmd BufReadPost quickfix nnoremap <CR> <CR>
 " https://www.reddit.com/r/vim/comments/1ttes1/disable_escape_keys_to_make_vim_faster/
 set timeout timeoutlen=1000 ttimeoutlen=100
 
-" Remap :FZF to Ctrl+o
+" Remap :FZF to Ctrl+p
 nnoremap <C-p> :FZF<CR>
 
 " Remap default prefix from Ctrl+w to Ctrl+a 
