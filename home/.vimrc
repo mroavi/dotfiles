@@ -288,8 +288,8 @@ set signcolumn=yes
 " NERDTree options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Map toggle NERDTree to 
-set <F18>=\
-nnoremap <F18> :NERDTreeToggle<CR>
+set <F19>=\
+nnoremap <F19> :NERDTreeToggle<CR>
 
 " Automatically quit vim if NERDTree is last and only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
