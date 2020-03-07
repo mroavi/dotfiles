@@ -37,7 +37,7 @@ set noshowmatch " no live match highlighting (brief jumping)
 set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
-set t_Co=256 " needed so that colorscheme gruvbox
+set t_Co=256 " needed so that color scheme displays fine 
 "set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
 
@@ -192,6 +192,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'nlknguyen/papercolor-theme'
+Plug 'lifepillar/vim-gruvbox8'
 
 call plug#end()
 
@@ -201,9 +202,10 @@ call plug#end()
 " Set the color scheme
 syntax enable
 
-let g:gruvbox_contrast_dark='soft' 
+" WARNING: Do not modify these lines. They are updated by the .zshrc script.
+let g:gruvbox_contrast_dark='medium' 
 set background=dark
-colorscheme gruvbox
+colorscheme gruvbox8_hard
 let g:airline_theme='gruvbox'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

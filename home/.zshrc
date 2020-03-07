@@ -160,7 +160,7 @@ unsetopt AUTO_CD
 ## mrv: Set theme (use one)
 #THEME=solarized-light
 #THEME=solarized-dark
-THEME=gruvbox-dark
+THEME=gruvbox8-dark
 
 # mrv: To cleanly kill all tmux open sessions (and server) run:
 # tmux kill-server
@@ -192,9 +192,9 @@ elif [ "$THEME" = "solarized-light" ]; then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
     xrdb -DUSE_SOLARIZED_LIGHT ~/.Xresources
 
-elif [ "$THEME" = "gruvbox-dark" ]; then
+elif [ "$THEME" = "gruvbox8-dark" ]; then
     
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox/g' ~/.vimrc
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox8_hard/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='gruvbox'/g" ~/.vimrc
     sed -i --follow-symlinks "s/set -g @plugin.*# theme/set -g @plugin 'mroavi\/tmux-gruvbox' # theme/g" ~/.tmux.conf
