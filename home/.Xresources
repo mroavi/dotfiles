@@ -67,7 +67,8 @@ xterm*color6:                #2aa198
 xterm*color14:               #93a1a1
 ! white dark/light
 xterm*color7:                #eee8d5
-xterm*color15:               #fdf6e3
+!xterm*color15:               #fdf6e3
+xterm*color15:               #ebdbb2
 
 #elif defined(USE_SOLARIZED_LIGHT)
 
