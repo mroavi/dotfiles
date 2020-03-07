@@ -425,12 +425,21 @@ elseif executable('xclip')
     " Yank current file path into the clipboard
     nnoremap yf :!echo %c:p | xclip %i<cr>
 elseif executable('xsel')
-    " Yank current directory path into primary and selection clipboards
+    " yank current directory path into primary and selection clipboards
     nnoremap yd :!echo -n %d | xsel --input --primary %i &&
                 \ echo -n %d | xsel --clipboard --input %i<cr>
-    " Yank current file path into into primary and selection clipboards
+    
+    " yank current file path into primary and selection clipboards
     nnoremap yf :!echo -n %c:p | xsel --input --primary %i &&
                 \ echo -n %c:p | xsel --clipboard --input %i<cr>
+    
+    " yank current filename without path into primary and selection clipboards
+    nnoremap yn :!echo -n %c | xsel --input --primary %i &&
+                \ echo -n %c | xsel --clipboard --input %i<cr>
+    
+    " yank root of current file's name into primary and selection clipboards
+    nnoremap yr :!echo -n %c:r | xsel --input --primary %i &&
+                \ echo -n %c:r | xsel --clipboard --input %i<cr>
 endif
 
 " Mappings for faster renaming
