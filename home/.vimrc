@@ -133,10 +133,6 @@ Plug 'junegunn/vim-slash'
 " Shows the contents of " and @ registers in a sidebar when the respective key is pressed
 Plug 'junegunn/vim-peekaboo'
 
-" A file system explorer for the Vim editor (load when NerdTreeToggle is
-" fired)
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
 " Defines a new text object representing lines of code at the same indent level
 Plug 'michaeljsmith/vim-indent-object'
 " Plug 'kana/vim-textobj-indent'
@@ -173,9 +169,6 @@ Plug 'easymotion/vim-easymotion'
 
 " Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
-
-" Shows status flags inside NERDTree
-Plug 'xuyuanp/nerdtree-git-plugin'
 
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
@@ -288,43 +281,6 @@ set updatetime=100
 
 " Always show sign column
 set signcolumn=yes
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree options 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map toggle NERDTree to 
-set <F19>=\
-nnoremap <F19> :NERDTreeToggle<CR>
-
-" Automatically quit vim if NERDTree is last and only buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Show hidden files by default
-let NERDTreeShowHidden=1
-
-""""""""
-"" Auto-open NERDTree in vim and focus on file
-"autocmd VimEnter * NERDTree | wincmd p
-"" AND
-"" Highlight currently opened file
-"" https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
-"" Check if NERDTree is open or active
-"function! IsNERDTreeOpen()
-"  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-"endfunction
-"" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-"" file, and we're not in vimdiff
-"function! SyncTree()
-"  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-"    NERDTreeFind
-"    wincmd p
-"  endif
-"endfunction
-"" Highlight currently open buffer in NERDTree
-"autocmd BufEnter * call SyncTree()
-"" mrv Fix: needed to highlight currently open buffer when vim is started
-"autocmd VimEnter * call SyncTree()
-"""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
@@ -496,6 +452,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 let g:vifm_embed_term=1
 let g:vifm_embed_split=1
 
-" Map toggle NERDTree to 
+" Map toggle virm to 
 set <F20>=/
 nnoremap <F20> :leftabove vertical 40Vifm<CR>
