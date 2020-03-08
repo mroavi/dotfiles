@@ -20,7 +20,6 @@ set showmode " show mode in status bar (insert/replace/...)
 set showcmd " show typed command in status bar
 set ruler " show cursor position in status bar
 set title " show file in titlebar
-set laststatus=2 " use 2 lines for the status bar
 
 set tabstop=4 " number of spaces a tab counts for
 set shiftwidth=4 " spaces for autoindents
