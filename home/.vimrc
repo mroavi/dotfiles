@@ -186,6 +186,9 @@ Plug 'conradirwin/vim-bracketed-paste'
 " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Vim plugin that allows use of vifm as a file picker 
+Plug 'vifm/vifm.vim'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
@@ -486,3 +489,13 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vifm.vim options 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" https://github.com/vifm/vifm.vim/issues/19
+let g:vifm_embed_term=1
+let g:vifm_embed_split=1
+
+" Map toggle NERDTree to 
+set <F20>=/
+nnoremap <F20> :leftabove vertical 40Vifm<CR>
