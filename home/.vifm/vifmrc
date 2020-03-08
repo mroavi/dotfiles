@@ -498,5 +498,9 @@ nnoremap <f8> :delete<cr>
 " Show hidden files and dirs on startup
 set dotfiles
 
+" Remap exit command 
+" TODO: after pressing Ctrl+\ a key needs to be pressed for the command to take effect. Fix this.
+nnoremap <c-\> :exit<cr>
+
 " Remap default prefix from Ctrl+w to Ctrl+a 
-nnoremap <C-a> <C-w>
+nnoremap <c-a> <c-w>
