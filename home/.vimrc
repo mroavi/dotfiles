@@ -26,8 +26,8 @@ set shiftwidth=4 " spaces for autoindents
 set expandtab " use spaces instead of tabs. 
 set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
-set autoindent " Match indents on new lines.
-set smartindent " Intellegently dedent / indent new lines based on rules.
+set autoindent " match indents on new lines.
+set smartindent " intelligently dedent / indent new lines based on rules.
 
 set noswapfile " They're just annoying. Who likes them?
 
@@ -293,7 +293,6 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable matchit plugin (this plugin is distributed with Vim)
 runtime macros/matchit.vim
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " coc options 
