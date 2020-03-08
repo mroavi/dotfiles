@@ -261,7 +261,7 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " EasyMotion options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable default mappings
-"let g:EasyMotion_do_mapping = 0 
+"let g:EasyMotion_do_mapping = 0
 
 " Jump anywhere with s
 nmap s <Plug>(easymotion-s)
@@ -450,6 +450,16 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 let g:vifm_embed_term=1
 let g:vifm_embed_split=1
 
-" Map toggle virm to 
-set <F20>=/
-nnoremap <F20> :leftabove vertical 40Vifm<CR>
+" Map toggle vifm to Ctrl+\
+nnoremap <C-Bslash> :leftabove vertical 40Vifm<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-tmux-navigator
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+"nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
