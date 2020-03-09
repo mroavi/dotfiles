@@ -261,7 +261,7 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " EasyMotion options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable default mappings
-"let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_do_mapping = 0
 
 " Jump anywhere with s
 nmap s <Plug>(easymotion-s)
