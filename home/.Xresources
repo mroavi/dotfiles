@@ -17,6 +17,9 @@ XTerm.vt100.metaSendsEscape: true
 ! Stop output to terminal from jumping down to bottom of scroll again
 xterm*scrollTtyOutput: false
 
+! Turn on visual bell to diable the audio bell
+xterm*visualBell: on
+
 ! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
 ! Based on: https://stackoverflow.com/a/31961401/1706778 
 ! Hack: the code for the Ctrl+Shift+w actually corresponds to a 0
