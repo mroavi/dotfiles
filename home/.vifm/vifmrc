@@ -124,6 +124,8 @@ mark p ~/Dropbox/TUe/PhD/
 mark r ~/repos
 mark s ~/PhD/software
 mark t ~/tmp
+mark T ~/Dropbox/TUe
+mark P ~/Pictures
 
 " ------------------------------------------------------------------------------
 
