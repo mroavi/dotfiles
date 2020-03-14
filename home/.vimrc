@@ -4,6 +4,9 @@
 
 set nocompatible " We don't need Vi compatibility
 
+" https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
+set backspace=indent,eol,start
+
 " https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
 set viminfo=%,<800,'10,/50,:100,h,f1
 "           | |    |   |   |    | + store file marks 0-9,A-Z
