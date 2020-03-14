@@ -468,8 +468,7 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 "nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-highlightedyank options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:highlightedyank_highlight_duration = 150
+let g:highlightedyank_highlight_duration = 200
