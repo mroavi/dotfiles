@@ -180,6 +180,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Vim plugin that allows use of vifm as a file picker 
 Plug 'vifm/vifm.vim'
 
+" Make the yanked region apparent!
+Plug 'machakann/vim-highlightedyank'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
@@ -464,3 +467,9 @@ nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 "nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-highlightedyank options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:highlightedyank_highlight_duration = 150
