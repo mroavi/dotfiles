@@ -24,8 +24,9 @@ set showcmd " show typed command in status bar
 set ruler " show cursor position in status bar
 set title " show file in titlebar
 
-set tabstop=4 " number of spaces a tab counts for
-set shiftwidth=4 " spaces for autoindents
+set tabstop=4 " number of spaces that a <Tab> in the file counts for
+set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
+set shiftwidth=4 " number of spaces for indents in normal mode
 set expandtab " use spaces instead of tabs. 
 set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
