@@ -65,6 +65,9 @@ autocmd FileChangedShellPost *
 " https://www.reddit.com/r/vim/comments/1ttes1/disable_escape_keys_to_make_vim_faster/
 set timeout timeoutlen=1000 ttimeoutlen=100
 
+" Automatically source .vimrc when it is saved
+  autocmd bufwritepost .vimrc source $MYVIMRC
+
 " Remap :FZF to Ctrl+p
 nnoremap <C-p> :FZF<CR>
 
