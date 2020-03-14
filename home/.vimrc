@@ -65,9 +65,6 @@ autocmd FileChangedShellPost *
 " https://www.reddit.com/r/vim/comments/1ttes1/disable_escape_keys_to_make_vim_faster/
 set timeout timeoutlen=1000 ttimeoutlen=100
 
-" Automatically source .vimrc when it is saved
-  autocmd bufwritepost .vimrc source $MYVIMRC
-
 " Remap :FZF to Ctrl+p
 nnoremap <C-p> :FZF<CR>
 
@@ -82,6 +79,13 @@ noremap <C-z> <Nop>
 
 " Ctrl+t -> new tab
 nnoremap <C-t> :tabnew<CR>
+
+" Shortcut to rapidly toggle `set list!`
+" http://vimcasts.org/episodes/show-invisibles/
+nmap <leader>l :set list!<CR>
+
+" Define symbols for tabstops, spaces and EOLs
+set listchars=tab:▸\ ,space:_,eol:¬
 
 " Chorme-like tab commands (conflicts with tmux)
 " based on: https://stackoverflow.com/a/31961401/1706778
