@@ -415,7 +415,7 @@ nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
 " Open file in existing instance of gvim
-nnoremap o :!gvim --remote-tab-silent %f<cr>
+"nnoremap o :!gvim --remote-tab-silent %f<cr>
 " Open file in new instance of gvim
 nnoremap O :!gvim %f<cr>
 
@@ -515,5 +515,5 @@ nnoremap <c-\> :exit<cr>
 nnoremap <c-a> <c-w>
 
 " Open files in a vim server named "svim"
-nnoremap <cr> :!vim --servername svim --remote-tab %f<cr>
- 
+nnoremap o :!vim --servername svim --remote-tab %f<cr>
+
