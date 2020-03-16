@@ -4,6 +4,9 @@
 xterm*termName: xterm-256color
 !xterm*termName: xterm
 
+! Start xterm in fullscreen mode
+XTerm*fullscreen      : true
+
 ! Use a nice truetype font and size by default... 
 ! To see available true type, mono-spaced fonts run in shell:
 ! fc-list :scalable=true:spacing=mono: family 

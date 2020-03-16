@@ -13,12 +13,13 @@ export ZSH="/home/mroavi/.oh-my-zsh"
 # source: https://www.youtube.com/watch?v=wM1uNqj71Ko
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_DISABLE_PROMPT=true
+POWERLEVEL9K_DISABLE_RPROMPT=false
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="➔ "
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="→ "
 POWERLEVEL9K_MULTILINE_FIST_PROMPT_PREFIX=""
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
