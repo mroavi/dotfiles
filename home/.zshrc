@@ -8,7 +8,17 @@ export ZSH="/home/mroavi/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="pygmalion"
+#ZSH_THEME="pygmalion"
+
+# source: https://www.youtube.com/watch?v=wM1uNqj71Ko
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_MODE="nerdfont-complete"
+POWERLEVEL9K_DISABLE_PROMPT=true
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="➔ "
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="→ "
+POWERLEVEL9K_MULTILINE_FIST_PROMPT_PREFIX=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -197,7 +207,7 @@ elif [ "$THEME" = "gruvbox8-dark" ]; then
     
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox8_hard/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
-    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='gruvbox'/g" ~/.vimrc
+    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='zenburn'/g" ~/.vimrc
     sed -i --follow-symlinks "s/set -g @plugin.*# theme/set -g @plugin 'mroavi\/tmux-gruvbox' # theme/g" ~/.tmux.conf
     sed -i --follow-symlinks "s/.*set -g @colors-solarized.*/#set -g @colors-solarized 'light'/g" ~/.tmux.conf
     xrdb -DUSE_GRUVBOX_DARK ~/.Xresources

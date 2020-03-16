@@ -210,11 +210,13 @@ call plug#end()
 " Set the color scheme
 syntax enable
 
-" WARNING: Do not modify these lines. They are updated by the .zshrc script.
 let g:gruvbox_contrast_dark='medium' 
-set background=dark
+
+" WARNING: Do not modify these lines. They are updated by the .zshrc script.
 colorscheme gruvbox8_hard
-let g:airline_theme='gruvbox'
+set background=dark
+let g:airline_theme='zenburn'
+let g:airline_powerline_fonts = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
