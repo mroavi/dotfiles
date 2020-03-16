@@ -1,3 +1,6 @@
+! Excellent source of info about Xresources:
+! http://www.futurile.net/2016/06/14/xterm-setup-and-truetype-font-configuration/
+
 xterm*termName: xterm-256color
 !xterm*termName: xterm
 
@@ -33,11 +36,14 @@ xterm*visualBell: on
 ! Hack: the code for the Ctrl+Shift+v actually corresponds to a .
 ! See: https://github.com/tmux/tmux/blob/master/xterm-keys.c
 xterm*VT100.Translations: #override \
-             Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
-             Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n\
-             Ctrl Shift <Key>w: string(0x1b) string("[27;6;48~") \n\
-             Ctrl Shift <Key>s: string(0x1b) string("[27;6;49~") \n\
-             Ctrl Shift <Key>v: string(0x1b) string("[27;6;46~")
+    Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
+    Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n\
+    Ctrl Shift <Key>w: string(0x1b) string("[27;6;48~") \n\
+    Ctrl Shift <Key>s: string(0x1b) string("[27;6;49~") \n\
+    Ctrl Shift <Key>v: string(0x1b) string("[27;6;46~") \n\
+    Ctrl <Key> minus: smaller-vt-font() \n\
+    Ctrl <Key> plus: larger-vt-font() \n\
+    Ctrl <Key> 0: set-vt-font(d)
 
 
 !####################
