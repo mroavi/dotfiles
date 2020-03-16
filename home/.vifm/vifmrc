@@ -180,7 +180,9 @@ command! reload :write | restart
 
 " Pdf
 "filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
-filextype *.pdf evince %f &
+filextype *.pdf 
+        \ {mrv: Open with evince}
+        \ evince %f &
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " PostScript
@@ -299,9 +301,12 @@ filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
 fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
 
 " ArchiveMount
-filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
-       \ {Mount with archivemount}
-       \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR,
+"filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
+"       \ {Mount with archivemount}
+"       \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR,
+filetype *.tgz,*.tar.gz 
+        \ {mrv: extract here}
+        \ tar -xzvf %c -C . 
 fileviewer *.tgz,*.tar.gz tar -tzf %c
 fileviewer *.tar.bz2,*.tbz2 tar -tjf %c
 fileviewer *.tar.txz,*.txz xz --list %c
