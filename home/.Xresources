@@ -15,7 +15,7 @@ XTerm*fullscreen      : true
 !xterm*faceName: UbuntuMono Nerd Font
 !xterm*faceSize: 11
 xterm*faceName: Hack Nerd Font
-xterm*faceSize: 11
+xterm*faceSize: 10
 
 ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
 xterm*loginshell: true
@@ -37,7 +37,9 @@ xterm*visualBell: on
 ! Hack: the code for the Ctrl+Shift+w actually corresponds to a 0
 ! Hack: the code for the Ctrl+Shift+s actually corresponds to a 1
 ! Hack: the code for the Ctrl+Shift+v actually corresponds to a .
-! See: https://github.com/tmux/tmux/blob/master/xterm-keys.c
+!   See: https://github.com/tmux/tmux/blob/master/xterm-keys.c
+! Increase/decrease font size
+!   http://www.futurile.net/2016/06/14/xterm-setup-and-truetype-font-configuration/
 xterm*VT100.Translations: #override \
     Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
     Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n\
