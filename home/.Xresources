@@ -12,8 +12,8 @@ XTerm*fullscreen      : true
 ! fc-list :scalable=true:spacing=mono: family 
 !xterm*faceName: Ubuntu Mono
 !xterm*faceSize: 12
-!xterm*faceName: UbuntuMono Nerd Font
-!xterm*faceSize: 11
+!xterm*faceName: UbuntuMono Nerd Font Mono
+!xterm*faceSize: 12
 xterm*faceName: Hack Nerd Font
 xterm*faceSize: 10
 
