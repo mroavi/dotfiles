@@ -22,11 +22,9 @@ echo "Installing Nerd Fonts..."
 
 mkdir -p ~/.local/share/fonts
 
-cd ~/.local/share/fonts && curl -fLo "UbuntuMono-for-Powerline-Nerd-Font-regular-complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
-
 cd ~/.local/share/fonts && curl -fLo "Hack-for-Powerline-Nerd-Font-regular-complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
 
-cd ~/.local/share/fonts && curl -fLo "UbuntuMono-for-Powerline-Nerd-Font-regular-complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete.ttf
+cd ~/.local/share/fonts && curl -fLo "UbuntuMono-for-Powerline-Nerd-Font-regular-complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
 
 # -----------------------------------------------------------------------------------------
 # Return to originatl directory
