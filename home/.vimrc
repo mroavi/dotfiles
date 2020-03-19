@@ -199,6 +199,9 @@ Plug 'machakann/vim-highlightedyank'
 " Change the cursor shape based on the current mode
 Plug 'wincent/terminus'
 
+" A Git wrapper so awesome, it should be illegal 
+Plug 'tpope/vim-fugitive'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
@@ -221,6 +224,7 @@ let g:gruvbox_contrast_dark='medium'
 colorscheme gruvbox8_hard
 set background=dark
 let g:airline_theme='zenburn'
+
 let g:airline_powerline_fonts = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
