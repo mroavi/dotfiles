@@ -1,8 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Based on: 
+" Vim philosopy: 
 " - https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
-
-set nocompatible " We don't need Vi compatibility
 
 " https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
 set backspace=indent,eol,start
@@ -17,12 +15,16 @@ set viminfo=%,<800,'10,/50,:100,h,f1
 "           | + maximum num of lines saved each register (old name for <, vi6.2)
 "           + save/restore buffer list
 
+set nocompatible " We don't need Vi compatibility
 set number " show line numbers
 set relativenumber " each line in your file is numbered relative to the cursor’s current position
-set showmode " show mode in status bar (insert/replace/...)
-set showcmd " show typed command in status bar
-set ruler " show cursor position in status bar
 set title " show file in titlebar
+
+set noshowmode " don't show mode in status bar (taken care of by airline)
+set noruler " don't show cursor position in status bar
+set laststatus=0 " when to display the status line (see :h laststatus)
+set noshowcmd " don't show partial typed commands in the right of the status bar
+set cmdheight=1 " limit the cmd line height to one 
 
 set tabstop=4 " number of spaces that a <Tab> in the file counts for
 set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
@@ -327,9 +329,6 @@ set hidden
 set nobackup
 set nowritebackup
 
-" Give more space for displaying messages.
-set cmdheight=2
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
@@ -443,7 +442,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
 " Show all diagnostics.
