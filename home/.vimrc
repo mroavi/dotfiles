@@ -221,7 +221,7 @@ let g:gruvbox_contrast_dark='medium'
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
 colorscheme gruvbox8_hard
 set background=dark
-let g:airline_theme='zenburn'
+let g:airline_theme='base16_gruvbox_dark_hard'
 
 let g:airline_powerline_fonts = 1
 
