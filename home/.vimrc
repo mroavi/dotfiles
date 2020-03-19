@@ -19,6 +19,10 @@ set nocompatible " We don't need Vi compatibility
 set number " show line numbers
 set relativenumber " each line in your file is numbered relative to the cursor’s current position
 set title " show file in titlebar
+set noswapfile " They're just annoying. Who likes them?
+set t_Co=256 " needed so that color scheme displays fine 
+"set colorcolumn=80 " highlight column
+set wrap linebreak nolist " avoid breaking lines in the middle of words
 
 set noshowmode " don't show mode in status bar (taken care of by airline)
 set noruler " don't show cursor position in status bar
@@ -35,16 +39,13 @@ set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " match indents on new lines.
 set smartindent " intelligently dedent / indent new lines based on rules.
 
-set noswapfile " They're just annoying. Who likes them?
-
 set incsearch " live incremental searching
 set noshowmatch " no live match highlighting (brief jumping)
 set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
-set t_Co=256 " needed so that color scheme displays fine 
-"set colorcolumn=80 " highlight column
-set wrap linebreak nolist " avoid breaking lines in the middle of words
+" https://www.reddit.com/r/vim/comments/1ttes1/disable_escape_keys_to_make_vim_faster/
+set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Associate different settings with different filetypes based on the files inside ~/.vim/ftplugin 
 filetype plugin on
@@ -67,9 +68,6 @@ autocmd FileChangedShellPost *
 ""Below is to fix issues with the ABOVE mappings in quickfix window
 "autocmd CmdwinEnter * nnoremap <CR> <CR>
 "autocmd BufReadPost quickfix nnoremap <CR> <CR>
-
-" https://www.reddit.com/r/vim/comments/1ttes1/disable_escape_keys_to_make_vim_faster/
-set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Remap :FZF to Ctrl+p
 nnoremap <C-p> :FZF<CR>
