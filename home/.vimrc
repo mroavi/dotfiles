@@ -194,6 +194,9 @@ Plug 'vifm/vifm.vim'
 " Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
 
+" Change the cursor shape based on the current mode
+Plug 'wincent/terminus'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
