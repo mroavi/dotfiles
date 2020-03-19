@@ -183,6 +183,7 @@ unsetopt AUTO_CD
 #THEME=solarized-light
 #THEME=solarized-dark
 THEME=gruvbox8-dark
+#THEME=onedark
 
 # mrv: To cleanly kill all tmux open sessions (and server) run:
 # tmux kill-server
@@ -222,10 +223,14 @@ elif [ "$THEME" = "gruvbox8-dark" ]; then
     sed -i --follow-symlinks "s/set -g @plugin.*# theme/set -g @plugin 'mroavi\/tmux-gruvbox' # theme/g" ~/.tmux.conf
     sed -i --follow-symlinks "s/.*set -g @colors-solarized.*/#set -g @colors-solarized 'light'/g" ~/.tmux.conf
     xrdb -DUSE_GRUVBOX_DARK ~/.Xresources
+
+elif [ "$THEME" = "onedark" ]; then
+
+    xrdb -DUSE_ONEDARK ~/.Xresources
     
 else
     
-    echo "Warning: Theme type could not be read"
+    echo "Using default theme"
     xrdb ~/.Xresources
     
 fi
