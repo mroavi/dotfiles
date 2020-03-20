@@ -34,9 +34,9 @@ xterm*visualBell: on
 
 ! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
 ! Based on: https://stackoverflow.com/a/31961401/1706778 
-! Hack: the code for the Ctrl+Shift+w actually corresponds to a 0
-! Hack: the code for the Ctrl+Shift+s actually corresponds to a 1
-! Hack: the code for the Ctrl+Shift+v actually corresponds to a .
+! Hack: intercept Ctrl+Shift+w and send the code for Ctrl+Shift+0
+! Hack: intercept Ctrl+Shift+s and send the code for Ctrl+Shift+1
+! Hack: intercept Ctrl+Shift+v and send the code for Ctrl+Shift+.
 !   See: https://github.com/tmux/tmux/blob/master/xterm-keys.c
 ! Increase/decrease font size
 !   http://www.futurile.net/2016/06/14/xterm-setup-and-truetype-font-configuration/

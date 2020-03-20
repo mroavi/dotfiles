@@ -525,12 +525,27 @@ colors:
 #
 #    A `~` operator can be used before a mode to apply the binding whenever
 #    the mode is *not* active, e.g. `~Alt`.
+# 
+# (mrv: see https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/)
 #
 # Bindings are always filled by default, but will be replaced when a new
 # binding with the same triggers is defined. To unset a default binding, it can
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
-#key_bindings:
+key_bindings:
+    # (mrv)
+    # Intercept Ctrl-tab and Ctrl-Shift-Tab and send their X code 
+    #   See: https://stackoverflow.com/a/31961401/1706778
+    # Hack: intercept Ctrl+Shift+w and send the X code for Ctrl+Shift+0
+    # Hack: intercept Ctrl+Shift+s and send the X code for Ctrl+Shift+1
+    # Hack: intercept Ctrl+Shift+v and send the X code for Ctrl+Shift+.
+    #   See: https://github.com/tmux/tmux/blob/master/xterm-keys.c
+    - { key: Tab,     mods: Control,       chars:  "\x1b[27;5;9~"     }
+    - { key: Tab,     mods: Control|Shift, chars:  "\x1b[27;6;9~"     }
+    - { key: W,       mods: Control|Shift, chars:  "\x1b[27;6;48~"    }
+    - { key: S,       mods: Control|Shift, chars:  "\x1b[27;6;49~"    }
+    - { key: V,       mods: Control|Shift, chars:  "\x1b[27;6;46~"    }
+
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
   #- { key: C,        mods: Control|Shift, action: Copy             }
