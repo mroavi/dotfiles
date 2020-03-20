@@ -226,6 +226,9 @@ elif [ "$THEME" = "gruvbox8-dark" ]; then
 
 elif [ "$THEME" = "onedark" ]; then
 
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme onedark/g' ~/.vimrc
+    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
+    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='onedark'/g" ~/.vimrc
     xrdb -DUSE_ONEDARK ~/.Xresources
     
 else

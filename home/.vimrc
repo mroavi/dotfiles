@@ -200,6 +200,9 @@ Plug 'wincent/terminus'
 " A Git wrapper so awesome, it should be illegal 
 Plug 'tpope/vim-fugitive'
 
+" Simple tmux statusline generator with support for powerline symbols and vim/airline statusline integration
+Plug 'edkolev/tmuxline.vim'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
@@ -217,13 +220,12 @@ call plug#end()
 syntax enable
 
 let g:gruvbox_contrast_dark='medium' 
+let g:airline_powerline_fonts = 1
 
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
-colorscheme gruvbox8_hard
+colorscheme onedark
 set background=dark
-let g:airline_theme='base16_gruvbox_dark_hard'
-
-let g:airline_powerline_fonts = 1
+let g:airline_theme='onedark'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
