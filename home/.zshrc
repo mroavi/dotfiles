@@ -182,8 +182,8 @@ unsetopt AUTO_CD
 ## mrv: Set theme (use one)
 #THEME=solarized-light
 #THEME=solarized-dark
-THEME=gruvbox8-dark
-#THEME=onedark
+#THEME=gruvbox8-dark
+THEME=onedark
 
 # mrv: To cleanly kill all tmux open sessions (and server) run:
 # tmux kill-server
