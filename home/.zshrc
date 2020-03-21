@@ -33,7 +33,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # see: https://www.youtube.com/watch?v=wM1uNqj71Ko
 POWERLEVEL9K_MODE="nerdfont-complete"
 MY_LIGHT_COLOR="white"
-if [ $THEME = "darkone" ]; then MY_DARK_COLOR="grey"; else MY_DARK_COLOR="black"; fi
+if [ $THEME = "onedark" ]; then MY_DARK_COLOR="grey"; else MY_DARK_COLOR="black"; fi
 POWERLEVEL9K_DISABLE_RPROMPT=false
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
@@ -228,16 +228,19 @@ if [ "$THEME" = "solarized-dark" ]; then
     # mrv: Change zsh-autosuggestions color
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 
-    # reload .Xresources with the theme's flag
+    # Reload .Xresources with the theme's flag
     xrdb -DUSE_SOLARIZED_DARK ~/.Xresources
 
-    # set the coloscheme in .alacritty.yml
+    # Set the colorscheme in .alacritty.yml
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*solarized-dark/g" ~/.alacritty.yml
 
-    # enable ls color support
+    # Enable ls color support
     if [ -x /usr/bin/dircolors ]; then
         test -r ~/.dircolors && eval "$(dircolors -b ~/.solarized.dircolors)" || eval "$(dircolors -b)"
     fi
+
+    # Set vifm's colorscheme
+    sed -i --follow-symlinks "s/colorscheme .*/colorscheme solarized-dark/g" ~/.vifm/vifmrc
 
 elif [ "$THEME" = "solarized-light" ]; then
     
@@ -250,6 +253,7 @@ elif [ "$THEME" = "solarized-light" ]; then
     if [ -x /usr/bin/dircolors ]; then
         test -r ~/.dircolors && eval "$(dircolors -b ~/.solarized.dircolors)" || eval "$(dircolors -b)"
     fi
+    sed -i --follow-symlinks "s/colorscheme .*/colorscheme solarized-dark/g" ~/.vifm/vifmrc
 
 elif [ "$THEME" = "gruvbox8-dark" ]; then
     
@@ -261,6 +265,7 @@ elif [ "$THEME" = "gruvbox8-dark" ]; then
     if [ -x /usr/bin/dircolors ]; then
         test -r ~/.dircolors && eval "$(dircolors -b ~/.gruvbox.dircolors)" || eval "$(dircolors -b)"
     fi
+    sed -i --follow-symlinks "s/colorscheme .*/colorscheme gruvbox/g" ~/.vifm/vifmrc
     
 elif [ "$THEME" = "onedark" ]; then
 
@@ -272,6 +277,7 @@ elif [ "$THEME" = "onedark" ]; then
     if [ -x /usr/bin/dircolors ]; then
         test -r ~/.dircolors && eval "$(dircolors -b ~/.onedark.dircolors)" || eval "$(dircolors -b)"
     fi
+    sed -i --follow-symlinks "s/colorscheme .*/colorscheme onedark/g" ~/.vifm/vifmrc
     
 else
     
