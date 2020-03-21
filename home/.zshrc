@@ -1,3 +1,12 @@
+## mrv: Set theme (use one)
+#THEME=solarized-light
+#THEME=solarized-dark
+#THEME=gruvbox8-dark
+THEME=onedark
+
+# mrv: To cleanly kill all tmux open sessions (and server) run:
+# tmux kill-server
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -9,27 +18,60 @@ export ZSH="/home/mroavi/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="pygmalion"
-
-# source: https://www.youtube.com/watch?v=wM1uNqj71Ko
 ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# ===============================================
+# POWERLEVEL9K configuration 
+# Run the following command to see all colors:
+# for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
+#
+# Examples: https://github.com/Powerlevel9k/powerlevel9k/wiki/Show-Off-Your-Config
+# - rjorgenson's configuration
+# - Nselimis's configuration:
+# ===============================================
+#---------------------------
+# see: https://www.youtube.com/watch?v=wM1uNqj71Ko
 POWERLEVEL9K_MODE="nerdfont-complete"
+MY_LIGHT_COLOR="white"
+if [ $THEME = "darkone" ]; then MY_DARK_COLOR="grey"; else MY_DARK_COLOR="black"; fi
 POWERLEVEL9K_DISABLE_RPROMPT=false
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="→ "
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$ "
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery)
-#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery history time)
-
 # `vi_mode` color customization
 POWERLEVEL9K_VI_INSERT_MODE_STRING=''
-POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=black
+POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=$MY_DARK_COLOR
 POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=blue
-POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=black
+POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=$MY_DARK_COLOR
 POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=green
+# `dir` color customization
+POWERLEVEL9K_DIR_HOME_BACKGROUND=$MY_DARK_COLOR
+POWERLEVEL9K_DIR_HOME_FOREGROUND=$MY_LIGHT_COLOR
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=$MY_DARK_COLOR
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=$MY_LIGHT_COLOR
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$MY_DARK_COLOR
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=$MY_LIGHT_COLOR
+# `vcs` color customization 
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND=$MY_DARK_COLOR
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=$MY_DARK_COLOR
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=$MY_DARK_COLOR
+# `battery` color customization
+POWERLEVEL9K_BATTERY_LOW_BACKGROUND=$MY_DARK_COLOR
+POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND=$MY_DARK_COLOR
+POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND=$MY_DARK_COLOR
+POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND=$MY_DARK_COLOR
+POWERLEVEL9K_BATTERY_LOW_FOREGROUND=$MY_LIGHT_COLOR
+POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND=$MY_LIGHT_COLOR
+POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND=$MY_LIGHT_COLOR
+POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=$MY_LIGHT_COLOR
+POWERLEVEL9K_BATTERY_LOW_VISUAL_IDENTIFIER_COLOR="red"
+POWERLEVEL9K_BATTERY_CHARGING_VISUAL_IDENTIFIER_COLOR="yellow"
+POWERLEVEL9K_BATTERY_CHARGED_VISUAL_IDENTIFIER_COLOR="green"
+POWERLEVEL9K_BATTERY_DISCONNECTED_VISUAL_IDENTIFIER_COLOR=$MY_LIGHT_COLOR
+#---------------------------
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -57,7 +99,7 @@ POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=green
 # DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
-DISABLE_LS_COLORS="true"
+#DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -125,10 +167,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# ===============================================
-# Aliases
-# ===============================================
-
 # mrv: go to dotfiles home dir 
 alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
 
@@ -151,17 +189,17 @@ alias e="exit"
 ## see: https://superuser.com/questions/105375/bash-spaces-in-alias-name
 #ls() { if [[ $@ == "-al" ]]; then k -ha; else k "$@"; fi; }
 
-# mrv (from .bashrc):  enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+## mrv (from .bashrc):  enable color support of ls and also add handy aliases
+#if [ -x /usr/bin/dircolors ]; then
+#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#    alias ls='ls --color=auto'
+#    #alias dir='dir --color=auto'
+#    #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+#    alias grep='grep --color=auto'
+#    alias fgrep='fgrep --color=auto'
+#    alias egrep='egrep --color=auto'
+#fi
 
 # mrv: Set vi mode!  
 set -o vi
@@ -177,16 +215,8 @@ export KEYTIMEOUT=2
 unsetopt AUTO_CD
 
 # ===============================================
-# Theme 
+# Configure theme 
 # ===============================================
-## mrv: Set theme (use one)
-#THEME=solarized-light
-#THEME=solarized-dark
-#THEME=gruvbox8-dark
-THEME=onedark
-
-# mrv: To cleanly kill all tmux open sessions (and server) run:
-# tmux kill-server
 
 if [ "$THEME" = "solarized-dark" ]; then
 
@@ -195,41 +225,53 @@ if [ "$THEME" = "solarized-dark" ]; then
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
 
-    # replace theme in .tmux.conf
-    sed -i --follow-symlinks "s/set -g @plugin.*# theme/set -g @plugin 'seebi\/tmux-colors-solarized' # theme/g" ~/.tmux.conf
-    sed -i --follow-symlinks "s/.*set -g @colors-solarized.*/set -g @colors-solarized 'dark'/g" ~/.tmux.conf
-
     # mrv: Change zsh-autosuggestions color
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 
-    # reload the .Xresources file
+    # reload .Xresources with the theme's flag
     xrdb -DUSE_SOLARIZED_DARK ~/.Xresources
+
+    # set the coloscheme in .alacritty.yml
+    sed -i --follow-symlinks "s/colors: \*.*/colors: \*solarized-dark/g" ~/.alacritty.yml
+
+    # enable ls color support
+    if [ -x /usr/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.solarized.dircolors)" || eval "$(dircolors -b)"
+    fi
 
 elif [ "$THEME" = "solarized-light" ]; then
     
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=light/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
-    sed -i --follow-symlinks "s/set -g @plugin .* # theme/set -g @plugin 'seebi\/tmux-colors-solarized' # theme/g" ~/.tmux.conf
-    sed -i --follow-symlinks "s/.*set -g @colors-solarized.*/set -g @colors-solarized 'light'/g" ~/.tmux.conf
+    sed -i --follow-symlinks "s/colors: \*.*/colors: \*solarized-light/g" ~/.alacritty.yml
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
     xrdb -DUSE_SOLARIZED_LIGHT ~/.Xresources
+    if [ -x /usr/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.solarized.dircolors)" || eval "$(dircolors -b)"
+    fi
 
 elif [ "$THEME" = "gruvbox8-dark" ]; then
     
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox8_hard/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='base16_gruvbox_dark_hard'/g" ~/.vimrc
-    sed -i --follow-symlinks "s/set -g @plugin.*# theme/set -g @plugin 'mroavi\/tmux-gruvbox' # theme/g" ~/.tmux.conf
-    sed -i --follow-symlinks "s/.*set -g @colors-solarized.*/#set -g @colors-solarized 'light'/g" ~/.tmux.conf
+    sed -i --follow-symlinks "s/colors: \*.*/colors: \*gruvbox/g" ~/.alacritty.yml
     xrdb -DUSE_GRUVBOX_DARK ~/.Xresources
-
+    if [ -x /usr/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.gruvbox.dircolors)" || eval "$(dircolors -b)"
+    fi
+    
 elif [ "$THEME" = "onedark" ]; then
 
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme onedark/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='onedark'/g" ~/.vimrc
+    sed -i --follow-symlinks "s/colors: \*.*/colors: \*onedark/g" ~/.alacritty.yml
     xrdb -DUSE_ONEDARK ~/.Xresources
+    if [ -x /usr/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.onedark.dircolors)" || eval "$(dircolors -b)"
+    fi
     
 else
     

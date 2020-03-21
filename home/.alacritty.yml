@@ -110,42 +110,43 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     family: Hack Nerd Font
+#    family: monospace
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
 
   # Bold font face
-  #bold:
+  bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    style: Bold
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
-    #style: Italic
+    style: Italic
 
   # Bold italic font face
-  #bold_italic:
+  bold_italic:
     # Font family
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold Italic
+    style: Bold Italic
 
   # Point size
   #size: 11.0
@@ -183,11 +184,11 @@ font:
 #draw_bold_text_with_bright_colors: true
 
 # Colors (Tomorrow Night Bright)
-colors:
+#colors:
   # Default colors
-  primary:
-    background: '0x282C34'
-    foreground: '0xABB2BF'
+  #primary:
+  #  background: '0x282C34'
+  #  foreground: '0xABB2BF'
 
     # Bright and dim foreground colors
     #
@@ -215,26 +216,26 @@ colors:
   #  background: '0x404040'
 
   # Normal colors
-  normal:
-    black:   '0x5C6370'
-    red:     '0xE06C75'
-    green:   '0x98C379'
-    yellow:  '0xE5C07B'
-    blue:    '0x61AFEF'
-    magenta: '0xC678DD'
-    cyan:    '0x56B6C2'
-    white:   '0xABB2BF'
+  #normal:
+  #  black:   '0x5C6370'
+  #  red:     '0xE06C75'
+  #  green:   '0x98C379'
+  #  yellow:  '0xE5C07B'
+  #  blue:    '0x61AFEF'
+  #  magenta: '0xC678DD'
+  #  cyan:    '0x56B6C2'
+  #  white:   '0xABB2BF'
 
   # Bright colors
-  bright:
-    black:   '0x4B5263'
-    red:     '0xBE5046'
-    green:   '0x98C379'
-    yellow:  '0xD19A66'
-    blue:    '0x61AFEF'
-    magenta: '0xC678DD'
-    cyan:    '0x56B6C2'
-    white:   '0x3E4452'
+  #bright:
+  #  black:   '0x4B5263'
+  #  red:     '0xBE5046'
+  #  green:   '0x98C379'
+  #  yellow:  '0xD19A66'
+  #  blue:    '0x61AFEF'
+  #  magenta: '0xC678DD'
+  #  cyan:    '0x56B6C2'
+  #  white:   '0x3E4452'
 
   # Dim colors
   #
@@ -259,6 +260,129 @@ colors:
   #   `- { index: 16, color: '0xff00ff' }`
   #
   #indexed_colors: []
+
+    
+# Available color schemes
+schemes:
+  
+  onedark: &onedark
+    # Default colors
+    primary:
+      background: '0x282C34'
+      foreground: '0xABB2BF'
+    # Normal colors
+    normal:
+      black:   '0x5C6370'
+      red:     '0xE06C75'
+      green:   '0x98C379'
+      yellow:  '0xE5C07B'
+      blue:    '0x61AFEF'
+      magenta: '0xC678DD'
+      cyan:    '0x56B6C2'
+      white:   '0xABB2BF'
+    # Bright colors
+    bright:
+      black:   '0x4B5263'
+      red:     '0xBE5046'
+      green:   '0x98C379'
+      yellow:  '0xD19A66'
+      blue:    '0x61AFEF'
+      magenta: '0xC678DD'
+      cyan:    '0x56B6C2'
+      white:   '0x3E4452'
+  
+  solarized-light: &solarized-light
+    # Default colors
+    primary:
+      background: '#fdf6e3' # base3
+      foreground: '#657b83' # base00
+    # Cursor colors
+    cursor:
+      text:   '#fdf6e3' # base3
+      cursor: '#657b83' # base00
+    # Normal colors
+    normal:
+      black:   '#073642' # base02
+      red:     '#dc322f' # red
+      green:   '#859900' # green
+      yellow:  '#b58900' # yellow
+      blue:    '#268bd2' # blue
+      magenta: '#d33682' # magenta
+      cyan:    '#2aa198' # cyan
+      white:   '#eee8d5' # base2
+    # Bright colors
+    bright:
+      black:   '#002b36' # base03
+      red:     '#cb4b16' # orange
+      green:   '#586e75' # base01
+      yellow:  '#657b83' # base00
+      blue:    '#839496' # base0
+      magenta: '#6c71c4' # violet
+      cyan:    '#93a1a1' # base1
+      white:   '#fdf6e3' # base3
+
+  solarized-dark: &solarized-dark
+    # Default colors
+    primary:
+      background: '#002b36' # base03
+      foreground: '#839496' # base0
+    # Cursor colors
+    cursor:
+      text:   '#002b36' # base03
+      cursor: '#839496' # base0
+    # Normal colors
+    normal:
+      black:   '#073642' # base02
+      red:     '#dc322f' # red
+      green:   '#859900' # green
+      yellow:  '#b58900' # yellow
+      blue:    '#268bd2' # blue
+      magenta: '#d33682' # magenta
+      cyan:    '#2aa198' # cyan
+      white:   '#eee8d5' # base2
+    # Bright colors
+    bright:
+      black:   '#586e75' # base01
+      red:     '#cb4b16' # orange
+      green:   '#586e75' # base01
+      yellow:  '#657b83' # base00
+      blue:    '#839496' # base0
+      magenta: '#6c71c4' # violet
+      cyan:    '#93a1a1' # base1
+      white:   '#fdf6e3' # base3
+
+  gruvbox: &gruvbox
+    # Default colors
+    primary:
+      # hard contrast: background = '#1d2021'
+      background: '#1d2021'
+#      background: '#282828'
+      # soft contrast: background = '#32302f'
+#      foreground: '#32302f'
+      foreground: '#ebdbb2'
+    # Normal colors
+    normal:
+      black:   '#282828'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#a89984'
+    # Bright colors
+    bright:
+      black:   '#928374'
+      red:     '#fb4934'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#8ec07c'
+      white:   '#ebdbb2'
+      
+# Sets the current colorscheme
+colors: *onedark
 
 # Visual Bell
 #

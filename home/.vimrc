@@ -2,9 +2,6 @@
 " Vim philosopy: 
 " - https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
 
-" https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
-set backspace=indent,eol,start
-
 " https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
 set viminfo=%,<800,'10,/50,:100,h,f1
 "           | |    |   |   |    | + store file marks 0-9,A-Z
@@ -39,6 +36,9 @@ set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " match indents on new lines.
 set smartindent " intelligently dedent / indent new lines based on rules.
 
+" Use these custom Tab settings for yaml files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 set incsearch " live incremental searching
 set noshowmatch " no live match highlighting (brief jumping)
 set hlsearch " highlight matches
@@ -46,6 +46,9 @@ set gdefault " use the `g` flag by default.
 
 " https://www.reddit.com/r/vim/comments/1ttes1/disable_escape_keys_to_make_vim_faster/
 set timeout timeoutlen=1000 ttimeoutlen=100
+
+" https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
+set backspace=indent,eol,start
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
