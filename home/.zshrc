@@ -171,7 +171,7 @@ unsetopt AUTO_CD
 if [ "$THEME" = "solarized-dark" ]; then
 
     # replace the colorscheme, background and airline config line in .vimrc
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized/g' ~/.vimrc
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized8/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
 
@@ -189,7 +189,7 @@ if [ "$THEME" = "solarized-dark" ]; then
 
 elif [ "$THEME" = "solarized-light" ]; then
     
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized/g' ~/.vimrc
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized8/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=light/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*solarized-light/g" ~/.alacritty.yml
