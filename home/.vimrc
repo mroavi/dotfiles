@@ -224,11 +224,13 @@ Plug 'edkolev/tmuxline.vim'
 
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
+Plug 'tomasr/molokai'
 Plug 'joshdick/onedark.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
 Plug 'nlknguyen/papercolor-theme'
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'drewtempelmeyer/palenight.vim'
 
 call plug#end()
 
@@ -240,11 +242,12 @@ syntax enable
 
 let g:gruvbox_contrast_dark='medium' 
 let g:airline_powerline_fonts = 1
+let g:palenight_terminal_italics=1
 
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
-colorscheme onedark
+colorscheme palenight
 set background=dark
-let g:airline_theme='onedark'
+let g:airline_theme='palenight'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings

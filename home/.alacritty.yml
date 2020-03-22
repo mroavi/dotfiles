@@ -502,8 +502,34 @@ schemes:
       cyan:    '#66D9EF'
       white:   '#F8F8F2'
 
+  palenight: &palenight
+    # Default colors
+    primary:
+      background: '#292d3e'
+      foreground: '#959dcb'
+    # Normal colors
+    normal:
+      black:   '#292d3e'
+      red:     '#f07178'
+      green:   '#c3e88d'
+      yellow:  '#ffcb6b'
+      blue:    '#82aaff'
+      magenta: '#c792ea'
+      cyan:    '#89ddff'
+      white:   '#959dcb'
+    # Bright colors
+    bright:
+      black:   '#676e95'
+      red:     '#f07178'
+      green:   '#c3e88d'
+      yellow:  '#ffcb6b'
+      blue:    '#82aaff'
+      magenta: '#c792ea'
+      cyan:    '#89ddff'
+      white:   '#ffffff'
+
 # Sets the current colorscheme
-colors: *onedark
+colors: *palenight
 
 # Visual Bell
 #
