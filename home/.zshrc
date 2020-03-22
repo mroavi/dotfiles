@@ -18,7 +18,7 @@ export ZSH="/home/mroavi/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="pygmalion"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # ===============================================
 # POWERLEVEL9K configuration 
@@ -32,6 +32,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 #---------------------------
 # see: https://www.youtube.com/watch?v=wM1uNqj71Ko
 POWERLEVEL9K_MODE="nerdfont-complete"
+#POWERLEVEL9K_MODE='awesome-patched'
 MY_LIGHT_COLOR="white"
 if [ $THEME = "onedark" ]; then MY_DARK_COLOR="grey"; else MY_DARK_COLOR="black"; fi
 POWERLEVEL9K_DISABLE_RPROMPT=false
