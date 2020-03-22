@@ -20,59 +20,10 @@ export ZSH="/home/mroavi/.oh-my-zsh"
 #ZSH_THEME="pygmalion"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# ===============================================
-# POWERLEVEL9K configuration 
-# Run the following command to see all colors:
-# for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
-#
-# Examples: https://github.com/Powerlevel9k/powerlevel9k/wiki/Show-Off-Your-Config
-# - rjorgenson's configuration
-# - Nselimis's configuration:
-# ===============================================
-#---------------------------
-# see: https://www.youtube.com/watch?v=wM1uNqj71Ko
-POWERLEVEL9K_MODE="nerdfont-complete"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#POWERLEVEL9K_MODE="nerdfont-complete"
 #POWERLEVEL9K_MODE='awesome-patched'
-MY_LIGHT_COLOR="white"
-if [ $THEME = "onedark" ]; then MY_DARK_COLOR="grey"; else MY_DARK_COLOR="black"; fi
-POWERLEVEL9K_DISABLE_RPROMPT=false
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="→ "
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery)
-# `vi_mode` color customization
-POWERLEVEL9K_VI_INSERT_MODE_STRING=''
-POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=blue
-POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=green
-# `dir` color customization
-POWERLEVEL9K_DIR_HOME_BACKGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_DIR_HOME_FOREGROUND=$MY_LIGHT_COLOR
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=$MY_LIGHT_COLOR
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=$MY_LIGHT_COLOR
-# `vcs` color customization 
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=$MY_DARK_COLOR
-# `battery` color customization
-POWERLEVEL9K_BATTERY_LOW_BACKGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND=$MY_DARK_COLOR
-POWERLEVEL9K_BATTERY_LOW_FOREGROUND=$MY_LIGHT_COLOR
-POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND=$MY_LIGHT_COLOR
-POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND=$MY_LIGHT_COLOR
-POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=$MY_LIGHT_COLOR
-POWERLEVEL9K_BATTERY_LOW_VISUAL_IDENTIFIER_COLOR="red"
-POWERLEVEL9K_BATTERY_CHARGING_VISUAL_IDENTIFIER_COLOR="yellow"
-POWERLEVEL9K_BATTERY_CHARGED_VISUAL_IDENTIFIER_COLOR="green"
-POWERLEVEL9K_BATTERY_DISCONNECTED_VISUAL_IDENTIFIER_COLOR=$MY_LIGHT_COLOR
-#---------------------------
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -235,11 +186,6 @@ if [ "$THEME" = "solarized-dark" ]; then
     # Set the colorscheme in .alacritty.yml
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*solarized-dark/g" ~/.alacritty.yml
 
-    # Enable ls color support
-    if [ -x /usr/bin/dircolors ]; then
-        test -r ~/.dircolors && eval "$(dircolors -b ~/.solarized.dircolors)" || eval "$(dircolors -b)"
-    fi
-
     # Set vifm's colorscheme
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme solarized-dark/g" ~/.vifm/vifmrc
 
@@ -251,9 +197,6 @@ elif [ "$THEME" = "solarized-light" ]; then
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*solarized-light/g" ~/.alacritty.yml
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
     xrdb -DUSE_SOLARIZED_LIGHT ~/.Xresources
-    if [ -x /usr/bin/dircolors ]; then
-        test -r ~/.dircolors && eval "$(dircolors -b ~/.solarized.dircolors)" || eval "$(dircolors -b)"
-    fi
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme solarized-dark/g" ~/.vifm/vifmrc
 
 elif [ "$THEME" = "gruvbox8-dark" ]; then
@@ -263,9 +206,6 @@ elif [ "$THEME" = "gruvbox8-dark" ]; then
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='base16_gruvbox_dark_hard'/g" ~/.vimrc
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*gruvbox/g" ~/.alacritty.yml
     xrdb -DUSE_GRUVBOX_DARK ~/.Xresources
-    if [ -x /usr/bin/dircolors ]; then
-        test -r ~/.dircolors && eval "$(dircolors -b ~/.gruvbox.dircolors)" || eval "$(dircolors -b)"
-    fi
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme gruvbox/g" ~/.vifm/vifmrc
     
 elif [ "$THEME" = "onedark" ]; then
@@ -275,9 +215,6 @@ elif [ "$THEME" = "onedark" ]; then
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='onedark'/g" ~/.vimrc
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*onedark/g" ~/.alacritty.yml
     xrdb -DUSE_ONEDARK ~/.Xresources
-    if [ -x /usr/bin/dircolors ]; then
-        test -r ~/.dircolors && eval "$(dircolors -b ~/.onedark.dircolors)" || eval "$(dircolors -b)"
-    fi
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme onedark/g" ~/.vifm/vifmrc
     
 else
@@ -306,7 +243,6 @@ bindkey '^ ' autosuggest-accept
 # mrv: Switch to normal mode using 'jk' (specific to zsh(?))
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
-
 
 
 ## mrv: Start up tmux automatically
