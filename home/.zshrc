@@ -1,6 +1,6 @@
 # ▶ mrv: Set theme (use one)
-#THEME=solarized-light
 #THEME=solarized-dark
+#THEME=solarized-light
 #THEME=gruvbox8-dark
 #THEME=onedark
 THEME=palenight
@@ -172,7 +172,7 @@ unsetopt AUTO_CD
 if [ "$THEME" = "solarized-dark" ]; then
 
     # replace the colorscheme, background and airline config line in .vimrc
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized8/g' ~/.vimrc
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized8_high/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
 

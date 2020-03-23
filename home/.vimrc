@@ -488,6 +488,9 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" Increase highlight intensity (type :hi to see all the highlight options)
+highlight link CocHighlightText PmenuSel
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vifm.vim options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
