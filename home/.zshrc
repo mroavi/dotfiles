@@ -1,9 +1,9 @@
 # ▶ mrv: Set theme (use one)
-#THEME=solarized-dark
+THEME=solarized-dark
 #THEME=solarized-light
 #THEME=gruvbox8-dark
 #THEME=onedark
-THEME=palenight
+#THEME=palenight
 
 # mrv: To cleanly kill all tmux open sessions (and server) run:
 # tmux kill-server

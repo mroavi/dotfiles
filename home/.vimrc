@@ -245,9 +245,9 @@ let g:airline_powerline_fonts = 1
 let g:palenight_terminal_italics=1
 
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
-colorscheme palenight
+colorscheme solarized8_high
 set background=dark
-let g:airline_theme='palenight'
+let g:airline_theme='solarized'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings

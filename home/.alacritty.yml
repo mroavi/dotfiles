@@ -531,7 +531,7 @@ schemes:
       white:   '#ffffff'
 
 # Sets the current colorscheme
-colors: *palenight
+colors: *solarized-dark
 
 # Visual Bell
 #
