@@ -85,9 +85,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     git
     zsh-autosuggestions
-    jump
     zsh-syntax-highlighting
-    k
+    vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -152,8 +151,8 @@ alias e="exit"
 #    alias egrep='egrep --color=auto'
 #fi
 
-# mrv: Set vi mode!  
-set -o vi
+## mrv: Set vi mode! (using oh-my-zsh plugin for now)
+#set -o vi
 
 # enable FZF (mrv: installed by FZF installer)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
