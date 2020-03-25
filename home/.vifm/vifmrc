@@ -246,6 +246,8 @@ filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ sxiv %f,
         \ {View in gpicview}
         \ gpicview %c,
+        \ {mrv View in Eye of GNOME}
+        \ eog %c,
         \ {View in shotwell}
         \ shotwell,
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
