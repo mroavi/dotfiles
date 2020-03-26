@@ -2,6 +2,17 @@
 " Vim philosopy: 
 " - https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
 
+" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+" https://github.com/joshdick/onedark.vim/blob/master/README.md
+" (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 " https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
 set viminfo=%,<800,'10,/50,:100,h,f1
 "           | |    |   |   |    | + store file marks 0-9,A-Z
@@ -27,6 +38,12 @@ set laststatus=0 " when to display the status line (see :h laststatus)
 set noshowcmd " don't show partial typed commands in the right of the status bar
 set cmdheight=1 " limit the cmd line height to one 
 
+filetype on " enable filetype detection
+filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indentation settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set tabstop=4 " number of spaces that a <Tab> in the file counts for
 set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
 set shiftwidth=4 " number of spaces for indents in normal mode
@@ -36,38 +53,22 @@ set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " match indents on new lines.
 set smartindent " intelligently dedent / indent new lines based on rules.
 
-" Use these custom Tab settings for yaml files
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+filetype indent on " enable file type based indentation
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set incsearch " live incremental searching
 set noshowmatch " no live match highlighting (brief jumping)
 set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
-" https://www.reddit.com/r/vim/comments/1ttes1/disable_escape_keys_to_make_vim_faster/
-set timeout timeoutlen=1000 ttimeoutlen=100
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
 set backspace=indent,eol,start
-
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-"if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-"endif
-
-" Associate different settings with different filetypes based on the files inside ~/.vim/ftplugin 
-filetype plugin on
 
 " Use F5 to toggle the spelling check!
 :map <F5> :setlocal spell! spelllang=en_us<CR>
@@ -87,6 +88,10 @@ autocmd FileChangedShellPost *
 ""Below is to fix issues with the ABOVE mappings in quickfix window
 "autocmd CmdwinEnter * nnoremap <CR> <CR>
 "autocmd BufReadPost quickfix nnoremap <CR> <CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Remap :FZF to Ctrl+p
 nnoremap <C-p> :FZF<CR>
