@@ -5,7 +5,7 @@ xterm*termName: xterm-256color
 !xterm*termName: xterm
 
 ! Start xterm in fullscreen mode
-XTerm*fullscreen      : true
+XTerm*fullscreen: true
 
 ! Use a nice truetype font and size by default... 
 ! To see available true type, mono-spaced fonts run in shell:
@@ -55,11 +55,11 @@ xterm*VT100.Translations: #override \
 !###### Themes ######
 !####################
 
+#if defined(USE_SOLARIZED_DARK) 
+
 !-------- Theme: Solarized Dark {{{
 !------------------------------------------------------
 ! source: https://github.com/solarized/xresources/blob/master/Xresources.dark
-
-#if defined(USE_SOLARIZED_DARK) 
 
 xterm*background:            #002b36
 xterm*foreground:            #839496
@@ -164,11 +164,11 @@ xterm*color15:               #fdf6e3
 *color7:  #a89984
 *color15: #ebdbb2
 
+#elif defined(USE_ONEDARK)
+
 !!-------- Theme: onedark {{{
 !------------------------------------------------------
 !source: https://github.com/joshdick/onedark.vim/blob/master/term/One%20Dark.Xresources
-
-#elif defined(USE_ONEDARK)
 
 ! special
 *.foreground:   #ABB2BF
@@ -199,13 +199,13 @@ xterm*color15:               #fdf6e3
 *.color7:       #ABB2BF
 *.color15:      #3E4452
 
+#elif defined(USE_PALENIGHT)
+
 !!-------- Theme: palenight {{{
 !------------------------------------------------------
 !source: https://raw.githubusercontent.com/base16-templates/base16-xresources/master/xresources/base16-material-palenight-256.Xresources
 ! Base16 Material Palenight
 ! Scheme: Nate Peterson
-
-#elif defined(USE_PALENIGHT)
 
 #define base00 #292d3e
 #define base01 #444267
@@ -258,6 +258,43 @@ xterm*color15:               #fdf6e3
 *color19:      base02
 *color20:      base04
 *color21:      base06
+
+
+#elif defined(USE_MATERIAL)
+
+!-------- Theme: Material {{{
+!------------------------------------------------------
+! source: https://github.com/cemmanouilidis/monokai-xterm/blob/master/xtermcontrol
+! https://github.com/logico-dev/Xresources-themes/blob/master/xcolors-material.Xresources
+! Google Material Design
+
+*background 		: #263238
+*foreground 		: #eceff1
+
+! black
+*color0  			: #263238
+*color8  			: #37474f
+! red
+*color1  			: #ff9800
+*color9  			: #ffa74d
+! green
+*color2  			: #8bc34a
+*color10 			: #9ccc65
+! yellow
+*color3  			: #ffc107
+*color11 			: #ffa000
+! blue
+*color4  			: #03a9f4
+*color12 			: #81d4fa
+! magenta
+*color5  			: #e91e63
+*color13 			: #ad1457
+! cyan
+*color6  			: #009688
+*color14 			: #26a69a
+! white
+*color7  			: #cfd8dc
+*color15 			: #eceff1
 
 #else
 

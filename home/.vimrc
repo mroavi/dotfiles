@@ -236,6 +236,7 @@ Plug 'morhetz/gruvbox'
 Plug 'nlknguyen/papercolor-theme'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'jdkanani/vim-material-theme'
 
 call plug#end()
 
@@ -245,6 +246,7 @@ call plug#end()
 " Set the color scheme
 syntax enable
 
+" Specific color scheme options
 let g:gruvbox_contrast_dark='medium' 
 let g:airline_powerline_fonts = 1
 let g:palenight_terminal_italics=1

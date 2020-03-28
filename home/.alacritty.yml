@@ -400,7 +400,6 @@ schemes:
     primary:
       background: '#282a36'
       foreground: '#f8f8f2'
-
     # Normal colors
     normal:
       black:   '#000000'
@@ -411,7 +410,6 @@ schemes:
       magenta: '#ff79c6'
       cyan:    '#8be9fd'
       white:   '#bfbfbf'
-
     # Bright colors
     bright:
       black:   '#575b70'
@@ -423,39 +421,10 @@ schemes:
       cyan:    '#9aedfe'
       white:   '#e6e6e6'
 
-  material: &material
-    # Default colors
-    primary:
-      background: '#1e282d'
-      foreground: '#c4c7d1'
-
-    # Normal colors
-    normal:
-      black:   '#666666'
-      red:     '#eb606b'
-      green:   '#c3e88d'
-      yellow:  '#f7eb95'
-      blue:    '#80cbc4'
-      magenta: '#ff2f90'
-      cyan:    '#aeddff'
-      white:   '#ffffff'
-
-    # Bright colors
-    bright:
-      black:   '#ff262b'
-      red:     '#eb606b'
-      green:   '#c3e88d'
-      yellow:  '#f7eb95'
-      blue:    '#7dc6bf'
-      magenta: '#6c71c4'
-      cyan:    '#35434d'
-      white:   '#ffffff'
-     
   monokai: &monokai
     primary:
       background: '#272822'
       foreground: '#F8F8F2'
-
     # Normal colors
     normal:
       black:   '#272822'
@@ -466,7 +435,6 @@ schemes:
       magenta: '#AE81FF'
       cyan:    '#A1EFE4'
       white:   '#F8F8F2'
-
     # Bright colors
     bright:
       black:   '#75715E'
@@ -530,6 +498,32 @@ schemes:
       cyan:    '#89ddff'
       white:   '#ffffff'
 
+  material: &material
+    # Default colors
+    primary:
+      background: '#1e282d'
+      foreground: '#c4c7d1'
+    # Normal colors
+    normal:
+      black:   '#666666'
+      red:     '#eb606b'
+      green:   '#c3e88d'
+      yellow:  '#f7eb95'
+      blue:    '#80cbc4'
+      magenta: '#ff2f90'
+      cyan:    '#aeddff'
+      white:   '#ffffff'
+    # Bright colors
+    bright:
+      black:   '#ff262b'
+      red:     '#eb606b'
+      green:   '#c3e88d'
+      yellow:  '#f7eb95'
+      blue:    '#7dc6bf'
+      magenta: '#6c71c4'
+      cyan:    '#35434d'
+      white:   '#ffffff'
+     
 # Sets the current colorscheme
 colors: *solarized-dark
 

@@ -4,6 +4,7 @@ THEME=solarized-dark
 #THEME=gruvbox8-dark
 #THEME=onedark
 #THEME=palenight
+#THEME=material
 
 # mrv: To cleanly kill all tmux open sessions (and server) run:
 # tmux kill-server
@@ -222,6 +223,16 @@ elif [ "$THEME" = "palenight" ]; then
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='palenight'/g" ~/.vimrc
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*palenight/g" ~/.alacritty.yml
     xrdb -DUSE_PALENIGHT ~/.Xresources
+    sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
+    
+ elif [ "$THEME" = "material" ]; then
+
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme material-theme/g' ~/.vimrc
+    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
+    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='hybrid'/g" ~/.vimrc
+    sed -i --follow-symlinks "s/colors: \*.*/colors: \*material/g" ~/.alacritty.yml
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=0'
+    xrdb -DUSE_MATERIAL ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
     
 else
