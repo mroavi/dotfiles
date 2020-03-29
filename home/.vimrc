@@ -108,6 +108,10 @@ noremap <C-z> <Nop>
 " Ctrl+t -> new tab
 nnoremap <C-t> :tabnew<CR>
 
+" Ctrl+i (previous entry in jumplist) -> Ctrl-s 
+" Ctrl+i is equivalent to Tab which is being remapped by coc
+nnoremap <C-s> <C-i>
+
 " Shortcut to rapidly toggle `set list!`
 " http://vimcasts.org/episodes/show-invisibles/
 nmap <leader>l :set list!<CR>
@@ -374,6 +378,8 @@ set shortmess+=c
 set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
+" MRV: WARNING: this breaks the original  functionality <c-i> (previous entry
+" in jumplist)
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>

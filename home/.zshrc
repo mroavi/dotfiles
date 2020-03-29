@@ -263,6 +263,10 @@ bindkey '^ ' autosuggest-accept
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
 
+# mrv: Disable Ctrl-S from freezing Vim 
+# See: https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
+stty -ixon
+
 
 ## mrv: Start up tmux automatically
 ## If not running interactively, do not do anything
