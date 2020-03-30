@@ -228,6 +228,9 @@ Plug 'tpope/vim-fugitive'
 " Simple tmux statusline generator with support for powerline symbols and vim/airline statusline integration
 Plug 'edkolev/tmuxline.vim'
 
+" A very fast, multi-syntax context-sensitive color name highlighter
+Plug 'ap/vim-css-color'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
