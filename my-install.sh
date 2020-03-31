@@ -47,3 +47,9 @@ cd ~/.local/share/fonts && curl -fLo "SourceCodePro-Powerline-Awesome-Regular.tt
 # Return to originatl directory
 cd "$currentdir"
 
+## TODO:
+# sudo apt-get install clangd-9
+# apt install build-essential cmake vim python3-dev
+# cd ~/.vim/bundle/YouCompleteMe
+# python3 install.py --clangd-completer
+
