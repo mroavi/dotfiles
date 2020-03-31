@@ -85,7 +85,7 @@ autocmd FileChangedShellPost *
 " Remappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Remap <leader> key
+" Remap <Leader> key
 let mapleader = " "
 
 " Replace default prefix Ctrl+w with Ctrl+a 
@@ -94,24 +94,30 @@ nnoremap <C-a> <C-w>
 " Yank to clipboard
 vmap <Leader>y "+y
 
-" Disable Ctl+z (which kills the process in vim-gnome)
+" Resize splits easier
+noremap <Leader>j <C-w>-
+noremap <Leader>k <C-w>+
+noremap <Leader>h <C-w><
+noremap <Leader>l <C-w>>
+
+" Disable Ctl+z kwhich kills the process in vim-gnome)
 noremap <C-z> <Nop>
 
 " Shortcut to rapidly toggle `set list!`
 " http://vimcasts.org/episodes/show-invisibles/
-nmap <leader>l :set list!<CR>
-
-" Close tab with Ctrl+w
-nnoremap <C-w> :tabclose<CR>
-
-" Ctrl+t -> new tab
-nnoremap <C-t> :tabnew<CR>
+nmap <Leader>li :set list!<CR>
 
 " Define symbols for tabstops, spaces and EOLs
 set listchars=tab:▸\ ,space:_,eol:¬
 
 " Chorme-like tab commands (conflicts with tmux)
 " based on: https://stackoverflow.com/a/31961401/1706778
+
+" Close tab with Ctrl+w
+nnoremap <C-w> :tabclose<CR>
+
+" Ctrl+t -> new tab
+nnoremap <C-t> :tabnew<CR>
 
 " Ctl+tab -> next tab
 set <F13>=[27;5;9~
@@ -168,7 +174,7 @@ Plug 'michaeljsmith/vim-indent-object'
 " Lean & mean status/tabline for vim that's light as air.
 Plug 'vim-airline/vim-airline'
 
-" See: https://github.com/vim-airline/vim-airline/wiki/Screenshots
+" See https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plug 'vim-airline/vim-airline-themes'
 
 " Provides support for writing LaTeX documents
@@ -346,7 +352,7 @@ set signcolumn=yes
 " FZF options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Map :FZF to Alt+\
-nnoremap <c-p> :FZF<CR>
+nnoremap <C-p> :FZF<CR>
 
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -395,18 +401,18 @@ let g:vifm_embed_term=1
 let g:vifm_embed_split=1
 
 " Map toggle vifm
-nnoremap <leader>\ :leftabove vertical 40Vifm<CR>
+nnoremap <Leader>\ :leftabove vertical 40Vifm<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-tmux-navigator
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-"nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
+"nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-highlightedyank options
@@ -416,17 +422,17 @@ let g:highlightedyank_highlight_duration = 200
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>gd :YcmCompleter GoTo<cr>
-nnoremap <leader>gr :YcmCompleter GoToReferences<cr>
-nnoremap <leader>fi :YcmCompleter FixIt<cr>
-noremap <leader>fo :YcmCompleter Format<cr>
-nnoremap <leader>st :YcmCompleter GetType<cr>
-nnoremap <leader>sd :YcmCompleter GetDoc<cr>
-nnoremap <F2> :YcmCompleter RefactorRename<space>
+nnoremap <Leader>gd :YcmCompleter GoTo<CR>
+nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <Leader>fi :YcmCompleter FixIt<CR>
+noremap <Leader>fo :YcmCompleter Format<CR>
+nnoremap <Leader>st :YcmCompleter GetType<CR>
+nnoremap <Leader>sd :YcmCompleter GetDoc<CR>
+nnoremap <F2> :YcmCompleter RefactorRename<SPACE>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undotree options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>u :UndotreeShow<cr>
+nmap <Leader>u :UndotreeShow<CR>
 let g:undotree_SetFocusWhenToggle = 1
 
