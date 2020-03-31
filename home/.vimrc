@@ -416,7 +416,7 @@ let g:highlightedyank_highlight_duration = 200
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>m :NERDTreeToggle<cr>
+nmap <c-\> :NERDTreeToggle<cr>
 nmap <leader>n :NERDTreeFind<cr>
 
 " Automatically quit vim if NERDTree is last and only buffer
