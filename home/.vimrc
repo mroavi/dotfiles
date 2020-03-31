@@ -238,6 +238,9 @@ Plug 'ycm-core/YouCompleteMe'
 " View and grep man pages in vim
 Plug 'vim-utils/vim-man'
 
+" The undo history visualizer for VIM
+Plug 'mbbill/undotree'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
@@ -439,3 +442,8 @@ nnoremap <leader>st :YcmCompleter GetType<cr>
 nnoremap <leader>sd :YcmCompleter GetDoc<cr>
 nnoremap <F2> :YcmCompleter RefactorRename<space>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" undotree options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>u :UndotreeShow<cr>
+let g:undotree_SetFocusWhenToggle = 1
