@@ -550,8 +550,8 @@ highlight link CocHighlightText PmenuSel
 let g:vifm_embed_term=1
 let g:vifm_embed_split=1
 
-" Map toggle vifm to Ctrl+\
-nnoremap <C-Bslash> :leftabove vertical 40Vifm<CR>
+" Map toggle vifm
+nnoremap <leader>\ :leftabove vertical 40Vifm<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-tmux-navigator
