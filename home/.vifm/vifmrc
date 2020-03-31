@@ -515,8 +515,7 @@ nnoremap <f8> :delete<cr>
 set dotfiles
 
 " Remap exit command 
-" TODO: after pressing Ctrl+\ a key needs to be pressed for the command to take effect. Fix this.
-nnoremap <c-\> :exit<cr>
+nnoremap <space>\ :exit<cr>
 
 " Remap default prefix from Ctrl+w to Ctrl+a 
 nnoremap <c-a> <c-w>

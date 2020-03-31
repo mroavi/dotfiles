@@ -93,6 +93,9 @@ autocmd FileChangedShellPost *
 " Remappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Remap <leader> key
+let mapleader = " "
+
 " Remap default prefix from Ctrl+w to Ctrl+a 
 nnoremap <C-a> <C-w>
 
@@ -212,6 +215,9 @@ Plug 'conradirwin/vim-bracketed-paste'
 
 " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" A file system explorer for the Vim editor (load when NerdTreeToggle is fired)
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Vim plugin that allows use of vifm as a file picker 
 Plug 'vifm/vifm.vim'
@@ -562,3 +568,40 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 " vim-highlightedyank options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:highlightedyank_highlight_duration = 200
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Map toggle NERDTree to
+map <leader>n :NERDTreeToggle<CR>
+
+" Automatically quit vim if NERDTree is last and only buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Show hidden files by default
+let NERDTreeShowHidden=1
+
+""""""""
+"" Auto-open NERDTree in vim and focus on file
+"autocmd VimEnter * NERDTree | wincmd p
+"" AND
+"" Highlight currently opened file
+"" https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
+"" Check if NERDTree is open or active
+"function! IsNERDTreeOpen()
+"  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+"endfunction
+"" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+"" file, and we're not in vimdiff
+"function! SyncTree()
+"  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"    NERDTreeFind
+"    wincmd p
+"  endif
+"endfunction
+"" Highlight currently open buffer in NERDTree
+"autocmd BufEnter * call SyncTree()
+"" mrv Fix: needed to highlight currently open buffer when vim is started
+"autocmd VimEnter * call SyncTree()
+"""""""
+
