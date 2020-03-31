@@ -235,6 +235,9 @@ Plug 'ap/vim-css-color'
 " A code-completion engine for Vim
 Plug 'ycm-core/YouCompleteMe'
 
+" View and grep man pages in vim
+Plug 'vim-utils/vim-man'
+
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
