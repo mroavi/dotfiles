@@ -30,12 +30,11 @@ set title " show file in titlebar
 set noswapfile " They're just annoying. Who likes them?
 "set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
-
 set noshowmode " don't show mode in status bar (taken care of by airline)
-set noruler " don't show cursor position in status bar
-set laststatus=0 " when to display the status line (see :h laststatus)
-set noshowcmd " don't show partial typed commands in the right of the status bar
-set cmdheight=1 " limit the cmd line height to one 
+set noruler " don't show cursor position in status bar (taken care of by airline)
+set laststatus=0 " do not display the status line (see :h laststatus)
+set noshowcmd " don't show partial typed commands in the right side of the status bar
+set cmdheight=1 " limit the cmd line height to one line 
 
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
@@ -82,12 +81,6 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 autocmd FileChangedShellPost *
     \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-"" Use enter to create new lines w/o entering insert mode "" https://github.com/colbycheeze/dotfiles/blob/master/vimrc
-"nnoremap <CR> o<Esc>
-""Below is to fix issues with the ABOVE mappings in quickfix window
-"autocmd CmdwinEnter * nnoremap <CR> <CR>
-"autocmd BufReadPost quickfix nnoremap <CR> <CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -95,21 +88,21 @@ autocmd FileChangedShellPost *
 " Remap <leader> key
 let mapleader = " "
 
-" Remap default prefix from Ctrl+w to Ctrl+a 
+" Replace default prefix Ctrl+w with Ctrl+a 
 nnoremap <C-a> <C-w>
-
-" Close tab with Ctrl+w
-nnoremap <C-w> :tabclose<CR>
 
 " Disable Ctl+z (which kills the process in vim-gnome)
 noremap <C-z> <Nop>
 
-" Ctrl+t -> new tab
-nnoremap <C-t> :tabnew<CR>
-
 " Shortcut to rapidly toggle `set list!`
 " http://vimcasts.org/episodes/show-invisibles/
 nmap <leader>l :set list!<CR>
+
+" Close tab with Ctrl+w
+nnoremap <C-w> :tabclose<CR>
+
+" Ctrl+t -> new tab
+nnoremap <C-t> :tabnew<CR>
 
 " Define symbols for tabstops, spaces and EOLs
 set listchars=tab:▸\ ,space:_,eol:¬
@@ -205,14 +198,11 @@ Plug 'airblade/vim-gitgutter'
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
 
-" A code-completion engine for Vim
-"Plug 'valloric/youcompleteme'
-
 " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " A file system explorer for the Vim editor (load when NerdTreeToggle is fired)
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Vim plugin that allows use of vifm as a file picker 
 Plug 'vifm/vifm.vim'
@@ -281,15 +271,15 @@ let g:vimtex_compiler_latexmk = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-auto-save options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Do not display the auto-save notification
-"let g:auto_save_silent = 1 
-
 " Use the autosave feature with the file types specified below
 let g:auto_save = 0
 augroup ft_tex
     au!
     au FileType tex let b:auto_save = 1
 augroup END
+
+" Do not display the auto-save notification
+"let g:auto_save_silent = 1 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDComment options 
@@ -351,7 +341,7 @@ set signcolumn=yes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap :FZF to Alt+\
+" Map :FZF to Alt+\
 nnoremap <c-p> :FZF<CR>
 
 " This is the default extra key bindings
@@ -420,18 +410,6 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 let g:highlightedyank_highlight_duration = 200
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree options
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <c-\> :NERDTreeToggle<cr>
-nmap <leader>n :NERDTreeFind<cr>
-
-" Automatically quit vim if NERDTree is last and only buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Show hidden files by default
-let NERDTreeShowHidden=1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>gd :YcmCompleter GoTo<cr>
@@ -447,3 +425,4 @@ nnoremap <F2> :YcmCompleter RefactorRename<space>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>u :UndotreeShow<cr>
 let g:undotree_SetFocusWhenToggle = 1
+
