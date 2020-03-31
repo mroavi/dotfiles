@@ -91,6 +91,9 @@ let mapleader = " "
 " Replace default prefix Ctrl+w with Ctrl+a 
 nnoremap <C-a> <C-w>
 
+" Yank to clipboard
+vmap <Leader>y "+y
+
 " Disable Ctl+z (which kills the process in vim-gnome)
 noremap <C-z> <Nop>
 
