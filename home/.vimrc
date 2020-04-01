@@ -95,10 +95,14 @@ nnoremap <C-a> <C-w>
 vmap <Leader>y "+y
 
 " Resize splits easier
-noremap <Leader>j <C-w>-
-noremap <Leader>k <C-w>+
-noremap <Leader>h <C-w><
-noremap <Leader>l <C-w>>
+set <M-S-j>=J
+noremap <M-S-j> <C-w>+
+set <M-S-k>=K
+noremap <M-S-k> <C-w>-
+set <M-S-h>=H
+noremap <M-S-h> <C-w><
+set <M-S-l>=L
+noremap <M-S-l> <C-w>>
 
 " Disable Ctl+z kwhich kills the process in vim-gnome)
 noremap <C-z> <Nop>
