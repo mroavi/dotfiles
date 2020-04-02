@@ -32,7 +32,7 @@ set noswapfile " they're just annoying. Who likes them?
 set wrap linebreak nolist " avoid breaking lines in the middle of words
 set noshowmode " don't show mode in status bar (taken care of by airline)
 set noruler " don't show cursor position in status bar (taken care of by airline)
-set laststatus=0 " do not display the status line (see :h laststatus)
+set laststatus=2 " always display the status line (see :h laststatus)
 set noshowcmd " don't show partial typed commands in the right side of the status bar
 set cmdheight=1 " limit the cmd line height to one line 
 set wildmenu " when entering a command, <Tab> shows possible matches above the command line
@@ -88,14 +88,8 @@ autocmd FileChangedShellPost *
 " Remappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Remap <Leader> key
-let mapleader = " "
-
 " Replace default prefix Ctrl+w with Ctrl+a 
 nnoremap <C-a> <C-w>
-
-" Yank to clipboard
-vmap <Leader>y "+y
 
 " Resize splits easier
 set <M-S-j>=J
@@ -107,7 +101,23 @@ noremap <M-S-h> <C-w><
 set <M-S-l>=L
 noremap <M-S-l> <C-w>>
 
-" Close all buffers but the current one
+" Define symbols for tabstops, spaces and EOLs
+set listchars=tab:▸\ ,space:_,eol:¬
+
+" Remap <Leader> key
+let mapleader = " "
+
+" Yank to clipboard
+vmap <Leader>y "+y
+
+" Flying with buffer list (https://irian.to/blogs/best-way-to-navigate-files-in-vim/)
+nnoremap <Leader>b :ls<CR>:b<Space>
+
+" Switch to next/previous buffer
+nnoremap <Leader>j :bnext<CR>
+nnoremap <Leader>k :bprevious<CR>
+
+" clOse all buffers but the current one
 map <Leader>o :%bd\|e#<cr>
 
 " Source .vimrc
@@ -116,12 +126,8 @@ map <Leader>sv :source $MYVIMRC<CR>
 " Disable Ctl+z kwhich kills the process in vim-gnome)
 noremap <C-z> <Nop>
 
-" Shortcut to rapidly toggle `set list!`
-" http://vimcasts.org/episodes/show-invisibles/
+" Toggle display of invisible chars (http://vimcasts.org/episodes/show-invisibles/`)
 nmap <Leader>li :set list!<CR>
-
-" Define symbols for tabstops, spaces and EOLs
-set listchars=tab:▸\ ,space:_,eol:¬
 
 " Chorme-like tab commands (conflicts with tmux)
 " based on: https://stackoverflow.com/a/31961401/1706778
@@ -433,7 +439,7 @@ nnoremap <Leader>fi :YcmCompleter FixIt<CR>
 noremap <Leader>fo :YcmCompleter Format<CR>
 nnoremap <Leader>st :YcmCompleter GetType<CR>
 nnoremap <Leader>sd :YcmCompleter GetDoc<CR>
-nnoremap <F2> :YcmCompleter RefactorRename<SPACE>
+nnoremap <F2> :YcmCompleter RefactorRename<Space>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undotree options
