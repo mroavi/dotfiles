@@ -106,6 +106,9 @@ noremap <M-S-h> <C-w><
 set <M-S-l>=L
 noremap <M-S-l> <C-w>>
 
+" Close all buffers but the current one
+map <Leader>o :%bd\|e#<cr>
+
 " Source .vimrc
 map <Leader>sv :source $MYVIMRC<CR>
 
@@ -404,8 +407,8 @@ let g:vifm_embed_term=1
 let g:vifm_embed_split=1
 
 " Map toggle vifm
-"nnoremap <Leader>o :leftabove vertical 40Vifm<CR>
-nnoremap <Leader>o :99Vifm<CR>
+"nnoremap <Leader>/ :leftabove vertical 40Vifm<CR>
+nnoremap <Leader>/  :99Vifm<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-tmux-navigator
