@@ -118,7 +118,7 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
 
-" clOse all buffers but the current one
+" Close all buffers but the current one
 map <Leader>o :%bd\|e#<cr>
 
 " Source .vimrc
@@ -174,9 +174,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-
-" Vim support for Julia.
-Plug 'JuliaEditorSupport/julia-vim'
 
 " A command-line fuzzy finder 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -259,6 +256,12 @@ Plug 'vim-utils/vim-man'
 
 " The undo history visualizer for VIM
 Plug 'mbbill/undotree'
+
+" Provides mappings to easily delete, change and add such surroundings in pairs
+Plug 'tpope/vim-surround'
+
+" Vim support for Julia.
+"Plug 'JuliaEditorSupport/julia-vim'
 
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
@@ -398,11 +401,11 @@ let g:fzf_colors =
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" julia-vim options 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable matchit plugin (this plugin is distributed with Vim)
-runtime macros/matchit.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" julia-vim options
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Enable matchit plugin (this plugin is distributed with Vim)
+"runtime macros/matchit.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vifm.vim options 
