@@ -209,7 +209,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug '907th/vim-auto-save'
 
 " Pairs of handy bracket mappings
-Plug 'tpope/vim-unimpaired'
+"Plug 'tpope/vim-unimpaired'
 
 " Comment functions so powerful—no comment necessary
 Plug 'scrooloose/nerdcommenter'
@@ -221,7 +221,7 @@ Plug 'zhou13/vim-easyescape'
 Plug 'easymotion/vim-easymotion'
 
 " Shows a git diff in the 'gutter' (sign column)
-"Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
@@ -355,8 +355,8 @@ nmap s <Plug>(easymotion-s)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-gitgutter options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" The delay is governed by vim's updatetime option
-"set updatetime=100
+" The delay is governed by vim's updatetime option
+set updatetime=100
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
