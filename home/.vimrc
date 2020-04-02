@@ -36,6 +36,7 @@ set laststatus=0 " do not display the status line (see :h laststatus)
 set noshowcmd " don't show partial typed commands in the right side of the status bar
 set cmdheight=1 " limit the cmd line height to one line 
 set wildmenu " when entering a command, <Tab> shows possible matches above the command line
+set cursorline " highlight the line that the cursor is currently on
 
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
