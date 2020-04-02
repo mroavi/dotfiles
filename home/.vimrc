@@ -25,9 +25,9 @@ set viminfo=%,<800,'10,/50,:100,h,f1
 
 set nocompatible " We don't need Vi compatibility
 set number " show line numbers
-set relativenumber " each line in your file is numbered relative to the cursor’s current position
+set relativenumber " each line is numbered relative to the cursor’s current position
 set title " show file in titlebar
-set noswapfile " They're just annoying. Who likes them?
+set noswapfile " they're just annoying. Who likes them?
 "set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
 set noshowmode " don't show mode in status bar (taken care of by airline)
@@ -37,6 +37,7 @@ set noshowcmd " don't show partial typed commands in the right side of the statu
 set cmdheight=1 " limit the cmd line height to one line 
 set wildmenu " when entering a command, <Tab> shows possible matches above the command line
 set cursorline " highlight the line that the cursor is currently on
+set signcolumn=yes " Always show sign column
 
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
@@ -214,7 +215,7 @@ Plug 'zhou13/vim-easyescape'
 Plug 'easymotion/vim-easymotion'
 
 " Shows a git diff in the 'gutter' (sign column)
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
 
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
@@ -345,14 +346,11 @@ let g:EasyMotion_do_mapping = 0
 " Jump anywhere with s
 nmap s <Plug>(easymotion-s)
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-gitgutter options
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" The delay is governed by vim's updatetime option
-set updatetime=100
-
-" Always show sign column
-set signcolumn=yes
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" vim-gitgutter options
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" The delay is governed by vim's updatetime option
+"set updatetime=100
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
