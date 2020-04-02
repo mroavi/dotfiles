@@ -409,7 +409,8 @@ let g:vifm_embed_term=1
 let g:vifm_embed_split=1
 
 " Map toggle vifm
-nnoremap <Leader>\ :leftabove vertical 40Vifm<CR>
+"nnoremap <Leader>o :leftabove vertical 40Vifm<CR>
+nnoremap <Leader>o :99Vifm<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-tmux-navigator
