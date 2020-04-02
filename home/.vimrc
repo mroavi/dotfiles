@@ -342,12 +342,6 @@ let g:EasyMotion_do_mapping = 0
 " Jump anywhere with s
 nmap s <Plug>(easymotion-s)
 
-" Jump forward on the current line 
-nmap f <Plug>(easymotion-lineforward)
-
-" Jump backwards on the current line 
-nmap F <Plug>(easymotion-linebackward)
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
