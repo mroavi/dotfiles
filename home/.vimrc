@@ -105,6 +105,9 @@ noremap <M-S-h> <C-w><
 set <M-S-l>=L
 noremap <M-S-l> <C-w>>
 
+" Source .vimrc
+map <Leader>sv :source $MYVIMRC<CR>
+
 " Disable Ctl+z kwhich kills the process in vim-gnome)
 noremap <C-z> <Nop>
 
