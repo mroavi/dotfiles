@@ -108,18 +108,21 @@ set listchars=tab:▸\ ,space:_,eol:¬
 " Remap <Leader> key
 let mapleader = " "
 
-" Yank to clipboard
-vmap <Leader>y "+y
-
 " Flying with buffer list (https://irian.to/blogs/best-way-to-navigate-files-in-vim/)
-nnoremap <Leader>b :ls<CR>:b<Space>
+nnoremap <Leader>l :ls<CR>:b<Space>
 
 " Switch to next/previous buffer
 nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
 
+" Delete current buffer
+nnoremap <Leader>d :bdelete<CR>
+
 " Close all buffers but the current one
 map <Leader>o :%bd\|e#<cr>
+
+" Yank to clipboard
+vmap <Leader>y "+y
 
 " Source .vimrc
 map <Leader>sv :source $MYVIMRC<CR>
@@ -128,7 +131,7 @@ map <Leader>sv :source $MYVIMRC<CR>
 noremap <C-z> <Nop>
 
 " Toggle display of invisible chars (http://vimcasts.org/episodes/show-invisibles/`)
-nmap <Leader>li :set list!<CR>
+nmap <F3> :set list!<CR>
 
 " Chorme-like tab commands (conflicts with tmux)
 " based on: https://stackoverflow.com/a/31961401/1706778
@@ -414,7 +417,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:vifm_embed_term=1
 let g:vifm_embed_split=1
 
-" Map toggle vifm
+" Toggle vifm
 "nnoremap <Leader>/ :leftabove vertical 40Vifm<CR>
 nnoremap <Leader>/  :99Vifm<CR>
 
@@ -444,6 +447,16 @@ noremap <Leader>fo :YcmCompleter Format<CR>
 nnoremap <Leader>st :YcmCompleter GetType<CR>
 nnoremap <Leader>sd :YcmCompleter GetDoc<CR>
 nnoremap <F2> :YcmCompleter RefactorRename<Space>
+
+":set completeopt=preview,menuone " default
+:set completeopt=menuone
+
+" Show the full diagnostic text
+"let g:ycm_key_detailed_diagnostics = '<leader>d' " default
+let g:ycm_key_detailed_diagnostics = ''
+
+" Auto-close the preview window after the user accepts the offered completion string 
+"let g:ycm_autoclose_preview_window_after_completion = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undotree options
