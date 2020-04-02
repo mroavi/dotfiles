@@ -37,7 +37,8 @@ set noshowcmd " don't show partial typed commands in the right side of the statu
 set cmdheight=1 " limit the cmd line height to one line 
 set wildmenu " when entering a command, <Tab> shows possible matches above the command line
 set cursorline " highlight the line that the cursor is currently on
-set signcolumn=yes " Always show sign column
+set signcolumn=yes " always show sign column
+set hidden " allows switching from unwritten buffers and remembers the buffer undo history 
 
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
