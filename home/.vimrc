@@ -279,7 +279,10 @@ Plug 'tpope/vim-surround'
 " Vim support for Julia.
 Plug 'JuliaEditorSupport/julia-vim'
 
-" Colorschemes
+" Changes Vim working directory to project root (identified by presence of known directory or file)
+Plug 'airblade/vim-rooter'
+
+" Color schemes
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'joshdick/onedark.vim'
