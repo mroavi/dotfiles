@@ -371,7 +371,7 @@ let g:EasyMotion_do_mapping = 0
 nmap s <Plug>(easymotion-s)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-gitgutter options
+" vim-gitgutter options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The delay is governed by vim's updatetime option
 set updatetime=100
@@ -379,9 +379,13 @@ set updatetime=100
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>rg :RG<CR>
+" Shift-Tab to select multiple results (-m flag required)
 nnoremap <Leader><Leader> :FZF -m<CR>
-nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>rg :RG<CR>
+nnoremap <Leader>fi :Files<CR>
+nnoremap <Leader>gf :GFiles<CR>
+nnoremap <Leader>ls :Buffers<CR>
+nnoremap <Leader>bl :BLines<CR>
 
 " This are the default extra key bindings
 let g:fzf_action = {
