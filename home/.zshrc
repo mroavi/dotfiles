@@ -155,15 +155,28 @@ alias e="exit"
 ## mrv: Set vi mode! (using oh-my-zsh plugin for now)
 #set -o vi
 
-# enable FZF (mrv: installed by FZF installer)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=2
 
 # mrv: disable auto cd
 # see https://unix.stackexchange.com/questions/126719/how-to-disable-auto-cd-in-zsh-with-oh-my-zsh
 unsetopt AUTO_CD
+
+# ===============================================
+# Configure FZF 
+# ===============================================
+
+# enable FZF (mrv: installed by FZF installer)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Use highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+
+# Full screen
+#export FZF_DEFAULT_OPTS='--no-height --no-reverse'
+
+# Add preview to Alt-C
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # ===============================================
 # Configure theme 
