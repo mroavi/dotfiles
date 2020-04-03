@@ -44,12 +44,28 @@ cd ~/.local/share/fonts && curl -fLo "Inconsolata-Awesome.ttf" https://github.co
 cd ~/.local/share/fonts && curl -fLo "SourceCodePro-Powerline-Awesome-Regular.ttf" https://github.com/gabrielelana/awesome-terminal-fonts/raw/patching-strategy/patched/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf
 
 # -----------------------------------------------------------------------------------------
-# Return to originatl directory
-cd "$currentdir"
+echo "Installing clangd and YouCompleteMe..."
 
-## TODO:
-# sudo apt-get install clangd-9
-# apt install build-essential cmake vim python3-dev
-# cd ~/.vim/bundle/YouCompleteMe
-# python3 install.py --clangd-completer
+sudo apt-get install clangd-9
+sudo apt install build-essential cmake vim python3-dev
+#cd ~/.vim/bundle/YouCompleteMe
+#python3 install.py --clangd-completer
+
+# -----------------------------------------------------------------------------------------
+echo "Installing ripgrep..."
+sudo curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+sudo sudo dpkg -i ripgrep_11.0.2_amd64.deb
+
+# -----------------------------------------------------------------------------------------
+# https://computingforgeeks.com/bat-cat-command-with-syntax-highlighting-and-git-integration/ 
+echo "Installing bat..."
+
+sudo apt-get install wget
+export VER="0.13.0"
+wget https://github.com/sharkdp/bat/releases/download/v${VER}/bat_${VER}_amd64.deb
+sudo dpkg -i bat_${VER}_amd64.deb
+
+
+# Return to original directory
+cd "$currentdir"
 
