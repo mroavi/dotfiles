@@ -102,6 +102,12 @@ noremap <M-S-h> <C-w><
 set <M-S-l>=L
 noremap <M-S-l> <C-w>>
 
+" Advance up and down faster with the cursor
+set <M-j>=j
+noremap <M-j> 5j<CR>
+set <M-k>=k
+noremap <M-k> 5k<CR>
+
 " Define symbols for tabstops, spaces and EOLs
 set listchars=tab:▸\ ,space:_,eol:¬
 
