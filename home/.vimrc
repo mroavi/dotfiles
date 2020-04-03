@@ -379,7 +379,7 @@ set updatetime=100
 " FZF options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>rg :RG<CR>
-nnoremap <C-p> :Files<CR>
+nnoremap <Leader><Leader> :FZF -m<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 " This are the default extra key bindings
