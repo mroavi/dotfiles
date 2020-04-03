@@ -175,7 +175,7 @@ nnoremap <F15> :close<CR>
 " vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Automatically install vim-plug if it is not available
+" Automatically install vim-plug if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -184,8 +184,6 @@ endif
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
-
-" Declare the list of plugins.
 
 " A command-line fuzzy finder 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
