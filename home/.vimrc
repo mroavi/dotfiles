@@ -384,8 +384,16 @@ nnoremap <Leader><Leader> :FZF -m<CR>
 nnoremap <Leader>rg :RG<CR>
 nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>gf :GFiles<CR>
+nnoremap <Leader>gs :GFiles?<CR>
 nnoremap <Leader>ls :Buffers<CR>
+nnoremap <Leader>li :Lines<CR>
 nnoremap <Leader>bl :BLines<CR>
+nnoremap <Leader>co :Commits<CR>
+nnoremap <Leader>bc :BCommits<CR>
+nnoremap <Leader>hi :History<CR>
+nnoremap <Leader>ch :History:<CR>
+nnoremap <Leader>cm :Commands<CR>
+nnoremap <Leader>ma :Maps<CR>
 
 " This are the default extra key bindings
 let g:fzf_action = {
