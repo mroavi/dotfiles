@@ -188,6 +188,9 @@ if [ "$THEME" = "solarized-dark" ]; then
     # Set vifm's colorscheme
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme solarized-dark/g" ~/.vifm/vifmrc
 
+    # Set bat highlighting theme
+    export BAT_THEME="Solarized (dark)"
+
 elif [ "$THEME" = "solarized-light" ]; then
     
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized8/g' ~/.vimrc
@@ -197,6 +200,7 @@ elif [ "$THEME" = "solarized-light" ]; then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
     xrdb -DUSE_SOLARIZED_LIGHT ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme solarized-dark/g" ~/.vifm/vifmrc
+    export BAT_THEME="Solarized (light)"
 
 elif [ "$THEME" = "gruvbox8-dark" ]; then
     
@@ -215,6 +219,7 @@ elif [ "$THEME" = "onedark" ]; then
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*onedark/g" ~/.alacritty.yml
     xrdb -DUSE_ONEDARK ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme onedark/g" ~/.vifm/vifmrc
+    export BAT_THEME="OneHalfDark"
     
 elif [ "$THEME" = "palenight" ]; then
 
@@ -225,6 +230,7 @@ elif [ "$THEME" = "palenight" ]; then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
     xrdb -DUSE_PALENIGHT ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
+    export BAT_THEME="OneHalfDark"
     
  elif [ "$THEME" = "material" ]; then
 
@@ -244,7 +250,7 @@ else
 fi
 
 # ===============================================
-# Custom key binding
+# Custom key bindings
 # ===============================================
 
 # Important: place this at the end since other commands (such as enabling FZF) override it

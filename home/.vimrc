@@ -180,6 +180,7 @@ call plug#begin('~/.vim/plugged')
 
 " A command-line fuzzy finder 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Automatically clears search highlight when cursor is moved
 Plug 'junegunn/vim-slash'
@@ -264,7 +265,7 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 
 " Vim support for Julia.
-"Plug 'JuliaEditorSupport/julia-vim'
+Plug 'JuliaEditorSupport/julia-vim'
 
 " Colorschemes
 Plug 'crusoexia/vim-monokai'
@@ -368,18 +369,30 @@ set updatetime=100
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map :FZF to Alt+\
-nnoremap <C-p> :FZF<CR>
+nnoremap <Leader>rg :RG<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
 
-" This is the default extra key bindings
+" This are the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" Ignore files specified by .gitignore
-" https://github.com/junegunn/fzf.vim/issues/121
-"let $FZF_DEFAULT_COMMAND = 'ag -g ""' " TODO: this is breaking FZF
+" Advanced ripgrep integration
+" See https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+" Default fzf layout
+let g:fzf_layout = { 'down': '~40%' }
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
@@ -404,11 +417,11 @@ let g:fzf_colors =
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" julia-vim options
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Enable matchit plugin (this plugin is distributed with Vim)
-"runtime macros/matchit.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" julia-vim options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable matchit plugin (this plugin is distributed with Vim)
+runtime macros/matchit.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vifm.vim options 
@@ -463,4 +476,14 @@ let g:ycm_key_detailed_diagnostics = ''
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <Leader>u :UndotreeShow<CR>
 let g:undotree_SetFocusWhenToggle = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-ripgrep options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Search from project root
+"if executable('rg')
+"    let g:rg_derive_root='true'
+"endif
+
 
