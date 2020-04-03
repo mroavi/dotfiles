@@ -469,10 +469,10 @@ let g:highlightedyank_highlight_duration = 200
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
-nnoremap <Leader>fi :YcmCompleter FixIt<CR>
+nnoremap <Leader>fx :YcmCompleter FixIt<CR>
 noremap <Leader>fo :YcmCompleter Format<CR>
-nnoremap <Leader>st :YcmCompleter GetType<CR>
-nnoremap <Leader>sd :YcmCompleter GetDoc<CR>
+nnoremap <Leader>gt :YcmCompleter GetType<CR>
+nnoremap <Leader>gd :YcmCompleter GetDoc<CR>
 nnoremap <F2> :YcmCompleter RefactorRename<Space>
 
 ":set completeopt=preview,menuone " default
@@ -482,7 +482,7 @@ nnoremap <F2> :YcmCompleter RefactorRename<Space>
 "let g:ycm_key_detailed_diagnostics = '<leader>d' " default
 let g:ycm_key_detailed_diagnostics = ''
 
-" Auto-close the preview window after the user accepts the offered completion string 
+" Auto-close the preview window after the user accepts the offered completion string
 "let g:ycm_autoclose_preview_window_after_completion = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
