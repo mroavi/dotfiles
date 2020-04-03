@@ -108,6 +108,9 @@ noremap <M-j> 5j<CR>
 set <M-k>=k
 noremap <M-k> 5k<CR>
 
+" Make Y behave like other capitals
+nnoremap Y y$
+
 " Define symbols for tabstops, spaces and EOLs
 set listchars=tab:▸\ ,space:_,eol:¬
 
