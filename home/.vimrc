@@ -120,24 +120,21 @@ set listchars=tab:▸\ ,space:_,eol:¬
 " Remap <Leader> key
 let mapleader = " "
 
-" Flying with buffer list (https://irian.to/blogs/best-way-to-navigate-files-in-vim/)
-nnoremap <Leader>l :ls<CR>:b<Space>
-
 " Switch to next/previous buffer
 nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
 
 " Delete current buffer
-nnoremap <Leader>d :bdelete<CR>
+nnoremap <Leader>bd :bdelete<CR>
 
 " Close all buffers but the current one
-map <Leader>o :%bd\|e#<cr>
+map <Leader>bo :%bd\|e#<cr>
 
 " Yank to clipboard
 vmap <Leader>y "+y
 
 " Source .vimrc
-map <Leader>sv :source $MYVIMRC<CR>
+map <Leader>v :source $MYVIMRC<CR>
 
 " Disable Ctl+z kwhich kills the process in vim-gnome)
 noremap <C-z> <Nop>
