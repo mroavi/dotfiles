@@ -73,7 +73,7 @@ set gdefault " use the `g` flag by default.
 set backspace=indent,eol,start
 
 " Use F5 to toggle the spelling check!
-:map <F5> :setlocal spell! spelllang=en_us<CR>
+map <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Refresh changed content of file opened in vi(m)
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim
@@ -84,6 +84,9 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
     \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+" Clear last used search pattern when .vimrc is sourced
+let @/ = ""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remappings
