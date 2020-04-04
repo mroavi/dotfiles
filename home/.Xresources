@@ -7,9 +7,9 @@ xterm*termName: xterm-256color
 ! Start xterm in fullscreen mode
 XTerm*fullscreen: true
 
-! Use a nice truetype font and size by default... 
+! Use a nice truetype font and size by default...
 ! To see available true type, mono-spaced fonts run in shell:
-! fc-list :scalable=true:spacing=mono: family 
+! fc-list :scalable=true:spacing=mono: family
 !xterm*faceName: Ubuntu Mono
 !xterm*faceSize: 12
 !xterm*faceName: UbuntuMono Nerd Font Mono
@@ -33,7 +33,7 @@ xterm*scrollTtyOutput: false
 xterm*visualBell: on
 
 ! Intercept and send a unique code for ctrl-tab and ctrl-shift-tab
-! Based on: https://stackoverflow.com/a/31961401/1706778 
+! Based on: https://stackoverflow.com/a/31961401/1706778
 ! Hack: intercept Ctrl+Shift+w and send the code for Ctrl+Shift+0
 ! Hack: intercept Ctrl+Shift+s and send the code for Ctrl+Shift+1
 ! Hack: intercept Ctrl+Shift+v and send the code for Ctrl+Shift+.
@@ -55,7 +55,7 @@ xterm*VT100.Translations: #override \
 !###### Themes ######
 !####################
 
-#if defined(USE_SOLARIZED_DARK) 
+#if defined(USE_SOLARIZED_DARK)
 
 !-------- Theme: Solarized Dark {{{
 !------------------------------------------------------
