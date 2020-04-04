@@ -180,7 +180,7 @@ command! reload :write | restart
 
 " Pdf
 "filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
-filextype *.pdf 
+filextype *.pdf
         \ {mrv: Open with evince}
         \ evince %f &
 fileviewer *.pdf pdftotext -nopgbrk %c -
@@ -306,9 +306,9 @@ fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
 "filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
 "       \ {Mount with archivemount}
 "       \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR,
-filetype *.tgz,*.tar.gz 
+filetype *.tgz,*.tar.gz
         \ {mrv: extract here}
-        \ tar -xzvf %c -C . 
+        \ tar -xzvf %c -C .
 fileviewer *.tgz,*.tar.gz tar -tzf %c
 fileviewer *.tar.bz2,*.tbz2 tar -tjf %c
 fileviewer *.tar.txz,*.txz xz --list %c
@@ -444,15 +444,15 @@ elseif executable('xsel')
     " yank current directory path into primary and selection clipboards
     nnoremap yd :!echo -n %d | xsel --input --primary %i &&
                 \ echo -n %d | xsel --clipboard --input %i<cr>
-    
+
     " yank current file path into primary and selection clipboards
     nnoremap yf :!echo -n %c:p | xsel --input --primary %i &&
                 \ echo -n %c:p | xsel --clipboard --input %i<cr>
-    
+
     " yank current filename without path into primary and selection clipboards
     nnoremap yn :!echo -n %c | xsel --input --primary %i &&
                 \ echo -n %c | xsel --clipboard --input %i<cr>
-    
+
     " yank root of current file's name into primary and selection clipboards
     nnoremap yr :!echo -n %c:r | xsel --input --primary %i &&
                 \ echo -n %c:r | xsel --clipboard --input %i<cr>
@@ -514,11 +514,11 @@ nnoremap <f8> :delete<cr>
 " Show hidden files and dirs on startup
 set dotfiles
 
-" Remap exit command 
+" Remap exit command
 nnoremap <space>/ :exit<cr>
 nnoremap q :exit<cr>
 
-" Remap default prefix from Ctrl+w to Ctrl+a 
+" Remap default prefix from Ctrl+w to Ctrl+a
 nnoremap <c-a> <c-w>
 
 " Open files in a vim server named "svim"
