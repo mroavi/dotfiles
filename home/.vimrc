@@ -1,6 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim philosopy: 
+" Vim philosopy:
 " - https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
+
+" Remap <Leader> key (should be placed on top of this file)
+let mapleader = ' '
+let maplocalleader = ' '
 
 " Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 " https://github.com/joshdick/onedark.vim/blob/master/README.md
@@ -17,7 +21,7 @@ endif
 set viminfo=%,<800,'10,/50,:100,h,f1
 "           | |    |   |   |    | + store file marks 0-9,A-Z
 "           | |    |   |   |    + disable 'hlsearch' while loading viminfo
-"           | |    |   |   + maximum number of items in the command-line history to be saved 
+"           | |    |   |   + maximum number of items in the command-line history to be saved
 "           | |    |   + maximum number of items in the search pattern history to be saved
 "           | |    + files marks saved
 "           | + maximum num of lines saved each register (old name for <, vi6.2)
@@ -34,12 +38,12 @@ set noshowmode " don't show mode in status bar (taken care of by airline)
 set noruler " don't show cursor position in status bar (taken care of by airline)
 set laststatus=2 " always display the status line (see :h laststatus)
 set noshowcmd " don't show partial typed commands in the right side of the status bar
-set cmdheight=1 " limit the cmd line height to one line 
+set cmdheight=1 " limit the cmd line height to one line
 set wildmenu " when entering a command, <Tab> shows possible matches above the command line
 set cursorline " highlight the line that the cursor is currently on
 set signcolumn=yes " always show sign column
-set hidden " allows switching from unwritten buffers and remembers the buffer undo history 
-set formatoptions-=tc " disable auto-wrap text using textwidth 
+set hidden " allows switching from unwritten buffers and remembers the buffer undo history
+set formatoptions-=tc " disable auto-wrap text using textwidth
 
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
@@ -50,7 +54,7 @@ filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplu
 set tabstop=4 " number of spaces that a <Tab> in the file counts for
 set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
 set shiftwidth=4 " number of spaces for indents in normal mode
-set expandtab " use spaces instead of tabs. 
+set expandtab " use spaces instead of tabs.
 set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " match indents on new lines.
@@ -103,7 +107,7 @@ noremap <Leader>tw :call TrimWhitespace()<CR>
 " Remappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Replace default prefix Ctrl+w with Ctrl+a 
+" Replace default prefix Ctrl+w with Ctrl+a
 nnoremap <C-a> <C-w>
 
 " Resize splits easier
@@ -127,9 +131,6 @@ nnoremap Y y$
 
 " Define symbols for tabstops, spaces and EOLs
 set listchars=tab:▸\ ,space:_,eol:¬
-
-" Remap <Leader> key
-let mapleader = " "
 
 " Switch to next/previous buffer
 nnoremap <Leader>j :bnext<CR>
@@ -178,7 +179,7 @@ nnoremap <F15> :close<CR>
 "set <F16>=[27;6;49~
 "nnoremap <F16> :split<CR>
 
-" Ctrl+Shift+s -> horizontal split 
+" Ctrl+Shift+s -> horizontal split
 "set <F17>=[27;6;46~
 "nnoremap <F17> :vsplit<CR>
 
@@ -196,7 +197,7 @@ endif
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
-" A command-line fuzzy finder 
+" A command-line fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -219,7 +220,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Provides support for writing LaTeX documents
 Plug 'lervag/vimtex'
 
-" Allows you to navigate seamlessly between vim and tmux splits using a consistent set of hotkeys 
+" Allows you to navigate seamlessly between vim and tmux splits using a consistent set of hotkeys
 Plug 'toranb/tmux-navigator'
 
 " FocusGained and FocusLost autocommand events in terminal vim
@@ -252,7 +253,7 @@ Plug 'conradirwin/vim-bracketed-paste'
 " A file system explorer for the Vim editor (load when NerdTreeToggle is fired)
 "Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" Vim plugin that allows use of vifm as a file picker 
+" Vim plugin that allows use of vifm as a file picker
 Plug 'vifm/vifm.vim'
 
 " Make the yanked region apparent!
@@ -261,7 +262,7 @@ Plug 'machakann/vim-highlightedyank'
 " Change the cursor shape based on the current mode
 Plug 'wincent/terminus'
 
-" A Git wrapper so awesome, it should be illegal 
+" A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
 
 " Simple tmux statusline generator with support for powerline symbols and vim/airline statusline integration
@@ -303,13 +304,13 @@ Plug 'jacoborus/tender.vim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colorscheme and airline theme settings 
+" Colorscheme and airline theme settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set the color scheme
 syntax enable
 
 " Specific color scheme options
-let g:gruvbox_contrast_dark='medium' 
+let g:gruvbox_contrast_dark='medium'
 let g:airline_powerline_fonts = 1
 let g:palenight_terminal_italics=1
 
@@ -337,12 +338,12 @@ augroup ft_tex
 augroup END
 
 " Do not display the auto-save notification
-"let g:auto_save_silent = 1 
+"let g:auto_save_silent = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDCommenter options 
+" NERDCommenter options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Do not create default mappings 
+" Do not create default mappings
 let g:NERDCreateDefaultMappings = 0
 
 " Make NerdCommentToggle comment all selected lines if there is at least one that is not connected
@@ -353,7 +354,7 @@ let g:NERDTrimTrailingWhitespace = 1
 
 let g:NERDDefaultAlign = 'start'
 
-" Remap Ctrl+/ to NERDCommentToggle in normal and visual modes! 
+" Remap Ctrl+/ to NERDCommentToggle in normal and visual modes!
 set <F18>=
 nnoremap <F18> :call NERDComment(0,"toggle")<C-m>
 vnoremap <F18> :call NERDComment(0,"toggle")<C-m>
@@ -392,7 +393,7 @@ nmap <Leader>hj <Plug>(GitGutterNextHunk)
 nmap <Leader>hk <Plug>(GitGutterPrevHunk)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FZF options 
+" FZF options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shift-Tab to select multiple results (-m flag required)
 nnoremap <Leader><Leader> :FZF -m<CR>
@@ -461,7 +462,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 runtime macros/matchit.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vifm.vim options 
+" vifm.vim options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://github.com/vifm/vifm.vim/issues/19
 let g:vifm_embed_term=1
