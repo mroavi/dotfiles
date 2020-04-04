@@ -166,14 +166,26 @@ unsetopt AUTO_CD
 # Configure FZF 
 # ===============================================
 
-# enable FZF (mrv: installed by FZF installer)
+# Enable FZF (mrv: installed by FZF installer)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Custom FZF command that uses ripgrep (invoked by `:Files` command in fzf.vim)
+# List of ripgrep options:
+# - https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#common-options
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+#export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore'
+
+# Layout options
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
+#export FZF_DEFAULT_OPTS='--no-height --no-reverse'
+
+# -----------------------------------------------
+# Configure shell key bindings
+# https://github.com/junegunn/fzf/wiki/Configuring-shell-key-bindings
+# -----------------------------------------------
 
 # Use highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-
-# Full screen
-#export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
 # Add preview to Alt-C
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
