@@ -504,13 +504,3 @@ let g:ycm_key_detailed_diagnostics = ''
 nmap <Leader>u :UndotreeShow<CR>
 let g:undotree_SetFocusWhenToggle = 1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-ripgrep options
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Search from project root
-"if executable('rg')
-"    let g:rg_derive_root='true'
-"endif
-
-
