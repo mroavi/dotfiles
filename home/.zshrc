@@ -176,7 +176,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 #export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore'
 
 # Layout options
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --multi'
 #export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
 # -----------------------------------------------
@@ -185,7 +185,8 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 # -----------------------------------------------
 
 # Use highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
-export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_PREVIEW_COMMAND="bat --style=numbers,changes --wrap never --color always {} || cat {} || tree -C {}"
+export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-window noborder --preview '($FZF_PREVIEW_COMMAND) 2> /dev/null'"
 
 # Add preview to Alt-C
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
