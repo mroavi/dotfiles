@@ -275,10 +275,10 @@ font:
   #
   #indexed_colors: []
 
-    
+
 # Available color schemes
 schemes:
-  
+
   onedark: &onedark
     # Default colors
     primary:
@@ -304,7 +304,7 @@ schemes:
       magenta: '0xC678DD'
       cyan:    '0x56B6C2'
       white:   '0x3E4452'
-  
+
   solarized-light: &solarized-light
     # Default colors
     primary:
@@ -523,7 +523,7 @@ schemes:
       magenta: '#6c71c4'
       cyan:    '#35434d'
       white:   '#ffffff'
-     
+
 # Sets the current colorscheme
 colors: *solarized-dark
 
@@ -792,7 +792,7 @@ colors: *solarized-dark
 #
 #    A `~` operator can be used before a mode to apply the binding whenever
 #    the mode is *not* active, e.g. `~Alt`.
-# 
+#
 # mrv: to create a hex dump of a pressed key (standard input)
 # mrv:    > xxd -psd
 # mrv: see https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/
@@ -804,7 +804,7 @@ colors: *solarized-dark
 # a no-op if you do not wish to receive input characters for that binding.
 key_bindings:
   # (mrv)
-  # Intercept Ctrl-tab and Ctrl-Shift-Tab and send their X code 
+  # Intercept Ctrl-tab and Ctrl-Shift-Tab and send their X code
   #   See: https://stackoverflow.com/a/31961401/1706778
   # Hack: intercept Ctrl+Shift+w and send the X code for Ctrl+Shift+0
   # Hack: intercept Ctrl+Shift+s and send the X code for Ctrl+Shift+1
