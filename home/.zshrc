@@ -118,14 +118,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# mrv: go to dotfiles home dir 
+# mrv: go to dotfiles home dir
 alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
 
 # mrv: connect to TU/e's VPN
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 
 # mrv: cd to the paper I'm currently writing (temp)
-alias paper="cd ~/Dropbox/Apps/Overleaf/Martin-2020-SCOPES-Real-Time-Audio-Processing-in-Julia-for-Hearing-Aids" 
+alias paper="cd ~/Dropbox/Apps/Overleaf/Martin-2020-SCOPES-Real-Time-Audio-Processing-in-Julia-for-Hearing-Aids"
 
 # mrv: shortcut for vim
 alias v="vim"
@@ -163,7 +163,7 @@ export KEYTIMEOUT=2
 unsetopt AUTO_CD
 
 # ===============================================
-# Configure FZF 
+# Configure FZF
 # ===============================================
 
 # Enable FZF (mrv: installed by FZF installer)
@@ -192,7 +192,7 @@ export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-wind
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # ===============================================
-# Configure theme 
+# Configure theme
 # ===============================================
 
 if [ "$THEME" = "solarized-dark" ]; then
@@ -218,7 +218,7 @@ if [ "$THEME" = "solarized-dark" ]; then
     export BAT_THEME="Solarized (dark)"
 
 elif [ "$THEME" = "solarized-light" ]; then
-    
+
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized8/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=light/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
@@ -229,14 +229,14 @@ elif [ "$THEME" = "solarized-light" ]; then
     export BAT_THEME="Solarized (light)"
 
 elif [ "$THEME" = "gruvbox8-dark" ]; then
-    
+
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox8_hard/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='base16_gruvbox_dark_hard'/g" ~/.vimrc
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*gruvbox/g" ~/.alacritty.yml
     xrdb -DUSE_GRUVBOX_DARK ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme gruvbox/g" ~/.vifm/vifmrc
-    
+
 elif [ "$THEME" = "onedark" ]; then
 
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme onedark/g' ~/.vimrc
@@ -246,7 +246,7 @@ elif [ "$THEME" = "onedark" ]; then
     xrdb -DUSE_ONEDARK ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme onedark/g" ~/.vifm/vifmrc
     export BAT_THEME="OneHalfDark"
-    
+
 elif [ "$THEME" = "palenight" ]; then
 
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme palenight/g' ~/.vimrc
@@ -257,7 +257,7 @@ elif [ "$THEME" = "palenight" ]; then
     xrdb -DUSE_PALENIGHT ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
     export BAT_THEME="OneHalfDark"
-    
+
  elif [ "$THEME" = "material" ]; then
 
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme material-theme/g' ~/.vimrc
@@ -267,12 +267,12 @@ elif [ "$THEME" = "palenight" ]; then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=0'
     xrdb -DUSE_MATERIAL ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
-    
+
 else
-    
+
     echo "Using default theme"
     xrdb ~/.Xresources
-    
+
 fi
 
 # ===============================================
@@ -285,7 +285,7 @@ fi
 setopt noautomenu
 setopt nomenucomplete
 
-# Defines behavior of 'Tab' (default in ohmyzsh is 'menu-complete') 
+# Defines behavior of 'Tab' (default in ohmyzsh is 'menu-complete')
 # See: http://zsh.sourceforge.net/Guide/zshguide06.html
 #bindkey '^ ' menu-complete
 #bindkey '^ ' complete-word
@@ -295,7 +295,7 @@ bindkey '^ ' autosuggest-accept
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
 
-# mrv: Disable Ctrl-S from freezing Vim 
+# mrv: Disable Ctrl-S from freezing Vim
 # See: https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
 stty -ixon
 
