@@ -39,6 +39,7 @@ set wildmenu " when entering a command, <Tab> shows possible matches above the c
 set cursorline " highlight the line that the cursor is currently on
 set signcolumn=yes " always show sign column
 set hidden " allows switching from unwritten buffers and remembers the buffer undo history 
+set formatoptions-=tc " disable auto-wrap text using textwidth 
 
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
