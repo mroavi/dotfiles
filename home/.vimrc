@@ -329,7 +329,7 @@ augroup END
 "let g:auto_save_silent = 1 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDComment options 
+" NERDCommenter options 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Do not create default mappings 
 let g:NERDCreateDefaultMappings = 0
@@ -375,6 +375,10 @@ nmap s <Plug>(easymotion-s)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The delay is governed by vim's updatetime option
 set updatetime=100
+
+" Remap go to next/previous hunk
+nmap <Leader>hj <Plug>(GitGutterNextHunk)
+nmap <Leader>hk <Plug>(GitGutterPrevHunk)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF options 
