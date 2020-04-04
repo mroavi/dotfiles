@@ -89,6 +89,16 @@ autocmd FileChangedShellPost *
 " Clear last used search pattern when .vimrc is sourced
 let @/ = ""
 
+" Strip trailing whitespace from all lines in a file
+" https://vi.stackexchange.com/a/456/27039
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
+noremap <Leader>tw :call TrimWhitespace()<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
