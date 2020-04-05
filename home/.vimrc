@@ -141,13 +141,19 @@ nnoremap <Leader>k :bprevious<CR>
 nnoremap <Leader>bd :bdelete<CR>
 
 " Close all buffers but the current one
-map <Leader>bo :%bd\|e#<cr>
+map <Leader>bo :%bd\|e#<CR>
+
+" Write to disk
+nnoremap <Leader>w :w<CR>
+
+" Quit
+nnoremap <Leader>q :q<CR>
 
 " Yank to clipboard
 vmap <Leader>y "+y
 
 " Source .vimrc
-map <Leader>v :source $MYVIMRC<CR>
+map <Leader>s :source $MYVIMRC<CR>
 
 " Disable Ctl+z kwhich kills the process in vim-gnome)
 noremap <C-z> <Nop>
