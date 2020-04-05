@@ -403,9 +403,8 @@ nmap <Leader>hk <Plug>(GitGutterPrevHunk)
 " FZF options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shift-Tab to select multiple results (-m flag required)
-nnoremap <Leader><Leader> :FZF -m<CR>
-nnoremap <Leader>rg :RG<CR>
-nnoremap <Leader>fi :Files<CR>
+nnoremap <Leader>rg :MyRg!<CR>
+nnoremap <Leader>fi :MyFiles!<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>gs :GFiles?<CR>
 nnoremap <Leader>ls :Buffers<CR>
@@ -418,26 +417,55 @@ nnoremap <Leader>ch :History:<CR>
 nnoremap <Leader>cm :Commands<CR>
 nnoremap <Leader>ma :Maps<CR>
 
+" -------------------------------------------------------------------
+" Files
+" -------------------------------------------------------------------
+command! -nargs=? -bang -complete=dir MyFiles call fzf#vim#files(
+    \ <q-args>,
+    \ <bang>0 ? fzf#vim#with_preview({'options': ['--preview-window', 'up:60%', '--no-height']})
+    \         : fzf#vim#with_preview({'options': ['--preview-window', 'up:60%'], 'down': '40%'}),
+    \ <bang>0)
+
+" -------------------------------------------------------------------
+" Rg
+" -------------------------------------------------------------------
+" Advanced ripgrep integration
+" See https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --hidden --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command,
+    \                     '--preview-window', 'up:60%', '--no-height'], 'down': '100%'}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang MyRg call RipgrepFzf(<q-args>, <bang>0)
+
+"" WIP
+"" Template based on https://www.reddit.com/r/vim/comments/a1g4cp/fzf_with_preview_window_ag_search_on_a_directory/
+"" See https://github.com/junegunn/fzf/blob/master/README-VIM.md
+"command! -nargs=* MyRg call fzf#run(fzf#wrap(fzf#vim#with_preview({
+"        \ 'source': 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
+"        \ 'sink':'edit',
+"        \ 'down': '100%',
+"        \ 'options': ['--no-reverse', '--preview-window', 'up:60%']
+"        \ })))
+
+" -------------------------------------------------------------------
+" Extra
+" -------------------------------------------------------------------
+" Default fzf layout
+let g:fzf_layout = { 'down': '~40%' }
+
 " This are the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" Advanced ripgrep integration
-" See https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
+" Always enable preview window on the right with 60% width
+let g:fzf_preview_window = 'right:60%'
 
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-
-" Default fzf layout
-let g:fzf_layout = { 'down': '~40%' }
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
