@@ -282,28 +282,28 @@ schemes:
   onedark: &onedark
     # Default colors
     primary:
-      background: '0x282C34'
-      foreground: '0xABB2BF'
+      background: '#282C34'
+      foreground: '#ABB2BF'
     # Normal colors
     normal:
-      black:   '0x5C6370'
-      red:     '0xE06C75'
-      green:   '0x98C379'
-      yellow:  '0xE5C07B'
-      blue:    '0x61AFEF'
-      magenta: '0xC678DD'
-      cyan:    '0x56B6C2'
-      white:   '0xABB2BF'
+      black:   '#5C6370'
+      red:     '#E06C75'
+      green:   '#98C379'
+      yellow:  '#E5C07B'
+      blue:    '#61AFEF'
+      magenta: '#C678DD'
+      cyan:    '#56B6C2'
+      white:   '#ABB2BF'
     # Bright colors
     bright:
-      black:   '0x4B5263'
-      red:     '0xBE5046'
-      green:   '0x98C379'
-      yellow:  '0xD19A66'
-      blue:    '0x61AFEF'
-      magenta: '0xC678DD'
-      cyan:    '0x56B6C2'
-      white:   '0x3E4452'
+      black:   '#4B5263'
+      red:     '#BE5046'
+      green:   '#98C379'
+      yellow:  '#D19A66'
+      blue:    '#61AFEF'
+      magenta: '#C678DD'
+      cyan:    '#56B6C2'
+      white:   '#3E4452'
 
   solarized-light: &solarized-light
     # Default colors
