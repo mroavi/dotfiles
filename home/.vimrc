@@ -299,6 +299,9 @@ Plug 'JuliaEditorSupport/julia-vim'
 " Changes Vim working directory to project root (identified by presence of known directory or file)
 Plug 'airblade/vim-rooter'
 
+" Vim plugin to interact with tmux
+Plug 'benmills/vimux'
+
 " Color schemes
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
@@ -553,3 +556,47 @@ let g:ycm_key_detailed_diagnostics = ''
 nmap <Leader>u :UndotreeShow<CR>
 let g:undotree_SetFocusWhenToggle = 1
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vimux options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "50"
+
+" Prompt for a command to run map
+map <Leader>vp :VimuxPromptCommand<CR>
+
+" Run the current file with rspec
+map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+
+" Open vim tmux runner
+map <Leader>vo :call VimuxOpenRunner()<CR>
+
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>vq :VimuxCloseRunner<CR>
+
+" Interrupt any command running in the runner pane
+map <Leader>vx :VimuxInterruptRunner<CR>
+
+" Zoom the runner pane (use <bind-key> z to restore runner pane)
+map <Leader>vz :call VimuxZoomRunner()<CR>
+
+" Send code to a repl
+function! VimuxSlime()
+ call VimuxSendText(@v)
+ call VimuxSendKeys("Enter")
+endfunction
+
+" If text is selected, save it in the v buffer and send that buffer to tmux
+vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
+
+" Select current paragraph and send it to tmux
+nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
