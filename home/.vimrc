@@ -133,6 +133,9 @@ nnoremap Y y$
 " Define symbols for tabstops, spaces and EOLs
 set listchars=tab:▸\ ,space:_,eol:¬
 
+" Open help in vertical split
+cnoreabbrev H vert bo h
+
 " Switch to next/previous buffer
 nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
