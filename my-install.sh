@@ -69,3 +69,4 @@ sudo dpkg -i bat_${VER}_amd64.deb
 # Return to original directory
 cd "$currentdir"
 
+# TODO: install xclip
