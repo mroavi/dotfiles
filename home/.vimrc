@@ -293,11 +293,17 @@ Plug 'mbbill/undotree'
 " Provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
 
+" Changes Vim working directory to project root (identified by presence of known directory or file)
+Plug 'airblade/vim-rooter'
+
 " Vim support for Julia.
 Plug 'JuliaEditorSupport/julia-vim'
 
-" Changes Vim working directory to project root (identified by presence of known directory or file)
-Plug 'airblade/vim-rooter'
+" Grab some text and send it to a GNU Screen / tmux / NeoVim Terminal / Vim Terminal
+Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia']}
+
+" Seamlessly run Python (or Julia) code from Vim in IPython
+Plug 'hanschen/vim-ipython-cell', { 'for': ['python', 'julia'] }
 
 " Color schemes
 Plug 'crusoexia/vim-monokai'
@@ -573,4 +579,43 @@ let g:ycm_key_detailed_diagnostics = ''
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <Leader>u :UndotreeShow<CR>
 let g:undotree_SetFocusWhenToggle = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-slime
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
+let g:slime_dont_ask_default = 1
+let g:slime_python_ipython = 1
+let g:slime_no_mappings = 1
+
+" Map to Ctrl-Return
+set <F19>=[27;5;40~
+autocmd FileType python,julia xmap <buffer> <F19> <Plug>SlimeRegionSend
+autocmd FileType python,julia nmap <buffer> <F19> <Plug>SlimeLineSend
+autocmd FileType python,julia nmap <buffer> <C-c>v <Plug>SlimeConfig
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-ipython-cell
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use '##' to define cells instead of using marks
+let g:ipython_cell_delimit_cells_by = 'tags'
+
+"" Run whole script (TODO: only works for Python)
+"set <F20>=[27;6;44~
+"autocmd FileType python,julia nnoremap <buffer> <F20> :IPythonCellRun<CR>
+
+" Execute the current cell
+execute "set <M-CR>=\<esc>\<cr>"
+autocmd FileType python,julia nnoremap <buffer> <M-CR> :IPythonCellExecuteCell<CR>
+
+" Jump to the previous/next cell headers
+set <M-k>=k
+autocmd FileType python,julia nnoremap <buffer> <M-k> :IPythonCellPrevCell<CR>
+set <M-j>=j
+autocmd FileType python,julia nnoremap <buffer> <M-j> :IPythonCellNextCell<CR>
+
+" TODO
+"autocmd FileType python,julia nnoremap <buffer> <Leader>l :IPythonCellClear<CR>
+"autocmd FileType python,julia nnoremap <buffer> <Leader>x :IPythonCellClose<CR>
 
