@@ -415,13 +415,14 @@ nnoremap <Leader>li :Lines<CR>
 nnoremap <Leader>bl :BLines<CR>
 nnoremap <Leader>co :Commits<CR>
 nnoremap <Leader>bc :BCommits<CR>
-nnoremap <Leader>hi :History<CR>
+nnoremap <Leader>hi :MyHistory<CR>
 nnoremap <Leader>ch :History:<CR>
 nnoremap <Leader>cm :Commands<CR>
 nnoremap <Leader>ma :Maps<CR>
 
 " -------------------------------------------------------------------
 " Files
+" command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, s:p(<bang>0), <bang>0)
 " -------------------------------------------------------------------
 command! -nargs=? -bang -complete=dir MyFiles call fzf#vim#files(
     \ <q-args>,
@@ -455,10 +456,31 @@ command! -nargs=* -bang MyRg call RipgrepFzf(<q-args>, <bang>0)
 "        \ })))
 
 " -------------------------------------------------------------------
+" History
+" command! -bang -nargs=* History call s:history(<q-args>, s:p(<bang>0), <bang>0)
+" -------------------------------------------------------------------
+command! -bang -nargs=* MyHistory call s:history(
+    \ <q-args>,
+    \ <bang>0 ? fzf#vim#with_preview({'options': ['--preview-window', 'up:60%', '--no-height']})
+    \         : fzf#vim#with_preview({'options': ['--preview-window', 'up:60%'], 'down': '50%'}),
+    \ <bang>0)
+
+function! s:history(arg, extra, bang)
+  let bang = a:bang || a:arg[len(a:arg)-1] == '!'
+  if a:arg[0] == ':'
+    call fzf#vim#command_history(bang)
+  elseif a:arg[0] == '/'
+    call fzf#vim#search_history(bang)
+  else
+    call fzf#vim#history(a:extra, bang)
+  endif
+endfunction
+
+" -------------------------------------------------------------------
 " Extra
 " -------------------------------------------------------------------
 " Default fzf layout
-let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_layout = { 'down': '~50%' }
 
 " This are the default extra key bindings
 let g:fzf_action = {
@@ -468,7 +490,6 @@ let g:fzf_action = {
 
 " Always enable preview window on the right with 60% width
 let g:fzf_preview_window = 'right:60%'
-
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
