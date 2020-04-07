@@ -602,8 +602,8 @@ autocmd FileType python,julia nmap <buffer> <C-c>v <Plug>SlimeConfig
 let g:ipython_cell_delimit_cells_by = 'tags'
 
 "" Run whole script (TODO: only works for Python)
-"set <F20>=[27;6;44~
-"autocmd FileType python,julia nnoremap <buffer> <F20> :IPythonCellRun<CR>
+set <F20>=[27;6;44~
+autocmd FileType python,julia nnoremap <buffer> <F20> :IPythonCellRun<CR>
 
 " Execute the current cell
 execute "set <M-CR>=\<esc>\<cr>"
