@@ -468,7 +468,7 @@ command! -nargs=* -bang MyRg call RipgrepFzf(<q-args>, <bang>0)
 command! -bang -nargs=* MyHistory call s:history(
     \ <q-args>,
     \ <bang>0 ? fzf#vim#with_preview({'options': ['--preview-window', 'up:60%', '--no-height']})
-    \         : fzf#vim#with_preview({'options': ['--preview-window', 'up:60%'], 'down': '50%'}),
+    \         : fzf#vim#with_preview({'options': ['--preview-window', 'up:60%'], 'down': '80%'}),
     \ <bang>0)
 
 function! s:history(arg, extra, bang)
