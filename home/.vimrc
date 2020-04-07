@@ -19,12 +19,12 @@ if (has("termguicolors"))
 endif
 
 " https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
-set viminfo=%,<800,'10,/50,:100,h,f1
+set viminfo=%,<800,'50,/50,:100,h,f1
 "           | |    |   |   |    | + store file marks 0-9,A-Z
 "           | |    |   |   |    + disable 'hlsearch' while loading viminfo
 "           | |    |   |   + maximum number of items in the command-line history to be saved
 "           | |    |   + maximum number of items in the search pattern history to be saved
-"           | |    + files marks saved
+"           | |    + files marks saved for the last XX files edited
 "           | + maximum num of lines saved each register (old name for <, vi6.2)
 "           + save/restore buffer list
 
