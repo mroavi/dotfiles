@@ -69,7 +69,6 @@ filetype indent on " enable file type based indentation
 set incsearch " live incremental searching
 set noshowmatch " no live match highlighting (brief jumping)
 set hlsearch " highlight matches
-set gdefault " use the `g` flag by default.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc settings
