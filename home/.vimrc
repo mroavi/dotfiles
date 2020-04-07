@@ -101,10 +101,10 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 command! TrimWhitespace call TrimWhitespace()
-noremap <Leader>tw :call TrimWhitespace()<CR>
+noremap <Leader>rw :call TrimWhitespace()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remappings
+" Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Replace default prefix Ctrl+w with Ctrl+a
@@ -143,7 +143,7 @@ nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
 
 " Switch to last visited buffer
-nnoremap <Leader>bt :b#<CR>
+nnoremap <Leader>t :b#<CR>
 
 " Delete current buffer
 nnoremap <Leader>bd :bdelete<CR>
