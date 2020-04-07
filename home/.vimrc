@@ -308,6 +308,9 @@ Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia']}
 " Seamlessly run Python (or Julia) code from Vim in IPython
 Plug 'hanschen/vim-ipython-cell', { 'for': ['python', 'julia'] }
 
+" Start a * or # search from a visual block
+Plug 'nelstrom/vim-visual-star-search'
+
 " Color schemes
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
