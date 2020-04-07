@@ -135,6 +135,9 @@ set listchars=tab:▸\ ,space:_,eol:¬
 " Open help in vertical split
 cnoreabbrev H vert bo h
 
+" Substitute all ocurrances of the content of the search register with new text
+nnoremap <Leader>sa :%s///g<left><left>
+
 " Switch to next/previous buffer
 nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
@@ -158,7 +161,7 @@ nnoremap <Leader>q :q<CR>
 vmap <Leader>y "+y
 
 " Source .vimrc
-map <Leader>s :source $MYVIMRC<CR>
+map <Leader>sv :source $MYVIMRC<CR>
 
 " Disable Ctl+z kwhich kills the process in vim-gnome)
 noremap <C-z> <Nop>
