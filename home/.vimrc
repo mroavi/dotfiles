@@ -25,7 +25,7 @@ set viminfo=%,<800,'50,/50,:100,h,f1
 "           | |    |   |   + maximum number of items in the command-line history to be saved
 "           | |    |   + maximum number of items in the search pattern history to be saved
 "           | |    + files marks saved for the last XX files edited
-"           | + maximum num of lines saved each register (old name for <, vi6.2)
+"           | + maximum num of lines saved for each register (old name for <, vi6.2)
 "           + save/restore buffer list
 
 set number " show line numbers
