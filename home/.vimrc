@@ -5,6 +5,7 @@
 " Remap <Leader> key (should be placed on top of this file)
 let mapleader = ' '
 let maplocalleader = ' '
+set nocompatible " We don't need Vi compatibility (`set viminfo=xxx` should come after `set nocompatible`)
 
 " Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 " https://github.com/joshdick/onedark.vim/blob/master/README.md
@@ -27,7 +28,6 @@ set viminfo=%,<800,'10,/50,:100,h,f1
 "           | + maximum num of lines saved each register (old name for <, vi6.2)
 "           + save/restore buffer list
 
-set nocompatible " We don't need Vi compatibility
 set number " show line numbers
 set relativenumber " each line is numbered relative to the cursor’s current position
 set title " show file in titlebar
