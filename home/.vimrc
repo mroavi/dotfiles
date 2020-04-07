@@ -46,8 +46,8 @@ set hidden " allows switching from unwritten buffers and remembers the buffer un
 set formatoptions-=tc " disable auto-wrap text using textwidth
 set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
 set shortmess-=S " show search count message when searching
-set grepprg=rg\ --vimgrep
-set grepformat=%f:%l:%c:%m
+set grepprg=rg\ --vimgrep " Program to use for the :grep command.
+set grepformat=%f:%l:%c:%m " Format to recognize for the :grep command output
 
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
@@ -610,23 +610,23 @@ autocmd FileType python,julia nmap <buffer> <C-c>v <Plug>SlimeConfig
 " vim-ipython-cell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use '##' to define cells instead of using marks
-let g:ipython_cell_delimit_cells_by = 'tags'
+let g:julia_cell_delimit_cells_by = 'tags'
 
 "" Run whole script (TODO: only works for Python)
-set <F20>=[27;6;44~
-autocmd FileType python,julia nnoremap <buffer> <F20> :IPythonCellRun<CR>
+"set <F20>=[27;6;44~
+"autocmd FileType python,julia nnoremap <buffer> <F20> :JuliaCellRun<CR>
 
 " Execute the current cell
 execute "set <M-CR>=\<esc>\<cr>"
-autocmd FileType python,julia nnoremap <buffer> <M-CR> :IPythonCellExecuteCell<CR>
+autocmd FileType python,julia nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
 
 " Jump to the previous/next cell headers
 set <M-k>=k
-autocmd FileType python,julia nnoremap <buffer> <M-k> :IPythonCellPrevCell<CR>
+autocmd FileType python,julia nnoremap <buffer> <M-k> :JuliaCellPrevCell<CR>
 set <M-j>=j
-autocmd FileType python,julia nnoremap <buffer> <M-j> :IPythonCellNextCell<CR>
+autocmd FileType python,julia nnoremap <buffer> <M-j> :JuliaCellNextCell<CR>
 
 " TODO
-"autocmd FileType python,julia nnoremap <buffer> <Leader>l :IPythonCellClear<CR>
-"autocmd FileType python,julia nnoremap <buffer> <Leader>x :IPythonCellClose<CR>
+"autocmd FileType python,julia nnoremap <buffer> <Leader>l :JuliaCellClear<CR>
+"autocmd FileType python,julia nnoremap <buffer> <Leader>x :JuliaCellClose<CR>
 
