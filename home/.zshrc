@@ -260,7 +260,7 @@ elif [ "$THEME" = "palenight" ]; then
 
  elif [ "$THEME" = "material" ]; then
 
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme material-theme/g' ~/.vimrc
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme hybrid_material/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='hybrid'/g" ~/.vimrc
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*material/g" ~/.alacritty.yml

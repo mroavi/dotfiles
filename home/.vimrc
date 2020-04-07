@@ -314,7 +314,7 @@ Plug 'morhetz/gruvbox'
 Plug 'nlknguyen/papercolor-theme'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'jdkanani/vim-material-theme'
+Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'jacoborus/tender.vim'
 
 call plug#end()
