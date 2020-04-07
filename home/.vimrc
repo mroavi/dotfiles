@@ -503,8 +503,8 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" Always enable preview window on the right with 60% width
-let g:fzf_preview_window = 'right:60%'
+" Do not show preview window by default
+let g:fzf_preview_window = ''
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
