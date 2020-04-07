@@ -46,6 +46,8 @@ set hidden " allows switching from unwritten buffers and remembers the buffer un
 set formatoptions-=tc " disable auto-wrap text using textwidth
 set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
 set shortmess-=S " show search count message when searching
+set grepprg=rg\ --vimgrep
+set grepformat=%f:%l:%c:%m
 
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
