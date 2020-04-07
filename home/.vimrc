@@ -140,6 +140,9 @@ cnoreabbrev H vert bo h
 nnoremap <Leader>j :bnext<CR>
 nnoremap <Leader>k :bprevious<CR>
 
+" Switch to last visited buffer
+nnoremap <Leader>bt :b#<CR>
+
 " Delete current buffer
 nnoremap <Leader>bd :bdelete<CR>
 
