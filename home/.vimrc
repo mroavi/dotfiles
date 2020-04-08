@@ -308,10 +308,10 @@ Plug 'airblade/vim-rooter'
 Plug 'JuliaEditorSupport/julia-vim'
 
 " Grab some text and send it to a GNU Screen / tmux / NeoVim Terminal / Vim Terminal
-Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia']}
+Plug 'jpalardy/vim-slime'
 
-" Seamlessly run Python (or Julia) code from Vim in IPython
-Plug 'hanschen/vim-ipython-cell', { 'for': ['python', 'julia'] }
+" Cell support for Julia in Vim
+Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
 " Start a * or # search from a visual block
 Plug 'nelstrom/vim-visual-star-search'
@@ -532,12 +532,6 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" julia-vim options
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable matchit plugin (this plugin is distributed with Vim)
-runtime macros/matchit.vim
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vifm.vim options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://github.com/vifm/vifm.vim/issues/19
@@ -597,36 +591,48 @@ let g:undotree_SetFocusWhenToggle = 1
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
 let g:slime_dont_ask_default = 1
-let g:slime_python_ipython = 1
 let g:slime_no_mappings = 1
+let g:slime_cell_delimiter = "#%%"
+nmap <leader>sc <Plug>SlimeSendCell
 
 " Map to Ctrl-Return
 set <F19>=[27;5;40~
-autocmd FileType python,julia xmap <buffer> <F19> <Plug>SlimeRegionSend
-autocmd FileType python,julia nmap <buffer> <F19> <Plug>SlimeLineSend
-autocmd FileType python,julia nmap <buffer> <C-c>v <Plug>SlimeConfig
+autocmd FileType julia xmap <buffer> <F19> <Plug>SlimeRegionSend
+autocmd FileType julia nmap <buffer> <F19> <Plug>SlimeLineSend
+autocmd FileType julia nmap <buffer> <C-c>v <Plug>SlimeConfig
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-ipython-cell
+" vim-julia-cell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use '##' to define cells instead of using marks
 let g:julia_cell_delimit_cells_by = 'tags'
 
-"" Run whole script (TODO: only works for Python)
 "set <F20>=[27;6;44~
 "autocmd FileType python,julia nnoremap <buffer> <F20> :JuliaCellRun<CR>
+autocmd FileType julia nnoremap <buffer> <F4> :JuliaCellRun<CR>
 
 " Execute the current cell
 execute "set <M-CR>=\<esc>\<cr>"
-autocmd FileType python,julia nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
+autocmd FileType julia nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
 
 " Jump to the previous/next cell headers
 set <M-k>=k
-autocmd FileType python,julia nnoremap <buffer> <M-k> :JuliaCellPrevCell<CR>
+autocmd FileType julia nnoremap <buffer> <M-k> :JuliaCellPrevCell<CR>
 set <M-j>=j
-autocmd FileType python,julia nnoremap <buffer> <M-j> :JuliaCellNextCell<CR>
+autocmd FileType julia nnoremap <buffer> <M-j> :JuliaCellNextCell<CR>
 
-" TODO
-"autocmd FileType python,julia nnoremap <buffer> <Leader>l :JuliaCellClear<CR>
-"autocmd FileType python,julia nnoremap <buffer> <Leader>x :JuliaCellClose<CR>
+autocmd FileType julia nnoremap <buffer> <Leader>jl :JuliaCellClear<CR>
+"autocmd FileType julia nnoremap <buffer> <F7> :JuliaCellExecuteCellJump<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" julia-vim options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable matchit plugin (this plugin is distributed with Vim)
+runtime macros/matchit.vim
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" julia-vim options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable matchit plugin (this plugin is distributed with Vim)
+runtime macros/matchit.vim
 
