@@ -1,13 +1,13 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim philosopy:
-" - https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
+" Vim philosopy: https://stackoverflow.com/a/1220118/1706778
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Remap <Leader> key (should be placed on top of this file)
 let mapleader = ' '
 let maplocalleader = ' '
-set nocompatible " We don't need Vi compatibility (`set viminfo=xxx` should come after `set nocompatible`)
+set nocompatible " No Vi compatibility (`set viminfo=xxx` should come after `set nocompatible`)
 
-" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux
 " https://github.com/joshdick/onedark.vim/blob/master/README.md
 " (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 if (has("nvim"))
@@ -32,7 +32,7 @@ set number " show line numbers
 set relativenumber " each line is numbered relative to the cursor’s current position
 set title " show file in titlebar
 set noswapfile " they're just annoying. Who likes them?
-"set colorcolumn=80 " highlight column
+set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
 set noshowmode " don't show mode in status bar (taken care of by airline)
 set noruler " don't show cursor position in status bar (taken care of by airline)
@@ -222,7 +222,7 @@ Plug 'junegunn/fzf.vim'
 " Automatically clears search highlight when cursor is moved
 Plug 'junegunn/vim-slash'
 
-" Shows the contents of " and @ registers in a sidebar when the respective key is pressed
+" Shows the contents of " and @ registers in a sidebar
 Plug 'junegunn/vim-peekaboo'
 
 " Defines a new text object representing lines of code at the same indent level
@@ -238,7 +238,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Provides support for writing LaTeX documents
 Plug 'lervag/vimtex'
 
-" Allows you to navigate seamlessly between vim and tmux splits using a consistent set of hotkeys
+" Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
 
 " FocusGained and FocusLost autocommand events in terminal vim
@@ -256,7 +256,7 @@ Plug 'scrooloose/nerdcommenter'
 " vim-easyescape makes exiting insert mode easy and distraction free
 Plug 'zhou13/vim-easyescape'
 
-" Takes the <no.> out of <no.>w or <number>f{char} by highlighting all possible choices
+" Takes the <no.> out of <no.>w or <number>f{char} by highlighting all choices
 Plug 'easymotion/vim-easymotion'
 
 " Shows a git diff in the 'gutter' (sign column)
@@ -265,7 +265,7 @@ Plug 'airblade/vim-gitgutter'
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
 
-" Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
+" Intellisense engine for Vim8 & Neovim, full language server protocol support
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " A file system explorer for the Vim editor (load when NerdTreeToggle is fired)
@@ -301,13 +301,13 @@ Plug 'mbbill/undotree'
 " Provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
 
-" Changes Vim working directory to project root (identified by presence of known directory or file)
+" Changes Vim working directory to project root
 Plug 'airblade/vim-rooter'
 
 " Vim support for Julia.
 Plug 'JuliaEditorSupport/julia-vim'
 
-" Grab some text and send it to a GNU Screen / tmux / NeoVim Terminal / Vim Terminal
+" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
 Plug 'jpalardy/vim-slime'
 
 " Cell support for Julia in Vim
@@ -623,12 +623,6 @@ autocmd FileType julia nnoremap <buffer> <M-j> :JuliaCellNextCell<CR>
 
 autocmd FileType julia nnoremap <buffer> <Leader>jl :JuliaCellClear<CR>
 "autocmd FileType julia nnoremap <buffer> <F7> :JuliaCellExecuteCellJump<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" julia-vim options
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable matchit plugin (this plugin is distributed with Vim)
-runtime macros/matchit.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " julia-vim options
