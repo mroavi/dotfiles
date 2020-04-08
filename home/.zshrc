@@ -136,6 +136,9 @@ alias o="xdg-open"
 # mrv: shortcut to exit files
 alias e="exit"
 
+# mrv: Example of how to animate entering text to the terminal with pv command
+alias pvtest="echo \"I love linux\" | pv -qL 10"
+
 ## mrv: use a function to alias ls -al with k -ha
 ## see: https://superuser.com/questions/105375/bash-spaces-in-alias-name
 #ls() { if [[ $@ == "-al" ]]; then k -ha; else k "$@"; fi; }
