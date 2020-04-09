@@ -1,4 +1,4 @@
-# ▶ mrv: Set theme (use one)
+# ▶ mrv: Set theme (uncomment one, reload tmux, and comment it out again)
 #THEME=solarized-dark
 #THEME=solarized-light
 #THEME=gruvbox8-dark
