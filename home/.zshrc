@@ -1,5 +1,5 @@
 # ▶ mrv: Set theme (use one)
-THEME=solarized-dark
+#THEME=solarized-dark
 #THEME=solarized-light
 #THEME=gruvbox8-dark
 #THEME=onedark
