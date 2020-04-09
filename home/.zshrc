@@ -254,11 +254,7 @@ elif [ "$THEME" = "palenight" ]; then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=0'
     xrdb -DUSE_MATERIAL ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
-
-else
-
-    echo "Using default theme"
-    xrdb ~/.Xresources
+    export BAT_THEME="OneHalfDark"
 
 fi
 
