@@ -44,7 +44,7 @@ set cursorline " highlight the line that the cursor is currently on
 set signcolumn=yes " always show sign column
 set hidden " allows switching from unwritten buffers and remembers the buffer undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
-set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
+"set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
 set shortmess-=S " show search count message when searching
 set grepprg=rg\ --vimgrep " Program to use for the :grep command.
 set grepformat=%f:%l:%c:%m " Format to recognize for the :grep command output
