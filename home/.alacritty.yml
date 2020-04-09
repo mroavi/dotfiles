@@ -275,6 +275,8 @@ font:
   #
   #indexed_colors: []
 
+# Prints out the entire 256 terminal color palette
+# for code ({000..255}) print -P -- "$code: %F{$code}▶ This is color palette%f"
 
 # Available color schemes
 schemes:
