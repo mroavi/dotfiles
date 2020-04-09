@@ -139,22 +139,6 @@ alias e="exit"
 # mrv: Example of how to animate entering text to the terminal with pv command
 alias pvtest="echo \"I love linux\" | pv -qL 10"
 
-## mrv: use a function to alias ls -al with k -ha
-## see: https://superuser.com/questions/105375/bash-spaces-in-alias-name
-#ls() { if [[ $@ == "-al" ]]; then k -ha; else k "$@"; fi; }
-
-## mrv (from .bashrc):  enable color support of ls and also add handy aliases
-#if [ -x /usr/bin/dircolors ]; then
-#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-#    alias ls='ls --color=auto'
-#    #alias dir='dir --color=auto'
-#    #alias vdir='vdir --color=auto'
-
-#    alias grep='grep --color=auto'
-#    alias fgrep='fgrep --color=auto'
-#    alias egrep='egrep --color=auto'
-#fi
-
 ## mrv: Set vi mode! (using oh-my-zsh plugin for now)
 #set -o vi
 
