@@ -213,9 +213,6 @@ alias v="vim"
 # mrv: shortcut to open files
 alias o="xdg-open"
 
-# mrv: shortcut to exit files
-alias e="exit"
-
 # mrv: Example of how to animate entering text to the terminal with pv command
 alias pvtest="echo \"I love linux\" | pv -qL 10"
 
