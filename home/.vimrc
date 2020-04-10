@@ -355,7 +355,7 @@ let g:vimtex_compiler_latexmk = {
             \}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-auto-save options
+" vim-auto-save
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use the autosave feature with the file types specified below
 let g:auto_save = 0
@@ -368,7 +368,7 @@ augroup END
 "let g:auto_save_silent = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDCommenter options
+" NERDCommenter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Do not create default mappings
 let g:NERDCreateDefaultMappings = 0
@@ -387,7 +387,7 @@ nnoremap <F18> :call NERDComment(0,"toggle")<C-m>
 vnoremap <F18> :call NERDComment(0,"toggle")<C-m>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM-EASYESCAPE options
+" VIM-EASYESCAPE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:easyescape_chars = { "j": 1, "k": 1 }
 let g:easyescape_timeout = 100
@@ -401,7 +401,7 @@ cnoremap kj <ESC>
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" EasyMotion options
+" EasyMotion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable default mappings
 let g:EasyMotion_do_mapping = 0
@@ -410,7 +410,7 @@ let g:EasyMotion_do_mapping = 0
 nmap s <Plug>(easymotion-s)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-gitgutter options
+" vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The delay is governed by vim's updatetime option
 set updatetime=100
@@ -420,7 +420,7 @@ nmap <Leader>hj <Plug>(GitGutterNextHunk)
 nmap <Leader>hk <Plug>(GitGutterPrevHunk)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FZF options
+" FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shift-Tab to select multiple results (-m flag required)
 nnoremap <Leader>rg :MyRg!<CR>
@@ -531,7 +531,7 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vifm.vim options
+" vifm.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://github.com/vifm/vifm.vim/issues/19
 let g:vifm_embed_term=1
@@ -553,12 +553,12 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 "nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-highlightedyank options
+" vim-highlightedyank
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:highlightedyank_highlight_duration = 200
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe options
+" YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
@@ -579,7 +579,7 @@ let g:ycm_key_detailed_diagnostics = ''
 "let g:ycm_autoclose_preview_window_after_completion = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" undotree options
+" undotree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <Leader>u :UndotreeShow<CR>
 let g:undotree_SetFocusWhenToggle = 1
@@ -624,13 +624,13 @@ autocmd FileType julia nnoremap <buffer> <Leader>jl :JuliaCellClear<CR>
 "autocmd FileType julia nnoremap <buffer> <F7> :JuliaCellExecuteCellJump<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" julia-vim options
+" julia-vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable matchit plugin (this plugin is distributed with Vim)
 runtime macros/matchit.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fugitive options
+" Fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gr :Gread<CR>
