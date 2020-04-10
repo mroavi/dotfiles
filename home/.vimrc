@@ -636,3 +636,8 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gc :Gcommit<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rooter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rooter_silent_chdir = 1
