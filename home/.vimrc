@@ -426,7 +426,6 @@ nmap <Leader>hk <Plug>(GitGutterPrevHunk)
 nnoremap <Leader>rg :MyRg!<CR>
 nnoremap <Leader>fi :MyFiles!<CR>
 nnoremap <Leader>gf :GFiles<CR>
-nnoremap <Leader>gs :GFiles?<CR>
 nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>li :Lines<CR>
 nnoremap <Leader>bl :BLines<CR>
