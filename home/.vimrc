@@ -629,3 +629,7 @@ autocmd FileType julia nnoremap <buffer> <Leader>jl :JuliaCellClear<CR>
 " Enable matchit plugin (this plugin is distributed with Vim)
 runtime macros/matchit.vim
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fugitive options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>gs :Gstatus<CR>
