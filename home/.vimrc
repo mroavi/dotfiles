@@ -152,7 +152,7 @@ nnoremap <Leader>t :b#<CR>
 nnoremap <Leader>bd :bdelete<CR>
 
 " Close all buffers but the current one
-map <Leader>bo :%bd\|e#<CR>
+map <Leader>bo :%bdelete\|e#<CR>
 
 " Write to disk
 nnoremap <Leader>w :w<CR>
