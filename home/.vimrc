@@ -342,9 +342,9 @@ let g:airline_powerline_fonts = 1
 let g:palenight_terminal_italics=1
 
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
-colorscheme solarized8_high
+colorscheme hybrid_material
 set background=dark
-let g:airline_theme='solarized'
+let g:airline_theme='hybrid'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
@@ -635,3 +635,4 @@ runtime macros/matchit.vim
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gc :Gcommit<CR>
