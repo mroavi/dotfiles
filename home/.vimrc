@@ -633,3 +633,5 @@ runtime macros/matchit.vim
 " Fugitive options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gw :Gwrite<CR>
