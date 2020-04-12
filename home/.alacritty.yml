@@ -540,7 +540,7 @@ schemes:
       blue:    '#80cbc4'
       magenta: '#ff2f90'
       cyan:    '#aeddff'
-      white:   '#ffffff'
+      white:   '#c4c7d1'
     # Bright colors
     bright:
       black:   '#ff262b'
@@ -549,7 +549,7 @@ schemes:
       yellow:  '#f7eb95'
       blue:    '#7dc6bf'
       magenta: '#6c71c4'
-      cyan:    '#35434d'
+      cyan:    '#aeddff'
       white:   '#ffffff'
 
 # Sets the current colorscheme
