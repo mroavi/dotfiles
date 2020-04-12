@@ -330,6 +330,7 @@ Plug 'lifepillar/vim-gruvbox8'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'jacoborus/tender.vim'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
