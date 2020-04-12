@@ -500,6 +500,32 @@ schemes:
       cyan:    '#89ddff'
       white:   '#ffffff'
 
+  material-original: &material-original
+    # Default colors
+    primary:
+      background: '#263238'
+      foreground: '#cdd3de'
+    # Normal colors
+    normal:
+      black:   '#263238'
+      red:     '#ec5f67'
+      green:   '#8bd649'
+      yellow:  '#ffcc00'
+      blue:    '#89ddff'
+      magenta: '#82aaff'
+      cyan:    '#80cbc4'
+      white:   '#cdd3de'
+    # Bright colors
+    bright:
+      black:   '#707880'
+      red:     '#ea9560'
+      green:   '#2c393f'
+      yellow:  '#37474f'
+      blue:    '#c9ccd3'
+      magenta: '#d5dbe5'
+      cyan:    '#ec5f67'
+      white:   '#ffffff'
+
   material: &material
     # Default colors
     primary:
