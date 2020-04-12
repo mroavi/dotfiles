@@ -65,7 +65,14 @@ export VER="0.13.0"
 wget https://github.com/sharkdp/bat/releases/download/v${VER}/bat_${VER}_amd64.deb
 sudo dpkg -i bat_${VER}_amd64.deb
 
+# -----------------------------------------------------------------------------------------
+# https://github.com/chriskempson/base16-shell
+echo "Installing base16-shell..."
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
+
+
+# -----------------------------------------------------------------------------------------
 # Return to original directory
 cd "$currentdir"
 
