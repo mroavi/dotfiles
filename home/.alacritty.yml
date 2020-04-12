@@ -533,7 +533,7 @@ schemes:
       foreground: '#c4c7d1'
     # Normal colors
     normal:
-      black:   '#666666'
+      black:   '#1e282d'
       red:     '#eb606b'
       green:   '#c3e88d'
       yellow:  '#f7eb95'
