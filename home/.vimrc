@@ -32,7 +32,7 @@ set number " show line numbers
 set relativenumber " each line is numbered relative to the cursor’s current position
 set title " show file in titlebar
 set noswapfile " they're just annoying. Who likes them?
-set colorcolumn=80 " highlight column
+"set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
 set noshowmode " don't show mode in status bar (taken care of by airline)
 set noruler " don't show cursor position in status bar (taken care of by airline)
@@ -343,11 +343,12 @@ syntax enable
 let g:gruvbox_contrast_dark='medium'
 let g:airline_powerline_fonts = 1
 let g:palenight_terminal_italics=1
+autocmd ColorScheme hybrid_material hi link GitGutterDelete diffRemoved
 
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
-colorscheme hybrid_material
-set background=dark
-let g:airline_theme='hybrid'
+colorscheme solarized8
+set background=light
+let g:airline_theme='solarized'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
@@ -425,79 +426,6 @@ nmap <Leader>hk <Plug>(GitGutterPrevHunk)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Shift-Tab to select multiple results (-m flag required)
-nnoremap <Leader>rg :MyRg!<CR>
-nnoremap <Leader>fi :MyFiles!<CR>
-nnoremap <Leader>gf :GFiles<CR>
-nnoremap <Leader>ls :Buffers<CR>
-nnoremap <Leader>li :Lines<CR>
-nnoremap <Leader>bl :BLines<CR>
-nnoremap <Leader>co :Commits<CR>
-nnoremap <Leader>bc :BCommits<CR>
-nnoremap <Leader>hi :MyHistory<CR>
-nnoremap <Leader>ch :History:<CR>
-nnoremap <Leader>cm :Commands<CR>
-nnoremap <Leader>ma :Maps<CR>
-
-" -------------------------------------------------------------------
-" Files
-" command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, s:p(<bang>0), <bang>0)
-" -------------------------------------------------------------------
-command! -nargs=? -bang -complete=dir MyFiles call fzf#vim#files(
-    \ <q-args>,
-    \ <bang>0 ? fzf#vim#with_preview({'options': ['--preview-window', 'up:60%', '--no-height']})
-    \         : fzf#vim#with_preview({'options': ['--preview-window', 'up:60%'], 'down': '40%'}),
-    \ <bang>0)
-
-" -------------------------------------------------------------------
-" Rg
-" -------------------------------------------------------------------
-" Advanced ripgrep integration
-" See https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --hidden --no-ignore --column --line-number --no-heading --color=always --smart-case %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command,
-    \                     '--preview-window', 'up:60%', '--no-height'], 'down': '100%'}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
-command! -nargs=* -bang MyRg call RipgrepFzf(<q-args>, <bang>0)
-
-"" WIP
-"" Template based on https://www.reddit.com/r/vim/comments/a1g4cp/fzf_with_preview_window_ag_search_on_a_directory/
-"" See https://github.com/junegunn/fzf/blob/master/README-VIM.md
-"command! -nargs=* MyRg call fzf#run(fzf#wrap(fzf#vim#with_preview({
-"        \ 'source': 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
-"        \ 'sink':'edit',
-"        \ 'down': '100%',
-"        \ 'options': ['--no-reverse', '--preview-window', 'up:60%']
-"        \ })))
-
-" -------------------------------------------------------------------
-" History
-" command! -bang -nargs=* History call s:history(<q-args>, s:p(<bang>0), <bang>0)
-" -------------------------------------------------------------------
-command! -bang -nargs=* MyHistory call s:history(
-    \ <q-args>,
-    \ <bang>0 ? fzf#vim#with_preview({'options': ['--preview-window', 'up:60%', '--no-height']})
-    \         : fzf#vim#with_preview({'options': ['--preview-window', 'up:60%'], 'down': '80%'}),
-    \ <bang>0)
-
-function! s:history(arg, extra, bang)
-  let bang = a:bang || a:arg[len(a:arg)-1] == '!'
-  if a:arg[0] == ':'
-    call fzf#vim#command_history(bang)
-  elseif a:arg[0] == '/'
-    call fzf#vim#search_history(bang)
-  else
-    call fzf#vim#history(a:extra, bang)
-  endif
-endfunction
-
-" -------------------------------------------------------------------
-" Extra
-" -------------------------------------------------------------------
 " Default fzf layout
 let g:fzf_layout = { 'down': '~50%' }
 
@@ -532,6 +460,76 @@ let g:fzf_colors =
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" Shift-Tab to select multiple results (-m flag required)
+nnoremap <Leader>fi :MyFiles!<CR>
+nnoremap <Leader>gf :GFiles<CR>
+nnoremap <Leader>ls :Buffers<CR>
+nnoremap <Leader>rg :MyRg!<CR>
+nnoremap <Leader>li :Lines<CR>
+nnoremap <Leader>bl :BLines<CR>
+nnoremap <Leader>hi :MyHistory<CR>
+nnoremap <Leader>ch :History:<CR>
+nnoremap <Leader>co :Commits<CR>
+nnoremap <Leader>bc :BCommits<CR>
+nnoremap <Leader>cm :Commands<CR>
+nnoremap <Leader>ma :Maps<CR>
+
+" -------------------------------------------------------------------
+" Files
+" command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, s:p(<bang>0), <bang>0)
+" -------------------------------------------------------------------
+command! -bang -nargs=? -complete=dir MyFiles call fzf#vim#files(
+    \ <q-args>,
+    \ <bang>0 ? fzf#vim#with_preview({'options': ['--preview-window', 'up:60%', '--no-height']})
+    \         : fzf#vim#with_preview({'options': ['--preview-window', 'up:60%'], 'down': '40%'}),
+    \ <bang>0)
+
+" -------------------------------------------------------------------
+" Rg
+" -------------------------------------------------------------------
+" Advanced ripgrep integration
+" See https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --hidden --no-ignore --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command,
+    \                     '--preview-window', 'up:60%', '--no-height'], 'down': '100%'}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
+
+"" WIP
+"" Template based on https://www.reddit.com/r/vim/comments/a1g4cp/fzf_with_preview_window_ag_search_on_a_directory/
+"" See https://github.com/junegunn/fzf/blob/master/README-VIM.md
+"command! -nargs=* MyRg call fzf#run(fzf#wrap(fzf#vim#with_preview({
+"        \ 'source': 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
+"        \ 'sink':'edit',
+"        \ 'down': '100%',
+"        \ 'options': ['--no-reverse', '--preview-window', 'up:60%']
+"        \ })))
+
+" -------------------------------------------------------------------
+" History
+" command! -bang -nargs=* History call s:history(<q-args>, s:p(<bang>0), <bang>0)
+" -------------------------------------------------------------------
+command! -bang -nargs=* MyHistory call s:history(
+    \ <q-args>,
+    \ <bang>0 ? fzf#vim#with_preview({'options': ['--preview-window', 'up:60%', '--no-height']})
+    \         : fzf#vim#with_preview({'options': ['--preview-window', 'up:60%'], 'down': '80%'}),
+    \ <bang>0)
+
+function! s:history(arg, extra, bang)
+  let bang = a:bang || a:arg[len(a:arg)-1] == '!'
+  if a:arg[0] == ':'
+    call fzf#vim#command_history(bang)
+  elseif a:arg[0] == '/'
+    call fzf#vim#search_history(bang)
+  else
+    call fzf#vim#history(a:extra, bang)
+  endif
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vifm.vim
