@@ -228,6 +228,9 @@ Plug 'junegunn/vim-slash'
 " Shows the contents of " and @ registers in a sidebar
 Plug 'junegunn/vim-peekaboo'
 
+" A simple, easy-to-use Vim alignment plugin
+Plug 'junegunn/vim-easy-align'
+
 " Defines a new text object representing lines of code at the same indent level
 Plug 'michaeljsmith/vim-indent-object'
 " Plug 'kana/vim-textobj-indent'
@@ -331,6 +334,8 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'jacoborus/tender.vim'
 Plug 'chriskempson/base16-vim'
+
+Plug '~/repos/marlin.vim'
 
 call plug#end()
 
@@ -644,3 +649,9 @@ nnoremap <Leader>gp :Gpush<CR>
 " Rooter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rooter_silent_chdir = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-easy-align
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
