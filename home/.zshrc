@@ -168,6 +168,7 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     vi-mode
+    z
 )
 
 source $ZSH/oh-my-zsh.sh
