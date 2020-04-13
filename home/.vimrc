@@ -352,9 +352,9 @@ let g:palenight_terminal_italics=1
 autocmd ColorScheme hybrid_material hi link GitGutterDelete diffRemoved
 
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
-colorscheme hybrid_material
+colorscheme onedark
 set background=dark
-let g:airline_theme='hybrid'
+let g:airline_theme='onedark'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings

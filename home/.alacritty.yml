@@ -553,7 +553,7 @@ schemes:
       white:   '#ffffff'
 
 # Sets the current colorscheme
-colors: *material
+colors: *onedark
 
 # Visual Bell
 #
