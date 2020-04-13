@@ -199,26 +199,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# mrv: go to dotfiles home dir
-alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
-
-# mrv: connect to TU/e's VPN
-alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
-
-# mrv: cd to the paper I'm currently writing (temp)
-alias paper="cd ~/Dropbox/Apps/Overleaf/Martin-2020-SCOPES-Real-Time-Audio-Processing-in-Julia-for-Hearing-Aids"
-
-# mrv: shortcut for vim
 alias v="vim"
-
-# mrv: shortcut to open files
 alias o="xdg-open"
-
-# mrv: Example of how to animate entering text to the terminal with pv command
-alias pvtest="echo \"I love linux\" | pv -qL 10"
-
-## mrv: Set vi mode! (using oh-my-zsh plugin for now)
-#set -o vi
+alias clr="clear"
+alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
+alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=2
