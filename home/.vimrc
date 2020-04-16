@@ -166,8 +166,8 @@ vmap <Leader>y "+y
 " Source .vimrc
 map <Leader>sv :source $MYVIMRC<CR>
 
-" Source the currently opened file
-map <Leader>ss :source %<CR>
+" Write and source the currently opened file
+map <Leader>ss :w<CR>:source %<CR>
 
 " Disable Ctl+z kwhich kills the process in vim-gnome)
 noremap <C-z> <Nop>
