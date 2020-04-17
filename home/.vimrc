@@ -164,7 +164,7 @@ nnoremap <Leader>q :q<CR>
 vmap <Leader>y "+y
 
 " Source .vimrc
-map <Leader>sv :source $MYVIMRC<CR>
+map <Leader>sv :w<CR>:source $MYVIMRC<CR>
 
 " Write and source the currently opened file
 map <Leader>ss :w<CR>:source %<CR>
