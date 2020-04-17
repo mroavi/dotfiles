@@ -322,6 +322,9 @@ Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 " Start a * or # search from a visual block
 Plug 'nelstrom/vim-visual-star-search'
 
+" Plugin to help you stop repeating the basic movement keys
+Plug 'takac/vim-hardtime'
+
 " Color schemes
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
@@ -655,3 +658,9 @@ let g:rooter_silent_chdir = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-hardtime
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:hardtime_default_on = 1
+"let g:hardtime_allow_different_key = 1
