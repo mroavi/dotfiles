@@ -663,4 +663,4 @@ xmap ga <Plug>(EasyAlign)
 " vim-hardtime
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:hardtime_default_on = 1
-let g:hardtime_allow_different_key = 2
+let g:hardtime_allow_different_key = 3
