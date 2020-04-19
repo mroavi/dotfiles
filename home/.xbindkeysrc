@@ -65,10 +65,30 @@
 #"rxvt"
 #  Control + b:2 + Release
 
+# ------------------------------------------------------------------
+# mrv: Automated text input for live coding presentations
+# 
+# Make sure to add a rule in /etc/sudoers to allow running
+# the bash script as sudo without prompting for a password.
+# To do this, run:
+#   $ pkexec visudo 
+#   
+# For more info see: https://unix.stackexchange.com/q/18830/184227
+#
+# Also make sure to make the bash script executable:
+#   $ chmod +x my-script.sh
+#
+# To reload this file:
+#   $ killall -HUP xbindkeys
+#   $ xbindkeys
+# ------------------------------------------------------------------
+
 "sudo ~/Desktop/send-to-vim.sh" 
   control+shift+alt + 1
 
-
+"sudo ~/Desktop/test.sh" 
+  control+shift+alt + 2
+  
 ##################################
 # End of xbindkeys configuration #
 ##################################
