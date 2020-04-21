@@ -337,6 +337,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'jacoborus/tender.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'cocopon/iceberg.vim'
 
 Plug '~/repos/marlin.vim'
 
