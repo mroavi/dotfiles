@@ -338,6 +338,9 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'jacoborus/tender.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'cocopon/iceberg.vim'
+Plug 'rakr/vim-one'
+Plug 'mhartington/oceanic-next'
+Plug 'ayu-theme/ayu-vim'
 
 Plug '~/repos/marlin.vim'
 
@@ -354,11 +357,12 @@ let g:gruvbox_contrast_dark='medium'
 let g:airline_powerline_fonts = 1
 let g:palenight_terminal_italics=1
 autocmd ColorScheme hybrid_material hi link GitGutterDelete diffRemoved
+let ayucolor="dark"
 
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
-colorscheme onedark
+colorscheme ayu
 set background=dark
-let g:airline_theme='onedark'
+let g:airline_theme='base16'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
