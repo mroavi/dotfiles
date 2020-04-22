@@ -7,191 +7,9 @@ let mapleader = ' '
 let maplocalleader = ' '
 set nocompatible " No Vi compatibility (`set viminfo=xxx` should come after `set nocompatible`)
 
-" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux
-" https://github.com/joshdick/onedark.vim/blob/master/README.md
-" (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if (has("termguicolors"))
-    set termguicolors
-endif
-
-" https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
-set viminfo=%,<800,'50,/50,:100,h,f1
-"           | |    |   |   |    | + store file marks 0-9,A-Z
-"           | |    |   |   |    + disable 'hlsearch' while loading viminfo
-"           | |    |   |   + maximum number of items in the command-line history to be saved
-"           | |    |   + maximum number of items in the search pattern history to be saved
-"           | |    + files marks saved for the last XX files edited
-"           | + maximum num of lines saved for each register (old name for <, vi6.2)
-"           + save/restore buffer list
-
-set number " show line numbers
-set relativenumber " each line is numbered relative to the cursor’s current position
-set title " show file in titlebar
-set noswapfile " they're just annoying. Who likes them?
-"set colorcolumn=80 " highlight column
-set wrap linebreak nolist " avoid breaking lines in the middle of words
-set noshowmode " don't show mode in status bar (taken care of by airline)
-set noruler " don't show cursor position in status bar (taken care of by airline)
-set laststatus=2 " always display the status line (see :h laststatus)
-set noshowcmd " don't show partial typed commands in the right side of the status bar
-set cmdheight=1 " limit the cmd line height to one line
-set wildmenu " when entering a command, <Tab> shows possible matches above the command line
-set cursorline " highlight the line that the cursor is currently on
-set signcolumn=yes " always show sign column
-set hidden " allows switching from unwritten buffers and remembers the buffer undo history
-set formatoptions-=tc " disable auto-wrap text using textwidth
-"set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
-set shortmess-=S " show search count message when searching
-set grepprg=rg\ --vimgrep " program to used for the :grep command.
-set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
-set splitbelow splitright " open a new split at to bottom or to the right of the current one
-
-filetype on " enable filetype detection
-filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Indentation settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set tabstop=4 " number of spaces that a <Tab> in the file counts for
-set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
-set shiftwidth=4 " number of spaces for indents in normal mode
-set expandtab " use spaces instead of tabs.
-set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
-set shiftround " tab / shifting moves to closest tabstop.
-set autoindent " match indents on new lines.
-set smartindent " intelligently dedent / indent new lines based on rules.
-
-filetype indent on " enable file type based indentation
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Search settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set incsearch " live incremental searching
-set noshowmatch " no live match highlighting (brief jumping)
-set hlsearch " highlight matches
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Misc settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
-set backspace=indent,eol,start
-
-" Use F5 to toggle the spelling check!
-map <F5> :setlocal spell! spelllang=en_us<CR>
-
-" Refresh changed content of file opened in vi(m)
-" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
-    \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' |  checktime | endif
-
-" Notification after file change
-" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-autocmd FileChangedShellPost *
-    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-
-" Clear last used search pattern when .vimrc is sourced
-let @/ = ""
-
-" Strip trailing whitespace from all lines in a file
-" https://vi.stackexchange.com/a/456/27039
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-command! TrimWhitespace call TrimWhitespace()
-noremap <Leader>rw :call TrimWhitespace()<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Replace default prefix Ctrl+w with Ctrl+a
-nnoremap <C-a> <C-w>
-
-" Resize splits easier
-set <M-S-j>=J | noremap <M-S-j> :resize -3<CR>
-set <M-S-k>=K | noremap <M-S-k> :resize +3<CR>
-set <M-S-h>=H | noremap <M-S-h> :vertical resize +3<CR>
-set <M-S-l>=L | noremap <M-S-l> :vertical resize -3<CR>
-
-" Advance up and down faster with the cursor
-set <M-j>=j | noremap <M-j> 5j<CR>
-set <M-k>=k | noremap <M-k> 5k<CR>
-
-" Make Y behave like other capitals
-nnoremap Y y$
-
-" Define symbols for tabstops, spaces and EOLs
-set listchars=tab:▸\ ,space:_,eol:¬
-
-" Open help in vertical split
-cnoreabbrev H vert bo h
-
-" Substitute all ocurrances of the content of the search register with new text
-nnoremap <Leader>sa :%s///g<left><left>
-
-" Switch to next/previous buffer
-nnoremap <Leader>j :bnext<CR>
-nnoremap <Leader>k :bprevious<CR>
-
-" Switch to last visited buffer
-nnoremap <Leader>t :b#<CR>
-
-" Delete current buffer
-nnoremap <Leader>bd :bdelete<CR>
-
-" Close all buffers but the current one
-map <Leader>bo :%bdelete\|e#<CR>
-
-" Write to disk
-nnoremap <Leader>w :write<CR>
-
-" Quit
-nnoremap <Leader>q :quit<CR>
-
-" Yank to clipboard
-vmap <Leader>y "+y
-
-" Source .vimrc
-map <Leader>sv :w<CR>:source $MYVIMRC<CR>
-
-" Write and source the currently opened file
-map <Leader>ss :w<CR>:source %<CR>
-
-" Disable Ctl+z kwhich kills the process in vim-gnome)
-noremap <C-z> <Nop>
-
-" Toggle display of invisible chars (http://vimcasts.org/episodes/show-invisibles/`)
-nmap <F3> :set list!<CR>
-
-" Chorme-like tab commands (conflicts with tmux)
-" based on: https://stackoverflow.com/a/31961401/1706778
-
-" Close tab with Ctrl+w
-nnoremap <C-w> :tabclose<CR>
-
-" Ctrl+t -> new tab
-nnoremap <C-t> :tabnew<CR>
-
-" Ctl+tab -> next tab
-set <F13>=[27;5;9~ | nnoremap <F13> gt
-
-" Ctrl+Shift + tab -> previous tab
-set <F14>=[27;6;9~ | nnoremap <F14> gT
-
-" Ctrl+Shift+w -> close tab
-set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Automatically install vim-plug if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -329,6 +147,188 @@ Plug 'ayu-theme/ayu-vim'
 Plug '~/repos/marlin.vim'
 
 call plug#end()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux
+" https://github.com/joshdick/onedark.vim/blob/master/README.md
+" (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+" https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
+set viminfo=%,<800,'50,/50,:100,h,f1
+"           | |    |   |   |    | + store file marks 0-9,A-Z
+"           | |    |   |   |    + disable 'hlsearch' while loading viminfo
+"           | |    |   |   + maximum number of items in the command-line history to be saved
+"           | |    |   + maximum number of items in the search pattern history to be saved
+"           | |    + files marks saved for the last XX files edited
+"           | + maximum num of lines saved for each register (old name for <, vi6.2)
+"           + save/restore buffer list
+
+set number " show line numbers
+set relativenumber " each line is numbered relative to the cursor’s current position
+set title " show file in titlebar
+set noswapfile " they're just annoying. Who likes them?
+"set colorcolumn=80 " highlight column
+set wrap linebreak nolist " avoid breaking lines in the middle of words
+set noshowmode " don't show mode in status bar (taken care of by airline)
+set noruler " don't show cursor position in status bar (taken care of by airline)
+set laststatus=2 " always display the status line (see :h laststatus)
+set noshowcmd " don't show partial typed commands in the right side of the status bar
+set cmdheight=1 " limit the cmd line height to one line
+set wildmenu " when entering a command, <Tab> shows possible matches above the command line
+set cursorline " highlight the line that the cursor is currently on
+set signcolumn=yes " always show sign column
+set hidden " allows switching from unwritten buffers and remembers the buffer undo history
+set formatoptions-=tc " disable auto-wrap text using textwidth
+"set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
+set shortmess-=S " show search count message when searching
+set grepprg=rg\ --vimgrep " program to used for the :grep command.
+set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
+set splitbelow splitright " open a new split at to bottom or to the right of the current one
+
+filetype on " enable filetype detection
+filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indentation settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set tabstop=4 " number of spaces that a <Tab> in the file counts for
+set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
+set shiftwidth=4 " number of spaces for indents in normal mode
+set expandtab " use spaces instead of tabs.
+set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
+set shiftround " tab / shifting moves to closest tabstop.
+set autoindent " match indents on new lines.
+set smartindent " intelligently dedent / indent new lines based on rules.
+
+filetype indent on " enable file type based indentation
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set incsearch " live incremental searching
+set noshowmatch " no live match highlighting (brief jumping)
+set hlsearch " highlight matches
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
+set backspace=indent,eol,start
+
+" Use F5 to toggle the spelling check!
+map <F5> :setlocal spell! spelllang=en_us<CR>
+
+" Refresh changed content of file opened in vi(m)
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+    \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' |  checktime | endif
+
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+" Clear last used search pattern when .vimrc is sourced
+let @/ = ""
+
+" Strip trailing whitespace from all lines in a file
+" https://vi.stackexchange.com/a/456/27039
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
+noremap <Leader>rw :call TrimWhitespace()<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Replace default prefix Ctrl+w with Ctrl+a
+nnoremap <C-a> <C-w>
+
+" Resize splits easier
+set <M-S-j>=J | noremap <M-S-j> :resize -3<CR>
+set <M-S-k>=K | noremap <M-S-k> :resize +3<CR>
+set <M-S-h>=H | noremap <M-S-h> :vertical resize +3<CR>
+set <M-S-l>=L | noremap <M-S-l> :vertical resize -3<CR>
+
+" Advance up and down faster with the cursor
+set <M-j>=j | noremap <M-j> 5j<CR>
+set <M-k>=k | noremap <M-k> 5k<CR>
+
+" Make Y behave like other capitals
+nnoremap Y y$
+
+" Define symbols for tabstops, spaces and EOLs
+set listchars=tab:▸\ ,space:_,eol:¬
+
+" Open help in vertical split
+cnoreabbrev H vert bo h
+
+" Substitute all ocurrances of the content of the search register with new text
+nnoremap <Leader>sa :%s///g<left><left>
+
+" Switch to next/previous buffer
+nnoremap <Leader>j :bnext<CR>
+nnoremap <Leader>k :bprevious<CR>
+
+" Switch to last visited buffer
+nnoremap <Leader>t :b#<CR>
+
+" Delete current buffer
+nnoremap <Leader>bd :bdelete<CR>
+
+" Close all buffers but the current one
+map <Leader>bo :%bdelete\|e#<CR>
+
+" Write to disk
+nnoremap <Leader>w :write<CR>
+
+" Quit
+nnoremap <Leader>q :quit<CR>
+
+" Yank to clipboard
+vmap <Leader>y "+y
+
+" Source .vimrc
+map <Leader>sv :w<CR>:source $MYVIMRC<CR>
+
+" Write and source the currently opened file
+map <Leader>ss :w<CR>:source %<CR>
+
+" Disable Ctl+z kwhich kills the process in vim-gnome)
+noremap <C-z> <Nop>
+
+" Toggle display of invisible chars (http://vimcasts.org/episodes/show-invisibles/`)
+nmap <F3> :set list!<CR>
+
+" Chorme-like tab commands (conflicts with tmux)
+" based on: https://stackoverflow.com/a/31961401/1706778
+
+" Close tab with Ctrl+w
+nnoremap <C-w> :tabclose<CR>
+
+" Ctrl+t -> new tab
+nnoremap <C-t> :tabnew<CR>
+
+" Ctl+tab -> next tab
+set <F13>=[27;5;9~ | nnoremap <F13> gt
+
+" Ctrl+Shift + tab -> previous tab
+set <F14>=[27;6;9~ | nnoremap <F14> gT
+
+" Ctrl+Shift+w -> close tab
+set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme and airline theme settings
@@ -642,3 +642,4 @@ xmap ga <Plug>(EasyAlign)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:hardtime_default_on = 1
 let g:hardtime_allow_different_key = 3
+
