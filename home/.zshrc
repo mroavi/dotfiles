@@ -92,7 +92,7 @@ elif [ "$THEME" = "palenight" ]; then
 
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme ayu/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
-    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='base16'/g" ~/.vimrc
+    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='ayu_dark'/g" ~/.vimrc
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*ayu/g" ~/.alacritty.yml
     sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'/g" ~/.oh-my-zsh/custom/example.zsh
 #    xrdb -DUSE_MATERIAL ~/.Xresources

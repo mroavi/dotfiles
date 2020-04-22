@@ -346,7 +346,7 @@ let ayucolor="dark"
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
 colorscheme ayu
 set background=dark
-let g:airline_theme='base16'
+let g:airline_theme='ayu_dark'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
