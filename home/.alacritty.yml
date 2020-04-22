@@ -560,15 +560,27 @@ schemes:
       background: '#0F1419'
       foreground: '#B3B1AD'
 
-    # Normal colors
+#    # Normal colors
+#    normal:
+#      black: '#01060E'
+#      red: '#EA6C73'
+#      green: '#91B362'
+#      yellow: '#F9AF4F'
+#      blue: '#53BDFA'
+#      magenta: '#FAE994'
+#      cyan: '#90E1C6'
+#      white: '#C7C7C7'
+
+    # Bright colors
     normal:
-      black: '#01060E'
-      red: '#EA6C73'
-      green: '#91B362'
-      yellow: '#F9AF4F'
-      blue: '#53BDFA'
-      magenta: '#FAE994'
-      cyan: '#90E1C6'
+      black: '#686868'
+      red: '#F07178'
+      green: '#C2D94C'
+      yellow: '#FFB454'
+      blue: '#59C2FF'
+      magenta: '#FFEE99'
+      cyan: '#95E6CB'
+#      white: '#FFFFFF'
       white: '#C7C7C7'
 
     # Bright colors
