@@ -280,13 +280,10 @@ font:
 
 # Available color schemes
 schemes:
-
   onedark: &onedark
-    # Default colors
     primary:
       background: '#282C34'
       foreground: '#ABB2BF'
-    # Normal colors
     normal:
       black:   '#5C6370'
       red:     '#E06C75'
@@ -296,7 +293,6 @@ schemes:
       magenta: '#C678DD'
       cyan:    '#56B6C2'
       white:   '#ABB2BF'
-    # Bright colors
     bright:
       black:   '#4B5263'
       red:     '#BE5046'
@@ -308,15 +304,12 @@ schemes:
       white:   '#3E4452'
 
   solarized-light: &solarized-light
-    # Default colors
     primary:
       background: '#fdf6e3' # base3
       foreground: '#657b83' # base00
-    # Cursor colors
     cursor:
       text:   '#fdf6e3' # base3
       cursor: '#657b83' # base00
-    # Normal colors
     normal:
       black:   '#073642' # base02
       red:     '#dc322f' # red
@@ -326,7 +319,6 @@ schemes:
       magenta: '#d33682' # magenta
       cyan:    '#2aa198' # cyan
       white:   '#eee8d5' # base2
-    # Bright colors
     bright:
       black:   '#002b36' # base03
       red:     '#cb4b16' # orange
@@ -338,15 +330,12 @@ schemes:
       white:   '#fdf6e3' # base3
 
   solarized-dark: &solarized-dark
-    # Default colors
     primary:
       background: '#002b36' # base03
       foreground: '#839496' # base0
-    # Cursor colors
     cursor:
       text:   '#002b36' # base03
       cursor: '#839496' # base0
-    # Normal colors
     normal:
       black:   '#073642' # base02
       red:     '#dc322f' # red
@@ -356,7 +345,6 @@ schemes:
       magenta: '#d33682' # magenta
       cyan:    '#2aa198' # cyan
       white:   '#eee8d5' # base2
-    # Bright colors
     bright:
       black:   '#002b36' # base01
       red:     '#cb4b16' # orange
@@ -368,7 +356,6 @@ schemes:
       white:   '#fdf6e3' # base3
 
   gruvbox: &gruvbox
-    # Default colors
     primary:
       # hard contrast: background = '#1d2021'
       background: '#1d2021'
@@ -376,7 +363,6 @@ schemes:
       # soft contrast: background = '#32302f'
 #      foreground: '#32302f'
       foreground: '#ebdbb2'
-    # Normal colors
     normal:
       black:   '#282828'
       red:     '#cc241d'
@@ -386,7 +372,6 @@ schemes:
       magenta: '#b16286'
       cyan:    '#689d6a'
       white:   '#a89984'
-    # Bright colors
     bright:
       black:   '#928374'
       red:     '#fb4934'
@@ -398,11 +383,9 @@ schemes:
       white:   '#ebdbb2'
 
   dracula: &dracula
-    # Default colors
     primary:
       background: '#282a36'
       foreground: '#f8f8f2'
-    # Normal colors
     normal:
       black:   '#000000'
       red:     '#ff5555'
@@ -412,7 +395,6 @@ schemes:
       magenta: '#ff79c6'
       cyan:    '#8be9fd'
       white:   '#bfbfbf'
-    # Bright colors
     bright:
       black:   '#575b70'
       red:     '#ff6e67'
@@ -427,7 +409,6 @@ schemes:
     primary:
       background: '#272822'
       foreground: '#F8F8F2'
-    # Normal colors
     normal:
       black:   '#272822'
       red:     '#F92672'
@@ -437,7 +418,6 @@ schemes:
       magenta: '#AE81FF'
       cyan:    '#A1EFE4'
       white:   '#F8F8F2'
-    # Bright colors
     bright:
       black:   '#75715E'
       red:     '#F92672'
@@ -449,11 +429,9 @@ schemes:
       white:   '#F9F8F5'
 
   molokai: &molokai
-    # Default colors
     primary:
       background: '#1B1D1E'
       foreground: '#F8F8F2'
-    # Normal colors
     normal:
       black:   '#333333'
       red:     '#C4265E'
@@ -463,7 +441,6 @@ schemes:
       magenta: '#8C6BC8'
       cyan:    '#56ADBC'
       white:   '#E3E3DD'
-    # Bright colors
     bright:
       black:   '#666666'
       red:     '#F92672'
@@ -475,11 +452,9 @@ schemes:
       white:   '#F8F8F2'
 
   palenight: &palenight
-    # Default colors
     primary:
       background: '#292d3e'
       foreground: '#959dcb'
-    # Normal colors
     normal:
       black:   '#292d3e'
       red:     '#f07178'
@@ -489,7 +464,6 @@ schemes:
       magenta: '#c792ea'
       cyan:    '#89ddff'
       white:   '#959dcb'
-    # Bright colors
     bright:
       black:   '#676e95'
       red:     '#f07178'
@@ -501,11 +475,9 @@ schemes:
       white:   '#ffffff'
 
   material-original: &material-original
-    # Default colors
     primary:
       background: '#263238'
       foreground: '#cdd3de'
-    # Normal colors
     normal:
       black:   '#263238'
       red:     '#ec5f67'
@@ -515,7 +487,6 @@ schemes:
       magenta: '#82aaff'
       cyan:    '#80cbc4'
       white:   '#cdd3de'
-    # Bright colors
     bright:
       black:   '#707880'
       red:     '#ea9560'
@@ -527,11 +498,9 @@ schemes:
       white:   '#ffffff'
 
   material: &material
-    # Default colors
     primary:
       background: '#1e282d'
       foreground: '#c4c7d1'
-    # Normal colors
     normal:
       black:   '#1e282d'
       red:     '#eb606b'
@@ -541,7 +510,6 @@ schemes:
       magenta: '#ff2f90'
       cyan:    '#aeddff'
       white:   '#c4c7d1'
-    # Bright colors
     bright:
       black:   '#ff262b'
       red:     '#eb606b'
@@ -554,45 +522,38 @@ schemes:
 
   # Colors (Ayu Dark)
   ayu: &ayu
-    # Default colors
     primary:
 #      background: '#0A0E14'
       background: '#0F1419'
       foreground: '#B3B1AD'
-
-#    # Normal colors
 #    normal:
-#      black: '#01060E'
-#      red: '#EA6C73'
-#      green: '#91B362'
+#      black:  '#01060E'
+#      red:    '#EA6C73'
+#      green:  '#91B362'
 #      yellow: '#F9AF4F'
-#      blue: '#53BDFA'
-#      magenta: '#FAE994'
-#      cyan: '#90E1C6'
-#      white: '#C7C7C7'
-
-    # Bright colors
+#      blue:   '#53BDFA'
+#      magenta:'#FAE994'
+#      cyan:   '#90E1C6'
+#      white:  '#C7C7C7'
     normal:
-      black: '#686868'
-      red: '#F07178'
-      green: '#C2D94C'
-      yellow: '#FFB454'
-      blue: '#59C2FF'
+      black:   '#686868'
+      red:     '#F07178'
+      green:   '#C2D94C'
+      yellow:  '#FFB454'
+      blue:    '#59C2FF'
       magenta: '#FFEE99'
-      cyan: '#95E6CB'
-#      white: '#FFFFFF'
-      white: '#C7C7C7'
-
-    # Bright colors
+      cyan:    '#95E6CB'
+#      white:   '#FFFFFF'
+      white:   '#C7C7C7'
     bright:
-      black: '#686868'
-      red: '#F07178'
-      green: '#C2D94C'
-      yellow: '#FFB454'
-      blue: '#59C2FF'
+      black:   '#686868'
+      red:     '#F07178'
+      green:   '#C2D94C'
+      yellow:  '#FFB454'
+      blue:    '#59C2FF'
       magenta: '#FFEE99'
-      cyan: '#95E6CB'
-      white: '#FFFFFF'
+      cyan:    '#95E6CB'
+      white:   '#FFFFFF'
 
 # Sets the current colorscheme
 colors: *ayu
