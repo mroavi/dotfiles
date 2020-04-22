@@ -150,10 +150,10 @@ nnoremap <Leader>bd :bdelete<CR>
 map <Leader>bo :%bdelete\|e#<CR>
 
 " Write to disk
-nnoremap <Leader>w :w<CR>
+nnoremap <Leader>w :write<CR>
 
 " Quit
-nnoremap <Leader>q :q<CR>
+nnoremap <Leader>q :quit<CR>
 
 " Yank to clipboard
 vmap <Leader>y "+y
@@ -187,12 +187,6 @@ set <F14>=[27;6;9~ | nnoremap <F14> gT
 
 " Ctrl+Shift+w -> close tab
 set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
-
-" Ctrl+Shift+v -> vertical split
-"set <F16>=[27;6;49~ | nnoremap <F16> :split<CR>
-
-" Ctrl+Shift+s -> horizontal split
-"set <F17>=[27;6;46~ | nnoremap <F17> :vsplit<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
@@ -601,7 +595,6 @@ autocmd FileType julia nmap <buffer> <C-c>v <Plug>SlimeConfig
 " Use '##' to define cells instead of using marks
 let g:julia_cell_delimit_cells_by = 'tags'
 
-"set <F20>=[27;6;44~
 "autocmd FileType python,julia nnoremap <buffer> <F20> :JuliaCellRun<CR>
 autocmd FileType julia nnoremap <buffer> <F4> :JuliaCellRun<CR>
 
