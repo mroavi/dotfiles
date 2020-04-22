@@ -46,8 +46,9 @@ set hidden " allows switching from unwritten buffers and remembers the buffer un
 set formatoptions-=tc " disable auto-wrap text using textwidth
 "set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
 set shortmess-=S " show search count message when searching
-set grepprg=rg\ --vimgrep " Program to used for the :grep command.
-set grepformat=%f:%l:%c:%m " Format to recognize for the :grep command output
+set grepprg=rg\ --vimgrep " program to used for the :grep command.
+set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
+set splitbelow splitright " open a new split at to bottom or to the right of the current one
 
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
@@ -114,20 +115,14 @@ noremap <Leader>rw :call TrimWhitespace()<CR>
 nnoremap <C-a> <C-w>
 
 " Resize splits easier
-set <M-S-j>=J
-noremap <M-S-j> <C-w>+
-set <M-S-k>=K
-noremap <M-S-k> <C-w>-
-set <M-S-h>=H
-noremap <M-S-h> <C-w><
-set <M-S-l>=L
-noremap <M-S-l> <C-w>>
+set <M-S-j>=J | noremap <M-S-j> :resize -3<CR>
+set <M-S-k>=K | noremap <M-S-k> :resize +3<CR>
+set <M-S-h>=H | noremap <M-S-h> :vertical resize +3<CR>
+set <M-S-l>=L | noremap <M-S-l> :vertical resize -3<CR>
 
 " Advance up and down faster with the cursor
-set <M-j>=j
-noremap <M-j> 5j<CR>
-set <M-k>=k
-noremap <M-k> 5k<CR>
+set <M-j>=j | noremap <M-j> 5j<CR>
+set <M-k>=k | noremap <M-k> 5k<CR>
 
 " Make Y behave like other capitals
 nnoremap Y y$
@@ -185,24 +180,19 @@ nnoremap <C-w> :tabclose<CR>
 nnoremap <C-t> :tabnew<CR>
 
 " Ctl+tab -> next tab
-set <F13>=[27;5;9~
-nnoremap <F13> gt
+set <F13>=[27;5;9~ | nnoremap <F13> gt
 
 " Ctrl+Shift + tab -> previous tab
-set <F14>=[27;6;9~
-nnoremap <F14> gT
+set <F14>=[27;6;9~ | nnoremap <F14> gT
 
 " Ctrl+Shift+w -> close tab
-set <F15>=[27;6;48~
-nnoremap <F15> :close<CR>
+set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
 
 " Ctrl+Shift+v -> vertical split
-"set <F16>=[27;6;49~
-"nnoremap <F16> :split<CR>
+"set <F16>=[27;6;49~ | nnoremap <F16> :split<CR>
 
 " Ctrl+Shift+s -> horizontal split
-"set <F17>=[27;6;46~
-"nnoremap <F17> :vsplit<CR>
+"set <F17>=[27;6;46~ | nnoremap <F17> :vsplit<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
@@ -513,16 +503,6 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
-
-"" WIP
-"" Template based on https://www.reddit.com/r/vim/comments/a1g4cp/fzf_with_preview_window_ag_search_on_a_directory/
-"" See https://github.com/junegunn/fzf/blob/master/README-VIM.md
-"command! -nargs=* MyRg call fzf#run(fzf#wrap(fzf#vim#with_preview({
-"        \ 'source': 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
-"        \ 'sink':'edit',
-"        \ 'down': '100%',
-"        \ 'options': ['--no-reverse', '--preview-window', 'up:60%']
-"        \ })))
 
 " -------------------------------------------------------------------
 " History
