@@ -193,7 +193,6 @@ set shortmess-=S " show search count message when searching
 set grepprg=rg\ --vimgrep " program to used for the :grep command.
 set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
 set splitbelow splitright " open a new split at to bottom or to the right of the current one
-
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
 
@@ -208,7 +207,6 @@ set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " match indents on new lines.
 set smartindent " intelligently dedent / indent new lines based on rules.
-
 filetype indent on " enable file type based indentation
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
