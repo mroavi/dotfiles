@@ -334,17 +334,19 @@ set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
 " Set the color scheme
 syntax enable
 
+" WARNING: Do not modify these lines. They are updated by the .zshrc script.
+colorscheme ayu
+"set background=dark
+let g:airline_theme='ayu_dark'
+
 " Specific color scheme options
 let g:gruvbox_contrast_dark='medium'
 let g:airline_powerline_fonts = 1
 let g:palenight_terminal_italics=1
 autocmd ColorScheme hybrid_material hi link GitGutterDelete diffRemoved
 let ayucolor="dark"
-
-" WARNING: Do not modify these lines. They are updated by the .zshrc script.
-colorscheme ayu
-set background=dark
-let g:airline_theme='ayu_dark'
+"let ayucolor="mirage"
+"let ayucolor="light"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex settings
