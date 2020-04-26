@@ -304,9 +304,6 @@ map <Leader>sv :w<CR>:source $MYVIMRC<CR>
 " Write and source the currently opened file
 map <Leader>ss :w<CR>:source %<CR>
 
-" Disable Ctl+z kwhich kills the process in vim-gnome)
-noremap <C-z> <Nop>
-
 " Toggle display of invisible chars (http://vimcasts.org/episodes/show-invisibles/`)
 nmap <F3> :set list!<CR>
 
