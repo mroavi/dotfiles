@@ -127,6 +127,9 @@ Plug 'nelstrom/vim-visual-star-search'
 " Plugin to help you stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
 
+" Vim plugin that shows keybindings in popup (On-demand lazy load)
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
 " Color schemes
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
@@ -642,3 +645,7 @@ xmap ga <Plug>(EasyAlign)
 let g:hardtime_default_on = 1
 let g:hardtime_allow_different_key = 3
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-which-key
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
