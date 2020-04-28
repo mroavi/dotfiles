@@ -143,6 +143,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'rakr/vim-one'
 Plug 'mhartington/oceanic-next'
 Plug 'ayu-theme/ayu-vim'
+Plug 'kaicataldo/material.vim'
 
 Plug '~/repos/marlin.vim'
 
@@ -332,12 +333,12 @@ set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
 syntax enable
 
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
-colorscheme gruvbox8_hard
+colorscheme ayu
 set background=dark
-let g:airline_theme='base16_gruvbox_dark_hard'
+let g:airline_theme='ayu_dark'
 
 " Specific color scheme options
-let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_contrast_dark='hard'
 let g:airline_powerline_fonts = 1
 let g:palenight_terminal_italics=1
 autocmd ColorScheme hybrid_material hi link GitGutterDelete diffRemoved
@@ -469,6 +470,7 @@ nnoremap <Leader>co :Commits<CR>
 nnoremap <Leader>bc :BCommits<CR>
 nnoremap <Leader>cm :Commands<CR>
 nnoremap <Leader>ma :Maps<CR>
+nnoremap <Leader>cs :Colors<CR>
 
 " -------------------------------------------------------------------
 " Files

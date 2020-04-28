@@ -1,11 +1,12 @@
 # ▶ mrv: Set theme (uncomment one, reload tmux, and comment it out again)
 #THEME=solarized-dark
 #THEME=solarized-light
-#THEME=gruvbox8-dark
+#THEME=gruvbox-dark
 #THEME=onedark
 #THEME=palenight
 #THEME=material
-#THEME=ayu
+THEME=ayu
+#THEME=OceanicNext
 
 # mrv: To cleanly kill all tmux open sessions (and server) run:
 # tmux kill-server
@@ -47,9 +48,9 @@ elif [ "$THEME" = "solarized-light" ]; then
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme solarized-dark/g" ~/.vifm/vifmrc
     export BAT_THEME="Solarized (light)"
 
-elif [ "$THEME" = "gruvbox8-dark" ]; then
+elif [ "$THEME" = "gruvbox-dark" ]; then
 
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox8_hard/g' ~/.vimrc
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='base16_gruvbox_dark_hard'/g" ~/.vimrc
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*gruvbox/g" ~/.alacritty.yml
@@ -77,18 +78,18 @@ elif [ "$THEME" = "palenight" ]; then
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
     export BAT_THEME="OneHalfDark"
 
- elif [ "$THEME" = "material" ]; then
+elif [ "$THEME" = "material" ]; then
 
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme hybrid_material/g' ~/.vimrc
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme material/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
     sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='hybrid'/g" ~/.vimrc
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*material/g" ~/.alacritty.yml
-    sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=0'/g" ~/.oh-my-zsh/custom/example.zsh
+    sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'/g" ~/.oh-my-zsh/custom/example.zsh
     xrdb -DUSE_MATERIAL ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
-    export BAT_THEME="OneHalfDark"
+    export BAT_THEME="ansi-dark"
     
- elif [ "$THEME" = "ayu" ]; then
+elif [ "$THEME" = "ayu" ]; then
 
     sed -i --follow-symlinks 's/colorscheme.*/colorscheme ayu/g' ~/.vimrc
     sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
@@ -97,7 +98,18 @@ elif [ "$THEME" = "palenight" ]; then
     sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'/g" ~/.oh-my-zsh/custom/example.zsh
 #    xrdb -DUSE_MATERIAL ~/.Xresources
     sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
-    export BAT_THEME="OneHalfDark"
+    export BAT_THEME="base16"
+
+elif [ "$THEME" = "OceanicNext" ]; then
+
+    sed -i --follow-symlinks 's/colorscheme.*/colorscheme OceanicNext/g' ~/.vimrc
+    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
+    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='oceanicnext'/g" ~/.vimrc
+    sed -i --follow-symlinks "s/colors: \*.*/colors: \*OceanicNext/g" ~/.alacritty.yml
+    sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'/g" ~/.oh-my-zsh/custom/example.zsh
+#    xrdb -DUSE_MATERIAL ~/.Xresources
+    sed -i --follow-symlinks "s/colorscheme .*/colorscheme base16/g" ~/.vifm/vifmrc
+    export BAT_THEME="ansi-dark"
 
 fi
 
