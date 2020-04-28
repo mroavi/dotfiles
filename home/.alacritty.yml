@@ -590,7 +590,7 @@ schemes:
       white:   '#d8dee9'      
 
 # Sets the current colorscheme
-colors: *ayu
+colors: *OceanicNext
 
 # Visual Bell
 #

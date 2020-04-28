@@ -336,9 +336,9 @@ set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
 syntax enable
 
 " WARNING: Do not modify these lines. They are updated by the .zshrc script.
-colorscheme ayu
+colorscheme OceanicNext
 set background=dark
-let g:airline_theme='ayu_dark'
+let g:airline_theme='oceanicnext'
 
 " Specific color scheme options
 let g:gruvbox_contrast_dark='hard'

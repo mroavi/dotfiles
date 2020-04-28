@@ -5,7 +5,7 @@
 #THEME=onedark
 #THEME=palenight
 #THEME=material
-THEME=ayu
+#THEME=ayu
 #THEME=OceanicNext
 
 # mrv: To cleanly kill all tmux open sessions (and server) run:
