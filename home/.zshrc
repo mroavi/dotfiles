@@ -108,7 +108,7 @@ elif [ "$THEME" = "OceanicNext" ]; then
     sed -i --follow-symlinks "s/colors: \*.*/colors: \*OceanicNext/g" ~/.alacritty.yml
     sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'/g" ~/.oh-my-zsh/custom/example.zsh
 #    xrdb -DUSE_MATERIAL ~/.Xresources
-    sed -i --follow-symlinks "s/colorscheme .*/colorscheme base16/g" ~/.vifm/vifmrc
+    sed -i --follow-symlinks "s/colorscheme .*/colorscheme near-default/g" ~/.vifm/vifmrc
     export BAT_THEME="ansi-dark"
 
 fi
