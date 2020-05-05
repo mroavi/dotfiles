@@ -66,7 +66,7 @@
 #  Control + b:2 + Release
 
 # ------------------------------------------------------------------
-# mrv: Automated text input for live coding presentations
+# mrv: Running bash scripts in sudo mode:
 #
 # Make sure to add a rule in /etc/sudoers to allow running
 # the bash script as sudo without prompting for a password.
@@ -78,7 +78,8 @@
 # Also make sure to make the bash script executable:
 #   $ chmod +x my-script.sh
 #
-# To reload this file:
+# ------------------------------------------------------------------
+# mrv: To reload this file:
 #   $ killall -HUP xbindkeys
 #   $ xbindkeys
 # ------------------------------------------------------------------
@@ -89,11 +90,8 @@
 "sudo ~/repos/Halide/mrv/automated-multi-stage-practice.sh"
   control+shift+alt + 2
 
-"sudo ~/Desktop/send-to-vim.sh"
+"/home/mroavi/Desktop/keyboard-emulator/dist/keyboard-emulator"
   control+shift+alt + 3
-
-"sudo ~/Desktop/test.sh"
-  control+shift+alt + 4
 
 ##################################
 # End of xbindkeys configuration #
