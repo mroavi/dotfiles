@@ -587,9 +587,9 @@ nmap <leader>sc <Plug>SlimeSendCell
 
 " Map to Ctrl-Return
 set <F19>=[27;5;40~
-autocmd FileType julia xmap <buffer> <F19> <Plug>SlimeRegionSend
-autocmd FileType julia nmap <buffer> <F19> <Plug>SlimeLineSend
-autocmd FileType julia nmap <buffer> <C-c>v <Plug>SlimeConfig
+autocmd FileType julia,python xmap <buffer> <F19> <Plug>SlimeRegionSend
+autocmd FileType julia,python nmap <buffer> <F19> <Plug>SlimeLineSend
+autocmd FileType julia,python nmap <buffer> <C-c>v <Plug>SlimeConfig
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-julia-cell
