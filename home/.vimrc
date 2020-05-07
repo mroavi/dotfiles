@@ -464,29 +464,19 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Shift-Tab to select multiple results (-m flag required)
-nnoremap <Leader>fi :MyFiles!<CR>
+nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>rg :MyRg!<CR>
 nnoremap <Leader>li :Lines<CR>
 nnoremap <Leader>bl :BLines<CR>
-nnoremap <Leader>hi :MyHistory<CR>
+nnoremap <Leader>hi :History<CR>
 nnoremap <Leader>ch :History:<CR>
 nnoremap <Leader>co :Commits<CR>
 nnoremap <Leader>bc :BCommits<CR>
 nnoremap <Leader>cm :Commands<CR>
 nnoremap <Leader>ma :Maps<CR>
 nnoremap <Leader>cs :Colors<CR>
-
-" -------------------------------------------------------------------
-" Files
-" command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, s:p(<bang>0), <bang>0)
-" -------------------------------------------------------------------
-command! -bang -nargs=? -complete=dir MyFiles call fzf#vim#files(
-    \ <q-args>,
-    \ <bang>0 ? fzf#vim#with_preview({'options': ['--preview-window', 'up:60%', '--no-height']})
-    \         : fzf#vim#with_preview({'options': ['--preview-window', 'up:60%'], 'down': '40%'}),
-    \ <bang>0)
 
 " -------------------------------------------------------------------
 " Rg
@@ -502,27 +492,6 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
-
-" -------------------------------------------------------------------
-" History
-" command! -bang -nargs=* History call s:history(<q-args>, s:p(<bang>0), <bang>0)
-" -------------------------------------------------------------------
-command! -bang -nargs=* MyHistory call s:history(
-    \ <q-args>,
-    \ <bang>0 ? fzf#vim#with_preview({'options': ['--preview-window', 'up:60%', '--no-height']})
-    \         : fzf#vim#with_preview({'options': ['--preview-window', 'up:60%'], 'down': '80%'}),
-    \ <bang>0)
-
-function! s:history(arg, extra, bang)
-  let bang = a:bang || a:arg[len(a:arg)-1] == '!'
-  if a:arg[0] == ':'
-    call fzf#vim#command_history(bang)
-  elseif a:arg[0] == '/'
-    call fzf#vim#search_history(bang)
-  else
-    call fzf#vim#history(a:extra, bang)
-  endif
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vifm.vim
