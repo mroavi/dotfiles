@@ -526,7 +526,7 @@ nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <Leader>fx :YcmCompleter FixIt<CR>
 nnoremap <Leader>fo :YcmCompleter Format<CR>
 nnoremap <Leader>gt :YcmCompleter GetType<CR>
-nnoremap <Leader>gd :YcmCompleter GetDoc<CR>
+nnoremap <Leader>do :YcmCompleter GetDoc<CR>
 nnoremap <F2> :YcmCompleter RefactorRename<Space>
 
 ":set completeopt=preview,menuone " default
