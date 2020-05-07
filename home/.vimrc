@@ -464,6 +464,7 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Shift-Tab to select multiple results (-m flag required)
+" :Files runs $FZF_DEFAULT_COMMAND defined in .zshrc
 nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>ls :Buffers<CR>
