@@ -66,16 +66,16 @@
 #  Control + b:2 + Release
 
 # ------------------------------------------------------------------
-# mrv: Running bash scripts in sudo mode:
+# mrv: Running programs in sudo mode:
 #
 # Make sure to add a rule in /etc/sudoers to allow running
-# the bash script as sudo without prompting for a password.
+# a program as sudo without prompting for a password.
 # To do this, run:
 #   $ pkexec visudo
 #
 # For more info see: https://unix.stackexchange.com/q/18830/184227
 #
-# Also make sure to make the bash script executable:
+# If wanting to run a Bash script, make sure to make executable:
 #   $ chmod +x my-script.sh
 #
 # ------------------------------------------------------------------
@@ -90,7 +90,7 @@
 "sudo ~/repos/Halide/mrv/automated-multi-stage-practice.sh"
   control+shift+alt + 2
 
-"/home/mroavi/Desktop/keyboard-emulator/dist/keyboard-emulator"
+"sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/software/julia/Plots.jl/animation/Fourier/zach-star/fourier-intuition.jl'"
   control+shift+alt + 3
 
 ##################################
