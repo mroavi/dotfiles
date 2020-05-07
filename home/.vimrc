@@ -524,7 +524,7 @@ let g:highlightedyank_highlight_duration = 200
 nnoremap <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <Leader>fx :YcmCompleter FixIt<CR>
-noremap <Leader>fo :YcmCompleter Format<CR>
+nnoremap <Leader>fo :YcmCompleter Format<CR>
 nnoremap <Leader>gt :YcmCompleter GetType<CR>
 nnoremap <Leader>gd :YcmCompleter GetDoc<CR>
 nnoremap <F2> :YcmCompleter RefactorRename<Space>
