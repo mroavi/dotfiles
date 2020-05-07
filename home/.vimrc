@@ -478,9 +478,6 @@ nnoremap <Leader>cm :Commands<CR>
 nnoremap <Leader>ma :Maps<CR>
 nnoremap <Leader>cs :Colors<CR>
 
-" -------------------------------------------------------------------
-" Rg
-" -------------------------------------------------------------------
 " Advanced ripgrep integration
 " See https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
 function! RipgrepFzf(query, fullscreen)
