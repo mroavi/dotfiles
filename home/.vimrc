@@ -130,6 +130,9 @@ Plug 'takac/vim-hardtime'
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
+" Seamlessly run Python code from Vim in IPython
+Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+
 " Color schemes
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
@@ -563,7 +566,7 @@ nnoremap <F2> :YcmCompleter RefactorRename<Space>
 :set completeopt=menuone
 
 " Show the full diagnostic text
-"let g:ycm_key_detailed_diagnostics = '<leader>d' " default
+"let g:ycm_key_detailed_diagnostics = '<Leader>d' " default
 let g:ycm_key_detailed_diagnostics = ''
 
 " Auto-close the preview window after the user accepts the offered completion string
@@ -582,13 +585,17 @@ let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
 let g:slime_dont_ask_default = 1
 let g:slime_no_mappings = 1
-let g:slime_cell_delimiter = "#%%"
-nmap <leader>sc <Plug>SlimeSendCell
+let g:slime_cell_delimiter = "##"
+
+" Execute current cell
+"execute "set <M-CR>=\<esc>\<cr>"
+"autocmd FileType python nmap <buffer> <M-CR> <Plug>SlimeSendCell
 
 " Map to Ctrl-Return
 set <F19>=[27;5;40~
 autocmd FileType julia,python xmap <buffer> <F19> <Plug>SlimeRegionSend
 autocmd FileType julia,python nmap <buffer> <F19> <Plug>SlimeLineSend
+
 autocmd FileType julia,python nmap <buffer> <C-c>v <Plug>SlimeConfig
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -600,7 +607,7 @@ let g:julia_cell_delimit_cells_by = 'tags'
 "autocmd FileType python,julia nnoremap <buffer> <F20> :JuliaCellRun<CR>
 autocmd FileType julia nnoremap <buffer> <F4> :JuliaCellRun<CR>
 
-" Execute the current cell
+" Execute current cell
 execute "set <M-CR>=\<esc>\<cr>"
 autocmd FileType julia nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
 
@@ -612,6 +619,25 @@ autocmd FileType julia nnoremap <buffer> <M-j> :JuliaCellNextCell<CR>
 
 "autocmd FileType julia nnoremap <buffer> <Leader>jl :JuliaCellClear<CR>
 "autocmd FileType julia nnoremap <buffer> <F7> :JuliaCellExecuteCellJump<CR>
+
+"------------------------------------------------------------------------------
+" vim-ipython-cell
+"------------------------------------------------------------------------------
+" Use '##' to define cells instead of using marks
+let g:ipython_cell_delimit_cells_by = 'tags'
+
+" map <Leader>r to run script
+autocmd FileType python nnoremap <Leader>r :IPythonCellRun<CR>
+
+" Execute current cell
+execute "set <M-CR>=\<esc>\<cr>"
+autocmd FileType python nmap <buffer> <M-CR> :IPythonCellExecuteCell<CR>
+
+" Jump to the previous/next cell headers
+set <M-k>=k
+autocmd FileType python nnoremap <buffer> <M-k> :IPythonCellPrevCell<CR>
+set <M-j>=j
+autocmd FileType python nnoremap <buffer> <M-j> :IPythonCellNextCell<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " julia-vim
