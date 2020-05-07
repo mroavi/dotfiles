@@ -648,4 +648,13 @@ let g:hardtime_allow_different_key = 3
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-which-key
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>1 m`yypVr=``
+nnoremap <Leader>2 m`yypVr-``
+nnoremap <Leader>3 m`^i### <esc>``4l
+nnoremap <Leader>4 m`^i#### <esc>``5l
+nnoremap <Leader>5 m`^i##### <esc>``6l
