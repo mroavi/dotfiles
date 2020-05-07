@@ -684,3 +684,5 @@ nnoremap <Leader>2 m`yypVr-``
 nnoremap <Leader>3 m`^i### <esc>``4l
 nnoremap <Leader>4 m`^i#### <esc>``5l
 nnoremap <Leader>5 m`^i##### <esc>``6l
+" TODO: read and get ideas from:
+" https://secluded.site/vim-as-a-markdown-editor/
