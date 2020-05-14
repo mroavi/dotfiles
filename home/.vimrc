@@ -125,7 +125,7 @@ Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 Plug 'nelstrom/vim-visual-star-search'
 
 " Plugin to help you stop repeating the basic movement keys
-Plug 'takac/vim-hardtime'
+"Plug 'takac/vim-hardtime'
 
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }

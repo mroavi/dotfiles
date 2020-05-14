@@ -90,7 +90,7 @@
 "sudo ~/repos/Halide/mrv/automated-multi-stage-practice.sh"
   control+shift+alt + 2
 
-"sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/software/julia/Plots.jl/animation/Fourier/zach-star/fourier-intuition.jl'"
+"sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/software/julia/Plots.jl/animation/Fourier/zach-star/fourier-intuition-part1.jl'"
   control+shift+alt + 3
 
 ##################################
