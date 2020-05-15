@@ -100,8 +100,8 @@ Plug 'ap/vim-css-color'
 " A code-completion engine for Vim
 Plug 'ycm-core/YouCompleteMe'
 
-" View and grep man pages in vim
-Plug 'vim-utils/vim-man'
+"" View and grep man pages in vim
+"Plug 'vim-utils/vim-man'
 
 " The undo history visualizer for VIM
 Plug 'mbbill/undotree'
@@ -127,8 +127,8 @@ Plug 'nelstrom/vim-visual-star-search'
 " Plugin to help you stop repeating the basic movement keys
 "Plug 'takac/vim-hardtime'
 
-" Vim plugin that shows keybindings in popup (On-demand lazy load)
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+"" Vim plugin that shows keybindings in popup (On-demand lazy load)
+"Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 " Seamlessly run Python code from Vim in IPython
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
