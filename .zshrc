@@ -226,7 +226,6 @@ source $ZSH/oh-my-zsh.sh
 alias v="vim"
 alias o="xdg-open"
 alias clr="clear"
-alias dotfiles="cd ~/.homesick/repos/dotfiles/home"
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
