@@ -539,6 +539,14 @@ let g:ycm_key_detailed_diagnostics = ''
 " Auto-close the preview window after the user accepts the offered completion string
 "let g:ycm_autoclose_preview_window_after_completion = 1
 
+" Filter warnings
+let g:ycm_filter_diagnostics = {
+  \ "cpp": {
+  \      "regex": [ "-Wsuggest-override", "-Wno-psabi"],
+  \      "level": "warning", 
+  \    }
+  \ }
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undotree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
