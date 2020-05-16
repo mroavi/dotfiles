@@ -2,3 +2,8 @@ home/.vim/plugged
 home/.vim/autoload
 home/.vim/*.netrwhist
 vifminfo
+
+.vim/plugged
+.vim/autoload
+.vim/*.netrwhist
+vifminfo
