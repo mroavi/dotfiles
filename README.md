@@ -1,1 +1,1 @@
-My dotfiles Castle for [Homesick](https://github.com/technicalpickles/homesick).
+My dotfiles managed with [yadm](https://yadm.io/).
