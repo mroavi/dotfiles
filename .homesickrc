@@ -1,2 +1,0 @@
-# load .Xresources (replaces old entries)
-system("xrdb -load ~/.Xresources")
