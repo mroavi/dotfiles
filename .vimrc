@@ -425,6 +425,9 @@ set updatetime=100
 nmap <Leader>hj <Plug>(GitGutterNextHunk)
 nmap <Leader>hk <Plug>(GitGutterPrevHunk)
 
+" Support for yadm dot file management
+let g:gitgutter_git_args = '--git-dir="$HOME/.yadm/repo.git"'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
