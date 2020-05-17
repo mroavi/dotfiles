@@ -4,6 +4,10 @@
 currentdir="$PWD"
 
 # -----------------------------------------------------------------------------------------
+echo "Installing vim plugins..."
+# TODO when vim is run for the first time, all the plugins are cloned and installed
+
+# -----------------------------------------------------------------------------------------
 echo "Installing zsh..."
 sudo apt install zsh
 
@@ -70,8 +74,8 @@ filepath=SourceCodePro-Powerline-Awesome-Regular.ttf
 echo "Installing clangd and YouCompleteMe..."
 
 sudo apt-get install clangd-9
-sudo apt install build-essential cmake vim python3-dev
-#cd ~/.vim/bundle/YouCompleteMe
+sudo apt install build-essential cmake python3-dev
+#cd ~/.vim/plugged/YouCompleteMe
 #python3 install.py --clangd-completer
 
 # -----------------------------------------------------------------------------------------

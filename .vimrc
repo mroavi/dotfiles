@@ -535,6 +535,10 @@ nnoremap <F2> :YcmCompleter RefactorRename<Space>
 ":set completeopt=preview,menuone " default
 :set completeopt=menuone
 
+" Disable automatic info display when hovering
+" https://www.reddit.com/r/vim/comments/g9v832/ycm_documentation_hover_should_we_enable_it_by/
+let g:ycm_auto_hover=''
+
 " Show the full diagnostic text
 "let g:ycm_key_detailed_diagnostics = '<Leader>d' " default
 let g:ycm_key_detailed_diagnostics = ''
