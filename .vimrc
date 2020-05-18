@@ -133,6 +133,9 @@ Plug 'nelstrom/vim-visual-star-search'
 " Seamlessly run Python code from Vim in IPython
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 
+" EditorConfig plugin for Vim http://editorconfig.org
+Plug 'editorconfig/editorconfig-vim'
+
 " Color schemes
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
