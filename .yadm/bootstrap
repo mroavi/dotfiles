@@ -113,7 +113,19 @@ fi
 #echo "Installing base16-shell..."
 #git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
+## -----------------------------------------------------------------------------------------
+# https://github.com/wting/autojump
+echo "Installing autojump..."
 
+FILE=$HOME/.autojump/bin/autojump
+if [ -f "$FILE" ]; then
+    echo "autojump is already installed"
+else 
+    mkdir -p ~/temp && cd ~/temp
+    [ -f ./autojump ] || git clone git://github.com/wting/autojump.git 
+    cd autojump
+    ./install.py
+fi
 
 # -----------------------------------------------------------------------------------------
 # Return to original directory
