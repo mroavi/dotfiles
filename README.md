@@ -1,1 +1,1 @@
-My dotfiles managed with [yadm](https://yadm.io/).
+My dotfiles managed with [GNU stow](https://www.gnu.org/software/stow/).
