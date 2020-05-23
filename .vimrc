@@ -428,9 +428,6 @@ set updatetime=100
 nmap <Leader>hj <Plug>(GitGutterNextHunk)
 nmap <Leader>hk <Plug>(GitGutterPrevHunk)
 
-" Support for yadm dot file management
-let g:gitgutter_git_args = '--git-dir="$HOME/.yadm/repo.git"'
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -553,7 +550,7 @@ let g:ycm_key_detailed_diagnostics = ''
 let g:ycm_filter_diagnostics = {
   \ "cpp": {
   \      "regex": [ "-Wsuggest-override", "-Wno-psabi"],
-  \      "level": "warning", 
+  \      "level": "warning",
   \    }
   \ }
 
@@ -669,5 +666,4 @@ nnoremap <Leader>2 m`yypVr-``
 nnoremap <Leader>3 m`^i### <esc>``4l
 nnoremap <Leader>4 m`^i#### <esc>``5l
 nnoremap <Leader>5 m`^i##### <esc>``6l
-" TODO: read and get ideas from:
-" https://secluded.site/vim-as-a-markdown-editor/
+
