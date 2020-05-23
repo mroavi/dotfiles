@@ -193,6 +193,7 @@ plugins=(
     zsh-syntax-highlighting
     vi-mode
     z
+    autojump
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -289,20 +290,20 @@ bindkey -M viins 'kj' vi-cmd-mode
 # See: https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
 stty -ixon
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/mroavi/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/mroavi/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/mroavi/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/mroavi/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+## >>> conda initialize >>>
+## !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/home/mroavi/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/mroavi/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/mroavi/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/mroavi/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+## <<< conda initialize <<<
 
 
 ## mrv: Start up tmux automatically
