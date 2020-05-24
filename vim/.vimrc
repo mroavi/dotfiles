@@ -331,6 +331,7 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 " Customization
+" https://bit.ly/2WZ8n3J
 function! s:base16_customize() abort
   call Base16hi("MatchParen", g:base16_gui05, g:base16_gui03, g:base16_cterm05, g:base16_cterm03, "bold,italic", "")
   call Base16hi("SignColumn", "", g:base16_gui00, "", g:base16_cterm00, "", "")
