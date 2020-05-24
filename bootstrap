@@ -11,7 +11,7 @@ echo "Installing vim plugins..."
 echo "Installing zsh..."
 sudo apt install zsh
 
-## Build locally (needed when not a root user)
+## Build locally (needed when root access is not available)
 ## https://stackoverflow.com/a/15293565/1706778
 #mkdir -p ~/downloads && cd downloads
 #wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
