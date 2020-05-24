@@ -128,7 +128,7 @@ Plug 'nelstrom/vim-visual-star-search'
 "Plug 'takac/vim-hardtime'
 
 "" Vim plugin that shows keybindings in popup (On-demand lazy load)
-"Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 " Seamlessly run Python code from Vim in IPython
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
