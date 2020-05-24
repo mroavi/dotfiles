@@ -333,6 +333,13 @@ endif
 " Customization
 function! s:base16_customize() abort
   call Base16hi("MatchParen", g:base16_gui05, g:base16_gui03, g:base16_cterm05, g:base16_cterm03, "bold,italic", "")
+  call Base16hi("SignColumn", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("LineNr", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("CursorLineNR", "", g:base16_gui01, "", g:base16_cterm01, "bold", "")
+  call Base16hi("GitGutterAdd", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("GitGutterChange", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("GitGutterDelte", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", g:base16_cterm00, "", "")
 endfunction
 
 augroup on_change_colorschema
