@@ -81,10 +81,10 @@ sudo apt install build-essential cmake python3-dev
 # -----------------------------------------------------------------------------------------
 # https://github.com/BurntSushi/ripgrep#installation
 echo "Installing ripgrep..."
-cd /tmp
 
 # Install if not already installed
 # https://stackoverflow.com/a/54239534/1706778
+cd /tmp
 pkg='ripgrep'
 if ! dpkg -s $pkg >/dev/null 2>&1; then
     sudo curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
