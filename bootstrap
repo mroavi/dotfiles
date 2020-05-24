@@ -96,7 +96,6 @@ fi
 # -----------------------------------------------------------------------------------------
 # https://computingforgeeks.com/bat-cat-command-with-syntax-highlighting-and-git-integration/
 echo "Installing bat..."
-
 #sudo apt-get install wget
 
 # https://stackoverflow.com/a/54239534/1706778
