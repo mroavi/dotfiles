@@ -228,6 +228,7 @@ alias v="vim"
 alias o="xdg-open"
 alias clr="clear"
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
+alias dotfiles="cd ~/dotfiles"
 
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=2
