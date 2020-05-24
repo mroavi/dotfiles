@@ -1,118 +1,3 @@
-# ▶ mrv: Set theme (uncomment one, reload tmux, and comment it out again)
-#THEME=solarized-dark
-#THEME=solarized-light
-#THEME=gruvbox-dark
-#THEME=onedark
-#THEME=palenight
-#THEME=material
-#THEME=ayu
-#THEME=OceanicNext
-
-# mrv: To cleanly kill all tmux open sessions (and server) run:
-# tmux kill-server
-
-# ===============================================
-# Configure theme
-# ===============================================
-
-if [ "$THEME" = "solarized-dark" ]; then
-
-    # replace the colorscheme, background and airline config line in .vimrc
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized8_high/g' ~/.vimrc
-    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
-    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
-
-    # mrv: Change zsh-autosuggestions color
-    sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'/g" ~/.oh-my-zsh/custom/example.zsh
-
-    # Reload .Xresources with the theme's flag
-    xrdb -DUSE_SOLARIZED_DARK ~/.Xresources
-
-    # Set the colorscheme in .alacritty.yml
-    sed -i --follow-symlinks "s/colors: \*.*/colors: \*solarized-dark/g" ~/.alacritty.yml
-
-    # Set vifm's colorscheme
-    sed -i --follow-symlinks "s/colorscheme .*/colorscheme solarized-dark/g" ~/.vifm/vifmrc
-
-    # Set bat highlighting theme
-    export BAT_THEME="Solarized (dark)"
-
-elif [ "$THEME" = "solarized-light" ]; then
-
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme solarized8/g' ~/.vimrc
-    sed -i --follow-symlinks 's/set background=.*/set background=light/g' ~/.vimrc
-    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='solarized'/g" ~/.vimrc
-    sed -i --follow-symlinks "s/colors: \*.*/colors: \*solarized-light/g" ~/.alacritty.yml
-    sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'/g" ~/.oh-my-zsh/custom/example.zsh
-    xrdb -DUSE_SOLARIZED_LIGHT ~/.Xresources
-    sed -i --follow-symlinks "s/colorscheme .*/colorscheme solarized-dark/g" ~/.vifm/vifmrc
-    export BAT_THEME="Solarized (light)"
-
-elif [ "$THEME" = "gruvbox-dark" ]; then
-
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme gruvbox/g' ~/.vimrc
-    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
-    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='base16_gruvbox_dark_hard'/g" ~/.vimrc
-    sed -i --follow-symlinks "s/colors: \*.*/colors: \*gruvbox/g" ~/.alacritty.yml
-    xrdb -DUSE_GRUVBOX_DARK ~/.Xresources
-    sed -i --follow-symlinks "s/colorscheme .*/colorscheme gruvbox/g" ~/.vifm/vifmrc
-
-elif [ "$THEME" = "onedark" ]; then
-
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme onedark/g' ~/.vimrc
-    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
-    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='onedark'/g" ~/.vimrc
-    sed -i --follow-symlinks "s/colors: \*.*/colors: \*onedark/g" ~/.alacritty.yml
-    xrdb -DUSE_ONEDARK ~/.Xresources
-    sed -i --follow-symlinks "s/colorscheme .*/colorscheme onedark/g" ~/.vifm/vifmrc
-    export BAT_THEME="OneHalfDark"
-
-elif [ "$THEME" = "palenight" ]; then
-
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme palenight/g' ~/.vimrc
-    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
-    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='palenight'/g" ~/.vimrc
-    sed -i --follow-symlinks "s/colors: \*.*/colors: \*palenight/g" ~/.alacritty.yml
-    sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'/g" ~/.oh-my-zsh/custom/example.zsh
-    xrdb -DUSE_PALENIGHT ~/.Xresources
-    sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
-    export BAT_THEME="OneHalfDark"
-
-elif [ "$THEME" = "material" ]; then
-
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme material/g' ~/.vimrc
-    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
-    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='hybrid'/g" ~/.vimrc
-    sed -i --follow-symlinks "s/colors: \*.*/colors: \*material/g" ~/.alacritty.yml
-    sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'/g" ~/.oh-my-zsh/custom/example.zsh
-    xrdb -DUSE_MATERIAL ~/.Xresources
-    sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
-    export BAT_THEME="ansi-dark"
-    
-elif [ "$THEME" = "ayu" ]; then
-
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme ayu/g' ~/.vimrc
-    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
-    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='ayu_dark'/g" ~/.vimrc
-    sed -i --follow-symlinks "s/colors: \*.*/colors: \*ayu/g" ~/.alacritty.yml
-    sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'/g" ~/.oh-my-zsh/custom/example.zsh
-#    xrdb -DUSE_MATERIAL ~/.Xresources
-    sed -i --follow-symlinks "s/colorscheme .*/colorscheme palenight/g" ~/.vifm/vifmrc
-    export BAT_THEME="base16"
-
-elif [ "$THEME" = "OceanicNext" ]; then
-
-    sed -i --follow-symlinks 's/colorscheme.*/colorscheme OceanicNext/g' ~/.vimrc
-    sed -i --follow-symlinks 's/set background=.*/set background=dark/g' ~/.vimrc
-    sed -i --follow-symlinks "s/let g:airline_theme=.*/let g:airline_theme='oceanicnext'/g" ~/.vimrc
-    sed -i --follow-symlinks "s/colors: \*.*/colors: \*OceanicNext/g" ~/.alacritty.yml
-    sed -i --follow-symlinks "s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'/g" ~/.oh-my-zsh/custom/example.zsh
-#    xrdb -DUSE_MATERIAL ~/.Xresources
-    sed -i --follow-symlinks "s/colorscheme .*/colorscheme near-default/g" ~/.vifm/vifmrc
-    export BAT_THEME="ansi-dark"
-
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -291,6 +176,12 @@ bindkey -M viins 'kj' vi-cmd-mode
 # mrv: Disable Ctrl-S from freezing Vim
 # See: https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
 stty -ixon
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 ## >>> conda initialize >>>
 ## !! Contents within this block are managed by 'conda init' !!
