@@ -138,7 +138,6 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
-Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
@@ -353,7 +352,7 @@ call s:base16_customize()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='oceanicnext'
+let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
