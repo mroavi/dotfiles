@@ -139,6 +139,9 @@ Plug 'editorconfig/editorconfig-vim'
 " Color schemes
 Plug 'chriskempson/base16-vim'
 
+" Neovim plugin designed to make you better at Vim movements
+Plug 'ThePrimeagen/vim-be-good'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
