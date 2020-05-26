@@ -115,8 +115,20 @@ alias clr="clear"
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias dotfiles="cd ~/dotfiles"
 alias phd="cd ~/Dropbox/TUe/PhD"
+alias sz="source ~/.zshrc"
+
 alias off="base16_oceanicnext"
 alias on="base16_solarized-light"
+alias cs1="base16_oceanicnext"
+alias cs2="base16_material"
+alias cs3="base16_tomorrow-night"
+alias cs4="base16_onedark"
+alias cs5="base16_gruvbox-dark-hard"
+alias cs6="base16_material-palenight"
+alias cs7="base16_monokai"
+alias cs8="base16_dracula"
+alias cs9="base16_solarized-dark"
+alias cs0="base16_seti"
 
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=2
