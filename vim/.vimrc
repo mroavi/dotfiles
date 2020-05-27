@@ -670,3 +670,9 @@ nnoremap <Leader>3 m`^i### <esc>``4l
 nnoremap <Leader>4 m`^i#### <esc>``5l
 nnoremap <Leader>5 m`^i##### <esc>``6l
 
+if $SSH_CONNECTION
+
+else
+
+endif
+
