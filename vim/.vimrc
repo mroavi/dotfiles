@@ -679,8 +679,9 @@ let g:tmuxline_preset = {
             \'a'    : '#S',
             \'win'  : ['#I #W'],
             \'cwin' : ['#I', '#W'],
-            \'y'    : ['🕐%R', '📅 %D'],
-            \'z'    : '🤵#(whoami)',
+            \'x'    : ['#($TMUX_PLUGIN_MANAGER_PATH/tmux-mem-cpu-load/tmux-mem-cpu-load -a 0 -g 5 --interval 2)'],
+            \'y'    : ['🕐%R', '📅%D'],
+            \'z'    : '👤#(whoami)',
             \'options': {
             \   'status-justify': 'left',
             \   'status-position': 'top',}
