@@ -672,6 +672,23 @@ nnoremap <Leader>3 m`^i### <esc>``4l
 nnoremap <Leader>4 m`^i#### <esc>``5l
 nnoremap <Leader>5 m`^i##### <esc>``6l
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" tmuxline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tmuxline_preset = {
+            \'a'    : '#S',
+            \'win'  : ['#I #W'],
+            \'cwin' : ['#I', '#W'],
+            \'y'    : ['🕐%R', '📅 %D'],
+            \'z'    : '🤵#(whoami)',
+            \'options': {
+            \   'status-justify': 'left',
+            \   'status-position': 'top',}
+            \}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TODO: use this env variable to configure this file for ssh conns
 if $SSH_CONNECTION
 
 else
