@@ -100,9 +100,6 @@ Plug 'ap/vim-css-color'
 " A code-completion engine for Vim
 Plug 'ycm-core/YouCompleteMe'
 
-"" View and grep man pages in vim
-"Plug 'vim-utils/vim-man'
-
 " The undo history visualizer for VIM
 Plug 'mbbill/undotree'
 
