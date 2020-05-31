@@ -598,6 +598,7 @@ set <M-k>=k
 autocmd FileType julia nnoremap <buffer> <M-k> :JuliaCellPrevCell<CR>
 set <M-j>=j
 autocmd FileType julia nnoremap <buffer> <M-j> :JuliaCellNextCell<CR>
+
 autocmd FileType julia nnoremap <buffer> <Leader>cc :JuliaCellClear<CR>
 "autocmd FileType julia nnoremap <buffer> <F7> :JuliaCellExecuteCellJump<CR>
 
