@@ -253,6 +253,10 @@ set <M-S-k>=K | noremap <M-S-k> :resize +3<CR>
 set <M-S-h>=H | noremap <M-S-h> :vertical resize +3<CR>
 set <M-S-l>=L | noremap <M-S-l> :vertical resize -3<CR>
 
+" Advance to the next/previous delimter
+set <M-j>=j | noremap <M-j> /^%%<CR>:noh<CR>j
+set <M-k>=k | noremap <M-k> ?^%%<CR>:noh<CR>k
+
 " Make Y behave like other capitals
 nnoremap Y y$
 
