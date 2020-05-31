@@ -570,15 +570,15 @@ let g:slime_no_mappings = 1
 let g:slime_cell_delimiter = "##"
 
 " Execute current cell
-"execute "set <M-CR>=\<esc>\<cr>"
-"autocmd FileType python nmap <buffer> <M-CR> <Plug>SlimeSendCell
+execute "set <M-CR>=\<esc>\<cr>"
+autocmd FileType matlab nmap <buffer> <M-CR> <Plug>SlimeSendCell
 
 " Map to Ctrl-Return
 set <F19>=[27;5;40~
-autocmd FileType julia,python xmap <buffer> <F19> <Plug>SlimeRegionSend
-autocmd FileType julia,python nmap <buffer> <F19> <Plug>SlimeLineSend
+autocmd FileType julia,python,matlab xmap <buffer> <F19> <Plug>SlimeRegionSend
+autocmd FileType julia,python,matlab nmap <buffer> <F19> <Plug>SlimeLineSend
 
-autocmd FileType julia,python nmap <buffer> <C-c>v <Plug>SlimeConfig
+autocmd FileType julia,python,matlab nmap <buffer> <C-c>v <Plug>SlimeConfig
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-julia-cell
