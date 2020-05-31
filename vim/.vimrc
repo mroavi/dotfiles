@@ -253,10 +253,6 @@ set <M-S-k>=K | noremap <M-S-k> :resize +3<CR>
 set <M-S-h>=H | noremap <M-S-h> :vertical resize +3<CR>
 set <M-S-l>=L | noremap <M-S-l> :vertical resize -3<CR>
 
-" Advance up and down faster with the cursor
-set <M-j>=j | noremap <M-j> 5j<CR>
-set <M-k>=k | noremap <M-k> 5k<CR>
-
 " Make Y behave like other capitals
 nnoremap Y y$
 
