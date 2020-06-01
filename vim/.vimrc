@@ -139,6 +139,9 @@ Plug 'chriskempson/base16-vim'
 " Neovim plugin designed to make you better at Vim movements
 Plug 'ThePrimeagen/vim-be-good'
 
+" Syntax highlighting for GNU Octave
+Plug 'jvirtanen/vim-octave'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
