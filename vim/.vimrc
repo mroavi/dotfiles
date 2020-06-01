@@ -244,6 +244,9 @@ endfun
 command! TrimWhitespace call TrimWhitespace()
 noremap <Leader>rw :call TrimWhitespace()<CR>
 
+" Replace tabs with the appropriate number of spaces
+nnoremap <Leader>rt :retab<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
