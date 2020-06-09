@@ -166,7 +166,6 @@ export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-wind
 # Add preview to Alt-C
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
-
 # ===============================================
 # Custom key bindings
 # ===============================================
