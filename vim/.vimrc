@@ -690,6 +690,15 @@ let g:tmuxline_preset = {
             \   'status-position': 'top',}
             \}
 
+"augroup tmuxline
+"  autocmd!
+"  " Use airline insert colors
+"  autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
+"  " Update .tmux.conf.statsline file
+"  autocmd VimEnter,ColorScheme * silent! TmuxlineSnapshot! ~/dotfiles/tmux/.tmux.conf.statusline
+"  " Reload .tmux.conf
+"  autocmd VimLeave * !tmux source-file ~/.tmux.conf
+"augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO: use this env variable to configure this file for ssh conns
