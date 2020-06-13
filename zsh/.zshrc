@@ -182,9 +182,9 @@ setopt nomenucomplete
 #bindkey '^ ' complete-word
 bindkey '^ ' autosuggest-accept
 
-# mrv: Switch to normal mode using 'jk' (specific to zsh(?))
-bindkey -M viins 'jk' vi-cmd-mode
-bindkey -M viins 'kj' vi-cmd-mode
+## mrv: Switch to normal mode using 'jk' (specific to zsh(?))
+#bindkey -M viins 'jk' vi-cmd-mode
+#bindkey -M viins 'kj' vi-cmd-mode
 
 # mrv: Disable Ctrl-S from freezing Vim
 # See: https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
