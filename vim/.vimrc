@@ -61,9 +61,6 @@ Plug 'tpope/vim-unimpaired'
 " Comment functions so powerful—no comment necessary
 Plug 'scrooloose/nerdcommenter'
 
-"" vim-easyescape makes exiting insert mode easy and distraction free
-"Plug 'zhou13/vim-easyescape'
-
 " Takes the <no.> out of <no.>w or <number>f{char} by highlighting all choices
 Plug 'easymotion/vim-easymotion'
 
@@ -400,14 +397,6 @@ let g:NERDDefaultAlign = 'start'
 set <F18>=
 nnoremap <F18> :call NERDComment(0,"toggle")<C-m>
 vnoremap <F18> :call NERDComment(0,"toggle")<C-m>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" VIM-EASYESCAPE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:easyescape_chars = { "j": 1, "k": 1 }
-"let g:easyescape_timeout = 100
-"cnoremap jk <ESC>
-"cnoremap kj <ESC>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable automatic comment insertion
