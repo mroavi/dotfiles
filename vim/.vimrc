@@ -127,9 +127,6 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Seamlessly run Python code from Vim in IPython
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 
-" EditorConfig plugin for Vim http://editorconfig.org
-Plug 'editorconfig/editorconfig-vim'
-
 " Color schemes
 Plug 'chriskempson/base16-vim'
 
