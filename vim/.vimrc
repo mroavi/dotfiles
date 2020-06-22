@@ -139,6 +139,9 @@ Plug 'ThePrimeagen/vim-be-good'
 " Syntax highlighting for GNU Octave
 Plug 'jvirtanen/vim-octave'
 
+" A vim plugin to display the indention levels with thin vertical lines
+Plug 'yggdroot/indentline'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
