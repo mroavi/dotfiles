@@ -115,7 +115,7 @@ Plug 'jpalardy/vim-slime'
 " Cell support for Julia in Vim
 Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
-" Start a * or # search from a visual block
+" Start a * or # search from a visual block (remove?)
 Plug 'nelstrom/vim-visual-star-search'
 
 " Plugin to help you stop repeating the basic movement keys
