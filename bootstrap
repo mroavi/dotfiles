@@ -4,8 +4,9 @@
 currentdir="$PWD"
 
 # -----------------------------------------------------------------------------------------
-echo "Installing vim plugins..."
-# TODO when vim is run for the first time, all the plugins are cloned and installed
+echo "Installing vim stow..."
+# TODO git clone my `dotfiles` repo
+# TODO git clone `stow` and install it
 
 # -----------------------------------------------------------------------------------------
 echo "Installing zsh..."
