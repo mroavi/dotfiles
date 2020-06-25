@@ -2,7 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mroavi/.oh-my-zsh"
+if [ "$SSH_CONNECTION" ]; then
+  export ZSH="/home/20180043/.oh-my-zsh"
+else
+  export ZSH="/home/mroavi/.oh-my-zsh"
+fi
 
 # Set name of the theme to load
 #ZSH_THEME="pygmalion"
