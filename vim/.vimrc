@@ -94,8 +94,10 @@ Plug 'edkolev/tmuxline.vim'
 " A very fast, multi-syntax context-sensitive color name highlighter
 Plug 'ap/vim-css-color'
 
+if !$SSH_CONNECTION
 " A code-completion engine for Vim
 Plug 'ycm-core/YouCompleteMe'
+endif
 
 " The undo history visualizer for VIM
 Plug 'mbbill/undotree'
@@ -181,7 +183,6 @@ set noshowcmd " don't show partial typed commands in the right side of the statu
 set cmdheight=1 " limit the cmd line height to one line
 set wildmenu " when entering a command, <Tab> shows possible matches above the command line
 "set cursorline " highlight the line that the cursor is currently on
-set signcolumn=yes " always show sign column
 set hidden " allows switching from unwritten buffers and remembers the buffer undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
 "set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
@@ -191,6 +192,9 @@ set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
 set splitbelow splitright " open a new split at to bottom or to the right of the current one
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
+if !$SSH_CONNECTION
+set signcolumn=yes " always show sign column
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation settings
@@ -266,8 +270,10 @@ set <M-k>=k | noremap <M-k> ?^%%<CR>:noh<CR>k
 " Make Y behave like other capitals
 nnoremap Y y$
 
+if !$SSH_CONNECTION
 " Define symbols for tabstops, spaces and EOLs
 set listchars=tab:▸\ ,space:_,eol:¬
+endif
 
 " Open help in vertical split
 cnoreabbrev H vert bo h
@@ -682,6 +688,11 @@ let g:tmuxline_preset = {
             \   'status-position': 'top',}
             \}
 
+if $SSH_CONNECTION
+    autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
+    let g:tmuxline_preset = 'minimal'
+endif
+
 "augroup tmuxline
 "  autocmd!
 "  " Use airline insert colors
@@ -691,12 +702,4 @@ let g:tmuxline_preset = {
 "  " Reload .tmux.conf
 "  autocmd VimLeave * !tmux source-file ~/.tmux.conf
 "augroup END
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TODO: use this env variable to configure this file for ssh conns
-if $SSH_CONNECTION
-
-else
-
-endif
 
