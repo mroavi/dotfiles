@@ -1,6 +1,6 @@
-.vim/plugged
-.vim/autoload
-.vim/*.netrwhist
-.config/vifm/vifminfo
-.config/vifm/colors
-.config/vifm/scripts
+vim/.vim/plugged
+vim/.vim/autoload
+vim/.vim/*.netrwhist
+vifm/.config/vifm/vifminfo
+vifm/.config/vifm/colors
+vifm/.config/vifm/scripts
