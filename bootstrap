@@ -4,7 +4,7 @@
 currentdir="$PWD"
 
 # -----------------------------------------------------------------------------------------
-echo "Installing vim stow..."
+echo "Installing my dotfiles repo and stow..."
 # TODO git clone my `dotfiles` repo
 # TODO git clone `stow` and install it
 
