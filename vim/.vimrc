@@ -403,9 +403,9 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDDefaultAlign = 'start'
 
 " Remap Ctrl+/ to NERDCommentToggle in normal and visual modes!
-set <F18>=
-nnoremap <F18> :call NERDComment(0,"toggle")<C-m>
-vnoremap <F18> :call NERDComment(0,"toggle")<C-m>
+" https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
+nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
+vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable automatic comment insertion
