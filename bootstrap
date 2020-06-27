@@ -55,6 +55,11 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # -----------------------------------------------------------------------------------------
+echo "Installing neovim plugins..."
+
+nvim -es -u init.vim -i NONE -c "PlugInstall" -c "qa"
+
+# -----------------------------------------------------------------------------------------
 echo "Installing zsh..."
 
 if [ "$SSH_CONNECTION" ]; then
