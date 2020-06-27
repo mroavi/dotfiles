@@ -4,44 +4,93 @@
 currentdir="$PWD"
 
 # -----------------------------------------------------------------------------------------
-echo "Installing my dotfiles repo and stow..."
-# TODO git clone my `dotfiles` repo
-# TODO git clone `stow` and install it
+echo "Installing stow..."
+
+if [ "$SSH_CONNECTION" ]; then
+    FILE=$HOME/local/bin/stow
+    if [ -f "$FILE" ]; then
+        echo "stow is already installed"
+    else
+        # See INSTALL.md in root dir
+        # TODO: check if this works
+        mkdir -p ~/repos && cd ~/repos
+        git clone https://git.savannah.gnu.org/git/stow.git
+        cd stow
+        autoreconf -iv
+        ./configure --prefix=$HOME/local
+        && make install
+    fi
+else
+    sudo apt-get install stow
+fi
+
+# -----------------------------------------------------------------------------------------
+echo "Installing nvim..."
+
+if [ "$SSH_CONNECTION" ]; then
+    # Build locally (needed when root access is not available)
+    # https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
+    FILE=$HOME/local/bin/nvim
+    if [ -f "$FILE" ]; then
+        echo "nvim is already installed"
+    else
+        mkdir -p ~/local/bin && cd ~/local/bin
+        curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+        chmod u+x nvim.appimage
+        mv nvim.appimage nvim
+        pip install pynvim
+    fi
+else
+    # https://github.com/neovim/neovim/wiki/Installing-Neovim#debian
+    sudo apt-get install neovim
+    sudo apt-get install python-neovim
+    sudo apt-get install python3-neovim
+fi
+
+
+# -----------------------------------------------------------------------------------------
+echo "Installing vim-plug for nvim..."
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # -----------------------------------------------------------------------------------------
 echo "Installing zsh..."
 
-sudo apt install zsh
-
-## TODO: test is this works!
-## Build locally (needed when root access is not available)
-## https://stackoverflow.com/a/15293565/1706778
-#FILE=$HOME/local/bin/zsh
-#if [ -f "$FILE" ]; then
-#    echo "zsh is already installed"
-#else
-#    mkdir -p ~/downloads && cd downloads
-#    wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
-#    mkdir zsh && unxz zsh.tar.xz && tar -xvf zsh.tar -C zsh --strip-components 1
-#    cd zsh
-#    ./configure --prefix=$HOME/local
-#    make
-#    make install
-#fi
+if [ "$SSH_CONNECTION" ]; then
+    # Build locally (needed when root access is not available)
+    # https://stackoverflow.com/a/15293565/1706778
+    FILE=$HOME/local/bin/zsh
+    if [ -f "$FILE" ]; then
+        echo "zsh is already installed"
+    else
+        mkdir -p ~/downloads && cd downloads
+        wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
+        mkdir zsh && unxz zsh.tar.xz && tar -xvf zsh.tar -C zsh --strip-components 1
+        cd zsh
+        ./configure --prefix=$HOME/local
+        make
+        make install
+    fi
+else
+    sudo apt install zsh
+fi
 
 # -----------------------------------------------------------------------------------------
 echo "Installing oh-my-zsh..."
+
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # -----------------------------------------------------------------------------------------
 echo "Installing Powerlevel10k (or pulling if repo already exists)..."
+
 # Add powerlevel10k to the list of Oh My Zsh themes.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k 2> /dev/null || git -C $ZSH_CUSTOM/themes/powerlevel10k pull
 
 # -----------------------------------------------------------------------------------------
 echo "Installing Fonts..."
-# See installed mono fonts:
-# fc-list :scalable=true:spacing=mono: family
+# To see installed mono fonts:
+#   fc-list :scalable=true:spacing=mono: family
 
 mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
 
@@ -73,16 +122,19 @@ filepath=Droid-Sans-Mono-Awesome.ttf
 # https://github.com/BurntSushi/ripgrep#installation
 echo "Installing ripgrep..."
 
-# TODO: allow installing without root access
 # Install if not already installed
 # https://stackoverflow.com/a/54239534/1706778
-cd /tmp
-pkg='ripgrep'
-if ! dpkg -s $pkg >/dev/null 2>&1; then
-    sudo curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
-    sudo dpkg -i ripgrep_11.0.2_amd64.deb
+if [ "$SSH_CONNECTION" ]; then
+    # TODO: install without root access
 else
-    echo "$pkg is already installed"
+    mkdir -p ~/downloads && cd ~/downloads
+    pkg='ripgrep'
+    if ! dpkg -s $pkg >/dev/null 2>&1; then
+        sudo curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+        sudo dpkg -i ripgrep_11.0.2_amd64.deb
+    else
+        echo "$pkg is already installed"
+    fi
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -90,15 +142,18 @@ fi
 echo "Installing bat..."
 #sudo apt-get install wget
 
-# TODO: allow installing without root access
-# https://stackoverflow.com/a/54239534/1706778
-pkg='bat'
-if ! dpkg -s $pkg >/dev/null 2>&1; then
-    export VER="0.13.0"
-    wget https://github.com/sharkdp/bat/releases/download/v${VER}/bat_${VER}_amd64.deb
-    sudo dpkg -i bat_${VER}_amd64.deb
+if [ "$SSH_CONNECTION" ]; then
+    # TODO: allow installing without root access
 else
-    echo "$pkg is already installed"
+    # https://stackoverflow.com/a/54239534/1706778
+    pkg='bat'
+    if ! dpkg -s $pkg >/dev/null 2>&1; then
+        export VER="0.13.0"
+        wget https://github.com/sharkdp/bat/releases/download/v${VER}/bat_${VER}_amd64.deb
+        sudo dpkg -i bat_${VER}_amd64.deb
+    else
+        echo "$pkg is already installed"
+    fi
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -114,9 +169,9 @@ echo "Installing autojump..."
 FILE=$HOME/.autojump/bin/autojump
 if [ -f "$FILE" ]; then
     echo "autojump is already installed"
-else 
+else
     mkdir -p ~/downloads && cd ~/downloads
-    [ -f ./autojump ] || git clone git://github.com/wting/autojump.git 
+    [ -f ./autojump ] || git clone git://github.com/wting/autojump.git
     cd autojump
     ./install.py
 fi
