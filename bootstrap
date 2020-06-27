@@ -57,6 +57,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # -----------------------------------------------------------------------------------------
 echo "Installing neovim plugins..."
 
+# https://github.com/junegunn/vim-plug/wiki/tips#install-plugins-on-the-command-line
 nvim -es -u init.vim -i NONE -c "PlugInstall" -c "qa"
 
 # -----------------------------------------------------------------------------------------
