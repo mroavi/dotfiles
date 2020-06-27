@@ -322,10 +322,10 @@ nnoremap <C-w> :tabclose<CR>
 nnoremap <C-t> :tabnew<CR>
 
 " Ctl+tab -> next tab
-set <F13>=[27;5;9~ | nnoremap <F13> gt
+nnoremap <C-Tab> gt
 
 " Ctrl+Shift + tab -> previous tab
-set <F14>=[27;6;9~ | nnoremap <F14> gT
+nnoremap <C-S-Tab> gT
 
 " Ctrl+Shift+w -> close
 set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
