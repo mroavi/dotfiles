@@ -27,24 +27,17 @@ fi
 # -----------------------------------------------------------------------------------------
 echo "Installing nvim..."
 
-if [ "$SSH_CONNECTION" ]; then
-    # Build locally (needed when root access is not available)
-    # https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
-    FILE=$HOME/local/bin/nvim
-    if [ -f "$FILE" ]; then
-        echo "nvim is already installed"
-    else
-        mkdir -p ~/local/bin && cd ~/local/bin
-        curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-        chmod u+x nvim.appimage
-        mv nvim.appimage nvim
-        pip install pynvim
-    fi
+# Local installation
+# https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
+FILE=$HOME/.local/bin/nvim
+if [ -f "$FILE" ]; then
+    echo "nvim is already installed"
 else
-    # https://github.com/neovim/neovim/wiki/Installing-Neovim#debian
-    sudo apt-get install neovim
-    sudo apt-get install python-neovim
-    sudo apt-get install python3-neovim
+    mkdir -p ~/.local/bin && cd ~/.local/bin
+    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+    chmod u+x nvim.appimage
+    mv nvim.appimage nvim
+    pip install pynvim
 fi
 
 
