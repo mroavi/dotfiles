@@ -258,14 +258,24 @@ nnoremap <Leader>rt :retab<CR>
 nnoremap <C-a> <C-w>
 
 " Resize splits easier
-set <M-S-j>=J | noremap <M-S-j> :resize -3<CR>
-set <M-S-k>=K | noremap <M-S-k> :resize +3<CR>
-set <M-S-h>=H | noremap <M-S-h> :vertical resize +3<CR>
-set <M-S-l>=L | noremap <M-S-l> :vertical resize -3<CR>
+if !(has("nvim"))
+    set <M-S-j>=J
+    set <M-S-k>=K
+    set <M-S-h>=H
+    set <M-S-l>=L
+endif
+noremap <M-S-j> :resize -3<CR>
+noremap <M-S-k> :resize +3<CR>
+noremap <M-S-h> :vertical resize +3<CR>
+noremap <M-S-l> :vertical resize -3<CR>
 
 " Advance to the next/previous delimter
-set <M-j>=j | noremap <M-j> /^%%<CR>:noh<CR>j
-set <M-k>=k | noremap <M-k> ?^%%<CR>:noh<CR>k
+if !(has("nvim"))
+    set <M-j>=j
+    set <M-k>=k
+endif
+noremap <silent> <M-j> /^%%<CR>:noh<CR>j
+noremap <silent> <M-k> ?^%%<CR>:noh<CR>k
 
 " Make Y behave like other capitals
 nnoremap Y y$
@@ -574,14 +584,12 @@ let g:slime_no_mappings = 1
 autocmd FileType julia,python let g:slime_cell_delimiter = "##"
 let g:slime_cell_delimiter = "%%"
 
-" Execute current cell
-execute "set <M-CR>=\<esc>\<cr>"
+" Execute current cell (TODO: not working properly in plain vim)
 autocmd FileType matlab nmap <buffer> <M-CR> <Plug>SlimeSendCell
 
-" Map to Ctrl-Return
-set <F19>=[27;5;40~
-autocmd FileType julia,python,matlab xmap <buffer> <F19> <Plug>SlimeRegionSend
-autocmd FileType julia,python,matlab nmap <buffer> <F19> <Plug>SlimeLineSend
+"" Map to Ctrl-Return (TODO: not working properly in plain vim)
+autocmd FileType julia,python,matlab xmap <buffer> <C-CR> <Plug>SlimeRegionSend
+autocmd FileType julia,python,matlab nmap <buffer> <C-CR> <Plug>SlimeLineSend
 
 autocmd FileType julia,python,matlab nmap <buffer> <C-c>v <Plug>SlimeConfig
 
@@ -595,17 +603,14 @@ let g:julia_cell_delimit_cells_by = 'tags'
 autocmd FileType julia nnoremap <buffer> <F4> :JuliaCellRun<CR>
 
 " Execute current cell
-execute "set <M-CR>=\<esc>\<cr>"
 autocmd FileType julia nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
 
 " Jump to the previous/next cell headers
-set <M-k>=k
 autocmd FileType julia nnoremap <buffer> <M-k> :JuliaCellPrevCell<CR>
-set <M-j>=j
 autocmd FileType julia nnoremap <buffer> <M-j> :JuliaCellNextCell<CR>
 
 autocmd FileType julia nnoremap <buffer> <Leader>cc :JuliaCellClear<CR>
-"autocmd FileType julia nnoremap <buffer> <F7> :JuliaCellExecuteCellJump<CR>
+autocmd FileType julia nnoremap <buffer> <S-CR> :JuliaCellExecuteCellJump<CR>
 
 "------------------------------------------------------------------------------
 " vim-ipython-cell
@@ -616,14 +621,11 @@ let g:ipython_cell_delimit_cells_by = 'tags'
 " map <Leader>r to run script
 autocmd FileType python nnoremap <Leader>r :IPythonCellRun<CR>
 
-" Execute current cell
-execute "set <M-CR>=\<esc>\<cr>"
-autocmd FileType python nmap <buffer> <M-CR> :IPythonCellExecuteCell<CR>
+" Execute current cell (TODO: not working properly in plain vim)
+autocmd FileType python nnoremap <buffer> <M-CR> :IPythonCellExecuteCell<CR>
 
 " Jump to the previous/next cell headers
-set <M-k>=k
 autocmd FileType python nnoremap <buffer> <M-k> :IPythonCellPrevCell<CR>
-set <M-j>=j
 autocmd FileType python nnoremap <buffer> <M-j> :IPythonCellNextCell<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
