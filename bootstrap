@@ -18,7 +18,7 @@ if [ "$SSH_CONNECTION" ]; then
         cd stow
         autoreconf -iv
         ./configure --prefix=$HOME/local
-        && make install
+        make install
     fi
 else
     sudo apt-get install stow
@@ -132,6 +132,7 @@ echo "Installing ripgrep..."
 # https://stackoverflow.com/a/54239534/1706778
 if [ "$SSH_CONNECTION" ]; then
     # TODO: install without root access
+    echo TODO
 else
     mkdir -p ~/downloads && cd ~/downloads
     pkg='ripgrep'
@@ -150,6 +151,7 @@ echo "Installing bat..."
 
 if [ "$SSH_CONNECTION" ]; then
     # TODO: allow installing without root access
+    echo TODO
 else
     # https://stackoverflow.com/a/54239534/1706778
     pkg='bat'
