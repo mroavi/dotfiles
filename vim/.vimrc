@@ -681,6 +681,10 @@ nnoremap <Leader>5 m`^i##### <esc>``6l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tmuxline_preset = 'minimal'
 
+if $SSH_CONNECTION
+    autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
+endif
+
 "let g:tmuxline_preset = {
 "            \'a'    : '#S',
 "            \'win'  : ['#I #W'],
