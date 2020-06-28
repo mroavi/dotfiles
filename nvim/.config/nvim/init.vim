@@ -288,6 +288,12 @@ endif
 " Open help in vertical split
 cnoreabbrev H vert bo h
 
+" Maximize current window height
+nnoremap <Leader>- <C-w>_
+
+" Make all windows equally high and wide
+nnoremap <Leader>= <C-w>=
+
 " Substitute all ocurrances of the content of the search register with new text
 nnoremap <Leader>sa :%s///g<left><left>
 
