@@ -154,7 +154,8 @@ if (has("termguicolors"))
 endif
 
 " https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
-set viminfo=%,<800,'50,/50,:100,h,f1
+" https://neovim.io/doc/user/options.html#'shada'
+set shada=%,<800,'50,/50,:100,h,f1
 "           | |    |   |   |    | + store file marks 0-9,A-Z
 "           | |    |   |   |    + disable 'hlsearch' while loading viminfo
 "           | |    |   |   + maximum number of items in the command-line history to be saved
