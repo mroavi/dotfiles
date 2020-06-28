@@ -34,7 +34,7 @@ Plug 'michaeljsmith/vim-indent-object'
 " Lean & mean status/tabline for vim that's light as air.
 Plug 'vim-airline/vim-airline'
 
-" See https://github.com/vim-airline/vim-airline/wiki/Screenshots
+" See https://github.com/vim-airline/vim-airline/wiki/Screenshots (TODO: remove?)
 Plug 'vim-airline/vim-airline-themes'
 
 " Provides support for writing LaTeX documents
@@ -43,10 +43,10 @@ Plug 'lervag/vimtex'
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
 
-" FocusGained and FocusLost autocommand events in terminal vim
+" FocusGained and FocusLost autocommand events in terminal vim (TODO: remove?)
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
-" Automatically saves changes to disk without having to use :w
+" Automatically saves changes to disk without having to use :w (TODO: remove?)
 Plug '907th/vim-auto-save'
 
 " Pairs of handy bracket mappings
@@ -111,7 +111,7 @@ Plug 'jpalardy/vim-slime'
 " Cell support for Julia in Vim
 Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
-" Start a * or # search from a visual block (remove?)
+" Start a * or # search from a visual block (TODO: remove?)
 Plug 'nelstrom/vim-visual-star-search'
 
 " Plugin to help you stop repeating the basic movement keys
