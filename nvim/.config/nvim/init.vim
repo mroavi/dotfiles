@@ -187,9 +187,7 @@ set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
 set splitbelow splitright " open a new split at to bottom or to the right of the current one
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
-if !$SSH_CONNECTION
 set signcolumn=yes " always show sign column
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation settings
