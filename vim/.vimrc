@@ -679,20 +679,21 @@ nnoremap <Leader>5 m`^i##### <esc>``6l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tmuxline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tmuxline_preset = 'minimal'
+let g:tmuxline_preset = {
+            \'a'    : '#S',
+            \'win'  : ['#I #W'],
+            \'cwin' : ['#I #W'],
+            \'z'    : '%R',
+            \'options': {
+            \   'status-justify': 'left',
+            \   'status-position': 'top',}
+            \}
 
 if $SSH_CONNECTION
     autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
 endif
 
-"let g:tmuxline_preset = {
-"            \'a'    : '#S',
-"            \'win'  : ['#I #W'],
-"            \'cwin' : ['#I', '#W'],
-"            \'options': {
-"            \   'status-justify': 'left',
-"            \   'status-position': 'top',}
-"            \}
+"let g:tmuxline_preset = 'minimal'
 
 "let g:tmuxline_preset = {
 "            \'a'    : '#S',
