@@ -94,10 +94,10 @@ Plug 'edkolev/tmuxline.vim'
 " A very fast, multi-syntax context-sensitive color name highlighter
 Plug 'ap/vim-css-color'
 
-if !$SSH_CONNECTION
-" A code-completion engine for Vim
-Plug 'ycm-core/YouCompleteMe'
-endif
+"if !$SSH_CONNECTION
+"" A code-completion engine for Vim
+"Plug 'ycm-core/YouCompleteMe'
+"endif
 
 " The undo history visualizer for VIM
 Plug 'mbbill/undotree'
