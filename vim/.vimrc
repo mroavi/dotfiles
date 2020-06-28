@@ -685,6 +685,15 @@ let g:tmuxline_preset = 'minimal'
 "            \'a'    : '#S',
 "            \'win'  : ['#I #W'],
 "            \'cwin' : ['#I', '#W'],
+"            \'options': {
+"            \   'status-justify': 'left',
+"            \   'status-position': 'top',}
+"            \}
+
+"let g:tmuxline_preset = {
+"            \'a'    : '#S',
+"            \'win'  : ['#I #W'],
+"            \'cwin' : ['#I', '#W'],
 "            \'y'    : ['🕐%R', '📅%D'],
 "            \'z'    : '👤#(whoami)',
 "            \'options': {
