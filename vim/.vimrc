@@ -679,21 +679,23 @@ nnoremap <Leader>5 m`^i##### <esc>``6l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tmuxline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tmuxline_preset = {
-            \'a'    : '#S',
-            \'win'  : ['#I #W'],
-            \'cwin' : ['#I', '#W'],
-            \'y'    : ['🕐%R', '📅%D'],
-            \'z'    : '👤#(whoami)',
-            \'options': {
-            \   'status-justify': 'left',
-            \   'status-position': 'top',}
-            \}
+let g:tmuxline_preset = 'minimal'
 
-if $SSH_CONNECTION
-    autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
-    let g:tmuxline_preset = 'minimal'
-endif
+"let g:tmuxline_preset = {
+"            \'a'    : '#S',
+"            \'win'  : ['#I #W'],
+"            \'cwin' : ['#I', '#W'],
+"            \'y'    : ['🕐%R', '📅%D'],
+"            \'z'    : '👤#(whoami)',
+"            \'options': {
+"            \   'status-justify': 'left',
+"            \   'status-position': 'top',}
+"            \}
+
+"if $SSH_CONNECTION
+"    autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
+"    let g:tmuxline_preset = 'minimal'
+"endif
 
 "augroup tmuxline
 "  autocmd!
