@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Save current directory
 currentdir="$PWD"
