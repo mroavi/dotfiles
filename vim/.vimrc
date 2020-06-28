@@ -705,11 +705,6 @@ endif
 "            \   'status-position': 'top',}
 "            \}
 
-"if $SSH_CONNECTION
-"    autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
-"    let g:tmuxline_preset = 'minimal'
-"endif
-
 "augroup tmuxline
 "  autocmd!
 "  " Use airline insert colors
