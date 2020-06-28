@@ -1,5 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim philosopy: https://stackoverflow.com/a/1220118/1706778
+" For more info about this file see: `:h nvim-configuration`
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Remap <Leader> key (should be placed on top of this file)
