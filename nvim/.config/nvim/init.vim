@@ -214,21 +214,20 @@ set hlsearch " highlight matches
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
-set backspace=indent,eol,start
+if !(has("nvim"))
+    " https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
+    set backspace=indent,eol,start
 
-" Use F5 to toggle the spelling check!
-map <F5> :setlocal spell! spelllang=en_us<CR>
+    " Refresh changed content of file opened in vi(m)
+    " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim
+    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+        \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' |  checktime | endif
 
-" Refresh changed content of file opened in vi(m)
-" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
-    \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' |  checktime | endif
-
-" Notification after file change
-" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-autocmd FileChangedShellPost *
-    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+    " Notification after file change
+    " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+    autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+endif
 
 " Clear last used search pattern when .vimrc is sourced
 let @/ = ""
@@ -242,9 +241,6 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 noremap <Leader>rw :call TrimWhitespace()<CR>
-
-" Replace tabs with the appropriate number of spaces
-nnoremap <Leader>rt :retab<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
@@ -320,8 +316,14 @@ map <Leader>sv :w<CR>:source $MYVIMRC<CR>
 " Write and source the currently opened file
 map <Leader>ss :w<CR>:source %<CR>
 
+" Replace tabs with the appropriate number of spaces
+nnoremap <Leader>rt :retab<CR>
+
 " Toggle display of invisible chars (http://vimcasts.org/episodes/show-invisibles/`)
 nmap <F3> :set list!<CR>
+
+" Use F5 to toggle the spelling check!
+map <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Chorme-like tab commands (conflicts with tmux)
 " based on: https://stackoverflow.com/a/31961401/1706778
