@@ -592,8 +592,8 @@ key_bindings:
   - { key: W,       mods: Control|Shift, chars:  "\x1b[27;6;48~"    }
   - { key: S,       mods: Control|Shift, chars:  "\x1b[27;6;49~"    }
   - { key: V,       mods: Control|Shift, chars:  "\x1b[27;6;46~"    }
-  - { key: Return,  mods: Control,       chars:  "\x1b[27;5;40~"    }
-  - { key: Return,  mods: Control|Shift, chars:  "\x1b[27;6;44~"    }
+  - { key: Return,  mods: Shift,         chars:  "\x1b[13;2u"       }
+  - { key: Return,  mods: Control,       chars:  "\x1b[13;5u"       }
 
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
