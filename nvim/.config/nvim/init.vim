@@ -168,7 +168,6 @@ set number " show line numbers
 set relativenumber " each line is numbered relative to the cursor’s current position
 set title " show file in titlebar
 set noswapfile " they're just annoying. Who likes them?
-"set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
 set noshowmode " don't show mode in status bar (taken care of by airline)
 set noruler " don't show cursor position in status bar (taken care of by airline)
@@ -176,10 +175,8 @@ set laststatus=2 " always display the status line (see :h laststatus)
 set noshowcmd " don't show partial typed commands in the right side of the status bar
 set cmdheight=1 " limit the cmd line height to one line
 set wildmenu " when entering a command, <Tab> shows possible matches above the command line
-"set cursorline " highlight the line that the cursor is currently on
 set hidden " allows switching from unwritten buffers and remembers the buffer undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
-"set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
 set shortmess-=S " show search count message when searching
 set grepprg=rg\ --vimgrep " program to used for the :grep command.
 set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
@@ -187,6 +184,9 @@ set splitbelow splitright " open a new split at to bottom or to the right of the
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
 set signcolumn=yes " always show sign column
+"set colorcolumn=80 " highlight column
+"set cursorline " highlight the line that the cursor is currently on
+"set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation settings
