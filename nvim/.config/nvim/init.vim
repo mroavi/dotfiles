@@ -685,8 +685,8 @@ inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger configuration
 let g:UltiSnipsExpandTrigger="<C-Space>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<Leader>n"
+let g:UltiSnipsJumpBackwardTrigger="<Leader>p"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
