@@ -34,6 +34,9 @@ Plug 'michaeljsmith/vim-indent-object'
 " Lean & mean status/tabline for vim that's light as air.
 Plug 'vim-airline/vim-airline'
 
+" See https://github.com/vim-airline/vim-airline/wiki/Screenshots
+Plug 'vim-airline/vim-airline-themes'
+
 " Provides support for writing LaTeX documents
 Plug 'lervag/vimtex'
 
