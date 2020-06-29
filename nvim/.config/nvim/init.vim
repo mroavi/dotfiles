@@ -138,6 +138,24 @@ Plug 'yggdroot/indentline'
 " Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'raimondi/delimitmate'
 
+" Nvim LSP client configurations
+Plug 'neovim/nvim-lsp'
+
+" Dark powered asynchronous completion framework for neovim/Vim8
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" LSP Completion source for deoplete
+Plug 'Shougo/deoplete-lsp'
+
+" Highlight group manipulation for Vim
+Plug 'wincent/pinnacle'
+
+" Track the engine.
+Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -536,38 +554,38 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:highlightedyank_highlight_duration = 200
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>gd :YcmCompleter GoTo<CR>
-nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
-nnoremap <Leader>fx :YcmCompleter FixIt<CR>
-nnoremap <Leader>fo :YcmCompleter Format<CR>
-nnoremap <Leader>gt :YcmCompleter GetType<CR>
-nnoremap <Leader>do :YcmCompleter GetDoc<CR>
-nnoremap <F2> :YcmCompleter RefactorRename<Space>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" YouCompleteMe
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"nnoremap <Leader>gd :YcmCompleter GoTo<CR>
+"nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
+"nnoremap <Leader>fx :YcmCompleter FixIt<CR>
+"nnoremap <Leader>fo :YcmCompleter Format<CR>
+"nnoremap <Leader>gt :YcmCompleter GetType<CR>
+"nnoremap <Leader>do :YcmCompleter GetDoc<CR>
+"nnoremap <F2> :YcmCompleter RefactorRename<Space>
 
-":set completeopt=preview,menuone " default
-:set completeopt=menuone
+"":set completeopt=preview,menuone " default
+":set completeopt=menuone
 
-" Disable automatic info display when hovering
-" https://www.reddit.com/r/vim/comments/g9v832/ycm_documentation_hover_should_we_enable_it_by/
-let g:ycm_auto_hover=''
+"" Disable automatic info display when hovering
+"" https://www.reddit.com/r/vim/comments/g9v832/ycm_documentation_hover_should_we_enable_it_by/
+"let g:ycm_auto_hover=''
 
-" Show the full diagnostic text
-"let g:ycm_key_detailed_diagnostics = '<Leader>d' " default
-let g:ycm_key_detailed_diagnostics = ''
+"" Show the full diagnostic text
+""let g:ycm_key_detailed_diagnostics = '<Leader>d' " default
+"let g:ycm_key_detailed_diagnostics = ''
 
-" Auto-close the preview window after the user accepts the offered completion string
-"let g:ycm_autoclose_preview_window_after_completion = 1
+"" Auto-close the preview window after the user accepts the offered completion string
+""let g:ycm_autoclose_preview_window_after_completion = 1
 
-" Filter warnings
-let g:ycm_filter_diagnostics = {
-  \ "cpp": {
-  \      "regex": [ "-Wsuggest-override", "-Wno-psabi"],
-  \      "level": "warning",
-  \    }
-  \ }
+"" Filter warnings
+"let g:ycm_filter_diagnostics = {
+"  \ "cpp": {
+"  \      "regex": [ "-Wsuggest-override", "-Wno-psabi"],
+"  \      "level": "warning",
+"  \    }
+"  \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undotree
@@ -717,3 +735,62 @@ endif
 "  autocmd VimLeave * !tmux source-file ~/.tmux.conf
 "augroup END
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim-lsp
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" https://github.com/wincent/wincent/blob/master/aspects/vim/files/.vim/after/plugin/nvim-lsp.vim
+lua require'nvim_lsp'.clangd.setup{}
+lua require'nvim_lsp'.julials.setup{}
+" TODO: install Python server: rope is one option
+
+" mappings (See `:h lsp-buf`)
+nnoremap <buffer> <Leader>gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <buffer> <Leader>gt    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <buffer> <F2>          <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <Leader>gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <Leader>fo    <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <buffer> K             <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <buffer> <Leader>di    <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
+
+" Auto-format *.cpp files prior to saving them
+autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 1000)
+
+" signs
+sign define LspDiagnosticsErrorSign text=✖
+sign define LspDiagnosticsWarningSign text=⚠
+sign define LspDiagnosticsInformationSign text=ℹ
+sign define LspDiagnosticsHintSign text=➤
+
+" colors
+execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('italic,underline', 'ErrorMsg')
+execute 'highlight LspDiagnosticsInformation ' . pinnacle#decorate('italic,underline', 'Type')
+execute 'highlight LspDiagnosticsHint ' . pinnacle#decorate('bold,italic,underline', 'Type')
+execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
+    \   'bg': pinnacle#extract_bg('SignColumn'),
+    \   'fg': pinnacle#extract_fg('Type')
+    \ })
+execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({
+    \   'bg': pinnacle#extract_bg('SignColumn'),
+    \   'fg': pinnacle#extract_fg('ErrorMsg')
+    \ })
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" deoplete.nvim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" Tab completion (https://github.com/Shougo/deoplete.nvim/issues/989)
+inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ultisnips
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Trigger configuration
+let g:UltiSnipsExpandTrigger="<C-Space>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
