@@ -34,20 +34,11 @@ Plug 'michaeljsmith/vim-indent-object'
 " Lean & mean status/tabline for vim that's light as air.
 Plug 'vim-airline/vim-airline'
 
-" See https://github.com/vim-airline/vim-airline/wiki/Screenshots (TODO: remove?)
-Plug 'vim-airline/vim-airline-themes'
-
 " Provides support for writing LaTeX documents
 Plug 'lervag/vimtex'
 
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
-
-" FocusGained and FocusLost autocommand events in terminal vim (TODO: remove?)
-Plug 'tmux-plugins/vim-tmux-focus-events'
-
-" Automatically saves changes to disk without having to use :w (TODO: remove?)
-Plug '907th/vim-auto-save'
 
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
@@ -99,9 +90,6 @@ Plug 'jpalardy/vim-slime'
 
 " Cell support for Julia in Vim
 Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
-
-" Start a * or # search from a visual block (TODO: remove?)
-Plug 'nelstrom/vim-visual-star-search'
 
 " Plugin to help you stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
@@ -220,21 +208,6 @@ set hlsearch " highlight matches
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if !(has("nvim"))
-    " https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
-    set backspace=indent,eol,start
-
-    " Refresh changed content of file opened in vi(m)
-    " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim
-    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
-        \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' |  checktime | endif
-
-    " Notification after file change
-    " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-    autocmd FileChangedShellPost *
-        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-endif
-
 " Clear last used search pattern when .vimrc is sourced
 let @/ = ""
 
@@ -393,19 +366,6 @@ let g:airline_powerline_fonts = 1
 let g:vimtex_compiler_latexmk = {
             \ 'build_dir' : 'build',
             \}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-auto-save
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use the autosave feature with the file types specified below
-let g:auto_save = 0
-augroup ft_tex
-    au!
-    au FileType tex let b:auto_save = 1
-augroup END
-
-" Do not display the auto-save notification
-"let g:auto_save_silent = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDCommenter
@@ -668,30 +628,6 @@ let g:tmuxline_preset = {
 if $SSH_CONNECTION
     autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
 endif
-
-"let g:tmuxline_preset = 'minimal'
-
-"let g:tmuxline_preset = {
-"            \'a'    : '#S',
-"            \'win'  : ['#I #W'],
-"            \'cwin' : ['#I', '#W'],
-"            \'y'    : ['🕐%R', '📅%D'],
-"            \'z'    : '👤#(whoami)',
-"            \'options': {
-"            \   'status-justify': 'left',
-"            \   'status-position': 'top',}
-"            \}
-
-"augroup tmuxline
-"  autocmd!
-"  " Use airline insert colors
-"  autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
-"  " Update .tmux.conf.statsline file
-"  autocmd VimEnter,ColorScheme * silent! TmuxlineSnapshot! ~/dotfiles/tmux/.tmux.conf.statusline
-"  " Reload .tmux.conf
-"  autocmd VimLeave * !tmux source-file ~/.tmux.conf
-"augroup END
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim-lsp
