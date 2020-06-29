@@ -35,7 +35,8 @@ if [ "$SSH_CONNECTION" ]; then
         echo "nvim is already installed"
     else
         mkdir -p ~/local/bin && cd ~/local/bin
-        curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+#        curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
         chmod u+x nvim.appimage
         mv nvim.appimage nvim
         pip install pynvim
@@ -46,7 +47,8 @@ else
         echo "nvim is already installed"
     else
         mkdir -p ~/.local/bin && cd ~/.local/bin
-        curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+#        curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
         chmod u+x nvim.appimage
         mv nvim.appimage nvim
         pip install pynvim
