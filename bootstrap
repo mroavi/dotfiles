@@ -39,7 +39,7 @@ if [ "$SSH_CONNECTION" ]; then
 	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
         chmod u+x nvim.appimage
         mv nvim.appimage nvim
-        pip install pynvim
+        pip3 install pynvim
     fi
 else
     FILE=$HOME/.local/bin/nvim
@@ -51,7 +51,7 @@ else
 	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
         chmod u+x nvim.appimage
         mv nvim.appimage nvim
-        pip install pynvim
+        pip3 install pynvim
     fi
 fi
 
