@@ -64,12 +64,6 @@ Plug 'airblade/vim-gitgutter'
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
 
-" Intellisense engine for Vim8 & Neovim, full language server protocol support
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" A file system explorer for the Vim editor (load when NerdTreeToggle is fired)
-"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
 " Vim plugin that allows use of vifm as a file picker
 Plug 'vifm/vifm.vim'
 
@@ -87,11 +81,6 @@ Plug 'edkolev/tmuxline.vim'
 
 " A very fast, multi-syntax context-sensitive color name highlighter
 Plug 'ap/vim-css-color'
-
-"if !$SSH_CONNECTION
-"" A code-completion engine for Vim
-"Plug 'ycm-core/YouCompleteMe'
-"endif
 
 " The undo history visualizer for VIM
 Plug 'mbbill/undotree'
@@ -168,6 +157,7 @@ if (has("nvim"))
     "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
+
 if (has("termguicolors"))
     set termguicolors
 endif
@@ -553,39 +543,6 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 " vim-highlightedyank
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:highlightedyank_highlight_duration = 200
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" YouCompleteMe
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"nnoremap <Leader>gd :YcmCompleter GoTo<CR>
-"nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
-"nnoremap <Leader>fx :YcmCompleter FixIt<CR>
-"nnoremap <Leader>fo :YcmCompleter Format<CR>
-"nnoremap <Leader>gt :YcmCompleter GetType<CR>
-"nnoremap <Leader>do :YcmCompleter GetDoc<CR>
-"nnoremap <F2> :YcmCompleter RefactorRename<Space>
-
-"":set completeopt=preview,menuone " default
-":set completeopt=menuone
-
-"" Disable automatic info display when hovering
-"" https://www.reddit.com/r/vim/comments/g9v832/ycm_documentation_hover_should_we_enable_it_by/
-"let g:ycm_auto_hover=''
-
-"" Show the full diagnostic text
-""let g:ycm_key_detailed_diagnostics = '<Leader>d' " default
-"let g:ycm_key_detailed_diagnostics = ''
-
-"" Auto-close the preview window after the user accepts the offered completion string
-""let g:ycm_autoclose_preview_window_after_completion = 1
-
-"" Filter warnings
-"let g:ycm_filter_diagnostics = {
-"  \ "cpp": {
-"  \      "regex": [ "-Wsuggest-override", "-Wno-psabi"],
-"  \      "level": "warning",
-"  \    }
-"  \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undotree
