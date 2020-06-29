@@ -637,7 +637,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://github.com/wincent/wincent/blob/master/aspects/vim/files/.vim/after/plugin/nvim-lsp.vim
 lua require'nvim_lsp'.clangd.setup{}
-lua require'nvim_lsp'.julials.setup{}
+"lua require'nvim_lsp'.julials.setup{} " TODO: causes HIGH cpu load
 " TODO: install Python server: rope is one option
 
 " mappings (See `:h lsp-buf`)
