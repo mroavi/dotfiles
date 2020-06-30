@@ -133,9 +133,6 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
-" Unload, delete or wipe a buffer without closing the window or split
-Plug 'qpkorr/vim-bufkill'
-
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
