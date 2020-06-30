@@ -68,7 +68,7 @@ Plug 'wincent/terminus'
 " A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
 
-" Simple tmux statusline generator with support for powerline symbols and vim/airline statusline integration
+" Simple tmux statusline generator with support for airline statusline integration
 Plug 'edkolev/tmuxline.vim'
 
 " A very fast, multi-syntax context-sensitive color name highlighter
