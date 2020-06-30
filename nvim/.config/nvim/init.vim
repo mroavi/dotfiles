@@ -409,7 +409,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>ls :Buffers<CR>
-nnoremap <Leader>rg :MyRg!<CR>
+nnoremap <Leader>rg :MyRg<CR>
 nnoremap <Leader>li :Lines<CR>
 nnoremap <Leader>bl :BLines<CR>
 nnoremap <Leader>hi :History<CR>
@@ -427,7 +427,8 @@ function! RipgrepFzf(query, fullscreen)
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command,
-    \                     '--preview-window', 'up:60%', '--no-height'], 'down': '100%'}
+    \                     '--preview-window', 'up:60%', '--no-height'],
+    \                     'window': { 'width': 1, 'height': 1.0, 'yoffset': 1, 'border': 'top' } }
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
