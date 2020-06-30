@@ -483,41 +483,6 @@ autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>SlimeRegionSend
 autocmd FileType julia,python,octave nmap <buffer> <C-CR> <Plug>SlimeLineSend
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-julia-cell
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use '##' to define cells instead of using marks
-let g:julia_cell_delimit_cells_by = 'tags'
-
-"autocmd FileType python,julia nnoremap <buffer> <F20> :JuliaCellRun<CR>
-autocmd FileType julia nnoremap <buffer> <F4> :JuliaCellRun<CR>
-
-" Execute current cell
-autocmd FileType julia nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
-
-" Jump to the previous/next cell headers
-autocmd FileType julia nnoremap <buffer> <M-k> :JuliaCellPrevCell<CR>
-autocmd FileType julia nnoremap <buffer> <M-j> :JuliaCellNextCell<CR>
-
-autocmd FileType julia nnoremap <buffer> <Leader>cc :JuliaCellClear<CR>
-autocmd FileType julia nnoremap <buffer> <S-CR> :JuliaCellExecuteCellJump<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-ipython-cell
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use '##' to define cells instead of using marks
-let g:ipython_cell_delimit_cells_by = 'tags'
-
-" map <Leader>r to run script
-autocmd FileType python nnoremap <Leader>r :IPythonCellRun<CR>
-
-" Execute current cell
-autocmd FileType python nnoremap <buffer> <M-CR> :IPythonCellExecuteCell<CR>
-
-" Jump to the previous/next cell headers
-autocmd FileType python nnoremap <buffer> <M-k> :IPythonCellPrevCell<CR>
-autocmd FileType python nnoremap <buffer> <M-j> :IPythonCellNextCell<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Add commands similar to those available through the Git plugin in Oh My ZSH
