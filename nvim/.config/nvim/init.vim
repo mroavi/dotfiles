@@ -370,7 +370,7 @@ nmap <Leader>gk <Plug>(GitGutterPrevHunk)
 " FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default fzf layout
-let g:fzf_layout = { 'down': '~50%' }
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
 
 " This are the default extra key bindings
 let g:fzf_action = {
