@@ -567,12 +567,6 @@ autocmd FileType python nnoremap <buffer> <M-k> :IPythonCellPrevCell<CR>
 autocmd FileType python nnoremap <buffer> <M-j> :IPythonCellNextCell<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" julia-vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable matchit plugin (this plugin is distributed with Vim)
-runtime macros/matchit.vim
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>gs :Gstatus<CR>
