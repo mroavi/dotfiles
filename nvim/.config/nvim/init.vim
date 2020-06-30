@@ -483,8 +483,6 @@ autocmd FileType octave nmap <buffer> <M-CR> <Plug>SlimeSendCell
 autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>SlimeRegionSend
 autocmd FileType julia,python,octave nmap <buffer> <C-CR> <Plug>SlimeLineSend
 
-autocmd FileType julia,python,octave nmap <buffer> <C-c>v <Plug>SlimeConfig
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-julia-cell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
