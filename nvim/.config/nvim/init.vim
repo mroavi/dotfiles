@@ -560,7 +560,8 @@ let g:hardtime_maxcount = 3
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-which-key
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tmuxline
