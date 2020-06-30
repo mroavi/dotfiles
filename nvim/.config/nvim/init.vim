@@ -478,7 +478,7 @@ let g:slime_cell_delimiter = "%%"
 " Execute current cell
 autocmd FileType octave nmap <buffer> <M-CR> <Plug>SlimeSendCell
 
-"" Map to Ctrl-Return
+" Map to Ctrl-Return
 autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>SlimeRegionSend
 autocmd FileType julia,python,octave nmap <buffer> <C-CR> <Plug>SlimeLineSend
 
