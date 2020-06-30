@@ -523,7 +523,7 @@ autocmd FileType python nnoremap <buffer> <M-k> :IPythonCellPrevCell<CR>
 autocmd FileType python nnoremap <buffer> <M-j> :IPythonCellNextCell<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fugitive
+" fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Add commands similar to those available through the Git plugin in Oh My ZSH
 command! -complete=file -nargs=* Gst Git status <args>
@@ -539,7 +539,7 @@ nnoremap <Leader>gd :Gd<CR>
 nnoremap <Leader>gds :Gds<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Rooter
+" rooter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rooter_silent_chdir = 1
 
