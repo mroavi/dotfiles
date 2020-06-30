@@ -289,9 +289,6 @@ endfun
 command! TrimWhitespace call TrimWhitespace()
 noremap <Leader>rw :call TrimWhitespace()<CR>
 
-" Clear last used search pattern when .vimrc is sourced
-let @/ = ""
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " base16
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
