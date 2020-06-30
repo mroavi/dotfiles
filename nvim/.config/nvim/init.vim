@@ -186,6 +186,9 @@ set smartindent " intelligently dedent / indent new lines based on rules.
 "set cursorline " highlight the line that the cursor is currently on
 "set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
 
+" Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
 if !$SSH_CONNECTION
     set listchars=tab:▸\ ,space:_,eol:¬ " Define symbols for tabstops, spaces and EOLs
 endif
@@ -276,6 +279,9 @@ nnoremap <C-S-Tab> gT
 " Ctrl+Shift+w -> close
 set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Strip trailing whitespace from all lines in a file
 " https://vi.stackexchange.com/a/456/27039
 fun! TrimWhitespace()
@@ -288,9 +294,6 @@ noremap <Leader>rw :call TrimWhitespace()<CR>
 
 " Clear last used search pattern when .vimrc is sourced
 let @/ = ""
-
-" Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
-autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " base16
