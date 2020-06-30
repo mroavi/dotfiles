@@ -503,9 +503,9 @@ autocmd FileType julia nnoremap <buffer> <M-j> :JuliaCellNextCell<CR>
 autocmd FileType julia nnoremap <buffer> <Leader>cc :JuliaCellClear<CR>
 autocmd FileType julia nnoremap <buffer> <S-CR> :JuliaCellExecuteCellJump<CR>
 
-"------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-ipython-cell
-"------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use '##' to define cells instead of using marks
 let g:ipython_cell_delimit_cells_by = 'tags'
 
