@@ -203,10 +203,6 @@ noremap <M-S-k> :resize +3<CR>
 noremap <M-S-h> :vertical resize +3<CR>
 noremap <M-S-l> :vertical resize -3<CR>
 
-" Advance to the next/previous delimter
-noremap <silent> <M-j> /^%%<CR>:noh<CR>j
-noremap <silent> <M-k> ?^%%<CR>:noh<CR>k
-
 " Make Y behave like other capitals
 nnoremap Y y$
 
@@ -480,13 +476,13 @@ autocmd FileType julia,python let g:slime_cell_delimiter = "##"
 let g:slime_cell_delimiter = "%%"
 
 " Execute current cell
-autocmd FileType matlab nmap <buffer> <M-CR> <Plug>SlimeSendCell
+autocmd FileType octave nmap <buffer> <M-CR> <Plug>SlimeSendCell
 
 "" Map to Ctrl-Return
-autocmd FileType julia,python,matlab xmap <buffer> <C-CR> <Plug>SlimeRegionSend
-autocmd FileType julia,python,matlab nmap <buffer> <C-CR> <Plug>SlimeLineSend
+autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>SlimeRegionSend
+autocmd FileType julia,python,octave nmap <buffer> <C-CR> <Plug>SlimeLineSend
 
-autocmd FileType julia,python,matlab nmap <buffer> <C-c>v <Plug>SlimeConfig
+autocmd FileType julia,python,octave nmap <buffer> <C-c>v <Plug>SlimeConfig
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-julia-cell
