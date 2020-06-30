@@ -523,15 +523,14 @@ autocmd FileType python nnoremap <buffer> <M-j> :IPythonCellNextCell<CR>
 " fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Add commands similar to those available through the Git plugin in Oh My ZSH
-command! -complete=file -nargs=* Gst Git status <args>
 command! -complete=file -nargs=* Gd Git diff <args>
 command! -complete=file -nargs=* Gds Git diff --staged <args>
 
-nnoremap <Leader>gst :Gst<CR>
+nnoremap <Leader>gst :Git<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gc :Git commit<CR>
+nnoremap <Leader>gp :Git_push<CR>
 nnoremap <Leader>gd :Gd<CR>
 nnoremap <Leader>gds :Gds<CR>
 
