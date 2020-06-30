@@ -190,7 +190,7 @@ if !$SSH_CONNECTION
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mappings
+" Custom mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Replace default prefix Ctrl+w with Ctrl+a
 nnoremap <C-a> <C-w>
