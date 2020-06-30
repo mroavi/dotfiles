@@ -106,9 +106,6 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 " Color schemes
 Plug 'chriskempson/base16-vim'
 
-" Neovim plugin designed to make you better at Vim movements
-Plug 'ThePrimeagen/vim-be-good'
-
 " Syntax highlighting for GNU Octave
 Plug 'jvirtanen/vim-octave'
 
@@ -135,6 +132,9 @@ Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
+
+" Unload, delete or wipe a buffer without closing the window or split
+Plug 'qpkorr/vim-bufkill'
 
 call plug#end()
 
