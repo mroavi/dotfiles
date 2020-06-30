@@ -97,7 +97,7 @@ Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 " Plugin to help you stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
 
-"" Vim plugin that shows keybindings in popup (On-demand lazy load)
+" Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 " Seamlessly run Python code from Vim in IPython
