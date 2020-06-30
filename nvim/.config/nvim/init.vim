@@ -616,7 +616,6 @@ execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " deoplete.nvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
 " Tab completion (https://github.com/Shougo/deoplete.nvim/issues/989)
