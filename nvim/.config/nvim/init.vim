@@ -179,6 +179,7 @@ set shiftwidth=4 " number of spaces for indents in normal mode
 set expandtab " use spaces instead of tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set smartindent " intelligently dedent / indent new lines based on rules.
+set updatetime=100 " among others, governs gitgutter's update time
 "set colorcolumn=80 " highlight column
 "set cursorline " highlight the line that the cursor is currently on
 "set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
@@ -362,12 +363,12 @@ nmap s <Plug>(easymotion-s)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" The delay is governed by vim's updatetime option
-set updatetime=100
-
-" Remap go to next/previous hunk
-nmap <Leader>hj <Plug>(GitGutterNextHunk)
-nmap <Leader>hk <Plug>(GitGutterPrevHunk)
+let g:gitgutter_map_keys = 0
+nmap <Leader>ga <Plug>(GitGutterStageHunk)
+nmap <Leader>gu <Plug>(GitGutterUndoHunk)
+nmap <Leader>gp <Plug>(GitGutterPreviewHunk)
+nmap <Leader>gj <Plug>(GitGutterNextHunk)
+nmap <Leader>gk <Plug>(GitGutterPrevHunk)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
