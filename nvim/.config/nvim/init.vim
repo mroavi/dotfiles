@@ -133,6 +133,9 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
+" Highlight, navigate, and operate on sets of matching text
+Plug 'andymass/vim-matchup'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -333,10 +336,9 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-" Customization
-" https://bit.ly/2WZ8n3J
+" Customization (https://bit.ly/2WZ8n3J)
 function! s:base16_customize() abort
-  call Base16hi("MatchParen", g:base16_gui05, g:base16_gui03, g:base16_cterm05, g:base16_cterm03, "bold,italic", "")
+  call Base16hi("MatchParen", "", g:base16_gui00, "", g:base16_cterm00, "italic", "")
   call Base16hi("SignColumn", "", g:base16_gui00, "", g:base16_cterm00, "", "")
   call Base16hi("LineNr", "", g:base16_gui00, "", g:base16_cterm00, "", "")
   call Base16hi("CursorLineNR", "", g:base16_gui01, "", g:base16_cterm01, "bold", "")
