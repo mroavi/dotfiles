@@ -2,11 +2,9 @@
 " Vim philosopy: https://stackoverflow.com/a/1220118/1706778
 " See: `:h nvim-configuration`
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Remap <Leader> key (should be placed on top of this file)
 let mapleader = ' '
 let maplocalleader = ' '
-set nocompatible " No Vi compatibility (`set viminfo=xxx` should come after `set nocompatible`)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
@@ -165,64 +163,27 @@ set shada=%,<800,'50,/50,:100,h,f1
 "           + save/restore buffer list
 
 set number " show line numbers
-set relativenumber " each line is numbered relative to the cursor’s current position
-set title " show file in titlebar
+set relativenumber " lines are numbered relative to the line the cursor is on
 set noswapfile " they're just annoying. Who likes them?
 set wrap linebreak nolist " avoid breaking lines in the middle of words
-set noshowmode " don't show mode in status bar (taken care of by airline)
-set noruler " don't show cursor position in status bar (taken care of by airline)
-set laststatus=2 " always display the status line (see :h laststatus)
 set noshowcmd " don't show partial typed commands in the right side of the status bar
 set cmdheight=1 " limit the cmd line height to one line
-set wildmenu " when entering a command, <Tab> shows possible matches above the command line
 set hidden " allows switching from unwritten buffers and remembers the buffer undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
-set shortmess-=S " show search count message when searching
 set grepprg=rg\ --vimgrep " program to used for the :grep command.
 set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
 set splitbelow splitright " open a new split at to bottom or to the right of the current one
-filetype on " enable filetype detection
-filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
 set signcolumn=yes " always show sign column
-"set colorcolumn=80 " highlight column
-"set cursorline " highlight the line that the cursor is currently on
-"set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Indentation settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set noshowmatch " no live match highlighting (brief jumping)
 set tabstop=4 " number of spaces that a <Tab> in the file counts for
 set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
 set shiftwidth=4 " number of spaces for indents in normal mode
 set expandtab " use spaces instead of tabs.
-set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
-set autoindent " match indents on new lines.
 set smartindent " intelligently dedent / indent new lines based on rules.
-filetype indent on " enable file type based indentation
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Search settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set incsearch " live incremental searching
-set noshowmatch " no live match highlighting (brief jumping)
-set hlsearch " highlight matches
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Misc settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Clear last used search pattern when .vimrc is sourced
-let @/ = ""
-
-" Strip trailing whitespace from all lines in a file
-" https://vi.stackexchange.com/a/456/27039
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-command! TrimWhitespace call TrimWhitespace()
-noremap <Leader>rw :call TrimWhitespace()<CR>
+"set colorcolumn=80 " highlight column
+"set cursorline " highlight the line that the cursor is currently on
+"set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
@@ -231,22 +192,12 @@ noremap <Leader>rw :call TrimWhitespace()<CR>
 nnoremap <C-a> <C-w>
 
 " Resize splits easier
-if !(has("nvim"))
-    set <M-S-j>=J
-    set <M-S-k>=K
-    set <M-S-h>=H
-    set <M-S-l>=L
-endif
 noremap <M-S-j> :resize -3<CR>
 noremap <M-S-k> :resize +3<CR>
 noremap <M-S-h> :vertical resize +3<CR>
 noremap <M-S-l> :vertical resize -3<CR>
 
 " Advance to the next/previous delimter
-if !(has("nvim"))
-    set <M-j>=j
-    set <M-k>=k
-endif
 noremap <silent> <M-j> /^%%<CR>:noh<CR>j
 noremap <silent> <M-k> ?^%%<CR>:noh<CR>k
 
@@ -325,11 +276,22 @@ nnoremap <C-S-Tab> gT
 " Ctrl+Shift+w -> close
 set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
 
+" Strip trailing whitespace from all lines in a file
+" https://vi.stackexchange.com/a/456/27039
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
+noremap <Leader>rw :call TrimWhitespace()<CR>
+
+" Clear last used search pattern when .vimrc is sourced
+let @/ = ""
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " base16
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax enable
-
 " Source ~/.vimrc_background generated by base16 shell
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
@@ -522,10 +484,10 @@ let g:slime_no_mappings = 1
 autocmd FileType julia,python let g:slime_cell_delimiter = "##"
 let g:slime_cell_delimiter = "%%"
 
-" Execute current cell (TODO: not working properly in plain vim)
+" Execute current cell
 autocmd FileType matlab nmap <buffer> <M-CR> <Plug>SlimeSendCell
 
-"" Map to Ctrl-Return (TODO: not working properly in plain vim)
+"" Map to Ctrl-Return
 autocmd FileType julia,python,matlab xmap <buffer> <C-CR> <Plug>SlimeRegionSend
 autocmd FileType julia,python,matlab nmap <buffer> <C-CR> <Plug>SlimeLineSend
 
@@ -559,7 +521,7 @@ let g:ipython_cell_delimit_cells_by = 'tags'
 " map <Leader>r to run script
 autocmd FileType python nnoremap <Leader>r :IPythonCellRun<CR>
 
-" Execute current cell (TODO: not working properly in plain vim)
+" Execute current cell
 autocmd FileType python nnoremap <buffer> <M-CR> :IPythonCellExecuteCell<CR>
 
 " Jump to the previous/next cell headers
