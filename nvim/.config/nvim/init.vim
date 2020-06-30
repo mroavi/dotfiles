@@ -558,15 +558,6 @@ let g:hardtime_maxcount = 3
 nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" markdown
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>1 m`yypVr=``
-nnoremap <Leader>2 m`yypVr-``
-nnoremap <Leader>3 m`^i### <esc>``4l
-nnoremap <Leader>4 m`^i#### <esc>``5l
-nnoremap <Leader>5 m`^i##### <esc>``6l
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tmuxline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tmuxline_preset = {
