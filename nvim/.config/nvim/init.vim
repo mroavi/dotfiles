@@ -185,6 +185,10 @@ set smartindent " intelligently dedent / indent new lines based on rules.
 "set cursorline " highlight the line that the cursor is currently on
 "set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
 
+if !$SSH_CONNECTION
+    set listchars=tab:▸\ ,space:_,eol:¬ " Define symbols for tabstops, spaces and EOLs
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -203,11 +207,6 @@ noremap <silent> <M-k> ?^%%<CR>:noh<CR>k
 
 " Make Y behave like other capitals
 nnoremap Y y$
-
-if !$SSH_CONNECTION
-" Define symbols for tabstops, spaces and EOLs
-set listchars=tab:▸\ ,space:_,eol:¬
-endif
 
 " Open help in vertical split
 cnoreabbrev H vert bo h
@@ -289,6 +288,9 @@ noremap <Leader>rw :call TrimWhitespace()<CR>
 " Clear last used search pattern when .vimrc is sourced
 let @/ = ""
 
+" Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " base16
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -349,12 +351,6 @@ let g:NERDDefaultAlign = 'start'
 " https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
 nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable automatic comment insertion
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" https://superuser.com/a/271024/1087113
-autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " EasyMotion
