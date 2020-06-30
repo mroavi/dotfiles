@@ -531,7 +531,7 @@ nnoremap <Leader>gst :Git<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gc :Git commit<CR>
-nnoremap <Leader>gp :Git_push<CR>
+nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gd :Gd<CR>
 nnoremap <Leader>gds :Gds<CR>
 
