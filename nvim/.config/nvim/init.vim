@@ -297,14 +297,14 @@ endif
 
 " Customization (https://bit.ly/2WZ8n3J)
 function! s:base16_customize() abort
-  call Base16hi("MatchParen", "", g:base16_gui00, "", g:base16_cterm00, "italic", "")
-  call Base16hi("SignColumn", "", g:base16_gui00, "", g:base16_cterm00, "", "")
-  call Base16hi("LineNr", "", g:base16_gui00, "", g:base16_cterm00, "", "")
-  call Base16hi("CursorLineNR", "", g:base16_gui00, "", g:base16_cterm00, "none", "")
-  call Base16hi("GitGutterAdd", "", g:base16_gui00, "", g:base16_cterm00, "", "")
-  call Base16hi("GitGutterChange", "", g:base16_gui00, "", g:base16_cterm00, "", "")
-  call Base16hi("GitGutterDelte", "", g:base16_gui00, "", g:base16_cterm00, "", "")
-  call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+    call Base16hi("MatchParen", "", g:base16_gui00, "", g:base16_cterm00, "italic", "")
+    call Base16hi("SignColumn", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+    call Base16hi("LineNr", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+    call Base16hi("CursorLineNR", "", g:base16_gui00, "", g:base16_cterm00, "none", "")
+    call Base16hi("GitGutterAdd", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+    call Base16hi("GitGutterChange", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+    call Base16hi("GitGutterDelte", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+    call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", g:base16_cterm00, "", "")
 endfunction
 
 augroup on_change_colorschema
