@@ -219,8 +219,8 @@ nnoremap <Leader>= <C-w>=
 nnoremap <Leader>sa :%s///g<left><left>
 
 " Switch to next/previous buffer
-nnoremap <Leader>j :bnext<CR>
-nnoremap <Leader>k :bprevious<CR>
+nnoremap <Leader>, :bprevious<CR>
+nnoremap <Leader>. :bnext<CR>
 
 " Switch to last visited buffer
 nnoremap <Leader>t :b#<CR>
@@ -367,8 +367,8 @@ let g:gitgutter_map_keys = 0
 nmap <Leader>hs <Plug>(GitGutterStageHunk)
 nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
-nmap <Leader>hj <Plug>(GitGutterNextHunk)
-nmap <Leader>hk <Plug>(GitGutterPrevHunk)
+nmap <Leader>j <Plug>(GitGutterNextHunk)
+nmap <Leader>k <Plug>(GitGutterPrevHunk)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
