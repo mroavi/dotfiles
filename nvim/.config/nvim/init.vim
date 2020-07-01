@@ -591,6 +591,7 @@ inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger configuration
 let g:UltiSnipsExpandTrigger="<C-Space>"
+let g:UltiSnipsListSnippets="<C-Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Leader>n"
 let g:UltiSnipsJumpBackwardTrigger="<Leader>p"
 
