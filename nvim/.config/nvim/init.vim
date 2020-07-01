@@ -360,11 +360,11 @@ nmap s <Plug>(easymotion-s)
 " vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_map_keys = 0
-nmap <Leader>ga <Plug>(GitGutterStageHunk)
-nmap <Leader>gu <Plug>(GitGutterUndoHunk)
-nmap <Leader>gp <Plug>(GitGutterPreviewHunk)
-nmap <Leader>gj <Plug>(GitGutterNextHunk)
-nmap <Leader>gk <Plug>(GitGutterPrevHunk)
+nmap <Leader>hs <Plug>(GitGutterStageHunk)
+nmap <Leader>hu <Plug>(GitGutterUndoHunk)
+nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
+nmap <Leader>hj <Plug>(GitGutterNextHunk)
+nmap <Leader>hk <Plug>(GitGutterPrevHunk)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
