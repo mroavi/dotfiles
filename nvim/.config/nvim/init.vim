@@ -122,7 +122,7 @@ Plug 'Shougo/deoplete-lsp'
 " Highlight group manipulation for Vim
 Plug 'wincent/pinnacle'
 
-" Track the engine
+" UltiSnips is the ultimate solution for snippets in Vim (tracks the engine)
 Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
