@@ -550,11 +550,17 @@ endif
 " nvim-lsp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://github.com/wincent/wincent/blob/master/aspects/vim/files/.vim/after/plugin/nvim-lsp.vim
-lua require'nvim_lsp'.clangd.setup{}
-"lua require'nvim_lsp'.julials.setup{} " TODO: causes HIGH cpu load
+lua << EOF
+  require'nvim_lsp'.clangd.setup{
+    cmd = { "clangd", "--background-index", "--fallback-style=Google" };
+    filetypes = { "c", "cpp", "objc", "objcpp" };
+  }
+EOF
+
+"require'nvim_lsp'.julials.setup{} " TODO: causes HIGH cpu load
 " TODO: install Python server: rope is one option
 
-" mappings (See `:h lsp-buf`)
+" Mappings (See `:h lsp-buf`)
 nnoremap <buffer> <Leader>gd  <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <buffer> <Leader>gt  <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <buffer> <F2>        <cmd>lua vim.lsp.buf.rename()<CR>
@@ -566,13 +572,13 @@ nnoremap <buffer> <Leader>di  <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
 " Auto-format *.cpp files prior to saving them
 autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 1000)
 
-" signs
+" Signs
 sign define LspDiagnosticsErrorSign text=✖
 sign define LspDiagnosticsWarningSign text=⚠
 sign define LspDiagnosticsInformationSign text=ℹ
 sign define LspDiagnosticsHintSign text=➤
 
-" colors
+" Colors
 execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('italic,underline', 'ErrorMsg')
 execute 'highlight LspDiagnosticsInformation ' . pinnacle#decorate('italic,underline', 'Type')
 execute 'highlight LspDiagnosticsHint ' . pinnacle#decorate('bold,italic,underline', 'Type')
