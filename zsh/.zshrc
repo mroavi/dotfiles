@@ -59,12 +59,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    vi-mode
-    z
-    autojump
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  vi-mode
+  z
+  autojump
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -157,8 +157,8 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # ===============================================
 
 # Important: place this at the end since other commands (such as enabling FZF) override it
-#bindkey '	' autosuggest-accept
-#bindkey '	' complete-word
+#bindkey '  ' autosuggest-accept
+#bindkey '  ' complete-word
 setopt noautomenu
 setopt nomenucomplete
 
@@ -179,20 +179,20 @@ stty -ixon
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+  [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+    eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 ## >>> conda initialize >>>
 ## !! Contents within this block are managed by 'conda init' !!
 #__conda_setup="$('/home/mroavi/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 #if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
+#  eval "$__conda_setup"
 #else
-#    if [ -f "/home/mroavi/miniconda3/etc/profile.d/conda.sh" ]; then
-#        . "/home/mroavi/miniconda3/etc/profile.d/conda.sh"
-#    else
-#        export PATH="/home/mroavi/miniconda3/bin:$PATH"
-#    fi
+#  if [ -f "/home/mroavi/miniconda3/etc/profile.d/conda.sh" ]; then
+#    . "/home/mroavi/miniconda3/etc/profile.d/conda.sh"
+#  else
+#    export PATH="/home/mroavi/miniconda3/bin:$PATH"
+#  fi
 #fi
 #unset __conda_setup
 ## <<< conda initialize <<<
