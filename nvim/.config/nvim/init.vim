@@ -140,24 +140,24 @@ call plug#end()
 " https://github.com/joshdick/onedark.vim/blob/master/README.md
 " (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
 if (has("termguicolors"))
-    set termguicolors
+  set termguicolors
 endif
 
 " https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
 " https://neovim.io/doc/user/options.html#'shada'
 set shada=%,<800,'50,/50,:100,h,f1
-"           | |    |   |   |    | + store file marks 0-9,A-Z
-"           | |    |   |   |    + disable 'hlsearch' while loading viminfo
-"           | |    |   |   + maximum number of items in the command-line history to be saved
-"           | |    |   + maximum number of items in the search pattern history to be saved
-"           | |    + files marks saved for the last XX files edited
-"           | + maximum num of lines saved for each register (old name for <, vi6.2)
-"           + save/restore buffer list
+"         |   |   |   |    |  |  + store file marks 0-9,A-Z
+"         |   |   |   |    |  + disable 'hlsearch' while loading viminfo
+"         |   |   |   |    + maximum number of items in the command-line history to be saved
+"         |   |   |   + maximum number of items in the search pattern history to be saved
+"         |   |   + files marks saved for the last XX files edited
+"         |   + maximum num of lines saved for each register (old name for <, vi6.2)
+"         + save/restore buffer list
 
 set number " show line numbers
 set relativenumber " lines are numbered relative to the line the cursor is on
@@ -173,9 +173,9 @@ set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
 set splitbelow splitright " open a new split at to bottom or to the right of the current one
 set signcolumn=yes " always show sign column
 set noshowmatch " no live match highlighting (brief jumping)
-set tabstop=4 " number of spaces that a <Tab> in the file counts for
-set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
-set shiftwidth=4 " number of spaces for indents in normal mode
+set tabstop=2 " number of spaces that a <Tab> in the file counts for
+set softtabstop=2 " number of spaces that a <Tab> counts for while performing editing operations
+set shiftwidth=2 " number of spaces for indents in normal mode
 set expandtab " use spaces instead of tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set smartindent " intelligently dedent / indent new lines based on rules.
@@ -188,7 +188,7 @@ set updatetime=100 " among others, governs gitgutter's update time
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 if !$SSH_CONNECTION
-    set listchars=tab:▸\ ,space:_,eol:¬ " Define symbols for tabstops, spaces and EOLs
+  set listchars=tab:▸\ ,space:_,eol:¬ " Define symbols for tabstops, spaces and EOLs
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -246,9 +246,6 @@ map <Leader>sv :w<CR>:source $MYVIMRC<CR>
 " Write and source the currently opened file
 map <Leader>ss :w<CR>:source %<CR>
 
-" Replace tabs with the appropriate number of spaces
-nnoremap <Leader>rt :retab<CR>
-
 " Toggle display of invisible chars (http://vimcasts.org/episodes/show-invisibles/`)
 nmap <F3> :set list!<CR>
 
@@ -273,18 +270,25 @@ nnoremap <C-S-Tab> gT
 " Ctrl+Shift+w -> close
 set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Misc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Strip trailing whitespace from all lines in a file
 " https://vi.stackexchange.com/a/456/27039
 fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
 endfun
 command! TrimWhitespace call TrimWhitespace()
 noremap <Leader>rw :call TrimWhitespace()<CR>
+
+" Convert all tabs to 2 space tabs
+" https://stackoverflow.com/a/16892086/1706778
+fun!  ReTab()
+  set tabstop=4 softtabstop=4 noexpandtab
+  retab!
+  set tabstop=2 softtabstop=2 expandtab
+  retab!
+endfun
+nnoremap <Leader>rt :call ReTab()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " base16
@@ -297,14 +301,14 @@ endif
 
 " Customization (https://bit.ly/2WZ8n3J)
 function! s:base16_customize() abort
-    call Base16hi("MatchParen", "", g:base16_gui00, "", g:base16_cterm00, "italic", "")
-    call Base16hi("SignColumn", "", g:base16_gui00, "", g:base16_cterm00, "", "")
-    call Base16hi("LineNr", "", g:base16_gui00, "", g:base16_cterm00, "", "")
-    call Base16hi("CursorLineNR", "", g:base16_gui00, "", g:base16_cterm00, "none", "")
-    call Base16hi("GitGutterAdd", "", g:base16_gui00, "", g:base16_cterm00, "", "")
-    call Base16hi("GitGutterChange", "", g:base16_gui00, "", g:base16_cterm00, "", "")
-    call Base16hi("GitGutterDelte", "", g:base16_gui00, "", g:base16_cterm00, "", "")
-    call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("MatchParen", "", g:base16_gui00, "", g:base16_cterm00, "italic", "")
+  call Base16hi("SignColumn", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("LineNr", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("CursorLineNR", "", g:base16_gui00, "", g:base16_cterm00, "none", "")
+  call Base16hi("GitGutterAdd", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("GitGutterChange", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("GitGutterDelte", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+  call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", g:base16_cterm00, "", "")
 endfunction
 
 augroup on_change_colorschema
@@ -325,8 +329,8 @@ let g:airline_powerline_fonts = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Compile files into a 'build' dir
 let g:vimtex_compiler_latexmk = {
-            \ 'build_dir' : 'build',
-            \}
+      \ 'build_dir' : 'build',
+      \}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDCommenter
@@ -374,9 +378,9 @@ let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'borde
 
 " This are the default extra key bindings
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+\   'ctrl-t': 'tab split',
+\   'ctrl-x': 'split',
+\   'ctrl-v': 'vsplit' }
 
 " Do not show preview window by default
 let g:fzf_preview_window = ''
@@ -384,19 +388,19 @@ let g:fzf_preview_window = ''
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+\ { 'fg':       ['fg', 'Normal'],
+\   'bg':       ['bg', 'Normal'],
+\   'hl':       ['fg', 'Comment'],
+\   'fg+':      ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+\   'bg+':      ['bg', 'CursorLine', 'CursorColumn'],
+\   'hl+':      ['fg', 'Statement'],
+\   'info':     ['fg', 'PreProc'],
+\   'border':   ['fg', 'Ignore'],
+\   'prompt':   ['fg', 'Conditional'],
+\   'pointer':  ['fg', 'Exception'],
+\   'marker':   ['fg', 'Keyword'],
+\   'spinner':  ['fg', 'Label'],
+\   'header':   ['fg', 'Comment'] }
 
 " Enable per-command history
 " - History files will be stored in the specified directory
@@ -427,8 +431,8 @@ function! RipgrepFzf(query, fullscreen)
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command,
-    \                     '--preview-window', 'up:60%', '--no-height'],
-    \                     'window': { 'width': 1, 'height': 1.0, 'yoffset': 1, 'border': 'top' } }
+  \           '--preview-window', 'up:60%', '--no-height'],
+  \           'window': { 'width': 1, 'height': 1.0, 'yoffset': 1, 'border': 'top' } }
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
@@ -526,17 +530,17 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 " tmuxline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tmuxline_preset = {
-            \'a'    : '#S',
-            \'win'  : ['#I #W'],
-            \'cwin' : ['#I #W'],
-            \'z'    : '%R',
-            \'options': {
-            \   'status-justify': 'left',
-            \   'status-position': 'top',}
-            \}
+\   'a'  : '#S',
+\   'win'  : ['#I #W'],
+\   'cwin' : ['#I #W'],
+\   'z'  : '%R',
+\   'options': {
+\     'status-justify': 'left',
+\     'status-position': 'top',}
+\   }
 
 if $SSH_CONNECTION
-    autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
+  autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -548,13 +552,13 @@ lua require'nvim_lsp'.clangd.setup{}
 " TODO: install Python server: rope is one option
 
 " mappings (See `:h lsp-buf`)
-nnoremap <buffer> <Leader>gd    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <buffer> <Leader>gt    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <buffer> <F2>          <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <Leader>gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> <Leader>fo    <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <buffer> K             <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <buffer> <Leader>di    <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <buffer> <Leader>gd  <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <buffer> <Leader>gt  <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <buffer> <F2>        <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <Leader>gr  <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <Leader>fo  <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <buffer> K           <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <buffer> <Leader>di  <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
 
 " Auto-format *.cpp files prior to saving them
 autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 1000)
@@ -570,13 +574,13 @@ execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('italic,underline',
 execute 'highlight LspDiagnosticsInformation ' . pinnacle#decorate('italic,underline', 'Type')
 execute 'highlight LspDiagnosticsHint ' . pinnacle#decorate('bold,italic,underline', 'Type')
 execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
-    \   'bg': pinnacle#extract_bg('SignColumn'),
-    \   'fg': pinnacle#extract_fg('Type')
-    \ })
+\   'bg': pinnacle#extract_bg('SignColumn'),
+\   'fg': pinnacle#extract_fg('Type')
+\ })
 execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({
-    \   'bg': pinnacle#extract_bg('SignColumn'),
-    \   'fg': pinnacle#extract_fg('ErrorMsg')
-    \ })
+\   'bg': pinnacle#extract_bg('SignColumn'),
+\   'fg': pinnacle#extract_fg('ErrorMsg')
+\ })
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " deoplete.nvim
@@ -602,26 +606,26 @@ let g:UltiSnipsEditSplit="vertical"
 " vim-peekaboo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! CreateCenteredFloatingWindow()
-    let width = float2nr(&columns * 0.6)
-    let height = float2nr(&lines * 0.6)
-    let top = ((&lines - height) / 2) - 1
-    let left = (&columns - width) / 2
-    let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
+  let width = float2nr(&columns * 0.6)
+  let height = float2nr(&lines * 0.6)
+  let top = ((&lines - height) / 2) - 1
+  let left = (&columns - width) / 2
+  let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
 
-    let top = "╭" . repeat("─", width - 2) . "╮"
-    let mid = "│" . repeat(" ", width - 2) . "│"
-    let bot = "╰" . repeat("─", width - 2) . "╯"
-    let lines = [top] + repeat([mid], height - 2) + [bot]
-    let s:buf = nvim_create_buf(v:false, v:true)
-    call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
-    call nvim_open_win(s:buf, v:true, opts)
-    set winhl=Normal:Floating
-    let opts.row += 1
-    let opts.height -= 2
-    let opts.col += 2
-    let opts.width -= 4
-    call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-    au BufWipeout <buffer> exe 'bw '.s:buf
+  let top = "╭" . repeat("─", width - 2) . "╮"
+  let mid = "│" . repeat(" ", width - 2) . "│"
+  let bot = "╰" . repeat("─", width - 2) . "╯"
+  let lines = [top] + repeat([mid], height - 2) + [bot]
+  let s:buf = nvim_create_buf(v:false, v:true)
+  call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
+  call nvim_open_win(s:buf, v:true, opts)
+  set winhl=Normal:Floating
+  let opts.row += 1
+  let opts.height -= 2
+  let opts.col += 2
+  let opts.width -= 4
+  call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+  au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
 
 let g:peekaboo_window="call CreateCenteredFloatingWindow()"
