@@ -131,6 +131,9 @@ Plug 'honza/vim-snippets'
 " Highlight, navigate, and operate on sets of matching text
 Plug 'andymass/vim-matchup'
 
+" Provides a start screen for Vim and Neovim
+Plug 'mhinz/vim-startify'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
