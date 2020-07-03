@@ -142,7 +142,6 @@ call plug#end()
 " Use 24-bit (true-color) mode when outside tmux (https://bit.ly/3dYI5na)
 " (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
