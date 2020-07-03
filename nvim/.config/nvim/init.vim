@@ -425,8 +425,7 @@ nnoremap <Leader>cm :Commands<CR>
 nnoremap <Leader>ma :Maps<CR>
 nnoremap <Leader>cs :Colors<CR>
 
-" Advanced ripgrep integration
-" See https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
+" Advanced ripgrep integration (https://bit.ly/2NUtoXO)
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --hidden --no-ignore --column --line-number --no-heading --color=always --smart-case %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
