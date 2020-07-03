@@ -149,8 +149,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
-" https://neovim.io/doc/user/options.html#'shada'
+" https://neovim.io/doc/user/options.html#'shada' https://bit.ly/3gmgcY3
 set shada=%,<800,'50,/50,:100,h,f1
 "         |   |   |   |    |  |  + store file marks 0-9,A-Z
 "         |   |   |   |    |  + disable 'hlsearch' while loading viminfo
