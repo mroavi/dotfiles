@@ -285,7 +285,7 @@ noremap <Leader>rw :call TrimWhitespace()<CR>
 
 " Convert all tabs to 2 space tabs
 " https://stackoverflow.com/a/16892086/1706778
-fun!  ReTab()
+fun! ReTab()
   set tabstop=4 softtabstop=4 noexpandtab
   retab!
   set tabstop=2 softtabstop=2 expandtab
@@ -460,7 +460,6 @@ nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
 nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
-"nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-highlightedyank
