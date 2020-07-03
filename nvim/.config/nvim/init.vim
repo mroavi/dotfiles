@@ -12,7 +12,7 @@ let maplocalleader = ' '
 " Plugins will be downloaded under the specified directory.
 call plug#begin(stdpath('data') . '/plugged')
 
-" A command-line fuzzy finder
+" A fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
