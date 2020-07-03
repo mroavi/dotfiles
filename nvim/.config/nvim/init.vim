@@ -149,7 +149,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" https://neovim.io/doc/user/options.html#'shada' https://bit.ly/3gmgcY3
+" https://neovim.io/doc/user/options.html#'shada'
 set shada=%,<800,'50,/50,:100,h,f1
 "         |   |   |   |    |  |  + store file marks 0-9,A-Z
 "         |   |   |   |    |  + disable 'hlsearch' while loading viminfo
