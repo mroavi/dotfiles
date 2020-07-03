@@ -139,8 +139,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux
-" https://github.com/joshdick/onedark.vim/blob/master/README.md
+" Use 24-bit (true-color) mode when outside tmux (https://bit.ly/3dYI5na)
 " (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
