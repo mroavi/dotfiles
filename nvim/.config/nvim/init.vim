@@ -213,7 +213,7 @@ cnoreabbrev H vert bo h
 nnoremap <Leader>- <C-w>_
 
 " Maximize current window width
-nnoremap <Leader>\| <C-w>|
+nnoremap <Leader>\| <C-w>\|
 
 " Make all windows equally high and wide
 nnoremap <Leader>= <C-w>=
