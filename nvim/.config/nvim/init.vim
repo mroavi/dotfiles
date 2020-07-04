@@ -44,6 +44,12 @@ Plug 'toranb/tmux-navigator'
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
 
+" A Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-fugitive'
+
+" Provides mappings to easily delete, change and add such surroundings in pairs
+Plug 'tpope/vim-surround'
+
 " Comment functions so powerful—no comment necessary
 Plug 'scrooloose/nerdcommenter'
 
@@ -65,9 +71,6 @@ Plug 'machakann/vim-highlightedyank'
 " Change the cursor shape based on the current mode
 Plug 'wincent/terminus'
 
-" A Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-fugitive'
-
 " Simple tmux statusline generator with support for airline statusline integration
 Plug 'edkolev/tmuxline.vim'
 
@@ -76,9 +79,6 @@ Plug 'ap/vim-css-color'
 
 " The undo history visualizer for VIM
 Plug 'mbbill/undotree'
-
-" Provides mappings to easily delete, change and add such surroundings in pairs
-Plug 'tpope/vim-surround'
 
 " Changes Vim working directory to project root
 Plug 'airblade/vim-rooter'
