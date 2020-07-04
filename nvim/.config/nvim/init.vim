@@ -209,9 +209,8 @@ nnoremap Y y$
 " Open help in vertical split
 cnoreabbrev H vert bo h
 
-" Maximize current window height/width
+" Maximize current window height
 nnoremap <Leader>- <C-w>_
-nnoremap <Leader>\| <C-w>\|
 
 " Make all windows equally high and wide
 nnoremap <Leader>= <C-w>=
