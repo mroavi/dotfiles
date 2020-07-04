@@ -25,6 +25,15 @@ Plug 'junegunn/vim-peekaboo'
 " A simple, easy-to-use Vim alignment plugin
 Plug 'junegunn/vim-easy-align'
 
+" Pairs of handy bracket mappings
+Plug 'tpope/vim-unimpaired'
+
+" A Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-fugitive'
+
+" Provides mappings to easily delete, change and add such surroundings in pairs
+Plug 'tpope/vim-surround'
+
 " Defines a new text object representing lines of code at the same indent level
 Plug 'michaeljsmith/vim-indent-object'
 " Plug 'kana/vim-textobj-indent'
@@ -40,15 +49,6 @@ Plug 'lervag/vimtex'
 
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
-
-" Pairs of handy bracket mappings
-Plug 'tpope/vim-unimpaired'
-
-" A Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-fugitive'
-
-" Provides mappings to easily delete, change and add such surroundings in pairs
-Plug 'tpope/vim-surround'
 
 " Comment functions so powerful—no comment necessary
 Plug 'scrooloose/nerdcommenter'
