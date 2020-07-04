@@ -255,9 +255,6 @@ nmap <F3> :set list!<CR>
 " Use F5 to toggle the spelling check!
 map <F5> :setlocal spell! spelllang=en_us<CR>
 
-" Chorme-like tab commands (conflicts with tmux)
-" based on: https://stackoverflow.com/a/31961401/1706778
-
 " Close tab with Ctrl+w
 nnoremap <C-w> :tabclose<CR>
 
@@ -271,6 +268,7 @@ nnoremap <C-Tab> gt
 nnoremap <C-S-Tab> gT
 
 " Ctrl+Shift+w -> close
+" https://stackoverflow.com/a/31961401/1706778
 set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
 
 " Strip trailing whitespace from all lines in a file
