@@ -172,7 +172,6 @@ set grepprg=rg\ --vimgrep " program to used for the :grep command.
 set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
 set splitbelow splitright " open a new split at to bottom or to the right of the current one
 set signcolumn=yes " always show sign column
-set noshowmatch " no live match highlighting (brief jumping)
 set tabstop=2 " number of spaces that a <Tab> in the file counts for
 set softtabstop=2 " number of spaces that a <Tab> counts for while performing editing operations
 set shiftwidth=2 " number of spaces for indents in normal mode
