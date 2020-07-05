@@ -305,6 +305,7 @@ function! s:base16_customize() abort
   call Base16hi("GitGutterChange", "", g:base16_gui00, "", g:base16_cterm00, "", "")
   call Base16hi("GitGutterDelte", "", g:base16_gui00, "", g:base16_cterm00, "", "")
   call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", g:base16_cterm00, "", "")
+"  call Base16hi("Comment", g:base16_gui04, "", g:base16_cterm04,"" , "", "")
 endfunction
 
 augroup on_change_colorschema
