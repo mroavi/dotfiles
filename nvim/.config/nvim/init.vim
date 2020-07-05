@@ -613,7 +613,6 @@ function! CreateCenteredFloatingWindow()
   let top = ((&lines - height) / 2) - 1
   let left = (&columns - width) / 2
   let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
-
   let top = "╭" . repeat("─", width - 2) . "╮"
   let mid = "│" . repeat(" ", width - 2) . "│"
   let bot = "╰" . repeat("─", width - 2) . "╯"
@@ -629,5 +628,4 @@ function! CreateCenteredFloatingWindow()
   call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
   au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
-
 let g:peekaboo_window="call CreateCenteredFloatingWindow()"
