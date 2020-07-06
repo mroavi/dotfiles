@@ -263,8 +263,8 @@ nnoremap <C-Tab> gt
 " Ctrl+Shift + tab -> previous tab
 nnoremap <C-S-Tab> gT
 
-" Ctrl+Shift+w -> close (https://stackoverflow.com/a/31961401/1706778) TODO: not working
-set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
+" Ctrl+Shift+w -> close (hack: see alacritty.yml and .tmux.conf)
+nnoremap <C-S-0> :close<CR>
 
 " Strip trailing whitespace from all lines in a file (https://vi.stackexchange.com/a/456/27039)
 fun! TrimWhitespace()
