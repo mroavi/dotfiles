@@ -178,6 +178,7 @@ set expandtab " use spaces instead of tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set smartindent " intelligently dedent / indent new lines based on rules.
 set updatetime=100 " among others, governs gitgutter's update time
+set inccommand=split "shows the effects of a command incrementally, as you type
 "set colorcolumn=80 " highlight column
 "set cursorline " highlight the line that the cursor is currently on
 "set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
