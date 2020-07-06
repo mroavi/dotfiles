@@ -134,6 +134,9 @@ Plug 'andymass/vim-matchup'
 " A fancy start screen for Vim/Neovim
 Plug 'mhinz/vim-startify'
 
+" Highlight a unique character in every word on a line when f, t, F or T is pressed
+Plug 'unblevable/quick-scope'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -631,3 +634,10 @@ function! CreateCenteredFloatingWindow()
   au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
 let g:peekaboo_window="call CreateCenteredFloatingWindow()"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" quick-scope
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
