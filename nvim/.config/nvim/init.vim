@@ -262,12 +262,10 @@ nnoremap <C-Tab> gt
 " Ctrl+Shift + tab -> previous tab
 nnoremap <C-S-Tab> gT
 
-" Ctrl+Shift+w -> close
-" https://stackoverflow.com/a/31961401/1706778
+" Ctrl+Shift+w -> close (https://stackoverflow.com/a/31961401/1706778) TODO: not working
 set <F15>=[27;6;48~ | nnoremap <F15> :close<CR>
 
-" Strip trailing whitespace from all lines in a file
-" https://vi.stackexchange.com/a/456/27039
+" Strip trailing whitespace from all lines in a file (https://vi.stackexchange.com/a/456/27039)
 fun! TrimWhitespace()
   let l:save = winsaveview()
   keeppatterns %s/\s\+$//e
@@ -276,8 +274,7 @@ endfun
 command! TrimWhitespace call TrimWhitespace()
 noremap <Leader>rw :call TrimWhitespace()<CR>
 
-" Convert all tabs to 2 space tabs
-" https://stackoverflow.com/a/16892086/1706778
+" Convert all tabs to 2 space tabs (https://stackoverflow.com/a/16892086/1706778)
 fun! ReTab()
   set tabstop=4 softtabstop=4 noexpandtab
   retab!
@@ -448,7 +445,6 @@ nnoremap <Leader>/  :below 30Vifm<CR>
 " vim-tmux-navigator
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tmux_navigator_no_mappings = 1
-
 nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
 nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
