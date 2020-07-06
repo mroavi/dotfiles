@@ -284,6 +284,12 @@ fun! ReTab()
 endfun
 nnoremap <Leader>rt :call ReTab()<CR>
 
+"" Highlight the yanked text (conflicts with matchup)
+"augroup LuaHighlight
+"  autocmd!
+"  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 200)
+"augroup END
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " base16
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
