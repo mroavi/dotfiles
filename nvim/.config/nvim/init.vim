@@ -269,9 +269,6 @@ nnoremap <C-S-Tab> gT
 " Ctrl+Shift+w -> close (hack: see alacritty.yml and .tmux.conf)
 nnoremap <C-S-0> :close<CR>
 
-" Move to the end of the word and enter insert mode
-nnoremap E ea
-
 " Strip trailing whitespace from all lines in a file (https://vi.stackexchange.com/a/456/27039)
 fun! TrimWhitespace()
   let l:save = winsaveview()
