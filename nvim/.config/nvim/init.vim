@@ -214,7 +214,7 @@ nnoremap <Leader>- <C-w>_
 " Make all windows equally high and wide
 nnoremap <Leader>= <C-w>=
 
-" Substitute all ocurrances of the content of the search register with new text
+" Substitute all ocurrences of the content of the search register with new text
 nnoremap <Leader>sa :%s///g<left><left>
 
 " Switch to next/previous buffer
