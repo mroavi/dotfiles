@@ -105,7 +105,7 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 Plug 'chriskempson/base16-vim'
 
 " Syntax highlighting for GNU Octave
-Plug 'jvirtanen/vim-octave'
+Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
 
 " Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'raimondi/delimitmate'
