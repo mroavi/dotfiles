@@ -45,7 +45,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Provides support for writing LaTeX documents
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': ['tex'] }
 
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
