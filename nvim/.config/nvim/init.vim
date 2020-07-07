@@ -137,6 +137,12 @@ Plug 'mhinz/vim-startify'
 " Highlight a unique character in every word on a line when f, t, F or T is pressed
 Plug 'unblevable/quick-scope'
 
+" Syntax highlighting, matching rules and mappings for the original Markdown and extensions
+Plug 'plasticboy/vim-markdown'
+
+" Preview markdown on your browser with synchronised scrolling and flexible configuration
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -286,6 +292,13 @@ fun! ReTab()
   retab!
 endfun
 nnoremap <Leader>rt :call ReTab()<CR>
+
+" Handy markdown mappings
+nnoremap <Leader>1 m`yypVr=``
+nnoremap <Leader>2 m`yypVr-``
+nnoremap <Leader>3 m`^i### <esc>``4l
+nnoremap <Leader>4 m`^i#### <esc>``5l
+nnoremap <Leader>5 m`^i##### <esc>``6l
 
 "" Highlight the yanked text (conflicts with matchup)
 "augroup LuaHighlight
@@ -640,4 +653,9 @@ let g:peekaboo_window="call CreateCenteredFloatingWindow()"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vim_markdown_folding_disabled = 1
 
