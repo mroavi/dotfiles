@@ -102,8 +102,8 @@ alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --
 alias dotfiles="cd ~/dotfiles"
 alias phd="cd ~/Dropbox/TUe/PhD"
 alias sz="source ~/.zshrc"
-alias off="base16_oceanicnext"
-alias on="base16_material"
+alias off="base16_material"
+alias on="base16_solarized-light"
 
 alias cs1="base16_oceanicnext"
 alias cs2="base16_tomorrow"
