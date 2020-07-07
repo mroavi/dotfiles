@@ -36,7 +36,6 @@ Plug 'tpope/vim-surround'
 
 " Defines a new text object representing lines of code at the same indent level
 Plug 'michaeljsmith/vim-indent-object'
-" Plug 'kana/vim-textobj-indent'
 
 " Lean & mean status/tabline for vim that's light as air.
 Plug 'vim-airline/vim-airline'
