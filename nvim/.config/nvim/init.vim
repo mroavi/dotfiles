@@ -59,17 +59,11 @@ Plug 'easymotion/vim-easymotion'
 " Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
 
-" Enables transparent pasting into vim. (i.e. no more :set paste!)
-Plug 'conradirwin/vim-bracketed-paste'
-
 " Vim plugin that allows use of vifm as a file picker
 Plug 'vifm/vifm.vim'
 
 " Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
-
-" Change the cursor shape based on the current mode
-Plug 'wincent/terminus'
 
 " Simple tmux statusline generator with support for airline statusline integration
 Plug 'edkolev/tmuxline.vim'
