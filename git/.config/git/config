@@ -3,7 +3,7 @@
 	email = m.roa.villescas@tue.nl
 	name = Martin Roa Villescas
 [core]
-	editor = vim
+	editor = nvim
 [format]
     # https://stackoverflow.com/a/9463536/1706778
 ;    pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
