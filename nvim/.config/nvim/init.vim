@@ -556,7 +556,6 @@ lua << EOF
     cmd = { "clangd", "--background-index", "--fallback-style=Google" };
     filetypes = { "c", "cpp", "objc", "objcpp" };
   }
-  require'nvim_lsp'.vimls.setup{}
   require'nvim_lsp'.cmake.setup{}
 EOF
 
