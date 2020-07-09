@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 # Path to your oh-my-zsh installation.
 if [ "$SSH_CONNECTION" ]; then
@@ -14,6 +16,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Prompt at the bottom of the terminal (https://github.com/romkatv/powerlevel10k/issues/563)
+clr () {
+  printf '\n%.0s' {1..100}
+}
+clr
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -97,7 +105,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias v="nvim"
 alias o="xdg-open"
-alias clr="clear"
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias dotfiles="cd ~/dotfiles"
 alias phd="cd ~/Dropbox/TUe/PhD"
