@@ -136,6 +136,9 @@ Plug 'plasticboy/vim-markdown'
 " Preview markdown on your browser with synchronised scrolling and flexible configuration
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
+" TEMP: temprary fix for the gitgutter + deoplete-lsp problem
+Plug 'antoinemadec/FixCursorHold.nvim'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
