@@ -563,8 +563,8 @@ EOF
 " TODO: install Python server: rope is one option
 
 " Mappings (See `:h lsp-buf`)
-nnoremap <buffer> <Leader>gd  <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <buffer> <Leader>gt  <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <buffer> <C-i>       <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <buffer> <Leader>d   <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <buffer> <F2>        <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>gr  <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <Leader>fo  <cmd>lua vim.lsp.buf.formatting()<CR>
