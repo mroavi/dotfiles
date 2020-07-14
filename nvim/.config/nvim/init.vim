@@ -426,7 +426,7 @@ nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>rg :MyRg<CR>
 nnoremap <Leader>li :Lines<CR>
 nnoremap <Leader>bl :BLines<CR>
-nnoremap <Leader>hi :History<CR>
+nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>ch :History:<CR>
 nnoremap <Leader>co :Commits<CR>
 nnoremap <Leader>bc :BCommits<CR>
