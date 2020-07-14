@@ -224,7 +224,7 @@ nnoremap <Leader>, :bprevious<CR>
 nnoremap <Leader>. :bnext<CR>
 
 " Switch to last visited buffer
-nnoremap <Leader>t :b#<CR>
+nnoremap <C-p> :b#<CR>
 
 " Delete current buffer
 nnoremap <Leader>bd :bdelete<CR>
