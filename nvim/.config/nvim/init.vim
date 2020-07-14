@@ -574,8 +574,8 @@ nnoremap <silent> <Leader>fo  <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <buffer> K           <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <buffer> <Leader>di  <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
 
-" Auto-format *.cpp files prior to saving them
-autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 1000)
+"" Auto-format *.cpp files prior to saving them
+"autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 1000)
 
 " Signs
 sign define LspDiagnosticsErrorSign text=✖
