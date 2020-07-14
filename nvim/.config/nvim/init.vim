@@ -420,19 +420,12 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Shift-Tab to select multiple results (-m flag required)
 " :Files runs $FZF_DEFAULT_COMMAND defined in .zshrc
+" See: https://github.com/junegunn/fzf.vim#commands
 nnoremap <Leader>fi :Files<CR>
-nnoremap <Leader>gf :GFiles<CR>
+nnoremap <Leader>fh :History<CR>
+nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>rg :MyRg<CR>
-nnoremap <Leader>li :Lines<CR>
-nnoremap <Leader>bl :BLines<CR>
-nnoremap <Leader>fh :History<CR>
-nnoremap <Leader>ch :History:<CR>
-nnoremap <Leader>co :Commits<CR>
-nnoremap <Leader>bc :BCommits<CR>
-nnoremap <Leader>cm :Commands<CR>
-nnoremap <Leader>ma :Maps<CR>
-nnoremap <Leader>cs :Colors<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
 function! RipgrepFzf(query, fullscreen)
