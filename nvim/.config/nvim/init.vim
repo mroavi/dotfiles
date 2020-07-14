@@ -421,7 +421,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " Shift-Tab to select multiple results (-m flag required)
 " :Files runs $FZF_DEFAULT_COMMAND defined in .zshrc
 " See: https://github.com/junegunn/fzf.vim#commands
-nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>ls :Buffers<CR>
