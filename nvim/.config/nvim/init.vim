@@ -52,9 +52,6 @@ Plug 'toranb/tmux-navigator'
 " Comment functions so powerful—no comment necessary
 Plug 'scrooloose/nerdcommenter'
 
-" Takes the <no.> out of <no.>w or <number>f{char} by highlighting all choices
-Plug 'easymotion/vim-easymotion'
-
 " Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
 
@@ -360,15 +357,6 @@ let g:NERDDefaultAlign = 'start'
 " https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
 nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" EasyMotion
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable default mappings
-let g:EasyMotion_do_mapping = 0
-
-" Jump anywhere with s
-nmap s <Plug>(easymotion-s)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter
