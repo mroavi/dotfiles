@@ -550,7 +550,7 @@ EOF
 nnoremap <C-i>                <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <Leader>de           <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <F2>                 <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <Leader>gr  <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <Leader>re  <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <Leader>fo  <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap K                    <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <Leader>di           <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
