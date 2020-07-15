@@ -25,11 +25,11 @@ Plug 'junegunn/vim-peekaboo'
 " A simple, easy-to-use Vim alignment plugin
 Plug 'junegunn/vim-easy-align'
 
-" Pairs of handy bracket mappings
-Plug 'tpope/vim-unimpaired'
-
 " A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
+
+" Pairs of handy bracket mappings
+Plug 'tpope/vim-unimpaired'
 
 " Provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
