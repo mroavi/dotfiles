@@ -83,6 +83,7 @@ Plug 'jpalardy/vim-slime'
 Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
 " Plugin to help you stop repeating the basic movement keys
+" Temp: remove when not needed
 Plug 'takac/vim-hardtime'
 
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
