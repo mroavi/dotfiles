@@ -2,6 +2,6 @@
 :setlocal cinkeys-=:
 
 " Use Alt-{j,k} to jump to the next/prev /// marker
-nnoremap <silent> <M-j> /\/\/\/<CR>:noh<CR>zzj
-nnoremap <silent> <M-k> ?\/\/\/<CR>:noh<CR>zzk
+nnoremap <silent> <M-j> /\/\/\/<CR>:noh<CR>jzz
+nnoremap <silent> <M-k> ?\/\/\/<CR>:noh<CR>kzz
 
