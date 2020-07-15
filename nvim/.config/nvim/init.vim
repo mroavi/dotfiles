@@ -58,7 +58,7 @@ Plug 'airblade/vim-gitgutter'
 " Vim plugin that allows use of vifm as a file picker
 Plug 'vifm/vifm.vim'
 
-" Make the yanked region apparent!
+" Temp: Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
 
 " Simple tmux statusline generator with support for airline statusline integration
