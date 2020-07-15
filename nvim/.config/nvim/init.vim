@@ -82,7 +82,7 @@ Plug 'jpalardy/vim-slime'
 " Cell support for Julia in Vim
 Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
-" Temp: Plugin to help you stop repeating the basic movement keys
+" TEMP: Plugin to help you stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
 
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
