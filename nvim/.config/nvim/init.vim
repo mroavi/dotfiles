@@ -115,7 +115,7 @@ Plug 'wincent/pinnacle'
 " UltiSnips is the ultimate solution for snippets in Vim (tracks the engine)
 Plug 'SirVer/ultisnips'
 
-" Snippets are separated from the engine. Add this if you want them:
+" Snippets are separated from the engine. Add this if you want them
 Plug 'honza/vim-snippets'
 
 " Highlight, navigate, and operate on sets of matching text
