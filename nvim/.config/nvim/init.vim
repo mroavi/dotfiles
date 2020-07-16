@@ -165,7 +165,6 @@ set number " show line numbers
 set relativenumber " lines are numbered relative to the line the cursor is on
 set noswapfile " they're just annoying. Who likes them?
 set wrap linebreak nolist " avoid breaking lines in the middle of words
-set noshowcmd " don't show partial typed commands in the right side of the status bar
 set noshowmode " don't show mode in status bar (taken care of by airline)
 set hidden " allows switching from unwritten buffers and remembers the buffer undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
