@@ -250,6 +250,9 @@ nmap <F3> :set list!<CR>
 " Use F5 to toggle the spelling check!
 map <F5> :setlocal spell! spelllang=en_us<CR>
 
+" Change to the diretory of the curret buffer and print it
+nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
+
 " Close tab with Ctrl+w
 nnoremap <C-w> :tabclose<CR>
 
