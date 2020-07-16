@@ -161,7 +161,6 @@ set shada=%,<800,'50,/50,:100,h,f1
 "         |   + maximum num of lines saved for each register (old name for <, vi6.2)
 "         + save/restore buffer list
 
-set number " show line numbers
 set relativenumber " lines are numbered relative to the line the cursor is on
 set noswapfile " they're just annoying. Who likes them?
 set wrap linebreak nolist " avoid breaking lines in the middle of words
