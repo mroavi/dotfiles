@@ -179,13 +179,10 @@ set shiftround " tab / shifting moves to closest tabstop.
 set smartindent " intelligently dedent / indent new lines based on rules.
 set updatetime=100 " among others, governs gitgutter's update time
 set inccommand=split "shows the effects of a command incrementally, as you type
+set listchars=tab:▸\ ,space:_,eol:¬ " Define symbols for tabstops, spaces and EOLs
 
 " Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
-
-if !$SSH_CONNECTION
-  set listchars=tab:▸\ ,space:_,eol:¬ " Define symbols for tabstops, spaces and EOLs
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom mappings
