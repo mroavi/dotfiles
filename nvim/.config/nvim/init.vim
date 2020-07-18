@@ -138,16 +138,6 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use 24-bit (true-color) mode when outside tmux (https://bit.ly/3dYI5na)
-" (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (has("nvim"))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-
-if (has("termguicolors"))
-  set termguicolors
-endif
-
 " https://neovim.io/doc/user/options.html#'shada'
 set shada=%,<800,'50,/50,:100,h,f1
 "         |   |   |   |    |  |  + store file marks 0-9,A-Z
