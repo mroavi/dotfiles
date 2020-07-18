@@ -224,9 +224,6 @@ map <Leader>bo :%bdelete\|e#<CR>
 " Write to disk
 nnoremap <Leader>w :write<CR>
 
-" Quit
-nnoremap <Leader>q :quit<CR>
-
 " Yank to clipboard
 vmap <Leader>y "+y
 
