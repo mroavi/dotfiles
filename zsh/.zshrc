@@ -113,7 +113,7 @@ alias off="base16_material"
 alias on="base16_solarized-light"
 
 alias cs1="base16_oceanicnext"
-alias cs2="base16_tomorrow"
+alias cs2="base16_github"
 alias cs3="base16_material"
 alias cs4="base16_tomorrow-night"
 alias cs5="base16_onedark"
