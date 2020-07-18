@@ -519,7 +519,7 @@ endif
 " https://github.com/wincent/wincent/blob/master/aspects/vim/files/.vim/after/plugin/nvim-lsp.vim
 lua << EOF
   require'nvim_lsp'.clangd.setup{
-    cmd = { "clangd", "--background-index", "--fallback-style=Google" };
+    cmd = { "clangd", "--background-index", "--fallback-style=LLVM" };
     filetypes = { "c", "cpp", "objc", "objcpp" };
   }
   require'nvim_lsp'.cmake.setup{}
