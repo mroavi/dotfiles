@@ -64,9 +64,6 @@ Plug 'edkolev/tmuxline.vim'
 " A very fast, multi-syntax context-sensitive color name highlighter
 Plug 'ap/vim-css-color'
 
-" The undo history visualizer for VIM
-Plug 'mbbill/undotree'
-
 " Changes Vim working directory to project root
 Plug 'airblade/vim-rooter'
 
@@ -202,7 +199,8 @@ nnoremap <Leader>, :bprevious<CR>
 nnoremap <Leader>. :bnext<CR>
 
 " Switch to last visited buffer
-nnoremap <C-p> :b#<CR>
+nnoremap <Leader>o :b#<CR>
+nnoremap <Leader>; :b#<CR>
 
 " Delete current buffer
 nnoremap <Leader>bd :bdelete<CR>
@@ -437,12 +435,6 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 let g:highlightedyank_highlight_duration = 200
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" undotree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <Leader>u :UndotreeShow<CR>
-let g:undotree_SetFocusWhenToggle = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-slime
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:slime_target = "tmux"
@@ -531,13 +523,13 @@ EOF
 " TODO: install Python server: rope is one option
 
 " Mappings (See `:h lsp-buf`)
-nnoremap <C-i>                <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <Leader>i            <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <Leader>de           <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <F2>                 <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <Leader>cw           <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>re  <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <Leader>fo  <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap K                    <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <Leader>di           <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <Leader>sh           <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
 
 "" Auto-format *.cpp files prior to saving them
 "autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 1000)
