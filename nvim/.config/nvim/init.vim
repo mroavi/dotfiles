@@ -394,7 +394,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fg :GFiles<CR>
-nnoremap <Leader>ls :Buffers<CR>
+nnoremap <Leader>l  :Buffers<CR>
 nnoremap <Leader>rg :MyRg<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
