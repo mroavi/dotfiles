@@ -200,7 +200,7 @@ nnoremap <Leader>. :bnext<CR>
 
 " Switch to last visited buffer
 nnoremap <Leader>o :b#<CR>
-nnoremap <Leader>; :b#<CR>
+nnoremap <Leader>' :b#<CR>
 
 " Delete current buffer
 nnoremap <Leader>bd :bdelete<CR>
