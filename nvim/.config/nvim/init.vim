@@ -516,7 +516,6 @@ lua << EOF
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" };
     filetypes = { "c", "cpp", "objc", "objcpp" };
   }
-  require'nvim_lsp'.cmake.setup{}
 EOF
 
 "require'nvim_lsp'.julials.setup{} " TODO: causes HIGH cpu load
