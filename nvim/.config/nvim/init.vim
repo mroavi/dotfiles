@@ -272,7 +272,7 @@ nnoremap <Leader>3 m`^i### <esc>``4l
 nnoremap <Leader>4 m`^i#### <esc>``5l
 nnoremap <Leader>5 m`^i##### <esc>``6l
 
-"" Highlight the yanked text (conflicts with matchup)
+"" Highlight the yanked text (conflicts with matchup - keeping vim-highlightedyank instead)
 "augroup LuaHighlight
 "  autocmd!
 "  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 200)
