@@ -561,6 +561,9 @@ let g:deoplete#enable_at_startup = 1
 " Tab completion (https://github.com/Shougo/deoplete.nvim/issues/989)
 inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
+" Do not enable the auto completion on TextChangedI autocmd
+call deoplete#custom#option('on_insert_enter', v:false)
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ultisnips
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
