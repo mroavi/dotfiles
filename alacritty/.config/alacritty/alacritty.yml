@@ -113,7 +113,7 @@ font:
     #   - (Windows) Consolas
 #    family: monospace
     family: Hack Nerd Font
-#    family: Ubuntu Mono
+#    family: UbuntuMono Nerd Font Mono
 #    family: Droid Sans Mono Awesome
 
     # The `style` can be specified to pick a specific face.
