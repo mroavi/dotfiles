@@ -596,3 +596,4 @@ let g:vim_markdown_folding_disabled = 1
 " markdown-preview.nvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>md :MarkdownPreview<CR>
+
