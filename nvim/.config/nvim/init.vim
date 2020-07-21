@@ -543,17 +543,17 @@ sign define LspDiagnosticsHintSign text=➤
 execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('italic', 'ErrorMsg')
 execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('ErrorMsg')
+\   'fg': pinnacle#extract_fg('LspDiagnosticsError')
 \ })
 execute 'highlight LspDiagnosticsInformation ' . pinnacle#decorate('italic', 'Type')
 execute 'highlight LspDiagnosticsInformationSign ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('Type')
+\   'fg': pinnacle#extract_fg('LspDiagnosticsInformation')
 \ })
 execute 'highlight LspDiagnosticsHint ' . pinnacle#decorate('bold,italic', 'Type')
 execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('Type')
+\   'fg': pinnacle#extract_fg('LspDiagnosticsHint')
 \ })
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
