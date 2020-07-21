@@ -540,16 +540,20 @@ sign define LspDiagnosticsInformationSign text=ℹ
 sign define LspDiagnosticsHintSign text=➤
 
 " Colors
-execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('italic,underline', 'ErrorMsg')
-execute 'highlight LspDiagnosticsInformation ' . pinnacle#decorate('italic,underline', 'Type')
-execute 'highlight LspDiagnosticsHint ' . pinnacle#decorate('bold,italic,underline', 'Type')
-execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
-\   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('Type')
-\ })
+execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('italic', 'ErrorMsg')
 execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
 \   'fg': pinnacle#extract_fg('ErrorMsg')
+\ })
+execute 'highlight LspDiagnosticsInformation ' . pinnacle#decorate('italic', 'Type')
+execute 'highlight LspDiagnosticsInformationSign ' . pinnacle#highlight({
+\   'bg': pinnacle#extract_bg('SignColumn'),
+\   'fg': pinnacle#extract_fg('Type')
+\ })
+execute 'highlight LspDiagnosticsHint ' . pinnacle#decorate('bold,italic', 'Type')
+execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
+\   'bg': pinnacle#extract_bg('SignColumn'),
+\   'fg': pinnacle#extract_fg('Type')
 \ })
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
