@@ -113,8 +113,13 @@ font:
     #   - (Windows) Consolas
 #    family: monospace
     family: Hack Nerd Font
+#    family: DejaVuSansMono Nerd Font
 #    family: UbuntuMono Nerd Font Mono
+#    family: Inconsolata Nerd Font
+#    family: Fura Mono Nerd Font
 #    family: Droid Sans Mono Awesome
+#    family: Inconsolata Awesome
+#    family: JetBrainsMono Nerd Font
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
