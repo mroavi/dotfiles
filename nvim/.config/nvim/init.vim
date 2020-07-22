@@ -236,7 +236,7 @@ nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
 " Close tab with Ctrl+w
 nnoremap <C-w> :tabclose<CR>
 
-" Ctrl+t -> new tab
+" Ctrl+t -> open new tab
 nnoremap <C-t> :tabnew<CR>
 
 " Ctl+tab -> next tab
