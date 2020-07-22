@@ -158,6 +158,7 @@ echo "Installing bat..."
 
 if [ "$SSH_CONNECTION" ]; then
     # TODO: allow installing without root access
+    # SEE: https://github.com/vifm/vifm/blob/master/INSTALL
     echo TODO
 else
     # https://stackoverflow.com/a/54239534/1706778
