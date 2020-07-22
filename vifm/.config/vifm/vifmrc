@@ -118,7 +118,7 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
 mark h ~/
 mark D ~/Downloads
-mark d ~/.homesick/repos/dotfiles/home
+mark d ~/dotfiles
 mark j ~/.julia
 mark p ~/Dropbox/TUe/PhD/
 mark r ~/repos
