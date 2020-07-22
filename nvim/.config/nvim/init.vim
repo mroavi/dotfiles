@@ -560,6 +560,9 @@ inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Do not enable the auto completion on TextChangedI autocmd
 call deoplete#custom#option('on_insert_enter', v:false)
 
+" Do not immediately trigger the auto completion after entering any of these chars
+call deoplete#custom#option('skip_chars', ['(',')',';','{','}'])
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ultisnips
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
