@@ -4,7 +4,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap <Leader> key (should be placed on top of this file)
 let mapleader = ' '
-let maplocalleader = ' '
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
@@ -367,7 +366,6 @@ let g:fzf_action = {
 let g:fzf_preview_window = ''
 
 " Customize fzf colors to match your color scheme
-" - fzf#wrap translates this to a set of `--color` options
 let g:fzf_colors =
 \ { 'fg':       ['fg', 'Normal'],
 \   'bg':       ['bg', 'Normal'],
@@ -384,14 +382,10 @@ let g:fzf_colors =
 \   'header':   ['fg', 'Comment'] }
 
 " Enable per-command history
-" - History files will be stored in the specified directory
-" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
-"   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Shift-Tab to select multiple results (-m flag required)
 " :Files runs $FZF_DEFAULT_COMMAND defined in .zshrc
-" See: https://github.com/junegunn/fzf.vim#commands
 nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fg :GFiles<CR>
@@ -532,9 +526,6 @@ nnoremap <silent> <Leader>fo  <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap K                    <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <Leader>sh           <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
 
-"" Auto-format *.cpp files prior to saving them
-"autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 1000)
-
 " Signs
 sign define LspDiagnosticsErrorSign text=✖
 sign define LspDiagnosticsWarningSign text=⚠
@@ -577,9 +568,6 @@ let g:UltiSnipsExpandTrigger="<C-Space>"
 let g:UltiSnipsListSnippets="<C-Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<C-Tab>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " quick-scope
