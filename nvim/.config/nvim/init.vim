@@ -337,8 +337,7 @@ let g:NERDTrimTrailingWhitespace = 1
 
 let g:NERDDefaultAlign = 'start'
 
-" Remap Ctrl+/ to NERDCommentToggle in normal and visual modes!
-" https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
+" Remap Ctrl+/ to NERDCommentToggle in normal and visual modes (https://stackoverflow.com/a/9051932/1706778)
 nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
 
