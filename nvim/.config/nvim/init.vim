@@ -438,7 +438,7 @@ let g:slime_dont_ask_default = 1
 let g:slime_no_mappings = 1
 autocmd FileType julia,python let g:slime_cell_delimiter = "##"
 
-" Execute current cell
+" Execute current cell TODO this is not working
 autocmd FileType octave nmap <buffer> <M-CR> <Plug>SlimeSendCell
 
 " Map to Ctrl-Return
