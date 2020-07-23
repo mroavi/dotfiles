@@ -198,7 +198,7 @@ nnoremap <Leader>, :bprevious<CR>
 nnoremap <Leader>. :bnext<CR>
 
 " Switch to last visited buffer
-nnoremap <Leader>' :b#<CR>
+nnoremap <Leader>l :b#<CR>
 
 " Unload buffer and switch to las visited buffer (to be used in conjunction with <Ledaer>i)
 nnoremap <silent> <Leader>o :bdelete<CR>
@@ -389,7 +389,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fg :GFiles<CR>
-nnoremap <Leader>l  :Buffers<CR>
+nnoremap <Leader>'  :Buffers<CR>
 nnoremap <Leader>rg :MyRg<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
