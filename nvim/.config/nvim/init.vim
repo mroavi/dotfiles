@@ -527,10 +527,10 @@ nnoremap          <Leader> sh <cmd> lua vim.lsp.util.show_line_diagnostics()<CR>
 nnoremap                   K  <cmd>lua vim.lsp.buf.hover()<CR>
 
 " Signs
-sign define LspDiagnosticsErrorSign text=✖
-sign define LspDiagnosticsWarningSign text=⚠
+sign define LspDiagnosticsErrorSign       text=✖
+sign define LspDiagnosticsWarningSign     text=⚠
 sign define LspDiagnosticsInformationSign text=ℹ
-sign define LspDiagnosticsHintSign text=➤
+sign define LspDiagnosticsHintSign        text=➤
 
 " Colors
 execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('italic', 'ErrorMsg')
