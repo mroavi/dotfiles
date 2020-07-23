@@ -198,7 +198,7 @@ nnoremap <Leader>, :bprevious<CR>
 nnoremap <Leader>. :bnext<CR>
 
 " Switch to last visited buffer
-nnoremap <Leader>l :b#<CR>
+nnoremap <silent> <Leader>l :b#<CR>
 
 " Unload buffer and switch to las visited buffer (to be used in conjunction with <Ledaer>i)
 nnoremap <silent> <Leader>o :bdelete<CR>
