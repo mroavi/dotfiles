@@ -347,8 +347,8 @@ let g:gitgutter_map_keys = 0
 nmap <Leader>hs <Plug>(GitGutterStageHunk)
 nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
-nmap <Leader>j <Plug>(GitGutterNextHunk)
-nmap <Leader>k <Plug>(GitGutterPrevHunk)
+nmap <Leader>j  <Plug>(GitGutterNextHunk)
+nmap <Leader>k  <Plug>(GitGutterPrevHunk)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
@@ -413,7 +413,7 @@ let g:vifm_embed_split=1
 
 " Toggle vifm
 "nnoremap <Leader>/ :leftabove vertical 40Vifm<CR>
-nnoremap <Leader>/  :below 30Vifm<CR>
+nnoremap <Leader>/ :below 30Vifm<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-tmux-navigator
@@ -453,11 +453,11 @@ command! -complete=file -nargs=* Gd Git diff <args>
 command! -complete=file -nargs=* Gds Git diff --staged <args>
 
 nnoremap <Leader>gst :Git<CR>
-nnoremap <Leader>gw :Gwrite<CR>
-nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>gc :Git commit<CR>
-nnoremap <Leader>gp :Git push<CR>
-nnoremap <Leader>gl :Git pull<CR>
+nnoremap <Leader>gw  :Gwrite<CR>
+nnoremap <Leader>gr  :Gread<CR>
+nnoremap <Leader>gc  :Git commit<CR>
+nnoremap <Leader>gp  :Git push<CR>
+nnoremap <Leader>gl  :Git pull<CR>
 nnoremap <Leader>gdi :Gd<CR>
 nnoremap <Leader>gds :Gds<CR>
 
