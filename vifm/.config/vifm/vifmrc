@@ -516,7 +516,8 @@ set dotfiles
 
 " Remap exit command
 "nnoremap <space>/ :exit<cr>
-nnoremap q :exit<cr>
+"nnoremap q :exit<cr>
+nnoremap <Esc> :exit<cr>
 
 " Remap default prefix from Ctrl+w to Ctrl+a
 nnoremap <c-a> <c-w>
