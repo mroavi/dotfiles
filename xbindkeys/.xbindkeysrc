@@ -86,7 +86,7 @@
 
 "sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/third-year/presentations/2020-05-20-biaslab-seminar/i-can-eat-glass.txt'"
   control+shift+alt + 1
-  
+
 "sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/software/julia/Plots.jl/animation/Fourier/onthefly-presentation/simon-xu/dft.jl'"
   control+shift+alt + 2
 
