@@ -548,6 +548,11 @@ execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
 \   'fg': pinnacle#extract_fg('LspDiagnosticsError')
 \ })
+execute 'highlight LspDiagnosticsWarning ' . pinnacle#decorate('italic', 'Type')
+execute 'highlight LspDiagnosticsWarningSign ' . pinnacle#highlight({
+\   'bg': pinnacle#extract_bg('SignColumn'),
+\   'fg': pinnacle#extract_fg('LspDiagnosticsWarning')
+\ })
 execute 'highlight LspDiagnosticsInformation ' . pinnacle#decorate('italic', 'Type')
 execute 'highlight LspDiagnosticsInformationSign ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
