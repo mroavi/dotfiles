@@ -219,6 +219,9 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 
+" Clear highlight on pressing ESC
+nnoremap <silent> <ESC> :noh<CR><ESC>
+
 " Source .vimrc
 map <Leader>sv :w<CR>:source $MYVIMRC<CR>
 
