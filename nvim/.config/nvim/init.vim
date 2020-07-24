@@ -512,7 +512,7 @@ lua << EOF
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" };
     filetypes = { "c", "cpp", "objc", "objcpp" };
   }
-  --require'nvim_lsp'.julials.setup{} 
+  --require'nvim_lsp'.julials.setup{}
 EOF
 
 " TODO: install Python server: rope is one option
