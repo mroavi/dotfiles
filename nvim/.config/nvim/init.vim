@@ -354,11 +354,11 @@ vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
 " vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_map_keys = 0
-nnoremap <Leader>hs <Plug>(GitGutterStageHunk)
-nnoremap <Leader>hu <Plug>(GitGutterUndoHunk)
-nnoremap <Leader>hp <Plug>(GitGutterPreviewHunk)
-nnoremap <Leader>j  <Plug>(GitGutterNextHunk)
-nnoremap <Leader>k  <Plug>(GitGutterPrevHunk)
+nmap <Leader>hs <Plug>(GitGutterStageHunk)
+nmap <Leader>hu <Plug>(GitGutterUndoHunk)
+nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
+nmap <Leader>j  <Plug>(GitGutterNextHunk)
+nmap <Leader>k  <Plug>(GitGutterPrevHunk)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
