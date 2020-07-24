@@ -512,9 +512,9 @@ lua << EOF
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" };
     filetypes = { "c", "cpp", "objc", "objcpp" };
   }
+  --require'nvim_lsp'.julials.setup{} 
 EOF
 
-"require'nvim_lsp'.julials.setup{} " TODO: causes HIGH cpu load
 " TODO: install Python server: rope is one option
 
 " Mappings (See `:h lsp-buf`)
