@@ -213,10 +213,11 @@ map <Leader>bo :%bdelete\|e#<CR>
 nnoremap <Leader>w :write<CR>
 
 " Yank to clipboard
-vmap <Leader>y "+y
+vnoremap <Leader>y "+y
 
 " Paste from clipboard
 nnoremap <Leader>p "+p
+vnoremap <Leader>p "+p
 
 " Source .vimrc
 map <Leader>sv :w<CR>:source $MYVIMRC<CR>
