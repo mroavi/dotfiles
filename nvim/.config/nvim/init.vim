@@ -357,8 +357,17 @@ let g:gitgutter_map_keys = 0
 nmap <Leader>hs <Plug>(GitGutterStageHunk)
 nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
-nmap <Leader>j  <Plug>(GitGutterNextHunk)
-nmap <Leader>k  <Plug>(GitGutterPrevHunk)
+
+" Centers cursor after navigating to next/prev hunk (https://github.com/airblade/vim-gitgutter/issues/722)
+function! CenterHunk(dir)
+  let linenumber = line('.')
+  execute 'GitGutter'.a:dir.'Hunk'
+  if linenumber != line('.')
+    normal! zz
+  endif
+endfunction
+nmap <Leader>j :call CenterHunk('Next')<CR>
+nmap <Leader>k :call CenterHunk('Prev')<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
