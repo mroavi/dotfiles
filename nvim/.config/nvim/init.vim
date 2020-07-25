@@ -67,14 +67,14 @@ Plug 'ap/vim-css-color'
 " Changes Vim working directory to project root
 Plug 'airblade/vim-rooter'
 
+" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
+Plug 'jpalardy/vim-slime'
+
 " Seamlessly run Python code from Vim in IPython
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 
 " Vim support for Julia.
 Plug 'JuliaEditorSupport/julia-vim'
-
-" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
-Plug 'jpalardy/vim-slime'
 
 " Cell support for Julia in Vim
 Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
