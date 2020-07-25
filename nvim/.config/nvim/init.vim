@@ -237,20 +237,13 @@ map <F5> :setlocal spell! spelllang=en_us<CR>
 " Change to the diretory of the curret buffer and print it
 nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
 
-" Close tab with Ctrl+w
-nnoremap <C-w> :tabclose<CR>
-
-" Ctrl+t -> open new tab
-nnoremap <C-t> :tabnew<CR>
-
-" Ctl+tab -> next tab
-nnoremap <C-Tab> gt
-
-" Ctrl+Shift + tab -> previous tab
-nnoremap <C-S-Tab> gT
-
+" Chrome-like tab mappings
+nnoremap <C-t>     :tabnew<CR>
+nnoremap <C-w>     :tabclose<CR>
+nnoremap <C-Tab>   :tabnext<CR>
+nnoremap <C-S-Tab> :tabprevious<CR>
 " Ctrl+Shift+w -> close (hack: see alacritty.yml and .tmux.conf)
-nnoremap <C-S-0> :close<CR>
+nnoremap <C-S-0>   :close<CR>
 
 " Strip trailing whitespace from all lines in a file (https://vi.stackexchange.com/a/456/27039)
 fun! TrimWhitespace()
