@@ -200,7 +200,7 @@ nnoremap <Leader>. :bnext<CR>
 " Switch to last visited buffer
 nnoremap <silent> <Leader>l :b#<CR>
 
-" Unload buffer and switch to las visited buffer (to be used in conjunction with <Ledaer>i)
+" Unload buffer and switch to last visited buffer (to be used in conjunction with <Ledaer>i)
 nnoremap <silent> <Leader>o :bdelete<CR>
 
 " Unload current buffer
