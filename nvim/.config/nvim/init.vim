@@ -587,8 +587,8 @@ call deoplete#custom#option('skip_chars', ['(',')',';','{','}'])
 " Trigger configuration
 let g:UltiSnipsExpandTrigger       = "<C-Space>"
 let g:UltiSnipsListSnippets        = "<C-Tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-Tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<CR>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " quick-scope
