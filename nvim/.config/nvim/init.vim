@@ -4,6 +4,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap <Leader> key (should be placed on top of this file)
 let mapleader = ' '
+let maplocalleader = ' '
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
