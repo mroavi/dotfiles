@@ -66,6 +66,9 @@ Plug 'ap/vim-css-color'
 " Changes Vim working directory to project root
 Plug 'airblade/vim-rooter'
 
+" Seamlessly run Python code from Vim in IPython
+Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+
 " Vim support for Julia.
 Plug 'JuliaEditorSupport/julia-vim'
 
@@ -80,9 +83,6 @@ Plug 'takac/vim-hardtime'
 
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-
-" Seamlessly run Python code from Vim in IPython
-Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
