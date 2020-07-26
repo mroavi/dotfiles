@@ -568,6 +568,7 @@ let g:deoplete#enable_at_startup = 1
 
 " Tab completion (https://github.com/Shougo/deoplete.nvim/issues/989)
 inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Do not enable the auto completion on TextChangedI autocmd
 call deoplete#custom#option('on_insert_enter', v:false)
@@ -582,7 +583,7 @@ call deoplete#custom#option('skip_chars', ['(',')',';','{','}'])
 let g:UltiSnipsExpandTrigger       = "<C-Space>"
 let g:UltiSnipsListSnippets        = "<C-Tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<CR>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-CR>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " quick-scope
