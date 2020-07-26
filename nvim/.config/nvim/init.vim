@@ -529,8 +529,6 @@ if $SSH_CONNECTION
   lua require'nvim_lsp'.julials.setup{on_attach=require'diagnostic'.on_attach}
 endif
 
-" TODO: install Python server: rope is one option
-
 " Mappings (See `:h lsp-buf`)
 nnoremap          <Leader>i  <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap          <Leader>de <cmd>lua vim.lsp.buf.declaration()<CR>
