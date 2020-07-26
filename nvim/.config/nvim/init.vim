@@ -548,7 +548,7 @@ nnoremap          <Leader>de <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap          <Leader>cw <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>re <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <Leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap          <Leader>sh <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap          <Leader>di <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
 nnoremap                   K <cmd>lua vim.lsp.buf.hover()<CR>
 
 " Signs
@@ -558,17 +558,17 @@ sign define LspDiagnosticsInformationSign text=ℹ
 sign define LspDiagnosticsHintSign        text=➤
 
 " Colors
-execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('italic', 'ErrorMsg')
+execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('bold,italic', 'ErrorMsg')
 execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
 \   'fg': pinnacle#extract_fg('LspDiagnosticsError')
 \ })
-execute 'highlight LspDiagnosticsWarning ' . pinnacle#decorate('italic', 'Type')
+execute 'highlight LspDiagnosticsWarning ' . pinnacle#decorate('bold,italic', 'Type')
 execute 'highlight LspDiagnosticsWarningSign ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
 \   'fg': pinnacle#extract_fg('LspDiagnosticsWarning')
 \ })
-execute 'highlight LspDiagnosticsInformation ' . pinnacle#decorate('italic', 'Type')
+execute 'highlight LspDiagnosticsInformation ' . pinnacle#decorate('bold,italic', 'Type')
 execute 'highlight LspDiagnosticsInformationSign ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
 \   'fg': pinnacle#extract_fg('LspDiagnosticsInformation')
