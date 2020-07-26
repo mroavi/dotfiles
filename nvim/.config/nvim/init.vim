@@ -527,6 +527,7 @@ EOF
 
 if !$SSH_CONNECTION
   lua require'nvim_lsp'.julials.setup{on_attach=require'diagnostic'.on_attach}
+  lua require'nvim_lsp'.vimls.setup{on_attach=require'diagnostic'.on_attach}
 endif
 
 " Mappings (See `:h lsp-buf`)
