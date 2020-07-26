@@ -427,8 +427,8 @@ let g:vifm_embed_term=1
 let g:vifm_embed_split=1
 
 " Toggle vifm
-"nnoremap <Leader>/ :leftabove vertical 40Vifm<CR>
-nnoremap <Leader>/ :below 30Vifm<CR>
+"nnoremap <silent> <Leader>/ :leftabove vertical 40Vifm<CR>
+nnoremap <silent> <Leader>/ :below 30Vifm<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-tmux-navigator
