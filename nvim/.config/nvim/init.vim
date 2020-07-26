@@ -31,6 +31,9 @@ Plug 'tpope/vim-unimpaired'
 " Provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
 
+" Comment stuff out
+Plug 'tpope/vim-commentary'
+
 " Defines a new text object representing lines of code at the same indent level
 Plug 'michaeljsmith/vim-indent-object'
 
@@ -45,9 +48,6 @@ Plug 'lervag/vimtex', { 'for': ['tex'] }
 
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
-
-" Comment stuff out
-Plug 'tpope/vim-commentary'
 
 " Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
