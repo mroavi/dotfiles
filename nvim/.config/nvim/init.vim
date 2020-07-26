@@ -566,7 +566,7 @@ execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
 
-" Tab completion (https://github.com/Shougo/deoplete.nvim/issues/989)
+" Use <TAB> and <S-TAB> to navigate through popup menu
 inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
