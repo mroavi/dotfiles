@@ -309,16 +309,16 @@ augroup END
 call s:base16_customize()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-slash
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Blink cursor after search and place the current match at the center of the window
-noremap <expr> <plug>(slash-after) 'zz'.slash#blink(1, 150)
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-slash
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Blink cursor after search and place the current match at the center of the window
+noremap <expr> <plug>(slash-after) 'zz'.slash#blink(1, 150)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex
