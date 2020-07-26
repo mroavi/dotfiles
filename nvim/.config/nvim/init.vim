@@ -525,7 +525,7 @@ lua << EOF
   --require'nvim_lsp'.pyls.setup{}
 EOF
 
-if $SSH_CONNECTION
+if !$SSH_CONNECTION
   lua require'nvim_lsp'.julials.setup{on_attach=require'diagnostic'.on_attach}
 endif
 
