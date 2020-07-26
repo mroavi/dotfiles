@@ -334,8 +334,8 @@ let g:vimtex_compiler_latexmk = {
 " Removes space between comment and code
 setglobal commentstring=#\ %s
 
-" Map Ctrl-/ to <Plug>Commentary
-map <C-_> <Plug>Commentary
+" Use Ctrl-/ to comment on a line basis
+nmap <C-_> <Plug>CommentaryLine
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter
