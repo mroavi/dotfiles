@@ -97,12 +97,6 @@ Plug 'neovim/nvim-lsp'
 " A wrapper for neovim built in LSP diagnosis config
 Plug 'nvim-lua/diagnostic-nvim'
 
-" Dark powered asynchronous completion framework for neovim/Vim8
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" LSP Completion source for deoplete
-Plug 'Shougo/deoplete-lsp'
-
 " Highlight group manipulation for Vim
 Plug 'wincent/pinnacle'
 
@@ -589,21 +583,6 @@ nmap ]d :PrevDiagnosticCycle<CR>
 let g:diagnostic_auto_popup_while_jump = 1
 let g:diagnostic_enable_virtual_text = 0
 let g:diagnostic_enable_underline = 0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" deoplete.nvim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
-
-" Use <TAB> and <S-TAB> to navigate through popup menu
-inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Do not enable the auto completion on TextChangedI autocmd
-call deoplete#custom#option('on_insert_enter', v:false)
-
-" Do not immediately trigger the auto completion after entering any of these chars
-call deoplete#custom#option('skip_chars', ['(',')',';','{','}'])
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ultisnips
