@@ -97,6 +97,9 @@ Plug 'neovim/nvim-lsp'
 " A wrapper for neovim built in LSP diagnosis config
 Plug 'nvim-lua/diagnostic-nvim'
 
+" An async completion framework for neovim's built in LSP written in Lua
+Plug 'nvim-lua/completion-nvim'
+
 " Highlight group manipulation for Vim
 Plug 'wincent/pinnacle'
 
@@ -583,6 +586,28 @@ nmap ]d :PrevDiagnosticCycle<CR>
 let g:diagnostic_auto_popup_while_jump = 1
 let g:diagnostic_enable_virtual_text = 0
 let g:diagnostic_enable_underline = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" completion-nvim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing verbose messages when using completion
+set shortmess+=c
+
+let g:completion_enable_snippet         = 'UltiSnips'
+let g:completion_trigger_keyword_length = 2
+let g:completion_matching_ignore_case   = 1
+let g:completion_enable_auto_hover      = 0
+let g:completion_enable_auto_signature  = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ultisnips
