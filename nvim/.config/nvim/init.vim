@@ -46,8 +46,8 @@ Plug 'lervag/vimtex', { 'for': ['tex'] }
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
 
-" Comment functions so powerful—no comment necessary
-Plug 'scrooloose/nerdcommenter'
+" Comment stuff out
+Plug 'tpope/vim-commentary'
 
 " Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
@@ -329,22 +329,9 @@ let g:vimtex_compiler_latexmk = {
       \}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nerdcommenter
+" vim-commentary
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Do not create default mappings
-let g:NERDCreateDefaultMappings = 0
-
-" Make NerdCommentToggle comment all selected lines if there is at least one that is not connected
-let g:NERDToggleCheckAllLines = 1
-
-" Delete leftover whitespace when uncommenting empty lines
-let g:NERDTrimTrailingWhitespace = 1
-
-let g:NERDDefaultAlign = 'start'
-
-" Remap Ctrl+/ to NERDCommentToggle in normal and visual modes (https://stackoverflow.com/a/9051932/1706778)
-nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
-vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
+map <C-_> <Plug>Commentary
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter
