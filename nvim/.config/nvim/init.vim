@@ -94,6 +94,9 @@ Plug 'raimondi/delimitmate'
 " Nvim LSP client configurations
 Plug 'neovim/nvim-lsp'
 
+" A wrapper for neovim built in LSP diagnosis config
+Plug 'nvim-lua/diagnostic-nvim'
+
 " Dark powered asynchronous completion framework for neovim/Vim8
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -519,8 +522,12 @@ lua << EOF
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" };
     filetypes = { "c", "cpp", "objc", "objcpp" };
   }
-  --require'nvim_lsp'.julials.setup{}
+  --require'nvim_lsp'.pyls.setup{}
 EOF
+
+if $SSH_CONNECTION
+  lua require'nvim_lsp'.julials.setup{on_attach=require'diagnostic'.on_attach}
+endif
 
 " TODO: install Python server: rope is one option
 
@@ -560,6 +567,17 @@ execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
 \   'fg': pinnacle#extract_fg('LspDiagnosticsHint')
 \ })
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" diagnostic-nvim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Go to next/prev diagnostic message
+nmap [d :NextDiagnosticCycle<CR>
+nmap ]d :PrevDiagnosticCycle<CR>
+
+let g:diagnostic_auto_popup_while_jump = 1
+let g:diagnostic_enable_virtual_text = 0
+let g:diagnostic_enable_underline = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " deoplete.nvim
