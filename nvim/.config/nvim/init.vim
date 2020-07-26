@@ -329,7 +329,7 @@ let g:vimtex_compiler_latexmk = {
       \}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDCommenter
+" nerdcommenter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Do not create default mappings
 let g:NERDCreateDefaultMappings = 0
