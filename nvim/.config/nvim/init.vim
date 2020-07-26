@@ -79,9 +79,6 @@ Plug 'JuliaEditorSupport/julia-vim'
 " Cell support for Julia in Vim
 Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
-" TEMP: Plugin to help you stop repeating the basic movement keys
-Plug 'takac/vim-hardtime'
-
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
@@ -126,6 +123,9 @@ Plug 'plasticboy/vim-markdown'
 
 " Preview markdown on your browser with synchronised scrolling and flexible configuration
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" TEMP: Plugin to help you stop repeating the basic movement keys
+Plug 'takac/vim-hardtime'
 
 " TEMP: temprary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
