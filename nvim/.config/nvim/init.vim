@@ -359,6 +359,8 @@ function! CenterHunk(dir)
 endfunction
 nmap <Leader>j :call CenterHunk('Next')<CR>
 nmap <Leader>k :call CenterHunk('Prev')<CR>
+nmap [h        :call CenterHunk('Next')<CR>
+nmap ]h        :call CenterHunk('Prev')<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
@@ -516,18 +518,28 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim-lsp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" https://github.com/wincent/wincent/blob/master/aspects/vim/files/.vim/after/plugin/nvim-lsp.vim
 lua << EOF
-  require'nvim_lsp'.clangd.setup{
-    cmd = { "clangd", "--background-index", "--fallback-style=LLVM" };
-    filetypes = { "c", "cpp", "objc", "objcpp" };
+  local nvim_lsp = require'nvim_lsp'
+  local on_attach_vim = function()
+      require'diagnostic'.on_attach()
+  end
+  nvim_lsp.clangd.setup{
+    on_attach=on_attach_vim,
+    cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
+    filetypes = { "c", "cpp", "objc", "objcpp" },
   }
-  --require'nvim_lsp'.pyls.setup{}
 EOF
 
+" Do not run the following LSPs in SSH connections
 if !$SSH_CONNECTION
-  lua require'nvim_lsp'.julials.setup{on_attach=require'diagnostic'.on_attach}
-  lua require'nvim_lsp'.vimls.setup{on_attach=require'diagnostic'.on_attach}
+lua << EOF
+  local nvim_lsp = require'nvim_lsp'
+  local on_attach_vim = function()
+      require'diagnostic'.on_attach()
+  end
+  nvim_lsp.julials.setup({on_attach=on_attach_vim})
+  nvim_lsp.vimls.setup({on_attach=on_attach_vim})
+EOF
 endif
 
 " Mappings (See `:h lsp-buf`)
