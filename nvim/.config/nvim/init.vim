@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim philosopy: https://stackoverflow.com/a/1220118/1706778
+" Vim philosophy: https://stackoverflow.com/a/1220118/1706778
 " See: `:h nvim-configuration`
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap <Leader> key (should be placed on top of this file)
@@ -127,7 +127,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " TEMP: Plugin to help you stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
 
-" TEMP: temprary fix for the gitgutter + deoplete-lsp problem
+" TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
 
 call plug#end()
@@ -192,7 +192,7 @@ nnoremap <Leader>- <C-w>_
 " Make all windows equally high and wide
 nnoremap <Leader>= <C-w>=
 
-" Substitute all ocurrences of the content of the search register with new text
+" Substitute all occurrences of the content of the search register with new text
 nnoremap <Leader>sa :%s///g<left><left>
 
 " Switch to next/previous buffer
@@ -580,7 +580,7 @@ let g:diagnostic_enable_underline = 0
 " Use completion-nvim in every buffer
 autocmd BufEnter * lua require'completion'.on_attach()
 
-" Use <Tab> and <S-Tab> to navigate through popup menu
+" Use <Tab> and <S-Tab> to navigate through pop-up menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
