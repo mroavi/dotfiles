@@ -163,6 +163,7 @@ set smartindent " intelligently dedent / indent new lines based on rules.
 set updatetime=100 " among others, governs gitgutter's update time
 set inccommand=split "shows the effects of a command incrementally, as you type
 set listchars=tab:▸\ ,space:_,eol:¬ " define symbols for tabstops, spaces and EOLs
+set scrolloff=10 " minimal number of screen lines to keep above and below the cursor
 
 " Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
@@ -317,8 +318,8 @@ let g:airline_powerline_fonts = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-slash
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Blink cursor after search and place the current match at the center of the window
-noremap <expr> <plug>(slash-after) 'zz'.slash#blink(1, 150)
+" Blink cursor after search
+noremap <expr> <plug>(slash-after) slash#blink(1, 150)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimtex
@@ -345,19 +346,10 @@ let g:gitgutter_map_keys = 0
 nmap <Leader>hs <Plug>(GitGutterStageHunk)
 nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
-
-" Centers cursor after navigating to next/prev hunk (https://github.com/airblade/vim-gitgutter/issues/722)
-function! CenterHunk(dir)
-  let linenumber = line('.')
-  execute 'GitGutter'.a:dir.'Hunk'
-  if linenumber != line('.')
-    normal! zz
-  endif
-endfunction
-nmap <Leader>j :call CenterHunk('Next')<CR>
-nmap <Leader>k :call CenterHunk('Prev')<CR>
-nmap ]h        :call CenterHunk('Next')<CR>
-nmap [h        :call CenterHunk('Prev')<CR>
+nmap <Leader>j  <Plug>(GitGutterNextHunk)
+nmap <Leader>k  <Plug>(GitGutterPrevHunk)
+nmap ]h         <Plug>(GitGutterNextHunk)
+nmap [h         <Plug>(GitGutterPrevHunk)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
