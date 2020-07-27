@@ -356,8 +356,8 @@ function! CenterHunk(dir)
 endfunction
 nmap <Leader>j :call CenterHunk('Next')<CR>
 nmap <Leader>k :call CenterHunk('Prev')<CR>
-nmap [h        :call CenterHunk('Next')<CR>
-nmap ]h        :call CenterHunk('Prev')<CR>
+nmap ]h        :call CenterHunk('Next')<CR>
+nmap [h        :call CenterHunk('Prev')<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
@@ -581,8 +581,8 @@ execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
 " diagnostic-nvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Go to next/prev diagnostic message
-nmap [d :NextDiagnosticCycle<CR>
-nmap ]d :PrevDiagnosticCycle<CR>
+nmap ]d :NextDiagnosticCycle<CR>
+nmap [d :PrevDiagnosticCycle<CR>
 
 let g:diagnostic_auto_popup_while_jump = 1
 let g:diagnostic_enable_virtual_text = 0
