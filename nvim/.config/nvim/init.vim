@@ -230,12 +230,6 @@ map <Leader>sv :w<CR>:source $MYVIMRC<CR>
 " Write and source the currently opened file
 map <Leader>ss :w<CR>:source %<CR>
 
-" Toggle display of invisible chars (http://vimcasts.org/episodes/show-invisibles/`)
-nmap <F3> :set list!<CR>
-
-" Use F5 to toggle the spelling check!
-map <F5> :setlocal spell! spelllang=en_us<CR>
-
 " Change to the directory of the current buffer and print it
 nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
 
