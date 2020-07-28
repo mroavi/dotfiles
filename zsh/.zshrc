@@ -105,6 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias v="nvim"
 alias o="xdg-open"
+alias lsl="ls -lh"
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias dotfiles="cd ~/dotfiles"
 alias phd="cd ~/Dropbox/TUe/PhD"
