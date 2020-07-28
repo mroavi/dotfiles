@@ -52,9 +52,6 @@ Plug 'toranb/tmux-navigator'
 " Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
 
-" Vim plugin that allows use of vifm as a file picker
-Plug 'vifm/vifm.vim'
-
 " Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
 
@@ -391,17 +388,6 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vifm.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" https://github.com/vifm/vifm.vim/issues/19
-let g:vifm_embed_term=1
-let g:vifm_embed_split=1
-
-" Toggle vifm
-"nnoremap <silent> <Leader>/ :leftabove vertical 40Vifm<CR>
-nnoremap <silent> <Leader>/ :below 30Vifm<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-tmux-navigator
