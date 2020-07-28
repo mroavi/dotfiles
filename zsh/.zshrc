@@ -163,6 +163,13 @@ export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-wind
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # ===============================================
+# Configure nnn
+# ===============================================
+
+# Bookmarks
+export NNN_BMS='r:~/repos;D:~/Downloads/'
+
+# ===============================================
 # Custom key bindings
 # ===============================================
 
