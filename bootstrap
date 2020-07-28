@@ -7,21 +7,21 @@ currentdir="$PWD"
 echo "Installing stow..."
 
 if [ "$SSH_CONNECTION" ]; then
-    FILE=$HOME/local/bin/stow
-    if [ -f "$FILE" ]; then
-        echo "stow is already installed"
-    else
-        # See INSTALL.md in root dir
-        # TODO: check if this works
-        mkdir -p ~/repos && cd ~/repos
-        git clone https://git.savannah.gnu.org/git/stow.git
-        cd stow
-        autoreconf -iv
-        ./configure --prefix=$HOME/local
-        make install
-    fi
+  FILE=$HOME/local/bin/stow
+  if [ -f "$FILE" ]; then
+    echo "stow is already installed"
+  else
+    # See INSTALL.md in root dir
+    # TODO: check if this works
+    mkdir -p ~/repos && cd ~/repos
+    git clone https://git.savannah.gnu.org/git/stow.git
+    cd stow
+    autoreconf -iv
+    ./configure --prefix=$HOME/local
+    make install
+  fi
 else
-    sudo apt-get install stow
+  sudo apt-get install stow
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -30,36 +30,36 @@ echo "Installing nvim..."
 # Local installation
 # https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
 if [ "$SSH_CONNECTION" ]; then
-    FILE=$HOME/local/bin/nvim
-    if [ -f "$FILE" ]; then
-        echo "nvim is already installed"
-    else
-        mkdir -p ~/local/bin && cd ~/local/bin
-#        curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-        chmod u+x nvim.appimage
-        mv nvim.appimage nvim
-        pip3 install pynvim
-    fi
+  FILE=$HOME/local/bin/nvim
+  if [ -f "$FILE" ]; then
+    echo "nvim is already installed"
+  else
+    mkdir -p ~/local/bin && cd ~/local/bin
+#    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+  curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+    chmod u+x nvim.appimage
+    mv nvim.appimage nvim
+    pip3 install pynvim
+  fi
 else
-    FILE=$HOME/.local/bin/nvim
-    if [ -f "$FILE" ]; then
-        echo "nvim is already installed"
-    else
-        mkdir -p ~/.local/bin && cd ~/.local/bin
-#        curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-        chmod u+x nvim.appimage
-        mv nvim.appimage nvim
-        pip3 install pynvim
-    fi
+  FILE=$HOME/.local/bin/nvim
+  if [ -f "$FILE" ]; then
+    echo "nvim is already installed"
+  else
+    mkdir -p ~/.local/bin && cd ~/.local/bin
+#    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+  curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+    chmod u+x nvim.appimage
+    mv nvim.appimage nvim
+    pip3 install pynvim
+  fi
 fi
 
 # -----------------------------------------------------------------------------------------
 echo "Installing vim-plug for nvim..."
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # -----------------------------------------------------------------------------------------
 echo "Installing neovim plugins..."
@@ -71,22 +71,22 @@ nvim -es -u ~/dotfiles/nvim/.config/nvim/init.vim -i NONE -c "PlugInstall" -c "q
 echo "Installing zsh..."
 
 if [ "$SSH_CONNECTION" ]; then
-    # Build locally (needed when root access is not available)
-    # https://stackoverflow.com/a/15293565/1706778
-    FILE=$HOME/local/bin/zsh
-    if [ -f "$FILE" ]; then
-        echo "zsh is already installed"
-    else
-        mkdir -p ~/downloads && cd downloads
-        wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
-        mkdir zsh && unxz zsh.tar.xz && tar -xvf zsh.tar -C zsh --strip-components 1
-        cd zsh
-        ./configure --prefix=$HOME/local
-        make
-        make install
-    fi
+  # Build locally (needed when root access is not available)
+  # https://stackoverflow.com/a/15293565/1706778
+  FILE=$HOME/local/bin/zsh
+  if [ -f "$FILE" ]; then
+    echo "zsh is already installed"
+  else
+    mkdir -p ~/downloads && cd downloads
+    wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
+    mkdir zsh && unxz zsh.tar.xz && tar -xvf zsh.tar -C zsh --strip-components 1
+    cd zsh
+    ./configure --prefix=$HOME/local
+    make
+    make install
+  fi
 else
-    sudo apt install zsh
+  sudo apt install zsh
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -103,7 +103,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/the
 # -----------------------------------------------------------------------------------------
 echo "Installing Fonts..."
 # To see installed mono fonts:
-#   fc-list :scalable=true:spacing=mono: family
+# fc-list :scalable=true:spacing=mono: family
 
 mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
 
@@ -138,17 +138,17 @@ echo "Installing ripgrep..."
 # Install if not already installed
 # https://stackoverflow.com/a/54239534/1706778
 if [ "$SSH_CONNECTION" ]; then
-    # TODO: install without root access
-    echo TODO
+  # TODO: install without root access
+  echo TODO
 else
-    mkdir -p ~/downloads && cd ~/downloads
-    pkg='ripgrep'
-    if ! dpkg -s $pkg >/dev/null 2>&1; then
-        sudo curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
-        sudo dpkg -i ripgrep_11.0.2_amd64.deb
-    else
-        echo "$pkg is already installed"
-    fi
+  mkdir -p ~/downloads && cd ~/downloads
+  pkg='ripgrep'
+  if ! dpkg -s $pkg >/dev/null 2>&1; then
+    sudo curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+    sudo dpkg -i ripgrep_11.0.2_amd64.deb
+  else
+    echo "$pkg is already installed"
+  fi
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -157,19 +157,19 @@ echo "Installing bat..."
 #sudo apt-get install wget
 
 if [ "$SSH_CONNECTION" ]; then
-    # TODO: allow installing without root access
-    # SEE: https://github.com/vifm/vifm/blob/master/INSTALL
-    echo TODO
+  # TODO: allow installing without root access
+  # SEE: https://github.com/vifm/vifm/blob/master/INSTALL
+  echo TODO
 else
-    # https://stackoverflow.com/a/54239534/1706778
-    pkg='bat'
-    if ! dpkg -s $pkg >/dev/null 2>&1; then
-        export VER="0.13.0"
-        wget https://github.com/sharkdp/bat/releases/download/v${VER}/bat_${VER}_amd64.deb
-        sudo dpkg -i bat_${VER}_amd64.deb
-    else
-        echo "$pkg is already installed"
-    fi
+  # https://stackoverflow.com/a/54239534/1706778
+  pkg='bat'
+  if ! dpkg -s $pkg >/dev/null 2>&1; then
+    export VER="0.13.0"
+    wget https://github.com/sharkdp/bat/releases/download/v${VER}/bat_${VER}_amd64.deb
+    sudo dpkg -i bat_${VER}_amd64.deb
+  else
+    echo "$pkg is already installed"
+  fi
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -189,30 +189,30 @@ echo "Installing autojump..."
 
 FILE=$HOME/.autojump/bin/autojump
 if [ -f "$FILE" ]; then
-    echo "autojump is already installed"
+  echo "autojump is already installed"
 else
-    mkdir -p ~/downloads && cd ~/downloads
-    [ -f ./autojump ] || git clone git://github.com/wting/autojump.git
-    cd autojump
-    ./install.py
+  mkdir -p ~/downloads && cd ~/downloads
+  [ -f ./autojump ] || git clone git://github.com/wting/autojump.git
+  cd autojump
+  ./install.py
 fi
 
 # -----------------------------------------------------------------------------------------
 echo "Installing nnn..."
 
 if [ "$SSH_CONNECTION" ]; then
-    FILE=$HOME/local/bin/nnn
-    if [ -f "$FILE" ]; then
-        echo "nnn is already installed"
-    else
-        # See INSTALL.md in root dir
-        mkdir -p ~/repos && cd ~/repos
-        git clone git@github.com:jarun/nnn.git
-        cd nnn
-        PREFIX=$HOME/local make strip install 
-    fi
+  FILE=$HOME/local/bin/nnn
+  if [ -f "$FILE" ]; then
+    echo "nnn is already installed"
+  else
+    # See INSTALL.md in root dir
+    mkdir -p ~/repos && cd ~/repos
+    git clone git@github.com:jarun/nnn.git
+    cd nnn
+    PREFIX=$HOME/local make strip install
+  fi
 else
-    sudo apt-get install nnn
+  sudo apt-get install nnn
 fi
 
 # -----------------------------------------------------------------------------------------
