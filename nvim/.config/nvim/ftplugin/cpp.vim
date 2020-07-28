@@ -5,3 +5,6 @@
 nnoremap <silent> <M-j> /\/\/\/<CR>:noh<CR>jzz
 nnoremap <silent> <M-k> ?\/\/\/<CR>:noh<CR>kzz
 
+" No space between comment and code
+let b:commentary_format='//%s'
+

@@ -323,16 +323,6 @@ let g:vimtex_compiler_latexmk = {
       \ 'build_dir' : 'build',
       \}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-commentary
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Removes space between comment and code
-setglobal commentstring=#\ %s
-
-" Map to Ctrl-/
-map <C-_> <Plug>Commentary
-" nmap <C-_> <Plug>CommentaryLine
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
