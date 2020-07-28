@@ -523,6 +523,7 @@ lua << EOF
   nvim_lsp.julials.setup({on_attach=on_attach_vim})
   nvim_lsp.vimls.setup({on_attach=on_attach_vim})
   nvim_lsp.texlab.setup({on_attach=on_attach_vim})
+  nvim_lsp.bashls.setup({on_attach=on_attach_vim})
 EOF
 endif
 
