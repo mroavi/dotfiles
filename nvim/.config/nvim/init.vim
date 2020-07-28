@@ -606,6 +606,10 @@ nnoremap <Leader>md :MarkdownPreview<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nnn
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Floating window
-let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+nnoremap <silent> <leader>/ :NnnPicker<CR>
+let g:nnn#layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top'} }
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
 
