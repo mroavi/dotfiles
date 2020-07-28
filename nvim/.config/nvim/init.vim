@@ -124,6 +124,9 @@ Plug 'plasticboy/vim-markdown'
 " Preview markdown on your browser with synchronised scrolling and flexible configuration
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
+" Fast and featureful file manager in vim/neovim powered by nnn
+Plug 'mcchrish/nnn.vim'
+
 " TEMP: Plugin to help you stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
 
@@ -613,4 +616,10 @@ let g:vim_markdown_folding_disabled = 1
 " markdown-preview.nvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>md :MarkdownPreview<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nnn
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Floating window
+let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 
