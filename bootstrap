@@ -198,6 +198,24 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
+echo "Installing nnn..."
+
+if [ "$SSH_CONNECTION" ]; then
+    FILE=$HOME/local/bin/nnn
+    if [ -f "$FILE" ]; then
+        echo "nnn is already installed"
+    else
+        # See INSTALL.md in root dir
+        mkdir -p ~/repos && cd ~/repos
+        git clone git@github.com:jarun/nnn.git
+        cd nnn
+        PREFIX=$HOME/local make strip install 
+    fi
+else
+    sudo apt-get install nnn
+fi
+
+# -----------------------------------------------------------------------------------------
 # Return to original directory
 cd "$currentdir"
 
