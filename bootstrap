@@ -137,10 +137,7 @@ echo "Installing ripgrep..."
 
 # Install if not already installed
 # https://stackoverflow.com/a/54239534/1706778
-if [ "$SSH_CONNECTION" ]; then
-  # TODO: install without root access
-  echo TODO
-else
+if [ ! "$SSH_CONNECTION" ]; then
   mkdir -p ~/downloads && cd ~/downloads
   pkg='ripgrep'
   if ! dpkg -s $pkg >/dev/null 2>&1; then
@@ -156,11 +153,7 @@ fi
 echo "Installing bat..."
 #sudo apt-get install wget
 
-if [ "$SSH_CONNECTION" ]; then
-  # TODO: allow installing without root access
-  # SEE: https://github.com/vifm/vifm/blob/master/INSTALL
-  echo TODO
-else
+if [ ! "$SSH_CONNECTION" ]; then
   # https://stackoverflow.com/a/54239534/1706778
   pkg='bat'
   if ! dpkg -s $pkg >/dev/null 2>&1; then
