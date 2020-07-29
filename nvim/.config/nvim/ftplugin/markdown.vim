@@ -1,4 +1,4 @@
-" Handy markdown mappings
+" Handy header mappings
 nnoremap <Leader>1 m`yypVr=``
 nnoremap <Leader>2 m`yypVr-``
 nnoremap <Leader>3 m`^i### <ESC>``4l
