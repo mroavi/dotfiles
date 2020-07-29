@@ -376,6 +376,7 @@ nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>'  :Buffers<CR>
 nnoremap <Leader>rg :MyRg<CR>
+nnoremap <Leader>ag :Ag<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
 function! RipgrepFzf(query, fullscreen)
