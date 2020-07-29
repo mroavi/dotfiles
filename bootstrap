@@ -200,12 +200,12 @@ fi
 # -----------------------------------------------------------------------------------------
 echo "Installing nnn..."
 
+# If ncruses lib is not installed, see my "Installing nnn locally on server" evernote
 if [ "$SSH_CONNECTION" ]; then
   FILE=$HOME/local/bin/nnn
   if [ -f "$FILE" ]; then
     echo "nnn is already installed"
   else
-    # See INSTALL.md in root dir
     mkdir -p ~/repos && cd ~/repos
     git clone git@github.com:jarun/nnn.git
     cd nnn
