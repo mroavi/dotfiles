@@ -169,7 +169,8 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # ===============================================
 
 # Bookmarks
-export NNN_BMS='r:~/repos;D:~/Downloads/'
+export NNN_BMS='r:~/repos/;D:~/Downloads/;s:~/Dropbox/TUe/PhD/software/'
+export NNN_COLORS='4321'
 
 # ===============================================
 # Custom key bindings
