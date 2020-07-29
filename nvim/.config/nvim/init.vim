@@ -582,7 +582,6 @@ let g:completion_auto_change_source     = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ultisnips
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Trigger configuration
 let g:UltiSnipsExpandTrigger       = "<C-Space>"
 let g:UltiSnipsListSnippets        = "<C-Tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<CR>"
