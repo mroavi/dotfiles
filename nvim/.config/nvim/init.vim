@@ -571,6 +571,12 @@ let g:completion_matching_ignore_case   = 1
 let g:completion_enable_auto_hover      = 0
 let g:completion_enable_auto_signature  = 0
 let g:completion_auto_change_source     = 1
+let g:completion_chain_complete_list = [
+    \{'complete_items': ['lsp', 'snippet']},
+    \{'mode': 'file'},
+    \{'mode': '<c-p>'},
+    \{'mode': '<c-n>'}
+\]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ultisnips
