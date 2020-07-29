@@ -491,6 +491,7 @@ lua << EOF
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
     filetypes = { "c", "cpp", "objc", "objcpp" },
   }
+  nvim_lsp.julials.setup({on_attach=on_attach_vim})
 EOF
 
 " Do not run the following LSPs in SSH connections
@@ -500,7 +501,6 @@ lua << EOF
   local on_attach_vim = function()
       require'diagnostic'.on_attach()
   end
-  nvim_lsp.julials.setup({on_attach=on_attach_vim})
   nvim_lsp.vimls.setup({on_attach=on_attach_vim})
   nvim_lsp.texlab.setup({on_attach=on_attach_vim})
   nvim_lsp.bashls.setup({on_attach=on_attach_vim})
