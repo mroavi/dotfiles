@@ -203,9 +203,13 @@ if [ "$SSH_CONNECTION" ]; then
     git clone git@github.com:jarun/nnn.git
     cd nnn
     PREFIX=$HOME/local make strip install
+    # Install built-in plugins
+    curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
   fi
 else
   sudo apt-get install nnn
+  # Install built-in plugins
+  curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 fi
 
 # -----------------------------------------------------------------------------------------
