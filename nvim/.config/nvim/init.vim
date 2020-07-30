@@ -563,12 +563,14 @@ set completeopt=menuone,noinsert,noselect
 " Avoid showing verbose messages when using completion
 set shortmess+=c
 
+let g:completion_enable_auto_popup      = 1
 let g:completion_enable_snippet         = 'UltiSnips'
 let g:completion_trigger_keyword_length = 2
 let g:completion_matching_ignore_case   = 1
 let g:completion_enable_auto_hover      = 0
 let g:completion_enable_auto_signature  = 0
 let g:completion_auto_change_source     = 1
+let g:completion_timer_cycle            = 200
 let g:completion_chain_complete_list = [
     \{'complete_items': ['lsp', 'snippet']},
     \{'mode': 'file'},
@@ -576,13 +578,16 @@ let g:completion_chain_complete_list = [
     \{'mode': '<c-n>'}
 \]
 
+" Manually trigger completion with
+inoremap <silent><expr> <C-Space> completion#trigger_completion()
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ultisnips
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsExpandTrigger       = "<C-Space>"
+let g:UltiSnipsExpandTrigger       = "<CR>"
 let g:UltiSnipsListSnippets        = "<C-Tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<CR>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-CR>"
+let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " quick-scope
