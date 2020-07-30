@@ -18,5 +18,5 @@ nnoremap <buffer> <Leader>cc :JuliaCellClear<CR>
 nnoremap <buffer> <S-CR> :JuliaCellExecuteCellJump<CR>
 
 " Handy header mappings
-nnoremap <Leader>1 m`<S-o><Esc>78<S-i>=<Esc>yyjp<C-v>2k<S-i># <Esc>``
-nnoremap <Leader>2 m`<S-o><Esc>78<S-i>-<Esc>yyjp<C-v>2k<S-i># <Esc>``
+nnoremap <Leader>3 m`<S-o># <Esc>78a=<Esc>yyjp``
+nnoremap <Leader>3 m`<S-o># <Esc>78a-<Esc>yyjp``
