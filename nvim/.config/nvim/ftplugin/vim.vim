@@ -5,6 +5,6 @@ let b:commentary_format='"%s'
 nnoremap <Leader>1 m`<S-o><Esc>80a"<Esc>yyjp``
 
 " Advance to the next/previous "" delimeter
-nnoremap <silent> <M-j> /^"" <CR>:noh<CR>jzz
-nnoremap <silent> <M-k> ?^"" <CR>:noh<CR>kzz
+nnoremap <silent> <M-j> /^"" <CR>:noh<CR>zz
+nnoremap <silent> <M-k> ?^"" <CR>:noh<CR>zz
 
