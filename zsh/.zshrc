@@ -170,6 +170,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # Bookmarks
 export NNN_BMS='r:~/repos/;D:~/Downloads/;s:~/Dropbox/TUe/PhD/software/;d:~/dotfiles/;P:~/Dropbox/TUe/PhD/'
+export NNN_PLUG='a:autojump;z:fzz'
 export NNN_COLORS='4321'
 
 # ===============================================
