@@ -171,9 +171,6 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Replace default prefix Ctrl+w with Ctrl+a
-nnoremap <C-a> <C-w>
-
 " Resize splits easier
 noremap <M-S-j> :resize -3<CR>
 noremap <M-S-k> :resize +3<CR>
@@ -235,7 +232,7 @@ nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
 
 " Chrome-like tab mappings
 nnoremap <C-t>     :tabnew<CR>
-nnoremap <C-w>     :tabclose<CR>
+nnoremap <C-q>     :tabclose<CR>
 nnoremap <C-Tab>   :tabnext<CR>
 nnoremap <C-S-Tab> :tabprevious<CR>
 " Ctrl+Shift+w -> close (hack: see alacritty.yml and .tmux.conf)
