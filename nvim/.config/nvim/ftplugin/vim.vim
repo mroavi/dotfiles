@@ -2,9 +2,9 @@
 let b:commentary_format='"%s'
 
 " Handy header mappings
-nnoremap <Leader>1 m`<S-o><Esc>80a"<Esc>yyjp``
+nnoremap <buffer><Leader>1 m`<S-o><Esc>80a"<Esc>yyjp``
 
-" Advance to the next/previous "" delimeter
-nnoremap <silent> <M-j> /^"" <CR>:noh<CR>zz
-nnoremap <silent> <M-k> ?^"" <CR>:noh<CR>zz
+" Jump to the next/prev "" delimeter
+nnoremap <buffer><silent> <M-j> /^"" <CR>:noh<CR>zz
+nnoremap <buffer><silent> <M-k> ?^"" <CR>:noh<CR>zz
 
