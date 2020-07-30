@@ -193,8 +193,8 @@ nnoremap <Leader>= <C-w>=
 nnoremap <Leader>sa :%s///g<left><left>
 
 " Switch to next/previous buffer
-nnoremap <silent> <M-,> :bprevious<CR>
-nnoremap <silent> <M-.> :bnext<CR>
+nnoremap <silent> <M-h> :bprevious<CR>
+nnoremap <silent> <M-l> :bnext<CR>
 
 " Switch to last visited buffer
 nnoremap <silent> <Leader>l :b#<CR>
