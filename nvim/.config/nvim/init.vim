@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim philosophy: https://stackoverflow.com/a/1220118/1706778
+"" Vim philosophy: https://stackoverflow.com/a/1220118/1706778
 " See: `:h nvim-configuration`
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap <Leader> key (should be placed on top of this file)
