@@ -230,6 +230,10 @@ map <Leader>ss :w<CR>:source %<CR>
 " Change to the directory of the current buffer and print it
 nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
 
+" Move selected lines up/down reindenting if necessary
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " Chrome-like tab mappings
 nnoremap <C-t>     :tabnew<CR>
 nnoremap <C-q>     :tabclose<CR>
