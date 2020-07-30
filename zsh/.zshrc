@@ -164,6 +164,19 @@ export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-wind
 # Add preview to Alt-C
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
+# -----------------------------------------------
+# Integrate with autojump
+# -----------------------------------------------
+
+# Like normal autojump when used with arguments but displays an fzf prompt when used without
+j() {
+  if [[ "$#" -ne 0 ]]; then
+    cd $(autojump $@)
+    return
+  fi
+  cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)"
+}
+
 # ===============================================
 # Configure nnn
 # ===============================================
