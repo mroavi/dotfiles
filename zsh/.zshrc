@@ -183,7 +183,7 @@ j() {
 
 # Bookmarks
 export NNN_BMS='r:~/repos/;D:~/Downloads/;s:~/Dropbox/TUe/PhD/software/;d:~/dotfiles/;P:~/Dropbox/TUe/PhD/'
-export NNN_PLUG='a:autojump;j:fzz'
+export NNN_PLUG='j:fzz'
 export NNN_COLORS='4321'
 
 # ===============================================
