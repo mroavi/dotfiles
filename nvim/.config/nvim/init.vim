@@ -565,6 +565,9 @@ set completeopt=menuone,noinsert,noselect
 " Avoid showing verbose messages when using completion
 set shortmess+=c
 
+" Toggle auto popup on the fly
+nnoremap <Leader>ac :CompletionToggle<CR>
+
 let g:completion_enable_auto_popup      = 1
 let g:completion_enable_snippet         = 'UltiSnips'
 let g:completion_trigger_keyword_length = 2
