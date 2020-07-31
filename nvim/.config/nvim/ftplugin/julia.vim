@@ -11,8 +11,8 @@ nnoremap <buffer> <F4> :JuliaCellRun<CR>
 nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
 
 " Jump to the next/prev ## delimeter
-nnoremap <buffer><silent> <M-j> /##<CR>:noh<CR>zz
-nnoremap <buffer><silent> <M-k> ?##<CR>:noh<CR>zz
+nnoremap <buffer><silent> <M-j> /##<CR>:noh<CR>
+nnoremap <buffer><silent> <M-k> ?##<CR>:noh<CR>
 
 nnoremap <buffer> <Leader>cs :JuliaCellClear<CR>
 nnoremap <buffer> <S-CR> :JuliaCellExecuteCellJump<CR>

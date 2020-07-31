@@ -2,8 +2,8 @@
 setlocal cinkeys-=:
 
 " Jump to the next/prev /// delimeter
-nnoremap <buffer><silent> <M-j> /\/\/\/<CR>:noh<CR>jzz
-nnoremap <buffer><silent> <M-k> ?\/\/\/<CR>:noh<CR>kzz
+nnoremap <buffer><silent> <M-j> /\/\/\/<CR>:noh<CR>j
+nnoremap <buffer><silent> <M-k> ?\/\/\/<CR>:noh<CR>k
 
 " No space between comment and code
 let b:commentary_format='//%s'
