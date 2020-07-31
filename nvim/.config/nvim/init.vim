@@ -614,7 +614,8 @@ nnoremap <Leader>md :MarkdownPreview<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" nnn
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <leader>/ :NnnPicker<CR>
+let g:nnn#set_default_mappings = 0
+nnoremap <silent><leader>/ :NnnPicker '%:p:h'<CR>
 let g:nnn#layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top'} }
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
