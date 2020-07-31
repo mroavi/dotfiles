@@ -14,7 +14,7 @@ nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
 nnoremap <buffer><silent> <M-j> /##<CR>:noh<CR>zz
 nnoremap <buffer><silent> <M-k> ?##<CR>:noh<CR>zz
 
-nnoremap <buffer> <Leader>cc :JuliaCellClear<CR>
+nnoremap <buffer> <Leader>cs :JuliaCellClear<CR>
 nnoremap <buffer> <S-CR> :JuliaCellExecuteCellJump<CR>
 
 " Handy header mappings
