@@ -228,7 +228,7 @@ map <Leader>sv :w<CR>:source $MYVIMRC<CR>
 map <Leader>ss :w<CR>:source %<CR>
 
 " Change to the directory of the current buffer and print it
-nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
+nnoremap <Leader>cdb :cd %:p:h<CR> :pwd<CR>
 
 " Move selected lines up/down reindenting if necessary
 vnoremap J :m '>+1<CR>gv=gv
