@@ -124,6 +124,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " Fast and featureful file manager in vim/neovim powered by nnn
 Plug 'mcchrish/nnn.vim'
 
+" Super simple vim plugin to show the list of buffers in the command bar
+Plug 'bling/vim-bufferline'
+
 " TEMP: Plugin to help you stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
 
@@ -624,3 +627,9 @@ let g:nnn#action = {
       \ '<c-v>': 'vsplit' }
 let g:nnn#command = 'nnn -o'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" vim-bufferline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:bufferline_echo = 0
+let g:bufferline_show_bufnr = 0
+let g:bufferline_pathshorten = 0
