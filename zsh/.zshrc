@@ -142,8 +142,10 @@ unsetopt AUTO_CD
 # Custom FZF command that uses ripgrep (invoked by `:Files` command in fzf.vim)
 # List of ripgrep options:
 # - https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#common-options
+# - https://github.com/junegunn/fzf#tips
 if [ ! "$SSH_CONNECTION" ]; then
   export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+  # export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
 #export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore'
