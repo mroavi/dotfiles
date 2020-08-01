@@ -632,5 +632,4 @@ let g:nnn#command = 'nnn -o'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:bufferline_echo = 0
 let g:bufferline_show_bufnr = 0
-let g:bufferline_pathshorten = 0
 
