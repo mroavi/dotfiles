@@ -171,6 +171,16 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Custom mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Switch to next/previous buffer
+nnoremap <silent> <M-h> :bprevious<CR>
+nnoremap <silent> <M-l> :bnext<CR>
+
+" Switch to previous visited buffer
+nnoremap <silent> <M-p> :b#<CR>
+
+" Unload current buffer
+nnoremap <silent><M-d> :bdelete<CR>
+
 " Resize splits easier
 noremap <M-S-j> :resize -3<CR>
 noremap <M-S-k> :resize +3<CR>
@@ -192,18 +202,8 @@ nnoremap <Leader>= <C-w>=
 " Substitute all occurrences of the content of the search register with new text
 nnoremap <Leader>sa :%s///g<left><left>
 
-" Switch to next/previous buffer
-nnoremap <silent> <M-h> :bprevious<CR>
-nnoremap <silent> <M-l> :bnext<CR>
-
-" Switch to last visited buffer
-nnoremap <silent> <M-p> :b#<CR>
-
 " Unload buffer and switch to last visited buffer (to be used in conjunction with <Ledaer>i)
 nnoremap <silent> <Leader>o :bdelete<CR>
-
-" Unload current buffer
-nnoremap <Leader>bd :bdelete<CR>
 
 " Close all buffers but the current one
 map <Leader>bo :%bdelete\|e#<CR>
