@@ -386,7 +386,7 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
 
-" autojump integration
+" Autojump integration
 function! Autojump(fullscreen)
   let cmd = 'autojump -s | sort -k1gr | awk ''$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }'''
   call fzf#run(fzf#wrap('j', {'source': cmd, 'sink': 'cd'}))
