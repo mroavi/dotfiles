@@ -156,7 +156,7 @@ set formatoptions-=tc " disable auto-wrap text using textwidth
 set splitbelow splitright " open a new split at to bottom or to the right of the current one
 set signcolumn=yes " always show sign column
 set tabstop=2 softtabstop=2 shiftwidth=2 " configure number of spaces per tab
-set expandtab " use spaces instead of tabs
+set expandtab " use spaces instead of tab chars
 set shiftround " tab / shifting moves to closest tabstop
 set smartindent " intelligently dedent / indent new lines based on rules
 set updatetime=100 " among others, governs gitgutter's update time
