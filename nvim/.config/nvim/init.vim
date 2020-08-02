@@ -304,10 +304,6 @@ call s:base16_customize()
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 
-" Fixes clash with vim-bufferline
-" See: https://github.com/bling/vim-bufferline/issues/27#issuecomment-68448978
-let g:airline#extensions#bufferline#overwrite_variables=0
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-slash
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -637,12 +633,8 @@ let g:nnn#command = 'nnn -o'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:bufferline_echo = 0
 let g:bufferline_show_bufnr = 0
-let g:bufferline_active_buffer_left = ''
-let g:bufferline_active_buffer_right = ''
-let g:bufferline_inactive_highlight = 'StatusLineNC'
-let g:bufferline_active_highlight = 'Visual'
-"execute 'highlight bufferline_selected ' . pinnacle#highlight({
-"\   'bg': pinnacle#extract_bg('StatusLine'),
-"\   'fg': pinnacle#extract_fg('Pmenu')
-"\ })
+execute 'highlight bufferline_selected ' . pinnacle#highlight({
+\   'bg': pinnacle#extract_bg('StatusLine'),
+\   'fg': pinnacle#extract_fg('Pmenu')
+\ })
 
