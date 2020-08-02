@@ -132,9 +132,9 @@ export KEYTIMEOUT=2
 # see https://unix.stackexchange.com/questions/126719/how-to-disable-auto-cd-in-zsh-with-oh-my-zsh
 unsetopt AUTO_CD
 
-# ===============================================
+# =============================================================================
 # Configure FZF
-# ===============================================
+# =============================================================================
 
 # Enable FZF (mrv: installed by FZF installer)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -154,10 +154,10 @@ fi
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --multi'
 #export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
-# -----------------------------------------------
+# -----------------------------------------------------------------------------
 # Configure shell key bindings
 # https://github.com/junegunn/fzf/wiki/Configuring-shell-key-bindings
-# -----------------------------------------------
+# -----------------------------------------------------------------------------
 
 # Use highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
 export FZF_PREVIEW_COMMAND="bat --style=numbers,changes --wrap never --color always {} || cat {} || tree -C {}"
@@ -166,9 +166,9 @@ export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-wind
 # Add preview to Alt-C
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
-# -----------------------------------------------
+# -----------------------------------------------------------------------------
 # j - Integrate with autojump
-# -----------------------------------------------
+# -----------------------------------------------------------------------------
 
 # Like normal autojump when used with arguments but displays an fzf prompt when used without
 j() {
@@ -208,7 +208,7 @@ gdi-fzf() {
 
 # -----------------------------------------------------------------------------
 # fkill - kill processes
-# -----------------------------------------------
+# -----------------------------------------------------------------------------
 
 # List only the ones you can kill
 fkill() {
@@ -225,18 +225,18 @@ fkill() {
   fi
 }
 
-# ===============================================
+# =============================================================================
 # Configure nnn
-# ===============================================
+# =============================================================================
 
 # Bookmarks
 export NNN_BMS='r:~/repos/;D:~/Downloads/;s:~/Dropbox/TUe/PhD/software/;d:~/dotfiles/;P:~/Dropbox/TUe/PhD/;p:~/.local/share/nvim/plugged/'
 export NNN_PLUG='j:fzz'
 export NNN_COLORS='4321'
 
-# ===============================================
+# =============================================================================
 # Custom key bindings
-# ===============================================
+# =============================================================================
 
 # Important: place this at the end since other commands (such as enabling FZF) override it
 #bindkey '  ' autosuggest-accept
