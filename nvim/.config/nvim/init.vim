@@ -153,8 +153,6 @@ set wrap linebreak nolist " avoid breaking lines in the middle of words
 set noshowmode " don't show mode in status bar (taken care of by airline)
 set hidden " allows switching from unwritten buffers and remembers the buffer undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
-set grepprg=rg\ --vimgrep " program to used for the :grep command.
-set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
 set splitbelow splitright " open a new split at to bottom or to the right of the current one
 set signcolumn=yes " always show sign column
 set tabstop=2 " number of spaces that a <Tab> in the file counts for
