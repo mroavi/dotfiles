@@ -163,7 +163,6 @@ set updatetime=100 " among others, governs gitgutter's update time
 set inccommand=split " shows the effects of a command incrementally, as you type
 set listchars=tab:▸\ ,space:_,eol:¬ " define symbols for tabstops, spaces and EOLs
 set scrolloff=10 " minimal number of screen lines to keep above and below the cursor
-set nowrapscan " do not wrap around the end of the file after reaching final search result
 
 " Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
