@@ -167,7 +167,7 @@ export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-wind
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # -----------------------------------------------
-# Integrate with autojump
+# j - Integrate with autojump
 # -----------------------------------------------
 
 # Like normal autojump when used with arguments but displays an fzf prompt when used without
@@ -177,6 +177,25 @@ j() {
     return
   fi
   cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)"
+}
+
+# -----------------------------------------------
+# fkill - kill processes
+# -----------------------------------------------
+
+# List only the ones you can kill
+fkill() {
+  local pid
+  if [ "$UID" != "0" ]; then
+    pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+  else
+    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  fi
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
 }
 
 # ===============================================
