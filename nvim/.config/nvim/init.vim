@@ -155,12 +155,10 @@ set hidden " allows switching from unwritten buffers and remembers the buffer un
 set formatoptions-=tc " disable auto-wrap text using textwidth
 set splitbelow splitright " open a new split at to bottom or to the right of the current one
 set signcolumn=yes " always show sign column
-set tabstop=2 " number of spaces that a <Tab> in the file counts for
-set softtabstop=2 " number of spaces that a <Tab> counts for while performing editing operations
-set shiftwidth=2 " number of spaces for indents in normal mode
-set expandtab " use spaces instead of tabs.
-set shiftround " tab / shifting moves to closest tabstop.
-set smartindent " intelligently dedent / indent new lines based on rules.
+set tabstop=2 softtabstop=2 shiftwidth=2 " configure number of spaces per tab
+set expandtab " use spaces instead of tabs
+set shiftround " tab / shifting moves to closest tabstop
+set smartindent " intelligently dedent / indent new lines based on rules
 set updatetime=100 " among others, governs gitgutter's update time
 set inccommand=split " shows the effects of a command incrementally, as you type
 set listchars=tab:▸\ ,space:_,eol:¬ " define symbols for tabstops, spaces and EOLs
