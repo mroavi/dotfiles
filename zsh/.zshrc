@@ -207,11 +207,11 @@ gd-fzf() {
 }
 
 # -----------------------------------------------------------------------------
-# fkill - kill processes
+# kill-fzf - kill processes
 # -----------------------------------------------------------------------------
 
 # List only the ones you can kill
-fkill() {
+kill-fzf() {
   local pid
   if [ "$UID" != "0" ]; then
     pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
