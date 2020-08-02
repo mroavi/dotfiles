@@ -177,8 +177,8 @@ nnoremap <silent> <M-l> :bnext<CR>
 " Switch to previous visited buffer
 nnoremap <silent> <M-p> :b#<CR>
 
-" Unload current buffer
-nnoremap <silent><M-d> :bdelete<CR>
+" Delete current buffer
+nnoremap <silent><Leader>d :bdelete<CR>
 
 " Resize splits easier
 noremap <M-S-j> :resize -3<CR>
