@@ -372,6 +372,7 @@ nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>rg :MyRg<CR>
 nnoremap <Leader>ag :Ag<CR>
 nnoremap <Leader>ls :Buffers<CR>
+nnoremap <Leader>aj  :MyAj<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
 function! RipgrepFzf(query, fullscreen)
@@ -384,6 +385,13 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
+
+" autojump integration
+function! Autojump(fullscreen)
+  let cmd = 'autojump -s | sort -k1gr | awk ''$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }'''
+  call fzf#run(fzf#wrap('j', {'source': cmd, 'sink': 'cd'}))
+endfunction
+command! -nargs=0 MyAj call Autojump(<bang>0)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-tmux-navigator
