@@ -185,7 +185,7 @@ if [ -f "$FILE" ]; then
   echo "autojump is already installed"
 else
   mkdir -p ~/downloads && cd ~/downloads
-  [ -f ./autojump ] || git clone git://github.com/wting/autojump.git
+  git clone git://github.com/wting/autojump.git
   cd autojump
   ./install.py
 fi
