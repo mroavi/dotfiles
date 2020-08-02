@@ -516,11 +516,9 @@ endif
 
 " Mappings (See `:h lsp-buf`)
 nnoremap          <Leader>i  <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap          <Leader>de <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap          <Leader>cw <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>re <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <Leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap          <Leader>di <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
 nnoremap                   K <cmd>lua vim.lsp.buf.hover()<CR>
 
 " Signs
