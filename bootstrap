@@ -222,7 +222,7 @@ else
   mkdir -p ~/repos && cd ~/repos
   LOCAL_REPO=diff-so-fancy
   REPO_URL=git@github.com:so-fancy/diff-so-fancy.git
-  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  git -C $LOCAL_REPO pull || git clone $REPO_URL $LOCAL_REPO
   cp diff-so-fancy/diff-so-fancy $HOME/.local/bin/
   cp -r diff-so-fancy/lib $HOME/.local/bin/
 fi
