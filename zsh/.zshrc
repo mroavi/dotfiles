@@ -196,8 +196,8 @@ gco-fzf() {
   git checkout $(echo "$commit" | sed "s/ .*//")
 }
 
-# gdi-fzf - git commit browser with previews
-gdi-fzf() {
+# gd-fzf - git commit browser with previews
+gd-fzf() {
   glNoGraph |
     fzf --no-sort --reverse --tiebreak=index --no-multi \
       --ansi --preview="$_viewGitLogLine" \
