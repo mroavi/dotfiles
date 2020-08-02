@@ -179,7 +179,34 @@ j() {
   cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)"
 }
 
-# -----------------------------------------------
+# -----------------------------------------------------------------------------
+# Integrate with Git (https://github.com/junegunn/fzf/wiki/Examples#git)
+# -----------------------------------------------------------------------------
+
+alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
+_gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
+_viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
+
+# gco-fzf - checkout git commit with previews
+gco-fzf() {
+  local commit
+  commit=$( glNoGraph |
+    fzf --no-sort --reverse --tiebreak=index --no-multi \
+        --ansi --preview="$_viewGitLogLine" ) &&
+  git checkout $(echo "$commit" | sed "s/ .*//")
+}
+
+# gdi-fzf - git commit browser with previews
+gdi-fzf() {
+  glNoGraph |
+    fzf --no-sort --reverse --tiebreak=index --no-multi \
+      --ansi --preview="$_viewGitLogLine" \
+      --header "enter to view, alt-y to copy hash" \
+      --bind "enter:execute:$_viewGitLogLine   | less -R" \
+      --bind "alt-y:execute:$_gitLogLineToHash | xclip"
+}
+
+# -----------------------------------------------------------------------------
 # fkill - kill processes
 # -----------------------------------------------
 
