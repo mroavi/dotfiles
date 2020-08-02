@@ -143,12 +143,12 @@ unsetopt AUTO_CD
 # List of ripgrep options:
 # - https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#common-options
 # - https://github.com/junegunn/fzf#tips
+# - https://www.reddit.com/r/linux4noobs/comments/egb644/fzf_newcomer_fd_or_ripgrep/
 if [ ! "$SSH_CONNECTION" ]; then
-  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
-  # export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  # export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+  export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
-
-#export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore'
 
 # Layout options
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --multi'
