@@ -184,6 +184,7 @@ FILE=$HOME/.autojump/bin/autojump
 if [ -f "$FILE" ]; then
   echo "autojump is already installed"
 else
+  # TODO: use the pull if not exit clone approach
   mkdir -p ~/downloads && cd ~/downloads
   git clone git://github.com/wting/autojump.git
   cd autojump
