@@ -457,6 +457,7 @@ let g:hardtime_maxcount = 3
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+autocmd FileType which_key highlight WhichKeySeperator ctermbg=18 ctermfg=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" tmuxline
