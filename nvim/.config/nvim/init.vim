@@ -144,7 +144,7 @@ set shada=%,<800,'50,/50,:100,h,f1
 "         |   |   |   |    |  + disable 'hlsearch' while loading viminfo
 "         |   |   |   |    + maximum number of items in the command-line history to be saved
 "         |   |   |   + maximum number of items in the search pattern history to be saved
-"         |   |   + files marks saved for the last XX files edited
+"         |   |   + number of old files remembered
 "         |   + maximum num of lines saved for each register (old name for <, vi6.2)
 "         + save/restore buffer list
 set number relativenumber " lines are numbered relative to the line the cursor is on
