@@ -299,6 +299,8 @@ call s:base16_customize()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#hunks#enabled = 0
 
 " Fixes clash with vim-bufferline
 " See: https://github.com/bling/vim-bufferline/issues/27#issuecomment-68448978
