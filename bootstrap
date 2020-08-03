@@ -3,6 +3,9 @@
 # Save current directory
 currentdir="$PWD"
 
+# Create the repos dir if it doesn't exist
+mkdir -p ~/repos
+
 # -----------------------------------------------------------------------------------------
 echo "Installing stow..."
 
@@ -12,10 +15,10 @@ if [ "$SSH_CONNECTION" ]; then
     echo "stow is already installed"
   else
     # See INSTALL.md in root dir
-    # TODO: check if this works
-    mkdir -p ~/repos && cd ~/repos
-    git clone https://git.savannah.gnu.org/git/stow.git
-    cd stow
+    LOCAL_REPO=~/repos/stow
+    REPO_URL=https://git.savannah.gnu.org/git/stow.git
+    git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+    cd $LOCAL_REPO
     autoreconf -iv
     ./configure --prefix=$HOME/local
     make install
@@ -98,7 +101,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo "Installing Powerlevel10k (or pulling if repo already exists)..."
 
 # Add powerlevel10k to the list of Oh My Zsh themes.
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k 2> /dev/null || git -C $ZSH_CUSTOM/themes/powerlevel10k pull
+LOCAL_REPO=$ZSH_CUSTOM/themes/powerlevel10k
+REPO_URL=https://github.com/romkatv/powerlevel10k.git
+git clone --depth=1 "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 
 # -----------------------------------------------------------------------------------------
 echo "Installing Fonts..."
@@ -172,7 +177,7 @@ echo "Installing base16-shell..."
 # git pull if present, otherwise clone
 LOCAL_REPO=~/.config/base16-shell
 REPO_URL=https://github.com/chriskempson/base16-shell.git
-git -C $LOCAL_REPO pull || git clone $REPO_URL $LOCAL_REPO
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 # TODO: can't get the following line to work (no .vimrc_background is generated)
 #/bin/bash $HOME/.config/base16-shell/scripts/base16-oceanicnext.sh
 
@@ -184,10 +189,10 @@ FILE=$HOME/.autojump/bin/autojump
 if [ -f "$FILE" ]; then
   echo "autojump is already installed"
 else
-  # TODO: use the pull if not exit clone approach
-  mkdir -p ~/downloads && cd ~/downloads
-  git clone git://github.com/wting/autojump.git
-  cd autojump
+  LOCAL_REPO=~/repos/autojump
+  REPO_URL=git://github.com/wting/autojump.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cd $LOCAL_REPO
   ./install.py
 fi
 
@@ -200,9 +205,10 @@ if [ "$SSH_CONNECTION" ]; then
   if [ -f "$FILE" ]; then
     echo "nnn is already installed"
   else
-    mkdir -p ~/repos && cd ~/repos
-    git clone git@github.com:jarun/nnn.git
-    cd nnn
+    LOCAL_REPO=~/repos/nnn
+    REPO_URL=git@github.com:jarun/nnn.git
+    git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+    cd $LOCAL_REPO
     PREFIX=$HOME/local make strip install
     # Install built-in plugins
     curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
@@ -220,12 +226,11 @@ FILE=$HOME/.local/bin/diff-so-fancy
 if [ -f "$FILE" ]; then
   echo "diff-so-fancy is already installed"
 else
-  mkdir -p ~/repos && cd ~/repos
-  LOCAL_REPO=diff-so-fancy
+  LOCAL_REPO=~/repos/diff-so-fancy
   REPO_URL=git@github.com:so-fancy/diff-so-fancy.git
-  git -C $LOCAL_REPO pull || git clone $REPO_URL $LOCAL_REPO
-  cp diff-so-fancy/diff-so-fancy $HOME/.local/bin/
-  cp -r diff-so-fancy/lib $HOME/.local/bin/
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cp $LOCAL_REPO/diff-so-fancy $HOME/.local/bin/
+  cp -r $LOCAL_REPO/lib $HOME/.local/bin/
 fi
 
 # -----------------------------------------------------------------------------------------
