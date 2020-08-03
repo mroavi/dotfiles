@@ -3,14 +3,15 @@
 # Save current directory
 currentdir="$PWD"
 
-# Create the repos dir if it doesn't exist
+# Ensure these dirs exist 
 mkdir -p ~/repos
+mkdir -p ~/.local
 
 # -----------------------------------------------------------------------------------------
 echo "Installing stow..."
 
 if [ "$SSH_CONNECTION" ]; then
-  FILE=$HOME/local/bin/stow
+  FILE=$HOME/.local/bin/stow
   if [ -f "$FILE" ]; then
     echo "stow is already installed"
   else
@@ -20,7 +21,7 @@ if [ "$SSH_CONNECTION" ]; then
     git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
     cd $LOCAL_REPO
     autoreconf -iv
-    ./configure --prefix=$HOME/local
+    ./configure --prefix=$HOME/.local
     make install
   fi
 else
@@ -32,30 +33,16 @@ echo "Installing nvim..."
 
 # Local installation
 # https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
-if [ "$SSH_CONNECTION" ]; then
-  FILE=$HOME/local/bin/nvim
-  if [ -f "$FILE" ]; then
-    echo "nvim is already installed"
-  else
-    mkdir -p ~/local/bin && cd ~/local/bin
-#    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-  curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-    chmod u+x nvim.appimage
-    mv nvim.appimage nvim
-    pip3 install pynvim
-  fi
+FILE=$HOME/.local/bin/nvim
+if [ -f "$FILE" ]; then
+  echo "nvim is already installed"
 else
-  FILE=$HOME/.local/bin/nvim
-  if [ -f "$FILE" ]; then
-    echo "nvim is already installed"
-  else
-    mkdir -p ~/.local/bin && cd ~/.local/bin
+  mkdir -p ~/.local/bin && cd ~/.local/bin
 #    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
   curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-    chmod u+x nvim.appimage
-    mv nvim.appimage nvim
-    pip3 install pynvim
-  fi
+  chmod u+x nvim.appimage
+  mv nvim.appimage nvim
+  pip3 install pynvim
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -76,7 +63,7 @@ echo "Installing zsh..."
 if [ "$SSH_CONNECTION" ]; then
   # Build locally (needed when root access is not available)
   # https://stackoverflow.com/a/15293565/1706778
-  FILE=$HOME/local/bin/zsh
+  FILE=$HOME/.local/bin/zsh
   if [ -f "$FILE" ]; then
     echo "zsh is already installed"
   else
@@ -84,7 +71,7 @@ if [ "$SSH_CONNECTION" ]; then
     wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
     mkdir zsh && unxz zsh.tar.xz && tar -xvf zsh.tar -C zsh --strip-components 1
     cd zsh
-    ./configure --prefix=$HOME/local
+    ./configure --prefix=$HOME/.local
     make
     make install
   fi
@@ -201,7 +188,7 @@ echo "Installing nnn..."
 
 # If ncruses lib is not installed, see my "Installing nnn locally on server" evernote
 if [ "$SSH_CONNECTION" ]; then
-  FILE=$HOME/local/bin/nnn
+  FILE=$HOME/.local/bin/nnn
   if [ -f "$FILE" ]; then
     echo "nnn is already installed"
   else
@@ -209,7 +196,7 @@ if [ "$SSH_CONNECTION" ]; then
     REPO_URL=git@github.com:jarun/nnn.git
     git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
     cd $LOCAL_REPO
-    PREFIX=$HOME/local make strip install
+    PREFIX=$HOME/.local make strip install
     # Install built-in plugins
     curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
   fi
