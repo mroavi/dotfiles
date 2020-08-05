@@ -191,7 +191,7 @@ _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always 
 gco-fzf() {
   local commit
   commit=$( glNoGraph |
-    fzf --no-sort --reverse --tiebreak=index --no-multi \
+    fzf --no-sort --reverse --tiebreak=index --no-multi --height 100% \
         --ansi --preview="$_viewGitLogLine" ) &&
   git checkout $(echo "$commit" | sed "s/ .*//")
 }
@@ -199,7 +199,7 @@ gco-fzf() {
 # glg-fzf - git commit browser with previews
 glg-fzf() {
   glNoGraph |
-    fzf --no-sort --reverse --tiebreak=index --no-multi \
+    fzf --no-sort --reverse --tiebreak=index --no-multi --height 100% \
       --ansi --preview="$_viewGitLogLine" \
       --header "enter to view, alt-y to copy hash" \
       --bind "enter:execute:$_viewGitLogLine   | less -R" \
