@@ -85,10 +85,24 @@ echo "Installing oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # -----------------------------------------------------------------------------------------
-echo "Installing Powerlevel10k (or pulling if repo already exists)..."
+echo "Installing autosuggestions..."
+
+LOCAL_REPO=$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+REPO_URL=https://github.com/zsh-users/zsh-autosuggestions.git
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+
+# -----------------------------------------------------------------------------------------
+echo "Installing zsh-syntax-highlighting..."
+
+LOCAL_REPO=$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+REPO_URL=https://github.com/zsh-users/zsh-syntax-highlighting.git
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+
+# -----------------------------------------------------------------------------------------
+echo "Installing Powerlevel10k..."
 
 # Add powerlevel10k to the list of Oh My Zsh themes.
-LOCAL_REPO=$ZSH_CUSTOM/themes/powerlevel10k
+LOCAL_REPO=$HOME/.oh-my-zsh/custom/themes/powerlevel10k
 REPO_URL=https://github.com/romkatv/powerlevel10k.git
 git clone --depth=1 "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 
@@ -116,12 +130,14 @@ filepath=Droid-Sans-Mono-Awesome.ttf
 [ -f $filepath ] || curl -fLo "$filepath" https://github.com/gabrielelana/awesome-terminal-fonts/raw/patching-strategy/patched/Droid%2BSans%2BMono%2BAwesome.ttf
 
 # -----------------------------------------------------------------------------------------
-#echo "Installing clangd and YouCompleteMe..."
+echo "Installing clangd..."
 
-#sudo apt-get install clangd-9
-#sudo apt install build-essential cmake python3-dev
-##cd ~/.vim/plugged/YouCompleteMe
-##python3 install.py --clangd-completer
+cd ~/Downloads/
+filepath="clangd-linux-10.0.0.zip"
+[ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/10.0.0/clangd-linux-10.0.0.zip 
+unzip "$filepath"
+cp clangd_10.0.0/bin/clangd $HOME/.local/bin
+cp -r clangd_10.0.0/lib/clang $HOME/.local/lib
 
 # -----------------------------------------------------------------------------------------
 # https://github.com/BurntSushi/ripgrep#installation
