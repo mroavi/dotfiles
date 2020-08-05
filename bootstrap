@@ -3,9 +3,9 @@
 # Save current directory
 currentdir="$PWD"
 
-# Ensure these dirs exist 
+# Ensure these dirs exist
 mkdir -p ~/.local
-mkdir -p ~/Downloads 
+mkdir -p ~/Downloads
 
 # -----------------------------------------------------------------------------------------
 echo "Installing stow..."
@@ -130,16 +130,6 @@ filepath=Droid-Sans-Mono-Awesome.ttf
 [ -f $filepath ] || curl -fLo "$filepath" https://github.com/gabrielelana/awesome-terminal-fonts/raw/patching-strategy/patched/Droid%2BSans%2BMono%2BAwesome.ttf
 
 # -----------------------------------------------------------------------------------------
-echo "Installing clangd..."
-
-cd ~/Downloads/
-filepath="clangd-linux-10.0.0.zip"
-[ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/10.0.0/clangd-linux-10.0.0.zip 
-unzip "$filepath"
-cp clangd_10.0.0/bin/clangd $HOME/.local/bin
-cp -r clangd_10.0.0/lib/clang $HOME/.local/lib
-
-# -----------------------------------------------------------------------------------------
 # https://github.com/BurntSushi/ripgrep#installation
 echo "Installing ripgrep..."
 
@@ -216,6 +206,34 @@ else
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cp $LOCAL_REPO/diff-so-fancy $HOME/.local/bin/
   cp -r $LOCAL_REPO/lib $HOME/.local/bin/
+fi
+
+# -----------------------------------------------------------------------------------------
+echo "Installing clangd..."
+
+FILE=$HOME/.local/bin/clangd
+if [ -f "$FILE" ]; then
+  echo "clangd is already installed"
+else
+  cd ~/Downloads/
+  filepath="clangd-linux-10.0.0.zip"
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/10.0.0/clangd-linux-10.0.0.zip
+  unzip "$filepath"
+  cp clangd_10.0.0/bin/clangd $HOME/.local/bin
+  cp -r clangd_10.0.0/lib/clang $HOME/.local/lib
+fi
+
+# -----------------------------------------------------------------------------------------
+echo "Installing texlab..."
+
+FILE=$HOME/.local/bin/texlab
+if [ -f "$FILE" ]; then
+  echo "texlab is already installed"
+else
+  cd ~/Downloads/
+  filepath="texlab-x86_64-linux.tar.gz"
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/latex-lsp/texlab/releases/download/v2.2.0/texlab-x86_64-linux.tar.gz
+  tar xvzf "$filepath" -C $HOME/.local/bin/
 fi
 
 # -----------------------------------------------------------------------------------------
