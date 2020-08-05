@@ -4,7 +4,6 @@
 currentdir="$PWD"
 
 # Ensure these dirs exist 
-mkdir -p ~/repos
 mkdir -p ~/.local
 mkdir -p ~/Downloads 
 
@@ -26,7 +25,7 @@ if [ "$SSH_CONNECTION" ]; then
     make install
   fi
 else
-  sudo apt-get install stow
+  sudo pacman -S stow
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -77,7 +76,7 @@ if [ "$SSH_CONNECTION" ]; then
     make install
   fi
 else
-  sudo apt install zsh
+  sudo pacman -S zsh
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -128,34 +127,16 @@ filepath=Droid-Sans-Mono-Awesome.ttf
 # https://github.com/BurntSushi/ripgrep#installation
 echo "Installing ripgrep..."
 
-# Install if not already installed
-# https://stackoverflow.com/a/54239534/1706778
 if [ ! "$SSH_CONNECTION" ]; then
-  mkdir -p ~/downloads && cd ~/downloads
-  pkg='ripgrep'
-  if ! dpkg -s $pkg >/dev/null 2>&1; then
-    sudo curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
-    sudo dpkg -i ripgrep_11.0.2_amd64.deb
-  else
-    echo "$pkg is already installed"
-  fi
+  sudo pacman -S ripgrep
 fi
 
 # -----------------------------------------------------------------------------------------
 # https://computingforgeeks.com/bat-cat-command-with-syntax-highlighting-and-git-integration/
 echo "Installing bat..."
-#sudo apt-get install wget
 
 if [ ! "$SSH_CONNECTION" ]; then
-  # https://stackoverflow.com/a/54239534/1706778
-  pkg='bat'
-  if ! dpkg -s $pkg >/dev/null 2>&1; then
-    export VER="0.13.0"
-    wget https://github.com/sharkdp/bat/releases/download/v${VER}/bat_${VER}_amd64.deb
-    sudo dpkg -i bat_${VER}_amd64.deb
-  else
-    echo "$pkg is already installed"
-  fi
+  sudo pacman -S bat
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -202,7 +183,7 @@ if [ "$SSH_CONNECTION" ]; then
     curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
   fi
 else
-  sudo apt-get install nnn
+  sudo pacman -S nnn
   # Install built-in plugins
   curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 fi
