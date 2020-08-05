@@ -6,6 +6,7 @@ currentdir="$PWD"
 # Ensure these dirs exist 
 mkdir -p ~/repos
 mkdir -p ~/.local
+mkdir -p ~/Downloads 
 
 # -----------------------------------------------------------------------------------------
 echo "Installing stow..."
@@ -16,7 +17,7 @@ if [ "$SSH_CONNECTION" ]; then
     echo "stow is already installed"
   else
     # See INSTALL.md in root dir
-    LOCAL_REPO=~/repos/stow
+    LOCAL_REPO=~/Downloads/stow
     REPO_URL=https://git.savannah.gnu.org/git/stow.git
     git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
     cd $LOCAL_REPO
@@ -67,7 +68,7 @@ if [ "$SSH_CONNECTION" ]; then
   if [ -f "$FILE" ]; then
     echo "zsh is already installed"
   else
-    mkdir -p ~/downloads && cd downloads
+    cd ~/Downloads
     wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
     mkdir zsh && unxz zsh.tar.xz && tar -xvf zsh.tar -C zsh --strip-components 1
     cd zsh
@@ -176,7 +177,7 @@ FILE=$HOME/.autojump/bin/autojump
 if [ -f "$FILE" ]; then
   echo "autojump is already installed"
 else
-  LOCAL_REPO=~/repos/autojump
+  LOCAL_REPO=~/Downloads/autojump
   REPO_URL=git://github.com/wting/autojump.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cd $LOCAL_REPO
@@ -192,7 +193,7 @@ if [ "$SSH_CONNECTION" ]; then
   if [ -f "$FILE" ]; then
     echo "nnn is already installed"
   else
-    LOCAL_REPO=~/repos/nnn
+    LOCAL_REPO=~/Downloads/nnn
     REPO_URL=git@github.com:jarun/nnn.git
     git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
     cd $LOCAL_REPO
@@ -213,7 +214,7 @@ FILE=$HOME/.local/bin/diff-so-fancy
 if [ -f "$FILE" ]; then
   echo "diff-so-fancy is already installed"
 else
-  LOCAL_REPO=~/repos/diff-so-fancy
+  LOCAL_REPO=~/Downloads/diff-so-fancy
   REPO_URL=git@github.com:so-fancy/diff-so-fancy.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cp $LOCAL_REPO/diff-so-fancy $HOME/.local/bin/
