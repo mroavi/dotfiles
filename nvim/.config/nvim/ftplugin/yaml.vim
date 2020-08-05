@@ -1,5 +1,5 @@
 " No space between comment and code
 let b:commentary_format = '#%s'
-" Add comment character at the start of the line
+" Insert comment character at the start of the line
 let b:commentary_startofline = 1
 
