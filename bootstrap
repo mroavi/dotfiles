@@ -240,4 +240,3 @@ fi
 # Return to original directory
 cd "$currentdir"
 
-# TODO: install xclip
