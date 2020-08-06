@@ -7,5 +7,6 @@ let b:commentary_startofline = 1
 nnoremap <buffer><silent> <M-j> :set nows<CR>/^%%<CR>:noh<CR>:set ws<CR>
 nnoremap <buffer><silent> <M-k> :set nows<CR>?^%%<CR>:noh<CR>:set ws<CR>
 
-let g:slime_cell_delimiter = "%%"
+nmap <buffer> <M-CR> <Plug>SlimeSendCell
+let b:slime_cell_delimiter = "%%"
 
