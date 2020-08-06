@@ -280,8 +280,8 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 ## <<< conda initialize <<<
 
 
-## mrv: Start up tmux automatically
-## If not running interactively, do not do anything
+# mrv: Start up tmux automatically
+# If not running interactively, do not do anything
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux a
 fi
