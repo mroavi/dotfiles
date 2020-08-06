@@ -178,7 +178,7 @@ nnoremap <silent> <M-l> :bnext<CR>
 nnoremap <silent> <M-p> :b#<CR>
 
 " Delete current buffer
-nnoremap <silent><Leader>d :bdelete<CR>
+nnoremap <silent><Leader>bd :bdelete<CR>
 
 " Resize splits easier
 noremap <M-S-j> :resize -3<CR>
