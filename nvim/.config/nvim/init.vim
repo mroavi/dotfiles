@@ -127,6 +127,9 @@ Plug 'mcchrish/nnn.vim'
 " Super simple vim plugin to show the list of buffers in the command bar
 Plug 'bling/vim-bufferline'
 
+" Vim plugin that provides additional text objects
+Plug 'wellle/targets.vim'
+
 " TEMP: Plugin to help you stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
 
