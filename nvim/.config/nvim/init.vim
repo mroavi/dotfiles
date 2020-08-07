@@ -638,7 +638,7 @@ let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-x>': 'split',
       \ '<c-v>': 'vsplit' }
-let g:nnn#command = 'nnn -o'
+let g:nnn#command = 'nnn -o -C'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-bufferline
