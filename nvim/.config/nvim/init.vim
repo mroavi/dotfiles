@@ -12,6 +12,58 @@ let maplocalleader = ' '
 " Plugins will be downloaded under the specified directory.
 call plug#begin(stdpath('data') . '/plugged')
 
+"" plugins with no configuration
+
+" Pairs of handy bracket mappings
+Plug 'tpope/vim-unimpaired'
+
+" Provides mappings to easily delete, change and add such surroundings in pairs
+Plug 'tpope/vim-surround'
+
+" Defines a new text object representing lines of code at the same indent level
+Plug 'michaeljsmith/vim-indent-object'
+
+" See https://github.com/vim-airline/vim-airline/wiki/Screenshots
+Plug 'vim-airline/vim-airline-themes'
+
+" A very fast, multi-syntax context-sensitive color name highlighter
+Plug 'ap/vim-css-color'
+
+" Seamlessly run Python code from Vim in IPython
+Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+
+" Vim support for Julia.
+Plug 'JuliaEditorSupport/julia-vim'
+
+" Cell support for Julia in Vim
+Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
+
+" Syntax highlighting for GNU Octave
+Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
+
+" Provides insert mode auto-completion for quotes, parens, brackets, etc.
+Plug 'raimondi/delimitmate'
+
+" Highlight group manipulation for Vim
+Plug 'wincent/pinnacle'
+
+" Snippets are separated from the engine. Add this if you want them
+Plug 'honza/vim-snippets'
+
+" Highlight, navigate, and operate on sets of matching text
+Plug 'andymass/vim-matchup'
+
+" A fancy start screen for Vim/Neovim
+Plug 'mhinz/vim-startify'
+
+" Vim plugin that provides additional text objects
+Plug 'wellle/targets.vim'
+
+" TEMP: temporary fix for the gitgutter + deoplete-lsp problem
+Plug 'antoinemadec/FixCursorHold.nvim'
+
+" plugins with configuration
+
 " A fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -25,23 +77,11 @@ Plug 'junegunn/vim-easy-align'
 " A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
 
-" Pairs of handy bracket mappings
-Plug 'tpope/vim-unimpaired'
-
-" Provides mappings to easily delete, change and add such surroundings in pairs
-Plug 'tpope/vim-surround'
-
 " Comment stuff out
 Plug 'tpope/vim-commentary'
 
-" Defines a new text object representing lines of code at the same indent level
-Plug 'michaeljsmith/vim-indent-object'
-
 " Lean & mean status/tabline for vim that's light as air.
 Plug 'vim-airline/vim-airline'
-
-" See https://github.com/vim-airline/vim-airline/wiki/Screenshots
-Plug 'vim-airline/vim-airline-themes'
 
 " Provides support for writing LaTeX documents
 Plug 'lervag/vimtex', { 'for': ['tex'] }
@@ -58,35 +98,17 @@ Plug 'machakann/vim-highlightedyank'
 " Simple tmux statusline generator with support for airline statusline integration
 Plug 'edkolev/tmuxline.vim'
 
-" A very fast, multi-syntax context-sensitive color name highlighter
-Plug 'ap/vim-css-color'
-
 " Changes Vim working directory to project root
 Plug 'airblade/vim-rooter'
 
 " Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
 Plug 'jpalardy/vim-slime'
 
-" Seamlessly run Python code from Vim in IPython
-Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
-
-" Vim support for Julia.
-Plug 'JuliaEditorSupport/julia-vim'
-
-" Cell support for Julia in Vim
-Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
-
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
-
-" Syntax highlighting for GNU Octave
-Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
-
-" Provides insert mode auto-completion for quotes, parens, brackets, etc.
-Plug 'raimondi/delimitmate'
 
 " Nvim LSP client configurations
 Plug 'neovim/nvim-lsp'
@@ -97,20 +119,8 @@ Plug 'nvim-lua/diagnostic-nvim'
 " An async completion framework for neovim's built in LSP written in Lua
 Plug 'nvim-lua/completion-nvim'
 
-" Highlight group manipulation for Vim
-Plug 'wincent/pinnacle'
-
 " UltiSnips is the ultimate solution for snippets in Vim (tracks the engine)
 Plug 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them
-Plug 'honza/vim-snippets'
-
-" Highlight, navigate, and operate on sets of matching text
-Plug 'andymass/vim-matchup'
-
-" A fancy start screen for Vim/Neovim
-Plug 'mhinz/vim-startify'
 
 " Highlight a unique character in every word on a line when f, t, F or T is pressed
 Plug 'unblevable/quick-scope'
@@ -127,14 +137,8 @@ Plug 'mcchrish/nnn.vim'
 " Super simple vim plugin to show the list of buffers in the command bar
 Plug 'bling/vim-bufferline'
 
-" Vim plugin that provides additional text objects
-Plug 'wellle/targets.vim'
-
 " TEMP: Plugin to help you stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
-
-" TEMP: temporary fix for the gitgutter + deoplete-lsp problem
-Plug 'antoinemadec/FixCursorHold.nvim'
 
 call plug#end()
 
