@@ -64,15 +64,33 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
-" A fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Color schemes
+Plug 'chriskempson/base16-vim'
+
+" Lean & mean status/tabline for vim that's light as air.
+Plug 'vim-airline/vim-airline'
 
 " Automatically clears search highlight when cursor is moved
 Plug 'junegunn/vim-slash'
 
-" A simple, easy-to-use Vim alignment plugin
-Plug 'junegunn/vim-easy-align'
+" Provides support for writing LaTeX documents
+Plug 'lervag/vimtex', { 'for': ['tex'] }
+
+" Shows a git diff in the 'gutter' (sign column)
+Plug 'airblade/vim-gitgutter'
+
+" A fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Navigate seamlessly between vim and tmux splits using a set of hotkeys
+Plug 'toranb/tmux-navigator'
+
+" Make the yanked region apparent!
+Plug 'machakann/vim-highlightedyank'
+
+" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
+Plug 'jpalardy/vim-slime'
 
 " A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
@@ -80,35 +98,20 @@ Plug 'tpope/vim-fugitive'
 " Comment stuff out
 Plug 'tpope/vim-commentary'
 
-" Lean & mean status/tabline for vim that's light as air.
-Plug 'vim-airline/vim-airline'
-
-" Provides support for writing LaTeX documents
-Plug 'lervag/vimtex', { 'for': ['tex'] }
-
-" Navigate seamlessly between vim and tmux splits using a set of hotkeys
-Plug 'toranb/tmux-navigator'
-
-" Shows a git diff in the 'gutter' (sign column)
-Plug 'airblade/vim-gitgutter'
-
-" Make the yanked region apparent!
-Plug 'machakann/vim-highlightedyank'
-
-" Simple tmux statusline generator with support for airline statusline integration
-Plug 'edkolev/tmuxline.vim'
-
 " Changes Vim working directory to project root
 Plug 'airblade/vim-rooter'
 
-" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
-Plug 'jpalardy/vim-slime'
+" A simple, easy-to-use Vim alignment plugin
+Plug 'junegunn/vim-easy-align'
+
+" TEMP: Plugin to help you stop repeating the basic movement keys
+Plug 'takac/vim-hardtime'
 
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
-" Color schemes
-Plug 'chriskempson/base16-vim'
+" Simple tmux statusline generator with support for airline statusline integration
+Plug 'edkolev/tmuxline.vim'
 
 " Nvim LSP client configurations
 Plug 'neovim/nvim-lsp'
@@ -136,9 +139,6 @@ Plug 'mcchrish/nnn.vim'
 
 " Super simple vim plugin to show the list of buffers in the command bar
 Plug 'bling/vim-bufferline'
-
-" TEMP: Plugin to help you stop repeating the basic movement keys
-Plug 'takac/vim-hardtime'
 
 call plug#end()
 
