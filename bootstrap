@@ -189,9 +189,18 @@ if [ "$SSH_CONNECTION" ]; then
     curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
   fi
 else
-  sudo pacman -S nnn
-  # Install built-in plugins
-  curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
+  FILE=$HOME/.local/bin/nnn
+  if [ -f "$FILE" ]; then
+    echo "nnn is already installed"
+  else
+    LOCAL_REPO=~/Downloads/nnn
+    REPO_URL=git@github.com:jarun/nnn.git
+    git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+    cd $LOCAL_REPO
+    PREFIX=$HOME/.local make strip install
+    # Install built-in plugins
+    curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
+  fi
 fi
 
 # -----------------------------------------------------------------------------------------
