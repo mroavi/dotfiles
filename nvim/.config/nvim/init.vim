@@ -12,7 +12,7 @@ let maplocalleader = ' '
 " Plugins will be downloaded under the specified directory.
 call plug#begin(stdpath('data') . '/plugged')
 
-"" plugins with no configuration
+"" """"""""""""""""""""" plugins with no configuration """""""""""""""""""""""""
 
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
@@ -62,7 +62,7 @@ Plug 'wellle/targets.vim'
 " TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
 
-" plugins with configuration
+"" """"""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
 " A fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
