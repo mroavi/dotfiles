@@ -178,8 +178,8 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 nnoremap <silent> <M-h> :bprevious<CR>
 nnoremap <silent> <M-l> :bnext<CR>
 
-" Switch to last visited buffer
-nnoremap <silent> <Leader>l :b#<CR>
+" Toggle last visited buffer
+nnoremap <silent> <Leader>t :b#<CR>
 
 " Delete current buffer
 nnoremap <silent><Leader>bd :bdelete<CR>
@@ -373,7 +373,7 @@ nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>rg :MyRg<CR>
 nnoremap <Leader>ag :Ag<CR>
-nnoremap <Leader>;  :Buffers<CR>
+nnoremap <Leader>ls  :Buffers<CR>
 nnoremap <Leader>aj :MyAj<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
