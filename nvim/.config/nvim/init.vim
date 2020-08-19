@@ -137,9 +137,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " Fast and featureful file manager in vim/neovim powered by nnn
 Plug 'mcchrish/nnn.vim'
 
-" Super simple vim plugin to show the list of buffers in the command bar
-Plug 'bling/vim-bufferline'
-
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -308,10 +305,6 @@ let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
-
-" Fixes clash with vim-bufferline
-" See: https://github.com/bling/vim-bufferline/issues/27#issuecomment-68448978
-let g:airline#extensions#bufferline#overwrite_variables=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-slash
@@ -644,14 +637,4 @@ let g:nnn#action = {
       \ '<c-x>': 'split',
       \ '<c-v>': 'vsplit' }
 let g:nnn#command = 'nnn -o -C'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-bufferline
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:bufferline_echo = 0
-let g:bufferline_show_bufnr = 0
-let g:bufferline_active_buffer_left = ''
-let g:bufferline_active_buffer_right = ''
-let g:bufferline_inactive_highlight = 'StatusLineNC'
-let g:bufferline_active_highlight = 'Visual'
 
