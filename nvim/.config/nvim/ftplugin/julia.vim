@@ -8,7 +8,6 @@ let g:julia_cell_delimit_cells_by = 'tags'
 let g:julia_cell_tag = '##'
 nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
 nnoremap <buffer> <Leader>clr :JuliaCellClear<CR>
-nnoremap <buffer> <S-CR> :JuliaCellExecuteCellJump<CR>
 
 " Jump to the next/prev ## delimeter
 nnoremap <buffer><silent> <M-j> :set nows<CR>/^##<CR>:noh<CR>:set ws<CR>
