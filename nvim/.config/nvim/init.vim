@@ -433,7 +433,7 @@ command! -complete=file -nargs=* Gds Git diff --staged <args>
 nnoremap <Leader>gst :Git<CR>
 nnoremap <Leader>gw  :Gwrite<CR>
 nnoremap <Leader>gr  :Gread<CR>
-nnoremap <Leader>gc  :Git commit<CR>
+nnoremap <Leader>gc  :Git commit -v<CR>
 nnoremap <Leader>gp  :Git push<CR>
 nnoremap <Leader>gl  :Git pull<CR>
 nnoremap <Leader>gdi :Gd<CR>
