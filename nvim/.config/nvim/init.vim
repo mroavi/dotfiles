@@ -179,7 +179,7 @@ nnoremap <silent> <M-h> :bprevious<CR>
 nnoremap <silent> <M-l> :bnext<CR>
 
 " Toggle last visited buffer
-nnoremap <silent> <Leader>t :b#<CR>
+nnoremap <silent> <Leader>; :b#<CR>
 
 " Delete current buffer
 nnoremap <silent><Leader>bd :bdelete<CR>
