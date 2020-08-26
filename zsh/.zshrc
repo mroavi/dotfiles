@@ -207,7 +207,7 @@ glg-fzf() {
 }
 
 # -----------------------------------------------------------------------------
-# kill-fzf - kill processes
+# kill processes
 # -----------------------------------------------------------------------------
 
 # List only the ones you can kill
@@ -223,6 +223,22 @@ kill-fzf() {
   then
     echo $pid | xargs kill -${1:-9}
   fi
+}
+
+# -----------------------------------------------------------------------------
+# pacman
+# -----------------------------------------------------------------------------
+
+# fuzzy-search through all available packages, with package info shown in a preview window, and then install selected packages:
+# https://wiki.archlinux.org/index.php/Fzf
+pacman-install() {
+  pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
+}
+
+# browse all installed packages with an instant preview of each package
+# https://wiki.archlinux.org/index.php/Pacman/Tips_and_tricks
+pacman-installed() {
+  pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
 }
 
 # =============================================================================
