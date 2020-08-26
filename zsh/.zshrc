@@ -167,6 +167,18 @@ export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-wind
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # -----------------------------------------------------------------------------
+# Integrate with ripgrep
+# -----------------------------------------------------------------------------
+
+# using ripgrep combined with preview
+# usage: rg-fzf <searchTerm>
+# https://github.com/junegunn/fzf/wiki/examples#searching-file-contents
+rg-fzf() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
+# -----------------------------------------------------------------------------
 # j - Integrate with autojump
 # -----------------------------------------------------------------------------
 
@@ -207,7 +219,7 @@ glg-fzf() {
 }
 
 # -----------------------------------------------------------------------------
-# kill processes
+# Integrate with kill
 # -----------------------------------------------------------------------------
 
 # List only the ones you can kill
@@ -226,7 +238,7 @@ kill-fzf() {
 }
 
 # -----------------------------------------------------------------------------
-# pacman
+# Integrate with pacman
 # -----------------------------------------------------------------------------
 
 # fuzzy-search through all available packages, with package info shown in a preview window, and then install selected packages:
