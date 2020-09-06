@@ -171,6 +171,10 @@ set scrolloff=10 " minimal number of screen lines to keep above and below the cu
 " Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
+" Scroll by a third of window height (https://stackoverflow.com/a/16574696/1706778)
+execute "set scroll=" .&lines / 3
+au VimResized * execute "set scroll=" . &lines / 3
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Custom mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
