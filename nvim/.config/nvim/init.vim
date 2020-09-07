@@ -377,7 +377,7 @@ nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>rg :MyRg<CR>
 nnoremap <Leader>ag :Ag<CR>
-nnoremap <Leader>ls  :Buffers<CR>
+nnoremap <Leader>l  :Buffers<CR>
 nnoremap <Leader>aj :MyAj<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
