@@ -421,12 +421,14 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-o
 let g:slime_dont_ask_default = 1
 let g:slime_no_mappings = 1
 
-" Map to Ctrl-Return
 autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>SlimeRegionSend
-autocmd FileType julia,python,octave xmap <buffer> s      <Plug>SlimeRegionSend
 autocmd FileType julia,python,octave nmap <buffer> <C-CR> <Plug>SlimeLineSend
 autocmd FileType julia,python,octave imap <buffer> <C-CR> <C-o><Plug>SlimeLineSend
 autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
+
+" Motion based mappings
+autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
+autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSend
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-fugitive
