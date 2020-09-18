@@ -50,9 +50,6 @@ Plug 'wincent/pinnacle'
 " Snippets are separated from the engine. Add this if you want them
 Plug 'honza/vim-snippets'
 
-" Highlight, navigate, and operate on sets of matching text
-Plug 'andymass/vim-matchup'
-
 " A fancy start screen for Vim/Neovim
 Plug 'mhinz/vim-startify'
 
@@ -136,6 +133,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 
 " Fast and featureful file manager in vim/neovim powered by nnn
 Plug 'mcchrish/nnn.vim'
+
+" Highlight, navigate, and operate on sets of matching text
+Plug 'andymass/vim-matchup'
 
 call plug#end()
 
@@ -650,3 +650,8 @@ let g:nnn#action = {
       \ '<c-v>': 'vsplit' }
 let g:nnn#command = 'nnn -o -C'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" vim-matchup
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable offscreen matches
+let g:matchup_matchparen_offscreen = {}
