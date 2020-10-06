@@ -443,6 +443,7 @@ nnoremap <Leader>gr  :Gread<CR>
 nnoremap <Leader>gc  :Git commit -v<CR>
 nnoremap <Leader>gp  :Git push<CR>
 nnoremap <Leader>gl  :Git pull<CR>
+nnoremap <Leader>glg :Git log<CR>
 nnoremap <Leader>gdi :Gd<CR>
 nnoremap <Leader>gds :Gds<CR>
 
