@@ -179,8 +179,8 @@ au VimResized * execute "set scroll=" . &lines / 3
 "" Custom mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Switch to next/previous buffer
-nnoremap <silent> <M-h> :bprevious<CR>
-nnoremap <silent> <M-l> :bnext<CR>
+nnoremap <silent> <C-M-h> :bprevious<CR>
+nnoremap <silent> <C-M-l> :bnext<CR>
 
 " Toggle last visited buffer
 nnoremap <silent> <Leader>; :b#<CR>
