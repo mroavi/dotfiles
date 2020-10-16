@@ -126,6 +126,12 @@ alias cs8="base16_dracula"
 alias cs9="base16_solarized-dark"
 alias cs0="base16_seti"
 
+# Handy clear and list all
+cls () {
+  clr
+  lsa
+}
+
 # mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=2
 
