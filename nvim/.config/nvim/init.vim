@@ -137,6 +137,9 @@ Plug 'mcchrish/nnn.vim'
 " Highlight, navigate, and operate on sets of matching text
 Plug 'andymass/vim-matchup'
 
+" Integrates Arduino's IDE's command line interface
+Plug 'stevearc/vim-arduino'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -666,3 +669,16 @@ let g:nnn#command = 'nnn -o -C'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable offscreen matches
 let g:matchup_matchparen_offscreen = {}
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" vim-arduino
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:arduino_use_slime = 1
+
+nnoremap <buffer> <leader>am :ArduinoVerify<CR>
+nnoremap <buffer> <leader>au :ArduinoUpload<CR>
+nnoremap <buffer> <leader>ad :ArduinoUploadAndSerial<CR>
+nnoremap <buffer> <leader>ab :ArduinoChooseBoard<CR>
+nnoremap <buffer> <leader>ap :ArduinoChooseProgrammer<CR>
+nnoremap <buffer> <leader>as :ArduinoChoosePort<CR>
+
