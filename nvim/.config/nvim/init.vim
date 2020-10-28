@@ -406,6 +406,10 @@ nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
 nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
+inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft<CR>
+inoremap <silent> <C-j> <C-o>:TmuxNavigateDown<CR>
+inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<CR>
+inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-highlightedyank
