@@ -1,7 +1,7 @@
 " No space between comment and code
 let b:commentary_format = '"%s'
 " Insert comment character at the start of the line
-let b:commentary_startofline = 1
+let b:commentary_startofline = 0
 
 " Handy header mappings
 nnoremap <buffer><Leader>1 m`<S-o><Esc>80a"<Esc>yyjp``

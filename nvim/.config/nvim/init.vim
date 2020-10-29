@@ -455,7 +455,7 @@ nnoremap <Leader>gds :Gds<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap ,  <Plug>Commentary
 nmap ,, <Plug>CommentaryLine
-let b:commentary_startofline = 1
+let b:commentary_startofline = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-rooter
