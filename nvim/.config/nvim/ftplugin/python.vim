@@ -1,7 +1,5 @@
 " No space between comment character and code
 let b:commentary_format = '#%s'
-" Insert comment character at the start of the line
-let b:commentary_startofline = 0
 
 " Use '##' to define cells instead of using marks
 let g:ipython_cell_delimit_cells_by = 'tags'
