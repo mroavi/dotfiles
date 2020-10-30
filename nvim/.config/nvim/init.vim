@@ -32,9 +32,6 @@ Plug 'ap/vim-css-color'
 " Seamlessly run Python code from Vim in IPython
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 
-" Vim support for Julia.
-Plug 'JuliaEditorSupport/julia-vim'
-
 " Cell support for Julia in Vim
 Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
@@ -55,6 +52,9 @@ Plug 'mhinz/vim-startify'
 
 " Vim plugin that provides additional text objects
 Plug 'wellle/targets.vim'
+
+" A solid language pack for Vim.
+Plug 'sheerun/vim-polyglot'
 
 " TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
