@@ -56,6 +56,9 @@ Plug 'wellle/targets.vim'
 " A solid language pack for Vim.
 Plug 'sheerun/vim-polyglot'
 
+" Auto format pasted code
+Plug 'sickill/vim-pasta'
+
 " TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
 
