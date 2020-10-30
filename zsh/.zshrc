@@ -19,10 +19,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Prompt at the bottom of the terminal (https://github.com/romkatv/powerlevel10k/issues/563)
-clr () {
+c () {
   printf '\n%.0s' {1..100}
 }
-clr
+c
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -107,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 alias v="nvim"
 alias jl="julia"
 alias o="xdg-open"
-alias lsl="ls -lh"
+alias l="ls -1"
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias dotfiles="cd ~/dotfiles"
 alias phd="cd ~/Dropbox/TUe/PhD"
