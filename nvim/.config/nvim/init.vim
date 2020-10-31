@@ -74,7 +74,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/vim-slash'
 
 " Provides support for writing LaTeX documents
-Plug 'lervag/vimtex', { 'for': ['tex'] }
+Plug 'lervag/vimtex'
 
 " Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
@@ -326,6 +326,8 @@ let g:vimtex_compiler_latexmk = {
       \ 'build_dir' : 'build',
       \}
 
+let g:tex_flavor = 'latex'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -515,7 +517,7 @@ lua << EOF
   nvim_lsp.clangd.setup{
     on_attach=on_attach_vim,
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
-    filetypes = { "c", "cpp", "objc", "objcpp" },
+    filetypes = { "c", "cpp", "objc", "objcpp", "arduino" },
   }
   nvim_lsp.julials.setup({on_attach=on_attach_vim})
 EOF
