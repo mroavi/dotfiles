@@ -206,8 +206,8 @@ alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bo
 _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
 _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
 
-# gco-fzf - checkout git commit with previews
-gco-fzf() {
+# Checkout git commit with previews
+fzf-gco() {
   local commit
   commit=$( glNoGraph |
     fzf --no-sort --reverse --tiebreak=index --no-multi --height 100% \
@@ -215,8 +215,8 @@ gco-fzf() {
   git checkout $(echo "$commit" | sed "s/ .*//")
 }
 
-# glg-fzf - git commit browser with previews
-glg-fzf() {
+# Git commit browser with previews
+fzf-glg() {
   glNoGraph |
     fzf --no-sort --reverse --tiebreak=index --no-multi --height 100% \
       --ansi --preview="$_viewGitLogLine" \
@@ -230,7 +230,7 @@ glg-fzf() {
 # -----------------------------------------------------------------------------
 
 # List only the ones you can kill
-kill-fzf() {
+fzf-kill() {
   local pid
   if [ "$UID" != "0" ]; then
     pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
