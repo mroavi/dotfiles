@@ -19,10 +19,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Prompt at the bottom of the terminal (https://github.com/romkatv/powerlevel10k/issues/563)
-c () {
+clr () {
   printf '\n%.0s' {1..100}
 }
-c
+clr
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
