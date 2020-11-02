@@ -285,21 +285,21 @@ setopt nomenucomplete
 #bindkey '^ ' complete-word
 bindkey '^ ' autosuggest-accept
 
-## mrv: Switch to normal mode using 'jk' (specific to zsh(?))
-#bindkey -M viins 'jk' vi-cmd-mode
-#bindkey -M viins 'kj' vi-cmd-mode
-
 # mrv: Disable Ctrl-S from freezing Vim
 # See: https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
 stty -ixon
 
+# =============================================================================
 # Base16 Shell
+# =============================================================================
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
   [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
     eval "$("$BASE16_SHELL/profile_helper.sh")"
 
+## =============================================================================
 ## >>> conda initialize >>>
+## =============================================================================
 ## !! Contents within this block are managed by 'conda init' !!
 #__conda_setup="$('/home/mroavi/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 #if [ $? -eq 0 ]; then
@@ -314,9 +314,35 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 #unset __conda_setup
 ## <<< conda initialize <<<
 
+# =============================================================================
+# Change cursor shape for different vi modes.
+# https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
+# =============================================================================
 
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# =============================================================================
 # mrv: Start up tmux automatically
 # If not running interactively, do not do anything
+# =============================================================================
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #  exec tmux a
   exec tmux
