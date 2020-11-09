@@ -327,7 +327,11 @@ let g:vimtex_compiler_latexmk = {
       \}
 
 let g:tex_flavor = 'latex'
-let g:vimtex_quickfix_enabled=1
+
+" Disable custom warnings based on regexp
+let g:vimtex_quickfix_ignore_filters = [
+      \ 'Underfull .*',
+      \]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-gitgutter
