@@ -327,6 +327,7 @@ let g:vimtex_compiler_latexmk = {
       \}
 
 let g:tex_flavor = 'latex'
+let g:vimtex_quickfix_enabled=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-gitgutter
