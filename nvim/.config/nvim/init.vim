@@ -155,11 +155,11 @@ call plug#end()
 "" Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://neovim.io/doc/user/options.html#'shada'
-set shada=%,<800,'50,/1000,:1000,h,f1
-"         | |    |   |     |     | + store file marks 0-9,A-Z
-"         | |    |   |     |     + disable 'hlsearch' while loading viminfo
-"         | |    |   |     + maximum number of items in the command-line history to be saved
-"         | |    |   + maximum number of items in the search pattern history to be saved
+set shada=%,<800,'500,/100,:500,h,f1
+"         | |    |    |    |    | + store file marks 0-9,A-Z
+"         | |    |    |    |    + disable 'hlsearch' while loading viminfo
+"         | |    |    |    + maximum number of items in the command-line history to be saved
+"         | |    |    + maximum number of items in the search pattern history to be saved
 "         | |    + number of old files remembered
 "         | + maximum num of lines saved for each register (old name for <, vi6.2)
 "         + save/restore buffer list
