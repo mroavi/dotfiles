@@ -340,6 +340,13 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # =============================================================================
+# Key bindings
+# =============================================================================
+
+# Use Ctrl+u to go up one dir
+bindkey -s '^u' 'cd ..^M'
+
+# =============================================================================
 # mrv: Start up tmux automatically
 # If not running interactively, do not do anything
 # =============================================================================
