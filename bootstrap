@@ -157,6 +157,7 @@ git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 #/bin/bash $HOME/.config/base16-shell/scripts/base16-oceanicnext.sh
 
 ## -----------------------------------------------------------------------------------------
+# TODO: Replace autojump installation with fasd
 # https://github.com/wting/autojump
 echo "Installing autojump..."
 
