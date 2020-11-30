@@ -24,6 +24,13 @@ clr () {
 }
 clr
 
+# Automatically run ls after every cd
+# Source: https://stackoverflow.com/a/3964198/1706778
+function chpwd() {
+  emulate -L zsh
+  ls -1 --color
+}
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -130,12 +137,15 @@ alias cs8="base16_dracula"
 alias cs9="base16_solarized-dark"
 alias cs0="base16_seti"
 
-# mrv: Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+# =============================================================================
+# Miscellaneous options
+# =============================================================================
+
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=2
 
-# mrv: disable auto cd
-# see https://unix.stackexchange.com/questions/126719/how-to-disable-auto-cd-in-zsh-with-oh-my-zsh
-unsetopt AUTO_CD
+# Change directories without typing `cd`
+setopt AUTO_CD
 
 # =============================================================================
 # Configure FZF
@@ -274,6 +284,9 @@ bindkey '^ ' autosuggest-accept
 # See: https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
 stty -ixon
 
+# Use Ctrl+u to go up one dir
+bindkey -s '^u' 'cd ..^M'
+
 # =============================================================================
 # Base16 Shell
 # =============================================================================
@@ -323,13 +336,6 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-# =============================================================================
-# Key bindings
-# =============================================================================
-
-# Use Ctrl+u to go up one dir
-bindkey -s '^u' 'cd ..^M'
 
 # =============================================================================
 # mrv: Start up tmux automatically
