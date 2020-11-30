@@ -72,8 +72,6 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   vi-mode
-  z
-  autojump
 )
 
 source $ZSH/oh-my-zsh.sh
