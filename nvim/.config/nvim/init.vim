@@ -700,12 +700,12 @@ let g:matchup_matchparen_offscreen = {}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:arduino_use_slime = 1
 
-nnoremap <buffer> <leader>am :ArduinoVerify<CR>
-nnoremap <buffer> <leader>au :ArduinoUpload<CR>
-nnoremap <buffer> <leader>ad :ArduinoUploadAndSerial<CR>
-nnoremap <buffer> <leader>ab :ArduinoChooseBoard<CR>
-nnoremap <buffer> <leader>ap :ArduinoChooseProgrammer<CR>
-nnoremap <buffer> <leader>as :ArduinoChoosePort<CR>
+nnoremap <buffer> <Leader>am :ArduinoVerify<CR>
+nnoremap <buffer> <Leader>au :ArduinoUpload<CR>
+nnoremap <buffer> <Leader>ad :ArduinoUploadAndSerial<CR>
+nnoremap <buffer> <Leader>ab :ArduinoChooseBoard<CR>
+nnoremap <buffer> <Leader>ap :ArduinoChooseProgrammer<CR>
+nnoremap <buffer> <Leader>as :ArduinoChoosePort<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" goyo.vim
@@ -743,14 +743,14 @@ require('telescope').setup{
 }
 EOF
 
-nnoremap <leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
-nnoremap <leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').oldfiles({shorten_path = true})<CR>
-nnoremap <leader>re <cmd>lua require('telescope.builtin').lsp_references()<CR>
-nnoremap <leader>sy <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
-nnoremap <leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
-nnoremap <leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
-nnoremap <leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
+nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
+nnoremap <Leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
+nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
+nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
+nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles({shorten_path = true})<CR>
+nnoremap <Leader>re <cmd>lua require('telescope.builtin').lsp_references()<CR>
+nnoremap <Leader>sy <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
+nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
+nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
+nnoremap <Leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
 
