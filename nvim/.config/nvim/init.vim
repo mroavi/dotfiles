@@ -349,6 +349,7 @@ let g:vimtex_quickfix_ignore_filters = [
 "" vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_map_keys = 0
+let g:gitgutter_show_msg_on_hunk_jumping = 0
 nmap <Leader>hs <Plug>(GitGutterStageHunk)
 nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
