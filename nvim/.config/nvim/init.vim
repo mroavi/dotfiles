@@ -38,9 +38,6 @@ Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 " Syntax highlighting for GNU Octave
 Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
 
-" Provides insert mode auto-completion for quotes, parens, brackets, etc.
-Plug 'raimondi/delimitmate'
-
 " Highlight group manipulation for Vim
 Plug 'wincent/pinnacle'
 
@@ -153,6 +150,9 @@ Plug 'junegunn/limelight.vim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
+" Provides insert mode auto-completion for quotes, parens, brackets, etc.
+Plug 'raimondi/delimitmate'
 
 call plug#end()
 
@@ -633,16 +633,23 @@ let g:completion_chain_complete_list = [
     \{'mode': '<c-n>'}
 \]
 
+" Fixes delimitmate's 'delimitMate_expand_cr' option
+let g:completion_confirm_key = ""
+imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
+      \ "\<Plug>(completion_confirm_completion)" : "\<c-e>\<CR>" : "\<Plug>delimitMateCR"
+
 " Manually trigger completion with
 inoremap <silent><expr> <C-Space> completion#trigger_completion()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" ultisnips
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsExpandTrigger       = "<CR>"
-let g:UltiSnipsListSnippets        = "<C-Tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+
+" Assign dummy keys (expand trigger and list snippets are taken care by completion-nvim)
+let g:UltiSnipsExpandTrigger       = "<\>"
+let g:UltiSnipsListSnippets        = "<\>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" quick-scope
@@ -754,4 +761,10 @@ nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
 nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
 nnoremap <Leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
 nnoremap <Leader>ma <cmd>lua require('telescope.builtin').keymaps()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" delimitmate
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
 
