@@ -753,4 +753,5 @@ nnoremap <Leader>sy <cmd>lua require('telescope.builtin').lsp_document_symbols()
 nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
 nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
 nnoremap <Leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
+nnoremap <Leader>ma <cmd>lua require('telescope.builtin').keymaps()<CR>
 
