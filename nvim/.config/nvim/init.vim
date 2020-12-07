@@ -59,6 +59,9 @@ Plug 'sheerun/vim-polyglot'
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
 
+" lua `fork` of vim-web-devicons for neovim
+Plug 'kyazdani42/nvim-web-devicons'
+
 " TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
 
@@ -148,6 +151,11 @@ Plug 'junegunn/goyo.vim'
 
 " Hyperfocus-writing in Vim
 Plug 'junegunn/limelight.vim'
+
+" Find, Filter, Preview, Pick. All lua, all the time
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -395,12 +403,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " Shift-Tab to select multiple results (-m flag required)
 " :Files runs $FZF_DEFAULT_COMMAND defined in .zshrc
 " All commands: https://github.com/junegunn/fzf.vim#commands
-nnoremap <Leader>fi :Files<CR>
-nnoremap <Leader>fh :History<CR>
-nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>rg :MyRg<CR>
-nnoremap <Leader>ag :Ag<CR>
-nnoremap <Leader>l  :Buffers<CR>
 nnoremap <Leader>aj :MyAj<CR>
 nnoremap <Leader>ch :History:<CR>
 
@@ -554,9 +557,9 @@ endif
 " Mappings (See `:h lsp-buf`)
 nnoremap          <Leader>i  <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap          <Leader>cw <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <Leader>re <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <Leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap                   K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap          <Leader>si <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " Diagnostics
 nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
@@ -717,4 +720,40 @@ nnoremap <Leader>go :Goyo 100%x100%<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" telescope.nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+local actions = require('telescope.actions')
+require('telescope').setup{
+  defaults = {
+    shorten_path = true,
+    prompt_position = "bottom",
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close,
+        ["<c-p>"] = false,
+        ["<c-k>"] = actions.move_selection_previous,
+        ["<c-n>"] = false,
+        ["<c-j>"] = actions.move_selection_next,
+      },
+      n = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
+}
+EOF
+
+nnoremap <leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
+nnoremap <leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').oldfiles({shorten_path = true})<CR>
+nnoremap <leader>re <cmd>lua require('telescope.builtin').lsp_references()<CR>
+nnoremap <leader>sy <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
+nnoremap <leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
+nnoremap <leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
+nnoremap <leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
 
