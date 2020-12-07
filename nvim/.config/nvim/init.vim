@@ -116,8 +116,8 @@ Plug 'edkolev/tmuxline.vim'
 " Nvim LSP client configurations
 Plug 'neovim/nvim-lsp'
 
-" A wrapper for neovim built in LSP diagnosis config
-Plug 'nvim-lua/diagnostic-nvim'
+" Quickstart configurations for the Nvim LSP client
+Plug 'neovim/nvim-lspconfig'
 
 " An async completion framework for neovim's built in LSP written in Lua
 Plug 'nvim-lua/completion-nvim'
@@ -527,33 +527,27 @@ if $SSH_CONNECTION
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" nvim-lsp
+"" nvim-lspconfig
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua << EOF
-  local nvim_lsp = require'nvim_lsp'
-  local on_attach_vim = function()
-      require'diagnostic'.on_attach()
-  end
-  nvim_lsp.clangd.setup{
+  local lspconfig = require'lspconfig'
+  lspconfig.clangd.setup{
     on_attach=on_attach_vim,
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
     filetypes = { "c", "cpp", "objc", "objcpp", "arduino" },
   }
-  nvim_lsp.julials.setup({on_attach=on_attach_vim})
+  lspconfig.julials.setup({on_attach=on_attach_vim})
 EOF
 
 " Do not run the following LSPs in SSH connections
 if !$SSH_CONNECTION
 lua << EOF
-  local nvim_lsp = require'nvim_lsp'
-  local on_attach_vim = function()
-      require'diagnostic'.on_attach()
-  end
-  nvim_lsp.vimls.setup({on_attach=on_attach_vim})
-  nvim_lsp.texlab.setup({on_attach=on_attach_vim})
-  nvim_lsp.bashls.setup({on_attach=on_attach_vim})
-  nvim_lsp.cmake.setup({on_attach=on_attach_vim})
-  nvim_lsp.pyls.setup({on_attach=on_attach_vim})
+  local lspconfig = require'lspconfig'
+  lspconfig.vimls.setup({on_attach=on_attach_vim})
+  lspconfig.texlab.setup({on_attach=on_attach_vim})
+  lspconfig.bashls.setup({on_attach=on_attach_vim})
+  lspconfig.cmake.setup({on_attach=on_attach_vim})
+  lspconfig.pyls.setup({on_attach=on_attach_vim})
 EOF
 endif
 
@@ -564,44 +558,46 @@ nnoremap <silent> <Leader>re <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <Leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap                   K <cmd>lua vim.lsp.buf.hover()<CR>
 
+" Diagnostics
+nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
+nnoremap [d <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
+lua << EOF
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = true,
+    signs = true,
+    update_in_insert = false,
+  }
+)
+EOF
+
 " Signs
-sign define LspDiagnosticsErrorSign       text=✖
-sign define LspDiagnosticsWarningSign     text=⚠
-sign define LspDiagnosticsInformationSign text=ℹ
-sign define LspDiagnosticsHintSign        text=➤
+sign define LspDiagnosticsSignError       text=✖
+sign define LspDiagnosticsSignWarning     text=⚠
+sign define LspDiagnosticsSignInformation text=ℹ
+sign define LspDiagnosticsSignHint        text=➤
 
 " Colors
-execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('bold,italic', 'ErrorMsg')
-execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({
+execute 'highlight LspDiagnosticsVirtualTextError ' . pinnacle#decorate('bold,italic', 'ErrorMsg')
+execute 'highlight LspDiagnosticsSignError ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('LspDiagnosticsError')
+\   'fg': pinnacle#extract_fg('LspDiagnosticsVirtualTextError')
 \ })
-execute 'highlight LspDiagnosticsWarning ' . pinnacle#decorate('bold,italic', 'Type')
-execute 'highlight LspDiagnosticsWarningSign ' . pinnacle#highlight({
+execute 'highlight LspDiagnosticsVirtualTextWarning ' . pinnacle#decorate('bold,italic', 'Type')
+execute 'highlight LspDiagnosticsSignWarning ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('LspDiagnosticsWarning')
+\   'fg': pinnacle#extract_fg('LspDiagnosticsVirtualTextWarning')
 \ })
-execute 'highlight LspDiagnosticsInformation ' . pinnacle#decorate('bold,italic', 'Type')
-execute 'highlight LspDiagnosticsInformationSign ' . pinnacle#highlight({
+execute 'highlight LspDiagnosticsVirtualTextInformation ' . pinnacle#decorate('bold,italic', 'Type')
+execute 'highlight LspDiagnosticsSignInformation ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('LspDiagnosticsInformation')
+\   'fg': pinnacle#extract_fg('LspDiagnosticsVirtualTextInformation')
 \ })
-execute 'highlight LspDiagnosticsHint ' . pinnacle#decorate('bold,italic', 'Type')
-execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
+execute 'highlight LspDiagnosticsVirtualTextHint ' . pinnacle#decorate('bold,italic', 'Type')
+execute 'highlight LspDiagnosticsSignHint ' . pinnacle#highlight({
 \   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('LspDiagnosticsHint')
+\   'fg': pinnacle#extract_fg('LspDiagnosticsVirtualTextHint')
 \ })
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" diagnostic-nvim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Go to next/prev diagnostic message
-nmap ]d :NextDiagnosticCycle<CR>
-nmap [d :PrevDiagnosticCycle<CR>
-
-let g:diagnostic_auto_popup_while_jump = 1
-let g:diagnostic_enable_virtual_text = 0
-let g:diagnostic_enable_underline = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" completion-nvim
