@@ -116,9 +116,6 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Simple tmux statusline generator with support for airline statusline integration
 Plug 'edkolev/tmuxline.vim'
 
-" Nvim LSP client configurations
-Plug 'neovim/nvim-lsp'
-
 " Quickstart configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
 
