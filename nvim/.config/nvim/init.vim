@@ -547,7 +547,7 @@ lua << EOF
   lspconfig.texlab.setup({on_attach=on_attach_vim})
   lspconfig.bashls.setup({on_attach=on_attach_vim})
   lspconfig.cmake.setup({on_attach=on_attach_vim})
-  lspconfig.pyls.setup({on_attach=on_attach_vim})
+  lspconfig.pyls_ms.setup({on_attach=on_attach_vim})
 EOF
 endif
 
