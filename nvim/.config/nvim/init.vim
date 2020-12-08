@@ -751,7 +751,7 @@ require('telescope').setup{
 EOF
 
 nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
-nnoremap <Leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
+nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
 nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
 nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles({shorten_path = true})<CR>
