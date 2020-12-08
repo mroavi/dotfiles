@@ -50,13 +50,13 @@ source $ZSH/oh-my-zsh.sh
 # fasd
 # =============================================================================
 eval "$(fasd --init auto)"
-alias c='fasd_cd -d'
-alias j='fasd_cd -d'
+alias j="fasd_cd -d"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias c="cd"
 alias v="nvim"
 alias jl="julia"
 alias o="xdg-open"
@@ -65,9 +65,10 @@ alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --
 alias dotfiles="cd ~/dotfiles"
 alias phd="cd ~/Dropbox/TUe/PhD"
 alias sz="source ~/.zshrc"
+
+# Color schemes
 alias off="base16_material"
 alias on="base16_solarized-light"
-
 alias cs1="base16_material"
 alias cs2="base16_tomorrow"
 alias cs3="base16_github"
