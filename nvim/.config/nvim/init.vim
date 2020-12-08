@@ -689,7 +689,7 @@ let g:mkdp_preview_options = {
 let g:nnn#set_default_mappings = 0
 let g:nnn#replace_netrw = 1
 nnoremap <silent><Leader>/ :NnnPicker %:p:h<CR>
-let g:nnn#layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top'} }
+let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'ColorColumn' } }
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-x>': 'split',
