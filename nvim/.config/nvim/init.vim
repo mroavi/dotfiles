@@ -238,6 +238,9 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 
+" Select pasted text
+nnoremap <expr> gp '`[' . getregtype()[0] . '`]'
+
 " Clear highlight on pressing ESC
 nnoremap <silent> <ESC> :noh<CR><ESC>
 
@@ -536,7 +539,7 @@ lua << EOF
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
     filetypes = { "c", "cpp", "objc", "objcpp", "arduino" },
   }
-  lspconfig.julials.setup({on_attach=on_attach_vim})
+  --lspconfig.julials.setup({on_attach=on_attach_vim})
 EOF
 
 " Do not run the following LSPs in SSH connections
