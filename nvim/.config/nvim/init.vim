@@ -547,7 +547,7 @@ lua << EOF
   lspconfig.texlab.setup({on_attach=on_attach_vim})
   lspconfig.bashls.setup({on_attach=on_attach_vim})
   lspconfig.cmake.setup({on_attach=on_attach_vim})
-  lspconfig.pyls_ms.setup({on_attach=on_attach_vim})
+  --lspconfig.pyls_ms.setup({on_attach=on_attach_vim})
 EOF
 endif
 
@@ -706,6 +706,7 @@ let g:matchup_matchparen_offscreen = {}
 "" vim-arduino
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:arduino_use_slime = 1
+let g:arduino_serial_baud = 9600
 
 nnoremap <buffer> <Leader>am :ArduinoVerify<CR>
 nnoremap <buffer> <Leader>au :ArduinoUpload<CR>
