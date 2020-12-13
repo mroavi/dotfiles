@@ -259,7 +259,6 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Chrome-like tab mappings
 nnoremap <C-t>     :tabnew<CR>
-nnoremap <C-q>     :tabclose<CR>
 " Ctrl+Shift+w -> close (hack: see alacritty.yml and .tmux.conf)
 nnoremap <C-S-0>   :close<CR>
 
