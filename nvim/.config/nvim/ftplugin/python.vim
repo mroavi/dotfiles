@@ -9,7 +9,7 @@ let g:slime_cell_delimiter = "##"
 nnoremap <buffer><silent> <M-j> :set nows<CR>/##<CR>:noh<CR>:set ws<CR>
 nnoremap <buffer><silent> <M-k> :set nows<CR>?##<CR>:noh<CR>:set ws<CR>
 
-" IPython  
+" Run file and clear REPL with IPythonCell
 nnoremap <buffer> <Leader>rr  :IPythonCellRun<CR>
 nnoremap <buffer> <Leader>clr :IPythonCellClear<CR>
 
