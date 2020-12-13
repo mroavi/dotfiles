@@ -1,17 +1,16 @@
 " No space between comment character and code
 let b:commentary_format = '#%s'
 
-" Use '##' to define cells instead of using marks
-let g:ipython_cell_delimit_cells_by = 'tags'
-let g:ipython_cell_tag = '##'
-
-" Use ipython's %cpaste magic function
+" Use ipython's %cpaste magic function and use ## to delimit cells
 let g:slime_python_ipython = 1
+let g:slime_cell_delimiter = "##"
 
+" Jump to the next/prev ## delimeter
+nnoremap <buffer><silent> <M-j> :set nows<CR>/##<CR>:noh<CR>:set ws<CR>
+nnoremap <buffer><silent> <M-k> :set nows<CR>?##<CR>:noh<CR>:set ws<CR>
+
+" IPython  
 nnoremap <buffer> <Leader>rr  :IPythonCellRun<CR>
-nnoremap <buffer> <M-CR>      :IPythonCellExecuteCell<CR>
-nnoremap <buffer> <M-k>       :IPythonCellPrevCell<CR>
-nnoremap <buffer> <M-j>       :IPythonCellNextCell<CR>
 nnoremap <buffer> <Leader>clr :IPythonCellClear<CR>
 
 " Handy header mappings

@@ -455,6 +455,7 @@ autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>SlimeRegionSend
 autocmd FileType julia,python,octave nmap <buffer> <C-CR> <Plug>SlimeLineSend
 autocmd FileType julia,python,octave imap <buffer> <C-CR> <C-o><Plug>SlimeLineSend
 autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
+autocmd FileType julia,python,octave nmap <buffer> <M-CR> <Plug>SlimeSendCell
 
 " Motion-based mappings
 autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
