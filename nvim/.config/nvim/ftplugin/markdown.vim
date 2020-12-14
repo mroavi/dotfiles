@@ -9,5 +9,8 @@ nnoremap <buffer><Leader>6 m`^i###### <ESC>``7l
 " Turn spell checking on
 setlocal spell spelllang=en_us
 
+" Suggest words from the active spell checking in the completion menu
+set complete+=kspell
+
 " Align markdown tables
 vnoremap <Leader><Bslash> :EasyAlign*<Bar><Enter>
