@@ -131,7 +131,7 @@ Plug 'unblevable/quick-scope'
 " Syntax highlighting, matching rules and mappings for the original Markdown and extensions
 Plug 'plasticboy/vim-markdown'
 
-" Preview markdown on your browser with synchronised scrolling and flexible configuration
+" Preview markdown on your browser with synchronised scrolling
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " Fast and featureful file manager in vim/neovim powered by nnn
