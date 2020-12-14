@@ -195,38 +195,8 @@ au VimResized * execute "set scroll=" . &lines / 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Custom mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Toggle last visited buffer
-nnoremap <silent> <Leader>; :b#<CR>
-
-" Delete current buffer
-nnoremap <silent><Leader>bd :bdelete<CR>
-
-" Resize splits easier
-noremap <M-S-j> :resize -3<CR>
-noremap <M-S-k> :resize +3<CR>
-noremap <M-S-h> :vertical resize +3<CR>
-noremap <M-S-l> :vertical resize -3<CR>
-
 " Make Y behave like other capitals
 nnoremap Y y$
-
-" Open help in vertical split
-cnoreabbrev H vert bo h
-
-" Maximize current window height
-nnoremap <Leader>- <C-w>_
-
-" Make all windows equally high and wide
-nnoremap <Leader>= <C-w>=
-
-" Substitute all occurrences of the content of the search register with new text
-nnoremap <Leader>sa :%s///g<left><left>
-
-" Unload buffer and switch to last visited buffer
-nnoremap <silent> <Leader>o :bdelete<CR>
-
-" Close all buffers but the current one
-map <Leader>bo :%bdelete\|e#<CR>
 
 " Write to disk
 nnoremap <Leader>w :write<CR>
@@ -238,11 +208,29 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 
+" Toggle last visited buffer
+nnoremap <silent> <Leader>; :b#<CR>
+
+" Delete current buffer
+nnoremap <silent><Leader>bd :bdelete<CR>
+
+" Unload buffer and switch to last visited buffer (opposite of <Leader>i)
+nnoremap <silent> <Leader>o :bdelete<CR>
+
+" Close all buffers but the current one
+map <Leader>bo :%bdelete\|e#<CR>
+
+" Resize splits easier
+noremap <M-S-j> :resize -3<CR>
+noremap <M-S-k> :resize +3<CR>
+noremap <M-S-h> :vertical resize +3<CR>
+noremap <M-S-l> :vertical resize -3<CR>
+
+" Substitute all occurrences of the content of the search register with new text
+nnoremap <Leader>sa :%s///g<left><left>
+
 " Select pasted text
 nnoremap <expr> gp '`[' . getregtype()[0] . '`]'
-
-" Clear highlight on pressing ESC
-nnoremap <silent> <ESC> :noh<CR><ESC>
 
 " Source .vimrc
 map <Leader>sv :w<CR>:source $MYVIMRC<CR>
@@ -253,9 +241,15 @@ map <Leader>ss :w<CR>:source %<CR>
 " Change to the directory of the current buffer and print it
 nnoremap <Leader>cdb :cd %:p:h<CR> :pwd<CR>
 
+" Open help in vertical split
+cnoreabbrev H vert bo h
+
 " Move selected lines up/down reindenting if necessary
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+" Clear highlight on pressing ESC
+nnoremap <silent> <ESC> :noh<CR><ESC>
 
 " Chrome-like tab mappings
 nnoremap <C-t>     :tabnew<CR>
