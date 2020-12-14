@@ -113,7 +113,7 @@ Plug 'takac/vim-hardtime'
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
-" Simple tmux statusline generator with support for airline statusline integration
+" Simple tmux statusline generator, integrates with airline statusline
 Plug 'edkolev/tmuxline.vim'
 
 " Quickstart configurations for the Nvim LSP client
@@ -125,10 +125,10 @@ Plug 'nvim-lua/completion-nvim'
 " UltiSnips is the ultimate solution for snippets in Vim (tracks the engine)
 Plug 'SirVer/ultisnips'
 
-" Highlight a unique character in every word on a line when f, t, F or T is pressed
+" Highlight a unique character in words on a line when f, t, F or T is pressed
 Plug 'unblevable/quick-scope'
 
-" Syntax highlighting, matching rules and mappings for the original Markdown and extensions
+" Syntax highlighting, matching rules and mappings for Markdown and extensions
 Plug 'plasticboy/vim-markdown'
 
 " Preview markdown on your browser with synchronised scrolling
@@ -166,27 +166,27 @@ call plug#end()
 set shada=%,<800,'500,/100,:500,h,f1
 "         | |    |    |    |    | + store file marks 0-9,A-Z
 "         | |    |    |    |    + disable 'hlsearch' while loading viminfo
-"         | |    |    |    + maximum number of items in the command-line history to be saved
-"         | |    |    + maximum number of items in the search pattern history to be saved
+"         | |    |    |    + max num of items in the cmd-line hist to be saved
+"         | |    |    + max num of items in the search history to be saved
 "         | |    + number of old files remembered
-"         | + maximum num of lines saved for each register (old name for <, vi6.2)
+"         | + maximum num of lines saved for each register
 "         + save/restore buffer list
-set number relativenumber " lines are numbered relative to the line the cursor is on
+set number relativenumber " lines are numbered relative to the current line
 set noswapfile " they're just annoying. Who likes them?
 set wrap linebreak nolist " avoid breaking lines in the middle of words
 set noshowmode " don't show mode in status bar (taken care of by airline)
-set hidden " allows switching from unwritten buffers and remembers the buffer undo history
+set hidden " allows switching from unwritten buffers, remember the undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
-set splitbelow splitright " open a new split at to bottom or to the right of the current one
+set splitbelow splitright " open split below or to the right of the current one
 set signcolumn=yes " always show sign column
 set tabstop=2 softtabstop=2 shiftwidth=2 " configure number of spaces per tab
 set expandtab " use spaces instead of tab chars
 set shiftround " tab / shifting moves to closest tabstop
 set smartindent " intelligently dedent / indent new lines based on rules
 set updatetime=100 " among others, governs gitgutter's update time
-set inccommand=split " shows the effects of a command incrementally, as you type
-set listchars=tab:▸\ ,space:_,eol:¬ " define symbols for tabstops, spaces and EOLs
-set scrolloff=10 " minimal number of screen lines to keep above and below the cursor
+set inccommand=split " shows the effects of a command incrementally as you type
+set listchars=tab:▸\ ,space:_,eol:¬ " symbols for tabstops, spaces and EOLs
+set scrolloff=10 " min num of screen lines to keep above and below the cursor
 
 " Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
@@ -225,7 +225,7 @@ nnoremap <Leader>= <C-w>=
 " Substitute all occurrences of the content of the search register with new text
 nnoremap <Leader>sa :%s///g<left><left>
 
-" Unload buffer and switch to last visited buffer (to be used in conjunction with <Ledaer>i)
+" Unload buffer and switch to last visited buffer
 nnoremap <silent> <Leader>o :bdelete<CR>
 
 " Close all buffers but the current one
@@ -265,7 +265,7 @@ nnoremap <C-t>     :tabnew<CR>
 " Ctrl+Shift+w -> close (hack: see alacritty.yml and .tmux.conf)
 nnoremap <C-S-0>   :close<CR>
 
-" Strip trailing whitespace from all lines in a file (https://vi.stackexchange.com/a/456/27039)
+" Strip trailing whitespace from all lines (https://vi.stackexchange.com/a/456/27039)
 fun! TrimWhitespace()
   let l:save = winsaveview()
   keeppatterns %s/\s\+$//e
