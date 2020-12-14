@@ -331,8 +331,8 @@ let g:airline#extensions#wordcount#enabled = 0
 let g:airline_detect_spell = 0
 let g:airline_skip_empty_sections = 1
 let g:airline_section_x = ''
-let g:airline_section_y = ''
-let g:airline_section_z = '%v'
+let g:airline_section_y = '%v'
+let g:airline_section_z = ''
 let g:airline_mode_map = {
     \ '__'     : '-',
     \ 'c'      : 'C',
