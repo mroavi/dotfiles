@@ -50,7 +50,7 @@ Plug 'mhinz/vim-startify'
 " Vim plugin that provides additional text objects
 Plug 'wellle/targets.vim'
 
-" A solid language pack for Vim.
+" A solid language pack for Vim
 Plug 'sheerun/vim-polyglot'
 
 " Auto format pasted code
@@ -124,9 +124,6 @@ Plug 'nvim-lua/completion-nvim'
 
 " UltiSnips is the ultimate solution for snippets in Vim (tracks the engine)
 Plug 'SirVer/ultisnips'
-
-" Highlight a unique character in words on a line when f, t, F or T is pressed
-Plug 'unblevable/quick-scope'
 
 " Syntax highlighting, matching rules and mappings for Markdown and extensions
 Plug 'plasticboy/vim-markdown'
@@ -681,12 +678,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 " Assign dummy keys (expand trigger and list snippets are taken care by completion-nvim)
 let g:UltiSnipsExpandTrigger       = "<\>"
 let g:UltiSnipsListSnippets        = "<\>"
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" quick-scope
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Trigger a highlight in the appropriate direction when pressing these keys:
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-markdown
