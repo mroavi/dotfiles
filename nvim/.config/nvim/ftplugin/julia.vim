@@ -6,6 +6,8 @@ let g:julia_cell_delimit_cells_by = 'tags'
 let g:julia_cell_tag = '##'
 nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
 nnoremap <buffer> <Leader>clr :JuliaCellClear<CR>
+" Hack: Alacritty sends Ctrl+Shift+3 when Ctrl+Shift+Enter is pressed
+nnoremap <buffer> <C-S-3> :JuliaCellRun<CR>
 
 " vim-slime
 let g:slime_cell_delimiter = "##"

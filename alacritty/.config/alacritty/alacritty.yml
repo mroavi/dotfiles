@@ -579,13 +579,15 @@ key_bindings:
   #   See: https://stackoverflow.com/a/31961401/1706778
   # Hack: intercept Ctrl+Shift+w and send the X code for Ctrl+Shift+0
   # Hack: intercept Ctrl+Shift+s and send the X code for Ctrl+Shift+1
-  # Hack: intercept Ctrl+Shift+v and send the X code for Ctrl+Shift+.
-  #   See: https://github.com/tmux/tmux/blob/master/xterm-keys.c
+  # Hack: intercept Ctrl+Shift+v and send the X code for Ctrl+Shift+2
+  # Hack: intercept Ctrl+Shift+Enter and send the X code for Ctrl+Shift+3
+  #   See: https://fossies.org/linux/tmux/xterm-keys.c
   - { key: Tab,     mods: Control,       chars:  "\x1b[27;5;9~"     }
   - { key: Tab,     mods: Control|Shift, chars:  "\x1b[27;6;9~"     }
   - { key: W,       mods: Control|Shift, chars:  "\x1b[27;6;48~"    }
   - { key: S,       mods: Control|Shift, chars:  "\x1b[27;6;49~"    }
-  - { key: V,       mods: Control|Shift, chars:  "\x1b[27;6;46~"    }
+  - { key: V,       mods: Control|Shift, chars:  "\x1b[27;6;50~"    }
+  - { key: Return,  mods: Control|Shift, chars:  "\x1b[27;6;51~"    }
   - { key: Return,  mods: Shift,         chars:  "\x1b[13;2u"       }
   - { key: Return,  mods: Control,       chars:  "\x1b[13;5u"       }
   - { key: P,       mods: Control|Shift, action: Paste              }
