@@ -389,6 +389,7 @@ nmap [h         <Plug>(GitGutterPrevHunk)
 "" fzf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default fzf layout
+"(see: https://github.com/junegunn/fzf.vim/issues/821#issuecomment-581481211)
 "let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6, 'border': 'sharp' } }
 
