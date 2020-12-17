@@ -389,7 +389,8 @@ nmap [h         <Plug>(GitGutterPrevHunk)
 "" fzf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default fzf layout
-let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
+"let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6, 'border': 'sharp' } }
 
 " This are the default extra key bindings
 let g:fzf_action = {
@@ -409,7 +410,7 @@ let g:fzf_colors =
 \   'bg+':      ['bg', 'CursorLine', 'CursorColumn'],
 \   'hl+':      ['fg', 'Statement'],
 \   'info':     ['fg', 'PreProc'],
-\   'border':   ['fg', 'Ignore'],
+\   'border':   ['fg', 'Normal'],
 \   'prompt':   ['fg', 'Conditional'],
 \   'pointer':  ['fg', 'Exception'],
 \   'marker':   ['fg', 'Keyword'],
@@ -422,9 +423,13 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " Shift-Tab to select multiple results (-m flag required)
 " :Files runs $FZF_DEFAULT_COMMAND defined in .zshrc
 " All commands: https://github.com/junegunn/fzf.vim#commands
+nnoremap <Leader>fi :Files<CR>
+"nnoremap <Leader>fh :History<CR>
+"nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>rg :MyRg<CR>
+"nnoremap <Leader>ls  :Buffers<CR>
 nnoremap <Leader>aj :MyAj<CR>
-nnoremap <Leader>ch :History:<CR>
+"nnoremap <Leader>ch :History:<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
 function! RipgrepFzf(query, fullscreen)
@@ -768,7 +773,7 @@ require('telescope').setup{
 EOF
 
 nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
-nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
+"nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
 nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
 nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles({shorten_path = true})<CR>
