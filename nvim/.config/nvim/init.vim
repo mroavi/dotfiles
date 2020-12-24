@@ -29,6 +29,9 @@ Plug 'vim-airline/vim-airline-themes'
 " A very fast, multi-syntax context-sensitive color name highlighter
 Plug 'ap/vim-css-color'
 
+" Vim support for Julia
+Plug 'JuliaEditorSupport/julia-vim'
+
 " Seamlessly run Python code from Vim in IPython
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 
