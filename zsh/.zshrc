@@ -42,15 +42,23 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   vi-mode
+  z
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # =============================================================================
-# fasd
+# z
 # =============================================================================
-eval "$(fasd --init auto)"
-alias j="fasd_cd -d"
+unalias z
+z() {
+  if [[ -z "$*" ]]; then
+    cd "$(_z -l 2>&1 | fzf +s --tac | sed 's/^[0-9,.]* *//')"
+  else
+    _last_z_args="$@"
+    _z "$@"
+  fi
+}
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -65,6 +73,7 @@ alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --
 alias dotfiles="cd ~/dotfiles"
 alias phd="cd ~/Dropbox/TUe/PhD"
 alias sz="source ~/.zshrc"
+alias j="z"
 
 # Color schemes
 alias off="base16_material"
