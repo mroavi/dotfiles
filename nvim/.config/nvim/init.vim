@@ -50,9 +50,6 @@ Plug 'mhinz/vim-startify'
 " Vim plugin that provides additional text objects
 Plug 'wellle/targets.vim'
 
-" A solid language pack for Vim
-Plug 'sheerun/vim-polyglot'
-
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
 
