@@ -157,6 +157,9 @@ Plug 'raimondi/delimitmate'
 " Extends " and @ so you can see the contents of the registers.
 Plug 'junegunn/vim-peekaboo'
 
+" Nvim Treesitter configurations and abstraction layer
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -819,3 +822,16 @@ function! CreateCenteredFloatingWindow()
     au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
 let g:peekaboo_window="call CreateCenteredFloatingWindow()"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" nvim-treesitter
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "rust" },       -- list of language that will be disabled
+  },
+}
+EOF
