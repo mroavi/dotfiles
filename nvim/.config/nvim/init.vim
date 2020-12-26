@@ -281,6 +281,10 @@ fun! ReTab()
 endfun
 nnoremap <Leader>rt :call ReTab()<CR>
 
+" Print the highlight group used for the word under the cursor
+" https://vi.stackexchange.com/q/18454/27039
+command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name")
+
 "" Highlight the yanked text (conflicts with matchup - keeping vim-highlightedyank instead)
 "augroup LuaHighlight
 "  autocmd!
