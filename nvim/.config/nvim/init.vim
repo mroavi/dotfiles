@@ -98,9 +98,6 @@ Plug 'airblade/vim-rooter'
 " A simple, easy-to-use Vim alignment plugin
 Plug 'junegunn/vim-easy-align'
 
-" TEMP: Plugin to help you stop repeating the basic movement keys
-Plug 'takac/vim-hardtime'
-
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
@@ -504,14 +501,6 @@ nnoremap <Leader>cdr :Rooter<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-hardtime
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:hardtime_default_on = 0
-let g:hardtime_allow_different_key = 1
-let g:hardtime_showmsg = 1
-let g:hardtime_maxcount = 3
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-which-key
