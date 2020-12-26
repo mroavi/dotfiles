@@ -161,6 +161,9 @@ Plug 'nvim-treesitter/playground'
 " The fastest Neovim colorizer
 Plug 'norcalli/nvim-colorizer.lua'
 
+" My color scheme
+Plug '~/repos/marlin.vim/'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -323,6 +326,8 @@ augroup on_change_colorschema
 augroup END
 
 call s:base16_customize()
+
+"colorscheme marlin
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-airline
