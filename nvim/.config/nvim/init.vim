@@ -793,6 +793,8 @@ lua require'colorizer'.setup()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" nvim-treesitter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>th :TSHighlightCapturesUnderCursor<CR>
+
 " Use :TSModuleInfo to see the modules supported by each language
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
