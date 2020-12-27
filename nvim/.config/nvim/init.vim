@@ -410,7 +410,7 @@ nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>rg :MyRg<CR>
 "nnoremap <Leader>ls  :Buffers<CR>
 nnoremap <Leader>aj :MyAj<CR>
-"nnoremap <Leader>ch :History:<CR>
+nnoremap <Leader>ch :History:<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
 function! RipgrepFzf(query, fullscreen)
