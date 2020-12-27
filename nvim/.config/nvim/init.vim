@@ -811,6 +811,8 @@ lua require'colorizer'.setup()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" playground
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>tp :TSPlaygroundToggle<CR>
+
 lua <<EOF
 require "nvim-treesitter.configs".setup {
   playground = {
