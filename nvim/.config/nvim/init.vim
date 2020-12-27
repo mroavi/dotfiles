@@ -145,10 +145,6 @@ Plug 'raimondi/delimitmate'
 " Extends " and @ so you can see the contents of the registers.
 Plug 'junegunn/vim-peekaboo'
 
-" Nvim Treesitter configurations and abstraction layer
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
-
 " The fastest Neovim colorizer
 Plug 'norcalli/nvim-colorizer.lua'
 
@@ -790,6 +786,11 @@ endfunction
 let g:peekaboo_window="call CreateCenteredFloatingWindow()"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" nvim-colorizer.lua
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua require'colorizer'.setup()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" nvim-treesitter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use :TSModuleInfo to see the modules supported by each language
@@ -802,11 +803,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" nvim-colorizer.lua
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua require'colorizer'.setup()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" playground
