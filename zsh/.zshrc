@@ -19,19 +19,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Prompt at the bottom of the terminal (https://github.com/romkatv/powerlevel10k/issues/563)
-clr () {
-  printf '\n%.0s' {1..100}
-}
-clr
-
-# Automatically run ls after every cd
-# Source: https://stackoverflow.com/a/3964198/1706778
-function chpwd() {
-  emulate -L zsh
-  ls -1 --color
-}
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -106,6 +93,19 @@ export KEYTIMEOUT=2
 
 # Change directories without typing `cd`
 setopt AUTO_CD
+
+# Prompt at the bottom of the terminal (https://github.com/romkatv/powerlevel10k/issues/563)
+clr () {
+  printf '\n%.0s' {1..100}
+}
+clr
+
+# Automatically run ls after every cd
+# Source: https://stackoverflow.com/a/3964198/1706778
+function chpwd() {
+  emulate -L zsh
+  ls -1 --color
+}
 
 # =============================================================================
 # Configure FZF
