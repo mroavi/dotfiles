@@ -46,15 +46,16 @@ z() {
   fi
 }
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+# =============================================================================
+# Aliases
+# =============================================================================
 alias c="cd"
 alias v="nvim"
 alias jl="julia"
 alias o="xdg-open"
 alias l="ls -1"
+alias lsa="ls -lah"
+alias ll='ls -lh'
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias dotfiles="cd ~/dotfiles"
 alias phd="cd ~/Dropbox/TUe/PhD"
@@ -76,6 +77,7 @@ alias cs9="base16_solarized-dark"
 alias cs0="base16_seti"
 
 # Git
+alias g='git'
 alias gst='git status'
 alias ga='git add'
 alias gc='git commit -v'
@@ -83,6 +85,7 @@ alias gp='git push'
 alias gl='git pull'
 alias glg='git log --stat'
 alias gd='git diff'
+alias gco='git checkout'
 
 # =============================================================================
 # Miscellaneous options
