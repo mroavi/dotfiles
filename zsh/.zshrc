@@ -38,7 +38,6 @@ function chpwd() {
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
   zsh-autosuggestions
   zsh-syntax-highlighting
   vi-mode
@@ -88,6 +87,15 @@ alias cs7="base16_gruvbox-dark-hard"
 alias cs8="base16_dracula"
 alias cs9="base16_solarized-dark"
 alias cs0="base16_seti"
+
+# Git
+alias gst='git status'
+alias ga='git add'
+alias gc='git commit -v'
+alias gp='git push'
+alias gl='git pull'
+alias glg='git log --stat'
+alias gd='git diff'
 
 # =============================================================================
 # Miscellaneous options
