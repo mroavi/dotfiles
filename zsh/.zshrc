@@ -5,33 +5,101 @@ export EDITOR="$VISUAL"
 export LANG="en_US.UTF-8"
 # export ARCHFLAGS="-arch x86_64"
 
-# Path to your oh-my-zsh installation.
-if [ "$SSH_CONNECTION" ]; then
-  export ZSH="/home/20180043/.oh-my-zsh"
-else
-  export ZSH="/home/mroavi/.oh-my-zsh"
-fi
+# =============================================================================
+# History
+# =============================================================================
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
 
-# Set name of the theme to load
-#ZSH_THEME="pygmalion"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
+# =============================================================================
+# Prompt
+# =============================================================================
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  vi-mode
-  z
-)
+# =============================================================================
+# Plugins
+# =============================================================================
+if [ "$SSH_CONNECTION" ]; then
+  echo TODO
+else
+  source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+  source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  source "/usr/share/z/z.sh"
+fi
 
-source $ZSH/oh-my-zsh.sh
+#export ZSH="/home/mroavi/.oh-my-zsh"
+#plugins=(
+#  zsh-autosuggestions
+#)
+#source $ZSH/oh-my-zsh.sh
+
+# =============================================================================
+# Completion
+# =============================================================================
+autoload -U compinit
+
+# Auto complete with case insenstivity
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
+
+#bindkey '  ' autosuggest-accept
+#bindkey '  ' complete-word
+setopt noautomenu
+setopt nomenucomplete
+
+# Defines behavior of 'Tab'
+# See: http://zsh.sourceforge.net/Guide/zshguide06.html
+#bindkey '^ ' menu-complete
+#bindkey '^ ' complete-word
+bindkey '^ ' autosuggest-accept
+
+# =============================================================================
+# Colors
+# =============================================================================
+autoload -U colors && colors
+
+# For GNU ls, we use the default ls color theme. They can later be overwritten by themes.
+(( $+commands[dircolors] )) && eval "$(dircolors -b)"
+ls --color -d . &>/dev/null && alias ls='ls --color=tty' || { ls -G . &>/dev/null && alias ls='ls -G' }
+
+# Take advantage of $LS_COLORS for completion as well.
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# =============================================================================
+# vi-mode
+# =============================================================================
+bindkey -v
+
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=2
+
+# Change cursor shape for different vi modes.
+# https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # =============================================================================
 # z
@@ -57,24 +125,16 @@ alias l="ls -1"
 alias lsa="ls -lah"
 alias ll='ls -lh'
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
-alias dotfiles="cd ~/dotfiles"
-alias phd="cd ~/Dropbox/TUe/PhD"
 alias sz="source ~/.zshrc"
 alias j="z"
 
+# Dir bookmarks
+alias dotfiles="cd ~/dotfiles"
+alias phd="cd ~/Dropbox/TUe/PhD"
+
 # Color schemes
-alias off="base16_material"
+alias off="base16_onedark"
 alias on="base16_solarized-light"
-alias cs1="base16_material"
-alias cs2="base16_tomorrow"
-alias cs3="base16_github"
-alias cs4="base16_oceanicnext"
-alias cs5="base16_tomorrow-night"
-alias cs6="base16_onedark"
-alias cs7="base16_gruvbox-dark-hard"
-alias cs8="base16_dracula"
-alias cs9="base16_solarized-dark"
-alias cs0="base16_seti"
 
 # Git
 alias g='git'
@@ -88,15 +148,23 @@ alias gd='git diff'
 alias gco='git checkout'
 
 # =============================================================================
-# Miscellaneous options
+# Dir navigation
 # =============================================================================
-
-# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
-export KEYTIMEOUT=2
-
 # Change directories without typing `cd`
-setopt AUTO_CD
+setopt auto_cd
 
+# Use Ctrl+u to go up one dir
+bindkey -s '^u' 'cd ..^M'
+
+# Directory stack navigation (use `popd` to go back in history)
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+bindkey -s '^p' 'popd^M' # Use Ctrl+p to go back one dir in history
+
+# =============================================================================
+# Miscellaneous
+# =============================================================================
 # Prompt at the bottom of the terminal (https://github.com/romkatv/powerlevel10k/issues/563)
 clr () {
   printf '\n%.0s' {1..100}
@@ -109,6 +177,10 @@ function chpwd() {
   emulate -L zsh
   ls -1 --color
 }
+
+# Disable Ctrl-S from freezing Vim
+# See: https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
+stty -ixon
 
 # =============================================================================
 # Configure FZF
@@ -228,29 +300,6 @@ export NNN_PLUG='j:fzz'
 export NNN_COLORS='4321'
 
 # =============================================================================
-# Custom key bindings
-# =============================================================================
-
-# Important: place this at the end since other commands (such as enabling FZF) override it
-#bindkey '  ' autosuggest-accept
-#bindkey '  ' complete-word
-setopt noautomenu
-setopt nomenucomplete
-
-# Defines behavior of 'Tab' (default in ohmyzsh is 'menu-complete')
-# See: http://zsh.sourceforge.net/Guide/zshguide06.html
-#bindkey '^ ' menu-complete
-#bindkey '^ ' complete-word
-bindkey '^ ' autosuggest-accept
-
-# mrv: Disable Ctrl-S from freezing Vim
-# See: https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
-stty -ixon
-
-# Use Ctrl+u to go up one dir
-bindkey -s '^u' 'cd ..^M'
-
-# =============================================================================
 # Base16 Shell
 # =============================================================================
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -274,31 +323,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 #fi
 #unset __conda_setup
 ## <<< conda initialize <<<
-
-# =============================================================================
-# Change cursor shape for different vi modes.
-# https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
-# =============================================================================
-
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # =============================================================================
 # ex - archive extractor

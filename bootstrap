@@ -25,7 +25,7 @@ if [ "$SSH_CONNECTION" ]; then
     make install
   fi
 else
-  sudo pacman -S stow
+  sudo pacman -S --needed stow
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -76,35 +76,53 @@ if [ "$SSH_CONNECTION" ]; then
     make install
   fi
 else
-  sudo pacman -S zsh
+  sudo pacman -S --needed zsh
 fi
-
-# -----------------------------------------------------------------------------------------
-echo "Installing oh-my-zsh..."
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # -----------------------------------------------------------------------------------------
 echo "Installing autosuggestions..."
 
-LOCAL_REPO=$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-REPO_URL=https://github.com/zsh-users/zsh-autosuggestions.git
-git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed zsh-autosuggestions
+else
+  mkdir -p ~/.local/share/zsh/plugins
+  LOCAL_REPO=$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  REPO_URL=https://github.com/zsh-users/zsh-autosuggestions.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+fi
 
 # -----------------------------------------------------------------------------------------
 echo "Installing zsh-syntax-highlighting..."
 
-LOCAL_REPO=$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-REPO_URL=https://github.com/zsh-users/zsh-syntax-highlighting.git
-git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed zsh-syntax-highlighting
+else
+  LOCAL_REPO=$HOME/.local/share/zsh/plugins/zsh-syntax-highlighting
+  REPO_URL=https://github.com/zsh-users/zsh-syntax-highlighting.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+fi
 
+# -----------------------------------------------------------------------------------------
+echo "Installing z..."
+
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed z
+else
+  LOCAL_REPO=$HOME/.local/share/zsh/plugins/z
+  REPO_URL=https://github.com/rupa/z.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+fi
 # -----------------------------------------------------------------------------------------
 echo "Installing Powerlevel10k..."
 
-# Add powerlevel10k to the list of Oh My Zsh themes.
-LOCAL_REPO=$HOME/.oh-my-zsh/custom/themes/powerlevel10k
-REPO_URL=https://github.com/romkatv/powerlevel10k.git
-git clone --depth=1 "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed zsh-theme-powerlevel10k
+else
+  mkdir -p ~/.local/share/zsh/themes
+  LOCAL_REPO=$HOME/.local/share/zsh/themes/powerlevel10k
+  REPO_URL=https://github.com/romkatv/powerlevel10k.git
+  git clone --depth=1 "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+fi
 
 # -----------------------------------------------------------------------------------------
 echo "Installing Fonts..."
@@ -134,7 +152,7 @@ filepath=Droid-Sans-Mono-Awesome.ttf
 echo "Installing ripgrep..."
 
 if [ ! "$SSH_CONNECTION" ]; then
-  sudo pacman -S ripgrep
+  sudo pacman -S --needed ripgrep
 fi
 
 # -----------------------------------------------------------------------------------------
@@ -142,7 +160,7 @@ fi
 echo "Installing bat..."
 
 if [ ! "$SSH_CONNECTION" ]; then
-  sudo pacman -S bat
+  sudo pacman -S --needed bat
 fi
 
 # -----------------------------------------------------------------------------------------
