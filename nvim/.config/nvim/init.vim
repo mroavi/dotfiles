@@ -460,8 +460,24 @@ autocmd FileType julia,python,octave imap <buffer> <C-CR> <C-o><Plug>SlimeLineSe
 autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
 
 " Motion-based mappings
-autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
-autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSend
+"autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
+autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSendj
+
+" My custom operator: sends a motion and moves to the next paragraph (see :h map-operator)
+" TODO: The comment symbol is hardcoded to '#'
+nmap <silent> s :set opfunc=SendParagraph<CR>g@
+
+function! SendParagraph(type, ...)
+  silent exe "normal! `[V`]"
+  silent exe "normal \<Plug>SlimeRegionSend"
+  silent exe "normal! }j"
+  " While the cursor's current char is '#' or an empty line, move one line down
+  let l:curr_char = matchstr(getline('.'), '\%' . col('.') . 'c.')
+  while l:curr_char == '#' || l:curr_char == ''
+    silent exe "normal! j0"
+    let l:curr_char = matchstr(getline('.'), '\%' . col('.') . 'c.')
+  endwhile
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-fugitive
