@@ -459,20 +459,31 @@ autocmd FileType julia,python,octave nmap <buffer> <C-CR> <Plug>SlimeLineSend
 autocmd FileType julia,python,octave imap <buffer> <C-CR> <C-o><Plug>SlimeLineSend
 autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
 
-" Motion-based mappings
+" Motion-based mappings (currently disabled in favor of the alternatives below)
 "autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
-autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSendj
+"autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSendj
 
-" My custom operator: sends a motion to the REPL and moves to the next 
-" statement (skips comments and empty lines) (see :h map-operator) 
-" TODO: The comment symbol is hardcoded to '#'
-nmap <silent> s :set opfunc=SendParagraph<CR>g@
+" Send paragraph/line and jump to next valid statement
+autocmd FileType julia,python,octave nmap <silent> s :set opfunc=SendParagraph<CR>g@
+autocmd FileType julia,python,octave nmap <buffer> <S-CR> :SndLine<CR>
+
+" My custom operator: sends a motion to the REPL and moves to the next
+" statement (skips comments and empty lines) (see :h map-operator)
+" See: https://vi.stackexchange.com/questions/5495/mapping-with-motion
 function! SendParagraph(type, ...)
   silent exe "normal! `[V`]"
   silent exe "normal \<Plug>SlimeRegionSend"
   silent exe "normal! }j"
   call GoToNextStatement()
 endfunction
+
+" My custom function: sends a line to the REPL and moves to the next statement
+function! SendLine()
+  silent exe "normal \<Plug>SlimeLineSend"
+  silent exe "normal! j"
+  call GoToNextStatement()
+endfunction
+command! -nargs=0 SndLine call SendLine()
 
 function! GoToNextStatement()
   let l:skip = Skip(getline('.'))
@@ -482,8 +493,9 @@ function! GoToNextStatement()
   endwhile
 endfunction
 
-function! Skip(line) abort
-  " Returns true if the trimmed line starts with '#', or if the line is empty
+" Returns true if the trimmed line starts with '#', or if the line is empty
+" TODO: The comment symbol is hardcoded to '#'
+function! Skip(line)
   return (substitute(a:line, '^\s\+', '', '')[0] == '#') || (getline('.') == '')
 endfunction
 
