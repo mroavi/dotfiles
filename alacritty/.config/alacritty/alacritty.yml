@@ -92,6 +92,18 @@ window:
   # Scroll to the bottom when new text is written to the terminal.
   #auto_scroll: false
 
+# mrv: To download the fonts:
+# mrv: > cd ~/repos
+# mrv: > git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git
+# mrv: > cd nerd-fonts
+# mrv: To install a font:
+# mrv: > ./install.sh DroidSansMono
+# mrv: Use the Font Manager to see the family name that should
+# mrv: be entered below, in this case "DroidSansMono Nerd Font".
+# mrv: Start a new terminal (Ctrl+Alt+t) to see the new font in action
+# mrv: To see the available fonts for install:
+# mrv: > ./install.sh dummy
+
 # Font configuration
 font:
   # Normal (roman) font face
@@ -102,15 +114,18 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-#    family: monospace
-    family: Hack Nerd Font
-#    family: DejaVuSansMono Nerd Font
-#    family: UbuntuMono Nerd Font
-#    family: Inconsolata Nerd Font
-#    family: Fura Mono Nerd Font
-#    family: Droid Sans Mono Awesome
-#    family: Inconsolata Awesome
-#    family: JetBrainsMono Nerd Font
+
+    #family: monospace
+    #family: Hack Nerd Font
+    #family: Source Code Pro
+    family: MesloLGSDZ Nerd FontMono
+    #family: JetBrainsMono Nerd Font
+    #family: DejaVuSansMono Nerd Font
+    #family: FiraCode Nerd Font
+    #family: DroidSansMono Nerd Font
+    #family: UbuntuMono Nerd Font
+    #family: Inconsolata Nerd Font
+    #family: Monoid Nerd Font
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -149,10 +164,11 @@ font:
     style: Bold Italic
 
   # Point size
-#  size: 10.5
-  size: 11.0
-#  size: 11.5
-#  size: 12.0
+  #size: 10.0
+  size: 10.5
+  #size: 11.0
+  #size: 11.5
+  #size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
