@@ -474,7 +474,7 @@ autocmd FileType julia,python,octave nmap <buffer> <S-CR> :SndLine<CR>
 function! SendParagraph(type, ...)
   silent exe "normal! `[V`]"
   silent exe "normal \<Plug>SlimeRegionSend"
-  silent exe "normal! }j"
+  silent exe "normal! `>j0"
   call GoToNextStatement()
 endfunction
 
