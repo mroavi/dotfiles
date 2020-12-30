@@ -465,6 +465,7 @@ autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
 
 " Send paragraph/line and jump to next valid statement
 autocmd FileType julia,python,octave nmap <silent> s :set opfunc=SendParagraph<CR>g@
+autocmd FileType julia,python,octave nmap <buffer> ss :SndLine<CR>
 autocmd FileType julia,python,octave nmap <buffer> <S-CR> :SndLine<CR>
 
 " My custom operator: sends a motion to the REPL and moves to the next
@@ -485,6 +486,7 @@ function! SendLine()
 endfunction
 command! -nargs=0 SndLine call SendLine()
 
+" TODO: make it break at the end of the file (for now Ctrl-c works)
 function! GoToNextStatement()
   let l:skip = Skip(getline('.'))
   while l:skip
