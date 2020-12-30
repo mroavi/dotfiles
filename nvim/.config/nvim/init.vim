@@ -466,7 +466,6 @@ autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSendj
 " My custom operator: sends a motion and moves to the next paragraph (see :h map-operator)
 " TODO: The comment symbol is hardcoded to '#'
 nmap <silent> s :set opfunc=SendParagraph<CR>g@
-
 function! SendParagraph(type, ...)
   silent exe "normal! `[V`]"
   silent exe "normal \<Plug>SlimeRegionSend"
