@@ -496,7 +496,7 @@ endfunction
 " Returns true if the trimmed line starts with '#', or if the line is empty
 " TODO: The comment symbol is hardcoded to '#'
 function! Skip(line)
-  return (substitute(a:line, '^\s\+', '', '')[0] == '#') || (getline('.') == '')
+  return (substitute(a:line, '^\s\+', '', '')[0] == '#') || (a:line == '')
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
