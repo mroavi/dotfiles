@@ -463,19 +463,28 @@ autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
 "autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
 autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSendj
 
-" My custom operator: sends a motion and moves to the next paragraph (see :h map-operator)
+" My custom operator: sends a motion to the REPL and moves to the next 
+" statement (skips comments and empty lines) (see :h map-operator) 
 " TODO: The comment symbol is hardcoded to '#'
 nmap <silent> s :set opfunc=SendParagraph<CR>g@
 function! SendParagraph(type, ...)
   silent exe "normal! `[V`]"
   silent exe "normal \<Plug>SlimeRegionSend"
   silent exe "normal! }j"
-  " While the cursor's current char is '#' or an empty line, move one line down
-  let l:curr_char = matchstr(getline('.'), '\%' . col('.') . 'c.')
-  while l:curr_char == '#' || l:curr_char == ''
-    silent exe "normal! j0"
-    let l:curr_char = matchstr(getline('.'), '\%' . col('.') . 'c.')
+  call GoToNextStatement()
+endfunction
+
+function! GoToNextStatement()
+  let l:skip = Skip(getline('.'))
+  while l:skip
+    silent exe "normal! j"
+    let l:skip = Skip(getline('.'))
   endwhile
+endfunction
+
+function! Skip(line) abort
+  " Returns true if the trimmed line starts with '#', or if the line is empty
+  return (substitute(a:line, '^\s\+', '', '')[0] == '#') || (getline('.') == '')
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
