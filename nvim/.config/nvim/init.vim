@@ -502,10 +502,9 @@ function! GoToNextStatement()
   endwhile
 endfunction
 
-" Returns true if the trimmed line starts with '#' or if the line is empty
-" TODO: The comment symbol is hardcoded to '#'
+" Returns true if the trimmed line starts with the comment symbol or if the line is empty
 function! SkipLine(line)
-  return (substitute(a:line, '^\s\+', '', '')[0] == '#') || (a:line == '')
+  return substitute(a:line,'^\s\+','','')[0] == split(&commentstring, '%s')[0][0] || a:line == ''
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
