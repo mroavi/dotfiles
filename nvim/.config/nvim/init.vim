@@ -463,41 +463,48 @@ autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
 "autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
 "autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSendj
 
-" Send paragraph/line and jump to next valid statement
-autocmd FileType julia,python,octave nmap <silent> s :set opfunc=SendParagraph<CR>g@
-autocmd FileType julia,python,octave nmap <buffer> ss :SndLine<CR>
-autocmd FileType julia,python,octave nmap <buffer> <S-CR> :SndLine<CR>
+" Send motion/line and jump to next valid statement
+autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<CR>g@
+autocmd FileType julia,python,octave nmap <buffer> ss :MySndLine<CR>
+autocmd FileType julia,python,octave nmap <buffer> <S-CR> :MySndLine<CR>
 
 " My custom operator: sends a motion to the REPL and moves to the next
 " statement (skips comments and empty lines) (see :h map-operator)
 " See: https://vi.stackexchange.com/questions/5495/mapping-with-motion
-function! SendParagraph(type, ...)
+function! MySendMotion(type, ...)
+  " Select lines involved in the motion
   silent exe "normal! `[V`]"
+  " Send the selected region
   silent exe "normal \<Plug>SlimeRegionSend"
+  " Go to the last char of the selection, and move to start of next line
   silent exe "normal! `>j0"
   call GoToNextStatement()
 endfunction
 
 " My custom function: sends a line to the REPL and moves to the next statement
-function! SendLine()
+function! MySendLine()
   silent exe "normal \<Plug>SlimeLineSend"
   silent exe "normal! j"
   call GoToNextStatement()
 endfunction
-command! -nargs=0 SndLine call SendLine()
+command! -nargs=0 MySndLine call MySendLine()
 
-" TODO: make it break at the end of the file (for now Ctrl-c works)
 function! GoToNextStatement()
-  let l:skip = Skip(getline('.'))
+  " Return if the cursor is on the last line
+  if line('.') == line('$') | return | endif
+  " Get a boolean stating whether the current line should be skipped or not
+  let l:skip = SkipLine(getline('.'))
   while l:skip
+    " Move down one line
     silent exe "normal! j"
-    let l:skip = Skip(getline('.'))
+    " Get a boolean stating whether the current line should be skipped or not
+    let l:skip = SkipLine(getline('.'))
   endwhile
 endfunction
 
-" Returns true if the trimmed line starts with '#', or if the line is empty
+" Returns true if the trimmed line starts with '#' or if the line is empty
 " TODO: The comment symbol is hardcoded to '#'
-function! Skip(line)
+function! SkipLine(line)
   return (substitute(a:line, '^\s\+', '', '')[0] == '#') || (a:line == '')
 endfunction
 
