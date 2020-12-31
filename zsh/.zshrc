@@ -14,6 +14,30 @@ HISTSIZE=50000
 SAVEHIST=10000
 
 # =============================================================================
+# Completion
+# =============================================================================
+
+autoload -U compinit
+
+# Auto complete with case insenstivity
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) # include hidden files.
+
+#bindkey '  ' autosuggest-accept
+#bindkey '  ' complete-word
+setopt noautomenu
+setopt nomenucomplete
+
+# Defines behavior of 'Tab'
+# See: http://zsh.sourceforge.net/Guide/zshguide06.html
+#bindkey '^ ' menu-complete
+#bindkey '^ ' complete-word
+bindkey '^ ' autosuggest-accept
+
+# =============================================================================
 # Prompt
 # =============================================================================
 
@@ -37,32 +61,9 @@ fi
 #export ZSH="/home/mroavi/.oh-my-zsh"
 #plugins=(
 #  zsh-autosuggestions
+#  zsh-syntax-highlighting
 #)
 #source $ZSH/oh-my-zsh.sh
-
-# =============================================================================
-# Completion
-# =============================================================================
-
-autoload -U compinit
-
-# Auto complete with case insenstivity
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
-
-#bindkey '  ' autosuggest-accept
-#bindkey '  ' complete-word
-setopt noautomenu
-setopt nomenucomplete
-
-# Defines behavior of 'Tab'
-# See: http://zsh.sourceforge.net/Guide/zshguide06.html
-#bindkey '^ ' menu-complete
-#bindkey '^ ' complete-word
-bindkey '^ ' autosuggest-accept
 
 # =============================================================================
 # Colors
