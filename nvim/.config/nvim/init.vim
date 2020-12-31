@@ -35,9 +35,6 @@ Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 " Syntax highlighting for GNU Octave
 Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
 
-" Highlight group manipulation for Vim
-Plug 'wincent/pinnacle'
-
 " Snippets are separated from the engine. Add this if you want them
 Plug 'honza/vim-snippets'
 
@@ -617,28 +614,6 @@ sign define LspDiagnosticsSignError       text=✖
 sign define LspDiagnosticsSignWarning     text=⚠
 sign define LspDiagnosticsSignInformation text=ℹ
 sign define LspDiagnosticsSignHint        text=➤
-
-" Colors
-execute 'highlight LspDiagnosticsVirtualTextError ' . pinnacle#decorate('bold,italic', 'ErrorMsg')
-execute 'highlight LspDiagnosticsSignError ' . pinnacle#highlight({
-\   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('LspDiagnosticsVirtualTextError')
-\ })
-execute 'highlight LspDiagnosticsVirtualTextWarning ' . pinnacle#decorate('bold,italic', 'Type')
-execute 'highlight LspDiagnosticsSignWarning ' . pinnacle#highlight({
-\   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('LspDiagnosticsVirtualTextWarning')
-\ })
-execute 'highlight LspDiagnosticsVirtualTextInformation ' . pinnacle#decorate('bold,italic', 'Type')
-execute 'highlight LspDiagnosticsSignInformation ' . pinnacle#highlight({
-\   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('LspDiagnosticsVirtualTextInformation')
-\ })
-execute 'highlight LspDiagnosticsVirtualTextHint ' . pinnacle#decorate('bold,italic', 'Type')
-execute 'highlight LspDiagnosticsSignHint ' . pinnacle#highlight({
-\   'bg': pinnacle#extract_bg('SignColumn'),
-\   'fg': pinnacle#extract_fg('LspDiagnosticsVirtualTextHint')
-\ })
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" completion-nvim
