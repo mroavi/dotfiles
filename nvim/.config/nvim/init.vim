@@ -610,10 +610,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 EOF
 
 " Signs
+sign define LspDiagnosticsSignHint        text=➤
 sign define LspDiagnosticsSignError       text=✖
 sign define LspDiagnosticsSignWarning     text=⚠
 sign define LspDiagnosticsSignInformation text=ℹ
-sign define LspDiagnosticsSignHint        text=➤
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" completion-nvim
