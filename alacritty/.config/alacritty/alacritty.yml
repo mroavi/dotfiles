@@ -165,8 +165,8 @@ font:
 
   # Point size
   #size: 10.0
-  size: 10.5
-  #size: 11.0
+  #size: 10.5
+  size: 11.0
   #size: 11.5
   #size: 12.0
 
