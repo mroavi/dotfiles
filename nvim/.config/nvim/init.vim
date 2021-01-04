@@ -145,6 +145,10 @@ Plug 'junegunn/vim-peekaboo'
 " The fastest Neovim colorizer
 Plug 'norcalli/nvim-colorizer.lua'
 
+" Nvim Treesitter configurations and abstraction layer
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
 " My color scheme
 Plug '~/repos/marlin.vim/'
 
@@ -570,22 +574,21 @@ endif
 lua << EOF
   local lspconfig = require'lspconfig'
   lspconfig.clangd.setup{
-    on_attach=on_attach_vim,
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
     filetypes = { "c", "cpp", "objc", "objcpp", "arduino" },
   }
-  --lspconfig.julials.setup({on_attach=on_attach_vim})
+  lspconfig.julials.setup{}
 EOF
 
 " Do not run the following LSPs in SSH connections
 if !$SSH_CONNECTION
 lua << EOF
   local lspconfig = require'lspconfig'
-  lspconfig.vimls.setup({on_attach=on_attach_vim})
-  lspconfig.texlab.setup({on_attach=on_attach_vim})
-  lspconfig.bashls.setup({on_attach=on_attach_vim})
-  lspconfig.cmake.setup({on_attach=on_attach_vim})
-  --lspconfig.pyls_ms.setup({on_attach=on_attach_vim})
+  --lspconfig.vimls.setup{}
+  lspconfig.texlab.setup{}
+  lspconfig.bashls.setup{}
+  lspconfig.cmake.setup{}
+  --lspconfig.pyls_ms.setup{}
 EOF
 endif
 
