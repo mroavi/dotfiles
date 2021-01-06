@@ -54,7 +54,6 @@ if [ "$SSH_CONNECTION" ]; then
 else
   source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
   source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-  source "/usr/share/z/z.sh"
   [[ -s "/home/mroavi/.autojump/etc/profile.d/autojump.sh" ]] && source "/home/mroavi/.autojump/etc/profile.d/autojump.sh"
 fi
 
@@ -180,18 +179,10 @@ function chpwd() {
 stty -ixon
 
 # =============================================================================
-# z
+# fasd
 # =============================================================================
 
-unalias z
-z() {
-  if [[ -z "$*" ]]; then
-    cd "$(_z -l 2>&1 | fzf +s --tac | sed 's/^[0-9,.]* *//')"
-  else
-    _last_z_args="$@"
-    _z "$@"
-  fi
-}
+eval "$(fasd --init auto)"
 
 # =============================================================================
 # FZF
