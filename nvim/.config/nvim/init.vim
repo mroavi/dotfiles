@@ -409,7 +409,8 @@ nnoremap <Leader>fi :Files<CR>
 "nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>rg :MyRg<CR>
 "nnoremap <Leader>ls  :Buffers<CR>
-nnoremap <Leader>aj :MyAj<CR>
+nnoremap <Leader>.  :Buffers<CR>
+nnoremap <Leader>z :MyFasd<CR>
 nnoremap <Leader>ch :History:<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
@@ -424,12 +425,12 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
 
-" Autojump integration
-function! Autojump(fullscreen)
-  let cmd = 'autojump -s | sort -k1gr | awk ''$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }'''
+" Fasd integration
+function! Fasd(fullscreen)
+  let cmd = "fasd -dl | grep -iv cache"
   call fzf#run(fzf#wrap('j', {'source': cmd, 'sink': 'cd'}))
 endfunction
-command! -nargs=0 MyAj call Autojump(<bang>0)
+command! -nargs=0 MyFasd call Fasd(<bang>0)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" tmux-navigator
