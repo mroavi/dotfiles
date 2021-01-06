@@ -116,8 +116,9 @@ Plug 'plasticboy/vim-markdown'
 " Preview markdown on your browser with synchronised scrolling
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-" Fast and featureful file manager in vim/neovim powered by nnn
-Plug 'mcchrish/nnn.vim'
+" Terminal file manager
+Plug 'ptzz/lf.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " Highlight, navigate, and operate on sets of matching text
 Plug 'andymass/vim-matchup'
@@ -698,17 +699,12 @@ let g:mkdp_preview_options = {
       \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" nnn.vim
+"" lf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:nnn#set_default_mappings = 0
-let g:nnn#replace_netrw = 1
-nnoremap <silent><Leader>/ :NnnPicker %:p:h<CR>
-let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Normal' } }
-let g:nnn#action = {
-      \ '<c-t>': 'tab split',
-      \ '<c-x>': 'split',
-      \ '<c-v>': 'vsplit' }
-let g:nnn#command = 'nnn -o -C'
+let g:lf_map_keys = 0
+let g:lf_command_override = 'lf -command "set hidden"'
+nnoremap <silent><Leader>\ :Lf<CR>
+nnoremap <silent><Leader>lf :Lf<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-matchup
