@@ -1,1 +1,24 @@
+# Documentation: 
+# - https://godoc.org/github.com/gokcehan/lf
+
+# Example lfrc:
+# - https://github.com/BrodieRobertson/dotfiles/blob/master/config/lf/lfrc
+
+# Options
+set hidden true
+set icons true
+set ignorecase true
+
+# fasd integration
+cmd z ${{
+   res="$(fasd -dl | grep -iv cache | fzf 2>/dev/tty | sed 's/\\/\\\\/g;s/"/\\"/g')"
+   if [ -d "$res" ]; then
+      cmd="cd"
+   else
+      cmd="select"
+   fi
+ lf -remote "send $id $cmd \"$res\""
+ }}
+
+# Mappings
 map <esc> quit
