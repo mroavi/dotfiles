@@ -152,7 +152,6 @@ Plug 'nvim-treesitter/playground'
 
 " Color schemes
 Plug '~/repos/marlin.vim/'
-Plug 'jacoborus/tender.vim'
 
 call plug#end()
 
@@ -289,11 +288,7 @@ command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name"
 "" marlin.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set termguicolors
-if $SSH_CONNECTION
-  colorscheme tender
-else
-  colorscheme marlin
-endif
+colorscheme marlin
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
