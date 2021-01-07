@@ -191,6 +191,7 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
+# TODO: replace with lf
 echo "Installing nnn..."
 
 # If ncruses lib is not installed, see my "Installing nnn locally on server" evernote
