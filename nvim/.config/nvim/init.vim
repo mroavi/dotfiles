@@ -464,12 +464,13 @@ autocmd FileType julia,python,octave imap <buffer> <C-CR> <C-o><Plug>SlimeLineSe
 autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
 
 " Motion-based mappings (currently disabled in favor of the alternatives below)
-"autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
-"autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSendj
+autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
+autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSend
 
-" Send motion/line and jump to next valid statement
-autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<CR>g@
-autocmd FileType julia,python,octave nmap <buffer> ss :MySndLine<CR>
+"" Send motion/line and jump to next valid statement
+"autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<CR>g@
+"autocmd FileType julia,python,octave nmap <buffer> ss :MySndLine<CR>
+
 autocmd FileType julia,python,octave nmap <buffer> <S-CR> :MySndLine<CR>
 
 " My custom operator: sends a motion to the REPL and moves to the next
