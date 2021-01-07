@@ -335,7 +335,14 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # If not running interactively, do not do anything
 # =============================================================================
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#  exec tmux a
-  exec tmux
+if [ "$SSH_CONNECTION" ]; then
+  # https://stackoverflow.com/questions/27613209/how-to-automatically-start-tmux-on-ssh-session
+  if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+    tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+  fi
+else
+  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  #  exec tmux a
+    exec tmux
+  fi
 fi
