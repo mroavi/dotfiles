@@ -1,16 +1,20 @@
-# Documentation: 
+# Documentation:
 # - https://godoc.org/github.com/gokcehan/lf
 
 # Example lfrc (by Brodie Robertson):
 # - https://github.com/BrodieRobertson/dotfiles/blob/master/config/lf/lfrc
 
 # Options
-set hidden true
+set drawbox true
 set icons true
 set ignorecase true
 
+# Custom commands
+cmd mkdir %printf "directory name: " && read ans && mkdir $ans
+cmd touch %printf "file name: " && read ans && touch $ans
+
 # fasd integration
-cmd z ${{
+cmd fasd ${{
    res="$(fasd -dl | grep -iv cache | fzf 2>/dev/tty | sed 's/\\/\\\\/g;s/"/\\"/g')"
    if [ -d "$res" ]; then
       cmd="cd"
@@ -20,5 +24,22 @@ cmd z ${{
  lf -remote "send $id $cmd \"$res\""
  }}
 
+# Remove some default mappings
+map d
+map y
+map v
+
 # Mappings
-map <esc> quit
+map dd      delete
+map yy      copy
+map x       cut
+map p       paste
+map r       rename
+map v       toggle
+mar c       clear
+mar u       unselect
+map <esc>   quit
+map .       set hidden!
+map ~       cd ~
+map <enter> open
+map z       fasd
