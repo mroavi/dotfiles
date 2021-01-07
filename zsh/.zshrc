@@ -59,7 +59,6 @@ if [ "$SSH_CONNECTION" ]; then
 else
   source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
   source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-  [[ -s "/home/mroavi/.autojump/etc/profile.d/autojump.sh" ]] && source "/home/mroavi/.autojump/etc/profile.d/autojump.sh"
 fi
 
 #export ZSH="/home/mroavi/.oh-my-zsh"
