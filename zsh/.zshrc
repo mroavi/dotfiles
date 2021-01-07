@@ -336,9 +336,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # =============================================================================
 
 if [ "$SSH_CONNECTION" ]; then
-  # https://stackoverflow.com/questions/27613209/how-to-automatically-start-tmux-on-ssh-session
-  if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
-    tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+  # https://unix.stackexchange.com/a/552619/184227
+  if [[ -z $TMUX ]] && [[ -n $SSH_TTY ]]; then
+    exec tmux new-session -A -s ssh
   fi
 else
   # https://unix.stackexchange.com/a/113768/184227
