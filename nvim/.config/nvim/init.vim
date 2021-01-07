@@ -581,7 +581,7 @@ lua << EOF
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
     filetypes = { "c", "cpp", "objc", "objcpp", "arduino" },
   }
-  lspconfig.julials.setup{}
+  --lspconfig.julials.setup{}
 EOF
 
 " Do not run the following LSPs in SSH connections
