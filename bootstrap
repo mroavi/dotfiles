@@ -103,17 +103,6 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
-echo "Installing z..."
-
-if [ ! "$SSH_CONNECTION" ]; then
-  sudo pacman -S --needed z
-else
-  LOCAL_REPO=$HOME/.local/share/zsh/plugins/z
-  REPO_URL=https://github.com/rupa/z.git
-  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
-fi
-
-# -----------------------------------------------------------------------------------------
 echo "Installing Powerlevel10k..."
 
 if [ ! "$SSH_CONNECTION" ]; then
@@ -200,7 +189,15 @@ echo "Installing lf..."
 if [ ! "$SSH_CONNECTION" ]; then
   sudo pacman -S --needed lf
 else
-  echo Todo
+  FILE=$HOME/.local/bin/lf
+  if [ -f "$FILE" ]; then
+    echo "lf is already installed"
+  else
+    cd ~/Downloads/
+    filename="lf.tar.gz"
+    wget -O $filename https://github.com/gokcehan/lf/releases/download/r18/lf-linux-amd64.tar.gz
+    tar xvzf "$filename" -C $HOME/.local/bin/
+  fi
 fi
 
 # -----------------------------------------------------------------------------------------
