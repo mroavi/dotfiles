@@ -150,8 +150,9 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
-" My color scheme
+" Color schemes
 Plug '~/repos/marlin.vim/'
+Plug 'jacoborus/tender.vim'
 
 call plug#end()
 
@@ -288,7 +289,12 @@ command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name"
 "" marlin.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set termguicolors
-colorscheme marlin
+if $SSH_CONNECTION
+  colorscheme tender
+else
+  colorscheme marlin
+endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-airline
