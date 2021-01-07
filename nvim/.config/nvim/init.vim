@@ -703,7 +703,6 @@ let g:mkdp_preview_options = {
 "" lf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lf_map_keys = 0
-let g:lf_command_override = 'lf -command "set hidden"'
 nnoremap <silent><Leader>\ :Lf<CR>
 nnoremap <silent><Leader>lf :Lf<CR>
 
