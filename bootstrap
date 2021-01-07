@@ -86,7 +86,7 @@ if [ ! "$SSH_CONNECTION" ]; then
   sudo pacman -S --needed zsh-autosuggestions
 else
   mkdir -p ~/.local/share/zsh/plugins
-  LOCAL_REPO=$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  LOCAL_REPO=$HOME/.local/share/zsh/plugins/zsh-autosuggestions
   REPO_URL=https://github.com/zsh-users/zsh-autosuggestions.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 fi
@@ -112,6 +112,7 @@ else
   REPO_URL=https://github.com/rupa/z.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 fi
+
 # -----------------------------------------------------------------------------------------
 echo "Installing Powerlevel10k..."
 
@@ -175,52 +176,32 @@ git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 #/bin/bash $HOME/.config/base16-shell/scripts/base16-oceanicnext.sh
 
 ## -----------------------------------------------------------------------------------------
-# TODO: Replace autojump installation with fasd
-# https://github.com/wting/autojump
-echo "Installing autojump..."
+# https://github.com/clvv/fasd
+echo "Installing fasd..."
 
-FILE=$HOME/.autojump/bin/autojump
-if [ -f "$FILE" ]; then
-  echo "autojump is already installed"
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed fasd
 else
-  LOCAL_REPO=~/Downloads/autojump
-  REPO_URL=git://github.com/wting/autojump.git
-  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
-  cd $LOCAL_REPO
-  ./install.py
+  # TODO: the path below is wrong, update it
+  FILE=$HOME/.fasd/bin/fasd
+  if [ -f "$FILE" ]; then
+    echo "fasd is already installed"
+  else
+    LOCAL_REPO=~/repos/fasd
+    REPO_URL=git@github.com:clvv/fasd.git
+    git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+    cd $LOCAL_REPO
+    PREFIX="$HOME/.local" make install
+  fi
 fi
 
 # -----------------------------------------------------------------------------------------
-# TODO: replace with lf
-echo "Installing nnn..."
+echo "Installing lf..."
 
-# If ncruses lib is not installed, see my "Installing nnn locally on server" evernote
-if [ "$SSH_CONNECTION" ]; then
-  FILE=$HOME/.local/bin/nnn
-  if [ -f "$FILE" ]; then
-    echo "nnn is already installed"
-  else
-    LOCAL_REPO=~/Downloads/nnn
-    REPO_URL=git@github.com:jarun/nnn.git
-    git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
-    cd $LOCAL_REPO
-    PREFIX=$HOME/.local make strip install
-    # Install built-in plugins
-    curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
-  fi
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed lf
 else
-  FILE=$HOME/.local/bin/nnn
-  if [ -f "$FILE" ]; then
-    echo "nnn is already installed"
-  else
-    LOCAL_REPO=~/Downloads/nnn
-    REPO_URL=git@github.com:jarun/nnn.git
-    git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
-    cd $LOCAL_REPO
-    PREFIX=$HOME/.local make strip install
-    # Install built-in plugins
-    curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
-  fi
+  echo Todo
 fi
 
 # -----------------------------------------------------------------------------------------
