@@ -184,6 +184,14 @@ stty -ixon
 
 eval "$(fasd --init auto)"
 
+unalias a
+unalias s
+unalias d
+unalias f
+unalias sd
+unalias sf
+unalias zz
+
 # =============================================================================
 # FZF
 # =============================================================================
