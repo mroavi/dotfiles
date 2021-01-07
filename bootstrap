@@ -182,8 +182,7 @@ echo "Installing fasd..."
 if [ ! "$SSH_CONNECTION" ]; then
   sudo pacman -S --needed fasd
 else
-  # TODO: the path below is wrong, update it
-  FILE=$HOME/.fasd/bin/fasd
+  FILE=$HOME/.local/bin/fasd
   if [ -f "$FILE" ]; then
     echo "fasd is already installed"
   else
