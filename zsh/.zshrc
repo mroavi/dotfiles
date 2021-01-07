@@ -43,14 +43,19 @@ bindkey '^ ' autosuggest-accept
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+if [ "$SSH_CONNECTION" ]; then
+  source "$HOME/.local/share/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme"
+else
+  source "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+fi
 
 # =============================================================================
 # Plugins
 # =============================================================================
 
 if [ "$SSH_CONNECTION" ]; then
-  echo TODO
+  source "$HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+  source "$HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 else
   source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
   source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
