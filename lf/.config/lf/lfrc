@@ -24,6 +24,14 @@ cmd fasd ${{
  lf -remote "send $id $cmd \"$res\""
  }}
 
+# Open with $EDITOR or xdg-open based on type of file
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$f";;
+        *) xdg-open "$f" ;;
+    esac
+}}
+
 # Remove some default mappings
 map d
 map y
