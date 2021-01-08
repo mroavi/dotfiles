@@ -36,8 +36,8 @@ map x       cut
 map p       paste
 map r       rename
 map v       toggle
-mar c       clear
-mar u       unselect
+map c       clear
+map u       unselect
 map <esc>   quit
 map .       set hidden!
 map ~       cd ~
