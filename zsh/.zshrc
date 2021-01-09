@@ -343,7 +343,7 @@ if [ "$SSH_CONNECTION" ]; then
 else
   # https://unix.stackexchange.com/a/113768/184227
   if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  #  exec tmux a
-    exec tmux
+    exec tmux a
+    #exec tmux
   fi
 fi
