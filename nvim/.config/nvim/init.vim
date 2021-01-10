@@ -20,9 +20,6 @@ Plug 'tpope/vim-unimpaired'
 " Provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
 
-" Defines a new text object representing lines of code at the same indent level
-Plug 'michaeljsmith/vim-indent-object'
-
 " Vim support for Julia
 Plug 'JuliaEditorSupport/julia-vim'
 
