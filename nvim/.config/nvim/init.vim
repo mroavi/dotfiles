@@ -74,9 +74,6 @@ Plug 'junegunn/fzf.vim'
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
 
-" Make the yanked region apparent!
-Plug 'machakann/vim-highlightedyank'
-
 " Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
 Plug 'jpalardy/vim-slime'
 
@@ -275,11 +272,11 @@ nnoremap <Leader>rt :call ReTab()<CR>
 " https://vi.stackexchange.com/q/18454/27039
 command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name")
 
-"" Highlight the yanked text (conflicts with matchup - keeping vim-highlightedyank instead)
-"augroup LuaHighlight
-"  autocmd!
-"  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 200)
-"augroup END
+" Highlight the yanked text (conflicts with matchup - keeping vim-highlightedyank instead)
+augroup highlight_yank
+  autocmd!
+  au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" marlin.vim
@@ -442,11 +439,6 @@ inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft<CR>
 inoremap <silent> <C-j> <C-o>:TmuxNavigateDown<CR>
 inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<CR>
 inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-highlightedyank
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:highlightedyank_highlight_duration = 200
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-slime
