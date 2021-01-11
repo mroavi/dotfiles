@@ -405,7 +405,7 @@ nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>rg :MyRg<CR>
-"nnoremap <Leader>ls  :Buffers<CR>
+nnoremap <Leader>ls  :Buffers<CR>
 nnoremap <Leader>.  :Buffers<CR>
 nnoremap <Leader>z :MyFasd<CR>
 nnoremap <Leader>ch :History:<CR>
@@ -758,7 +758,7 @@ nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
 "nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
 "nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
 "nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles({shorten_path = true})<CR>
-nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
+"nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
 nnoremap <Leader>re <cmd>lua require('telescope.builtin').lsp_references()<CR>
 nnoremap <Leader>sy <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
 nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
