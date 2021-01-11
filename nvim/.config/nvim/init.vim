@@ -395,7 +395,6 @@ nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>rg :MyRg<CR>
 nnoremap <Leader>ls  :Buffers<CR>
-nnoremap <Leader>.  :Buffers<CR>
 nnoremap <Leader>z :MyFasd<CR>
 nnoremap <Leader>ch :History:<CR>
 
