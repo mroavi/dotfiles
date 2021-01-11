@@ -58,7 +58,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
-" Lean & mean status/tabline for vim that's light as air.
+" Lean & mean status/tabline for vim that's light as air. TODO: change to lightline
 Plug 'vim-airline/vim-airline'
 
 " Automatically clears search highlight when cursor is moved
