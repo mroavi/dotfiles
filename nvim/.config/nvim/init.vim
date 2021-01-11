@@ -355,8 +355,6 @@ nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
 nmap <Leader>j  <Plug>(GitGutterNextHunk)
 nmap <Leader>k  <Plug>(GitGutterPrevHunk)
-nmap ]h         <Plug>(GitGutterNextHunk)
-nmap [h         <Plug>(GitGutterPrevHunk)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" fzf.vim
