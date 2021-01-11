@@ -123,12 +123,6 @@ Plug 'andymass/vim-matchup'
 " Integrates Arduino's IDE's command line interface
 Plug 'stevearc/vim-arduino'
 
-" Distraction-free writing in Vim
-Plug 'junegunn/goyo.vim'
-
-" Hyperfocus-writing in Vim
-Plug 'junegunn/limelight.vim'
-
 " Find, Filter, Preview, Pick. All lua, all the time
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -705,17 +699,6 @@ nnoremap <buffer> <Leader>ad :ArduinoUploadAndSerial<CR>
 nnoremap <buffer> <Leader>ab :ArduinoChooseBoard<CR>
 nnoremap <buffer> <Leader>ap :ArduinoChooseProgrammer<CR>
 nnoremap <buffer> <Leader>as :ArduinoChoosePort<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" goyo.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>go :Goyo 100%x100%<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" limelight.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" telescope.nvim
