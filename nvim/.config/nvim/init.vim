@@ -631,7 +631,6 @@ let g:UltiSnipsListSnippets        = "<\>"
 "" lf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lf_map_keys = 0
-nnoremap <silent><Leader>\ :Lf<CR>
 nnoremap <silent><Leader>lf :Lf<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
