@@ -365,12 +365,6 @@ nmap <Leader>k  <Plug>(GitGutterPrevHunk)
 "let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6, 'border': 'sharp' } }
 
-" This are the default extra key bindings
-let g:fzf_action = {
-\   'ctrl-t': 'tab split',
-\   'ctrl-x': 'split',
-\   'ctrl-v': 'vsplit' }
-
 " Do not show preview window by default
 let g:fzf_preview_window = ''
 
