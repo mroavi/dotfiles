@@ -451,7 +451,7 @@ let g:slime_no_mappings = 1
 autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>SlimeRegionSend
 autocmd FileType julia,python,octave nmap <buffer> <C-CR> <Plug>SlimeLineSend
 autocmd FileType julia,python,octave imap <buffer> <C-CR> <C-o><Plug>SlimeLineSend
-autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
+"autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
 
 " Motion-based mappings (currently disabled in favor of the alternatives below)
 autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
