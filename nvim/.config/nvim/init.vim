@@ -53,6 +53,9 @@ Plug 'dstein64/nvim-scrollview'
 " TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
 
+" Smooth scrolling for Vim done right
+Plug 'psliwka/vim-smoothie'
+
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
 " Lean & mean status/tabline for vim that's light as air.
