@@ -142,7 +142,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 " Nvim Treesitter configurations and abstraction layer
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
+"Plug 'nvim-treesitter/playground'
 
 " Color schemes
 Plug '~/repos/marlin.vim/'
@@ -790,18 +790,17 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" playground
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>tp :TSPlaygroundToggle<CR>
-
-lua <<EOF
-require "nvim-treesitter.configs".setup {
-  playground = {
-    enable = true,
-    disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-    persist_queries = false -- Whether the query persists across vim sessions
-  }
-}
-EOF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" playground
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"nnoremap <Leader>tp :TSPlaygroundToggle<CR>
+"lua <<EOF
+"require "nvim-treesitter.configs".setup {
+"  playground = {
+"    enable = true,
+"    disable = {},
+"    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+"    persist_queries = false -- Whether the query persists across vim sessions
+"  }
+"}
+"EOF
