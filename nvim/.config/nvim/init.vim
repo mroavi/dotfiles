@@ -641,19 +641,6 @@ nnoremap <silent><Leader>lf :Lf<CR>
 let g:matchup_matchparen_offscreen = {}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-arduino
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:arduino_use_slime = 1
-let g:arduino_serial_baud = 9600
-
-nnoremap <buffer> <Leader>am :ArduinoVerify<CR>
-nnoremap <buffer> <Leader>au :ArduinoUpload<CR>
-nnoremap <buffer> <Leader>ad :ArduinoUploadAndSerial<CR>
-nnoremap <buffer> <Leader>ab :ArduinoChooseBoard<CR>
-nnoremap <buffer> <Leader>ap :ArduinoChooseProgrammer<CR>
-nnoremap <buffer> <Leader>as :ArduinoChoosePort<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" telescope.nvim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua << EOF
