@@ -272,7 +272,7 @@ nnoremap <Leader>rt :call ReTab()<CR>
 " https://vi.stackexchange.com/q/18454/27039
 command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name")
 
-" Highlight the yanked text (conflicts with matchup - keeping vim-highlightedyank instead)
+" Highlight the yanked text
 augroup highlight_yank
   autocmd!
   au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
