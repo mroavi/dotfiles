@@ -324,7 +324,7 @@ nmap <Leader>k  <Plug>(GitGutterPrevHunk)
 "(see: https://github.com/junegunn/fzf.vim/issues/821#issuecomment-581481211)
 "(see: https://github.com/junegunn/fzf.vim/issues/1033)
 "let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6, 'border': 'sharp' } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8, 'border': 'sharp' } }
 
 " Do not show preview window by default
 let g:fzf_preview_window = ''
