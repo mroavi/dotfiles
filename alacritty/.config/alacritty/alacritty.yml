@@ -283,36 +283,61 @@ font:
 # Prints out the entire 256 terminal color palette
 # for code ({000..255}) print -P -- "$code: %F{$code}▶ This is color palette%f"
 
-## Available color schemes
-#schemes:
-#  OceanicNext: &OceanicNext
-#    primary:
-#      background: '#1b2b34'
-#      foreground: '#d8dee9'
-#    cursor:
-#      text: '#1b2b34'
-#      cursor: '#ffffff'
-#    normal:
-#      black:   '#343d46'
-#      red:     '#EC5f67'
-#      green:   '#99C794'
-#      yellow:  '#FAC863'
-#      blue:    '#6699cc'
-#      magenta: '#c594c5'
-#      cyan:    '#5fb3b3'
-#      white:   '#d8dee9'
-#    bright:
-#      black:   '#343d46'
-#      red:     '#EC5f67'
-#      green:   '#99C794'
-#      yellow:  '#FAC863'
-#      blue:    '#6699cc'
-#      magenta: '#c594c5'
-#      cyan:    '#5fb3b3'
-#      white:   '#d8dee9'
+# Available color schemes
+schemes:
+  OceanicNext: &OceanicNext
+    primary:
+      background: '#1b2b34'
+      foreground: '#d8dee9'
+    cursor:
+      text: '#1b2b34'
+      cursor: '#ffffff'
+    normal:
+      black:   '#343d46'
+      red:     '#EC5f67'
+      green:   '#99C794'
+      yellow:  '#FAC863'
+      blue:    '#6699cc'
+      magenta: '#c594c5'
+      cyan:    '#5fb3b3'
+      white:   '#d8dee9'
+    bright:
+      black:   '#343d46'
+      red:     '#EC5f67'
+      green:   '#99C794'
+      yellow:  '#FAC863'
+      blue:    '#6699cc'
+      magenta: '#c594c5'
+      cyan:    '#5fb3b3'
+      white:   '#d8dee9'
 
-## Sets the current colorscheme
-#colors: *OceanicNext
+  Tender: &Tender
+    primary:
+      background: '#282828'
+      foreground: '#eeeeee'
+    # Normal colors
+    normal:
+      black:   '#282828'
+      red:     '#f43753'
+      green:   '#c9d05c'
+      yellow:  '#ffc24b'
+      blue:    '#b3deef'
+      magenta: '#d3b987'
+      cyan:    '#73cef4'
+      white:   '#eeeeee'
+    # Bright colors
+    bright:
+      black:   '#4c4c4c'
+      red:     '#f43753'
+      green:   '#c9d05c'
+      yellow:  '#ffc24b'
+      blue:    '#b3deef'
+      magenta: '#d3b987'
+      cyan:    '#73cef4'
+      white:   '#feffff'
+
+# Sets the current colorscheme
+colors: *Tender
 
 # Visual Bell
 #
