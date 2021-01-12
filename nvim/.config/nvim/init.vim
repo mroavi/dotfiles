@@ -58,8 +58,8 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
-" Lean & mean status/tabline for vim that's light as air. TODO: change to lightline
-Plug 'vim-airline/vim-airline'
+" A light and configurable statusline/tabline plugin
+Plug 'itchyny/lightline.vim'
 
 " Automatically clears search highlight when cursor is moved
 Plug 'junegunn/vim-slash'
@@ -95,7 +95,7 @@ Plug 'junegunn/vim-easy-align'
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
-" Simple tmux statusline generator, integrates with airline statusline
+" Simple tmux statusline generator, integrates with lightline/airline statusline
 Plug 'edkolev/tmuxline.vim'
 
 " Quickstart configurations for the Nvim LSP client
@@ -158,7 +158,7 @@ set shada=%,<800,'500,/100,:500,h,f1
 set number relativenumber " lines are numbered relative to the current line
 set noswapfile " they're just annoying. Who likes them?
 set wrap linebreak nolist " avoid breaking lines in the middle of words
-set noshowmode " don't show mode in status bar (taken care of by airline)
+set noshowmode " don't show mode in status bar (taken care of by lightline)
 set hidden " allows switching from unwritten buffers, remember the undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
 set splitbelow splitright " open split below or to the right of the current one
@@ -278,39 +278,30 @@ augroup END
 set termguicolors
 colorscheme marlin
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-airline
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='marlin'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#branch#enabled = 0
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline_detect_spell = 0
-let g:airline_skip_empty_sections = 1
-let g:airline_section_x = ''
-let g:airline_section_y = '%l:%v'
-let g:airline_section_z = ''
-let g:airline_mode_map = {
-    \ '__'     : '-',
-    \ 'c'      : 'C',
-    \ 'i'      : 'I',
-    \ 'ic'     : 'I',
-    \ 'ix'     : 'I',
-    \ 'n'      : 'N',
-    \ 'multi'  : 'M',
-    \ 'ni'     : 'N',
-    \ 'no'     : 'N',
-    \ 'R'      : 'R',
-    \ 'Rv'     : 'R',
-    \ 's'      : 'S',
-    \ 'S'      : 'S',
-    \ ''     : 'S',
-    \ 't'      : 'T',
-    \ 'v'      : 'V',
-    \ 'V'      : 'V',
-    \ ''     : 'V',
-    \ }
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" lightline.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'right': [ [ 'lineinfo' ], ]
+      \ },
+      \ 'mode_map': {
+        \ 'n' : 'N',
+        \ 'i' : 'I',
+        \ 'R' : 'R',
+        \ 'v' : 'V',
+        \ 'V' : 'VL',
+        \ "\<C-v>": 'VB',
+        \ 'c' : 'C',
+        \ 's' : 'S',
+        \ 'S' : 'SL',
+        \ "\<C-s>": 'SB',
+        \ 't': 'T',
+        \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-slash
