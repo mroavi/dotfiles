@@ -117,9 +117,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 
-" Highlight, navigate, and operate on sets of matching text
-Plug 'andymass/vim-matchup'
-
 " Integrates Arduino's IDE's command line interface
 Plug 'stevearc/vim-arduino'
 
@@ -622,12 +619,6 @@ let g:UltiSnipsListSnippets        = "<\>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lf_map_keys = 0
 nnoremap <silent><Leader>lf :Lf<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-matchup
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable offscreen matches
-let g:matchup_matchparen_offscreen = {}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" telescope.nvim
