@@ -282,7 +282,7 @@ colorscheme marlin
 """ lightline.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'marlin',
       \ 'active': {
       \   'right': [ [ 'lineinfo' ], ]
       \ },
@@ -510,7 +510,9 @@ let g:tmuxline_preset = {
 \   }
 
 if $SSH_CONNECTION
-  autocmd VimEnter,ColorScheme * silent! Tmuxline airline_insert
+  autocmd VimEnter,ColorScheme * silent! Tmuxline lightline_insert
+else
+  autocmd VimEnter,ColorScheme * silent! Tmuxline lightline
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
