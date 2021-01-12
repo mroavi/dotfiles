@@ -508,8 +508,6 @@ let g:tmuxline_preset = {
 
 if $SSH_CONNECTION
   autocmd VimEnter,ColorScheme * silent! Tmuxline lightline_insert
-else
-  autocmd VimEnter,ColorScheme * silent! Tmuxline lightline
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
