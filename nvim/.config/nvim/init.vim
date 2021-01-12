@@ -131,8 +131,8 @@ Plug 'nvim-telescope/telescope.nvim'
 " Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'raimondi/delimitmate'
 
-"" The fastest Neovim colorizer
-"Plug 'norcalli/nvim-colorizer.lua'
+" The fastest Neovim colorizer
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Nvim Treesitter configurations and abstraction layer
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -670,10 +670,10 @@ nnoremap <Leader>ma <cmd>lua require('telescope.builtin').keymaps()<CR>
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" nvim-colorizer.lua
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"lua require'colorizer'.setup()
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" nvim-colorizer.lua
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua require'colorizer'.setup()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" nvim-treesitter
