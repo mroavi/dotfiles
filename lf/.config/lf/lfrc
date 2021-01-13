@@ -32,6 +32,14 @@ cmd open ${{
     esac
 }}
 
+# Same as above, but needed to make it work inside nvim's plugin
+cmd myopen ${{
+    case $(file --mime-type $f -b) in
+        text/*) $EDITOR $fx;;
+        *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
 # Remove some default mappings
 map d
 map y
@@ -49,5 +57,5 @@ map u       unselect
 map <esc>   quit
 map .       set hidden!
 map ~       cd ~
-map <enter> open
+map <enter> myopen
 map z       fasd
