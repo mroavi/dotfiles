@@ -32,7 +32,7 @@ cmd open ${{
     esac
 }}
 
-# Same as above, but needed to make it work with nvim's plugin since
+# Same as above, but needed to make it work with nvim's lf plugin
 # (nvim's lf plugin hijacks the default open command)
 cmd myopen ${{
     case $(file --mime-type $f -b) in
