@@ -169,6 +169,8 @@ set inccommand=split " shows the effects of a command incrementally as you type
 set listchars=tab:▸\ ,space:_,eol:¬ " symbols for tabstops, spaces and EOLs
 set scrolloff=10 " min num of screen lines to keep above and below the cursor
 "set ignorecase smartcase " ignore case if the typed letters are all lowercase
+set completeopt=menuone,noinsert,noselect " better completion experience
+set shortmess+=c " avoid showing verbose messages when using completion
 
 " Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
@@ -569,12 +571,6 @@ autocmd BufEnter * lua require'completion'.on_attach()
 " Use <Tab> and <S-Tab> to navigate through pop-up menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-
-" Avoid showing verbose messages when using completion
-set shortmess+=c
 
 " Toggle auto popup on the fly
 nnoremap <Leader>ac :CompletionToggle<CR>
