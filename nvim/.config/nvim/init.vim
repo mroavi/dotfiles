@@ -546,6 +546,7 @@ nnoremap          <Leader>si <cmd>lua vim.lsp.buf.signature_help()<CR>
 " Diagnostics
 nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
 nnoremap [d <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
+
 lua << EOF
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
