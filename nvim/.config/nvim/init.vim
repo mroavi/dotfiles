@@ -154,7 +154,7 @@ set shada=%,<800,'500,/100,:500,h,f1
 "         + save/restore buffer list
 set number relativenumber " lines are numbered relative to the current line
 set noswapfile " they're just annoying. Who likes them?
-set wrap linebreak nolist " avoid breaking lines in the middle of words
+set nowrap linebreak nolist " avoid breaking lines in the middle of words
 set noshowmode " don't show mode in status bar (taken care of by lightline)
 set hidden " allows switching from unwritten buffers, remember the undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
@@ -673,7 +673,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "bash" },       -- list of language that will be disabled
+    disable = { "bash", "julia" },       -- list of language that will be disabled
   },
 }
 EOF
