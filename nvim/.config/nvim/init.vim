@@ -120,10 +120,10 @@ Plug 'rbgrouleff/bclose.vim'
 " Integrates Arduino's IDE's command line interface
 Plug 'stevearc/vim-arduino'
 
-" Find, Filter, Preview, Pick. All lua, all the time
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+"" Find, Filter, Preview, Pick. All lua, all the time
+"Plug 'nvim-lua/popup.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
 
 " Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'raimondi/delimitmate'
@@ -615,42 +615,41 @@ let g:UltiSnipsListSnippets        = "<\>"
 let g:lf_map_keys = 0
 nnoremap <silent><Leader>lf :Lf<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" telescope.nvim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua << EOF
-local actions = require('telescope.actions')
-require('telescope').setup{
-  defaults = {
-    shorten_path = true,
-    prompt_position = "bottom",
-    mappings = {
-      i = {
-        ["<esc>"] = actions.close,
-        ["<c-p>"] = false,
-        ["<c-k>"] = actions.move_selection_previous,
-        ["<c-n>"] = false,
-        ["<c-j>"] = actions.move_selection_next,
-      },
-      n = {
-        ["<esc>"] = actions.close
-      },
-    },
-  }
-}
-EOF
-
-nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
-"nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
-"nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
-"nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles({shorten_path = true})<CR>
-"nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
-nnoremap <Leader>re <cmd>lua require('telescope.builtin').lsp_references()<CR>
-nnoremap <Leader>sy <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
-nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
-nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
-nnoremap <Leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
-nnoremap <Leader>ma <cmd>lua require('telescope.builtin').keymaps()<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" telescope.nvim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"lua << EOF
+"local actions = require('telescope.actions')
+"require('telescope').setup{
+"  defaults = {
+"    shorten_path = true,
+"    prompt_position = "bottom",
+"    mappings = {
+"      i = {
+"        ["<esc>"] = actions.close,
+"        ["<c-p>"] = false,
+"        ["<c-k>"] = actions.move_selection_previous,
+"        ["<c-n>"] = false,
+"        ["<c-j>"] = actions.move_selection_next,
+"      },
+"      n = {
+"        ["<esc>"] = actions.close
+"      },
+"    },
+"  }
+"}
+"EOF
+"nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
+""nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
+""nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
+""nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles({shorten_path = true})<CR>
+""nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
+"nnoremap <Leader>re <cmd>lua require('telescope.builtin').lsp_references()<CR>
+"nnoremap <Leader>sy <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
+"nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
+"nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
+"nnoremap <Leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
+"nnoremap <Leader>ma <cmd>lua require('telescope.builtin').keymaps()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" delimitmate
