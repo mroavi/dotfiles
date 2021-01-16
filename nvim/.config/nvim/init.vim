@@ -532,7 +532,7 @@ lua << EOF
   lspconfig.texlab.setup{}
   lspconfig.bashls.setup{}
   lspconfig.cmake.setup{}
-  --lspconfig.pyls_ms.setup{}
+  lspconfig.jedi_language_server.setup{}
 EOF
 endif
 
