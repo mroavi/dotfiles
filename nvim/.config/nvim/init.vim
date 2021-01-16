@@ -198,11 +198,13 @@ vnoremap <Leader>p "+p
 " Toggle last visited buffer
 nnoremap <silent> <Leader>; :b#<CR>
 
-" Delete current buffer
-nnoremap <silent><Leader>bd :bdelete<CR>
+"" Delete current buffer "
+"" TODO: currently not working. Bug in nvim?
+"nnoremap <silent><Leader>bd :bdelete<CR>
 
-" Unload buffer and switch to last visited buffer (opposite of <Leader>i)
-nnoremap <silent> <Leader>o :bdelete<CR>
+"" Unload buffer and switch to last visited buffer (opposite of <Leader>i)
+"" TODO: currently not working. Bug in nvim?
+"nnoremap <silent> <Leader>o :bdelete<CR>
 
 " Close all buffers but the current one
 map <Leader>bo :%bdelete\|e#<CR>
