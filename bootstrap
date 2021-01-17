@@ -192,15 +192,19 @@ fi
 # -----------------------------------------------------------------------------------------
 echo "Installing diff-so-fancy..."
 
-FILE=$HOME/.local/bin/diff-so-fancy
-if [ -f "$FILE" ]; then
-  echo "diff-so-fancy is already installed"
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed diff-so-fancy
 else
-  LOCAL_REPO=~/Downloads/diff-so-fancy
-  REPO_URL=git@github.com:so-fancy/diff-so-fancy.git
-  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
-  cp $LOCAL_REPO/diff-so-fancy $HOME/.local/bin/
-  cp -r $LOCAL_REPO/lib $HOME/.local/bin/
+  FILE=$HOME/.local/bin/diff-so-fancy
+  if [ -f "$FILE" ]; then
+    echo "diff-so-fancy is already installed"
+  else
+    LOCAL_REPO=~/Downloads/diff-so-fancy
+    REPO_URL=git@github.com:so-fancy/diff-so-fancy.git
+    git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+    cp $LOCAL_REPO/diff-so-fancy $HOME/.local/bin/
+    cp -r $LOCAL_REPO/lib $HOME/.local/bin/
+  fi
 fi
 
 # -----------------------------------------------------------------------------------------
