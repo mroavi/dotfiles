@@ -31,19 +31,23 @@ fi
 # -----------------------------------------------------------------------------------------
 echo "Installing nvim..."
 
-# Local installation
-# https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
-FILE=$HOME/.local/bin/nvim
-if [ -f "$FILE" ]; then
-  echo "nvim is already installed"
+if [ ! "$SSH_CONNECTION" ]; then
+  yay -S neovim-nightly-bin
 else
-  mkdir -p ~/.local/bin && cd ~/.local/bin
-#    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-  curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-  chmod u+x nvim.appimage
-  mv nvim.appimage nvim
-  pip3 install pynvim
+  # Local installation
+  # https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
+  FILE=$HOME/.local/bin/nvim
+  if [ -f "$FILE" ]; then
+    echo "nvim is already installed"
+  else
+    mkdir -p ~/.local/bin && cd ~/.local/bin
+  #    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+    chmod u+x nvim.appimage
+    mv nvim.appimage nvim
+  fi
 fi
+pip3 install pynvim
 
 # -----------------------------------------------------------------------------------------
 echo "Installing vim-plug for nvim..."
