@@ -60,5 +60,6 @@ map u       unselect
 map <esc>   quit
 map .       set hidden!
 map ~       cd ~
-map <enter> myopen
+map <enter> open
+map o       myopen
 map z       fasd
