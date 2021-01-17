@@ -131,10 +131,6 @@ alias j="z"
 alias dotfiles="cd ~/dotfiles"
 alias phd="cd ~/Dropbox/TUe/PhD"
 
-# Color schemes
-alias off="base16_onedark"
-alias on="base16_solarized-light"
-
 # Git
 alias g='git'
 alias gst='git status'
@@ -303,15 +299,6 @@ pacman-install() {
 pacman-installed() {
   pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
 }
-
-# =============================================================================
-# Base16 Shell
-# =============================================================================
-
-#BASE16_SHELL="$HOME/.config/base16-shell/"
-#[ -n "$PS1" ] && \
-#  [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-#    eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 ## =============================================================================
 ## >>> conda initialize >>>
