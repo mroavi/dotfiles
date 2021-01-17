@@ -32,7 +32,7 @@ fi
 echo "Installing nvim..."
 
 if [ ! "$SSH_CONNECTION" ]; then
-  yay -S neovim-nightly-bin
+  yay -S --needed neovim-nightly-bin
 else
   # Local installation
   # https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
@@ -180,7 +180,7 @@ fi
 echo "Installing lf..."
 
 if [ ! "$SSH_CONNECTION" ]; then
-  sudo pacman -S --needed lf
+  yay -S --needed lf
 else
   FILE=$HOME/.local/bin/lf
   if [ -f "$FILE" ]; then
