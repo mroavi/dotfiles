@@ -15,7 +15,7 @@ if [ ! "$SSH_CONNECTION" ]; then
 else
   FILE=$HOME/.local/bin/stow
   if [ -f "$FILE" ]; then
-    echo "stow is already installed"
+    echo " stow is already installed"
   else
     # See INSTALL.md in root dir
     LOCAL_REPO=~/Downloads/stow
@@ -38,7 +38,7 @@ else
   # https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
   FILE=$HOME/.local/bin/nvim
   if [ -f "$FILE" ]; then
-    echo "nvim is already installed"
+    echo " nvim is already installed"
   else
     mkdir -p ~/.local/bin && cd ~/.local/bin
   #    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
@@ -69,7 +69,7 @@ if [ "$SSH_CONNECTION" ]; then
   # https://stackoverflow.com/a/15293565/1706778
   FILE=$HOME/.local/bin/zsh
   if [ -f "$FILE" ]; then
-    echo "zsh is already installed"
+    echo " zsh is already installed"
   else
     cd ~/Downloads
     wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
@@ -166,7 +166,7 @@ if [ ! "$SSH_CONNECTION" ]; then
 else
   FILE=$HOME/.local/bin/fasd
   if [ -f "$FILE" ]; then
-    echo "fasd is already installed"
+    echo " fasd is already installed"
   else
     LOCAL_REPO=~/repos/fasd
     REPO_URL=git@github.com:clvv/fasd.git
@@ -216,7 +216,7 @@ echo "Installing clangd..."
 
 FILE=$HOME/.local/bin/clangd
 if [ -f "$FILE" ]; then
-  echo "clangd is already installed"
+  echo " clangd is already installed"
 else
   cd ~/Downloads/
   filepath="clangd-linux-10.0.0.zip"
@@ -231,7 +231,7 @@ echo "Installing texlab..."
 
 FILE=$HOME/.local/bin/texlab
 if [ -f "$FILE" ]; then
-  echo "texlab is already installed"
+  echo " texlab is already installed"
 else
   cd ~/Downloads/
   filepath="texlab-x86_64-linux.tar.gz"
