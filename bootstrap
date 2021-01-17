@@ -10,7 +10,9 @@ mkdir -p ~/Downloads
 # -----------------------------------------------------------------------------------------
 echo "Installing stow..."
 
-if [ "$SSH_CONNECTION" ]; then
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed stow
+else
   FILE=$HOME/.local/bin/stow
   if [ -f "$FILE" ]; then
     echo "stow is already installed"
@@ -24,8 +26,6 @@ if [ "$SSH_CONNECTION" ]; then
     ./configure --prefix=$HOME/.local
     make install
   fi
-else
-  sudo pacman -S --needed stow
 fi
 
 # -----------------------------------------------------------------------------------------
