@@ -153,17 +153,6 @@ if [ ! "$SSH_CONNECTION" ]; then
   sudo pacman -S --needed bat
 fi
 
-# -----------------------------------------------------------------------------------------
-# https://github.com/chriskempson/base16-shell
-echo "Installing base16-shell..."
-
-# git pull if present, otherwise clone
-LOCAL_REPO=~/.config/base16-shell
-REPO_URL=https://github.com/chriskempson/base16-shell.git
-git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
-# TODO: can't get the following line to work (no .vimrc_background is generated)
-#/bin/bash $HOME/.config/base16-shell/scripts/base16-oceanicnext.sh
-
 ## -----------------------------------------------------------------------------------------
 # https://github.com/clvv/fasd
 echo "Installing fasd..."
