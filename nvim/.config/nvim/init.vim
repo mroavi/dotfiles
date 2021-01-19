@@ -406,20 +406,20 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-o
 let g:slime_dont_ask_default = 1
 let g:slime_no_mappings = 1
 
-autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>SlimeRegionSend
-autocmd FileType julia,python,octave nmap <buffer> <C-CR> <Plug>SlimeLineSend
-autocmd FileType julia,python,octave imap <buffer> <C-CR> <C-o><Plug>SlimeLineSend
+autocmd FileType julia,python,octave,lua xmap <buffer> <C-CR> <Plug>SlimeRegionSend
+autocmd FileType julia,python,octave,lua nmap <buffer> <C-CR> <Plug>SlimeLineSend
+autocmd FileType julia,python,octave,lua imap <buffer> <C-CR> <C-o><Plug>SlimeLineSend
 "autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
 
 " Motion-based mappings (currently disabled in favor of the alternatives below)
-autocmd FileType julia,python,octave nmap <buffer> s      <Plug>SlimeMotionSend
-autocmd FileType julia,python,octave nmap <buffer> ss     <Plug>SlimeLineSend
+autocmd FileType julia,python,octave,lua nmap <buffer> s      <Plug>SlimeMotionSend
+autocmd FileType julia,python,octave,lua nmap <buffer> ss     <Plug>SlimeLineSend
 
 "" Send motion/line and jump to next valid statement
 "autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<CR>g@
 "autocmd FileType julia,python,octave nmap <buffer> ss :MySndLine<CR>
 
-autocmd FileType julia,python,octave nmap <buffer> <S-CR> :MySndLine<CR>
+autocmd FileType julia,python,octave,lua nmap <buffer> <S-CR> :MySndLine<CR>
 
 " My custom operator: sends a motion to the REPL and moves to the next
 " statement (skips comments and empty lines) (see :h map-operator)
