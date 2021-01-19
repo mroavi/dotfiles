@@ -50,11 +50,11 @@ Plug 'kyazdani42/nvim-web-devicons'
 " A Neovim plugin that displays (non-interactive) scrollbars.
 Plug 'dstein64/nvim-scrollview'
 
-" TEMP: temporary fix for the gitgutter + deoplete-lsp problem
-Plug 'antoinemadec/FixCursorHold.nvim'
-
 "" Smooth scrolling for Vim done right
 "Plug 'psliwka/vim-smoothie'
+
+" TEMP: temporary fix for the gitgutter + deoplete-lsp problem
+Plug 'antoinemadec/FixCursorHold.nvim'
 
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
@@ -137,6 +137,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Color schemes
 Plug '~/repos/marlin.vim/'
+
+" A well-integrated, low-configuration buffer list that lives in the tabline
+Plug 'ap/vim-buftabline'
 
 call plug#end()
 
@@ -694,3 +697,17 @@ EOF
 "  }
 "}
 "EOF
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" vim-buftabline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>1 <Plug>BufTabLine.Go(1)
+nmap <leader>2 <Plug>BufTabLine.Go(2)
+nmap <leader>3 <Plug>BufTabLine.Go(3)
+nmap <leader>4 <Plug>BufTabLine.Go(4)
+nmap <leader>5 <Plug>BufTabLine.Go(5)
+nmap <leader>6 <Plug>BufTabLine.Go(6)
+nmap <leader>7 <Plug>BufTabLine.Go(7)
+nmap <leader>8 <Plug>BufTabLine.Go(8)
+nmap <leader>9 <Plug>BufTabLine.Go(9)
+nmap <leader>0 <Plug>BufTabLine.Go(10)
