@@ -210,7 +210,7 @@ nnoremap <silent> <Leader>; :b#<CR>
 "nnoremap <silent> <Leader>o :bdelete<CR>
 
 " Close all buffers but the current one
-map <Leader>bo :%bdelete\|e#<CR>
+map <Leader>bo :%bdelete\|e#\|bd#<CR>
 
 " Resize splits easier
 noremap <M-S-j> :resize -3<CR>
