@@ -198,10 +198,6 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 
-" Jump to next/prev paragraph
-nnoremap J }
-nnoremap K {
-
 " Move to next/prev buffer
 nnoremap H :bprevious<CR>
 nnoremap L :bnext<CR>
