@@ -198,6 +198,14 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 
+" Jump to next/prev paragraph
+nnoremap J }
+nnoremap K {
+
+" Move to next/prev buffer
+nnoremap H :bprevious<CR>
+nnoremap L :bnext<CR>
+
 " Toggle last visited buffer
 nnoremap <silent> <Leader>; :b#<CR>
 
@@ -546,7 +554,7 @@ endif
 nnoremap          <Leader>i  <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap          <Leader>cw <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap                   K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap          <Leader>ho <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap          <Leader>si <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " Diagnostics
