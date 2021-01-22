@@ -20,6 +20,9 @@ Plug 'tpope/vim-unimpaired'
 " Provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
 
+" Enable repeating supported plugin maps with "."
+Plug 'tpope/vim-repeat'
+
 " Vim support for Julia
 Plug 'JuliaEditorSupport/julia-vim'
 
