@@ -39,7 +39,7 @@ cmd open ${{
 cmd myopen ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
-        *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+        *) for f in $fx; do setsid xdg-open $f > /dev/null 2> /dev/null & done;;
     esac
 }}
 
