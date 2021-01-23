@@ -134,8 +134,8 @@ Plug 'raimondi/delimitmate'
 " The fastest Neovim colorizer
 Plug 'norcalli/nvim-colorizer.lua'
 
-" Nvim Treesitter configurations and abstraction layer
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"" Nvim Treesitter configurations and abstraction layer
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Plug 'nvim-treesitter/playground'
 
 " Color schemes
@@ -676,20 +676,20 @@ let g:delimitMate_expand_space = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua require'colorizer'.setup()
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" nvim-treesitter
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>th :TSHighlightCapturesUnderCursor<CR>
-" Use :TSModuleInfo to see the modules supported by each language
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "bash", "julia" },       -- list of language that will be disabled
-  },
-}
-EOF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" nvim-treesitter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"nnoremap <Leader>th :TSHighlightCapturesUnderCursor<CR>
+"" Use :TSModuleInfo to see the modules supported by each language
+"lua <<EOF
+"require'nvim-treesitter.configs'.setup {
+"  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+"  highlight = {
+"    enable = true,              -- false will disable the whole extension
+"    disable = { "bash" },       -- list of language that will be disabled
+"  },
+"}
+"EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ playground
