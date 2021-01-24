@@ -194,6 +194,9 @@ nnoremap Y y$
 " Write to disk
 nnoremap <Leader>w :write<CR>
 
+" Quit the current window
+nnoremap <Leader>q :quit<CR>
+
 " Yank to clipboard
 vnoremap <Leader>y "+y
 
