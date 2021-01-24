@@ -188,14 +188,14 @@ au VimResized * execute "set scroll=" . &lines / 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Custom mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Make Y behave like other capitals
-nnoremap Y y$
-
 " Write to disk
 nnoremap <Leader>w :write<CR>
 
 " Quit the current window
 nnoremap <Leader>q :quit<CR>
+
+" Make Y behave like other capitals
+nnoremap Y y$
 
 " Yank to clipboard
 vnoremap <Leader>y "+y
