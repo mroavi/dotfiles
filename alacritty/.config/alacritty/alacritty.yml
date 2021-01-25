@@ -313,7 +313,8 @@ schemes:
 
   Tender: &Tender
     primary:
-      background: '#282828'
+      #background: '#282828'
+      background: '#1F1F1F'
       foreground: '#eeeeee'
     # Normal colors
     normal:
