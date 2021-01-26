@@ -196,10 +196,8 @@ nnoremap <Leader>q :quit<CR>
 " Make Y behave like other capitals
 nnoremap Y y$
 
-" Yank to clipboard
+" Yank/Paste to/from clipboard
 vnoremap <Leader>y "+y
-
-" Paste from clipboard
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 
