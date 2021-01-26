@@ -185,7 +185,7 @@ execute "set scroll=" .&lines / 3
 au VimResized * execute "set scroll=" . &lines / 3
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Custom mappings
+"" Custom behavior
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Write to disk
 nnoremap <Leader>w :write<CR>
@@ -282,6 +282,44 @@ augroup highlight_yank
   autocmd!
   au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
+
+" My custom text object for cells
+" Based on: https://vimways.org/2018/transactions-pending/
+function! s:inCell(text_object_type)
+  " Save current cursor position
+  let save_pos = getpos(".")
+  " Get the first character of the 'commentstring' and duplicate it
+  let l:celldelim = repeat(split(&commentstring, '%s')[0][0], 2)
+  " Create a regex that searches the cell delim from the start of the line
+  let l:pattern = '^' . l:celldelim
+  " Move cursor to the previous cell delimiter
+  if (!search(l:pattern, "bcW")) | return | endif " Exit prematurely if no match
+  " Move one line down and start visually selecting from end of number
+  normal! jV
+  " Move cursor to the next cell delimiter
+  if (!search(l:pattern, "W"))
+    " If it fails, exit visual mode, restore the cursor position and return
+    silent exe "normal! \<Esc>"
+    call setpos('.', save_pos)
+    return
+  endif
+  " Move one line up
+  if a:text_object_type ==# 'i' | silent exe "normal! k" | endif
+endfunction
+
+" 'in cell'
+xnoremap <silent> ic :<c-u>call <sid>inCell('i')<cr>
+onoremap <silent> ic :<c-u>call <sid>inCell('i')<cr>
+
+" 'around cell'
+xnoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
+onoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
+
+" Custom line text object
+xnoremap <silent> il :<c-u>normal! g_v^<cr>
+onoremap <silent> il :<c-u>normal! g_v^<cr>
+xnoremap <silent> al :<c-u>normal! $v0<cr>
+onoremap <silent> al :<c-u>normal! $v0<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" marlin.vim
