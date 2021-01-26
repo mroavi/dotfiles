@@ -297,7 +297,7 @@ colorscheme marlin
 let g:lightline = {
       \ 'colorscheme': 'marlin',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
       \   'right': [ [ 'lineinfo' ], ]
       \ },
       \ 'mode_map': {
