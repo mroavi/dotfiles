@@ -12,7 +12,7 @@ nnoremap <buffer> <C-S-3> :JuliaCellRun<CR>
 " vim-slime
 let g:slime_cell_delimiter = "##"
 
-" Jump to the next/prev ## delimeter
+" Jump to the next/prev ## delimeter TODO: repalce with `call search(...)`
 nnoremap <buffer><silent> <M-j> :set nows<CR>/##<CR>:noh<CR>:set ws<CR>
 nnoremap <buffer><silent> <M-k> :set nows<CR>?##<CR>:noh<CR>:set ws<CR>
 
