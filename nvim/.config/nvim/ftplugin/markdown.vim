@@ -1,11 +1,3 @@
-" Handy header mappings
-nnoremap <buffer><Leader>m1 m`yypVr=``
-nnoremap <buffer><Leader>m2 m`yypVr-``
-nnoremap <buffer><Leader>m3 m`^i### <ESC>``4l
-nnoremap <buffer><Leader>m4 m`^i#### <ESC>``5l
-nnoremap <buffer><Leader>m5 m`^i##### <ESC>``6l
-nnoremap <buffer><Leader>m6 m`^i###### <ESC>``7l
-
 " Turn spell checking on
 setlocal spell spelllang=en_us
 
@@ -14,6 +6,14 @@ set complete+=kspell
 
 " Align markdown tables
 vnoremap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
+" Handy header mappings
+nnoremap <buffer><Leader>m1 m`yypVr=``
+nnoremap <buffer><Leader>m2 m`yypVr-``
+nnoremap <buffer><Leader>m3 m`^i### <ESC>``4l
+nnoremap <buffer><Leader>m4 m`^i#### <ESC>``5l
+nnoremap <buffer><Leader>m5 m`^i##### <ESC>``6l
+nnoremap <buffer><Leader>m6 m`^i###### <ESC>``7l
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-markdown
