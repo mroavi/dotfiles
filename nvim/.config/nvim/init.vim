@@ -32,14 +32,8 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 " Cell support for Julia in Vim
 Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
-"" Syntax highlighting for GNU Octave
-"Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
-
 " Snippets are separated from the engine. Add this if you want them
 Plug 'honza/vim-snippets'
-
-"" A fancy start screen for Vim/Neovim
-"Plug 'mhinz/vim-startify'
 
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
@@ -47,22 +41,22 @@ Plug 'sickill/vim-pasta'
 " A Neovim plugin that displays (non-interactive) scrollbars.
 Plug 'dstein64/nvim-scrollview'
 
-"" Smooth scrolling for Vim done right
-"Plug 'psliwka/vim-smoothie'
-
 " TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
 
-"""""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
+"" Syntax highlighting for GNU Octave
+"Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
 
-"" A light and configurable statusline/tabline plugin
-"Plug 'itchyny/lightline.vim'
+"" A fancy start screen for Vim/Neovim
+"Plug 'mhinz/vim-startify'
+
+"" Smooth scrolling for Vim done right
+"Plug 'psliwka/vim-smoothie'
+
+"""""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
 " Automatically clears search highlight when cursor is moved
 Plug 'junegunn/vim-slash'
-
-"" Provides support for writing LaTeX documents
-"Plug 'lervag/vimtex'
 
 " Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
@@ -83,17 +77,8 @@ Plug 'tpope/vim-fugitive'
 " Comment stuff out
 Plug 'tpope/vim-commentary'
 
-"" Changes Vim working directory to project root
-"Plug 'airblade/vim-rooter'
-
-"" A simple, easy-to-use Vim alignment plugin
-"Plug 'junegunn/vim-easy-align'
-
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-
-"" Simple tmux statusline generator, integrates with lightline/airline statusline
-"Plug 'edkolev/tmuxline.vim'
 
 " Quickstart configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
@@ -117,20 +102,8 @@ Plug 'rbgrouleff/bclose.vim'
 " Integrates Arduino's IDE's command line interface
 Plug 'stevearc/vim-arduino'
 
-"" Find, Filter, Preview, Pick. All lua, all the time
-"Plug 'nvim-lua/popup.nvim'
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
-
 " Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'raimondi/delimitmate'
-
-"" The fastest Neovim colorizer
-"Plug 'norcalli/nvim-colorizer.lua'
-
-"" Nvim Treesitter configurations and abstraction layer
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-"Plug 'nvim-treesitter/playground'
 
 " Color scheme
 Plug '~/repos/marlin.vim/'
@@ -140,6 +113,33 @@ Plug 'ap/vim-buftabline'
 
 " Vim plugin that provides additional text objects
 Plug 'wellle/targets.vim'
+
+"" A light and configurable statusline/tabline plugin
+"Plug 'itchyny/lightline.vim'
+
+"" Provides support for writing LaTeX documents
+"Plug 'lervag/vimtex'
+
+"" Changes Vim working directory to project root
+"Plug 'airblade/vim-rooter'
+
+"" A simple, easy-to-use Vim alignment plugin
+"Plug 'junegunn/vim-easy-align'
+
+"" Simple tmux statusline generator, integrates with lightline/airline statusline
+"Plug 'edkolev/tmuxline.vim'
+
+"" Find, Filter, Preview, Pick. All lua, all the time
+"Plug 'nvim-lua/popup.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
+
+"" The fastest Neovim colorizer
+"Plug 'norcalli/nvim-colorizer.lua'
+
+"" Nvim Treesitter configurations and abstraction layer
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Plug 'nvim-treesitter/playground'
 
 call plug#end()
 
@@ -324,56 +324,11 @@ onoremap <silent> al :<c-u>normal! $v0<cr>
 set termguicolors
 colorscheme marlin
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" lightline.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:lightline = {
-"      \ 'colorscheme': 'marlin',
-"      \ 'active': {
-"      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
-"      \   'right': [ [ 'lineinfo' ], ]
-"      \ },
-"      \ 'mode_map': {
-"        \ 'n' : 'N',
-"        \ 'i' : 'I',
-"        \ 'R' : 'R',
-"        \ 'v' : 'V',
-"        \ 'V' : 'VL',
-"        \ "\<C-v>": 'VB',
-"        \ 'c' : 'C',
-"        \ 's' : 'S',
-"        \ 'S' : 'SL',
-"        \ "\<C-s>": 'SB',
-"        \ 't': 'T',
-"        \ },
-"      \ 'separator': { 'left': '', 'right': '' },
-"      \ 'subseparator': { 'left': '', 'right': '' }
-"      \ }
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-slash
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Blink cursor after go to next/prev search
 noremap <expr> <plug>(slash-after) slash#blink(1, 150)
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" vimtex
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Compile files into a 'build' dir
-"let g:vimtex_compiler_latexmk = {
-"      \ 'build_dir' : 'build',
-"      \}
-"" Set file type
-"let g:tex_flavor = 'latex'
-"" Configure qpdfview
-"let g:vimtex_view_general_viewer = 'qpdfview'
-"let g:vimtex_view_general_options
-"  \ = '--unique @pdf\#src:@tex:@line:@col'
-"let g:vimtex_view_general_options_latexmk = '--unique'
-"" Disable custom warnings based on regexp
-"let g:vimtex_quickfix_ignore_filters = [
-"      \ 'Underfull .*',
-"      \]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-gitgutter
@@ -544,39 +499,11 @@ nnoremap <Leader>gds :Gds<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let b:commentary_startofline = 0
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" vim-rooter
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:rooter_manual_only = 1
-"nnoremap <Leader>cdr :Rooter<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" vim-easy-align
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"nmap ga <Plug>(EasyAlign)
-"xmap ga <Plug>(EasyAlign)
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-which-key
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" tmuxline.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:tmuxline_preset = {
-"\   'a'  : '#S',
-"\   'win'  : ['#I #W'],
-"\   'cwin' : ['#I #W'],
-"\   'z'  : '%R',
-"\   'options': {
-"\     'status-justify': 'left',
-"\     'status-position': 'top',}
-"\   }
-"if $SSH_CONNECTION
-"  autocmd VimEnter,ColorScheme * silent! Tmuxline lightline_insert
-"endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ nvim-lspconfig
@@ -682,6 +609,106 @@ let g:lf_map_keys = 0
 nnoremap <silent><Leader>lf :Lf<CR>
 nnoremap <silent><Leader>/ :Lf<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" delimitmate
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" vim-buftabline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:buftabline_numbers = 2
+nmap <leader>1 <Plug>BufTabLine.Go(1)
+nmap <leader>2 <Plug>BufTabLine.Go(2)
+nmap <leader>3 <Plug>BufTabLine.Go(3)
+nmap <leader>4 <Plug>BufTabLine.Go(4)
+nmap <leader>5 <Plug>BufTabLine.Go(5)
+nmap <leader>6 <Plug>BufTabLine.Go(6)
+nmap <leader>7 <Plug>BufTabLine.Go(7)
+nmap <leader>8 <Plug>BufTabLine.Go(8)
+nmap <leader>9 <Plug>BufTabLine.Go(9)
+nmap <leader>0 <Plug>BufTabLine.Go(10)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" targets.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Swap 'i' with 'I' operator modes
+let g:targets_aiAI = ['a', 'I', 'A', 'i']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" lightline.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:lightline = {
+"      \ 'colorscheme': 'marlin',
+"      \ 'active': {
+"      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
+"      \   'right': [ [ 'lineinfo' ], ]
+"      \ },
+"      \ 'mode_map': {
+"        \ 'n' : 'N',
+"        \ 'i' : 'I',
+"        \ 'R' : 'R',
+"        \ 'v' : 'V',
+"        \ 'V' : 'VL',
+"        \ "\<C-v>": 'VB',
+"        \ 'c' : 'C',
+"        \ 's' : 'S',
+"        \ 'S' : 'SL',
+"        \ "\<C-s>": 'SB',
+"        \ 't': 'T',
+"        \ },
+"      \ 'separator': { 'left': '', 'right': '' },
+"      \ 'subseparator': { 'left': '', 'right': '' }
+"      \ }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" vimtex
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Compile files into a 'build' dir
+"let g:vimtex_compiler_latexmk = {
+"      \ 'build_dir' : 'build',
+"      \}
+"" Set file type
+"let g:tex_flavor = 'latex'
+"" Configure qpdfview
+"let g:vimtex_view_general_viewer = 'qpdfview'
+"let g:vimtex_view_general_options
+"  \ = '--unique @pdf\#src:@tex:@line:@col'
+"let g:vimtex_view_general_options_latexmk = '--unique'
+"" Disable custom warnings based on regexp
+"let g:vimtex_quickfix_ignore_filters = [
+"      \ 'Underfull .*',
+"      \]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""" vim-rooter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:rooter_manual_only = 1
+"nnoremap <Leader>cdr :Rooter<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""" vim-easy-align
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"nmap ga <Plug>(EasyAlign)
+"xmap ga <Plug>(EasyAlign)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""" tmuxline.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:tmuxline_preset = {
+"\   'a'  : '#S',
+"\   'win'  : ['#I #W'],
+"\   'cwin' : ['#I #W'],
+"\   'z'  : '%R',
+"\   'options': {
+"\     'status-justify': 'left',
+"\     'status-position': 'top',}
+"\   }
+"if $SSH_CONNECTION
+"  autocmd VimEnter,ColorScheme * silent! Tmuxline lightline_insert
+"endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """" telescope.nvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -718,12 +745,6 @@ nnoremap <silent><Leader>/ :Lf<CR>
 "nnoremap <Leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
 "nnoremap <Leader>ma <cmd>lua require('telescope.builtin').keymaps()<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" delimitmate
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """" nvim-colorizer.lua
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -758,25 +779,4 @@ let g:delimitMate_expand_space = 1
 "  }
 "}
 "EOF
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-buftabline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:buftabline_numbers = 2
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" targets.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Swap 'i' with 'I' operator modes
-let g:targets_aiAI = ['a', 'I', 'A', 'i']
 
