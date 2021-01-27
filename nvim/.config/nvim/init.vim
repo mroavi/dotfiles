@@ -363,15 +363,13 @@ noremap <expr> <plug>(slash-after) slash#blink(1, 150)
 let g:vimtex_compiler_latexmk = {
       \ 'build_dir' : 'build',
       \}
-
+" Set file type
 let g:tex_flavor = 'latex'
-
 " Configure qpdfview
 let g:vimtex_view_general_viewer = 'qpdfview'
 let g:vimtex_view_general_options
   \ = '--unique @pdf\#src:@tex:@line:@col'
 let g:vimtex_view_general_options_latexmk = '--unique'
-
 " Disable custom warnings based on regexp
 let g:vimtex_quickfix_ignore_filters = [
       \ 'Underfull .*',
