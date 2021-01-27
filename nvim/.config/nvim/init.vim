@@ -150,7 +150,7 @@ call plug#end()
 "" Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://neovim.io/doc/user/options.html#'shada'
-set shada=<50,'50,/50,:50,h,f1
+set shada=<10,'99,/20,:99,h,f1
 "         |   |   |   |   | + store file marks 0-9,A-Z
 "         |   |   |   |   + disable 'hlsearch' while loading viminfo
 "         |   |   |   + max num of items in the cmd-line hist to be saved
