@@ -86,8 +86,8 @@ Plug 'tpope/vim-fugitive'
 " Comment stuff out
 Plug 'tpope/vim-commentary'
 
-" Changes Vim working directory to project root
-Plug 'airblade/vim-rooter'
+"" Changes Vim working directory to project root
+"Plug 'airblade/vim-rooter'
 
 " A simple, easy-to-use Vim alignment plugin
 Plug 'junegunn/vim-easy-align'
@@ -528,11 +528,11 @@ nnoremap <Leader>gds :Gds<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let b:commentary_startofline = 0
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-rooter
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:rooter_manual_only = 1
-nnoremap <Leader>cdr :Rooter<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" vim-rooter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:rooter_manual_only = 1
+"nnoremap <Leader>cdr :Rooter<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-easy-align
