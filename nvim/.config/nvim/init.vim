@@ -86,8 +86,8 @@ Plug 'tpope/vim-commentary'
 "" Changes Vim working directory to project root
 "Plug 'airblade/vim-rooter'
 
-" A simple, easy-to-use Vim alignment plugin
-Plug 'junegunn/vim-easy-align'
+"" A simple, easy-to-use Vim alignment plugin
+"Plug 'junegunn/vim-easy-align'
 
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
@@ -550,11 +550,11 @@ let b:commentary_startofline = 0
 "let g:rooter_manual_only = 1
 "nnoremap <Leader>cdr :Rooter<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-easy-align
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" vim-easy-align
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"nmap ga <Plug>(EasyAlign)
+"xmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-which-key
