@@ -58,8 +58,8 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
-" A light and configurable statusline/tabline plugin
-Plug 'itchyny/lightline.vim'
+"" A light and configurable statusline/tabline plugin
+"Plug 'itchyny/lightline.vim'
 
 " Automatically clears search highlight when cursor is moved
 Plug 'junegunn/vim-slash'
@@ -95,8 +95,8 @@ Plug 'junegunn/vim-easy-align'
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
-" Simple tmux statusline generator, integrates with lightline/airline statusline
-Plug 'edkolev/tmuxline.vim'
+"" Simple tmux statusline generator, integrates with lightline/airline statusline
+"Plug 'edkolev/tmuxline.vim'
 
 " Quickstart configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
@@ -327,31 +327,31 @@ onoremap <silent> al :<c-u>normal! $v0<cr>
 set termguicolors
 colorscheme marlin
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" lightline.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lightline = {
-      \ 'colorscheme': 'marlin',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
-      \   'right': [ [ 'lineinfo' ], ]
-      \ },
-      \ 'mode_map': {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
-        \ 'R' : 'R',
-        \ 'v' : 'V',
-        \ 'V' : 'VL',
-        \ "\<C-v>": 'VB',
-        \ 'c' : 'C',
-        \ 's' : 'S',
-        \ 'S' : 'SL',
-        \ "\<C-s>": 'SB',
-        \ 't': 'T',
-        \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" lightline.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:lightline = {
+"      \ 'colorscheme': 'marlin',
+"      \ 'active': {
+"      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
+"      \   'right': [ [ 'lineinfo' ], ]
+"      \ },
+"      \ 'mode_map': {
+"        \ 'n' : 'N',
+"        \ 'i' : 'I',
+"        \ 'R' : 'R',
+"        \ 'v' : 'V',
+"        \ 'V' : 'VL',
+"        \ "\<C-v>": 'VB',
+"        \ 'c' : 'C',
+"        \ 's' : 'S',
+"        \ 'S' : 'SL',
+"        \ "\<C-s>": 'SB',
+"        \ 't': 'T',
+"        \ },
+"      \ 'separator': { 'left': '', 'right': '' },
+"      \ 'subseparator': { 'left': '', 'right': '' }
+"      \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-slash
@@ -546,21 +546,21 @@ xmap ga <Plug>(EasyAlign)
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" tmuxline.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tmuxline_preset = {
-\   'a'  : '#S',
-\   'win'  : ['#I #W'],
-\   'cwin' : ['#I #W'],
-\   'z'  : '%R',
-\   'options': {
-\     'status-justify': 'left',
-\     'status-position': 'top',}
-\   }
-if $SSH_CONNECTION
-  autocmd VimEnter,ColorScheme * silent! Tmuxline lightline_insert
-endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" tmuxline.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:tmuxline_preset = {
+"\   'a'  : '#S',
+"\   'win'  : ['#I #W'],
+"\   'cwin' : ['#I #W'],
+"\   'z'  : '%R',
+"\   'options': {
+"\     'status-justify': 'left',
+"\     'status-position': 'top',}
+"\   }
+"if $SSH_CONNECTION
+"  autocmd VimEnter,ColorScheme * silent! Tmuxline lightline_insert
+"endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" nvim-lspconfig
