@@ -38,8 +38,8 @@ Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
 " Snippets are separated from the engine. Add this if you want them
 Plug 'honza/vim-snippets'
 
-" A fancy start screen for Vim/Neovim
-Plug 'mhinz/vim-startify'
+"" A fancy start screen for Vim/Neovim
+"Plug 'mhinz/vim-startify'
 
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
