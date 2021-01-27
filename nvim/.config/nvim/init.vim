@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Vim philosophy: https://stackoverflow.com/a/1220118/1706778
+""" Vim philosophy: https://stackoverflow.com/a/1220118/1706778
 " See: `:h nvim-configuration`
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap <Leader> key (should be placed on top of this file)
@@ -7,7 +7,7 @@ let mapleader = ' '
 let maplocalleader = ' '
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-plug
+""" vim-plug
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins will be downloaded under the specified directory.
 call plug#begin(stdpath('data') . '/plugged')
@@ -144,7 +144,7 @@ Plug 'wellle/targets.vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Options
+""" Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://neovim.io/doc/user/options.html#'shada'
 set shada=<10,'99,/20,:99,h,f1
@@ -182,7 +182,7 @@ execute "set scroll=" .&lines / 3
 au VimResized * execute "set scroll=" . &lines / 3
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Custom behavior
+""" Custom behavior
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Write to disk
 nnoremap <Leader>w :write<CR>
@@ -319,7 +319,7 @@ xnoremap <silent> al :<c-u>normal! $v0<cr>
 onoremap <silent> al :<c-u>normal! $v0<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" marlin.vim
+""" marlin.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set termguicolors
 colorscheme marlin
@@ -351,7 +351,7 @@ colorscheme marlin
 "      \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-slash
+""" vim-slash
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Blink cursor after go to next/prev search
 noremap <expr> <plug>(slash-after) slash#blink(1, 150)
@@ -376,7 +376,7 @@ noremap <expr> <plug>(slash-after) slash#blink(1, 150)
 "      \]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-gitgutter
+""" vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_map_keys = 0
 let g:gitgutter_show_msg_on_hunk_jumping = 0
@@ -387,7 +387,7 @@ nmap <Leader>j  <Plug>(GitGutterNextHunk)
 nmap <Leader>k  <Plug>(GitGutterPrevHunk)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" fzf.vim
+""" fzf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default fzf layout
 "(see: https://github.com/junegunn/fzf.vim/issues/821#issuecomment-581481211)
@@ -448,7 +448,7 @@ endfunction
 command! -nargs=0 MyFasd call Fasd(<bang>0)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" tmux-navigator
+""" tmux-navigator
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
@@ -461,7 +461,7 @@ inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<CR>
 inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-slime
+""" vim-slime
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
@@ -523,7 +523,7 @@ function! SkipLine(line)
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-fugitive
+""" vim-fugitive
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Add commands similar to those available through the Git plugin in Oh My ZSH
 command! -complete=file -nargs=* Gd Git diff <args>
@@ -540,7 +540,7 @@ nnoremap <Leader>gdi :Gd<CR>
 nnoremap <Leader>gds :Gds<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-commentary
+""" vim-commentary
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let b:commentary_startofline = 0
 
@@ -557,7 +557,7 @@ let b:commentary_startofline = 0
 "xmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-which-key
+""" vim-which-key
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
@@ -579,7 +579,7 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 "endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" nvim-lspconfig
+""" nvim-lspconfig
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua << EOF
   local lspconfig = require'lspconfig'
@@ -630,7 +630,7 @@ sign define LspDiagnosticsSignWarning     text=⚠
 sign define LspDiagnosticsSignInformation text=ℹ
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" completion-nvim
+""" completion-nvim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use completion-nvim in every buffer
 autocmd BufEnter * lua require'completion'.on_attach()
@@ -666,7 +666,7 @@ imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
 inoremap <silent><expr> <C-Space> completion#trigger_completion()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" ultisnips
+""" ultisnips
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
@@ -676,7 +676,7 @@ let g:UltiSnipsExpandTrigger       = "<\>"
 let g:UltiSnipsListSnippets        = "<\>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" lf.vim
+""" lf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lf_map_keys = 0
 nnoremap <silent><Leader>lf :Lf<CR>
@@ -719,7 +719,7 @@ nnoremap <silent><Leader>/ :Lf<CR>
 "nnoremap <Leader>ma <cmd>lua require('telescope.builtin').keymaps()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" delimitmate
+""" delimitmate
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
@@ -775,7 +775,7 @@ nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" targets.vim
+""" targets.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Swap 'i' with 'I' operator modes
 let g:targets_aiAI = ['a', 'I', 'A', 'i']
