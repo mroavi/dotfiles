@@ -32,8 +32,8 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 " Cell support for Julia in Vim
 Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
-" Syntax highlighting for GNU Octave
-Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
+"" Syntax highlighting for GNU Octave
+"Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
 
 " Snippets are separated from the engine. Add this if you want them
 Plug 'honza/vim-snippets'
