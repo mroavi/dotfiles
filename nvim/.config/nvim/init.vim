@@ -61,8 +61,8 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 " Automatically clears search highlight when cursor is moved
 Plug 'junegunn/vim-slash'
 
-" Provides support for writing LaTeX documents
-Plug 'lervag/vimtex'
+"" Provides support for writing LaTeX documents
+"Plug 'lervag/vimtex'
 
 " Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
@@ -356,24 +356,24 @@ colorscheme marlin
 " Blink cursor after go to next/prev search
 noremap <expr> <plug>(slash-after) slash#blink(1, 150)
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vimtex
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Compile files into a 'build' dir
-let g:vimtex_compiler_latexmk = {
-      \ 'build_dir' : 'build',
-      \}
-" Set file type
-let g:tex_flavor = 'latex'
-" Configure qpdfview
-let g:vimtex_view_general_viewer = 'qpdfview'
-let g:vimtex_view_general_options
-  \ = '--unique @pdf\#src:@tex:@line:@col'
-let g:vimtex_view_general_options_latexmk = '--unique'
-" Disable custom warnings based on regexp
-let g:vimtex_quickfix_ignore_filters = [
-      \ 'Underfull .*',
-      \]
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" vimtex
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Compile files into a 'build' dir
+"let g:vimtex_compiler_latexmk = {
+"      \ 'build_dir' : 'build',
+"      \}
+"" Set file type
+"let g:tex_flavor = 'latex'
+"" Configure qpdfview
+"let g:vimtex_view_general_viewer = 'qpdfview'
+"let g:vimtex_view_general_options
+"  \ = '--unique @pdf\#src:@tex:@line:@col'
+"let g:vimtex_view_general_options_latexmk = '--unique'
+"" Disable custom warnings based on regexp
+"let g:vimtex_quickfix_ignore_filters = [
+"      \ 'Underfull .*',
+"      \]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-gitgutter
