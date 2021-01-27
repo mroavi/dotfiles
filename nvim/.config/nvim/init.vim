@@ -357,6 +357,27 @@ colorscheme marlin
 noremap <expr> <plug>(slash-after) slash#blink(1, 150)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" vimtex
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Compile files into a 'build' dir
+let g:vimtex_compiler_latexmk = {
+      \ 'build_dir' : 'build',
+      \}
+
+let g:tex_flavor = 'latex'
+
+" Configure qpdfview
+let g:vimtex_view_general_viewer = 'qpdfview'
+let g:vimtex_view_general_options
+  \ = '--unique @pdf\#src:@tex:@line:@col'
+let g:vimtex_view_general_options_latexmk = '--unique'
+
+" Disable custom warnings based on regexp
+let g:vimtex_quickfix_ignore_filters = [
+      \ 'Underfull .*',
+      \]
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_map_keys = 0
