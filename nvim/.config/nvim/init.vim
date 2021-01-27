@@ -190,9 +190,6 @@ au VimResized * execute "set scroll=" . &lines / 3
 " Write to disk
 nnoremap <Leader>w :write<CR>
 
-" Quit the current window
-nnoremap <Leader>q :quit<CR>
-
 " Close the current window
 nnoremap <Leader>x :close<CR>
 
