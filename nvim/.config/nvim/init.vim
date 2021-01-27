@@ -41,9 +41,6 @@ Plug 'honza/vim-snippets'
 " A fancy start screen for Vim/Neovim
 Plug 'mhinz/vim-startify'
 
-" Vim plugin that provides additional text objects
-Plug 'wellle/targets.vim'
-
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
 
@@ -143,6 +140,9 @@ Plug '~/repos/marlin.vim/'
 
 " A well-integrated, low-configuration buffer list that lives in the tabline
 Plug 'ap/vim-buftabline'
+
+" Vim plugin that provides additional text objects
+Plug 'wellle/targets.vim'
 
 call plug#end()
 
@@ -758,3 +758,9 @@ nmap <leader>7 <Plug>BufTabLine.Go(7)
 nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" targets.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:targets_aiAI = ['a', 'I', 'A', 'i']
+
