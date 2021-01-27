@@ -193,6 +193,9 @@ nnoremap <Leader>w :write<CR>
 " Quit the current window
 nnoremap <Leader>q :quit<CR>
 
+" Close the current window
+nnoremap <Leader>x :close<CR>
+
 " Make Y behave like other capitals
 nnoremap Y y$
 
