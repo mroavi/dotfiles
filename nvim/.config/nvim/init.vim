@@ -150,12 +150,12 @@ call plug#end()
 "" Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://neovim.io/doc/user/options.html#'shada'
-set shada=<800,'500,/100,:500,h,f1
-"         |    |    |    |    | + store file marks 0-9,A-Z
-"         |    |    |    |    + disable 'hlsearch' while loading viminfo
-"         |    |    |    + max num of items in the cmd-line hist to be saved
-"         |    |    + max num of items in the search history to be saved
-"         |    + number of old files remembered
+set shada=<50,'50,/50,:50,h,f1
+"         |   |   |   |   | + store file marks 0-9,A-Z
+"         |   |   |   |   + disable 'hlsearch' while loading viminfo
+"         |   |   |   + max num of items in the cmd-line hist to be saved
+"         |   |   + max num of items in the search history to be saved
+"         |   + number of old files remembered
 "         + maximum num of lines saved for each register
 set number relativenumber " lines are numbered relative to the current line
 set noswapfile " they're just annoying. Who likes them?
