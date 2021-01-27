@@ -135,7 +135,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Plug 'nvim-treesitter/playground'
 
-" Color schemes
+" Color scheme
 Plug '~/repos/marlin.vim/'
 
 " A well-integrated, low-configuration buffer list that lives in the tabline
