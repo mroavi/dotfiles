@@ -325,7 +325,7 @@ set termguicolors
 colorscheme marlin
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" lightline.vim
+"""" lightline.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:lightline = {
 "      \ 'colorscheme': 'marlin',
@@ -357,7 +357,7 @@ colorscheme marlin
 noremap <expr> <plug>(slash-after) slash#blink(1, 150)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vimtex
+"""" vimtex
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Compile files into a 'build' dir
 "let g:vimtex_compiler_latexmk = {
@@ -387,7 +387,7 @@ nmap <Leader>j  <Plug>(GitGutterNextHunk)
 nmap <Leader>k  <Plug>(GitGutterPrevHunk)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" fzf.vim
+"""" fzf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default fzf layout
 "(see: https://github.com/junegunn/fzf.vim/issues/821#issuecomment-581481211)
@@ -545,13 +545,13 @@ nnoremap <Leader>gds :Gds<CR>
 let b:commentary_startofline = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-rooter
+"""" vim-rooter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:rooter_manual_only = 1
 "nnoremap <Leader>cdr :Rooter<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-easy-align
+"""" vim-easy-align
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "nmap ga <Plug>(EasyAlign)
 "xmap ga <Plug>(EasyAlign)
@@ -563,7 +563,7 @@ nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" tmuxline.vim
+"""" tmuxline.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:tmuxline_preset = {
 "\   'a'  : '#S',
@@ -683,7 +683,7 @@ nnoremap <silent><Leader>lf :Lf<CR>
 nnoremap <silent><Leader>/ :Lf<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" telescope.nvim
+"""" telescope.nvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "lua << EOF
 "local actions = require('telescope.actions')
@@ -725,12 +725,12 @@ let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" nvim-colorizer.lua
+"""" nvim-colorizer.lua
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "lua require'colorizer'.setup()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" nvim-treesitter
+"""" nvim-treesitter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "nnoremap <Leader>th :TSHighlightCapturesUnderCursor<CR>
 "" Use :TSModuleInfo to see the modules supported by each language
@@ -745,7 +745,7 @@ let g:delimitMate_expand_space = 1
 "EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" playground
+"""" playground
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "nnoremap <Leader>tp :TSPlaygroundToggle<CR>
 "lua <<EOF
