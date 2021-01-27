@@ -44,9 +44,6 @@ Plug 'honza/vim-snippets'
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
 
-" lua `fork` of vim-web-devicons for neovim
-Plug 'kyazdani42/nvim-web-devicons'
-
 " A Neovim plugin that displays (non-interactive) scrollbars.
 Plug 'dstein64/nvim-scrollview'
 
