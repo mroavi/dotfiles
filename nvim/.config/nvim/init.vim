@@ -307,11 +307,11 @@ function! s:inCell(text_object_type)
   if a:text_object_type ==# 'i' | silent exe "normal! k" | endif
 endfunction
 
-" 'in cell'
+" Custom 'in cell' text object
 xnoremap <silent> ic :<c-u>call <sid>inCell('i')<cr>
 onoremap <silent> ic :<c-u>call <sid>inCell('i')<cr>
 
-" 'around cell'
+" Custom 'around cell' text object
 xnoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
 onoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
 
@@ -320,6 +320,10 @@ xnoremap <silent> il :<c-u>normal! g_v^<cr>
 onoremap <silent> il :<c-u>normal! g_v^<cr>
 xnoremap <silent> al :<c-u>normal! $v0<cr>
 onoremap <silent> al :<c-u>normal! $v0<cr>
+
+" Custom 'in document' text object (from first line to last)
+xnoremap <silent> id :<c-u>normal! G$Vgg0<cr>
+onoremap <silent> id :<c-u>normal! GVgg<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ marlin.vim
