@@ -98,9 +98,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 
-" Integrates Arduino's IDE's command line interface
-Plug 'stevearc/vim-arduino'
-
 " Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'raimondi/delimitmate'
 
@@ -139,6 +136,9 @@ Plug 'wellle/targets.vim'
 "" Nvim Treesitter configurations and abstraction layer
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Plug 'nvim-treesitter/playground'
+
+"" Integrates Arduino's IDE's command line interface
+"Plug 'stevearc/vim-arduino'
 
 call plug#end()
 
@@ -515,7 +515,7 @@ lua << EOF
   local lspconfig = require'lspconfig'
   lspconfig.clangd.setup{
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
-    filetypes = { "c", "cpp", "objc", "objcpp", "arduino" },
+    filetypes = { "c", "cpp", "objc", "objcpp"},
   }
   --lspconfig.julials.setup{}
 EOF
