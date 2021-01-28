@@ -134,8 +134,8 @@ Plug 'wellle/targets.vim'
 "Plug 'nvim-lua/plenary.nvim'
 "Plug 'nvim-telescope/telescope.nvim'
 
-" The fastest Neovim colorizer
-Plug 'norcalli/nvim-colorizer.lua'
+"" The fastest Neovim colorizer
+"Plug 'norcalli/nvim-colorizer.lua'
 
 "" Nvim Treesitter configurations and abstraction layer
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -749,10 +749,10 @@ let g:targets_aiAI = ['a', 'I', 'A', 'i']
 "nnoremap <Leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
 "nnoremap <Leader>ma <cmd>lua require('telescope.builtin').keymaps()<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" nvim-colorizer.lua
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua require'colorizer'.setup()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""" nvim-colorizer.lua
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"lua require'colorizer'.setup()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """" nvim-treesitter
