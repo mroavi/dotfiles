@@ -13,6 +13,6 @@ nnoremap <buffer><silent> <M-j> :set nows<CR>/^%%<CR>j:noh<CR>:set ws<CR>
 nnoremap <buffer><silent> <M-k> :set nows<CR>?^%%<CR>k:noh<CR>:set ws<CR>
 
 " Jump to the next/prev cell delimeter
-nnoremap <buffer><silent> <M-j> :call search('^' . b:cell_delimeter, "W")<CR>
-nnoremap <buffer><silent> <M-k> :call search('^' . b:cell_delimeter, "bW")<CR>
+nnoremap <buffer><silent> <M-j> :call search(b:cell_delimeter, "W")<CR>
+nnoremap <buffer><silent> <M-k> :call search(b:cell_delimeter, "bW")<CR>
 
