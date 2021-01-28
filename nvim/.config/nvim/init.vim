@@ -157,7 +157,6 @@ set shada=<10,'99,/20,:99,h,f1
 set number relativenumber " lines are numbered relative to the current line
 set noswapfile " they're just annoying. Who likes them?
 set nowrap linebreak nolist " avoid breaking lines in the middle of words
-"set noshowmode " don't show mode in status bar (taken care of by lightline)
 set hidden " allows switching from unwritten buffers, remember the undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
 set splitbelow splitright " open split below or to the right of the current one
@@ -170,9 +169,10 @@ set updatetime=100 " among others, governs gitgutter's update time
 set inccommand=split " shows the effects of a command incrementally as you type
 set listchars=tab:▸\ ,space:_,eol:¬ " symbols for tabstops, spaces and EOLs
 set scrolloff=10 " min num of screen lines to keep above and below the cursor
-"set ignorecase smartcase " ignore case if the typed letters are all lowercase
 set completeopt=menuone,noinsert,noselect " better completion experience
 set shortmess+=c " avoid showing verbose messages when using completion
+"set noshowmode " don't show mode in status bar (taken care of by lightline)
+"set ignorecase smartcase " ignore case if the typed letters are all lowercase
 
 " Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
