@@ -485,8 +485,8 @@ endfunction
 """ vim-fugitive
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Add commands similar to those available through the Git plugin in Oh My ZSH
-command! -complete=file -nargs=* Gd Git diff <args>
-command! -complete=file -nargs=* Gds Git diff --staged <args>
+command! -complete=file -nargs=* Gdiff Git diff <args>
+command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
 
 nnoremap <Leader>gst :Git<CR>
 nnoremap <Leader>gw  :Gwrite<CR>
@@ -495,8 +495,8 @@ nnoremap <Leader>gc  :Git commit -v<CR>
 nnoremap <Leader>gp  :Git push<CR>
 nnoremap <Leader>gl  :Git pull<CR>
 nnoremap <Leader>glg :Git log<CR>
-nnoremap <Leader>gdi :Gd<CR>
-nnoremap <Leader>gds :Gds<CR>
+nnoremap <Leader>gdi :Gdiff<CR>
+nnoremap <Leader>gds :Gdstaged<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-commentary
