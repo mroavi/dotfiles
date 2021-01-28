@@ -216,6 +216,10 @@ nnoremap <silent> <Leader>; :b#<CR>
 " Close all buffers but the current one
 map <Leader>bo :%bdelete\|e#\|bd#<CR>
 
+" Create horizontal an vertical splits
+map <Leader>sp :split<CR>
+map <Leader>vs :vsplit<CR>
+
 " Resize splits easier
 noremap <M-S-j> :resize -3<CR>
 noremap <M-S-k> :resize +3<CR>
