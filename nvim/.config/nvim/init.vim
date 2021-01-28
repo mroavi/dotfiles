@@ -157,7 +157,7 @@ set shada=<10,'99,/20,:99,h,f1
 set number relativenumber " lines are numbered relative to the current line
 set noswapfile " they're just annoying. Who likes them?
 set nowrap linebreak nolist " avoid breaking lines in the middle of words
-set noshowmode " don't show mode in status bar (taken care of by lightline)
+"set noshowmode " don't show mode in status bar (taken care of by lightline)
 set hidden " allows switching from unwritten buffers, remember the undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
 set splitbelow splitright " open split below or to the right of the current one
