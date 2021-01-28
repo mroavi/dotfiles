@@ -38,9 +38,6 @@ Plug 'honza/vim-snippets'
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
 
-" A Neovim plugin that displays (non-interactive) scrollbars.
-Plug 'dstein64/nvim-scrollview'
-
 " TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
 
@@ -52,6 +49,9 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 
 "" Smooth scrolling for Vim done right
 "Plug 'psliwka/vim-smoothie'
+
+"" A Neovim plugin that displays (non-interactive) scrollbars.
+"Plug 'dstein64/nvim-scrollview'
 
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
