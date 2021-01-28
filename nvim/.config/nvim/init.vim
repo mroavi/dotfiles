@@ -486,7 +486,6 @@ endfunction
 " Add commands similar to those available through the Git plugin in Oh My ZSH
 command! -complete=file -nargs=* Gdiff Git diff <args>
 command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
-
 nnoremap <Leader>gst :Git<CR>
 nnoremap <Leader>gw  :Gwrite<CR>
 nnoremap <Leader>gr  :Gread<CR>
