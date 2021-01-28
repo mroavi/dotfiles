@@ -168,7 +168,7 @@ set smartindent " intelligently dedent / indent new lines based on rules
 set updatetime=100 " among others, governs gitgutter's update time
 set inccommand=split " shows the effects of a command incrementally as you type
 set listchars=tab:▸\ ,space:_,eol:¬ " symbols for tabstops, spaces and EOLs
-set scrolloff=10 " min num of screen lines to keep above and below the cursor
+set scrolloff=7 " min num of screen lines to keep above and below the cursor
 set completeopt=menuone,noinsert,noselect " better completion experience
 set shortmess+=c " avoid showing verbose messages when using completion
 "set noshowmode " don't show mode in status bar (taken care of by lightline)
