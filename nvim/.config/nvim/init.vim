@@ -345,7 +345,7 @@ nmap <Leader>j  <Plug>(GitGutterNextHunk)
 nmap <Leader>k  <Plug>(GitGutterPrevHunk)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" fzf.vim
+""" fzf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default fzf layout
 "(see: https://github.com/junegunn/fzf.vim/issues/821#issuecomment-581481211)
