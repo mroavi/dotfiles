@@ -310,8 +310,8 @@ xnoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
 onoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
 
 " Custom 'in document' text object (from first line to last)
-xnoremap <silent> id :<c-u>normal! G$Vgg0<cr>
-onoremap <silent> id :<c-u>normal! GVgg<cr>
+xnoremap <silent> id :<c-u>normal! ggVG<cr>
+onoremap <silent> id :<c-u>normal! ggVG<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ marlin.vim
