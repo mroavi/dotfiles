@@ -309,9 +309,9 @@ onoremap <silent> ic :<c-u>call <sid>inCell('i')<cr>
 xnoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
 onoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
 
-" Custom 'in document' text object (from first line to last)
-xnoremap <silent> id :<c-u>normal! ggVG<cr>
-onoremap <silent> id :<c-u>normal! ggVG<cr>
+" Custom 'in buffer' text object (from first line to last)
+xnoremap <silent> ib :<c-u>normal! ggVG<cr>
+onoremap <silent> ib :<c-u>normal! ggVG<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ marlin.vim
