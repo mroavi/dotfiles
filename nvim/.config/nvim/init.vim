@@ -189,6 +189,9 @@ nnoremap <Leader>w :write<CR>
 " Close the current window
 nnoremap <Leader>x :close<CR>
 
+" Close the quickfix window
+nnoremap <Leader>cx :cclose<CR>
+
 " Make Y behave like other capitals
 nnoremap Y y$
 
