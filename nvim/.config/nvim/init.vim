@@ -286,25 +286,19 @@ augroup END
 " My custom text object for cells
 " Based on: https://vimways.org/2018/transactions-pending/
 function! s:inCell(text_object_type)
-  " Save current cursor position
-  let save_pos = getpos(".")
   " Get the first character of the 'commentstring' and duplicate it
   let l:celldelim = repeat(split(&commentstring, '%s')[0][0], 2)
   " Create a regex that searches the cell delim from the start of the line
   let l:pattern = '^' . l:celldelim
   " Move cursor to the previous cell delimiter
-  if (!search(l:pattern, "bcW")) | return | endif " Exit prematurely if no match
-  " Move one line down and start visually selecting from end of number
-  normal! jV
-  " Move cursor to the next cell delimiter
-  if (!search(l:pattern, "W"))
-    " If it fails, exit visual mode, restore the cursor position and return
-    silent exe "normal! \<Esc>"
-    call setpos('.', save_pos)
-    return
-  endif
-  " Move one line up
-  if a:text_object_type ==# 'i' | silent exe "normal! k" | endif
+  if (search(l:pattern, "bcW"))
+    " Match found. If received 'i' as argument (inner cell), move one line down
+    if a:text_object_type ==# 'i' | silent exe "normal! j" | endif
+  else | silent exe "normal! gg" | endif " No match found. Jump to top
+  " Start visual line mode
+  normal! V
+  " Move cursor to the next cell delimiter if found, otherwise, to bottom of file
+  if (search(l:pattern, "W")) | silent exe "normal! k" | else | exe "normal! G" | endif
 endfunction
 
 " Custom 'in cell' text object
