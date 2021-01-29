@@ -309,12 +309,6 @@ onoremap <silent> ic :<c-u>call <sid>inCell('i')<cr>
 xnoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
 onoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
 
-" Custom line text object
-xnoremap <silent> il :<c-u>normal! g_v^<cr>
-onoremap <silent> il :<c-u>normal! g_v^<cr>
-xnoremap <silent> al :<c-u>normal! $v0<cr>
-onoremap <silent> al :<c-u>normal! $v0<cr>
-
 " Custom 'in document' text object (from first line to last)
 xnoremap <silent> id :<c-u>normal! G$Vgg0<cr>
 onoremap <silent> id :<c-u>normal! GVgg<cr>
