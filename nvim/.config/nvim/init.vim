@@ -66,6 +66,7 @@ Plug 'toranb/tmux-navigator'
 
 " Send text to tmux
 Plug '~/repos/vim-tomux'
+"Plug 'mroavi/vim-tomux'
 
 " A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
