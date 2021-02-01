@@ -4,16 +4,8 @@ let b:commentary_format = '#%s'
 " Define cell_delimeter
 let b:cell_delimeter = '##'
 
-" vim-slime
-let g:slime_python_ipython = 1
-let g:slime_cell_delimiter = b:cell_delimeter
-"nmap <buffer> <M-CR> <Plug>SlimeSendCell
-
-" vim-ipython-cell
-nnoremap <buffer> <Leader>clr :IPythonCellClear<CR>
-nnoremap <buffer> <M-CR> :IPythonCellExecuteCell<CR>
-" Hack: Alacritty sends Ctrl+Shift+3 when Ctrl+Shift+Enter is pressed
-nnoremap <buffer> <C-S-3> :IPythonCellRun<CR>
+" vim-tomux
+let b:tomux_clipboard_paste = "paste -q"
 
 " Jump to the next/prev cell delimeter
 nnoremap <buffer><silent> <M-j> :call search(b:cell_delimeter, "W")<CR>

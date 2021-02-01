@@ -64,8 +64,8 @@ Plug 'junegunn/fzf.vim'
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
 
-" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
-Plug 'jpalardy/vim-slime'
+" Send text to tmux
+Plug '~/repos/vim-tomux'
 
 " A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
@@ -136,6 +136,9 @@ Plug 'wellle/targets.vim'
 
 "" Integrates Arduino's IDE's command line interface
 "Plug 'stevearc/vim-arduino'
+
+"" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
+"Plug 'jpalardy/vim-slime'
 
 call plug#end()
 
@@ -410,27 +413,29 @@ inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<CR>
 inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-slime
+""" vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
-let g:slime_dont_ask_default = 1
-let g:slime_no_mappings = 1
+let g:tomux = {"socket_name": "default", "target_pane": "{right-of}"}
+let g:tomux = expand("$HOME/.tomux")
 
-autocmd FileType julia,python,octave,lua xmap <buffer> <C-CR> <Plug>SlimeRegionSend
-autocmd FileType julia,python,octave,lua nmap <buffer> <C-CR> <Plug>SlimeLineSend
-autocmd FileType julia,python,octave,lua imap <buffer> <C-CR> <C-o><Plug>SlimeLineSend
-"autocmd FileType julia,python,octave nmap <buffer> <S-CR> <Plug>SlimeLineSendj
+augroup tomux_send
+  autocmd FileType julia,python,octave,lua nmap <buffer> s <Plug>TomuxMotionSend
+  autocmd FileType julia,python,octave,lua xmap <buffer> s <Plug>TomuxVisualSend
+  autocmd FileType julia,python,octave,lua omap <buffer> s _
 
-" Motion-based mappings (currently disabled in favor of the alternatives below)
-autocmd FileType julia,python,octave,lua nmap <buffer> s      <Plug>SlimeMotionSend
-autocmd FileType julia,python,octave,lua nmap <buffer> ss     <Plug>SlimeLineSend
+  "autocmd FileType julia,python,octave,lua nmap <silent> s :set opfunc=MySendMotion<CR>g@
 
-"" Send motion/line and jump to next valid statement
-"autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<CR>g@
-"autocmd FileType julia,python,octave nmap <buffer> ss :MySndLine<CR>
+  " Ctrl+Enter to send text in visual, normal and insert modes
+  autocmd FileType julia,python,octave,lua xmap <buffer> <C-CR> <Plug>TomuxVisualSend
+  autocmd FileType julia,python,octave,lua nmap <buffer> <C-CR> s_
+  autocmd FileType julia,python,octave,lua imap <buffer> <C-CR> <Esc>s_gi
+augroup END
 
-autocmd FileType julia,python,octave,lua nmap <buffer> <S-CR> :MySndLine<CR>
+"" julia-cell (for reference on how to use Alt+Enter and Ctrl-Shift-Enter to snd)
+"nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
+"nnoremap <buffer> <Leader>clr :JuliaCellClear<CR>
+"" Hack: Alacritty sends Ctrl+Shift+3 when Ctrl+Shift+Enter is pressed
+"nnoremap <buffer> <C-S-3> :JuliaCellRun<CR>
 
 " My custom operator: sends a motion to the REPL and moves to the next
 " statement (skips comments and empty lines) (see :h map-operator)
@@ -439,19 +444,11 @@ function! MySendMotion(type, ...)
   " Select lines involved in the motion
   silent exe "normal! `[V`]"
   " Send the selected region
-  silent exe "normal \<Plug>SlimeRegionSend"
+  silent exe "normal \<Plug>TomuxVisualSend"
   " Go to the last char of the selection, and move to start of next line
   silent exe "normal! `>j0"
   call GoToNextStatement()
 endfunction
-
-" My custom function: sends a line to the REPL and moves to the next statement
-function! MySendLine()
-  silent exe "normal \<Plug>SlimeLineSend"
-  silent exe "normal! j"
-  call GoToNextStatement()
-endfunction
-command! -nargs=0 MySndLine call MySendLine()
 
 function! GoToNextStatement()
   " Return if the cursor is on the last line

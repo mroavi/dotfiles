@@ -4,16 +4,8 @@ let b:commentary_format = '#%s'
 " Define cell_delimeter
 let b:cell_delimeter = '##'
 
-" julia-cell
-let g:julia_cell_delimit_cells_by = 'tags'
-let g:julia_cell_tag = b:cell_delimeter
-nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
-nnoremap <buffer> <Leader>clr :JuliaCellClear<CR>
-" Hack: Alacritty sends Ctrl+Shift+3 when Ctrl+Shift+Enter is pressed
-nnoremap <buffer> <C-S-3> :JuliaCellRun<CR>
-
-" vim-slime
-let g:slime_cell_delimiter = b:cell_delimeter
+" vim-tomux
+let b:tomux_clipboard_paste = "include_string(Main, clipboard())"
 
 " Jump to the next/prev cell delimeter
 nnoremap <buffer><silent> <M-j> :call search(b:cell_delimeter, "W")<CR>
