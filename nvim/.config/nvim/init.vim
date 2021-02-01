@@ -429,13 +429,12 @@ augroup tomux_send
   autocmd FileType julia,python,octave,lua xmap <buffer> <C-CR> <Plug>TomuxVisualSend
   autocmd FileType julia,python,octave,lua nmap <buffer> <C-CR> s_
   autocmd FileType julia,python,octave,lua imap <buffer> <C-CR> <Esc>s_gi
+  " Alt+Enter to send cell 
+  autocmd FileType julia,python,octave,lua nmap <buffer> <M-CR> sic
+  " Ctrl+Shift+Enter to run entire buffer
+  " Hack: Alacritty sends Ctrl+Shift+3 when Ctrl+Shift+Enter is pressed
+  autocmd FileType julia,python,octave,lua nmap <buffer> <C-S-3> sid
 augroup END
-
-"" julia-cell (for reference on how to use Alt+Enter and Ctrl-Shift-Enter to snd)
-"nnoremap <buffer> <M-CR> :JuliaCellExecuteCell<CR>
-"nnoremap <buffer> <Leader>clr :JuliaCellClear<CR>
-"" Hack: Alacritty sends Ctrl+Shift+3 when Ctrl+Shift+Enter is pressed
-"nnoremap <buffer> <C-S-3> :JuliaCellRun<CR>
 
 " My custom operator: sends a motion to the REPL and moves to the next
 " statement (skips comments and empty lines) (see :h map-operator)
