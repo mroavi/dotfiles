@@ -420,17 +420,18 @@ let g:tomux = expand("$HOME/.tomux")
 
 augroup tomux_send
   autocmd FileType julia,python,octave,lua nmap <buffer> s <Plug>TomuxMotionSend
+  "autocmd FileType julia,python,octave,lua nmap <silent> s :set opfunc=MySendMotion<CR>g@
   autocmd FileType julia,python,octave,lua xmap <buffer> s <Plug>TomuxVisualSend
   autocmd FileType julia,python,octave,lua omap <buffer> s _
-
-  "autocmd FileType julia,python,octave,lua nmap <silent> s :set opfunc=MySendMotion<CR>g@
 
   " Ctrl+Enter to send text in visual, normal and insert modes
   autocmd FileType julia,python,octave,lua xmap <buffer> <C-CR> <Plug>TomuxVisualSend
   autocmd FileType julia,python,octave,lua nmap <buffer> <C-CR> s_
   autocmd FileType julia,python,octave,lua imap <buffer> <C-CR> <Esc>s_gi
+
   " Alt+Enter to send cell 
   autocmd FileType julia,python,octave,lua nmap <buffer> <M-CR> sic
+
   " Ctrl+Shift+Enter to run entire buffer
   " Hack: Alacritty sends Ctrl+Shift+3 when Ctrl+Shift+Enter is pressed
   autocmd FileType julia,python,octave,lua nmap <buffer> <C-S-3> sid
