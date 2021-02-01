@@ -25,12 +25,6 @@ Plug 'tpope/vim-repeat'
 " Vim support for Julia
 Plug 'JuliaEditorSupport/julia-vim'
 
-" Seamlessly run Python code from Vim in IPython
-Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
-
-" Cell support for Julia in Vim
-Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
-
 " Snippets are separated from the engine. Add this if you want them
 Plug 'honza/vim-snippets'
 
@@ -51,6 +45,9 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 
 "" A Neovim plugin that displays (non-interactive) scrollbars.
 "Plug 'dstein64/nvim-scrollview'
+
+"" Cell support for Julia in Vim
+"Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
