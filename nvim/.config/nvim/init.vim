@@ -445,27 +445,13 @@ function! MySendMotion(type, ...)
   silent exe "normal! `[V`]"
   " Send the selected region
   silent exe "normal \<Plug>TomuxVisualSend"
-  " Go to the last char of the selection, and move to start of next line
-  silent exe "normal! `>j0"
-  call GoToNextStatement()
-endfunction
-
-function! GoToNextStatement()
-  " Return if the cursor is on the last line
-  if line('.') == line('$') | return | endif
-  " Get a boolean stating whether the current line should be skipped or not
-  let l:skip = SkipLine(getline('.'))
-  while l:skip
-    " Move down one line
-    silent exe "normal! j"
-    " Get a boolean stating whether the current line should be skipped or not
-    let l:skip = SkipLine(getline('.'))
-  endwhile
-endfunction
-
-" Returns true if the trimmed line starts with the comment symbol or if the line is empty
-function! SkipLine(line)
-  return substitute(a:line,'^\s\+','','')[0] == split(&commentstring, '%s')[0][0] || a:line == ''
+  " Go to the last char of the selection
+  silent exe "normal! `>"
+  " Get the first character of the 'commentstring'
+  let l:commentchar = split(&commentstring, '%s')[0][0]
+  " Jump to next statement (skips empty lines or lines that start with comment char)
+  let l:pattern =  '^\(\s*' . l:commentchar . '\)\@!\s*\S\+'
+  call search(l:pattern, "W")
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
