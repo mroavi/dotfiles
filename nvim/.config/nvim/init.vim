@@ -518,7 +518,7 @@ EOF
 if !$SSH_CONNECTION
 lua << EOF
   local lspconfig = require'lspconfig'
-  --lspconfig.vimls.setup{}
+  lspconfig.vimls.setup{}
   lspconfig.texlab.setup{}
   lspconfig.bashls.setup{}
   lspconfig.cmake.setup{}
@@ -532,6 +532,7 @@ nnoremap          <Leader>cw <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap          <Leader>ho <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap          <Leader>si <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap          <Leader>re <cmd>lua vim.lsp.buf.references()<CR>
 
 " Diagnostics
 nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
