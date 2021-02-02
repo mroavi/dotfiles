@@ -148,8 +148,8 @@ alias gco='git checkout'
 # Change directories without typing `cd`
 setopt auto_cd
 
-# Use Ctrl+u to go up one dir
-bindkey -s '^u' 'cd ..^M'
+# Use Ctrl+b to go back one dir
+bindkey -s '^b' 'cd ..^M'
 
 # Directory stack navigation (use `popd` to go back in history)
 setopt auto_pushd
