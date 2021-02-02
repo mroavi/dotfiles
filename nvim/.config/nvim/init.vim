@@ -723,7 +723,7 @@ let g:targets_aiAI = ['a', 'I', 'A', 'i']
 "nnoremap <Leader>re <cmd>lua require('telescope.builtin').lsp_references()<CR>
 "nnoremap <Leader>sy <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
 "nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
-"nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
+"nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({prompt_position = "top", sorting_strategy = "ascending"})<CR>
 "nnoremap <Leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
 "nnoremap <Leader>ma <cmd>lua require('telescope.builtin').keymaps()<CR>
 
