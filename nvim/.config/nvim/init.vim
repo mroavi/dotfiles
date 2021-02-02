@@ -430,6 +430,9 @@ augroup tomux_send
   autocmd FileType julia,python,octave,lua nmap <buffer> <C-CR> s_
   autocmd FileType julia,python,octave,lua imap <buffer> <C-CR> <Esc>s_gi
 
+  " Shift+Enter to send line and jump to next statement
+  autocmd FileType julia,python,octave,lua nmap <silent> <S-CR> :set opfunc=MySendMotion<CR>g@_
+
   " Alt+Enter to send cell 
   autocmd FileType julia,python,octave,lua nmap <buffer> <M-CR> sic
 
