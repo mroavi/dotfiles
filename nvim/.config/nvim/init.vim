@@ -365,7 +365,8 @@ let g:fzf_colors =
 \   'pointer':  ['fg', 'Exception'],
 \   'marker':   ['fg', 'Keyword'],
 \   'spinner':  ['fg', 'Label'],
-\   'header':   ['fg', 'Comment'] }
+\   'header':   ['fg', 'Comment'],
+\   'gutter':   ['bg', 'Normal'] }
 
 " Enable per-command history
 let g:fzf_history_dir = '~/.local/share/fzf-history'
