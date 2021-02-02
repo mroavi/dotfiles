@@ -579,7 +579,7 @@ inoremap <silent><expr> <C-Space> completion#trigger_completion()
 let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
-" Assign dummy keys (expand trigger and list snippets are taken care by completion-nvim)
+" Assign dummy keys (expand trigger and list snippets are taken care of by completion-nvim)
 let g:UltiSnipsExpandTrigger       = "<\>"
 let g:UltiSnipsListSnippets        = "<\>"
 
