@@ -155,7 +155,7 @@ bindkey -s '^b' 'cd ..^M'
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
-bindkey -s '^p' 'popd^M' # Use Ctrl+p to go back one dir in history
+bindkey -s '^o' 'popd^M' # Use Ctrl+o to go back one dir in history
 
 # =============================================================================
 # Miscellaneous
