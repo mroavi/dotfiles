@@ -201,6 +201,10 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 
+" Add line movements preceded by a count greater than 1 to the jump list
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
+
 " Move to next/prev buffer
 nnoremap H :bprevious<CR>
 nnoremap L :bnext<CR>
