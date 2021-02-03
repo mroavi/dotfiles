@@ -596,6 +596,7 @@ let g:UltiSnipsListSnippets        = "<\>"
 """ lf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lf_map_keys = 0
+let g:lf_replace_netrw = 1
 nnoremap <silent><Leader>lf :Lf<CR>
 nnoremap <silent><Leader>/ :Lf<CR>
 
