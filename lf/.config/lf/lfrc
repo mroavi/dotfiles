@@ -12,8 +12,8 @@ set icons
 set ignorecase
 
 # Custom commands
-cmd mkdir %printf "directory name: " && read ans && mkdir $ans
-cmd touch %printf "file name: " && read ans && touch $ans
+cmd mkdir %mkdir "$1"
+cmd touch %touch "$1"
 
 # fasd integration
 cmd fasd ${{
