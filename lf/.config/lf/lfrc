@@ -58,7 +58,7 @@ map x       cut
 map p       paste
 map f       find
 map r       rename
-map v       toggle
+map V       toggle
 map c       clear
 map u       unselect
 map <esc>   quit
