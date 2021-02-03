@@ -56,6 +56,7 @@ map dd      delete
 map yy      copy
 map x       cut
 map p       paste
+map f       find
 map r       rename
 map v       toggle
 map c       clear
