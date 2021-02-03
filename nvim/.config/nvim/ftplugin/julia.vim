@@ -6,6 +6,7 @@ let b:cell_delimeter = '##'
 
 " vim-tomux
 let b:tomux_clipboard_paste = "include_string(Main, clipboard())"
+nnoremap <buffer><silent> <Leader>cl :TomuxSend("clr()"."\n")<CR>
 
 " Jump to the next/prev cell delimeter
 nnoremap <buffer><silent> <M-j> :call search(b:cell_delimeter, "W")<CR>
