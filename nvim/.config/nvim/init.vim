@@ -537,7 +537,7 @@ nnoremap          <Leader>cw <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap          <Leader>ho <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap          <Leader>si <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap          <Leader>re <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap          <Leader>us <cmd>lua vim.lsp.buf.references()<CR>
 
 " Diagnostics
 nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
@@ -738,11 +738,11 @@ let g:targets_aiAI = ['a', 'I', 'A', 'i']
 "}
 "EOF
 "nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
-""nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
-""nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
-""nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles({shorten_path = true})<CR>
-""nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
-"nnoremap <Leader>re <cmd>lua require('telescope.builtin').lsp_references()<CR>
+"nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
+"nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
+"nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles()<CR>
+"nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
+"nnoremap <Leader>us <cmd>lua require('telescope.builtin').lsp_references()<CR>
 "nnoremap <Leader>sy <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
 "nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
 "nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({prompt_position = "top", sorting_strategy = "ascending"})<CR>
