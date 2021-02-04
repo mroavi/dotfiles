@@ -343,8 +343,8 @@ let g:gitgutter_show_msg_on_hunk_jumping = 0
 nmap <Leader>hs <Plug>(GitGutterStageHunk)
 nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
-nmap <Leader>j  <Plug>(GitGutterNextHunk)
-nmap <Leader>k  <Plug>(GitGutterPrevHunk)
+nmap <M-]> <Plug>(GitGutterNextHunk)
+nmap <M-[> <Plug>(GitGutterPrevHunk)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ fzf.vim
