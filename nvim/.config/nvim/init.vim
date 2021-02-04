@@ -60,10 +60,6 @@ Plug 'junegunn/vim-slash'
 " Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
 
-" A fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
 
@@ -111,6 +107,11 @@ Plug 'ap/vim-buftabline'
 " Vim plugin that provides additional text objects
 Plug 'wellle/targets.vim'
 
+" Find, Filter, Preview, Pick. All lua, all the time
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 "" A light and configurable statusline/tabline plugin
 "Plug 'itchyny/lightline.vim'
 
@@ -125,11 +126,6 @@ Plug 'wellle/targets.vim'
 
 "" Simple tmux statusline generator, integrates with lightline/airline statusline
 "Plug 'edkolev/tmuxline.vim'
-
-"" Find, Filter, Preview, Pick. All lua, all the time
-"Plug 'nvim-lua/popup.nvim'
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
 
 "" The fastest Neovim colorizer
 "Plug 'norcalli/nvim-colorizer.lua'
@@ -146,6 +142,10 @@ Plug 'wellle/targets.vim'
 
 "" Smooth scrolling for Vim done right
 "Plug 'psliwka/vim-smoothie'
+
+"" A fuzzy finder
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -359,68 +359,6 @@ nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
 nmap <M-]> <Plug>(GitGutterNextHunk)
 nmap <M-[> <Plug>(GitGutterPrevHunk)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" fzf.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Default fzf layout
-"(see: https://github.com/junegunn/fzf.vim/issues/821#issuecomment-581481211)
-"(see: https://github.com/junegunn/fzf.vim/issues/1033)
-"let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8, 'border': 'sharp' } }
-
-" Do not show preview window by default
-let g:fzf_preview_window = ''
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':       ['fg', 'Normal'],
-\   'bg':       ['bg', 'Normal'],
-\   'hl':       ['fg', 'Comment'],
-\   'fg+':      ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-\   'bg+':      ['bg', 'CursorLine', 'CursorColumn'],
-\   'hl+':      ['fg', 'Statement'],
-\   'info':     ['fg', 'PreProc'],
-\   'border':   ['fg', 'Normal'],
-\   'prompt':   ['fg', 'Conditional'],
-\   'pointer':  ['fg', 'Exception'],
-\   'marker':   ['fg', 'Keyword'],
-\   'spinner':  ['fg', 'Label'],
-\   'header':   ['fg', 'Comment'],
-\   'gutter':   ['bg', 'Normal'] }
-
-" Enable per-command history
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-" Shift-Tab to select multiple results (-m flag required)
-" :Files runs $FZF_DEFAULT_COMMAND defined in .zshrc
-" All commands: https://github.com/junegunn/fzf.vim#commands
-nnoremap <Leader>fi :Files<CR>
-nnoremap <Leader>fh :History<CR>
-nnoremap <Leader>fg :GFiles<CR>
-nnoremap <Leader>rg :MyRg<CR>
-nnoremap <Leader>ls :Buffers<CR>
-nnoremap <Leader>z  :MyFasd<CR>
-nnoremap <Leader>ch :History:<CR>
-
-" Advanced ripgrep integration (https://bit.ly/2NUtoXO)
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --hidden --no-ignore --column --line-number --no-heading --color=always --smart-case %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command,
-  \           '--preview-window', 'up:60%', '--no-height'],
-  \           'window': { 'width': 1, 'height': 1.0, 'yoffset': 1, 'border': 'top' } }
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
-command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
-
-" Fasd integration
-function! Fasd(fullscreen)
-  let cmd = "fasd -dl | grep -iv cache"
-  call fzf#run(fzf#wrap('j', {'source': cmd, 'sink': 'cd'}))
-endfunction
-command! -nargs=0 MyFasd call Fasd(<bang>0)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ tmux-navigator
@@ -640,6 +578,49 @@ nmap <leader>0 <Plug>BufTabLine.Go(10)
 " Swap 'i' with 'I' operator modes
 let g:targets_aiAI = ['a', 'I', 'A', 'i']
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" telescope.nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua << EOF
+local actions = require('telescope.actions')
+require('telescope').setup{
+  defaults = {
+    shorten_path = true,
+    prompt_position = "bottom",
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close,
+        ["<c-p>"] = false,
+        ["<c-k>"] = actions.move_selection_previous,
+        ["<c-n>"] = false,
+        ["<c-j>"] = actions.move_selection_next,
+      },
+      n = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
+}
+EOF
+nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
+" File pickers
+nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
+nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
+nnoremap <Leader>gr <cmd>lua require('telescope.builtin').grep_string()<CR>
+nnoremap <Leader>rg <cmd>lua require('telescope.builtin').live_grep()<CR>
+" Vim pickers
+nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
+nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles()<CR>
+nnoremap <Leader>ch <cmd>lua require('telescope.builtin').command_history()<CR>
+nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({prompt_position = "top", sorting_strategy = "ascending"})<CR>
+" LSP pickers
+nnoremap <Leader>us <cmd>lua require('telescope.builtin').lsp_references()<CR>
+nnoremap <Leader>ds <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
+nnoremap <Leader>ws <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
+nnoremap <Leader>ac <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
+" Git pickers
+nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ lightline.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -714,42 +695,6 @@ let g:targets_aiAI = ['a', 'I', 'A', 'i']
 "endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" telescope.nvim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"lua << EOF
-"local actions = require('telescope.actions')
-"require('telescope').setup{
-"  defaults = {
-"    shorten_path = true,
-"    prompt_position = "bottom",
-"    mappings = {
-"      i = {
-"        ["<esc>"] = actions.close,
-"        ["<c-p>"] = false,
-"        ["<c-k>"] = actions.move_selection_previous,
-"        ["<c-n>"] = false,
-"        ["<c-j>"] = actions.move_selection_next,
-"      },
-"      n = {
-"        ["<esc>"] = actions.close
-"      },
-"    },
-"  }
-"}
-"EOF
-"nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
-"nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
-"nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
-"nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles()<CR>
-"nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
-"nnoremap <Leader>us <cmd>lua require('telescope.builtin').lsp_references()<CR>
-"nnoremap <Leader>sy <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
-"nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
-"nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({prompt_position = "top", sorting_strategy = "ascending"})<CR>
-"nnoremap <Leader>he <cmd>lua require('telescope.builtin').help_tags()<CR>
-"nnoremap <Leader>ma <cmd>lua require('telescope.builtin').keymaps()<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """" nvim-colorizer.lua
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "lua require'colorizer'.setup()
@@ -789,3 +734,66 @@ let g:targets_aiAI = ['a', 'I', 'A', 'i']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:smoothie_update_interval = 20 
 "let g:smoothie_base_speed = 25
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""" fzf.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Default fzf layout
+""(see: https://github.com/junegunn/fzf.vim/issues/821#issuecomment-581481211)
+""(see: https://github.com/junegunn/fzf.vim/issues/1033)
+""let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
+"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8, 'border': 'sharp' } }
+
+"" Do not show preview window by default
+"let g:fzf_preview_window = ''
+
+"" Customize fzf colors to match your color scheme
+"let g:fzf_colors =
+"\ { 'fg':       ['fg', 'Normal'],
+"\   'bg':       ['bg', 'Normal'],
+"\   'hl':       ['fg', 'Comment'],
+"\   'fg+':      ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"\   'bg+':      ['bg', 'CursorLine', 'CursorColumn'],
+"\   'hl+':      ['fg', 'Statement'],
+"\   'info':     ['fg', 'PreProc'],
+"\   'border':   ['fg', 'Normal'],
+"\   'prompt':   ['fg', 'Conditional'],
+"\   'pointer':  ['fg', 'Exception'],
+"\   'marker':   ['fg', 'Keyword'],
+"\   'spinner':  ['fg', 'Label'],
+"\   'header':   ['fg', 'Comment'],
+"\   'gutter':   ['bg', 'Normal'] }
+
+"" Enable per-command history
+"let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+"" Shift-Tab to select multiple results (-m flag required)
+"" :Files runs $FZF_DEFAULT_COMMAND defined in .zshrc
+"" All commands: https://github.com/junegunn/fzf.vim#commands
+"nnoremap <Leader>fi :Files<CR>
+"nnoremap <Leader>fh :History<CR>
+"nnoremap <Leader>fg :GFiles<CR>
+"nnoremap <Leader>rg :MyRg<CR>
+"nnoremap <Leader>ls :Buffers<CR>
+"nnoremap <Leader>z  :MyFasd<CR>
+"nnoremap <Leader>ch :History:<CR>
+
+"" Advanced ripgrep integration (https://bit.ly/2NUtoXO)
+"function! RipgrepFzf(query, fullscreen)
+"  let command_fmt = 'rg --hidden --no-ignore --column --line-number --no-heading --color=always --smart-case %s || true'
+"  let initial_command = printf(command_fmt, shellescape(a:query))
+"  let reload_command = printf(command_fmt, '{q}')
+"  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command,
+"  \           '--preview-window', 'up:60%', '--no-height'],
+"  \           'window': { 'width': 1, 'height': 1.0, 'yoffset': 1, 'border': 'top' } }
+"  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+"endfunction
+"command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
+
+"" Fasd integration
+"function! Fasd(fullscreen)
+"  let cmd = "fasd -dl | grep -iv cache"
+"  call fzf#run(fzf#wrap('j', {'source': cmd, 'sink': 'cd'}))
+"endfunction
+"command! -nargs=0 MyFasd call Fasd(<bang>0)
+
