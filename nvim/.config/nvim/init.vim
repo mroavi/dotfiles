@@ -385,8 +385,8 @@ nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>fh :History<CR>
 nnoremap <Leader>fg :GFiles<CR>
 nnoremap <Leader>rg :MyRg<CR>
-nnoremap <Leader>ls  :Buffers<CR>
-nnoremap <Leader>z :MyFasd<CR>
+nnoremap <Leader>ls :Buffers<CR>
+nnoremap <Leader>z  :MyFasd<CR>
 nnoremap <Leader>ch :History:<CR>
 
 " Advanced ripgrep integration (https://bit.ly/2NUtoXO)
