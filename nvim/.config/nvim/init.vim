@@ -144,6 +144,9 @@ Plug 'wellle/targets.vim'
 "" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
 "Plug 'jpalardy/vim-slime'
 
+"" Smooth scrolling for Vim done right
+"Plug 'psliwka/vim-smoothie'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -774,3 +777,8 @@ let g:targets_aiAI = ['a', 'I', 'A', 'i']
 "}
 "EOF
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""" vim-smoothie
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:smoothie_update_interval = 20 
+"let g:smoothie_base_speed = 25
