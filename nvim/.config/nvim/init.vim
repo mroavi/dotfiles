@@ -49,6 +49,9 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 "" Cell support for Julia in Vim
 "Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
 
+""" Easily interact with tmux from vim.
+"Plug 'benmills/vimux'
+
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
 " Automatically clears search highlight when cursor is moved
