@@ -209,8 +209,8 @@ nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
 
 " Move to next/prev buffer
-nnoremap <M-h> :bprevious<CR>
-nnoremap <M-l> :bnext<CR>
+nnoremap <silent> <M-h> :bprevious<CR>
+nnoremap <silent> <M-l> :bnext<CR>
 
 " Open a new unnamed buffer
 nnoremap <M-n> :enew<CR>
