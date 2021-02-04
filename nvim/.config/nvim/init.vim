@@ -304,18 +304,26 @@ augroup END
 " Based on: https://vimways.org/2018/transactions-pending/
 function! s:inCell(text_object_type)
   " Get the first character of the 'commentstring' and duplicate it
-  let l:celldelim = repeat(split(&commentstring, '%s')[0][0], 2)
+  let l:delim_cell = repeat(split(&commentstring, '%s')[0][0], 2)
   " Create a regex that searches the cell delim from the start of the line
-  let l:pattern = '^' . l:celldelim
-  " Move cursor to the previous cell delimiter
-  if (search(l:pattern, "bcW"))
-    " Match found. If received 'i' as argument (inner cell), move one line down
-    if a:text_object_type ==# 'i' | silent exe "normal! j" | endif
-  else | silent exe "normal! gg" | endif " No match found. Jump to top
+  let l:pattern_cell = '^' . l:delim_cell
+  " Move cursor to the previous cell delimiter if found, otherwise, to top of buffer
+  if (!search(l:pattern_cell, "bcW")) | silent exe "normal! gg" | endif 
+  " Did we receive 'i' as argument (inner cell)?
+  if a:text_object_type ==# 'i'
+    " Yes, then jump to next statement (skips empty lines and those that start with comment char)
+    let l:pattern_statement =  '^\(\s*' . l:delim_cell[0] . '\)\@!\s*\S\+'
+    call search(l:pattern_statement, "W")
+  endif
   " Start visual line mode
   normal! V
-  " Move cursor to the next cell delimiter if found, otherwise, to bottom of file
-  if (search(l:pattern, "W")) | silent exe "normal! k" | else | exe "normal! G" | endif
+  " Move cursor to the next cell delimiter if found, otherwise, to bottom of buffer
+  if (!search(l:pattern_cell, "W")) | exe "normal! G" | endif
+  " Did we receive 'i' as argument (inner cell)?
+  if a:text_object_type ==# 'i'
+    " Yes, then jump to prev statement (skips empty lines and those that start with comment char)
+    call search(l:pattern_statement, "bW")
+  endif
 endfunction
 
 " Custom 'in cell' text object
