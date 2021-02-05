@@ -607,7 +607,7 @@ require('telescope').setup{
 EOF
 nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
 " File pickers
-nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files()<CR>
+nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files({file_sorter = require'telescope.sorters'.get_fzy_sorter})<CR>
 nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>gr <cmd>lua require('telescope.builtin').grep_string()<CR>
 nnoremap <Leader>rg <cmd>lua require('telescope.builtin').live_grep()<CR>
@@ -622,6 +622,7 @@ nnoremap <Leader>ds <cmd>lua require('telescope.builtin').lsp_document_symbols()
 nnoremap <Leader>ws <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
 nnoremap <Leader>ac <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
 " Git pickers
+" TODO: use git repo of active buffer, not from current working directory
 nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
 nnoremap <Leader>bc <cmd>lua require('telescope.builtin').git_commits()<CR>
 nnoremap <Leader>st <cmd>lua require('telescope.builtin').git_commits()<CR>
