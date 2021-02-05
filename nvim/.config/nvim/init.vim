@@ -263,10 +263,6 @@ nnoremap <Leader>cdb :cd %:p:h<CR> :pwd<CR>
 " Open help in vertical split
 cnoreabbrev H vert bo h
 
-" Move selected lines up/down reindenting if necessary
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
 " Clear highlight on pressing ESC
 nnoremap <silent> <ESC> :noh<CR><ESC>
 
@@ -274,6 +270,10 @@ nnoremap <silent> <ESC> :noh<CR><ESC>
 nnoremap <C-t>     :tabnew<CR>
 " Ctrl+Shift+w -> close (hack: see alacritty.yml and .tmux.conf)
 nnoremap <C-S-0>   :close<CR>
+
+"" Move selected lines up/down reindenting if necessary
+"vnoremap J :m '>+1<CR>gv=gv
+"vnoremap K :m '<-2<CR>gv=gv
 
 " Strip trailing whitespace from all lines (https://vi.stackexchange.com/a/456/27039)
 fun! TrimWhitespace()
