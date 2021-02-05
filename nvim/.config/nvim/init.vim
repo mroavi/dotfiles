@@ -112,6 +112,9 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+" Most Recently Used (MRU) Vim Plugin
+Plug 'yegappan/mru'
+
 "" A light and configurable statusline/tabline plugin
 "Plug 'itchyny/lightline.vim'
 
@@ -620,6 +623,15 @@ nnoremap <Leader>ws <cmd>lua require('telescope.builtin').lsp_workspace_symbols(
 nnoremap <Leader>ac <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
 " Git pickers
 nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
+nnoremap <Leader>bc <cmd>lua require('telescope.builtin').git_commits()<CR>
+nnoremap <Leader>st <cmd>lua require('telescope.builtin').git_commits()<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" mru
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let MRU_File = '$HOME/.vim_mru_files'
+let MRU_Max_Entries = 1000
+nnoremap <silent><Leader>mr :MRU<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ lightline.vim
