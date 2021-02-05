@@ -13,8 +13,8 @@ nnoremap <buffer><silent> <Leader>re :TomuxSend("exit()\n")<CR>:sl 50m<CR>:Tomux
 nnoremap <buffer><silent> <Leader>cl :TomuxSend("clr()\n")<CR>
 
 " Jump to the next/prev cell delimeter
-nnoremap <buffer><silent> <M-j> :call search(b:cell_delimeter, "W")<CR>
-nnoremap <buffer><silent> <M-k> :call search(b:cell_delimeter, "bW")<CR>
+nnoremap <buffer><silent> <M-j> :call search(b:cell_delimeter, "W")<CR>zt
+nnoremap <buffer><silent> <M-k> :call search(b:cell_delimeter, "bW")<CR>zt
 
 " Handy header mappings
 nnoremap <buffer><Leader>m1 m`<S-o># <Esc>78a=<Esc>yyjp``
