@@ -33,6 +33,12 @@ function M.find_files()
   }
 end
 
+function M.git_files()
+  require("telescope.builtin").git_files{
+    cwd = vim.fn.expand("%:p:h"),
+  }
+end
+
 function M.buffers()
   require("telescope.builtin").buffers{
     shorten_path = true,
@@ -46,8 +52,23 @@ function M.current_buffer_fuzzy_find()
   }
 end
 
-function M.git_files()
-  require("telescope.builtin").git_files{
+-- TODO: cwd does not work, it does work for git_files though
+function M.git_commits()
+  require("telescope.builtin").git_commits{
+    cwd = vim.fn.expand("%:p:h"),
+  }
+end
+
+-- TODO: cwd does not work, it does work for git_files though
+function M.git_bcommits()
+  require("telescope.builtin").git_bcommits{
+    cwd = vim.fn.expand("%:p:h"),
+  }
+end
+
+-- TODO: cwd does not work, it does work for git_files though
+function M.git_status()
+  require("telescope.builtin").git_status{
     cwd = vim.fn.expand("%:p:h"),
   }
 end

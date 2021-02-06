@@ -19,8 +19,7 @@ vimp.nnoremap('<Leader>ds', builtin.lsp_document_symbols)
 vimp.nnoremap('<Leader>sy', builtin.lsp_workspace_symbols)
 vimp.nnoremap('<Leader>ca', builtin.lsp_code_actions)
 -- Git pickers
--- TODO: use git repo of active buffer, not from current working directory
-vimp.nnoremap('<Leader>lg', builtin.git_commits)
-vimp.nnoremap('<Leader>bc', builtin.git_bcommits)
-vimp.nnoremap('<Leader>st', builtin.git_status)
+vimp.nnoremap('<Leader>lg', require("mrv.telescope").git_commits)
+vimp.nnoremap('<Leader>bc', require("mrv.telescope").git_bcommits)
+vimp.nnoremap('<Leader>st', require("mrv.telescope").git_status)
 
