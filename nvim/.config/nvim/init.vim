@@ -34,6 +34,9 @@ Plug 'sickill/vim-pasta'
 " TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
 
+" Easily write your .vimrc in lua or any lua based language
+Plug 'svermeulen/vimpeccable'
+
 "" Syntax highlighting for GNU Octave
 "Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
 
@@ -434,7 +437,7 @@ command! -complete=file -nargs=* Gdiff Git diff <args>
 command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
 nnoremap <Leader>gst :Git<CR>
 nnoremap <Leader>gw  :Gwrite<CR>
-nnoremap <Leader>gr  :Gread<CR>
+"nnoremap <Leader>gr  :Gread<CR>
 nnoremap <Leader>gc  :Git commit -v<CR>
 nnoremap <Leader>gp  :Git push<CR>
 nnoremap <Leader>gl  :Git pull<CR>
@@ -483,7 +486,6 @@ nnoremap          <Leader>cw <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap          <Leader>ho <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap          <Leader>si <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap          <Leader>us <cmd>lua vim.lsp.buf.references()<CR>
 
 " Diagnostics
 nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
@@ -516,7 +518,7 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Toggle auto popup on the fly
-nnoremap <Leader>ac :CompletionToggle<CR>
+nnoremap <Leader>ct :CompletionToggle<CR>
 
 let g:completion_enable_auto_popup      = 1
 let g:completion_enable_snippet         = 'UltiSnips'
@@ -589,48 +591,8 @@ let g:targets_aiAI = ['a', 'I', 'A', 'i']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ telescope.nvim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua << EOF
-local actions = require('telescope.actions')
-require('telescope').setup{
-  defaults = {
-    shorten_path = true,
-    prompt_position = "bottom",
-    mappings = {
-      i = {
-        ["<esc>"] = actions.close,
-        ["<c-p>"] = false,
-        ["<c-k>"] = actions.move_selection_previous,
-        ["<c-n>"] = false,
-        ["<c-j>"] = actions.move_selection_next,
-      },
-      n = {
-        ["<esc>"] = actions.close
-      },
-    },
-  }
-}
-EOF
-nnoremap <Leader>te <cmd>lua require('telescope.builtin').builtin()<CR>
-" File pickers
-nnoremap <Leader>fi <cmd>lua require('telescope.builtin').find_files({file_sorter = require'telescope.sorters'.get_fzy_sorter})<CR>
-nnoremap <Leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
-nnoremap <Leader>gr <cmd>lua require('telescope.builtin').grep_string()<CR>
-nnoremap <Leader>rg <cmd>lua require('telescope.builtin').live_grep()<CR>
-" Vim pickers
-nnoremap <Leader>ls <cmd>lua require('telescope.builtin').buffers({shorten_path = true})<CR>
-nnoremap <Leader>fh <cmd>lua require('telescope.builtin').oldfiles()<CR>
-nnoremap <Leader>ch <cmd>lua require('telescope.builtin').command_history()<CR>
-nnoremap <Leader>li <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({prompt_position = "top", sorting_strategy = "ascending"})<CR>
-" LSP pickers
-nnoremap <Leader>us <cmd>lua require('telescope.builtin').lsp_references()<CR>
-nnoremap <Leader>ds <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
-nnoremap <Leader>ws <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
-nnoremap <Leader>ac <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
-" Git pickers
-" TODO: use git repo of active buffer, not from current working directory
-nnoremap <Leader>lg <cmd>lua require('telescope.builtin').git_commits()<CR>
-nnoremap <Leader>bc <cmd>lua require('telescope.builtin').git_commits()<CR>
-nnoremap <Leader>st <cmd>lua require('telescope.builtin').git_commits()<CR>
+lua require('mrv.telescope')
+lua require('mrv.telescope.mappings')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ mru
