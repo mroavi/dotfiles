@@ -599,7 +599,7 @@ lua require('mrv.telescope.mappings')
 """ mru
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let MRU_File = '$HOME/.vim_mru_files'
-let MRU_Max_Entries = 1000
+let MRU_Max_Entries = 100
 let MRU_Exclude_Files = '\.git'
 nnoremap <silent><Leader>mr :MRU<CR>
 
