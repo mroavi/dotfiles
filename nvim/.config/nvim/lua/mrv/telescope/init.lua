@@ -82,7 +82,7 @@ mru = function(opts)
     return 0 ~= vim.fn.filereadable(val)
   end, lines)
   pickers.new(opts, {
-    prompt_title = 'MRU',
+    prompt_title = 'File History',
     finder = finders.new_table{
       results = results,
       entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
