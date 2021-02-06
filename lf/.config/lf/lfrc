@@ -52,6 +52,9 @@ map y
 map v
 
 # Mappings
+map <c-j>   down
+map <c-k>   up
+map <a-h>   updir
 map dd      delete
 map yy      copy
 map x       cut
