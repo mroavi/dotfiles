@@ -293,6 +293,9 @@ font:
     cursor:
       text:     '#1b2b34'
       cursor:   '#eeeeee'
+    selection:
+      text:       '0xeeeeee'
+      background: '0x393939'
     normal:
       black:   '#282828'
       red:     '#f43753'
