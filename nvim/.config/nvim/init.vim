@@ -116,7 +116,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Most Recently Used (MRU) Vim Plugin
-Plug 'yegappan/mru'
+"Plug 'yegappan/mru'
+Plug '~/repos/mru'
 
 "" A light and configurable statusline/tabline plugin
 "Plug 'itchyny/lightline.vim'
