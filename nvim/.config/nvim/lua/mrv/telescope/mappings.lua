@@ -19,7 +19,7 @@ vimp.nnoremap('<Leader>ds', builtin.lsp_document_symbols)
 vimp.nnoremap('<Leader>sy', builtin.lsp_workspace_symbols)
 vimp.nnoremap('<Leader>ca', builtin.lsp_code_actions)
 -- Git pickers
-vimp.nnoremap('<Leader>lg', require("mrv.telescope").git_commits)
+vimp.nnoremap('<Leader>co', require("mrv.telescope").git_commits)
 vimp.nnoremap('<Leader>bc', require("mrv.telescope").git_bcommits)
 vimp.nnoremap('<Leader>st', require("mrv.telescope").git_status)
 
