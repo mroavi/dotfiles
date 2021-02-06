@@ -1,4 +1,3 @@
--- local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 local pickers = require('telescope.pickers')
 local finders = require('telescope.finders')
@@ -44,6 +43,12 @@ function M.current_buffer_fuzzy_find()
   require("telescope.builtin").current_buffer_fuzzy_find{
     prompt_position = "top", 
     sorting_strategy = "ascending",
+  }
+end
+
+function M.git_files()
+  require("telescope.builtin").git_files{
+    cwd = vim.fn.expand("%:p:h"),
   }
 end
 
