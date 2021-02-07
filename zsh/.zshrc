@@ -125,7 +125,6 @@ alias lsa="ls -lah"
 alias ll='ls -lh'
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias sz="source ~/.zshrc"
-alias j="z"
 
 # Dir bookmarks
 alias dotfiles="cd ~/dotfiles"
@@ -190,7 +189,10 @@ unalias d
 unalias f
 unalias sd
 unalias sf
+unalias z
 unalias zz
+
+alias j='fasd_cd -d' 
 
 # =============================================================================
 # FZF
@@ -225,6 +227,14 @@ export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-wind
 
 # Add preview to Alt-C
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
+# -----------------------------------------------------------------------------
+# Integrate with fasd
+# -----------------------------------------------------------------------------
+z() {
+  local dir
+  dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
+}
 
 # -----------------------------------------------------------------------------
 # Integrate with ripgrep
