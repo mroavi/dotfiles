@@ -13,7 +13,6 @@ vimp.nnoremap('<Leader>fh', require("mrv.telescope").file_history)
 vimp.nnoremap('<Leader>ch', builtin.command_history)
 vimp.nnoremap('<Leader>li', require("mrv.telescope").lines)
 -- LSP pickers
-vimp.nnoremap('<Leader>us', builtin.lsp_references)
 vimp.nnoremap('<Leader>ds', builtin.lsp_document_symbols)
 vimp.nnoremap('<Leader>sy', builtin.lsp_workspace_symbols)
 vimp.nnoremap('<Leader>ca', builtin.lsp_code_actions)
