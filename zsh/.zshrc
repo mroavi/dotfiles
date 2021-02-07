@@ -109,8 +109,8 @@ zle-line-init() {
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+echo -ne '\e[5 q' # use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt.
 
 # =============================================================================
 # Aliases
@@ -147,8 +147,11 @@ alias gco='git checkout'
 # Change directories without typing `cd`
 setopt auto_cd
 
-# Move up one dir with Alt-h
-bindkey -s '^[h' 'cd ..^M'
+## Move up one dir with Alt-h
+#bindkey -s '^[h' 'cd ..^M'
+
+# Move up one dir with Ctrl-u
+bindkey -s '^u' 'cd ..^M'
 
 # Directory stack navigation (use `popd` to go back in history)
 setopt auto_pushd
