@@ -67,7 +67,7 @@ map ~       cd ~
 map <enter> open
 map o       myopen
 map z       fasd
-# Alternative mappings used in other programs for the same purpose
+# Alternative mappings used in other programs
 map <c-j>   down
 map <c-k>   up
 map <a-h>   updir
