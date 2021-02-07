@@ -23,3 +23,4 @@ vimp.nnoremap('<Leader>bc', require("mrv.telescope").git_bcommits)
 vimp.nnoremap('<Leader>st', require("mrv.telescope").git_status)
 -- Lists pickers
 vimp.nnoremap('<leader>te', builtin.builtin)
+

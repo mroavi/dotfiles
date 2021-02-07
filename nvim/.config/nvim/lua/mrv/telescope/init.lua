@@ -63,7 +63,7 @@ end
 
 function M.lines()
   require("telescope.builtin").current_buffer_fuzzy_find{
-    prompt_position = "top", 
+    prompt_position = "top",
     sorting_strategy = "ascending",
   }
 end
@@ -93,14 +93,14 @@ function M.git_status()
   }
 end
 
-mru = function(opts)
-  lines = {}
-  for line in io.lines(vim.g.MRU_File) do 
-    lines[#lines + 1] = line
+Mru = function(opts)
+  Lines = {}
+  for line in io.lines(vim.g.MRU_File) do
+    Lines[#Lines + 1] = line
   end
   local results = vim.tbl_filter(function(val)
     return 0 ~= vim.fn.filereadable(val)
-  end, lines)
+  end, Lines)
   pickers.new(opts, {
     prompt_title = 'File History',
     finder = finders.new_table{
@@ -113,7 +113,7 @@ mru = function(opts)
 end
 
 function M.file_history()
-  mru{}
+  Mru{}
 end
 
 return M

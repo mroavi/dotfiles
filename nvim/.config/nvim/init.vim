@@ -460,47 +460,8 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ nvim-lspconfig
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua << EOF
-  local lspconfig = require'lspconfig'
-  lspconfig.clangd.setup{
-    cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
-    filetypes = { "c", "cpp", "objc", "objcpp"},
-  }
-  --lspconfig.julials.setup{}
-EOF
-
-" Do not run the following LSPs in SSH connections
-if !$SSH_CONNECTION
-lua << EOF
-  local lspconfig = require'lspconfig'
-  lspconfig.vimls.setup{}
-  lspconfig.texlab.setup{}
-  lspconfig.bashls.setup{}
-  lspconfig.cmake.setup{}
-  lspconfig.jedi_language_server.setup{}
-EOF
-endif
-
-" Mappings (See `:h lsp-buf`)
-nnoremap          <Leader>i  <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap          <Leader>cw <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <Leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap          <Leader>ho <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap          <Leader>si <cmd>lua vim.lsp.buf.signature_help()<CR>
-
-" Diagnostics
-nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
-nnoremap [d <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
-
-lua << EOF
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = true,
-    update_in_insert = false,
-  }
-)
-EOF
+lua require('mrv.lsp')
+lua require('mrv.lsp.mappings')
 
 " Signs
 sign define LspDiagnosticsSignHint        text=➤
