@@ -318,9 +318,9 @@ function! s:inCell(text_object_type)
   if (!search(l:pattern_cell, "bcW")) | silent exe "normal! gg" | endif 
   " Did we receive 'i' as argument (inner cell)?
   if a:text_object_type ==# 'i'
-    " Yes, then jump to next statement (skips empty lines and those that start with comment char)
+    " Yes, then jump to next valid statement (skips empty lines and those starting with comment char)
     let l:pattern_statement =  '^\(\s*' . l:delim_cell[0] . '\)\@!\s*\S\+'
-    call search(l:pattern_statement, "W")
+    call search(l:pattern_statement, "cW")
   endif
   " Start visual line mode
   normal! V
@@ -328,8 +328,8 @@ function! s:inCell(text_object_type)
   if (!search(l:pattern_cell, "W")) | exe "normal! G" | endif
   " Did we receive 'i' as argument (inner cell)?
   if a:text_object_type ==# 'i'
-    " Yes, then jump to prev statement (skips empty lines and those that start with comment char)
-    call search(l:pattern_statement, "bW")
+    " Yes, then jump to prev valid statement (skips empty lines and those starting with comment char)
+    call search(l:pattern_statement, "cbW")
   endif
 endfunction
 
