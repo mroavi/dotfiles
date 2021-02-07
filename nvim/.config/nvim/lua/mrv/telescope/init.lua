@@ -27,6 +27,10 @@ require("telescope").setup{
   }
 }
 
+---------------------------------------------------------------------------------
+--- File Pickers
+---------------------------------------------------------------------------------
+
 function M.find_files()
   require("telescope.builtin").find_files{
     file_sorter = require'telescope.sorters'.get_fzy_sorter,
@@ -39,18 +43,34 @@ function M.git_files()
   }
 end
 
+function M.dotfiles()
+  require('telescope.builtin').find_files {
+    find_command = {'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git',},
+    prompt_title = "Dotfiles",
+    cwd = "~/dotfiles",
+  }
+end
+
+---------------------------------------------------------------------------------
+--- Vim Pickers
+---------------------------------------------------------------------------------
+
 function M.buffers()
   require("telescope.builtin").buffers{
     shorten_path = true,
   }
 end
 
-function M.current_buffer_fuzzy_find()
+function M.lines()
   require("telescope.builtin").current_buffer_fuzzy_find{
     prompt_position = "top", 
     sorting_strategy = "ascending",
   }
 end
+
+-------------------------------------------------------------------------------
+--- Git Pickers
+-------------------------------------------------------------------------------
 
 -- TODO: cwd does not work, it does work for git_files though
 function M.git_commits()
@@ -92,7 +112,7 @@ mru = function(opts)
   }):find()
 end
 
-function M.mru()
+function M.file_history()
   mru{}
 end
 
