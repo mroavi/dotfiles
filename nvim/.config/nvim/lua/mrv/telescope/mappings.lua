@@ -1,8 +1,6 @@
 local vimp = require 'vimp'
 local builtin = require 'telescope.builtin'
 
--- All pickers
-vimp.nnoremap('<leader>te', builtin.builtin)
 -- File pickers
 vimp.nnoremap('<Leader>fi', require("mrv.telescope").find_files)
 vimp.nnoremap('<Leader>fg', require("mrv.telescope").git_files)
@@ -23,4 +21,5 @@ vimp.nnoremap('<Leader>ca', builtin.lsp_code_actions)
 vimp.nnoremap('<Leader>co', require("mrv.telescope").git_commits)
 vimp.nnoremap('<Leader>bc', require("mrv.telescope").git_bcommits)
 vimp.nnoremap('<Leader>st', require("mrv.telescope").git_status)
-
+-- Lists pickers
+vimp.nnoremap('<leader>te', builtin.builtin)
