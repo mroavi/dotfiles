@@ -212,6 +212,9 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
+# LSP servers
+# -----------------------------------------------------------------------------------------
+
 echo "Installing clangd..."
 
 FILE=$HOME/.local/bin/clangd
@@ -238,6 +241,10 @@ else
   [ -f $filepath ] || curl -fLo "$filepath" https://github.com/latex-lsp/texlab/releases/download/v2.2.0/texlab-x86_64-linux.tar.gz
   tar xvzf "$filepath" -C $HOME/.local/bin/
 fi
+
+# -----------------------------------------------------------------------------------------
+# TODO: install LUA server: 
+# https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 
 # -----------------------------------------------------------------------------------------
 # Return to original directory
