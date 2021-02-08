@@ -112,18 +112,15 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Most Recently Used (MRU) Vim Plugin
-"Plug 'yegappan/mru'
-Plug '~/repos/mru'
+Plug 'yegappan/mru'
 
-"" Lf terminal file manager for vim
-Plug 'ptzz/lf.vim'
-Plug 'rbgrouleff/bclose.vim'
-
-"" My fork of Lf terminal file manager for vim
+" File manager for vim/neovim powered by nnn
+Plug 'mroavi/lf.vim'
 "Plug '~/repos/lf.vim'
 
-"" File manager for vim/neovim powered by nnn
-"Plug 'mcchrish/nnn.vim'
+""" Lf terminal file manager for vim
+"Plug 'ptzz/lf.vim'
+"Plug 'rbgrouleff/bclose.vim'
 
 "" A light and configurable statusline/tabline plugin
 "Plug 'itchyny/lightline.vim'
@@ -562,25 +559,24 @@ let MRU_Exclude_Files = '\.git'
 nnoremap <silent><Leader>mr :MRU<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" lf.vim
+"" lf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lf_map_keys = 0
-let g:lf_replace_netrw = 1
-nnoremap <silent><Leader>lf :Lf<CR>
+let g:lf#set_default_mappings = 0
+nnoremap <silent> <Leader>lf :LfPicker %:p:h<CR>
+let g:lf#replace_netrw = 1
+let g:lf#layout = { 'window': { 'width': 0.9, 'height': 0.9, 'highlight': 'Normal' } }
+let g:lf#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
+let g:lf#command = 'lf'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" nnn.vim
+"""" lf.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:nnn#set_default_mappings = 0
-"let g:nnn#replace_netrw = 1
-"nnoremap <silent> <Leader>lf :NnnPicker %:p:h<CR>
-"let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.9, 'highlight': 'Normal' } }
-"let g:nnn#action = {
-"      \ '<c-t>': 'tab split',
-"      \ '<c-x>': 'split',
-"      \ '<c-v>': 'vsplit' }
-""let g:nnn#command = 'nnn -o -C'
-"let g:nnn#command = 'lf'
+"let g:lf_map_keys = 0
+"let g:lf_replace_netrw = 1
+"nnoremap <silent><Leader>lf :Lf<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ lightline.vim
