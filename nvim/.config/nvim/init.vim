@@ -94,10 +94,6 @@ Plug 'plasticboy/vim-markdown'
 " Preview markdown on your browser with synchronised scrolling
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-" Terminal file manager
-"Plug 'ptzz/lf.vim'
-Plug '~/repos/lf.vim'
-
 " Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'raimondi/delimitmate'
 
@@ -118,6 +114,16 @@ Plug 'nvim-telescope/telescope.nvim'
 " Most Recently Used (MRU) Vim Plugin
 "Plug 'yegappan/mru'
 Plug '~/repos/mru'
+
+"" Lf terminal file manager
+Plug 'ptzz/lf.vim'
+Plug 'rbgrouleff/bclose.vim'
+
+"" Lf terminal file manager integration
+"Plug '~/repos/lf.vim'
+
+"" File manager for vim/neovim powered by nnn
+"Plug 'mcchrish/nnn.vim'
 
 "" A light and configurable statusline/tabline plugin
 "Plug 'itchyny/lightline.vim'
@@ -515,13 +521,6 @@ let g:UltiSnipsExpandTrigger       = "<\>"
 let g:UltiSnipsListSnippets        = "<\>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" lf.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lf_map_keys = 0
-let g:lf_replace_netrw = 1
-nnoremap <silent><Leader>lf :Lf<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ delimitmate
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:delimitMate_expand_cr = 1
@@ -561,6 +560,27 @@ let MRU_File = '$HOME/.vim_mru_files'
 let MRU_Max_Entries = 100
 let MRU_Exclude_Files = '\.git'
 nnoremap <silent><Leader>mr :MRU<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" lf.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:lf_map_keys = 0
+let g:lf_replace_netrw = 1
+nnoremap <silent><Leader>lf :Lf<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" nnn.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:nnn#set_default_mappings = 0
+"let g:nnn#replace_netrw = 1
+"nnoremap <silent> <Leader>lf :NnnPicker %:p:h<CR>
+"let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.9, 'highlight': 'Normal' } }
+"let g:nnn#action = {
+"      \ '<c-t>': 'tab split',
+"      \ '<c-x>': 'split',
+"      \ '<c-v>': 'vsplit' }
+""let g:nnn#command = 'nnn -o -C'
+"let g:nnn#command = 'lf'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ lightline.vim
