@@ -99,7 +99,7 @@ Mru = function(opts)
     Lines[#Lines + 1] = line
   end
   local results = vim.tbl_filter(function(val)
-    return 0 ~= vim.fn.filereadable(val)
+    return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
   end, Lines)
   pickers.new(opts, {
     prompt_title = 'File History',
