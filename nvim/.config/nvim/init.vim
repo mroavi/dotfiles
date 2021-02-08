@@ -115,11 +115,11 @@ Plug 'nvim-telescope/telescope.nvim'
 "Plug 'yegappan/mru'
 Plug '~/repos/mru'
 
-"" Lf terminal file manager
+"" Lf terminal file manager for vim
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 
-"" Lf terminal file manager integration
+"" My fork of Lf terminal file manager for vim
 "Plug '~/repos/lf.vim'
 
 "" File manager for vim/neovim powered by nnn
