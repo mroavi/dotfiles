@@ -95,8 +95,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " Terminal file manager
-Plug 'ptzz/lf.vim'
-Plug 'rbgrouleff/bclose.vim'
+"Plug 'ptzz/lf.vim'
+Plug '~/repos/lf.vim'
 
 " Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'raimondi/delimitmate'
@@ -228,13 +228,11 @@ nnoremap <M-n> :enew<CR>
 " Toggle last visited buffer
 nnoremap <silent> <Leader>; :b#<CR>
 
-"" Delete current buffer "
-"" TODO: currently not working. Bug in nvim?
-"nnoremap <silent><Leader>bd :bdelete<CR>
+" Delete current buffer "
+nnoremap <silent><Leader>bd :bdelete<CR>
 
-"" Unload buffer and switch to last visited buffer (opposite of <Leader>i)
-"" TODO: currently not working. Bug in nvim?
-"nnoremap <silent> <Leader>o :bdelete<CR>
+" Unload buffer and switch to last visited buffer (opposite of <Leader>i)
+nnoremap <silent> <Leader>o :bdelete<CR>
 
 " Close all buffers but the current one
 map <Leader>bo :%bdelete\|e#\|bd#<CR>
