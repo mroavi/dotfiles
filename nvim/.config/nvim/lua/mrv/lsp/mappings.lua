@@ -1,7 +1,7 @@
 local vimp = require 'vimp'
 
 -- See `:h lsp-buf`
-vimp.nnoremap('<Leader>i', vim.lsp.buf.definition)
+vimp.nnoremap('<Leader>gd', vim.lsp.buf.definition)
 vimp.nnoremap('<Leader>us', vim.lsp.buf.references)
 vimp.nnoremap('<Leader>cw', vim.lsp.buf.rename)
 vimp.nnoremap('<Leader>fo', vim.lsp.buf.formatting)

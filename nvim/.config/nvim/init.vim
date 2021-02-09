@@ -109,14 +109,16 @@ Plug 'wellle/targets.vim'
 " Find, Filter, Preview, Pick. All lua, all the time
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
+" TEMP
+Plug '~/repos/telescope.nvim'
 
 " Most Recently Used (MRU) Vim Plugin
 Plug 'yegappan/mru'
 
 " File manager for vim/neovim powered by nnn
-Plug 'mroavi/lf.vim'
-"Plug '~/repos/lf.vim'
+"Plug 'mroavi/lf.vim'
+Plug '~/repos/lf.vim'
 
 """ Lf terminal file manager for vim
 "Plug 'ptzz/lf.vim'
@@ -440,13 +442,14 @@ command! -complete=file -nargs=* Gdiff Git diff <args>
 command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
 nnoremap <Leader>gst :Git<CR>
 nnoremap <Leader>gw  :Gwrite<CR>
-"nnoremap <Leader>gr  :Gread<CR>
 nnoremap <Leader>gc  :Git commit -v<CR>
 nnoremap <Leader>gp  :Git push<CR>
 nnoremap <Leader>gl  :Git pull<CR>
 nnoremap <Leader>glg :Git log<CR>
-nnoremap <Leader>gdi :Gdiff<CR>
-nnoremap <Leader>gds :Gdstaged<CR>
+" The LHS of the mappings below are being used elsewhere
+"nnoremap <Leader>gr  :Gread<CR>
+"nnoremap <Leader>gdi :Gdiff<CR>
+"nnoremap <Leader>gds :Gdstaged<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-commentary
