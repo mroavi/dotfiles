@@ -626,7 +626,7 @@ key_bindings:
   - { key: H,       mods: Control|Shift, chars:  "\x1b[27;6;54~"    }
   - { key: L,       mods: Control|Shift, chars:  "\x1b[27;6;55~"    }
   # Hack: intercept Right-Shift and send the Ctrl+b hex code
-  - { key: RShift,  mods: Shift, chars:  "\x02"    }
+  - { key: RShift,  mods: Shift,         chars:  "\x02"    }
 
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
