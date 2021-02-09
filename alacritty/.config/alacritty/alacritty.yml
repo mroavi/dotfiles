@@ -505,8 +505,8 @@ colors: *Tender
 #    - Key0-Key9
 #
 #    A full list with available key codes can be found here:
-#    broken  -> https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
-#    working -> https://docs.rs/glutin/0.26.0/glutin/event/enum.VirtualKeyCode.html
+#    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants (mrv: broken)
+#    https://docs.rs/glutin/0.26.0/glutin/event/enum.VirtualKeyCode.html (mrv: working)
 #
 #    Instead of using the name of the keys, the `key` field also supports using
 #    the scancode of the desired key. Scancodes have to be specified as a
@@ -625,8 +625,9 @@ key_bindings:
   - { key: K,       mods: Control|Shift, chars:  "\x1b[27;6;53~"    }
   - { key: H,       mods: Control|Shift, chars:  "\x1b[27;6;54~"    }
   - { key: L,       mods: Control|Shift, chars:  "\x1b[27;6;55~"    }
-  # Hack: intercept Right-Shift and send the Ctrl+b hex code
-  - { key: RShift,  mods: Shift,         chars:  "\x02"    }
+  # Hack: intercept RightAlt and send Ctrl+b hex code
+  # I used `alacritty --print-events` to figure aout the correct scan code
+  - { key: 100,                          chars:  "\x02"             }
 
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
