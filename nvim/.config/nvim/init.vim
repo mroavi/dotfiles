@@ -235,7 +235,7 @@ nnoremap <silent> <Leader>; :b#<CR>
 
 " Delete current buffer without losing split windows
 " https://stackoverflow.com/a/4468491/1706778
-nnoremap <silent> <leader>bd bprevious<bar>bdelete #<CR>
+nnoremap <silent> <Leader>bd bprevious<bar>bdelete #<CR>
 
 " Unload buffer and switch to last visited buffer (opposite of <Leader>i)
 nnoremap <silent> <Leader>o :bdelete<CR>
@@ -459,8 +459,8 @@ let b:commentary_startofline = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-which-key
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+nnoremap <silent> <Leader> :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <Leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ nvim-lspconfig
@@ -531,16 +531,16 @@ let g:delimitMate_expand_space = 1
 """ vim-buftabline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:buftabline_numbers = 2
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
+nmap <Leader>1 <Plug>BufTabLine.Go(1)
+nmap <Leader>2 <Plug>BufTabLine.Go(2)
+nmap <Leader>3 <Plug>BufTabLine.Go(3)
+nmap <Leader>4 <Plug>BufTabLine.Go(4)
+nmap <Leader>5 <Plug>BufTabLine.Go(5)
+nmap <Leader>6 <Plug>BufTabLine.Go(6)
+nmap <Leader>7 <Plug>BufTabLine.Go(7)
+nmap <Leader>8 <Plug>BufTabLine.Go(8)
+nmap <Leader>9 <Plug>BufTabLine.Go(9)
+nmap <Leader>0 <Plug>BufTabLine.Go(10)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ targets.vim
