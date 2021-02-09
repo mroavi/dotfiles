@@ -26,16 +26,19 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # include hidden files.
 
-#bindkey '  ' autosuggest-accept
-#bindkey '  ' complete-word
-setopt noautomenu
-setopt nomenucomplete
+# Accept autosuggestions with Ctrl+Space
+bindkey '^ ' autosuggest-accept
 
 # Defines behavior of 'Tab'
+#bindkey '  ' autosuggest-accept
+#bindkey '  ' complete-word
+
+#setopt noautomenu
+#setopt nomenucomplete
+
 # See: http://zsh.sourceforge.net/Guide/zshguide06.html
 #bindkey '^ ' menu-complete
 #bindkey '^ ' complete-word
-bindkey '^ ' autosuggest-accept
 
 # =============================================================================
 # Prompt
