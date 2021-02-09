@@ -237,9 +237,6 @@ nnoremap <silent> <Leader>; :b#<CR>
 " https://stackoverflow.com/a/4468491/1706778
 nnoremap <silent> <Leader>bd :bprevious<bar>:bdelete #<CR>
 
-" Unload buffer and switch to last visited buffer (opposite of <Leader>i)
-nnoremap <silent> <Leader>o :bdelete<CR>
-
 " Close all buffers but the current one
 map <Leader>bo :%bdelete\|e#\|bd#<CR>
 
