@@ -235,7 +235,7 @@ nnoremap <silent> <Leader>; :b#<CR>
 
 " Delete current buffer without losing split windows
 " https://stackoverflow.com/a/4468491/1706778
-nnoremap <silent> <Leader>bd bprevious<bar>bdelete #<CR>
+nnoremap <silent> <Leader>bd :bprevious<bar>:bdelete #<CR>
 
 " Unload buffer and switch to last visited buffer (opposite of <Leader>i)
 nnoremap <silent> <Leader>o :bdelete<CR>
