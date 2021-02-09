@@ -20,7 +20,7 @@ SAVEHIST=10000
 autoload -U compinit
 
 # Auto complete with case insenstivity
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select=1
 
 zmodload zsh/complist
 compinit
