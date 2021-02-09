@@ -109,9 +109,7 @@ Plug 'wellle/targets.vim'
 " Find, Filter, Preview, Pick. All lua, all the time
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
-" TEMP
-Plug '~/repos/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Most Recently Used (MRU) Vim Plugin
 Plug 'yegappan/mru'
