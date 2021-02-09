@@ -387,11 +387,6 @@ inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>
 let g:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
 let g:tomux_paste_file = expand("$HOME/.tomux")
 
-" tmux 'splits'
-nnoremap <silent> <Leader>sl :TomuxCommand("split-window -h")<CR>
-nnoremap <silent> <Leader>sj :TomuxCommand("split-window -v")<CR>
-nnoremap <silent> <Leader>sk :TomuxCommand("kill-pane -t " . shellescape(g:tomux_config["target_pane"]))<CR>
-
 augroup tomux_send
   autocmd FileType julia,python,octave nmap <buffer> s <Plug>TomuxMotionSend
   "autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<CR>g@
