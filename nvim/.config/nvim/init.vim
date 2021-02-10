@@ -570,7 +570,6 @@ let g:lf#action = {
       \ '<c-t>': 'tab split',
       \ '<c-x>': 'split',
       \ '<c-v>': 'vsplit' }
-let g:lf#command = 'lf'
 
 " {{{1
 
