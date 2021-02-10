@@ -383,7 +383,7 @@ inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>
 """ vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
-let g:tomux_paste_file = expand("$HOME/.tomux")
+let g:tomux_paste_file = expand("$HOME/.tomux_paste")
 
 augroup tomux_send
   autocmd FileType julia,python,octave nmap <buffer> s <Plug>TomuxMotionSend
