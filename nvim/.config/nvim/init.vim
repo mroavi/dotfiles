@@ -31,6 +31,8 @@ Plug 'honza/vim-snippets'
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
 
+" {{{1
+
 " TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
 
@@ -54,6 +56,8 @@ Plug 'svermeulen/vimpeccable'
 
 """ Easily interact with tmux from vim.
 "Plug 'benmills/vimux'
+
+" }}}
 
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
 
@@ -118,7 +122,9 @@ Plug 'yegappan/mru'
 "Plug 'mroavi/lf.vim'
 Plug '~/repos/lf.vim'
 
-""" Lf terminal file manager for vim
+" {{{1
+
+""" Lf terminal file manager for vim 
 "Plug 'ptzz/lf.vim'
 "Plug 'rbgrouleff/bclose.vim'
 
@@ -156,6 +162,8 @@ Plug '~/repos/lf.vim'
 "" A fuzzy finder
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'junegunn/fzf.vim'
+
+" }}}
 
 call plug#end()
 
@@ -565,6 +573,8 @@ let g:lf#action = {
       \ '<c-v>': 'vsplit' }
 let g:lf#command = 'lf'
 
+" {{{1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """" lf.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -748,3 +758,6 @@ let g:lf#command = 'lf'
 "endfunction
 "command! -nargs=0 MyFasd call Fasd(<bang>0)
 
+" }}}
+
+" vim:set foldenable foldmethod=marker:
