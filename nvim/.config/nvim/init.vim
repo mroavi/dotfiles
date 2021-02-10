@@ -261,7 +261,7 @@ map <Leader>sv :source $MYVIMRC<CR>
 map <Leader>ss :w<CR>:source %<CR>
 
 " Change to the directory of the current buffer and print it
-nnoremap <Leader>cdb :cd %:p:h<CR> :pwd<CR>
+nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
 
 " Open help in vertical split
 cnoreabbrev H vert bo h
