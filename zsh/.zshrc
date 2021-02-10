@@ -19,15 +19,16 @@ SAVEHIST=10000
 
 autoload -U compinit
 
-# Auto complete with case insenstivity
-zstyle ':completion:*' menu select=1
-
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # include hidden files.
 
 # Accept autosuggestions with Ctrl+Space
 bindkey '^ ' autosuggest-accept
+
+# Auto complete with case insenstivity
+zstyle ':completion:*' menu select=1
+bindkey -M menuselect '' .send-break # break from menu with tab
 
 # Defines behavior of 'Tab'
 #bindkey '  ' autosuggest-accept
