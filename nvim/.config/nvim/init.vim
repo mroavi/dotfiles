@@ -31,13 +31,13 @@ Plug 'honza/vim-snippets'
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
 
-" {{{1
-
 " TEMP: temporary fix for the gitgutter + deoplete-lsp problem
 Plug 'antoinemadec/FixCursorHold.nvim'
 
 " Easily write your .vimrc in lua or any lua based language
 Plug 'svermeulen/vimpeccable'
+
+" {{{1
 
 "" Syntax highlighting for GNU Octave
 "Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
