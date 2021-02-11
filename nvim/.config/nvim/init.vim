@@ -282,6 +282,10 @@ nnoremap <C-t>     :tabnew<CR>
 " Ctrl+Shift+w -> close (hack: see alacritty.yml and .tmux.conf)
 nnoremap <C-S-0>   :close<CR>
 
+" Spelling completion in normal mode
+inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
+nnoremap <C-s> ea<C-X><C-S>
+
 "" Move selected lines up/down reindenting if necessary
 "vnoremap J :m '>+1<CR>gv=gv
 "vnoremap K :m '<-2<CR>gv=gv
