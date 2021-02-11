@@ -567,6 +567,7 @@ nnoremap <silent><Leader>mr :MRU<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" lf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>lf :LfPicker %:p:h<CR>
 let g:lf#replace_netrw = 1
 let g:lf#layout = { 'window': { 'width': 0.9, 'height': 0.9, 'highlight': 'Normal' } }
 let g:lf#action = {
