@@ -57,6 +57,9 @@ Plug 'svermeulen/vimpeccable'
 """ Easily interact with tmux from vim.
 "Plug 'benmills/vimux'
 
+"" A powerful grammar checker for Vim using LanguageTool
+"Plug 'rhysd/vim-grammarous'
+
 " }}}
 
 """""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
