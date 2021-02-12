@@ -78,12 +78,16 @@ end
 function M.git_commits()
   require("telescope.builtin").git_commits{
     cwd = vim.fn.expand("%:p:h"),
+    prompt_position = "top",
+    sorting_strategy = "ascending",
   }
 end
 
 function M.git_bcommits()
   require("telescope.builtin").git_bcommits{
     cwd = vim.fn.expand("%:p:h"),
+    prompt_position = "top",
+    sorting_strategy = "ascending",
   }
 end
 
