@@ -284,7 +284,7 @@ nnoremap <C-S-0>   :close<CR>
 
 " Spelling completion in normal mode
 inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
-nnoremap <C-s> ea<C-X><C-S>
+nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 
 "" Move selected lines up/down reindenting if necessary
 "vnoremap J :m '>+1<CR>gv=gv
