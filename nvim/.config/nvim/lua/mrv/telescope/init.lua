@@ -8,8 +8,11 @@ local M = {}
 
 require("telescope").setup{
   defaults = {
-    shorten_path = true,
     prompt_position = "bottom",
+    sorting_strategy = "descending",
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
     mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -24,9 +27,6 @@ require("telescope").setup{
         ["<esc>"] = actions.close
       },
     },
-    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
   }
 }
 
