@@ -1,0 +1,3 @@
+" No space between comment character and code
+let b:commentary_format = '#%s'
+
