@@ -99,7 +99,7 @@ end
 
 Mru = function(opts)
   Lines = {}
-  for line in io.lines(vim.g.MRU_File) do
+  for line in io.lines(vim.fn.expand(vim.g.MRU_File)) do
     Lines[#Lines + 1] = line
   end
   local results = vim.tbl_filter(function(val)
