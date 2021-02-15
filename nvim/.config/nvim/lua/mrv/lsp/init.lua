@@ -12,8 +12,6 @@ function M.goto_prev()
   vim.lsp.diagnostic.goto_prev{ wrap = false,}
 end
 
-local lspconfig = require'lspconfig'
-
 -- Check if this works (can I get rid of the snippets plugin?)
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -27,9 +25,14 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+-- --- Enable logging, open the log with :lua vim.cmd('e'..vim.lsp.get_log_path())
+-- vim.lsp.set_log_level("debug")
+
 ---------------------------------------------------------------------------------
 --- LSP Servers Config
 ---------------------------------------------------------------------------------
+
+local lspconfig = require'lspconfig'
 
 --- vim ------------------------------------------------------------------------
 
@@ -38,6 +41,10 @@ lspconfig.vimls.setup{}
 --- python ---------------------------------------------------------------------
 
 lspconfig.jedi_language_server.setup{}
+
+--- julia ----------------------------------------------------------------------
+
+lspconfig.julials.setup{}
 
 --- c --------------------------------------------------------------------------
 
