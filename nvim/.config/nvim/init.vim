@@ -289,6 +289,9 @@ nnoremap <C-S-0>   :close<CR>
 inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
 nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 
+" Avoid a double slash when pressing / when using wildmenu (similar to zsh)
+cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
+
 "" Move selected lines up/down reindenting if necessary
 "vnoremap J :m '>+1<CR>gv=gv
 "vnoremap K :m '<-2<CR>gv=gv
