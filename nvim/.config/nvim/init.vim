@@ -292,6 +292,13 @@ nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 " Avoid a double slash when pressing / when using wildmenu (similar to zsh)
 cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
 
+" Ignore case in command line
+augroup toggle_ignorecase
+  autocmd!
+  autocmd CmdLineEnter : set ignorecase smartcase
+  autocmd CmdlineLeave : set noignorecase nosmartcase
+augroup END
+
 "" Move selected lines up/down reindenting if necessary
 "vnoremap J :m '>+1<CR>gv=gv
 "vnoremap K :m '<-2<CR>gv=gv
