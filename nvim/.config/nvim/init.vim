@@ -336,8 +336,9 @@ augroup END
 function! s:inCell(text_object_type)
   " Get the first character of the 'commentstring' and duplicate it
   let l:delim_cell = repeat(split(&commentstring, '%s')[0][0], 2)
-  " Create a regex that searches the cell delim from the start of the line
-  let l:pattern_cell = '^' . l:delim_cell
+  " Create a regex that searches the cell delim
+  "let l:pattern_cell = '^' . l:delim_cell
+  let l:pattern_cell = l:delim_cell
   " Move cursor to the previous cell delimiter if found, otherwise, to top of buffer
   if (!search(l:pattern_cell, "bcW")) | silent exe "normal! gg" | endif 
   " Did we receive 'i' as argument (inner cell)?
