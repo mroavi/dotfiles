@@ -307,7 +307,7 @@ font:
       white:   '#eeeeee'
     # Bright colors
     bright:
-      black:   '#4c4c4c'
+      black:   '#73cef4'
       red:     '#f43753'
       green:   '#c9d05c'
       yellow:  '#ffc24b'
