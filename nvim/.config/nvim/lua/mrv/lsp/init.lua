@@ -46,6 +46,10 @@ lspconfig.jedi_language_server.setup{}
 
 lspconfig.julials.setup{}
 
+--- bash -----------------------------------------------------------------------
+
+lspconfig.bashls.setup{}
+
 --- c --------------------------------------------------------------------------
 
 lspconfig.clangd.setup{
@@ -76,7 +80,6 @@ lspconfig.sumneko_lua.setup{
 
 -- <disabled> ------------------------------------------------------------------
 
--- lspconfig.bashls.setup{}
 -- lspconfig.texlab.setup{}
 -- lspconfig.cmake.setup{}
 
