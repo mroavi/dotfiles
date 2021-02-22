@@ -23,20 +23,30 @@ end
 
 #=----------------------------- List of Handy Macros ---------------------------
 
-  @which          <function/macro>
-  @edit           <function/macro>
-  @debug          <string message> [key=value | value ...]
-
-  @code_lowered   <function/macro>
-  @code_typed     <function/macro>
-  @code_llvm      <function/macro>
-  @code_native    <function/macro>
-  @code_warntype  <function/macro>
-
-To enable @debug messages, you need to set the JULIA_DEBUG environment var:
-
+@edit           <function/macro>
+@debug          <string message> [key=value | value ...]
+  To enable @debug messages, you need to set the JULIA_DEBUG environment var:
   julia> ENV["JULIA_DEBUG"] = "all"
 
+# ------------------- View Code at different Compiling Stages ------------------
+
+@code_lowered   <function/macro>
+@code_typed     <function/macro>
+@code_llvm      <function/macro>
+@code_native    <function/macro>
+
+@code_warntype  <function/macro>
+
+-------------------------------- Methods Available -----------------------------
+
+Write a function in the REPL with the opening parenthesis and type <Tab>
+
+Another option is tu use the @which macro:
+  @which <function/macro>
+
+You can also query Julia to output all methods that take a certain type of
+argument with:
+  methodswith(typ[, module or function]; supertypes::Bool=false])
 
 ----------------------------------- REPL History -------------------------------
 
@@ -51,6 +61,11 @@ completes to:
 
 Type Ctrl-R in the REPL to start FZF to filter the REPL History
 
+----------------------------------- REPL Propose -------------------------------
+
+Search available docstrings for entries containing pattern.
+When pattern is a string, case is ignored. Results are printed to io.
+  apropos([io::IO=stdout], pattern::Union{AbstractString,Regex})
 
 # ----------------------------------- Debugger ---------------------------------
 
