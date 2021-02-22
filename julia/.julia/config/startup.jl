@@ -16,6 +16,13 @@ function clr()
   end
 end
 
+# Open files in a right-of tmux pane where nvim should already be running
+# with @edit and <stacktrace number> followed by Ctrl-q
+using InteractiveUtils
+InteractiveUtils.define_editor(
+  "nvim", wait=false) do cmd, path, line
+  `tmux send-keys -t '{'left-of'}' Escape ":edit +$line $path" C-m C-h`
+end
 
 #=----------------------------------------------------------------------------=#
 # JULIA TIPS AND TRICKS
