@@ -1,6 +1,6 @@
 # Good reference: https://gist.github.com/rab/4067067
 [user]
-  email = m.roa.villescas@tue.nl
+  email = mroavi@gmail.com
   name = Martin Roa Villescas
 [core]
   editor = nvim
