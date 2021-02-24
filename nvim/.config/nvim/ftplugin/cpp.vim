@@ -8,6 +8,5 @@ let b:cell_delimeter = '///'
 setlocal cinkeys-=:
 
 " Jump to the next/prev cell delimeter
-nnoremap <buffer><silent> <M-j> :call search(b:cell_delimeter, "W")<CR>
-nnoremap <buffer><silent> <M-k> :call search(b:cell_delimeter, "bW")<CR>
-
+nnoremap <buffer><silent> <M-j> :call GoToNextDelim(b:cell_delimeter)<CR>
+nnoremap <buffer><silent> <M-k> :call GoToPrevDelim(b:cell_delimeter)<CR>

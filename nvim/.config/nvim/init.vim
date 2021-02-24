@@ -321,6 +321,20 @@ fun! ReTab()
 endfun
 nnoremap <Leader>rt :call ReTab()<CR>
 
+" Jump to next delimeter
+function! GoToNextDelim(delim)
+  if (!search(a:delim, "W"))
+    silent exe "normal! G"
+  endif 
+endfunction
+
+" Jump to previous delimeter
+function! GoToPrevDelim(delim)
+  if (!search(a:delim, "bW"))
+    silent exe "normal! gg"
+  endif 
+endfunction
+
 " Print the highlight group used for the word under the cursor
 " https://vi.stackexchange.com/q/18454/27039
 command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name")
