@@ -424,6 +424,7 @@ inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
 let g:tomux_paste_file = expand("$HOME/.tomux_paste")
+nnoremap <silent> yot :TomuxUseClipboardToggle<CR>
 
 augroup tomux_send
   autocmd!
