@@ -260,7 +260,8 @@ noremap <M-S-h> :vertical resize +3<CR>
 noremap <M-S-l> :vertical resize -3<CR>
 
 " Substitute all occurrences of the content of the search register with new text
-nnoremap <Leader>sa :%s///g<left><left>
+nnoremap <Leader>sa :%s//<C-r>=substitute(@/,'\\<\\|\\>','','g')<CR>/g<left><left>
+vnoremap <Leader>sa :s//<C-r>=substitute(@/,'\\<\\|\\>','','g')<CR>/g<left><left>
 
 " Select pasted text
 nnoremap <expr> gp '`[' . getregtype()[0] . '`]'
