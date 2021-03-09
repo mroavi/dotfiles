@@ -263,6 +263,9 @@ noremap <M-S-l> :vertical resize -3<CR>
 nnoremap <Leader>sa :%s//<C-r>=substitute(@/,'\\<\\|\\>','','g')<CR>/g<left><left>
 vnoremap <Leader>sa :s//<C-r>=substitute(@/,'\\<\\|\\>','','g')<CR>/g<left><left>
 
+" Grep using the search register as pattern and send results to quickfix list
+nnoremap <Leader>c/ :vim/<C-r>//g %<CR>:copen<CR>:cc<CR>
+
 " Select pasted text
 nnoremap <expr> gp '`[' . getregtype()[0] . '`]'
 
