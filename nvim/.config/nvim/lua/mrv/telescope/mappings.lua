@@ -8,10 +8,10 @@ vimp.nnoremap('<Leader>gr', builtin.grep_string)
 vimp.nnoremap('<Leader>rg', builtin.live_grep)
 vimp.nnoremap('<Leader>do', require("mrv.telescope").dotfiles)
 -- Vim pickers
-vimp.nnoremap('<leader>ls', require("mrv.telescope").buffers)
+vimp.nnoremap('<leader>bu', require("mrv.telescope").buffers)
 vimp.nnoremap('<Leader>fh', require("mrv.telescope").file_history)
 vimp.nnoremap('<Leader>ch', builtin.command_history)
-vimp.nnoremap('<Leader>li', require("mrv.telescope").lines)
+vimp.nnoremap('<Leader>bl', require("mrv.telescope").lines)
 -- LSP pickers
 vimp.nnoremap('<Leader>ds', builtin.lsp_document_symbols)
 vimp.nnoremap('<Leader>sy', builtin.lsp_workspace_symbols)

@@ -239,8 +239,11 @@ nnoremap <silent> <M-l> :bnext<CR>
 " Open a new unnamed buffer
 nnoremap <M-n> :enew<CR>
 
-" Toggle last visited buffer
-nnoremap <silent> <Leader>; :b#<CR>
+" Edit the alternate file
+nnoremap <silent> <Leader>l :b#<CR>
+
+" Go to previous (last accessed) window
+nnoremap <silent> <Leader>; <C-w><C-p>
 
 " Delete current buffer without losing split windows
 " https://stackoverflow.com/a/4468491/1706778
@@ -595,7 +598,7 @@ nnoremap <silent><Leader>mr :MRU<CR>
 "" lf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lf#set_default_mappings = 0
-nnoremap <Leader>lf :LfPicker %:p:h<CR>
+nnoremap <Leader>/ :LfPicker %:p:h<CR>
 let g:lf#replace_netrw = 1
 let g:lf#layout = { 'window': { 'width': 0.9, 'height': 0.9, 'highlight': 'Normal' } }
 let g:lf#action = {
