@@ -4,7 +4,6 @@ local builtin = require 'telescope.builtin'
 -- File pickers
 vimp.nnoremap('<Leader>fi', require("mrv.telescope").find_files)
 vimp.nnoremap('<Leader>fg', require("mrv.telescope").git_files)
-vimp.nnoremap('<Leader>gr', builtin.grep_string)
 vimp.nnoremap('<Leader>rg', builtin.live_grep)
 vimp.nnoremap('<Leader>do', require("mrv.telescope").dotfiles)
 -- Vim pickers
