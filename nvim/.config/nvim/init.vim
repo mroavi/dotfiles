@@ -267,10 +267,7 @@ nnoremap <Leader>sa :%s//<C-r>=substitute(@/,'\\<\\|\\>','','g')<CR>/g<left><lef
 vnoremap <Leader>sa :s//<C-r>=substitute(@/,'\\<\\|\\>','','g')<CR>/g<left><left>
 
 " Grep recursively in current directory
-nnoremap <Leader>gr :vimgrep //g **/*<left><left><left><left><left><left><left>
-
-" Grep recursively in current directory using the search register as pattern
-nnoremap <Leader>g/ :vimgrep /<C-r>//g **/*<CR>:copen<CR>:cc<CR>
+nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
 
 " Select pasted text
 nnoremap <expr> gp '`[' . getregtype()[0] . '`]'
