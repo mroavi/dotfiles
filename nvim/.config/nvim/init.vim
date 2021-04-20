@@ -536,7 +536,7 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_matching_ignore_case   = 1
 let g:completion_enable_auto_hover      = 0
 let g:completion_enable_auto_signature  = 1
-let g:completion_timer_cycle            = 50
+let g:completion_timer_cycle            = 100
 
 " Fixes delimitmate's 'delimitMate_expand_cr' option
 let g:completion_confirm_key = ""
