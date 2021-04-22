@@ -437,8 +437,8 @@ nnoremap <silent> yot :TomuxUseClipboardToggle<CR>
 
 augroup tomux_send
   autocmd!
-  "autocmd FileType julia,python,octave nmap <buffer> s <Plug>TomuxMotionSend
-  autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<CR>g@
+  autocmd FileType julia,python,octave nmap <buffer> s <Plug>TomuxMotionSend
+  "autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<CR>g@
   autocmd FileType julia,python,octave xmap <buffer> s <Plug>TomuxVisualSend
   autocmd FileType julia,python,octave omap <buffer> s _
 
