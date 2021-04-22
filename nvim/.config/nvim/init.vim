@@ -289,8 +289,7 @@ nnoremap <silent> <ESC> :noh<CR><ESC>
 
 " Chrome-like tab mappings
 nnoremap <C-t>     :tabnew<CR>
-" Ctrl+Shift+w -> close (hack: see alacritty.yml and .tmux.conf)
-nnoremap <C-S-0>   :close<CR>
+nnoremap <C-S-W>   :close<CR>
 
 " Spelling completion in normal mode
 inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"

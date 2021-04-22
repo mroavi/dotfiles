@@ -609,21 +609,13 @@ key_bindings:
   - { key: Return,  mods: Shift,         chars:  "\x1b[13;2u"       }
   - { key: Return,  mods: Control,       chars:  "\x1b[13;5u"       }
   - { key: Return,  mods: Control|Shift, chars:  "\x1b[27;6;13~"    }
-  # Hack: intercept Ctrl+Shift+w and send the X code for Ctrl+Shift+0
-  # Hack: intercept Ctrl+Shift+s and send the X code for Ctrl+Shift+1
-  # Hack: intercept Ctrl+Shift+v and send the X code for Ctrl+Shift+2
-  - { key: W,       mods: Control|Shift, chars:  "\x1b[27;6;48~"    }
-  - { key: S,       mods: Control|Shift, chars:  "\x1b[27;6;49~"    }
-  - { key: V,       mods: Control|Shift, chars:  "\x1b[27;6;50~"    }
-  # Hack: intercept Ctrl+Shift+j and send the X code for Ctrl+Shift+4
-  # Hack: intercept Ctrl+Shift+k and send the X code for Ctrl+Shift+5
-  # Hack: intercept Ctrl+Shift+h and send the X code for Ctrl+Shift+6
-  # Hack: intercept Ctrl+Shift+l and send the X code for Ctrl+Shift+7
-  # See: https://fossies.org/linux/tmux/xterm-keys.c
-  - { key: J,       mods: Control|Shift, chars:  "\x1b[27;6;52~"    }
-  - { key: K,       mods: Control|Shift, chars:  "\x1b[27;6;53~"    }
-  - { key: H,       mods: Control|Shift, chars:  "\x1b[27;6;54~"    }
-  - { key: L,       mods: Control|Shift, chars:  "\x1b[27;6;55~"    }
+  - { key: W,       mods: Control|Shift, chars:  "\x1b[27;6;87~"    }
+  - { key: S,       mods: Control|Shift, chars:  "\x1b[27;6;83~"    }
+  - { key: V,       mods: Control|Shift, chars:  "\x1b[27;6;86~"    }
+  - { key: J,       mods: Control|Shift, chars:  "\x1b[27;6;74~"    }
+  - { key: K,       mods: Control|Shift, chars:  "\x1b[27;6;75~"    }
+  - { key: H,       mods: Control|Shift, chars:  "\x1b[27;6;72~"    }
+  - { key: L,       mods: Control|Shift, chars:  "\x1b[27;6;76~"    }
   # Hack: intercept RightAlt and send Ctrl+b hex code
   # I used `alacritty --print-events` to figure aout the correct scan code
   - { key: 100,                          chars:  "\x02"             }
