@@ -608,8 +608,7 @@ key_bindings:
   - { key: Tab,     mods: Control|Shift, chars:  "\x1b[27;6;9~"     }
   - { key: Return,  mods: Shift,         chars:  "\x1b[13;2u"       }
   - { key: Return,  mods: Control,       chars:  "\x1b[13;5u"       }
-  # Hack: intercept Ctrl+Shift+Enter and send the X code for Ctrl+Shift+3
-  - { key: Return,  mods: Control|Shift, chars:  "\x1b[27;6;51~"    }
+  - { key: Return,  mods: Control|Shift, chars:  "\x1b[27;6;13~"    }
   # Hack: intercept Ctrl+Shift+w and send the X code for Ctrl+Shift+0
   # Hack: intercept Ctrl+Shift+s and send the X code for Ctrl+Shift+1
   # Hack: intercept Ctrl+Shift+v and send the X code for Ctrl+Shift+2

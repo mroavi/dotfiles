@@ -455,8 +455,7 @@ augroup tomux_send
   autocmd FileType julia,python,octave nmap <buffer> <M-CR> sic
 
   " Ctrl+Shift+Enter to run entire buffer
-  " Hack: Alacritty sends Ctrl+Shift+3 when Ctrl+Shift+Enter is pressed
-  autocmd FileType julia,python,octave nmap <buffer> <C-S-3> sid
+  autocmd FileType julia,python,octave nmap <buffer> <C-S-CR> sid
 augroup END
 
 " My custom operator: sends a motion to the REPL and moves to the next
