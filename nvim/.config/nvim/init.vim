@@ -200,6 +200,7 @@ set completeopt=menuone,noinsert,noselect " better completion experience
 set shortmess+=c " avoid showing verbose messages when using completion
 "set noshowmode " don't show mode in status bar (taken care of by lightline)
 "set ignorecase smartcase " ignore case if the typed letters are all lowercase
+set clipboard=unnamedplus
 
 " Disable automatic comment insertion (https://superuser.com/a/271024/1087113)
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
