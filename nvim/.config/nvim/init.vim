@@ -166,6 +166,9 @@ Plug '~/repos/lf.vim'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'junegunn/fzf.vim'
 
+"" Light colorscheme
+"Plug 'cormacrelf/vim-colors-github'
+
 " }}}
 
 call plug#end()
@@ -398,6 +401,8 @@ onoremap <silent> id :<c-u>normal! ggVG<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set termguicolors
 colorscheme marlin
+"set background=light
+"colorscheme github
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-slash
