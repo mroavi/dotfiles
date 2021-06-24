@@ -125,6 +125,9 @@ Plug 'yegappan/mru'
 "Plug 'mroavi/lf.vim'
 Plug '~/repos/lf.vim'
 
+" Use (neo)vim terminal in the floating/popup window.
+Plug 'voldikss/vim-floaterm'
+
 " {{{1
 
 """ Lf terminal file manager for vim 
@@ -612,6 +615,15 @@ let g:lf#action = {
       \ '<c-t>': 'tab split',
       \ '<c-x>': 'split',
       \ '<c-v>': 'vsplit' }
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" vim-floaterm
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <Bslash> :FloatermToggle<CR>
+tnoremap <silent> <Bslash> <C-\><C-n>:FloatermToggle<CR>
+let g:floaterm_title = ""
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
 
 " {{{1
 
