@@ -624,6 +624,7 @@ tnoremap <silent> <Bslash> <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_title = ""
 let g:floaterm_width = 0.8
 let g:floaterm_height = 0.8
+"nnoremap <silent> <Leader>ft :FloatermNew! cd %:p:h<CR>
 
 " {{{1
 
