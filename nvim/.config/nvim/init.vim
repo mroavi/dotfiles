@@ -126,7 +126,8 @@ Plug 'yegappan/mru'
 Plug '~/repos/lf.vim'
 
 " Use (neo)vim terminal in the floating/popup window.
-Plug 'voldikss/vim-floaterm'
+"Plug 'voldikss/vim-floaterm'
+Plug '~/repos/vim-floaterm'
 
 " {{{1
 
@@ -619,12 +620,11 @@ let g:lf#action = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-floaterm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <Bslash> :FloatermToggle<CR>
-tnoremap <silent> <Bslash> <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent> <Bslash> :FloatermNew --cwd=<buff><CR>
+tnoremap <silent> <Bslash> <C-\><C-n>:FloatermKill<CR>
 let g:floaterm_title = ""
 let g:floaterm_width = 0.8
 let g:floaterm_height = 0.8
-"nnoremap <silent> <Leader>ft :FloatermNew! cd %:p:h<CR>
 
 " {{{1
 
