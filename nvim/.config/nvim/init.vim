@@ -620,7 +620,7 @@ let g:lf#action = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-floaterm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <Bslash> :FloatermNew --cwd=<buff><CR>
+nnoremap <silent> <Bslash> :FloatermNew --cwd=<buffer><CR>
 tnoremap <silent> <Bslash> <C-\><C-n>:FloatermKill<CR>
 let g:floaterm_title = ""
 let g:floaterm_width = 0.8
