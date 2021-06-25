@@ -126,8 +126,7 @@ Plug 'yegappan/mru'
 Plug '~/repos/lf.vim'
 
 " Use (neo)vim terminal in the floating/popup window.
-"Plug 'voldikss/vim-floaterm'
-Plug '~/repos/vim-floaterm'
+Plug 'voldikss/vim-floaterm'
 
 " {{{1
 
