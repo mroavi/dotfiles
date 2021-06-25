@@ -120,5 +120,33 @@ function M.file_history()
   Mru{}
 end
 
+---------------------------------------------------------------------------------
+-- Mappings
+---------------------------------------------------------------------------------
+
+local vimp = require 'vimp'
+local builtin = require 'telescope.builtin'
+
+-- File pickers
+vimp.nnoremap('<Leader>fi', M.find_files)
+vimp.nnoremap('<Leader>fg', M.git_files)
+vimp.nnoremap('<Leader>rg', builtin.live_grep)
+vimp.nnoremap('<Leader>do', M.dotfiles)
+-- Vim pickers
+vimp.nnoremap('<leader>bu', M.buffers)
+vimp.nnoremap('<Leader>fh', M.file_history)
+vimp.nnoremap('<Leader>ch', builtin.command_history)
+vimp.nnoremap('<Leader>bl', M.lines)
+-- LSP pickers
+vimp.nnoremap('<Leader>ds', builtin.lsp_document_symbols)
+vimp.nnoremap('<Leader>sy', builtin.lsp_workspace_symbols)
+vimp.nnoremap('<Leader>ca', builtin.lsp_code_actions)
+-- Git pickers
+vimp.nnoremap('<Leader>co', M.git_commits)
+vimp.nnoremap('<Leader>bc', M.git_bcommits)
+vimp.nnoremap('<Leader>st', M.git_status)
+-- Lists pickers
+vimp.nnoremap('<leader>te', builtin.builtin)
+
 return M
 

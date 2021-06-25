@@ -177,6 +177,11 @@ Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Configure Lua plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua require('mrv.plugins')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://neovim.io/doc/user/options.html#'shada'
@@ -512,18 +517,6 @@ nnoremap <silent> <Leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <Leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" nvim-lspconfig
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua require('mrv.lsp')
-lua require('mrv.lsp.mappings')
-
-" Signs
-sign define LspDiagnosticsSignHint        text=➤
-sign define LspDiagnosticsSignError       text=✖
-sign define LspDiagnosticsSignWarning     text=⚠
-sign define LspDiagnosticsSignInformation text=ℹ
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ completion-nvim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use completion-nvim in every buffer
@@ -589,12 +582,6 @@ nmap <Leader>0 <Plug>BufTabLine.Go(10)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Swap 'i' with 'I' operator modes
 let g:targets_aiAI = ['a', 'I', 'A', 'i']
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" telescope.nvim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua require('mrv.telescope')
-lua require('mrv.telescope.mappings')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ mru
