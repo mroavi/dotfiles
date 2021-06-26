@@ -25,9 +25,6 @@ Plug 'tpope/vim-repeat'
 " Vim support for Julia
 Plug 'JuliaEditorSupport/julia-vim'
 
-" Snippets are separated from the engine. Add this if you want them
-Plug 'honza/vim-snippets'
-
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
 
