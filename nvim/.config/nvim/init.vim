@@ -303,9 +303,9 @@ nnoremap <silent> <ESC> :noh<CR><ESC>
 nnoremap <C-t>     :tabnew<CR>
 nnoremap <C-S-W>   :close<CR>
 
-" Spelling completion in normal mode
-inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
-nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
+"" Spelling completion in normal mode TODO: clahes with compe
+"inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
+"nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 
 " Avoid a double slash when pressing / when using wildmenu (similar to zsh)
 cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
