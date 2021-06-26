@@ -119,7 +119,7 @@ Plug 'yegappan/mru'
 "Plug 'mroavi/lf.vim'
 Plug '~/repos/lf.vim'
 
-" Use (neo)vim terminal in the floating/popup window.
+" Use (neo)vim terminal in the floating/popup window
 Plug 'voldikss/vim-floaterm'
 
 " {{{1
