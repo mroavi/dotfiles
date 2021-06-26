@@ -119,6 +119,12 @@ Plug '~/repos/lf.vim'
 " Use (neo)vim terminal in the floating/popup window
 Plug 'voldikss/vim-floaterm'
 
+" Auto completion plugin for nvim that written in Lua
+Plug 'hrsh7th/nvim-compe'
+
+" VSCode(LSP)'s snippet feature in vim
+Plug 'hrsh7th/vim-vsnip'
+
 " {{{1
 
 """ Lf terminal file manager for vim 
@@ -198,7 +204,7 @@ set updatetime=100 " among others, governs gitgutter's update time
 set inccommand=split " shows the effects of a command incrementally as you type
 set listchars=tab:▸\ ,space:_,eol:¬ " symbols for tabstops, spaces and EOLs
 set scrolloff=5 " min num of screen lines to keep above and below the cursor
-set completeopt=menuone,noinsert,noselect " better completion experience
+set completeopt=menuone,noselect " compe prerequisites
 set shortmess+=c " avoid showing verbose messages when using completion
 "set noshowmode " don't show mode in status bar (taken care of by lightline)
 "set ignorecase smartcase " ignore case if the typed letters are all lowercase
