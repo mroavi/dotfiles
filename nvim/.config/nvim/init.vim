@@ -546,7 +546,7 @@ let g:MRU_Exclude_Files = '\.git'
 nnoremap <silent><Leader>mr :MRU<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" lf.vim
+""" lf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lf#set_default_mappings = 0
 nnoremap <Leader>/ :LfPicker %:p:h<CR>
@@ -558,7 +558,7 @@ let g:lf#action = {
       \ '<c-v>': 'vsplit' }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-floaterm
+""" vim-floaterm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <Bslash> :FloatermNew --cwd=<buffer><CR>
 tnoremap <silent> <Bslash> <C-\><C-n>:FloatermKill<CR>
