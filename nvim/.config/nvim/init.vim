@@ -89,9 +89,6 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Quickstart configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
 
-" An async completion framework for neovim's built in LSP written in Lua
-Plug 'nvim-lua/completion-nvim'
-
 " UltiSnips is the ultimate solution for snippets in Vim (tracks the engine)
 Plug 'SirVer/ultisnips'
 
@@ -515,36 +512,6 @@ let b:commentary_startofline = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <Leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <Leader> :<c-u>WhichKeyVisual '<Space>'<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" completion-nvim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
-
-" Use <Tab> and <S-Tab> to navigate through pop-up menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Toggle auto popup on the fly
-nnoremap <Leader>ct :CompletionToggle<CR>
-
-let g:completion_enable_auto_popup      = 1
-let g:completion_enable_snippet         = 'UltiSnips'
-let g:completion_trigger_keyword_length = 2
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:completion_matching_ignore_case   = 1
-let g:completion_enable_auto_hover      = 0
-let g:completion_enable_auto_signature  = 1
-let g:completion_timer_cycle            = 100
-
-" Fixes delimitmate's 'delimitMate_expand_cr' option
-let g:completion_confirm_key = ""
-imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
-      \ "\<Plug>(completion_confirm_completion)" : "\<c-e>\<CR>" : "\<Plug>delimitMateCR"
-
-" Manually trigger completion with
-inoremap <silent><expr> <C-Space> completion#trigger_completion()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ ultisnips
