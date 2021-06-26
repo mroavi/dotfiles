@@ -89,9 +89,6 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Quickstart configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
 
-" UltiSnips is the ultimate solution for snippets in Vim (tracks the engine)
-Plug 'SirVer/ultisnips'
-
 " Syntax highlighting, matching rules and mappings for Markdown and extensions
 Plug 'plasticboy/vim-markdown'
 
@@ -512,16 +509,6 @@ let b:commentary_startofline = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <Leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <Leader> :<c-u>WhichKeyVisual '<Space>'<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" ultisnips
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
-
-" Assign dummy keys (expand trigger and list snippets are taken care of by completion-nvim)
-let g:UltiSnipsExpandTrigger       = "<\>"
-let g:UltiSnipsListSnippets        = "<\>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ delimitmate
