@@ -34,6 +34,9 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 " Easily write your .vimrc in lua or any lua based language
 Plug 'svermeulen/vimpeccable'
 
+" VSCode(LSP)'s snippet feature in vim
+Plug 'hrsh7th/vim-vsnip'
+
 " {{{1
 
 "" Syntax highlighting for GNU Octave
@@ -121,9 +124,6 @@ Plug 'voldikss/vim-floaterm'
 
 " Auto completion plugin for nvim that written in Lua
 Plug 'hrsh7th/nvim-compe'
-
-" VSCode(LSP)'s snippet feature in vim
-Plug 'hrsh7th/vim-vsnip'
 
 " {{{1
 
