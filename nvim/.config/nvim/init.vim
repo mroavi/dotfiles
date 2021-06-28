@@ -307,9 +307,6 @@ nnoremap <C-S-W>   :close<CR>
 " Avoid a double slash when pressing / when using wildmenu (similar to zsh)
 cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
 
-" Open terminal
-nnoremap <Leader>> :terminal<CR>
-
 " Ignore case in command line
 augroup toggle_ignorecase
   autocmd!
