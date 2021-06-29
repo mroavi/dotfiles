@@ -98,8 +98,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'raimondi/delimitmate'
 
-" Color scheme
+" Color schemes
 Plug '~/repos/marlin.vim/'
+Plug 'cormacrelf/vim-colors-github'
 
 " A well-integrated, low-configuration buffer list that lives in the tabline
 Plug 'ap/vim-buftabline'
@@ -165,9 +166,6 @@ Plug 'hrsh7th/nvim-compe'
 "" A fuzzy finder
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'junegunn/fzf.vim'
-
-"" Light colorscheme
-"Plug 'cormacrelf/vim-colors-github'
 
 " }}}
 
