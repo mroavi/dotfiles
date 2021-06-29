@@ -1,0 +1,10 @@
+vim.cmd("let g:tmux_navigator_no_mappings = 1")
+vim.cmd("nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>")
+vim.cmd("nnoremap <silent> <C-j> :TmuxNavigateDown<CR>")
+vim.cmd("nnoremap <silent> <C-k> :TmuxNavigateUp<CR>")
+vim.cmd("nnoremap <silent> <C-l> :TmuxNavigateRight<CR>")
+vim.cmd("inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft<CR>")
+vim.cmd("inoremap <silent> <C-j> <C-o>:TmuxNavigateDown<CR>")
+vim.cmd("inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<CR>")
+vim.cmd("inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>")
+

@@ -1,0 +1,17 @@
+vim.cmd("nnoremap <silent> <Leader>1   :BufferGoto 1<CR>")
+vim.cmd("nnoremap <silent> <Leader>2   :BufferGoto 2<CR>")
+vim.cmd("nnoremap <silent> <Leader>3   :BufferGoto 3<CR>")
+vim.cmd("nnoremap <silent> <Leader>4   :BufferGoto 4<CR>")
+vim.cmd("nnoremap <silent> <Leader>5   :BufferGoto 5<CR>")
+vim.cmd("nnoremap <silent> <Leader>6   :BufferGoto 6<CR>")
+vim.cmd("nnoremap <silent> <Leader>7   :BufferGoto 7<CR>")
+vim.cmd("nnoremap <silent> <Leader>8   :BufferGoto 8<CR>")
+vim.cmd("nnoremap <silent> <Leader>9   :BufferGoto 9<CR>")
+vim.cmd("nnoremap <silent> <Leader>bd  :BufferClose<CR>")
+vim.cmd("nnoremap <silent> <M-,>       :BufferMovePrevious<CR>")
+vim.cmd("nnoremap <silent> <M-.>       :BufferMoveNext<CR>")
+-- NOTE: If barbar's option dict isn't created yet, create it
+vim.cmd("let bufferline = get(g:, 'bufferline', {})")
+vim.cmd("let bufferline.animation = v:false")
+vim.cmd("let bufferline.closable = v:false")
+

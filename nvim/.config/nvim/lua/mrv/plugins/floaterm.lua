@@ -1,0 +1,6 @@
+vim.cmd('nnoremap <silent> <Bslash> :FloatermNew --cwd=<buffer><CR>')
+vim.cmd('tnoremap <silent> <Bslash> <C-\\><C-n>:FloatermKill<CR>')
+vim.cmd('let g:floaterm_title = ""')
+vim.cmd('let g:floaterm_width = 0.8')
+vim.cmd('let g:floaterm_height = 0.8')
+vim.cmd('let g:floaterm_autoclose = 1')

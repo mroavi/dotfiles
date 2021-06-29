@@ -6,119 +6,17 @@ let mapleader = ' '
 let maplocalleader = ' '
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-plug
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins will be downloaded under the specified directory.
-call plug#begin(stdpath('data') . '/plugged')
-
-"" {{{1
-""Plug 'jvirtanen/vim-octave', { 'for': 'octave' } -- Syntax highlighting for GNU Octave
-""Plug 'mhinz/vim-startify' -- A fancy start screen for Vim/Neovim
-""Plug 'psliwka/vim-smoothie' -- Smooth scrolling for Vim done right
-""Plug 'dstein64/nvim-scrollview' -- A Neovim plugin that displays (non-interactive) scrollbars.
-""Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] } -- Cell support for Julia in Vim
-""Plug 'benmills/vimux' -- Easily interact with tmux from vim.
-""Plug 'rhysd/vim-grammarous' -- A powerful grammar checker for Vim using LanguageTool
-"" }}}
-
-" Automatically clears search highlight when cursor is moved
-Plug 'junegunn/vim-slash'
-
-" Navigate seamlessly between vim and tmux splits using a set of hotkeys
-Plug 'toranb/tmux-navigator'
-
-" Send text to tmux
-Plug '~/repos/vim-tomux'
-"Plug 'mroavi/vim-tomux'
-
-" A Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-fugitive'
-
-" Comment stuff out
-Plug 'tpope/vim-commentary'
-
-" Vim plugin that shows keybindings in popup (On-demand lazy load)
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-
-" Syntax highlighting, matching rules and mappings for Markdown and extensions
-Plug 'plasticboy/vim-markdown'
-
-" Preview markdown on your browser with synchronised scrolling
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-" Provides insert mode auto-completion for quotes, parens, brackets, etc.
-Plug 'raimondi/delimitmate'
-
-" Color schemes
-Plug '~/repos/marlin.vim/'
-Plug 'cormacrelf/vim-colors-github'
-
-" A neovim tabline plugin
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
-
-" Vim plugin that provides additional text objects
-Plug 'wellle/targets.vim'
-
-" Most Recently Used (MRU) Vim Plugin
-Plug 'yegappan/mru'
-
-" File manager for vim/neovim powered by nnn
-"Plug 'mroavi/lf.vim'
-Plug '~/repos/lf.vim'
-
-" Use (neo)vim terminal in the floating/popup window
-Plug 'voldikss/vim-floaterm'
-
-" {{{1
-
-""" Lf terminal file manager for vim 
-"Plug 'ptzz/lf.vim'
-"Plug 'rbgrouleff/bclose.vim'
-
-"" A light and configurable statusline/tabline plugin
-"Plug 'itchyny/lightline.vim'
-
-"" Provides support for writing LaTeX documents
-"Plug 'lervag/vimtex'
-
-"" Changes Vim working directory to project root
-"Plug 'airblade/vim-rooter'
-
-"" A simple, easy-to-use Vim alignment plugin
-"Plug 'junegunn/vim-easy-align'
-
-"" Simple tmux statusline generator, integrates with lightline/airline statusline
-"Plug 'edkolev/tmuxline.vim'
-
-"" The fastest Neovim colorizer
-"Plug 'norcalli/nvim-colorizer.lua'
-
-"" Nvim Treesitter configurations and abstraction layer
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-"Plug 'nvim-treesitter/playground'
-
-"" Integrates Arduino's IDE's command line interface
-"Plug 'stevearc/vim-arduino'
-
-"" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
-"Plug 'jpalardy/vim-slime'
-
-"" Smooth scrolling for Vim done right
-"Plug 'psliwka/vim-smoothie'
-
-"" A fuzzy finder
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
-
-" }}}
-
-call plug#end()
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Configure Lua plugins
+""" Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua require('mrv.plugins')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Color scheme
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set termguicolors
+colorscheme marlin
+"set background=light
+"colorscheme github
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Options
@@ -336,170 +234,59 @@ onoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
 xnoremap <silent> id :<c-u>normal! ggVG<cr>
 onoremap <silent> id :<c-u>normal! ggVG<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" marlin.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set termguicolors
-colorscheme marlin
-"set background=light
-"colorscheme github
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-slash
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Blink cursor after go to next/prev search
-noremap <expr> <plug>(slash-after) slash#blink(1, 150)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" tmux-navigator
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
-nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
-nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
-nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
-inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft<CR>
-inoremap <silent> <C-j> <C-o>:TmuxNavigateDown<CR>
-inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<CR>
-inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-tomux
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
-let g:tomux_paste_file = expand("$HOME/.tomux_paste")
-nnoremap <silent> yot :TomuxUseClipboardToggle<CR>
-
-augroup tomux_send
-  autocmd!
-  autocmd FileType julia,python,octave nmap <buffer> s <Plug>TomuxMotionSend
-  "autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<CR>g@
-  autocmd FileType julia,python,octave xmap <buffer> s <Plug>TomuxVisualSend
-  autocmd FileType julia,python,octave omap <buffer> s _
-
-  " Ctrl+Enter to send text in visual, normal and insert modes
-  autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>TomuxVisualSend
-  autocmd FileType julia,python,octave nmap <buffer> <C-CR> s_
-  autocmd FileType julia,python,octave imap <buffer> <C-CR> <Esc>s_gi
-
-  " Shift+Enter to send line and jump to next statement
-  autocmd FileType julia,python,octave nmap <silent> <S-CR> :set opfunc=MySendMotion<CR>g@_
-
-  " Alt+Enter to send cell 
-  autocmd FileType julia,python,octave nmap <buffer> <M-CR> sic
-
-  " Ctrl+Shift+Enter to run entire buffer
-  autocmd FileType julia,python,octave nmap <buffer> <C-S-CR> sid
-augroup END
-
-" My custom operator: sends a motion to the REPL and moves to the next
-" statement (skips comments and empty lines) (see :h map-operator)
-" See: https://vi.stackexchange.com/questions/5495/mapping-with-motion
-function! MySendMotion(type, ...)
-  " Select lines involved in the motion
-  silent exe "normal! `[V`]"
-  " Send the selected region
-  silent exe "normal \<Plug>TomuxVisualSend"
-  " Go to the last char of the selection
-  silent exe "normal! `>"
-  " Get the first character of the 'commentstring'
-  let l:commentchar = split(&commentstring, '%s')[0][0]
-  " Jump to next statement (skips empty lines or lines that start with comment char)
-  let l:pattern =  '^\(\s*' . l:commentchar . '\)\@!\s*\S\+'
-  call search(l:pattern, "W")
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-fugitive
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Add commands similar to those available through the Git plugin in Oh My ZSH
-command! -complete=file -nargs=* Gdiff Git diff <args>
-command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
-nnoremap <Leader>gst :Ge:<CR>
-nnoremap <Leader>gw  :Gwrite<CR>
-nnoremap <Leader>gc  :Git commit -v<CR>
-nnoremap <Leader>gp  :Git push<CR>
-nnoremap <Leader>gl  :Git pull<CR>
-nnoremap <Leader>glg :Git log<CR>
-" The LHS of the mappings below are being used elsewhere
-"nnoremap <Leader>gr  :Gread<CR>
-"nnoremap <Leader>gdi :Gdiff<CR>
-"nnoremap <Leader>gds :Gdstaged<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-commentary
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let b:commentary_startofline = 0
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-which-key
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <Leader> :<c-u>WhichKey '<Space>'<CR>
-vnoremap <silent> <Leader> :<c-u>WhichKeyVisual '<Space>'<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" delimitmate
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" barbar.nvim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <Leader>1   :BufferGoto 1<CR>
-nnoremap <silent> <Leader>2   :BufferGoto 2<CR>
-nnoremap <silent> <Leader>3   :BufferGoto 3<CR>
-nnoremap <silent> <Leader>4   :BufferGoto 4<CR>
-nnoremap <silent> <Leader>5   :BufferGoto 5<CR>
-nnoremap <silent> <Leader>6   :BufferGoto 6<CR>
-nnoremap <silent> <Leader>7   :BufferGoto 7<CR>
-nnoremap <silent> <Leader>8   :BufferGoto 8<CR>
-nnoremap <silent> <Leader>9   :BufferGoto 9<CR>
-nnoremap <silent> <Leader>bd  :BufferClose<CR>
-nnoremap <silent> <M-,>       :BufferMovePrevious<CR>
-nnoremap <silent> <M-.>       :BufferMoveNext<CR>
-" NOTE: If barbar's option dict isn't created yet, create it
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.animation = v:false
-let bufferline.closable = v:false
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" targets.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Swap 'i' with 'I' operator modes
-let g:targets_aiAI = ['a', 'I', 'A', 'i']
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" mru
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:MRU_File = '$HOME/.vim_mru_files'
-let g:MRU_Max_Entries = 500
-let g:MRU_Exclude_Files = '\.git'
-nnoremap <silent><Leader>mr :MRU<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" lf.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lf#set_default_mappings = 0
-nnoremap <Leader>/ :LfPicker %:p:h<CR>
-let g:lf#replace_netrw = 1
-let g:lf#layout = { 'window': { 'width': 0.9, 'height': 0.9, 'highlight': 'Normal' } }
-let g:lf#action = {
-      \ '<c-t>': 'tab split',
-      \ '<c-x>': 'split',
-      \ '<c-v>': 'vsplit' }
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-floaterm
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <Bslash> :FloatermNew --cwd=<buffer><CR>
-tnoremap <silent> <Bslash> <C-\><C-n>:FloatermKill<CR>
-let g:floaterm_title = ""
-let g:floaterm_width = 0.8
-let g:floaterm_height = 0.8
-let g:floaterm_autoclose = 1
-
+" Removed plugins
 " {{{1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" vim-plug
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""Plug 'jvirtanen/vim-octave', { 'for': 'octave' } -- Syntax highlighting for GNU Octave
+""Plug 'mhinz/vim-startify' -- A fancy start screen for Vim/Neovim
+""Plug 'psliwka/vim-smoothie' -- Smooth scrolling for Vim done right
+""Plug 'dstein64/nvim-scrollview' -- A Neovim plugin that displays (non-interactive) scrollbars.
+""Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] } -- Cell support for Julia in Vim
+""Plug 'benmills/vimux' -- Easily interact with tmux from vim.
+""Plug 'rhysd/vim-grammarous' -- A powerful grammar checker for Vim using LanguageTool
+
+""" Lf terminal file manager for vim 
+"Plug 'ptzz/lf.vim'
+"Plug 'rbgrouleff/bclose.vim'
+
+"" A light and configurable statusline/tabline plugin
+"Plug 'itchyny/lightline.vim'
+
+"" Provides support for writing LaTeX documents
+"Plug 'lervag/vimtex'
+
+"" Changes Vim working directory to project root
+"Plug 'airblade/vim-rooter'
+
+"" A simple, easy-to-use Vim alignment plugin
+"Plug 'junegunn/vim-easy-align'
+
+"" Simple tmux statusline generator, integrates with lightline/airline statusline
+"Plug 'edkolev/tmuxline.vim'
+
+"" The fastest Neovim colorizer
+"Plug 'norcalli/nvim-colorizer.lua'
+
+"" Nvim Treesitter configurations and abstraction layer
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Plug 'nvim-treesitter/playground'
+
+"" Integrates Arduino's IDE's command line interface
+"Plug 'stevearc/vim-arduino'
+
+"" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
+"Plug 'jpalardy/vim-slime'
+
+"" Smooth scrolling for Vim done right
+"Plug 'psliwka/vim-smoothie'
+
+"" A fuzzy finder
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """" lf.vim
