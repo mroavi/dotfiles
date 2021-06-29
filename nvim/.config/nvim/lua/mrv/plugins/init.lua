@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
   use {'tpope/vim-fugitive', config = function() require('mrv.plugins.fugitive') end,} -- A Git wrapper so awesome, it should be illegal
   use {'tpope/vim-commentary', config = function() require('mrv.plugins.commentary') end,} -- Comment stuff out
   use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end,} -- Provides insert mode auto-completion for quotes, parens, brackets, etc.
-  use {'kyazdani42/nvim-web-devicons',}
+  use {'kyazdani42/nvim-web-devicons',} -- Lua `fork` of vim-web-devicons for neovim
   use {'romgrk/barbar.nvim', config = function() require('mrv.plugins.barbar') end,} -- A neovim tabline plugin
   use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end,} -- Vim plugin that provides additional text objects
   use {'yegappan/mru', config = function() require('mrv.plugins.mru') end,} -- Most Recently Used (MRU) Vim Plugin
