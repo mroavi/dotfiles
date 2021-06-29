@@ -11,61 +11,18 @@ let maplocalleader = ' '
 " Plugins will be downloaded under the specified directory.
 call plug#begin(stdpath('data') . '/plugged')
 
-"""""""""""""""""""""""" plugins with no configuration """"""""""""""""""""""""
-
-" Pairs of handy bracket mappings
-Plug 'tpope/vim-unimpaired'
-
-" Provides mappings to easily delete, change and add such surroundings in pairs
-Plug 'tpope/vim-surround'
-
-" Enable repeating supported plugin maps with "."
-Plug 'tpope/vim-repeat'
-
-" Vim support for Julia
-Plug 'JuliaEditorSupport/julia-vim'
-
-" Auto format pasted code
-Plug 'sickill/vim-pasta'
-
-" Easily write your .vimrc in lua or any lua based language
-Plug 'svermeulen/vimpeccable'
-
-" VSCode(LSP)'s snippet feature in vim
-Plug 'hrsh7th/vim-vsnip'
-
-" {{{1
-
-"" Syntax highlighting for GNU Octave
-"Plug 'jvirtanen/vim-octave', { 'for': 'octave' }
-
-"" A fancy start screen for Vim/Neovim
-"Plug 'mhinz/vim-startify'
-
-"" Smooth scrolling for Vim done right
-"Plug 'psliwka/vim-smoothie'
-
-"" A Neovim plugin that displays (non-interactive) scrollbars.
-"Plug 'dstein64/nvim-scrollview'
-
-"" Cell support for Julia in Vim
-"Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] }
-
-""" Easily interact with tmux from vim.
-"Plug 'benmills/vimux'
-
-"" A powerful grammar checker for Vim using LanguageTool
-"Plug 'rhysd/vim-grammarous'
-
-" }}}
-
-"""""""""""""""""""""""""" plugins with configuration """"""""""""""""""""""""""
+"" {{{1
+""Plug 'jvirtanen/vim-octave', { 'for': 'octave' } -- Syntax highlighting for GNU Octave
+""Plug 'mhinz/vim-startify' -- A fancy start screen for Vim/Neovim
+""Plug 'psliwka/vim-smoothie' -- Smooth scrolling for Vim done right
+""Plug 'dstein64/nvim-scrollview' -- A Neovim plugin that displays (non-interactive) scrollbars.
+""Plug 'mroavi/vim-julia-cell', { 'for': ['julia'] } -- Cell support for Julia in Vim
+""Plug 'benmills/vimux' -- Easily interact with tmux from vim.
+""Plug 'rhysd/vim-grammarous' -- A powerful grammar checker for Vim using LanguageTool
+"" }}}
 
 " Automatically clears search highlight when cursor is moved
 Plug 'junegunn/vim-slash'
-
-" Super fast git decorations implemented purely in lua/teal.
-Plug 'lewis6991/gitsigns.nvim'
 
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
@@ -83,9 +40,6 @@ Plug 'tpope/vim-commentary'
 " Vim plugin that shows keybindings in popup (On-demand lazy load)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
-" Quickstart configurations for the Nvim LSP client
-Plug 'neovim/nvim-lspconfig'
-
 " Syntax highlighting, matching rules and mappings for Markdown and extensions
 Plug 'plasticboy/vim-markdown'
 
@@ -99,16 +53,12 @@ Plug 'raimondi/delimitmate'
 Plug '~/repos/marlin.vim/'
 Plug 'cormacrelf/vim-colors-github'
 
-" A well-integrated, low-configuration buffer list that lives in the tabline
-Plug 'ap/vim-buftabline'
+" A neovim tabline plugin
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 
 " Vim plugin that provides additional text objects
 Plug 'wellle/targets.vim'
-
-" Find, Filter, Preview, Pick. All lua, all the time
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
 " Most Recently Used (MRU) Vim Plugin
 Plug 'yegappan/mru'
@@ -119,9 +69,6 @@ Plug '~/repos/lf.vim'
 
 " Use (neo)vim terminal in the floating/popup window
 Plug 'voldikss/vim-floaterm'
-
-" Auto completion plugin for nvim that written in Lua
-Plug 'hrsh7th/nvim-compe'
 
 " {{{1
 
@@ -248,10 +195,6 @@ nnoremap <silent> <Leader>l :b#<CR>
 
 " Go to previous (last accessed) window
 nnoremap <silent> <Leader>; <C-w><C-p>
-
-" Delete current buffer without losing split windows
-" https://stackoverflow.com/a/4468491/1706778
-nnoremap <silent> <Leader>bd :b#<bar>:bdelete #<CR>
 
 " Close all buffers but the current one
 map <Leader>bo :%bdelete\|e#\|bd#<CR>
@@ -500,20 +443,25 @@ vnoremap <silent> <Leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-buftabline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:buftabline_numbers = 2
-nmap <Leader>1 <Plug>BufTabLine.Go(1)
-nmap <Leader>2 <Plug>BufTabLine.Go(2)
-nmap <Leader>3 <Plug>BufTabLine.Go(3)
-nmap <Leader>4 <Plug>BufTabLine.Go(4)
-nmap <Leader>5 <Plug>BufTabLine.Go(5)
-nmap <Leader>6 <Plug>BufTabLine.Go(6)
-nmap <Leader>7 <Plug>BufTabLine.Go(7)
-nmap <Leader>8 <Plug>BufTabLine.Go(8)
-nmap <Leader>9 <Plug>BufTabLine.Go(9)
-nmap <Leader>0 <Plug>BufTabLine.Go(10)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""" barbar.nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <Leader>1   :BufferGoto 1<CR>
+nnoremap <silent> <Leader>2   :BufferGoto 2<CR>
+nnoremap <silent> <Leader>3   :BufferGoto 3<CR>
+nnoremap <silent> <Leader>4   :BufferGoto 4<CR>
+nnoremap <silent> <Leader>5   :BufferGoto 5<CR>
+nnoremap <silent> <Leader>6   :BufferGoto 6<CR>
+nnoremap <silent> <Leader>7   :BufferGoto 7<CR>
+nnoremap <silent> <Leader>8   :BufferGoto 8<CR>
+nnoremap <silent> <Leader>9   :BufferGoto 9<CR>
+nnoremap <silent> <Leader>bd  :BufferClose<CR>
+nnoremap <silent> <M-,>       :BufferMovePrevious<CR>
+nnoremap <silent> <M-.>       :BufferMoveNext<CR>
+" NOTE: If barbar's option dict isn't created yet, create it
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.animation = v:false
+let bufferline.closable = v:false
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ targets.vim
@@ -638,104 +586,67 @@ let g:floaterm_autoclose = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "lua require'colorizer'.setup()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" nvim-treesitter
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"nnoremap <Leader>th :TSHighlightCapturesUnderCursor<CR>
-"" Use :TSModuleInfo to see the modules supported by each language
-"lua <<EOF
-"require'nvim-treesitter.configs'.setup {
-"  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-"  highlight = {
-"    enable = true,              -- false will disable the whole extension
-"    disable = { "bash" },       -- list of language that will be disabled
-"  },
-"}
-"EOF
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" playground
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"nnoremap <Leader>tp :TSPlaygroundToggle<CR>
-"lua <<EOF
-"require "nvim-treesitter.configs".setup {
-"  playground = {
-"    enable = true,
-"    disable = {},
-"    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-"    persist_queries = false -- Whether the query persists across vim sessions
-"  }
-"}
-"EOF
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""" vim-easy-align
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""nmap ga <Plug>(EasyAlign)
+""xmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""" vim-smoothie
+""""" tmuxline.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:smoothie_update_interval = 20 
-"let g:smoothie_base_speed = 25
+""let g:tmuxline_preset = {
+""\   'a'  : '#S',
+""\   'win'  : ['#I #W'],
+""\   'cwin' : ['#I #W'],
+""\   'z'  : '%R',
+""\   'options': {
+""\     'status-justify': 'left',
+""\     'status-position': 'top',}
+""\   }
+""if $SSH_CONNECTION
+""  autocmd VimEnter,ColorScheme * silent! Tmuxline lightline_insert
+""endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" fzf.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Default fzf layout
-""(see: https://github.com/junegunn/fzf.vim/issues/821#issuecomment-581481211)
-""(see: https://github.com/junegunn/fzf.vim/issues/1033)
-""let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8, 'border': 'sharp' } }
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""" nvim-colorizer.lua
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""lua require'colorizer'.setup()
 
-"" Do not show preview window by default
-"let g:fzf_preview_window = ''
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""" nvim-treesitter
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""nnoremap <Leader>th :TSHighlightCapturesUnderCursor<CR>
+""" Use :TSModuleInfo to see the modules supported by each language
+""lua <<EOF
+""require'nvim-treesitter.configs'.setup {
+""  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+""  highlight = {
+""    enable = true,              -- false will disable the whole extension
+""    disable = { "bash" },       -- list of language that will be disabled
+""  },
+""}
+""EOF
 
-"" Customize fzf colors to match your color scheme
-"let g:fzf_colors =
-"\ { 'fg':       ['fg', 'Normal'],
-"\   'bg':       ['bg', 'Normal'],
-"\   'hl':       ['fg', 'Comment'],
-"\   'fg+':      ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-"\   'bg+':      ['bg', 'CursorLine', 'CursorColumn'],
-"\   'hl+':      ['fg', 'Statement'],
-"\   'info':     ['fg', 'PreProc'],
-"\   'border':   ['fg', 'Normal'],
-"\   'prompt':   ['fg', 'Conditional'],
-"\   'pointer':  ['fg', 'Exception'],
-"\   'marker':   ['fg', 'Keyword'],
-"\   'spinner':  ['fg', 'Label'],
-"\   'header':   ['fg', 'Comment'],
-"\   'gutter':   ['bg', 'Normal'] }
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""" playground
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""nnoremap <Leader>tp :TSPlaygroundToggle<CR>
+""lua <<EOF
+""require "nvim-treesitter.configs".setup {
+""  playground = {
+""    enable = true,
+""    disable = {},
+""    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+""    persist_queries = false -- Whether the query persists across vim sessions
+""  }
+""}
+""EOF
 
-"" Enable per-command history
-"let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-"" Shift-Tab to select multiple results (-m flag required)
-"" :Files runs $FZF_DEFAULT_COMMAND defined in .zshrc
-"" All commands: https://github.com/junegunn/fzf.vim#commands
-"nnoremap <Leader>fi :Files<CR>
-"nnoremap <Leader>fh :History<CR>
-"nnoremap <Leader>fg :GFiles<CR>
-"nnoremap <Leader>rg :MyRg<CR>
-"nnoremap <Leader>ls :Buffers<CR>
-"nnoremap <Leader>z  :MyFasd<CR>
-"nnoremap <Leader>ch :History:<CR>
-
-"" Advanced ripgrep integration (https://bit.ly/2NUtoXO)
-"function! RipgrepFzf(query, fullscreen)
-"  let command_fmt = 'rg --hidden --no-ignore --column --line-number --no-heading --color=always --smart-case %s || true'
-"  let initial_command = printf(command_fmt, shellescape(a:query))
-"  let reload_command = printf(command_fmt, '{q}')
-"  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command,
-"  \           '--preview-window', 'up:60%', '--no-height'],
-"  \           'window': { 'width': 1, 'height': 1.0, 'yoffset': 1, 'border': 'top' } }
-"  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-"endfunction
-"command! -bang -nargs=* MyRg call RipgrepFzf(<q-args>, <bang>0)
-
-"" Fasd integration
-"function! Fasd(fullscreen)
-"  let cmd = "fasd -dl | grep -iv cache"
-"  call fzf#run(fzf#wrap('j', {'source': cmd, 'sink': 'cd'}))
-"endfunction
-"command! -nargs=0 MyFasd call Fasd(<bang>0)
-
-" }}}
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""" vim-smoothie
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""let g:smoothie_update_interval = 20 
+""let g:smoothie_base_speed = 25
 
 " vim:set foldenable foldmethod=marker:
