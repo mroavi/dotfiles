@@ -28,9 +28,6 @@ Plug 'JuliaEditorSupport/julia-vim'
 " Auto format pasted code
 Plug 'sickill/vim-pasta'
 
-" TEMP: temporary fix for the gitgutter + deoplete-lsp problem
-Plug 'antoinemadec/FixCursorHold.nvim'
-
 " Easily write your .vimrc in lua or any lua based language
 Plug 'svermeulen/vimpeccable'
 
@@ -67,8 +64,8 @@ Plug 'hrsh7th/vim-vsnip'
 " Automatically clears search highlight when cursor is moved
 Plug 'junegunn/vim-slash'
 
-" Shows a git diff in the 'gutter' (sign column)
-Plug 'airblade/vim-gitgutter'
+" Super fast git decorations implemented purely in lua/teal.
+Plug 'lewis6991/gitsigns.nvim'
 
 " Navigate seamlessly between vim and tmux splits using a set of hotkeys
 Plug 'toranb/tmux-navigator'
@@ -409,17 +406,6 @@ colorscheme marlin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Blink cursor after go to next/prev search
 noremap <expr> <plug>(slash-after) slash#blink(1, 150)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" vim-gitgutter
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:gitgutter_map_keys = 0
-let g:gitgutter_show_msg_on_hunk_jumping = 0
-nmap <Leader>hs <Plug>(GitGutterStageHunk)
-nmap <Leader>hu <Plug>(GitGutterUndoHunk)
-nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
-nmap <M-]> <Plug>(GitGutterNextHunk)
-nmap <M-[> <Plug>(GitGutterPrevHunk)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ tmux-navigator
