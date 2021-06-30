@@ -40,6 +40,7 @@ local options = {
 }
 
 M.setup = function()
+
 	apply_options(globals, vim.g)
   apply_options(options, vim.o)
 
