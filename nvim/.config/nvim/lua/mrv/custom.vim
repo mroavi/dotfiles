@@ -11,9 +11,9 @@ nnoremap <Leader>cx :cclose<CR>
 nnoremap Y y$
 
 " Yank/Paste to/from clipboard
-vnoremap <Leader>y "+y
-nnoremap <Leader>p "+p
-vnoremap <Leader>p "+p
+vnoremap <Leader>y "*y
+nnoremap <Leader>p "*p
+vnoremap <Leader>p "*p
 
 " Add line movements preceded by a count greater than 1 to the jump list
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
