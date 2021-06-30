@@ -44,8 +44,6 @@ M.setup = function()
 	apply_options(globals, vim.g)
   apply_options(options, vim.o)
 
-  vim.cmd [[ colorscheme marlin ]]
-
 end
 
 return M

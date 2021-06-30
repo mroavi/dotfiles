@@ -10,7 +10,7 @@ end
 
 return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim'} -- Packer can manage itself
-  use {'~/repos/marlin.vim/'} -- My dark color scheme
+  use {'~/repos/marlin.vim/', config = function() vim.cmd [[ colorscheme marlin ]] end} -- My dark color scheme
   use {'cormacrelf/vim-colors-github'} -- My light color scheme
   use {'tpope/vim-unimpaired'} -- Pairs of handy bracket mappings
   use {'tpope/vim-surround'} -- Provides mappings to easily delete, change and add such surroundings in pairs
