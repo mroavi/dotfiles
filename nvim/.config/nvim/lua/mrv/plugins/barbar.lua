@@ -1,3 +1,5 @@
+vim.cmd("nnoremap <silent> <M-h> :BufferPrevious<CR>")
+vim.cmd("nnoremap <silent> <M-l> :BufferNext<CR>")
 vim.cmd("nnoremap <silent> <Leader>1   :BufferGoto 1<CR>")
 vim.cmd("nnoremap <silent> <Leader>2   :BufferGoto 2<CR>")
 vim.cmd("nnoremap <silent> <Leader>3   :BufferGoto 3<CR>")
