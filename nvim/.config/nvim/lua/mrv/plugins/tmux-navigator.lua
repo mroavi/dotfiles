@@ -1,4 +1,4 @@
-vim.cmd("let g:tmux_navigator_no_mappings = 1")
+vim.g.tmux_navigator_no_mappings = 1
 
 local utils = require('mrv.utils')
 utils.remap("n", "<C-h>", "<Cmd>:TmuxNavigateLeft<CR>")
