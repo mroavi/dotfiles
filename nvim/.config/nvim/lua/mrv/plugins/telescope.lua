@@ -8,7 +8,6 @@ local M = {}
 
 require("telescope").setup{
   defaults = {
-    prompt_position = "bottom",
     sorting_strategy = "descending",
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
