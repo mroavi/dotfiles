@@ -60,23 +60,12 @@ lspconfig.clangd.setup{
 --- lua ------------------------------------------------------------------------
 
 local lua_lsp_dir = "/home/mroavi/lsp-servers/lua-language-server/"
-lspconfig.sumneko_lua.setup{
-  cmd = {lua_lsp_dir .. "bin/Linux/lua-language-server", "-E", lua_lsp_dir .. "/main.lua"},
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
-      diagnostics = {globals = {"vim"}},
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true
-        }
-      }
-    }
-  }
-}
+local luadev = require("lua-dev").setup({
+  lspconfig = {
+    cmd = {lua_lsp_dir .. "bin/Linux/lua-language-server", "-E", lua_lsp_dir .. "/main.lua"}
+  },
+})
+lspconfig.sumneko_lua.setup(luadev)
 
 -- <disabled> ------------------------------------------------------------------
 
