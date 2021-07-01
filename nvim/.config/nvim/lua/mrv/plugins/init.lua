@@ -18,7 +18,6 @@ return require('packer').startup(function(use)
   use {'JuliaEditorSupport/julia-vim'} -- vim support for Julia
   use {'sickill/vim-pasta'} -- auto format pasted code
   use {'plasticboy/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
-  use {'svermeulen/vimpeccable'} -- easily write your .vimrc in lua or any lua based language
   use {'hrsh7th/vim-vsnip'} -- vSCode(LSP)'s snippet feature in vim
   use {'nvim-lua/popup.nvim'} -- [WIP] An implementation of the Popup API from vim in Neovim
 	use {'nvim-lua/plenary.nvim'} -- all the lua functions I don't want to write twice

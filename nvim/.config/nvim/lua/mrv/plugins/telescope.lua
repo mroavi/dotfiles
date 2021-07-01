@@ -123,29 +123,28 @@ end
 -- Mappings
 ---------------------------------------------------------------------------------
 
-local vimp = require 'vimp'
-local builtin = require 'telescope.builtin'
+local utils = require('mrv.utils')
 
 -- File pickers
-vimp.nnoremap('<Leader>fi', M.find_files)
-vimp.nnoremap('<Leader>fg', M.git_files)
-vimp.nnoremap('<Leader>rg', builtin.live_grep)
-vimp.nnoremap('<Leader>do', M.dotfiles)
+utils.remap("n", "<Leader>fi", "<Cmd>lua require('mrv.plugins.telescope').find_files()<CR>")
+utils.remap("n", "<Leader>fg", "<Cmd>lua require('mrv.plugins.telescope').git_files()<CR>")
+utils.remap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
+utils.remap("n", "<Leader>do", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
 -- Vim pickers
-vimp.nnoremap('<leader>bu', M.buffers)
-vimp.nnoremap('<Leader>fh', M.file_history)
-vimp.nnoremap('<Leader>ch', builtin.command_history)
-vimp.nnoremap('<Leader>bl', M.lines)
+utils.remap("n", "<Leader>bu", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
+utils.remap("n", "<Leader>fh", "<Cmd>lua require('mrv.plugins.telescope').file_history()<CR>")
+utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_hist()<CR>")
+utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
 -- LSP pickers
-vimp.nnoremap('<Leader>ds', builtin.lsp_document_symbols)
-vimp.nnoremap('<Leader>sy', builtin.lsp_workspace_symbols)
-vimp.nnoremap('<Leader>ca', builtin.lsp_code_actions)
+utils.remap("n", "<Leader>ds", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
+utils.remap("n", "<Leader>sy", "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
+utils.remap("n", "<Leader>ca", "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
 -- Git pickers
-vimp.nnoremap('<Leader>co', M.git_commits)
-vimp.nnoremap('<Leader>bc', M.git_bcommits)
-vimp.nnoremap('<Leader>st', M.git_status)
+utils.remap("n", "<Leader>co", "<Cmd>lua require('mrv.plugins.telescope').git_commits()<CR>")
+utils.remap("n", "<Leader>bc", "<Cmd>lua require('mrv.plugins.telescope').git_bcommits()<CR>")
+utils.remap("n", "<Leader>st", "<Cmd>lua require('mrv.plugins.telescope').git_status()<CR>")
 -- Lists pickers
-vimp.nnoremap('<leader>te', builtin.builtin)
+utils.remap("n", "<Leader>te", "<Cmd>lua require('telescope.builtin').builtin()<CR>")
 
 return M
 
