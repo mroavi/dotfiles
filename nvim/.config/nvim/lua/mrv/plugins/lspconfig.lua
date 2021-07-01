@@ -90,16 +90,16 @@ vim.cmd [[ sign define LspDiagnosticsSignInformation text=ℹ ]]
 ---------------------------------------------------------------------------------
 local utils = require('mrv.utils')
 -- See `:h lsp-buf`
-utils.remap("n", "<Leader>gd", "<Cmd>vim.lsp.buf.definition")
-utils.remap("n", "<Leader>re", "<Cmd>vim.lsp.buf.references")
-utils.remap("n", "<Leader>cw", "<Cmd>vim.lsp.buf.rename")
-utils.remap("n", "<Leader>fo", "<Cmd>vim.lsp.buf.formatting")
-utils.remap("n", "<Leader>ho", "<Cmd>vim.lsp.buf.hover")
-utils.remap("n", "<Leader>si", "<Cmd>vim.lsp.buf.signature_help")
+utils.remap("n", "<Leader>gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
+utils.remap("n", "<Leader>re", "<Cmd>lua vim.lsp.buf.references<CR>")
+utils.remap("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
+utils.remap("n", "<Leader>fo", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
+utils.remap("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
+utils.remap("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
 -- See `:h lsp-diagnostic`
-utils.remap("n", "]d", "<Cmd>M.goto_next")
-utils.remap("n", "[d", "<Cmd>M.goto_prev")
-utils.remap("n", "<Leader>di", "<Cmd>vim.lsp.diagnostic.show_line_diagnostics")
+utils.remap("n", "]d", "<Cmd>lua M.goto_next()<CR>")
+utils.remap("n", "[d", "<Cmd>lua M.goto_prev()<CR>")
+utils.remap("n", "<Leader>di", "<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
 
 return M
 
