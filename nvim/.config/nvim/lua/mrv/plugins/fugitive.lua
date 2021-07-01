@@ -5,14 +5,14 @@ command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
 ]])
 
 local utils = require('mrv.utils')
-utils.remap("n", "<Leader>gst", "<CMD>:Ge:<CR>")
-utils.remap("n", "<Leader>gw",  "<CMD>:Gwrite<CR>")
-utils.remap("n", "<Leader>gc",  "<CMD>:Git commit -v<CR>")
-utils.remap("n", "<Leader>gp",  "<CMD>:Git push<CR>")
-utils.remap("n", "<Leader>gl",  "<CMD>:Git pull<CR>")
-utils.remap("n", "<Leader>glg", "<CMD>:Git log<CR>")
+utils.remap("n", "<Leader>gst", "<Cmd>:Ge:<CR>")
+utils.remap("n", "<Leader>gw",  "<Cmd>:Gwrite<CR>")
+utils.remap("n", "<Leader>gc",  "<Cmd>:Git commit -v<CR>")
+utils.remap("n", "<Leader>gp",  "<Cmd>:Git push<CR>")
+utils.remap("n", "<Leader>gl",  "<Cmd>:Git pull<CR>")
+utils.remap("n", "<Leader>glg", "<Cmd>:Git log<CR>")
 -- The LHS of the mappings below are being used elsewhere
--- utils.remap("n", "<Leader>gr",  "<CMD>:Gread<CR>")
--- utils.remap("n", "<Leader>gdi", "<CMD>:Gdiff<CR>")
--- utils.remap("n", "<Leader>gds", "<CMD>:Gdstaged<CR>")
+-- utils.remap("n", "<Leader>gr",  "<Cmd>:Gread<CR>")
+-- utils.remap("n", "<Leader>gdi", "<Cmd>:Gdiff<CR>")
+-- utils.remap("n", "<Leader>gds", "<Cmd>:Gdstaged<CR>")
 
