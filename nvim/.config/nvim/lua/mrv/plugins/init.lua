@@ -21,6 +21,7 @@ return require('packer').startup(function(use)
   use {'svermeulen/vimpeccable'} -- easily write your .vimrc in lua or any lua based language
   use {'hrsh7th/vim-vsnip'} -- vSCode(LSP)'s snippet feature in vim
   use {'nvim-lua/popup.nvim'} -- [WIP] An implementation of the Popup API from vim in Neovim
+	use {'nvim-lua/plenary.nvim'} -- all the lua functions I don't want to write twice
 	use {"folke/lua-dev.nvim"} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
   use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end} -- find, Filter, Preview, Pick. All lua, all the time
   use {'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end} -- quickstart configurations for the Nvim LSP client
