@@ -307,7 +307,8 @@ font:
       white:   '#eeeeee'
     # Bright colors
     bright:
-      black:   '#73cef4'
+      black:   '#999999' # TEMP: fixes display issue in Julia REPL
+      #black:   '#73cef4'
       red:     '#f43753'
       green:   '#c9d05c'
       yellow:  '#ffc24b'
