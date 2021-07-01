@@ -27,6 +27,9 @@ nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
 "" https://stackoverflow.com/a/4468491/1706778
 "nnoremap <silent> <Leader>bd :bprevious<bar>:bdelete #<CR>
 
+"" Close all buffers but the current one
+"map <Leader>bo :%bdelete\|e#\|bd#<CR>
+
 " Open a new unnamed buffer
 nnoremap <M-n> :enew<CR>
 
@@ -35,9 +38,6 @@ nnoremap <silent> <Leader>l :b#<CR>
 
 " Go to previous (last accessed) window
 nnoremap <silent> <Leader>; <C-w><C-p>
-
-" Close all buffers but the current one
-map <Leader>bo :%bdelete\|e#\|bd#<CR>
 
 " Create horizontal an vertical splits
 map <Leader>sp :split<CR>
