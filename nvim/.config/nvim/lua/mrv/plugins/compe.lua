@@ -63,13 +63,13 @@ _G.s_tab_complete = function()
   end
 end
 
-vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm({ 'keys': \"\\<Plug>delimitMateCR\", 'mode': '' })", {expr = true})
-
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+local utils = require('mrv.utils')
+utils.remap("i", "<C-Space>", "compe#complete()", {expr = true})
+utils.remap("i", "<CR>", "compe#confirm({ 'keys': \"\\<Plug>delimitMateCR\", 'mode': '' })", {expr = true})
+utils.remap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+utils.remap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+utils.remap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+utils.remap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 M.setup()
 
