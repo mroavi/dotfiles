@@ -64,13 +64,12 @@ function M.buffers()
 end
 
 function M.lines()
-  require("telescope.builtin").current_buffer_fuzzy_find(
-		require("telescope.themes").get_ivy({
-			layout_config = {
-				height = 50,
-			},
-		})
-  )
+	local ivy_theme = require("telescope.themes").get_ivy({
+		layout_config = {
+			height = 40,
+		},
+	})
+	require("telescope.builtin").current_buffer_fuzzy_find(ivy_theme)
 end
 
 -------------------------------------------------------------------------------
