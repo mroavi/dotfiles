@@ -91,7 +91,7 @@ vim.cmd [[ sign define LspDiagnosticsSignInformation text=ℹ ]]
 local utils = require('mrv.utils')
 -- See `:h lsp-buf`
 utils.remap("n", "<Leader>gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
-utils.remap("n", "<Leader>re", "<Cmd>lua vim.lsp.buf.references<CR>")
+utils.remap("n", "<Leader>us", "<Cmd>lua vim.lsp.buf.references<CR>")
 utils.remap("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
 utils.remap("n", "<Leader>fo", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
 utils.remap("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
