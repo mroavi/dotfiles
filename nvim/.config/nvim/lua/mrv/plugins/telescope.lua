@@ -64,12 +64,9 @@ function M.buffers()
 end
 
 function M.lines()
-  require("telescope.builtin").current_buffer_fuzzy_find{
-		layout_config = {
-			prompt_position = "top",
-		},
-    sorting_strategy = "ascending",
-  }
+  require("telescope.builtin").current_buffer_fuzzy_find(
+		require("telescope.themes").get_ivy({})
+  )
 end
 
 -------------------------------------------------------------------------------
