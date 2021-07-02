@@ -65,7 +65,11 @@ end
 
 function M.lines()
   require("telescope.builtin").current_buffer_fuzzy_find(
-		require("telescope.themes").get_ivy({})
+		require("telescope.themes").get_ivy({
+			layout_config = {
+				height = 50,
+			},
+		})
   )
 end
 
