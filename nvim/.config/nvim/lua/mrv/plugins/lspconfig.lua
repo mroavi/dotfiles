@@ -5,11 +5,11 @@ local M = {}
 ---------------------------------------------------------------------------------
 
 function M.goto_next()
-  vim.lsp.diagnostic.goto_next{ wrap = false,}
+  vim.lsp.diagnostic.goto_next{ wrap = false, }
 end
 
 function M.goto_prev()
-  vim.lsp.diagnostic.goto_prev{ wrap = false,}
+  vim.lsp.diagnostic.goto_prev{ wrap = false, }
 end
 
 -- Check if this works (can I get rid of the snippets plugin?)
