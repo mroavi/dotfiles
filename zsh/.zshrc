@@ -155,6 +155,10 @@ setopt auto_cd
 # Move up one dir with Ctrl-u
 bindkey -s '^u' 'cd ..^M'
 
+# Navigate through command history with Ctrl-P and Ctrl-N
+bindkey '^P' up-line-or-search
+bindkey '^N' down-line-or-search
+
 # Directory stack navigation (use `popd` to go back in history)
 setopt auto_pushd
 setopt pushd_ignore_dups
