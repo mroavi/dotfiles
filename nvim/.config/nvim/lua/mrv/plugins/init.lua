@@ -21,7 +21,10 @@ M.setup = function()
 		use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
 		use {'~/repos/marlin.vim/', config = function() vim.cmd [[ colorscheme marlin ]] end} -- My dark color scheme
 		use {'cormacrelf/vim-colors-github'} -- my light color scheme
-		use {'lewis6991/gitsigns.nvim', config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
+
+		-- use {'lewis6991/gitsigns.nvim', config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
+		use {'zapling/gitsigns.nvim', branch = 'show-message-when-navigating-hunk', config = function() require('mrv.plugins.gitsigns') end}
+
 		use {'hrsh7th/nvim-compe', config = function() require('mrv.plugins.compe') end} -- auto completion plugin for nvim that written in Lua
 		use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most Recently Used (MRU) Vim Plugin
 		use {'JuliaEditorSupport/julia-vim'} -- vim support for Julia
