@@ -19,16 +19,16 @@ vnoremap <Leader>p "*p
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
 
-"" Move to next/prev buffer
-"nnoremap <silent> <M-h> :bprevious<CR>
-"nnoremap <silent> <M-l> :bnext<CR>
+" Move to next/prev buffer
+nnoremap <silent> <M-h> :bprevious<CR>
+nnoremap <silent> <M-l> :bnext<CR>
 
-"" Delete current buffer without losing split windows
-"" https://stackoverflow.com/a/4468491/1706778
-"nnoremap <silent> <Leader>bd :bprevious<bar>:bdelete #<CR>
+" Delete current buffer without losing split windows
+" https://stackoverflow.com/a/4468491/1706778
+nnoremap <silent> <Leader>bd :bprevious<bar>:bdelete #<CR>
 
-"" Close all buffers but the current one
-"map <Leader>bo :%bdelete\|e#\|bd#<CR>
+" Close all buffers but the current one
+map <Leader>bo :%bdelete\|e#\|bd#<CR>
 
 " Open a new unnamed buffer
 nnoremap <M-n> :enew<CR>
