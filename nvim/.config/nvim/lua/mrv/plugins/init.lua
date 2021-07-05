@@ -23,7 +23,7 @@ M.setup = function()
 		use {'cormacrelf/vim-colors-github'} -- my light color scheme
 		use {'lewis6991/gitsigns.nvim', config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
 		use {'hrsh7th/nvim-compe', config = function() require('mrv.plugins.compe') end} -- auto completion plugin for nvim that written in Lua
-		use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most Recently Used (MRU) Vim Plugin
+		use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
 		use {'JuliaEditorSupport/julia-vim'} -- vim support for Julia
 		use {'romgrk/barbar.nvim', config = function() require('mrv.plugins.barbar') end} -- a neovim tabline plugin
 		use {'voldikss/vim-floaterm', config = function() require('mrv.plugins.floaterm') end} -- use (neo)vim terminal in the floating/popup window
