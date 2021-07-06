@@ -71,3 +71,4 @@ map z       fasd
 map <c-j>   down
 map <c-k>   up
 map <a-h>   updir
+
