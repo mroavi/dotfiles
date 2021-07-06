@@ -13,8 +13,8 @@ M.setup = function()
 	require('packer').startup(function(use)
 		use {'wbthomason/packer.nvim', config = function() require('mrv.plugins.packer') end} -- packer can manage itself
 		use {'nvim-lua/plenary.nvim'} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
-		use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by nnn
 		use {'tpope/vim-commentary', config = function() require('mrv.plugins.commentary') end} -- comment stuff out
+		use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by nnn
 		use {'nvim-lua/popup.nvim'} -- [WIP] an implementation of the Popup API from vim in Neovim
 		use {"folke/lua-dev.nvim"} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
 		use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end} -- find, Filter, Preview, Pick. All lua, all the time
