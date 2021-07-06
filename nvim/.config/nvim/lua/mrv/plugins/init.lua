@@ -14,7 +14,7 @@ M.setup = function()
 		use {'wbthomason/packer.nvim', config = function() require('mrv.plugins.packer') end} -- packer can manage itself
 		use {'nvim-lua/plenary.nvim'} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
 		use {'~/repos/marlin.vim/', config = function() vim.cmd [[ colorscheme marlin ]] end} -- my dark color scheme (load before gitsigns)
-		use {'tpope/vim-commentary', config = function() require('mrv.plugins.commentary') end} -- comment stuff out
+		use {'tpope/vim-commentary'} -- comment stuff out
 		use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by nnn
 		use {'nvim-lua/popup.nvim'} -- [WIP] an implementation of the Popup API from vim in Neovim
 		use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end} -- find, Filter, Preview, Pick. All lua, all the time
