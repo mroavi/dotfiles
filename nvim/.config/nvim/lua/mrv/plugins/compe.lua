@@ -65,7 +65,7 @@ end
 
 local utils = require('mrv.utils')
 utils.remap("i", "<C-Space>", "compe#complete()", {expr = true})
-utils.remap("i", "<CR>", "compe#confirm({ 'keys': \"\\<Plug>delimitMateCR\", 'mode': '' })", {expr = true})
+-- utils.remap("i", "<CR>", "compe#confirm({ 'keys': \"\\<Plug>delimitMateCR\", 'mode': '' })", {expr = true})
 utils.remap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 utils.remap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 utils.remap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
