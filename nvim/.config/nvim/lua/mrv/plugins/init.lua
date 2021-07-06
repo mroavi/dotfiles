@@ -12,18 +12,15 @@ M.setup = function()
 
 	require('packer').startup(function(use)
 		use {'wbthomason/packer.nvim', config = function() require('mrv.plugins.packer') end} -- packer can manage itself
+		use {'~/repos/marlin.vim/', config = function() vim.cmd [[ colorscheme marlin ]] end} -- my dark color scheme
 		use {'nvim-lua/plenary.nvim'} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
 		use {'tpope/vim-commentary', config = function() require('mrv.plugins.commentary') end} -- comment stuff out
 		use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by nnn
 		use {'nvim-lua/popup.nvim'} -- [WIP] an implementation of the Popup API from vim in Neovim
-		use {"folke/lua-dev.nvim"} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
 		use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end} -- find, Filter, Preview, Pick. All lua, all the time
 		use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
-		use {'~/repos/marlin.vim/', config = function() vim.cmd [[ colorscheme marlin ]] end} -- my dark color scheme
 		use {'lewis6991/gitsigns.nvim', config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
 		use {'hrsh7th/nvim-compe', config = function() require('mrv.plugins.compe') end} -- auto completion plugin for nvim that written in Lua
-		use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
-		use {'JuliaEditorSupport/julia-vim'} -- vim support for Julia
 		-- use {'romgrk/barbar.nvim', config = function() require('mrv.plugins.barbar') end} -- a neovim tabline plugin
 		use {'jose-elias-alvarez/buftabline.nvim', config = function() require('mrv.plugins.buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
 		-- use {'ap/vim-buftabline', config = function() require('mrv.plugins.vim-buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
@@ -34,16 +31,19 @@ M.setup = function()
 		use {'tpope/vim-repeat'} -- enable repeating supported plugin maps with "."
 		use {'junegunn/vim-slash', config = function() require('mrv.plugins.slash') end} -- automatically clears search highlight when cursor is moved
 		use {'sickill/vim-pasta'} -- auto format pasted code
+		use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end} -- vim plugin that provides additional text objects
+		use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
+		use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
 		use {'hrsh7th/vim-vsnip'} -- vSCode(LSP)'s snippet feature in vim
 		use {'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end} -- quickstart configurations for the Nvim LSP client
-		use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
 		use {'kyazdani42/nvim-web-devicons'} -- lua `fork` of vim-web-devicons for neovim
-		use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end} -- vim plugin that provides additional text objects
-		use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
 		use {'plasticboy/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
 		use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}} -- preview markdown on your browser with synchronised scrolling
-		use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
 		use {'mroavi/vim-tomux', config = function() vim.cmd("exe 'source /home/mroavi/.config/nvim/lua/mrv/plugins/tomux.vim'") end} -- send text to tmux
+		use {"folke/lua-dev.nvim"} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
+		use {'JuliaEditorSupport/julia-vim'} -- vim support for Julia
+		-- use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
+		-- use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
 	end)
 end
 
