@@ -42,6 +42,13 @@ M.setup = function()
 		use {'JuliaEditorSupport/julia-vim'} -- vim support for Julia
 		-- use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
 		-- use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
+		-- use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end} -- the fastest Neovim colorizer.
+
+		-- TODO TRY THESE OUT!!!
+		-- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
+		-- use {'kassio/neoterm'} -- wrapper of some vim/neovim's :terminal functions
+		-- use {'sindrets/diffview.nvim'} -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
+		-- use {"ray-x/lsp_signature.nvim"} -- lsp signature hint when you type
 
 		-- use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
 		-- use {'ap/vim-buftabline', config = function() require('mrv.plugins.vim-buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
