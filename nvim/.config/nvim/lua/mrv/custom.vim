@@ -4,16 +4,8 @@ nnoremap <Leader>w :write<CR>
 " Close the current window
 nnoremap <Leader>x :close<CR>
 
-" Close the quickfix window
-nnoremap <Leader>cx :cclose<CR>
-
 " Make Y behave like other capitals
 nnoremap Y y$
-
-" Yank/Paste to/from clipboard
-vnoremap <Leader>y "*y
-nnoremap <Leader>p "*p
-vnoremap <Leader>p "*p
 
 " Add line movements preceded by a count greater than 1 to the jump list
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
@@ -30,24 +22,12 @@ nnoremap <silent> <Leader>bd :bprevious<bar>:bdelete #<CR>
 " Close all buffers but the current one
 map <Leader>bo :%bdelete\|e#\|bd#<CR>
 
-" Open a new unnamed buffer
-nnoremap <M-n> :enew<CR>
-
 " Edit the alternate file
 nnoremap <silent> <Leader>l :b#<CR>
-
-" Go to previous (last accessed) window
-nnoremap <silent> <Leader>; <C-w><C-p>
 
 " Create horizontal an vertical splits
 map <Leader>sp :split<CR>
 map <Leader>vs :vsplit<CR>
-
-" Resize splits easier
-noremap <M-S-j> :resize -3<CR>
-noremap <M-S-k> :resize +3<CR>
-noremap <M-S-h> :vertical resize +3<CR>
-noremap <M-S-l> :vertical resize -3<CR>
 
 " Substitute all occurrences of the content of the search register with new text
 nnoremap <Leader>sa :%s//<C-r>=substitute(@/,'\\<\\|\\>','','g')<CR>/g<left><left>
@@ -59,74 +39,11 @@ nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left>
 " Select pasted text
 nnoremap <expr> gp '`[' . getregtype()[0] . '`]'
 
-" Source .vimrc
-map <Leader>sv :source $MYVIMRC<CR>
-
-" Write and source the currently opened file
-map <Leader>ss :w<CR>:source %<CR>
-
 " Change to the directory of the current buffer and print it
 nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
 
-" Open help in vertical split
-cnoreabbrev H vert bo h
-
 " Clear highlight on pressing ESC
 nnoremap <silent> <ESC> :noh<CR><ESC>
-
-" Chrome-like tab mappings
-nnoremap <C-t>     :tabnew<CR>
-nnoremap <C-S-W>   :close<CR>
-
-"" Spelling completion in normal mode TODO: clahes with compe
-"inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
-"nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
-
-" Avoid a double slash when pressing / when using wildmenu (similar to zsh)
-cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
-
-" Ignore case in command line
-augroup toggle_ignorecase
-	autocmd!
-	autocmd CmdLineEnter : set ignorecase smartcase
-	autocmd CmdlineLeave : set noignorecase nosmartcase
-augroup END
-
-"" Move selected lines up/down reindenting if necessary
-"vnoremap J :m '>+1<CR>gv=gv
-"vnoremap K :m '<-2<CR>gv=gv
-
-" Strip trailing whitespace from all lines (https://vi.stackexchange.com/a/456/27039)
-fun! TrimWhitespace()
-	let l:save = winsaveview()
-	keeppatterns %s/\s\+$//e
-	call winrestview(l:save)
-endfun
-command! TrimWhitespace call TrimWhitespace()
-noremap <Leader>rw :call TrimWhitespace()<CR>
-
-" Convert all tabs to 2 space tabs (https://stackoverflow.com/a/16892086/1706778)
-fun! ReTab()
-	set tabstop=4 softtabstop=4 noexpandtab
-	retab!
-	set tabstop=2 softtabstop=2 expandtab
-	retab!
-endfun
-nnoremap <Leader>rt :call ReTab()<CR>
-
-" Jump to next delimeter
-function! GoToNextDelim(delim)
-	if (!search(a:delim, "W"))
-		silent exe "normal! G"
-	endif 
-endfunction
-
-" Jump to previous delimeter
-function! GoToPrevDelim(delim)
-	if (!search(a:delim, "bW"))
-		silent exe "normal! gg"
-	endif 
-endfunction
 
 " Print the highlight group used for the word under the cursor
 " https://vi.stackexchange.com/q/18454/27039
@@ -176,35 +93,117 @@ onoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
 xnoremap <silent> id :<c-u>normal! ggVG<cr>
 onoremap <silent> id :<c-u>normal! ggVG<cr>
 
-"" Redirect the output of a Vim or external command into a scratch buffer
-"" https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
-"function! Redir(cmd, rng, start, end)
-"	for win in range(1, winnr('$'))
-"		if getwinvar(win, 'scratch')
-"			execute win . 'windo close'
-"		endif
-"	endfor
-"	if a:cmd =~ '^!'
-"		let cmd = a:cmd =~' %'
-"			\ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
-"			\ : matchstr(a:cmd, '^!\zs.*')
-"		if a:rng == 0
-"			let output = systemlist(cmd)
-"		else
-"			let joined_lines = join(getline(a:start, a:end), '\n')
-"			let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
-"			let output = systemlist(cmd . " <<< $" . cleaned_lines)
-"		endif
-"	else
-"		redir => output
-"		execute a:cmd
-"		redir END
-"		let output = split(output, "\n")
-"	endif
-"	vnew
-"	let w:scratch = 1
-"	setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
-"	call setline(1, output)
-"endfunction
-"command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" DISABLED (enable when necessary)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" " Redirect the output of a Vim or external command into a scratch buffer
+" " https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
+" function! Redir(cmd, rng, start, end)
+" for win in range(1, winnr('$'))
+" 	if getwinvar(win, 'scratch')
+" 		execute win . 'windo close'
+" 	endif
+" endfor
+" if a:cmd =~ '^!'
+" 	let cmd = a:cmd =~' %'
+" 		\ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
+" 		\ : matchstr(a:cmd, '^!\zs.*')
+" 	if a:rng == 0
+" 		let output = systemlist(cmd)
+" 	else
+" 		let joined_lines = join(getline(a:start, a:end), '\n')
+" 		let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
+" 		let output = systemlist(cmd . " <<< $" . cleaned_lines)
+" 	endif
+" else
+" 	redir => output
+" 	execute a:cmd
+" 	redir END
+" 	let output = split(output, "\n")
+" endif
+" vnew
+" let w:scratch = 1
+" setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
+" call setline(1, output)
+" endfunction
+" command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
+
+"" Spelling completion in normal mode TODO: clahes with compe
+"inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
+"nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
+
+" " Convert all tabs to 2 space tabs (https://stackoverflow.com/a/16892086/1706778)
+" fun! ReTab()
+" 	set tabstop=4 softtabstop=4 noexpandtab
+" 	retab!
+" 	set tabstop=2 softtabstop=2 expandtab
+" 	retab!
+" endfun
+" nnoremap <Leader>rt :call ReTab()<CR>
+
+" " Strip trailing whitespace from all lines (https://vi.stackexchange.com/a/456/27039)
+" fun! TrimWhitespace()
+" 	let l:save = winsaveview()
+" 	keeppatterns %s/\s\+$//e
+" 	call winrestview(l:save)
+" endfun
+" command! TrimWhitespace call TrimWhitespace()
+" noremap <Leader>rw :call TrimWhitespace()<CR>
+
+" " Resize splits easier
+" noremap <M-S-j> :resize -3<CR>
+" noremap <M-S-k> :resize +3<CR>
+" noremap <M-S-h> :vertical resize +3<CR>
+" noremap <M-S-l> :vertical resize -3<CR>
+
+" " Open a new unnamed buffer
+" nnoremap <M-n> :enew<CR>
+
+" " Open help in vertical split
+" cnoreabbrev H vert bo h
+
+" " Ignore case in command line
+" augroup toggle_ignorecase
+" 	autocmd!
+" 	autocmd CmdLineEnter : set ignorecase smartcase
+" 	autocmd CmdlineLeave : set noignorecase nosmartcase
+" augroup END
+
+" " Avoid a double slash when pressing / when using wildmenu (similar to zsh)
+" cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
+
+" " Chrome-like tab mappings
+" nnoremap <C-t>     :tabnew<CR>
+" nnoremap <C-S-W>   :close<CR>
+
+" " Source .vimrc
+" map <Leader>sv :source $MYVIMRC<CR>
+
+" " Write and source the currently opened file
+" map <Leader>ss :w<CR>:source %<CR>
+
+" " Close the quickfix window
+" nnoremap <Leader>cx :cclose<CR>
+
+" " Go to previous (last accessed) window
+" nnoremap <silent> <Leader>; <C-w><C-p>
+
+" " Jump to next delimeter
+" function! GoToNextDelim(delim)
+" 	if (!search(a:delim, "W"))
+" 		silent exe "normal! G"
+" 	endif 
+" endfunction
+
+" " Jump to previous delimeter
+" function! GoToPrevDelim(delim)
+" 	if (!search(a:delim, "bW"))
+" 		silent exe "normal! gg"
+" 	endif 
+" endfunction
+
+"" Move selected lines up/down reindenting if necessary
+"vnoremap J :m '>+1<CR>gv=gv
+"vnoremap K :m '<-2<CR>gv=gv
 
