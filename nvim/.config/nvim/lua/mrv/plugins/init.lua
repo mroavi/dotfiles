@@ -42,7 +42,9 @@ M.setup = function()
 		use {'JuliaEditorSupport/julia-vim'} -- vim support for Julia
 		-- use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
 		-- use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
-		-- use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end} -- the fastest Neovim colorizer.
+		-- use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
+		-- use {'Shatur/neovim-ayu', config = function() require('mrv.plugins.ayu') end} -- Ayu theme for Neovim
+		-- use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
 
 		-- TODO TRY THESE OUT!!!
 		-- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
