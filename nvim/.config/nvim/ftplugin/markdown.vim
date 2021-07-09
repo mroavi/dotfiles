@@ -45,14 +45,15 @@ let g:mkdp_preview_options = {
 """ compe
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
-require('compe').setup(
-	{ source = { path = true,
-							 buffer = true,
-							 calc = true,
-							 nvim_lsp = true,
-							 nvim_lua = true,
-							 vsnip = true,
-							 spell = true,
-						 } }, 0) -- set up for current buffer
+require('compe').setup({ 
+	autocomplete = false,
+	source = { path = true,
+						 buffer = true,
+						 calc = true,
+						 nvim_lsp = true,
+						 nvim_lua = true,
+						 vsnip = true,
+						 spell = true,
+					 } }, 0) -- set up for current buffer
 EOF
 
