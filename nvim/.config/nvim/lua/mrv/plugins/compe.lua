@@ -21,6 +21,7 @@ M.setup = function()
       nvim_lsp = true;
       nvim_lua = true;
       vsnip = true;
+			spell = false;
     };
   }
 end
