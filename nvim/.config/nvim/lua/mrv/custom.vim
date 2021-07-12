@@ -45,10 +45,6 @@ nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
 " Clear highlight on pressing ESC
 nnoremap <silent> <ESC> :noh<CR><ESC>
 
-" Print the highlight group used for the word under the cursor
-" https://vi.stackexchange.com/q/18454/27039
-command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name")
-
 " Highlight the yanked text
 augroup highlight_yank
 	autocmd!
@@ -206,4 +202,8 @@ onoremap <silent> id :<c-u>normal! ggVG<cr>
 "" Move selected lines up/down reindenting if necessary
 "vnoremap J :m '>+1<CR>gv=gv
 "vnoremap K :m '<-2<CR>gv=gv
+
+" " Print the highlight group used for the word under the cursor
+" " https://vi.stackexchange.com/q/18454/27039
+" command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name")
 
