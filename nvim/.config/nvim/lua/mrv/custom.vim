@@ -55,6 +55,20 @@ augroup highlight_yank
 	au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
 
+" Jump to next delimeter
+function! GoToNextDelim(delim)
+	if (!search(a:delim, "W"))
+		silent exe "normal! G"
+	endif 
+endfunction
+
+" Jump to previous delimeter
+function! GoToPrevDelim(delim)
+	if (!search(a:delim, "bW"))
+		silent exe "normal! gg"
+	endif 
+endfunction
+
 " My custom text object for cells
 " Based on: https://vimways.org/2018/transactions-pending/
 function! s:inCell(text_object_type)
@@ -188,20 +202,6 @@ onoremap <silent> id :<c-u>normal! ggVG<cr>
 
 " " Go to previous (last accessed) window
 " nnoremap <silent> <Leader>; <C-w><C-p>
-
-" " Jump to next delimeter
-" function! GoToNextDelim(delim)
-" 	if (!search(a:delim, "W"))
-" 		silent exe "normal! G"
-" 	endif 
-" endfunction
-
-" " Jump to previous delimeter
-" function! GoToPrevDelim(delim)
-" 	if (!search(a:delim, "bW"))
-" 		silent exe "normal! gg"
-" 	endif 
-" endfunction
 
 "" Move selected lines up/down reindenting if necessary
 "vnoremap J :m '>+1<CR>gv=gv
