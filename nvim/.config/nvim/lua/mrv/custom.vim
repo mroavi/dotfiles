@@ -7,10 +7,6 @@ nnoremap <Leader>x :close<CR>
 " Make Y behave like other capitals
 nnoremap Y y$
 
-" Add line movements preceded by a count greater than 1 to the jump list
-nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
-nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
-
 " Move to next/prev buffer
 nnoremap <silent> <M-h> :bprevious<CR>
 nnoremap <silent> <M-l> :bnext<CR>
@@ -44,6 +40,10 @@ nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
 
 " Clear highlight on pressing ESC
 nnoremap <silent> <ESC> :noh<CR><ESC>
+
+" Add line movements preceded by a count greater than 1 to the jump list
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
 
 " Highlight the yanked text
 augroup highlight_yank
