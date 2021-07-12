@@ -5,7 +5,7 @@ command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
 ]])
 
 local utils = require('mrv.utils')
-utils.remap("n", "<Leader>gs", "<Cmd>:Ge:<CR>")
+utils.remap("n", "gs", "<Cmd>:Ge:<CR>")
 utils.remap("n", "<Leader>gw",  "<Cmd>:Gwrite<CR>")
 utils.remap("n", "<Leader>gc",  "<Cmd>:Git commit -v<CR>")
 utils.remap("n", "<Leader>gp",  "<Cmd>:Git push<CR>")
