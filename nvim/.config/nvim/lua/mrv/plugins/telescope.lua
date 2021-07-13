@@ -135,14 +135,14 @@ local utils = require('mrv.utils')
 utils.remap("n", "<Leader>fi", "<Cmd>lua require('mrv.plugins.telescope').find_files()<CR>")
 utils.remap("n", "<Leader>fg", "<Cmd>lua require('mrv.plugins.telescope').git_files()<CR>")
 utils.remap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
-utils.remap("n", "<Leader>do", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
+utils.remap("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
 -- Vim pickers
 utils.remap("n", "<Leader>bu", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
 utils.remap("n", "<Leader>fh", "<Cmd>lua require('mrv.plugins.telescope').file_history()<CR>")
 utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
 -- LSP pickers
-utils.remap("n", "<Leader>ds", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
+-- utils.remap("n", "<Leader>ds", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 utils.remap("n", "<Leader>sy", "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
 utils.remap("n", "<Leader>ca", "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
 -- Git pickers

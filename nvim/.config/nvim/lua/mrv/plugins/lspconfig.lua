@@ -99,7 +99,6 @@ utils.remap("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
 -- See `:h lsp-diagnostic`
 utils.remap("n", "]d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_next()<CR>")
 utils.remap("n", "[d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_prev()<CR>")
-utils.remap("n", "<Leader>di", "<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
 
 return M
 
