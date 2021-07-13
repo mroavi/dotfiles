@@ -21,7 +21,7 @@ M.setup = function()
 		use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
 		use {'lewis6991/gitsigns.nvim', config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
 		use {'hrsh7th/nvim-compe', config = function() require('mrv.plugins.compe') end} -- auto completion plugin for nvim that written in Lua
-		use {'jose-elias-alvarez/buftabline.nvim', config = function() require('mrv.plugins.buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
+		use {'jose-elias-alvarez/buftabline.nvim', branch = 'develop', config = function() require('mrv.plugins.buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
 		use {'voldikss/vim-floaterm', config = function() require('mrv.plugins.floaterm') end} -- use (neo)vim terminal in the floating/popup window
 		use {'tpope/vim-fugitive', config = function() require('mrv.plugins.fugitive') end} -- a Git wrapper so awesome, it should be illegal
 		use {'tpope/vim-unimpaired'} -- pairs of handy bracket mappings
