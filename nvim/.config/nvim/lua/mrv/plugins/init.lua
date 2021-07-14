@@ -45,6 +45,7 @@ M.setup = function()
 		-- use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
 		-- use {'Shatur/neovim-ayu', config = function() require('mrv.plugins.ayu') end} -- Ayu theme for Neovim
 		-- use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
+		-- use {'folke/tokyonight.nvim', config = function() vim.cmd [[ colorscheme tokyonight ]] end}
 
 		-- TODO TRY THESE OUT!!!
 		-- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
