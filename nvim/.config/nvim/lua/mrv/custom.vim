@@ -13,7 +13,7 @@ nnoremap <silent> <M-l> :bnext<CR>
 
 " Delete current buffer without losing split windows
 " https://stackoverflow.com/a/4468491/1706778
-nnoremap <silent> <Leader>d :bprevious<bar>:bdelete #<CR>
+nnoremap <silent> <Leader>dd :bprevious<bar>:bdelete #<CR>
 
 " Close all buffers but the current one
 map <Leader>bo :%bdelete\|e#\|bd#<CR>
