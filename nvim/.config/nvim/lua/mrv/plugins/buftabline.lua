@@ -1,5 +1,6 @@
 local options = {
-	tab_format = "❙   #{n}: #{b}#{f}   ",
+	tab_format = "❙  #{n}: #{b}#{f}  ",
+	-- tab_format = "❙   #{i} #{b}#{f}    ",
 	buffer_id_index = false,
 	icon_colors = true,
 	start_hidden = false,
