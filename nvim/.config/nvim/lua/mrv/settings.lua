@@ -1,4 +1,5 @@
 local vim = vim
+local utils = require('mrv.utils')
 local M = {}
 
 local apply_options = function(opts, endpoint)
@@ -43,6 +44,11 @@ M.setup = function()
 
 	apply_options(globals, vim.g)
   apply_options(options, vim.o)
+
+	-- Make Ctrl-u and Ctrl-d scroll 1/3 of the window height
+	-- https://neovim.discourse.group/t/how-to-make-ctrl-d-and-ctrl-u-scroll-1-3-of-window-height/859
+	utils.remap("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", {noremap = true, expr = true})
+	utils.remap("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", {noremap = true, expr = true})
 
 end
 
