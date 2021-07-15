@@ -8,8 +8,8 @@ nnoremap <Leader>x :close<CR>
 nnoremap Y y$
 
 " Move to next/prev buffer
-nnoremap <silent> <M-h> :bprevious<CR>
-nnoremap <silent> <M-l> :bnext<CR>
+nnoremap <silent> <S-h> :bprevious<CR>
+nnoremap <silent> <S-l> :bnext<CR>
 
 " Delete current buffer without losing split windows
 " https://stackoverflow.com/a/4468491/1706778
