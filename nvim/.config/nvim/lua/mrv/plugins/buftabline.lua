@@ -8,12 +8,18 @@ local options = {
 	disable_commands = false,
 	go_to_maps = true,
 	flags = {
-		modified = "[+]",
+		modified = "",
 		not_modifiable = "[-]",
 		readonly = "[RO]",
 	},
-	hlgroup_current = "BufTabLineCurrent",
-	hlgroup_normal = "BufTabLineActive",
+	hlgroups = {
+		current = "BufTabLineCurrent",
+		normal = "BufTabLineActive",
+		active = "BufTabLineActive",
+		modified_current = "BufTabLineModifiedCurrent",
+		modified_normal = "BufTabLineModifiedActive",
+		modified_active = "BufTabLineModifiedActive",
+	},
 }
 
 require("buftabline").setup(options)
