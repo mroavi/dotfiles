@@ -16,7 +16,5 @@ M.reload = function()
 	require("mrv")
 end
 
-M.remap("n", "<Leader>re", "<Cmd>lua require('mrv.utils').reload('mrv')<CR>")
-
 return M
 

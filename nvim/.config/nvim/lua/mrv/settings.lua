@@ -50,6 +50,9 @@ M.setup = function()
 	utils.remap("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", {noremap = true, expr = true})
 	utils.remap("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", {noremap = true, expr = true})
 
+	-- Reload config
+	utils.remap("n", "<Leader>re", "<Cmd>lua require('mrv.utils').reload('mrv')<CR>")
+
 end
 
 return M
