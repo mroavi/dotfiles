@@ -47,12 +47,13 @@ M.setup = function()
 		-- use {'Shatur/neovim-ayu', config = function() require('mrv.plugins.ayu') end} -- Ayu theme for Neovim
 		-- use {'folke/tokyonight.nvim', config = function() vim.cmd [[ colorscheme tokyonight ]] end}
 
-		-- TODO TRY THESE OUT!!!
+		-- TODO: Try this out!
 		-- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
 		-- use {'kassio/neoterm'} -- wrapper of some vim/neovim's :terminal functions
 		-- use {'sindrets/diffview.nvim'} -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
 		-- use {"ray-x/lsp_signature.nvim"} -- lsp signature hint when you type
 
+		-- Abandoned
 		-- use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
 		-- use {'ap/vim-buftabline', config = function() require('mrv.plugins.vim-buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
 		-- use {'romgrk/barbar.nvim', config = function() require('mrv.plugins.barbar') end} -- a neovim tabline plugin
