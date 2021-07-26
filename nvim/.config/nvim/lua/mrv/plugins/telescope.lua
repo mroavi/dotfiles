@@ -139,7 +139,6 @@ utils.remap("n", "<Leader>fg", "<Cmd>lua require('mrv.plugins.telescope').git_fi
 utils.remap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
 utils.remap("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
 -- Vim pickers
-utils.remap("n", "<Leader>bu", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
 utils.remap("n", "<Leader>fh", "<Cmd>lua require('mrv.plugins.telescope').file_history()<CR>")
 utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
