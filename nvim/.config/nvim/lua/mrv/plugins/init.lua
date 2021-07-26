@@ -48,7 +48,7 @@ M.setup = function()
 		-- use {'folke/tokyonight.nvim', config = function() vim.cmd [[ colorscheme tokyonight ]] end}
 		-- use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
 
-		-- TODO: Try this out!
+		-- TODO: Try these out!
 		-- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
 		-- use {'kassio/neoterm'} -- wrapper of some vim/neovim's :terminal functions
 		-- use {'sindrets/diffview.nvim'} -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
