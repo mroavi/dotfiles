@@ -39,8 +39,8 @@ M.setup = function()
 		use {'~/repos/vim-tomux', config = function() vim.cmd("exe 'source /home/mroavi/.config/nvim/lua/mrv/plugins/tomux.vim'") end} -- send text to tmux
 		use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
 		use {'JuliaEditorSupport/julia-vim'} -- vim support for Julia
+		use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
 		-- use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
-		-- use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
 		-- use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
 		-- use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
 		-- use {'Shatur/neovim-ayu', config = function() require('mrv.plugins.ayu') end} -- Ayu theme for Neovim
