@@ -52,6 +52,8 @@ M.setup = function()
 		-- use {'sindrets/diffview.nvim'} -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
 		-- use {"ray-x/lsp_signature.nvim"} -- lsp signature hint when you type
 		-- use {"glepnir/lspsaga.nvim"} -- a light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
+		-- use {'voldikss/vim-floaterm', config = function() require('mrv.plugins.floaterm') end} -- use (neo)vim terminal in the floating/popup window
+		-- use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate'}
 
 		-- Abandoned
 		-- use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
