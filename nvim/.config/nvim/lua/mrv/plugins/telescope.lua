@@ -59,7 +59,9 @@ end
 
 function M.buffers()
   require("telescope.builtin").buffers{
-    shorten_path = true,
+		path_display = {
+			"tail",
+		},
   }
 end
 
