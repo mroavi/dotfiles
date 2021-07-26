@@ -44,7 +44,7 @@ lspconfig.jedi_language_server.setup{}
 
 --- julia ----------------------------------------------------------------------
 
-lspconfig.julials.setup{}
+-- lspconfig.julials.setup{}
 
 --- bash -----------------------------------------------------------------------
 
