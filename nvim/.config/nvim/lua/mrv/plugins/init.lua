@@ -45,6 +45,7 @@ M.setup = function()
 		-- use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
 		-- use {'Shatur/neovim-ayu', config = function() require('mrv.plugins.ayu') end} -- Ayu theme for Neovim
 		-- use {'folke/tokyonight.nvim', config = function() vim.cmd [[ colorscheme tokyonight ]] end}
+		-- use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
 
 		-- TODO: Try this out!
 		-- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
@@ -52,7 +53,6 @@ M.setup = function()
 		-- use {'sindrets/diffview.nvim'} -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
 		-- use {"ray-x/lsp_signature.nvim"} -- lsp signature hint when you type
 		-- use {"glepnir/lspsaga.nvim"} -- a light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
-		-- use {'voldikss/vim-floaterm', config = function() require('mrv.plugins.floaterm') end} -- use (neo)vim terminal in the floating/popup window
 		-- use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate'}
 
 		-- Abandoned
