@@ -55,6 +55,7 @@ M.setup = function()
 		-- use {"ray-x/lsp_signature.nvim"} -- lsp signature hint when you type
 		-- use {"glepnir/lspsaga.nvim"} -- a light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
 		-- use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate'}
+		-- use {'terrortylor/nvim-comment'} -- a comment toggler for Neovim, written in Lua
 
 		-- Abandoned
 		-- use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
