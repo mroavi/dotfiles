@@ -65,9 +65,12 @@ _G.s_tab_complete = function()
 end
 
 local utils = require('mrv.utils')
-utils.remap("i", "<C-Space>", "compe#complete()", {expr = true})
--- utils.remap("i", "<CR>", "compe#confirm({ 'keys': \"\\<Plug>delimitMateCR\", 'mode': '' })", {expr = true})
-vim.cmd [[ inoremap <silent><expr> <CR> compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()")) ]]
+
+utils.remap("i", "<C-Space>", "compe#complete()", {expr = true}) -- trigger completion menu
+utils.remap("i", "<CR>", "compe#confirm('<CR>')", {expr = true, noremap = true}) -- select option from menu
+-- utils.remap("i", "<CR>", "compe#confirm({ 'keys': \"\\<Plug>delimitMateCR\", 'mode': '' })", {expr = true}) -- compatitbility with DelimitMate
+-- vim.cmd [[ inoremap <silent><expr> <CR> compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()")) ]] -- compatitbility with nvim-autopairs
+
 utils.remap("i", "<Tab>", "v:lua.tab_complete()", {expr = true, noremap = true})
 utils.remap("s", "<Tab>", "v:lua.tab_complete()", {expr = true, noremap = true})
 utils.remap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true, noremap = true})
