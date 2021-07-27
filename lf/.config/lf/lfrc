@@ -36,9 +36,9 @@ cmd open ${{
     esac
 }}
 
-# When using nvim's lf plugin, use this command (or type `o`) to open a file
-# with xdg-open (the default `open` command gets hijacked (redefined))
-# and use `l` or `Enter` to open text files
+# When using nvim's lf plugin, use this command (which is mapped to `o`) to
+# open a file with xdg-open (the default `open` command gets hijacked
+# (redefined)) and use `l` or `Enter` to open text files
 cmd myopen ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
