@@ -7,10 +7,6 @@ nnoremap <Leader>x :close<CR>
 " Make Y behave like other capitals
 nnoremap Y y$
 
-" Move to next/prev buffer
-nnoremap <silent> <S-h> :bprevious<CR>
-nnoremap <silent> <S-l> :bnext<CR>
-
 " Delete current buffer without losing split windows
 " https://stackoverflow.com/a/4468491/1706778
 nnoremap <silent> <Leader>dd :bprevious<bar>:bdelete #<CR>
@@ -206,4 +202,8 @@ onoremap <silent> id :<c-u>normal! ggVG<cr>
 " " Print the highlight group used for the word under the cursor
 " " https://vi.stackexchange.com/q/18454/27039
 " command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name")
+
+" " Move to next/prev buffer
+" nnoremap <silent> <S-h> :bprevious<CR>
+" nnoremap <silent> <S-l> :bnext<CR>
 
