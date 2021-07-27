@@ -29,7 +29,6 @@ M.setup = function()
 		use {'sickill/vim-pasta'} -- auto format pasted code
 		use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end} -- vim plugin that provides additional text objects
 		use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
-		use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end}
 		use {'hrsh7th/vim-vsnip'} -- vSCode(LSP)'s snippet feature in vim
 		use {'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end} -- quickstart configurations for the Nvim LSP client
 		use {'kyazdani42/nvim-web-devicons'} -- lua `fork` of vim-web-devicons for neovim
@@ -48,6 +47,7 @@ M.setup = function()
 		-- use {'Shatur/neovim-ayu', config = function() require('mrv.plugins.ayu') end} -- Ayu theme for Neovim
 		-- use {'folke/tokyonight.nvim', config = function() vim.cmd [[ colorscheme tokyonight ]] end}
 		-- use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
+		-- use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end}
 
 		-- TODO: Try these out!
 		-- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
@@ -56,7 +56,7 @@ M.setup = function()
 		-- use {"ray-x/lsp_signature.nvim"} -- lsp signature hint when you type
 		-- use {"glepnir/lspsaga.nvim"} -- a light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
 		-- use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate'}
-		-- use {'terrortylor/nvim-comment'} -- a comment toggler for Neovim, written in Lua
+		-- use {'terrortylor/nvim-comment', config = function() require('mrv.plugins.nvim-comment') end} -- a comment toggler for Neovim, written in Lua
 
 		-- Abandoned
 		-- use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
