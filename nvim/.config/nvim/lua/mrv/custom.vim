@@ -45,6 +45,9 @@ nnoremap <silent> <ESC> :noh<CR><ESC>
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
 
+" Avoid a double slash when pressing / when using wildmenu (similar to zsh)
+cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
+
 " Highlight the yanked text
 augroup highlight_yank
 	autocmd!
@@ -179,9 +182,6 @@ onoremap <silent> id :<c-u>normal! ggVG<cr>
 " 	autocmd CmdLineEnter : set ignorecase smartcase
 " 	autocmd CmdlineLeave : set noignorecase nosmartcase
 " augroup END
-
-" " Avoid a double slash when pressing / when using wildmenu (similar to zsh)
-" cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
 
 " " Chrome-like tab mappings
 " nnoremap <C-t>     :tabnew<CR>
