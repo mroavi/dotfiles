@@ -7,6 +7,10 @@ nnoremap <Leader>x :close<CR>
 " Make Y behave like other capitals
 nnoremap Y y$
 
+" Open buffer wildmenu
+set wildcharm=<C-z>
+nnoremap <Leader><Tab> :b <C-z><S-Tab>
+
 " Delete current buffer without losing split windows
 " https://stackoverflow.com/a/4468491/1706778
 nnoremap <silent> <Leader>dd :bprevious<bar>:bdelete #<CR>
