@@ -30,7 +30,7 @@ end
 
 #=----------------------------- List of Handy Macros ---------------------------
 
-@edit           <function/macro>
+@edit           <function call/macro call>
 @debug          <string message> [key=value | value ...]
   To enable @debug messages, you need to set the JULIA_DEBUG environment var:
   julia> ENV["JULIA_DEBUG"] = "all"
