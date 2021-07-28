@@ -7,7 +7,7 @@ nnoremap <Leader>x :close<CR>
 " Make Y behave like other capitals
 nnoremap Y y$
 
-" Open buffer wildmenu
+" Open buffer wildmenu (https://noahfrederick.com/log/vim-wildcharm)
 set wildcharm=<C-z>
 nnoremap <Leader><Tab> :b <C-z><S-Tab>
 
