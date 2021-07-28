@@ -14,8 +14,8 @@ local globals = {
 
 local options = {
 	shada = "<10,'99,/20,:99,h,f1",
-	number = true,
-	relativenumber = true,
+	number = false,
+	relativenumber = false,
 	swapfile = false,
 	wrap = true,
 	linebreak = true,
