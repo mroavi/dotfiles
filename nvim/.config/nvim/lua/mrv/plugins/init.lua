@@ -16,7 +16,7 @@ M.setup = function()
 		use {'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
 		use {'b3nj5m1n/kommentary', config = function() require('mrv.plugins.kommentary') end} -- Neovim commenting plugin, written in lua
 		use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by nnn
-		use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = {'nvim-lua/popup.nvim'}} -- find, Filter, Preview, Pick. All lua, all the time
+		use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
 		use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
 		use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
 		use {'hrsh7th/nvim-compe', config = function() require('mrv.plugins.compe') end} -- auto completion plugin for nvim that written in Lua
