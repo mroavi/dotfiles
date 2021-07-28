@@ -48,6 +48,7 @@ M.setup = function()
 		-- use {'folke/tokyonight.nvim', config = function() vim.cmd [[ colorscheme tokyonight ]] end}
 		-- use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
 		-- use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end}
+		-- use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- good example from which I can base my Lua colorscheme
 
 		-- TODO: Try these out!
 		-- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
