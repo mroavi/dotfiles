@@ -35,7 +35,7 @@ end
   To enable @debug messages, you need to set the JULIA_DEBUG environment var:
   julia> ENV["JULIA_DEBUG"] = "all"
 
-# ------------------- View Code at different Compiling Stages ------------------
+--------------------- View Code at different Compiling Stages ------------------
 
 @code_lowered   <function/macro>
 @code_typed     <function/macro>
@@ -74,7 +74,7 @@ Search available docstrings for entries containing pattern.
 When pattern is a string, case is ignored. Results are printed to io.
   apropos([io::IO=stdout], pattern::Union{AbstractString,Regex})
 
-# ----------------------------------- Debugger ---------------------------------
+------------------------------------- Debugger ---------------------------------
 
   julia> using Debugger       # import the julia debugger
   julia> @enter <function>    # run <function> in debugger mode
