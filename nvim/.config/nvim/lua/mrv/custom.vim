@@ -1,6 +1,9 @@
 " Write to disk
 nnoremap <Leader>w :write<CR>
 
+" Suspend vim
+nnoremap <Leader>z <C-z><CR>
+
 " Close the current window
 nnoremap <Leader>x :close<CR>
 
