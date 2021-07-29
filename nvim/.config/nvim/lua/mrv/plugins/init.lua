@@ -14,7 +14,7 @@ M.setup = function()
 		use {'wbthomason/packer.nvim', config = function() require('mrv.plugins.packer') end} -- packer can manage itself
 		use {'~/repos/tender.nvim', config = function() vim.cmd [[ colorscheme tender ]] end} -- my dark color scheme (load before gitsigns)
 		use {'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
-		use {'b3nj5m1n/kommentary', config = function() require('mrv.plugins.kommentary') end} -- Neovim commenting plugin, written in lua
+		use {'tpope/vim-commentary'} -- comment stuff out
 		use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by nnn
 		use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
 		use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
@@ -50,6 +50,7 @@ M.setup = function()
 		-- use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
 		-- use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end}
 		-- use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- good example from which I can base my Lua colorscheme
+		-- use {'b3nj5m1n/kommentary', config = function() require('mrv.plugins.kommentary') end} -- Neovim commenting plugin, written in lua
 
 		-- TODO: Try these out!
 		-- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
@@ -64,7 +65,6 @@ M.setup = function()
 		-- use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
 		-- use {'ap/vim-buftabline', config = function() require('mrv.plugins.vim-buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
 		-- use {'romgrk/barbar.nvim', config = function() require('mrv.plugins.barbar') end} -- a neovim tabline plugin
-		-- use {'tpope/vim-commentary'} -- comment stuff out
 		-- use {'voldikss/vim-floaterm', config = function() require('mrv.plugins.floaterm') end} -- use (neo)vim terminal in the floating/popup window
 
 		-- }}}
