@@ -37,6 +37,7 @@ M.setup = function()
 		use {'JuliaEditorSupport/julia-vim'} -- vim support for Julia
 		use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
 		use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
+
 		-- {{{1
 
 		-- Disabled
@@ -67,6 +68,7 @@ M.setup = function()
 		-- use {'voldikss/vim-floaterm', config = function() require('mrv.plugins.floaterm') end} -- use (neo)vim terminal in the floating/popup window
 
 		-- }}}
+
 	end)
 end
 
