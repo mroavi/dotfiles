@@ -12,7 +12,7 @@ M.setup = function()
 
 	require('packer').startup(function(use)
 		use {'wbthomason/packer.nvim', config = function() require('mrv.plugins.packer') end} -- packer can manage itself
-		use {'~/repos/tender.nvim/', config = function() vim.cmd [[ colorscheme tender ]] end} -- my dark color scheme (load before gitsigns)
+		use {'~/repos/tender.nvim', config = function() vim.cmd [[ colorscheme tender ]] end} -- my dark color scheme (load before gitsigns)
 		use {'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
 		use {'b3nj5m1n/kommentary', config = function() require('mrv.plugins.kommentary') end} -- Neovim commenting plugin, written in lua
 		use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by nnn
