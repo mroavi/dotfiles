@@ -50,6 +50,12 @@ nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
 " Avoid a double slash when pressing / when using wildmenu (similar to zsh)
 cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
 
+" Resize splits easier
+noremap <C-M-j> :resize +3<CR>
+noremap <C-M-k> :resize -3<CR>
+noremap <C-M-h> :vertical resize -3<CR>
+noremap <C-M-l> :vertical resize +3<CR>
+
 " Highlight the yanked text
 augroup highlight_yank
 	autocmd!
@@ -165,12 +171,6 @@ onoremap <silent> id :<c-u>normal! ggVG<cr>
 " endfun
 " command! TrimWhitespace call TrimWhitespace()
 " noremap <Leader>rw :call TrimWhitespace()<CR>
-
-" " Resize splits easier
-" noremap <M-S-j> :resize -3<CR>
-" noremap <M-S-k> :resize +3<CR>
-" noremap <M-S-h> :vertical resize +3<CR>
-" noremap <M-S-l> :vertical resize -3<CR>
 
 " " Open a new unnamed buffer
 " nnoremap <M-n> :enew<CR>
