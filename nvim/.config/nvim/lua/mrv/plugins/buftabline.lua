@@ -16,6 +16,7 @@ local options = {
 		current = "BufTabLineCurrent",
 		normal = "BufTabLineActive",
 		active = "BufTabLineActive",
+		spacing = "BufTabLineFill",
 		modified_current = "BufTabLineModifiedCurrent",
 		modified_normal = "BufTabLineModifiedActive",
 		modified_active = "BufTabLineModifiedActive",
