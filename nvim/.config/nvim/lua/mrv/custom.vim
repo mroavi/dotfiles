@@ -11,8 +11,8 @@ nnoremap <Leader>x :close<CR>
 nnoremap Y y$
 
 " Open buffer wildmenu (https://noahfrederick.com/log/vim-wildcharm)
-set wildcharm=<Tab>
-nnoremap <Tab> :b <Tab>
+set wildcharm=<C-z>
+nnoremap <Tab> :b <C-z><S-Tab>
 
 " Delete current buffer without losing split windows
 " https://stackoverflow.com/a/4468491/1706778
