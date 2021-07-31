@@ -2,6 +2,9 @@ local M = {}
 
 M.setup = function()
 	require'compe'.setup {
+		documentation = {
+			border = "rounded",
+		};
 		source = {
 			path = true;
 			buffer = true;
