@@ -45,12 +45,9 @@ M.setup = function()
 		-- use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
 		-- use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
 		-- use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
-		-- use {'Shatur/neovim-ayu', config = function() require('mrv.plugins.ayu') end} -- Ayu theme for Neovim
-		-- use {'folke/tokyonight.nvim', config = function() vim.cmd [[ colorscheme tokyonight ]] end}
 		-- use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
 		-- use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end}
-		-- use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- good example from which I can base my Lua colorscheme
-		-- use {'b3nj5m1n/kommentary', config = function() require('mrv.plugins.kommentary') end} -- Neovim commenting plugin, written in lua
+		-- use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
 
 		-- TODO: Try these out!
 		-- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
@@ -66,6 +63,7 @@ M.setup = function()
 		-- use {'ap/vim-buftabline', config = function() require('mrv.plugins.vim-buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
 		-- use {'romgrk/barbar.nvim', config = function() require('mrv.plugins.barbar') end} -- a neovim tabline plugin
 		-- use {'voldikss/vim-floaterm', config = function() require('mrv.plugins.floaterm') end} -- use (neo)vim terminal in the floating/popup window
+		-- use {'b3nj5m1n/kommentary', config = function() require('mrv.plugins.kommentary') end} -- Neovim commenting plugin, written in lua
 
 		-- }}}
 
