@@ -28,12 +28,12 @@ M.setup = function()
 		use {'sickill/vim-pasta'} -- auto format pasted code
 		use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end} -- vim plugin that provides additional text objects
 		use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
-		use {'hrsh7th/vim-vsnip'} -- vSCode(LSP)'s snippet feature in vim
 		use {'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end} -- quickstart configurations for the Nvim LSP client
 		use {'plasticboy/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
 		use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}} -- preview markdown on your browser with synchronised scrolling
 		use {'~/repos/vim-tomux', config = function() vim.cmd("exe 'source /home/mroavi/.config/nvim/lua/mrv/plugins/tomux.vim'") end} -- send text to tmux
 		use {'JuliaEditorSupport/julia-vim'} -- vim support for Julia
+		use {'hrsh7th/vim-vsnip'} -- vSCode(LSP)'s snippet feature in vim
 		use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
 		use {'kyazdani42/nvim-web-devicons'} -- lua `fork` of vim-web-devicons for neovim
 		use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
