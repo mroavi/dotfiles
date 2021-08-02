@@ -3,7 +3,7 @@ let b:cell_delimeter = '##'
 
 " vim-tomux
 let b:tomux_clipboard_paste = "include_string(Main, clipboard())"
-let g:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
+let g:tomux_config = {"socket_name": "default", "target_pane": "{bottom-right}"}
 nnoremap <buffer><silent> <Leader>jl :TomuxCommand("split-window -h -d")<CR>:TomuxSend("julia\n")<CR>
 nnoremap <buffer><silent> <Leader>jx :TomuxCommand("kill-pane -t " . shellescape(g:tomux_config["target_pane"]))<CR>
 nnoremap <buffer><silent> <Leader>jr :TomuxSend("exit()\n")<CR>:sl 50m<CR>:TomuxSend("julia\n")<CR>
