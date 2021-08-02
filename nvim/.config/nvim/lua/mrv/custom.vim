@@ -10,10 +10,6 @@ nnoremap <Leader>x :close<CR>
 " Make Y behave like other capitals
 nnoremap Y y$
 
-" Open buffer wildmenu (https://noahfrederick.com/log/vim-wildcharm)
-set wildcharm=<C-z>
-nnoremap <Tab> :b <C-z><S-Tab>
-
 " Delete current buffer without losing split windows
 " https://stackoverflow.com/a/4468491/1706778
 nnoremap <silent> <Leader>dd :bprevious<bar>:bdelete #<CR>
@@ -215,4 +211,9 @@ onoremap <silent> id :<c-u>normal! ggVG<cr>
 " " Move to next/prev buffer
 " nnoremap <silent> <S-h> :bprevious<CR>
 " nnoremap <silent> <S-l> :bnext<CR>
+
+"" Open buffer wildmenu (https://noahfrederick.com/log/vim-wildcharm)
+" TODO: this clashes with <C-i> (go to next entry in jump list)
+"set wildcharm=<C-z>
+"nnoremap <Tab> :b <C-z><S-Tab>
 
