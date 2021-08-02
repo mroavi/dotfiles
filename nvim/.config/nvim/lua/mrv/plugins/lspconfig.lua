@@ -12,7 +12,6 @@ function M.goto_prev()
   vim.lsp.diagnostic.goto_prev{ wrap = false, }
 end
 
--- Check if this works (can I get rid of the snippets plugin?)
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
