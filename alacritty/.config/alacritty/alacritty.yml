@@ -317,34 +317,6 @@ font:
       cyan:    '#73cef4'
       white:   '#feffff'
 
-  Ayu: &Ayu
-    # Default colors
-    primary:
-      background: '0x0f1419'
-      foreground: '0xe6e1cf'
-
-    # Normal colors
-    normal:
-      black:   '#000000'
-      red:     '#f34a4a'
-      green:   '#bae67e'
-      yellow:  '#ffee99'
-      blue:    '#73d0ff'
-      magenta: '#d4bfff'
-      cyan:    '#83CEC6'
-      white:   '#f2f2f2'
-
-    # Bright colors
-    bright:
-      black:   '#737d87'
-      red:     '#ff3333'
-      green:   '#c2d94c'
-      yellow:  '#e7c547'
-      blue:    '#59c2ff'
-      magenta: '#b77ee0'
-      cyan:    '#5ccfe6'
-      white:   '#ffffff'
-
 # Sets the current colorscheme
 colors: *Tender
 
