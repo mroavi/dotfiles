@@ -4,5 +4,5 @@ vim.g.MRU_Exclude_Files = "\\.git"
 vim.g.MRU_Window_Height = 15
 
 local utils = require('mrv.utils')
-utils.remap("n", "<Leader>o", "<Cmd>MRU<CR>j", {silent = true})
+utils.remap("n", "<Leader>o", "<Cmd>MRU<CR>", {silent = true})
 
