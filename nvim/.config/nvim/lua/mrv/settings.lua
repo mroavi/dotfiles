@@ -29,6 +29,7 @@ local options = {
 	softtabstop = 2,
 	shiftwidth = 2,
 	shiftround = true,
+	expandtab = true,
 	smartindent = true,
 	updatetime = 100,
 	inccommand = 'split',
