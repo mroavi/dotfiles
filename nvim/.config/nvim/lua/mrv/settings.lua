@@ -38,6 +38,7 @@ local options = {
 	clipboard = 'unnamedplus',
 	termguicolors = true,
 	background = 'dark',
+	wildignorecase = true,
 }
 
 M.setup = function()
