@@ -20,6 +20,7 @@ M.setup = function()
 		use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
 		use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
 		use {'hrsh7th/nvim-compe', config = function() require('mrv.plugins.compe') end} -- auto completion plugin for nvim that written in Lua
+		use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end}
 		use {'tpope/vim-fugitive', config = function() require('mrv.plugins.fugitive') end} -- a Git wrapper so awesome, it should be illegal
 		use {'tpope/vim-unimpaired'} -- pairs of handy bracket mappings
 		use {'tpope/vim-surround'} -- provides mappings to easily delete, change and add such surroundings in pairs
@@ -46,7 +47,6 @@ M.setup = function()
 		-- use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
 		-- use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
 		-- use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
-		-- use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end}
 		-- use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
 
 		-- TODO: Try these out!
