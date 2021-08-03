@@ -16,12 +16,12 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = false,
-    virtual_text = true,
-    signs = true,
-    update_in_insert = false,
-  }
+vim.lsp.diagnostic.on_publish_diagnostics, {
+  underline = false,
+  virtual_text = true,
+  signs = true,
+  update_in_insert = false,
+}
 )
 
 -- --- Enable logging, open the log with :lua vim.cmd('e'..vim.lsp.get_log_path())
