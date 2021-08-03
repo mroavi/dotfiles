@@ -60,49 +60,49 @@ noremap <C-M-l> :vertical resize +3<CR>
 
 " Highlight the yanked text
 augroup highlight_yank
-	autocmd!
-	au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+  autocmd!
+  au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
 
 " Jump to next delimeter
 function! GoToNextDelim(delim)
-	if (!search(a:delim, "W"))
-		silent exe "normal! G"
-	endif 
+  if (!search(a:delim, "W"))
+    silent exe "normal! G"
+  endif 
 endfunction
 
 " Jump to previous delimeter
 function! GoToPrevDelim(delim)
-	if (!search(a:delim, "bW"))
-		silent exe "normal! gg"
-	endif 
+  if (!search(a:delim, "bW"))
+    silent exe "normal! gg"
+  endif 
 endfunction
 
 " My custom text object for cells
 " Based on: https://vimways.org/2018/transactions-pending/
 function! s:inCell(text_object_type)
-	" Get the first character of the 'commentstring' and duplicate it
-	let l:delim_cell = repeat(split(&commentstring, '%s')[0][0], 2)
-	" Create a regex that searches the cell delim
-	"let l:pattern_cell = '^' . l:delim_cell
-	let l:pattern_cell = l:delim_cell
-	" Move cursor to the previous cell delimiter if found, otherwise, to top of buffer
-	if (!search(l:pattern_cell, "bcW")) | silent exe "normal! gg" | endif 
-	" Did we receive 'i' as argument (inner cell)?
-	if a:text_object_type ==# 'i'
-		" Yes, then jump to next valid statement (skips empty lines and those starting with comment char)
-		let l:pattern_statement =  '^\(\s*' . l:delim_cell[0] . '\)\@!\s*\S\+'
-		call search(l:pattern_statement, "cW")
-	endif
-	" Start visual line mode
-	normal! V
-	" Move cursor to the next cell delimiter if found, otherwise, to bottom of buffer
-	if (!search(l:pattern_cell, "W")) | exe "normal! G" | endif
-	" Did we receive 'i' as argument (inner cell)?
-	if a:text_object_type ==# 'i'
-		" Yes, then jump to prev valid statement (skips empty lines and those starting with comment char)
-		call search(l:pattern_statement, "cbW")
-	endif
+  " Get the first character of the 'commentstring' and duplicate it
+  let l:delim_cell = repeat(split(&commentstring, '%s')[0][0], 2)
+  " Create a regex that searches the cell delim
+  "let l:pattern_cell = '^' . l:delim_cell
+  let l:pattern_cell = l:delim_cell
+  " Move cursor to the previous cell delimiter if found, otherwise, to top of buffer
+  if (!search(l:pattern_cell, "bcW")) | silent exe "normal! gg" | endif 
+  " Did we receive 'i' as argument (inner cell)?
+  if a:text_object_type ==# 'i'
+    " Yes, then jump to next valid statement (skips empty lines and those starting with comment char)
+    let l:pattern_statement =  '^\(\s*' . l:delim_cell[0] . '\)\@!\s*\S\+'
+    call search(l:pattern_statement, "cW")
+  endif
+  " Start visual line mode
+  normal! V
+  " Move cursor to the next cell delimiter if found, otherwise, to bottom of buffer
+  if (!search(l:pattern_cell, "W")) | exe "normal! G" | endif
+  " Did we receive 'i' as argument (inner cell)?
+  if a:text_object_type ==# 'i'
+    " Yes, then jump to prev valid statement (skips empty lines and those starting with comment char)
+    call search(l:pattern_statement, "cbW")
+  endif
 endfunction
 
 " Custom 'in cell' text object
