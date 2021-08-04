@@ -25,7 +25,7 @@ M.setup = function()
     use {'tpope/vim-unimpaired'} -- pairs of handy bracket mappings
     use {'tpope/vim-surround'} -- provides mappings to easily delete, change and add such surroundings in pairs
     use {'tpope/vim-repeat'} -- enable repeating supported plugin maps with "."
-    use {'junegunn/vim-slash', config = function() require('mrv.plugins.slash') end} -- automatically clears search highlight when cursor is moved
+    use {'pgdouyon/vim-evanesco'} -- automatically clears search highlight
     use {'sickill/vim-pasta'} -- auto format pasted code
     use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end} -- vim plugin that provides additional text objects
     use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
@@ -58,8 +58,6 @@ M.setup = function()
     -- use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate'}
     -- use {'terrortylor/nvim-comment', config = function() require('mrv.plugins.nvim-comment') end} -- a comment toggler for Neovim, written in Lua
     -- use {'rafamadriz/friendly-snippets', } -- set of preconfigured snippets for different languages
-    -- use {'qxxxb/vim-searchhi', config = function() require('mrv.plugins.vim-searchhi') end} -- highlight the current search result differently
-    -- use {'pgdouyon/vim-evanesco'} -- automatically clears search highlight
 
     -- Abandoned
     -- use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
@@ -67,6 +65,8 @@ M.setup = function()
     -- use {'romgrk/barbar.nvim', config = function() require('mrv.plugins.barbar') end} -- a neovim tabline plugin
     -- use {'voldikss/vim-floaterm', config = function() require('mrv.plugins.floaterm') end} -- use (neo)vim terminal in the floating/popup window
     -- use {'b3nj5m1n/kommentary', config = function() require('mrv.plugins.kommentary') end} -- Neovim commenting plugin, written in lua
+    -- use {'qxxxb/vim-searchhi', config = function() require('mrv.plugins.vim-searchhi') end} -- highlight the current search result differently
+    -- use {'junegunn/vim-slash', config = function() require('mrv.plugins.slash') end} -- automatically clears search highlight when cursor is moved
 
     -- }}}
 
