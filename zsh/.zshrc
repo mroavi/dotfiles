@@ -204,6 +204,17 @@ unalias zz
 alias j='fasd_cd -d' 
 
 # =============================================================================
+# z
+# =============================================================================
+
+# Make sure that sourcing z.sh is placed after the fasd config where z is unaliased
+if [ "$SSH_CONNECTION" ]; then
+  echo "TODO: srouce z.sh"
+else
+  source "/usr/share/z/z.sh"
+fi
+
+# =============================================================================
 # FZF
 # =============================================================================
 
@@ -240,10 +251,11 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # -----------------------------------------------------------------------------
 # Integrate with fasd
 # -----------------------------------------------------------------------------
-z() {
+fasd-fzf() {
   local dir
   dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
 }
+bindkey -s '^[j' 'fasd-fzf^M' # Use Ctrl+j to call the function above
 
 # -----------------------------------------------------------------------------
 # Integrate with ripgrep
