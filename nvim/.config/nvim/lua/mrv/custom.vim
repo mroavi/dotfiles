@@ -8,7 +8,7 @@ nnoremap <Leader>z <C-z><CR>
 nnoremap <Leader>x :close<CR>
 
 " Switch to buffer
-nnoremap <Leader>; :b<Space>
+nnoremap <Leader>' :b<Space>
 
 " Make Y behave like other capitals
 nnoremap Y y$
@@ -22,6 +22,9 @@ map <Leader>bo :%bdelete\|e#\|bd#<CR>
 
 " Edit the alternate file
 nnoremap <silent> <Leader>l :b#<CR>
+
+" Go to previous (last accessed) window
+nnoremap <silent><Leader>; <C-w>p
 
 " Create horizontal an vertical splits
 map <Leader>sp :split<CR>
