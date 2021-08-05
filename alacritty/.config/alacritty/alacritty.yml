@@ -601,7 +601,7 @@ background_opacity: 0.85
 key_bindings:
   - { key: P,       mods: Control|Shift, action: Paste              }
   # (mrv)
-  # Intercept Ctrl-tab and Ctrl-Shift-Tab and send their X code
+  # Intercept Ctrl-Tab and Ctrl-Shift-Tab and send their X code
   # Intercept Shift-Enter and Ctrl-Enter and send their X code
   # See: https://stackoverflow.com/a/31961401/1706778
   - { key: Tab,     mods: Control,       chars:  "\x1b[27;5;9~"     }
