@@ -56,10 +56,10 @@ nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
 cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
 
 " Resize splits easier
-noremap <C-M-j> :resize +3<CR>
-noremap <C-M-k> :resize -3<CR>
-noremap <C-M-h> :vertical resize -3<CR>
-noremap <C-M-l> :vertical resize +3<CR>
+noremap <C-M-Down> :resize -3<CR>
+noremap <C-M-Up> :resize +3<CR>
+noremap <C-M-Left> :vertical resize +3<CR>
+noremap <C-M-Right> :vertical resize -3<CR>
 
 " Highlight the yanked text
 augroup highlight_yank
