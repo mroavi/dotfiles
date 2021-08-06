@@ -77,8 +77,4 @@ map w
 # Now that c and w are cleared, map cl and cw
 map cl      :clear; unselect
 map cw      batch
-# Alternative mappings
-map <c-j>   down
-map <c-k>   up
-map <a-h>   updir
 
