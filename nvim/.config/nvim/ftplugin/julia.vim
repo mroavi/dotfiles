@@ -4,8 +4,9 @@ let b:cell_delimeter = '##'
 " vim-tomux
 let b:tomux_clipboard_paste = "include_string(Main, clipboard())"
 let g:tomux_config = {"socket_name": "default", "target_pane": "{bottom-right}"}
-nnoremap <buffer><silent> <Leader>st :TomuxCommand("split-window -h -d")<CR>:TomuxSend("julia\n")<CR>
-nnoremap <buffer><silent> <Leader>rs :TomuxSend("exit()\n")<CR>:sl 50m<CR>:TomuxSend("julia\n")<CR>
+nnoremap <buffer><silent><expr> <Leader>rs ':TomuxCommand("split-window -v -d -c ' . expand('%:p:h') . '")<CR>:TomuxSend("julia\n")<CR>'
+nnoremap <buffer><silent> <Leader>rr :TomuxSend("exit()\n")<CR>:sl 50m<CR>:TomuxSend("julia\n")<CR>
+nnoremap <buffer><silent> <Leader>rk :TomuxCommand("kill-pane -t " . shellescape(g:tomux_config["target_pane"]))<CR>
 nnoremap <buffer><silent> <Leader>cl :TomuxSend("clr()\n")<CR>
 
 " Jump to the next/prev cell delimeter
