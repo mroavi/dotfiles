@@ -83,14 +83,14 @@ endfunction
 
 " My custom text object for cells
 " Based on: https://vimways.org/2018/transactions-pending/
-function! s:inCell(text_object_type)
+function! s:cellTextObject(text_object_type)
   " Get the first character of the 'commentstring' and duplicate it
   let l:delim_cell = repeat(split(&commentstring, '%s')[0][0], 2)
   " Create a regex that searches the cell delim
   "let l:pattern_cell = '^' . l:delim_cell
   let l:pattern_cell = l:delim_cell
-  " Move cursor to the previous cell delimiter if found, otherwise, to top of buffer
-  if (!search(l:pattern_cell, "bcW")) | silent exe "normal! gg" | endif 
+  " Move cursor to the previous cell delimiter if found, otherwise, to top-left of buffer
+  if (!search(l:pattern_cell, "bcW")) | silent exe "normal! gg0" | endif 
   " Did we receive 'i' as argument (inner cell)?
   if a:text_object_type ==# 'i'
     " Yes, then jump to next valid statement (skips empty lines and those starting with comment char)
@@ -109,11 +109,11 @@ function! s:inCell(text_object_type)
 endfunction
 
 " Custom 'in cell' text object
-xnoremap <silent> ic :<c-u>call <sid>inCell('i')<cr>
-onoremap <silent> ic :<c-u>call <sid>inCell('i')<cr>
+xnoremap <silent> ic :<c-u>call <sid>cellTextObject('i')<cr>
+onoremap <silent> ic :<c-u>call <sid>cellTextObject('i')<cr>
 " Custom 'around cell' text object
-xnoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
-onoremap <silent> ac :<c-u>call <sid>inCell('a')<cr>
+xnoremap <silent> ac :<c-u>call <sid>cellTextObject('a')<cr>
+onoremap <silent> ac :<c-u>call <sid>cellTextObject('a')<cr>
 
 " Custom 'in document' text object (from first line to last)
 xnoremap <silent> id :<c-u>normal! ggVG<cr>
