@@ -46,6 +46,11 @@ cmd myopen ${{
     esac
 }}
 
+# Batch rename selected files using external program vimv
+cmd vimv ${{
+  /bin/sh -c "vimv $(echo -e "$fx" | xargs -i echo "\\'{}\\'" | xargs echo)"
+}}
+
 # Remove some default mappings
 map d
 map y
