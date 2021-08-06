@@ -47,7 +47,7 @@ cmd myopen ${{
 }}
 
 # Batch rename selected files using external program vimv
-cmd vimv ${{
+cmd batch ${{
   /bin/sh -c "vimv $(echo -e "$fx" | xargs -i echo "\\'{}\\'" | xargs echo)"
 }}
 
@@ -64,7 +64,6 @@ map p       paste
 map f       find
 map r       rename
 map V       toggle
-map c       clear
 map u       unselect
 map <esc>   quit
 map .       set hidden!
@@ -72,7 +71,13 @@ map ~       cd ~
 map <enter> open
 map o       myopen
 map z       fasd
-# Alternative mappings used in other programs
+# Delete c and w mappings
+map c
+map w
+# Now that c and w are cleared, map cl and cw
+map cl      :clear; unselect
+map cw      batch
+# Alternative mappings
 map <c-j>   down
 map <c-k>   up
 map <a-h>   updir
