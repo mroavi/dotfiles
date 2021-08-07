@@ -243,6 +243,17 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
+echo "Installing z..."
+
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed z
+else
+  LOCAL_REPO=~/Downloads/z
+  REPO_URL=https://github.com/rupa/z.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+fi
+
+# -----------------------------------------------------------------------------------------
 
 # TODO: Add vimv installation (git clones and copies to .local/bin like the above example)
 # vimv is also available in AUR
