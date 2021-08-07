@@ -209,7 +209,7 @@ alias j='fasd_cd -d'
 
 # Make sure that sourcing z.sh is placed after the fasd config where z is unaliased
 if [ "$SSH_CONNECTION" ]; then
-  echo "TODO: srouce z.sh"
+  source "~/Downloads/z/z.sh"
 else
   source "/usr/share/z/z.sh"
 fi
