@@ -1,6 +1,7 @@
-# ## ------------------------------------------------------------------------------
-# # Start OhMyREPL (warn if not installed)
-# # ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# Start OhMyREPL (warn if not installed)
+# ------------------------------------------------------------------------------
+
 # atreplinit() do repl
 #   try
 #     @eval using OhMyREPL
@@ -12,8 +13,9 @@
 # end
 
 # ------------------------------------------------------------------------------
-## TEMP: Color paths in Stacktraces with custom color
+# TEMP: Color paths in Stacktraces with custom color
 # ------------------------------------------------------------------------------
+
 # https://discourse.julialang.org/t/julia-1-6-stacktrace/57981/13
 # Real solution is WIP: https://github.com/JuliaLang/julia/issues/41435
 @eval Base begin
