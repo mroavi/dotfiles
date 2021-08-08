@@ -14,7 +14,7 @@ M.setup = function()
     use {'wbthomason/packer.nvim', config = function() require('mrv.plugins.packer') end} -- packer can manage itself
     use {'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
     use {'tpope/vim-commentary'} -- comment stuff out
-    use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by nnn
+    use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by lf
     use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
     use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
