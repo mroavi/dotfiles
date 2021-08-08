@@ -142,3 +142,4 @@ When pattern is a string, case is ignored. Results are printed to io.
   |julia> x = 2               # assign the value 2 to `x`
 
 ------------------------------------------------------------------------------=#
+
