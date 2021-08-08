@@ -1,4 +1,6 @@
+# ## ------------------------------------------------------------------------------
 # # Start OhMyREPL (warn if not installed)
+# # ------------------------------------------------------------------------------
 # atreplinit() do repl
 #   try
 #     @eval using OhMyREPL
@@ -9,7 +11,9 @@
 #   end
 # end
 
-# TEMP: Color paths in Stacktraces with custom color
+# ------------------------------------------------------------------------------
+## TEMP: Color paths in Stacktraces with custom color
+# ------------------------------------------------------------------------------
 # https://discourse.julialang.org/t/julia-1-6-stacktrace/57981/13
 # Real solution is WIP: https://github.com/JuliaLang/julia/issues/41435
 @eval Base begin
@@ -61,7 +65,9 @@
   end
 end
 
-# Clear screen leaving prompt at the bottom
+# ------------------------------------------------------------------------------
+## Clear screen leaving prompt at the bottom
+# ------------------------------------------------------------------------------
 function clr()
   for i = 1:60
     println()
@@ -77,7 +83,7 @@ InteractiveUtils.define_editor(
 end
 
 #=----------------------------------------------------------------------------=#
-# JULIA TIPS AND TRICKS
+## JULIA TIPS AND TRICKS
 #=----------------------------------------------------------------------------=#
 
 #=----------------------------- List of Handy Macros ---------------------------
