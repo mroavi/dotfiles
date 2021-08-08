@@ -254,7 +254,11 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
+# TODO: Add tmux installation
+# Use the prebuilt appimages in this page for SSH connections:
+# https://github.com/nelsonenzo/tmux-appimage/releases
 
+# -----------------------------------------------------------------------------------------
 # TODO: Add vimv installation (git clones and copies to .local/bin like the above example)
 # vimv is also available in AUR
 
