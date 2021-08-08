@@ -47,6 +47,10 @@ M.setup = function()
   apply_options(globals, vim.g)
   apply_options(options, vim.o)
 
+  if vim.env.SSH_CONNECTION then
+    vim.o.clipboard = ''
+  end
+
   -- Make Ctrl-u and Ctrl-d scroll 1/3 of the window height
   -- https://neovim.discourse.group/t/how-to-make-ctrl-d-and-ctrl-u-scroll-1-3-of-window-height/859
   utils.remap("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", {noremap = true, expr = true})
