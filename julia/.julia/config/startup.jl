@@ -126,7 +126,7 @@ completes to:
 
   julia> ENV["JULIA_DEBUG"] = "all"
 
-Type Ctrl-R in the REPL to start FZF to filter the REPL History
+With OhMyREPL, type Ctrl-R in the REPL to start FZF to filter the REPL History
 
 ----------------------------------- REPL Propose -------------------------------
 
