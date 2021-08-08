@@ -20,7 +20,7 @@ M.setup = function()
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
     use {'hrsh7th/nvim-compe', config = function() require('mrv.plugins.compe') end} -- auto completion plugin for nvim that written in Lua
     use {'~/repos/tender.nvim', config = function() vim.cmd [[ colorscheme tender ]] end} -- my color scheme
-    use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end}
+    use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end} -- autopairs for neovim written by lua
     use {'tpope/vim-fugitive', config = function() require('mrv.plugins.fugitive') end} -- a Git wrapper so awesome, it should be illegal
     use {'tpope/vim-unimpaired'} -- pairs of handy bracket mappings
     use {'tpope/vim-surround'} -- provides mappings to easily delete, change and add such surroundings in pairs
