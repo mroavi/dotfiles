@@ -1,5 +1,6 @@
 let g:tomux_config = {"socket_name": "default", "target_pane": "{bottom-right}"}
 let g:tomux_paste_file = expand("$HOME/.tomux_paste")
+let g:tomux_use_clipboard = 0
 nnoremap <silent> yot :TomuxUseClipboardToggle<CR>
 
 augroup tomux_send
