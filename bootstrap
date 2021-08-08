@@ -254,6 +254,25 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
+echo "Installing fd..."
+
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed fd
+else
+  FILE=$HOME/.local/bin/fd
+  if [ -f "$FILE" ]; then
+    echo "fd is already installed"
+  else
+    cd $HOME/Downloads/
+    tarfile="fd-v8.2.1-x86_64-unknown-linux-gnu.tar.gz"
+    [ -f $tarfile ] || curl -fLo "$tarfile" https://github.com/sharkdp/fd/releases/download/v8.2.1/fd-v8.2.1-x86_64-unknown-linux-gnu.tar.gz
+    tar xvzf "$tarfile"
+    dirname="${tarfile%.*.*}"
+    cp $dirname/fd $HOME/.local/bin
+  fi
+fi
+
+# -----------------------------------------------------------------------------------------
 # TODO: Add tmux installation
 # Use the prebuilt appimages in this page for SSH connections:
 # https://github.com/nelsonenzo/tmux-appimage/releases
