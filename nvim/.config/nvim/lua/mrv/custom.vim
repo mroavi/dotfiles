@@ -7,9 +7,6 @@ nnoremap <Leader>z <C-z><CR>
 " Close the current window
 nnoremap <Leader>x :close<CR>
 
-" Switch to buffer
-nnoremap <Leader>' :b<Space>
-
 " Make Y behave like other capitals
 nnoremap Y y$
 
