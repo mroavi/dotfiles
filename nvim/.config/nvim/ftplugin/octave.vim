@@ -3,7 +3,6 @@ let b:commentary_format = '%%s'
 
 " Define cell_delimeter
 let b:cell_delimeter = '%%'
-
 " Jump to the next/prev delimeter
 nnoremap <buffer><silent> <M-j> :call search(b:cell_delimeter, "W")<CR>zt
 nnoremap <buffer><silent> <M-k> :call search(b:cell_delimeter, "bW")<CR>zt
