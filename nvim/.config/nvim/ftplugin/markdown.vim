@@ -46,7 +46,7 @@ let g:mkdp_preview_options = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
 require('compe').setup({ 
-	autocomplete = false,
+	autocomplete = true,
 	source = { path = true,
 						 buffer = true,
 						 calc = true,
