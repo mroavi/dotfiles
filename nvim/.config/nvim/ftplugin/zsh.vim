@@ -3,4 +3,7 @@ let b:commentary_format = '#%s'
 
 " Define cell_delimeter
 let b:cell_delimeter = '##'
+" Jump to the next/prev cell delimeter
+nnoremap <buffer><silent> <M-j> :call GoToNextDelim(b:cell_delimeter)<CR>z<CR>
+nnoremap <buffer><silent> <M-k> :call GoToPrevDelim(b:cell_delimeter)<CR>z<CR>
 
