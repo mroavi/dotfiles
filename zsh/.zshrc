@@ -255,7 +255,8 @@ fasd-fzf() {
   local dir
   dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
 }
-bindkey -s '^[j' 'fasd-fzf^M' # Use Ctrl+j to call the function above
+# Use Alt+j to call the function above
+bindkey -s '^[j' 'fasd-fzf^M' 
 
 # -----------------------------------------------------------------------------
 # Integrate with ripgrep
