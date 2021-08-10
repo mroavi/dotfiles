@@ -32,15 +32,19 @@ noremap <Leader>tf :call julia#toggle_function_blockassign()<CR>
 " Useful mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Toggles an '@show' before the first non-blank in the line
-function! ToggleShowMacro()
-  if (search('@show', 'cn', line('.'))) || (search('@show', 'cnb', line('.')))
-    call setline(line('.'), substitute(getline('.'), '@show ', '', ''))
+" Toggles the passed string before the first non-blank in the line
+function! ToggleMacro(macro)
+  let str = a:macro .. ' '
+  if (search(str, 'cn', line('.'))) || (search(str, 'cnb', line('.')))
+    " Gets the current line, performs the substitution, and replaces it
+    call setline(line('.'), substitute(getline('.'), str, '', ''))
   else
-    silent exe "normal! m`I@show \<Esc>``"
+    silent exe "normal! m`I" .. str .. "\<Esc>``"
   endif 
 endfunction
-noremap <Leader>sh :call ToggleShowMacro()<CR>
+noremap <Leader>sh :call ToggleMacro("@show")<CR>
+noremap <Leader>te :call ToggleMacro("@test")<CR>
+noremap <Leader>bt :call ToggleMacro("@btime")<CR>
 
 " Inserts different kinds of headers
 nnoremap <buffer><Leader>m1 m`<S-o># <Esc>78a=<Esc>yyjp``
