@@ -106,15 +106,15 @@ function! s:cellTextObject(text_object_type)
 endfunction
 
 " Custom 'in cell' text object
-xnoremap <silent> ic :<c-u>call <sid>cellTextObject('i')<cr>
-onoremap <silent> ic :<c-u>call <sid>cellTextObject('i')<cr>
+xnoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
+onoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
 " Custom 'around cell' text object
-xnoremap <silent> ac :<c-u>call <sid>cellTextObject('a')<cr>
-onoremap <silent> ac :<c-u>call <sid>cellTextObject('a')<cr>
+xnoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
+onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
 
 " Custom 'in document' text object (from first line to last)
-xnoremap <silent> id :<c-u>normal! ggVG<cr>
-onoremap <silent> id :<c-u>normal! ggVG<cr>
+xnoremap <silent> id :<C-u>normal! ggVG<cr>
+onoremap <silent> id :<C-u>normal! ggVG<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
