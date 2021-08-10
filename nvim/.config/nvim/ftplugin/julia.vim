@@ -4,7 +4,9 @@ let b:cell_delimeter = '##'
 nnoremap <buffer><silent> <M-j> :call GoToNextDelim(b:cell_delimeter)<CR>z<CR>
 nnoremap <buffer><silent> <M-k> :call GoToPrevDelim(b:cell_delimeter)<CR>z<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-tomux
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let b:tomux_clipboard_paste = "include_string(Main, clipboard())"
 let g:tomux_config = {"socket_name": "default", "target_pane": "{bottom-right}"}
 " Start REPL in a BOTTOM split with active buffer as CWD
@@ -21,11 +23,27 @@ nnoremap <buffer><silent> <Leader>cl :TomuxSend("clr()\n")<CR>
 let b:package = 'DiscreteBayes'
 nnoremap <buffer><silent> <Leader>rt :TomuxSend("\b]test " . b:package . "\n\b")<CR>
 
-" Handy header mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" julia-vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <Leader>tf :call julia#toggle_function_blockassign()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Useful mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Toggles an '@show' before the first non-blank in the line
+function! ToggleShowMacro()
+  if (search('@show', 'cn', line('.'))) || (search('@show', 'cnb', line('.')))
+    call setline(line('.'), substitute(getline('.'), '@show ', '', ''))
+  else
+    silent exe "normal! m`I@show \<Esc>``"
+  endif 
+endfunction
+noremap <Leader>sh :call ToggleShowMacro()<CR>
+
+" Inserts different kinds of headers
 nnoremap <buffer><Leader>m1 m`<S-o># <Esc>78a=<Esc>yyjp``
 nnoremap <buffer><Leader>m2 m`<S-o># <Esc>78a-<Esc>yyjp``
 nnoremap <buffer><Leader>m3 m`0dw :center 80<cr>hhv0r-A<Space><Esc>40A-<Esc>d78<Bar>I#<Space><Esc>``
-
-" julia-vim
-noremap <Leader>tf :call julia#toggle_function_blockassign()<CR>
 
