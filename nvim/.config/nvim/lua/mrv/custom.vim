@@ -49,7 +49,7 @@ nnoremap <silent> <ESC> :noh<CR><ESC>
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
 
-" Avoid a double slash when pressing / when using wildmenu (similar to zsh)
+" Avoid a double slash when pressing / when using wildmenu (like in zsh)
 cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
 
 " Resize splits easier
