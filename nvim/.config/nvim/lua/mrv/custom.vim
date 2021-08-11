@@ -27,7 +27,7 @@ nnoremap <silent><Leader>; <C-w>p
 map <Leader>J :split<CR>
 map <Leader>L :vsplit<CR>
 
-" In the current buffer, substitute all occurrences of the content of the search register with new text
+" Substitute all occurrences of the content of the search register with new text
 nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 
