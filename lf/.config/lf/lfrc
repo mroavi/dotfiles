@@ -129,20 +129,21 @@ map d
 map v
 
 # Mappings
-map dd      trash
-map y       copy
-map x       cut
-map p       paste
-map f       find
-map r       rename
-map V       toggle
-map u       unselect
-map <esc>   quit
-map .       set hidden!
-map ~       cd ~
-map <enter> open
-map o       myopen
-map z       fasd
+map dd        trash
+map <delete>  delete
+map y         copy
+map x         cut
+map p         paste
+map f         find
+map r         rename
+map V         toggle
+map u         unselect
+map <esc>     quit
+map .         set hidden!
+map ~         cd ~
+map <enter>   open
+map o         myopen
+map z         fasd
 # Delete c and w mappings
 map c
 map w
