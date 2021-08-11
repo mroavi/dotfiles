@@ -76,16 +76,10 @@ function clr()
   end
 end
 
+# ------------------------------------------------------------------------------
 # Open files in a right-of tmux pane where nvim should already be running
-# using <stacktrace number> followed by Ctrl-q
-# Ex: 
-# julia> map("hola")
-#   Stacktrace:
-#   [1] map(f::String)
-#     @ Base ./abstractarray.jl:2859
-#   [2] top-level scope
-#     @ REPL[15]:1
-# julia> 1<C-q>
+# with @edit
+# ------------------------------------------------------------------------------
 using InteractiveUtils
 InteractiveUtils.define_editor(
   "nvim", wait=false) do cmd, path, line
@@ -96,7 +90,19 @@ end
 ## JULIA TIPS AND TRICKS
 #=----------------------------------------------------------------------------=#
 
-#=----------------------------- List of Handy Macros ---------------------------
+#=--------------------------- Open file in stacktrace --------------------------
+
+In the REPL, enter the stacktrace number followed by <Ctrl-q>
+
+julia> map("hola")
+  Stacktrace:
+  [1] map(f::String)
+    @ Base ./abstractarray.jl:2859
+  [2] top-level scope
+    @ REPL[15]:1
+julia> 1<C-q>
+
+------------------------------- List of Handy Macros ---------------------------
 
 @edit           <function call/macro call>
 @debug          <string message> [key=value | value ...]
