@@ -28,8 +28,8 @@ map <Leader>J :split<CR>
 map <Leader>L :vsplit<CR>
 
 " In the current buffer, substitute all occurrences of the content of the search register with new text
-nnoremap <Leader>sb :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
-vnoremap <Leader>sb :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
+nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
+vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 
 " Grep recursively in current directory and send results to quickfix list
 nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
