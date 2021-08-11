@@ -7,5 +7,7 @@ vim.g["lf#action"] = { ['<C-t>'] = 'tab split',
                      }
 
 local utils = require("mrv.utils")
-utils.remap("n", "<Leader>/", ":LfPicker %:p:h<CR>")
+utils.remap("n", "<Leader>/",
+            "expand('%') == '' ? '<Cmd>Lp %:p:h<CR>' : '<Cmd>Lp %<CR>'",
+            {noremap = true, expr = true})
 
