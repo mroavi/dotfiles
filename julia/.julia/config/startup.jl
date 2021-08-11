@@ -77,7 +77,15 @@ function clr()
 end
 
 # Open files in a right-of tmux pane where nvim should already be running
-# with @edit and <stacktrace number> followed by Ctrl-q
+# using <stacktrace number> followed by Ctrl-q
+# Ex: 
+# julia> map("hola")
+#   Stacktrace:
+#   [1] map(f::String)
+#     @ Base ./abstractarray.jl:2859
+#   [2] top-level scope
+#     @ REPL[15]:1
+# julia> 1<C-q>
 using InteractiveUtils
 InteractiveUtils.define_editor(
   "nvim", wait=false) do cmd, path, line
