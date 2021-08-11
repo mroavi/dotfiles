@@ -31,11 +31,16 @@ set ignorecase
 # Custom commands
 # -----------------------------------------------------------------------------
 
-# move current file or selected files to trash folder
+# Moves current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
 cmd trash %set -f; mv $fx ~/.trash
 
-cmd mkdir %mkdir "$1"
+# Creates a directory and selects it
+cmd mkdir %{{
+    mkdir -p -- "$*"
+    lf -remote "send $id select \"$*\""
+}}
+
 cmd touch %touch "$1"
 
 # fasd integration
