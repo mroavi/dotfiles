@@ -35,6 +35,19 @@ set ignorecase
 # (also see 'man mv' for backup/overwrite options)
 cmd trash %set -f; mv $fx ~/.trash
 
+# Creates a file with the argument as name and selects it
+cmd touch %{{
+    touch -- "$*"
+    lf -remote "send $id select \"$*\""
+}}
+
+# Creates a file with the argument as name and opens it
+cmd v %{{
+    touch -- "$*"
+    lf -remote "send $id select \"$*\""
+    lf -remote "send $id open"
+}}
+
 # Creates a directory and selects it
 cmd mkdir %{{
     mkdir -p -- "$*"
