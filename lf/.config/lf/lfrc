@@ -131,6 +131,7 @@ cmd batch_rename ${{
 # Remove some default mappings
 map d
 map v
+map u # TODO: map this to undo deletion
 
 # Mappings
 map dd        trash
@@ -141,7 +142,6 @@ map p         paste
 map f         find
 map r         rename
 map V         toggle
-map u         unselect
 map <esc>     quit
 map .         set hidden!
 map ~         cd ~
