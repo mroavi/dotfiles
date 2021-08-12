@@ -18,17 +18,17 @@ augroup tomux_send
 	autocmd FileType julia,python,octave omap <buffer> s _
 
 	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	"	Atom-like mappings for sending text (the `0` key is used as helper/hack)
+	"	Atom-like mappings for sending text (the `\` key is used as helper/hack)
 	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	autocmd FileType julia,python,octave nmap <buffer> 0 <Plug>TomuxMotionSend
+	autocmd FileType julia,python,octave nmap <buffer> \ <Plug>TomuxMotionSend
 	" Ctrl+Enter to send text in visual, normal and insert modes
 	autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>TomuxVisualSend
-	autocmd FileType julia,python,octave nmap <buffer> <C-CR> 0_
-	autocmd FileType julia,python,octave imap <buffer> <C-CR> <Esc>0_gi
+	autocmd FileType julia,python,octave nmap <buffer> <C-CR> \_
+	autocmd FileType julia,python,octave imap <buffer> <C-CR> <Esc>\_gi
 	" Alt+Enter to send cell
-	autocmd FileType julia,python,octave nmap <buffer> <M-CR> 0ic
+	autocmd FileType julia,python,octave nmap <buffer> <M-CR> \ic
 	" Ctrl+Shift+Enter to send entire buffer
-	autocmd FileType julia,python,octave nmap <buffer> <C-S-CR> 0id
+	autocmd FileType julia,python,octave nmap <buffer> <C-S-CR> \id
 	" Shift+Enter to send line and jump to next statement
 	autocmd FileType julia,python,octave nmap <silent> <S-CR> :set opfunc=MySendMotion<CR>g@_
 augroup END
