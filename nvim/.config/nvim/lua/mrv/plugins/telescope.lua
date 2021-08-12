@@ -8,6 +8,7 @@ local M = {}
 
 require("telescope").setup{
 	defaults = {
+    layout_config = {height = 0.9, width = 0.9},
 		sorting_strategy = "descending",
     layout_strategy = "vertical",
 		file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
