@@ -1,6 +1,6 @@
 let g:tomux_config = {"socket_name": "default", "target_pane": "{bottom-right}"}
 let g:tomux_paste_file = expand("$HOME/.tomux_paste")
-nnoremap <silent> yot :TomuxUseClipboardToggle<CR>
+nnoremap <silent> yot :TomuxUseClipboardToggle<Cr>
 
 if $SSH_CONNECTION
   let g:tomux_use_clipboard = 0
@@ -13,7 +13,7 @@ augroup tomux_send
 	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 	" `s` to send motion and jump to next statement
 	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<CR>g@
+	autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<Cr>g@
 	autocmd FileType julia,python,octave xmap <buffer> s <Plug>TomuxVisualSend
 	autocmd FileType julia,python,octave omap <buffer> s _
 
@@ -22,15 +22,15 @@ augroup tomux_send
 	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 	autocmd FileType julia,python,octave nmap <buffer> \ <Plug>TomuxMotionSend
 	" Ctrl+Enter to send text in visual, normal and insert modes
-	autocmd FileType julia,python,octave xmap <buffer> <C-CR> <Plug>TomuxVisualSend
-	autocmd FileType julia,python,octave nmap <buffer> <C-CR> \_
-	autocmd FileType julia,python,octave imap <buffer> <C-CR> <Esc>\_gi
+	autocmd FileType julia,python,octave xmap <buffer> <C-Cr> <Plug>TomuxVisualSend
+	autocmd FileType julia,python,octave nmap <buffer> <C-Cr> \ap
+	autocmd FileType julia,python,octave imap <buffer> <C-Cr> <Esc>\_gi
 	" Alt+Enter to send cell
-	autocmd FileType julia,python,octave nmap <buffer> <M-CR> \ic
+	autocmd FileType julia,python,octave nmap <buffer> <M-Cr> \ic
 	" Ctrl+Shift+Enter to send entire buffer
-	autocmd FileType julia,python,octave nmap <buffer> <C-S-CR> \id
+	autocmd FileType julia,python,octave nmap <buffer> <C-S-Cr> \id
 	" Shift+Enter to send line and jump to next statement
-	autocmd FileType julia,python,octave nmap <silent> <S-CR> :set opfunc=MySendMotion<CR>g@_
+	autocmd FileType julia,python,octave nmap <silent> <S-Cr> :set opfunc=MySendMotion<Cr>g@_
 augroup END
 
 " My custom operator: sends a motion to the REPL and moves to the next
