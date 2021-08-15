@@ -65,7 +65,7 @@ function M.buffers()
     layout_config = {mirror = true},
     sorting_strategy = "ascending",
     scroll_strategy = "limit",
-    path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
+    -- path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
