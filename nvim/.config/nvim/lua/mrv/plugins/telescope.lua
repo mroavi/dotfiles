@@ -32,35 +32,12 @@ require("telescope").setup{
 }
 
 ---------------------------------------------------------------------------------
---- File Pickers
+-- My themes
 ---------------------------------------------------------------------------------
 
-function M.find_files()
-	require("telescope.builtin").find_files{
-		file_sorter = require'telescope.sorters'.get_fzy_sorter,
-	}
-end
-
-function M.git_files()
-	require("telescope.builtin").git_files{
-		cwd = vim.fn.expand("%:p:h"),
-	}
-end
-
-function M.dotfiles()
-	require('telescope.builtin').find_files {
-		find_command = {'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git',},
-		prompt_title = "Dotfiles",
-		cwd = "~/dotfiles",
-	}
-end
-
----------------------------------------------------------------------------------
---- Vim Pickers
----------------------------------------------------------------------------------
-
-function M.buffers()
-  require("telescope.builtin").buffers {
+function TmuxTheme(opts)
+  opts = opts or {}
+  local theme_opts = {
     layout_strategy = "vertical",
     layout_config = {mirror = true},
     sorting_strategy = "ascending",
@@ -91,6 +68,39 @@ function M.buffers()
       end,
     },
   }
+  return vim.tbl_deep_extend("force", theme_opts, opts)
+end
+
+---------------------------------------------------------------------------------
+--- File Pickers
+---------------------------------------------------------------------------------
+
+function M.find_files()
+	require("telescope.builtin").find_files{
+		file_sorter = require'telescope.sorters'.get_fzy_sorter,
+	}
+end
+
+function M.git_files()
+	require("telescope.builtin").git_files{
+		cwd = vim.fn.expand("%:p:h"),
+	}
+end
+
+function M.dotfiles()
+	require('telescope.builtin').find_files {
+		find_command = {'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git',},
+		prompt_title = "Dotfiles",
+		cwd = "~/dotfiles",
+	}
+end
+
+---------------------------------------------------------------------------------
+--- Vim Pickers
+---------------------------------------------------------------------------------
+
+function M.buffers()
+  require("telescope.builtin").buffers(TmuxTheme())
 end
 
 function M.lines()
@@ -127,9 +137,9 @@ function M.git_bcommits()
 end
 
 function M.git_status()
-	require("telescope.builtin").git_status{
-		cwd = vim.fn.expand("%:p:h"),
-	}
+	require("telescope.builtin").git_status(
+		TmuxTheme({cwd = vim.fn.expand("%:p:h")})
+	)
 end
 
 Mru = function(opts)
