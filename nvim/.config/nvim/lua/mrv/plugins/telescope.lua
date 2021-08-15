@@ -137,9 +137,21 @@ function M.git_bcommits()
 end
 
 function M.git_status()
-	require("telescope.builtin").git_status(
-		TmuxTheme({cwd = vim.fn.expand("%:p:h")})
-	)
+  require("telescope.builtin").git_status{
+    cwd = vim.fn.expand("%:p:h"),
+    layout_strategy = "vertical",
+    layout_config = {mirror = true},
+    sorting_strategy = "ascending",
+    scroll_strategy = "limit",
+    -- path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
+    attach_mappings = function(_, map)
+      map('i', 'k', actions.move_selection_previous)
+      map('i', 'j', actions.move_selection_next)
+      map('i', 'x', actions.delete_buffer)
+      map('i', 'l', actions.file_edit)
+      return true
+    end,
+  }
 end
 
 Mru = function(opts)
