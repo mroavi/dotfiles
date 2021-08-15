@@ -28,7 +28,7 @@ augroup tomux_send
 	" Alt+Enter to send cell
 	autocmd FileType julia,python,octave nmap <buffer> <M-Cr> \ic
 	" Ctrl+Shift+Enter to send entire buffer
-	autocmd FileType julia,python,octave nmap <buffer> <C-S-Cr> \id
+	autocmd FileType python,octave       nmap <buffer> <C-S-Cr> \id
 	" Shift+Enter to send line and jump to next statement
 	autocmd FileType julia,python,octave nmap <silent> <S-Cr> :set opfunc=MySendMotion<Cr>g@_
 augroup END

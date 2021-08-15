@@ -22,6 +22,8 @@ nnoremap <buffer><silent> <Leader>cl :TomuxSend("clr()\n")<CR>
 " Run tests
 let b:package = 'DiscreteBayes'
 nnoremap <buffer><silent> <Leader>rt :TomuxSend("\b]test " . b:package . "\n\b")<CR>
+" Run file
+nnoremap <buffer><expr> <C-S-Cr> ':TomuxSend("include(\"' . expand('%') . '\")\n")<CR>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " julia-vim
