@@ -121,8 +121,10 @@ function M.git_commits()
 		cwd = vim.fn.expand("%:p:h"),
 		layout_config = {
 			prompt_position = "top",
+      mirror = true,
 		},
 		sorting_strategy = "ascending",
+    layout_strategy = "vertical",
 	}
 end
 
@@ -131,8 +133,10 @@ function M.git_bcommits()
 		cwd = vim.fn.expand("%:p:h"),
 		layout_config = {
 			prompt_position = "top",
+      mirror = true,
 		},
 		sorting_strategy = "ascending",
+    layout_strategy = "vertical",
 	}
 end
 
