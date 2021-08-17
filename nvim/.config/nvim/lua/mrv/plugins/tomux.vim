@@ -29,8 +29,8 @@ augroup tomux_send
 	autocmd FileType julia,python,octave nmap <buffer> <M-Cr> \ic
 	" Ctrl+Shift+Enter to send entire buffer
 	autocmd FileType python,octave       nmap <buffer> <C-S-Cr> \id
-	" Shift+Enter to send line and jump to next statement
-	autocmd FileType julia,python,octave nmap <silent> <S-Cr> :set opfunc=MySendMotion<Cr>g@_
+	" Shift+Enter to send paragraph and jump to next statement
+	autocmd FileType julia,python,octave nmap <silent> <S-Cr> :set opfunc=MySendMotion<Cr>g@ap
 augroup END
 
 " My custom operator: sends a motion to the REPL and moves to the next
