@@ -11,9 +11,10 @@ endif
 augroup tomux_send
 	autocmd!
 	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	" `s` to send motion and jump to next statement
+	" `s` to send motion
 	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<Cr>g@
+  autocmd FileType julia,python,octave nmap <buffer> s <Plug>TomuxMotionSend
+	"autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<Cr>g@
 	autocmd FileType julia,python,octave xmap <buffer> s <Plug>TomuxVisualSend
 	autocmd FileType julia,python,octave omap <buffer> s _
 
