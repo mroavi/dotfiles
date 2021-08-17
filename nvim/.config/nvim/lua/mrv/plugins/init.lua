@@ -38,6 +38,7 @@ M.setup = function()
     use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
     use {'kyazdani42/nvim-web-devicons'} -- lua `fork` of vim-web-devicons for neovim
     use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
+    use {"GoldsteinE/compe-latex-symbols"} -- autocomplete LaTeX symbol into your text via nvim-compe
 
     -- {{{1
 

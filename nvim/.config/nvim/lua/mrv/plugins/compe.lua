@@ -14,6 +14,7 @@ M.setup = function()
 			vsnip = true;
 			ultisnips = false;
 			luasnip = false;
+      latex_symbols = true;
 			spell ={filetypes={"gitcommit","markdown"},}
 		};
 	}
