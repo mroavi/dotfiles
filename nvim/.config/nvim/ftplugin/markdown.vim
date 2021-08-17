@@ -41,19 +41,3 @@ let g:mkdp_preview_options = {
       \ 'disable_filename': 1
       \ }
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" compe
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua <<EOF
-require('compe').setup({ 
-	autocomplete = true,
-	source = { path = true,
-						 buffer = true,
-						 calc = true,
-						 nvim_lsp = true,
-						 nvim_lua = true,
-						 vsnip = true,
-						 spell = true,
-					 } }, 0) -- set up for current buffer
-EOF
-
