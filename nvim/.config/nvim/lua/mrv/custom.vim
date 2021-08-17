@@ -27,8 +27,8 @@ nnoremap <silent> <Leader>l :b#<CR>
 nnoremap <silent><Leader>; <C-w>p
 
 " Create horizontal an vertical splits
-map <Leader>J :split<CR>
-map <Leader>L :vsplit<CR>
+map <Leader>sj :split<CR>
+map <Leader>sl :vsplit<CR>
 
 " Substitute all occurrences of the content of the search register with new text
 nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
