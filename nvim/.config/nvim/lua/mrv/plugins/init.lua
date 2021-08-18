@@ -18,7 +18,7 @@ M.setup = function()
     use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
     use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
-    use {'hrsh7th/nvim-compe', config = function() require('mrv.plugins.compe') end} -- auto completion plugin for nvim that written in Lua
+    use {'hrsh7th/nvim-compe', config = function() require('mrv.plugins.compe') end, requires = {"GoldsteinE/compe-latex-symbols"}} -- auto completion plugin for nvim that written in Lua
     use {'~/repos/tender.nvim', config = function() vim.cmd [[ colorscheme tender ]] end} -- my color scheme
     use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end} -- autopairs for neovim written by lua
     use {'tpope/vim-fugitive', config = function() require('mrv.plugins.fugitive') end} -- a Git wrapper so awesome, it should be illegal
@@ -38,7 +38,6 @@ M.setup = function()
     use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
     use {'kyazdani42/nvim-web-devicons'} -- lua `fork` of vim-web-devicons for neovim
     use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
-    use {"GoldsteinE/compe-latex-symbols"} -- autocomplete LaTeX symbol into your text via nvim-compe
 
     -- {{{1
 
