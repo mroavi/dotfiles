@@ -61,6 +61,9 @@ noremap <C-M-Up> :resize +3<CR>
 noremap <C-M-Left> :vertical resize +3<CR>
 noremap <C-M-Right> :vertical resize -3<CR>
 
+" Spelling completion in normal mode (https://stackoverflow.com/a/25777332/1706778)
+nnoremap <Leader>sc :call search('\w\>', 'c')<CR>a<C-X><C-S>
+
 " Highlight the yanked text
 augroup highlight_yank
   autocmd!
@@ -154,10 +157,6 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 " call setline(1, output)
 " endfunction
 " command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
-
-"" Spelling completion in normal mode TODO: clahes with compe
-"inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
-"nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 
 " " Convert all tabs to 2 space tabs (https://stackoverflow.com/a/16892086/1706778)
 " fun! ReTab()
