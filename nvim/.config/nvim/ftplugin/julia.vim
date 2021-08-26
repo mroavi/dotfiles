@@ -26,19 +26,18 @@ nnoremap <buffer><silent> <Leader>rt :TomuxSend("\b]test " . b:package . "\n\b")
 " Run file
 nnoremap <buffer><silent><expr> <C-S-Cr> ':TomuxSend("include(\"' . expand('%:p') . '\")\n")<CR>'
 
-" Toggles the passed string before the first non-blank in the line
-function! ToggleMacro(macro)
-  let str = a:macro .. ' '
+" Adds/Removes the passed string to the start/end of the cursor line
+function! ToggleString(str, insert_txt_cmd)
+  let str = a:str .. ' '
   if (search(str, 'cn', line('.'))) || (search(str, 'cnb', line('.')))
     " Gets the current line, performs the substitution, and replaces it
     call setline(line('.'), substitute(getline('.'), str, '', ''))
   else
-    silent exe "normal! m`I" .. str .. "\<Esc>``"
+    silent exe "normal! m`" .. a:insert_txt_cmd .. str .. "\<Esc>``"
   endif 
 endfunction
-noremap <Leader>sh :call ToggleMacro("@show")<CR>
-noremap <Leader>te :call ToggleMacro("@test")<CR>
-noremap <Leader>bt :call ToggleMacro("@btime")<CR>
+noremap <Leader>sh :call ToggleString('@show', 'I')<CR>
+noremap <Leader>pr :call ToggleString(' \|> println', 'A')<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " julia-vim
