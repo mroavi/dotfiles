@@ -9,7 +9,8 @@ nnoremap <buffer><silent> <M-k> :call GoToPrevDelim(b:cell_delimeter)<CR>z<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let b:tomux_clipboard_paste = 'include_string(Main, clipboard(), "' .. expand('%:p') .. '")'
 let g:tomux_config = {"socket_name": "default", "target_pane": "{bottom-right}"}
-" Start REPL in a BOTTOM split with active buffer as CWD
+" Start REPL in a BOTTOM split with active buffer as CWD (TODO: does now work
+" if the current buffer's file name contains spaces)
 nnoremap <buffer><silent><expr> <Leader>rj ':TomuxCommand("split-window -v -d -l 20% -c ' . expand('%:p:h') . '")<CR>:TomuxSend("julia\n")<CR>'
 " Start REPL in a RIGHT split with active buffer as CWD
 nnoremap <buffer><silent><expr> <Leader>rl ':TomuxCommand("split-window -h -d -c ' . expand('%:p:h') . '")<CR>:TomuxSend("julia\n")<CR>'
