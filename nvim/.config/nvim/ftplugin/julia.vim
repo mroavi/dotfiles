@@ -28,15 +28,14 @@ nnoremap <buffer><silent><expr> <C-S-Cr> ':TomuxSend("include(\"' . expand('%:p'
 
 " Adds/Removes the passed string to the start/end of the cursor line
 function! ToggleString(str, insert_txt_cmd)
-  let str = a:str .. ' '
-  if (search(str, 'cn', line('.'))) || (search(str, 'cnb', line('.')))
+  if (search(a:str, 'cn', line('.'))) || (search(a:str, 'cnb', line('.')))
     " Gets the current line, performs the substitution, and replaces it
-    call setline(line('.'), substitute(getline('.'), str, '', ''))
+    call setline(line('.'), substitute(getline('.'), a:str, '', ''))
   else
-    silent exe "normal! m`" .. a:insert_txt_cmd .. str .. "\<Esc>``"
+    silent exe "normal! m`" .. a:insert_txt_cmd .. a:str .. "\<Esc>``"
   endif 
 endfunction
-noremap <Leader>sh :call ToggleString('@show', 'I')<CR>
+noremap <Leader>sh :call ToggleString('@show ', 'I')<CR>
 noremap <Leader>pr :call ToggleString(' \|> println', 'A')<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
