@@ -26,15 +26,6 @@ nnoremap <buffer><silent> <Leader>rt :TomuxSend("\b]test " . b:package . "\n\b")
 " Run file
 nnoremap <buffer><silent><expr> <C-S-Cr> ':TomuxSend("include(\"' . expand('%:p') . '\")\n")<CR>'
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" julia-vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <Leader>tf :call julia#toggle_function_blockassign()<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Useful mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Toggles the passed string before the first non-blank in the line
 function! ToggleMacro(macro)
   let str = a:macro .. ' '
@@ -48,6 +39,15 @@ endfunction
 noremap <Leader>sh :call ToggleMacro("@show")<CR>
 noremap <Leader>te :call ToggleMacro("@test")<CR>
 noremap <Leader>bt :call ToggleMacro("@btime")<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" julia-vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <Leader>tf :call julia#toggle_function_blockassign()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Useful mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Inserts different kinds of headers
 nnoremap <buffer><Leader>m1 m`<S-o># <Esc>78a=<Esc>yyjp``
