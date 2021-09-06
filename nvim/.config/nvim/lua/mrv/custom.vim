@@ -62,7 +62,7 @@ noremap <C-M-Left> :vertical resize +3<CR>
 noremap <C-M-Right> :vertical resize -3<CR>
 
 " Spelling completion in normal mode ( https://stackoverflow.com/a/25777332/1706778 )
-nnoremap <Leader>sc :call search('\w\>', 'c')<CR>a<C-X><C-S>
+nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 
 " Highlight the yanked text
 augroup highlight_yank
