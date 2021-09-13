@@ -70,7 +70,7 @@ augroup highlight_yank
   au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
 
-" Jump to next delimeter
+" Jump to next delimiter
 function! GoToNextDelim(delim)
   if (!search(a:delim, "W"))
     silent exe "normal! G"
