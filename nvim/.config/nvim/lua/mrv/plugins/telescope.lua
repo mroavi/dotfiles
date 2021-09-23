@@ -112,6 +112,23 @@ function M.lines()
 	require("telescope.builtin").current_buffer_fuzzy_find(ivy_theme)
 end
 
+function M.marks()
+  require("telescope.builtin").marks{
+    cwd = vim.fn.expand("%:p:h"),
+    layout_strategy = "vertical",
+    layout_config = {mirror = true},
+    sorting_strategy = "ascending",
+    scroll_strategy = "limit",
+    attach_mappings = function(_, map)
+      map('i', 'k', actions.move_selection_previous)
+      map('i', 'j', actions.move_selection_next)
+      map('i', 'x', actions.delete_buffer)
+      map('i', 'l', actions.file_edit)
+      return true
+    end,
+  }
+end
+
 -------------------------------------------------------------------------------
 --- Git Pickers
 -------------------------------------------------------------------------------
@@ -188,7 +205,7 @@ end
 local utils = require('mrv.utils')
 
 -- File pickers
-utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
+utils.remap("n", "<Leader>,", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
 utils.remap("n", "<Leader>fi", "<Cmd>lua require('mrv.plugins.telescope').find_files()<CR>")
 utils.remap("n", "<Leader>fg", "<Cmd>lua require('mrv.plugins.telescope').git_files()<CR>")
 utils.remap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
@@ -198,6 +215,7 @@ utils.remap("n", "<Leader>fh", "<Cmd>lua require('mrv.plugins.telescope').file_h
 utils.remap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').file_history()<CR>")
 utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
+utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
 -- LSP pickers
 -- utils.remap("n", "<Leader>ds", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 utils.remap("n", "<Leader>sy", "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
