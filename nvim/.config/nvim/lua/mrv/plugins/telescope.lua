@@ -112,13 +112,38 @@ function M.lines()
 	require("telescope.builtin").current_buffer_fuzzy_find(ivy_theme)
 end
 
+Marks = function(opts)
+  local marks = vim.api.nvim_exec("marks", true)
+  local marks_table = vim.fn.split(marks, "\n")
+  -- Pop off the header
+  table.remove(marks_table, 1)
+  -- Filter all non-lower case marks
+  local results = vim.tbl_filter(function(val)
+    local mark = string.sub(val,2,2) -- get second char in string
+    return string.match(mark, "%l") ~= nil -- return false for all non-lower case marks
+  end, marks_table)
+  -- Sort results by line number
+  table.sort(results, function(a,b)
+    return vim.fn.split(a)[2] < vim.fn.split(b)[2]
+  end)
+  -- Create new picker
+  pickers.new(opts, {
+    prompt_title = "Marks",
+    finder = finders.new_table {
+      results = results,
+      entry_maker = opts.entry_maker or make_entry.gen_from_marks(opts),
+    },
+    previewer = conf.grep_previewer(opts),
+    sorter = conf.generic_sorter(opts),
+  }):find()
+end
+
 function M.marks()
-  require("telescope.builtin").marks{
-    cwd = vim.fn.expand("%:p:h"),
+  Marks{
     layout_strategy = "vertical",
     layout_config = {mirror = true},
     sorting_strategy = "ascending",
-    scroll_strategy = "limit",
+    scroll_strategy = "cycle",
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
