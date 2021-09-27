@@ -86,6 +86,11 @@ InteractiveUtils.define_editor(
   `tmux send-keys -t '{'left-of'}' Escape ":edit +$line $path" C-m C-h`
 end
 
+# ------------------------------------------------------------------------------
+##  Improvement to the display of stack traces in the Julia REPL
+# ------------------------------------------------------------------------------
+using AbbreviatedStackTraces
+
 #=----------------------------------------------------------------------------=#
 ## JULIA TIPS AND TRICKS
 #=----------------------------------------------------------------------------=#
