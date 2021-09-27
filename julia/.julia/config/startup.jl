@@ -77,13 +77,15 @@ function clr()
 end
 
 # ------------------------------------------------------------------------------
-# Open files in a right-of tmux pane where nvim should already be running
-# with @edit
+# Open files in another tmux pane where nvim should already be running with @edit
 # ------------------------------------------------------------------------------
 using InteractiveUtils
 InteractiveUtils.define_editor(
   "nvim", wait=false) do cmd, path, line
-  `tmux send-keys -t '{'left-of'}' Escape ":edit +$line $path" C-m C-h`
+  # Open in pane to the left of REPL
+  # `tmux send-keys -t '{'left-of'}' Escape ":edit +$line $path" C-m C-h`
+  # Open in window 1
+  `tmux select-window -t 0:1';' send-keys -t 0:1.0 Escape ":edit +$line $path" C-m`
 end
 
 # ------------------------------------------------------------------------------
