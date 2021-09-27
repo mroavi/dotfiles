@@ -64,6 +64,21 @@ noremap <C-M-Right> :vertical resize -3<CR>
 " Spelling completion in normal mode ( https://stackoverflow.com/a/25777332/1706778 )
 nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 
+" Alternate mappings for go to next/prev mark
+nnoremap <Leader>k ['
+nnoremap <Leader>j ]'
+
+" Delete marks a-z on the current line
+function! Delmarks()
+let l:m = join(filter(
+   \ map(range(char2nr('a'), char2nr('z')), 'nr2char(v:val)'),
+   \ 'line("''".v:val) == line(".")'))
+if !empty(l:m)
+    exe 'delmarks' l:m
+endif
+endfunction
+nnoremap <silent> <Leader>dm :<c-u>call Delmarks()<cr>
+
 " Highlight the yanked text
 augroup highlight_yank
   autocmd!
