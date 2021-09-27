@@ -77,7 +77,8 @@ function clr()
 end
 
 # ------------------------------------------------------------------------------
-# Open files in another tmux pane where nvim should already be running with @edit
+# Open files in another tmux instance where nvim should already be running
+# with @edit <function call> or, when a stacktrace is displayed, with [number]<C-q>
 # ------------------------------------------------------------------------------
 using InteractiveUtils
 InteractiveUtils.define_editor(
