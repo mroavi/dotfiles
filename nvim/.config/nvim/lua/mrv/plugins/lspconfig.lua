@@ -81,9 +81,12 @@ local luadev = require("lua-dev").setup({
 })
 lspconfig.sumneko_lua.setup(luadev)
 
+--- texlab ---------------------------------------------------------------------
+
+lspconfig.texlab.setup{}
+
 -- <disabled> ------------------------------------------------------------------
 
--- lspconfig.texlab.setup{}
 -- lspconfig.cmake.setup{}
 
 -- -- Example of how to run code depending on a environment variable
