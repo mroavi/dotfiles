@@ -85,6 +85,22 @@ augroup highlight_yank
   au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
 
+" https://gist.github.com/romainl/d2ad868afd7520519057475bd8e9db0c
+" gq wrapper that:
+" - tries its best at keeping the cursor in place
+" - tries to handle formatter errors
+function! Format(type, ...)
+    normal! '[v']gq
+    if v:shell_error > 0
+        silent undo
+        redraw
+        echomsg 'formatprg "' . &formatprg . '" exited with status ' . v:shell_error
+    endif
+    call winrestview(w:gqview)
+    unlet w:gqview
+endfunction
+nmap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=Format<CR>g@
+
 " Jump to next delimiter
 function! GoToNextDelim(delim)
   if (!search(a:delim, "W"))
