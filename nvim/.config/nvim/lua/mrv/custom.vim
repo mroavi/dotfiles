@@ -153,6 +153,9 @@ onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
 xnoremap <silent> id :<C-u>normal! ggVG<cr>
 onoremap <silent> id :<C-u>normal! ggVG<cr>
 
+ " Open help in vertical split
+ cnoreabbrev H vert bo h
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -209,9 +212,6 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 
 " " Open a new unnamed buffer
 " nnoremap <M-n> :enew<CR>
-
-" " Open help in vertical split
-" cnoreabbrev H vert bo h
 
 " " Ignore case in command line
 " augroup toggle_ignorecase
