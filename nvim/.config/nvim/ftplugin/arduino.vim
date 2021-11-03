@@ -1,6 +1,3 @@
-" No space between comment characters and code
-let b:commentary_format = '//%s'
-
 let g:arduino_use_slime = 1
 let g:arduino_serial_baud = 9600
 
