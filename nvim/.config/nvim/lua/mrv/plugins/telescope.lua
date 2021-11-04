@@ -41,7 +41,7 @@ function TmuxTheme(opts)
     layout_strategy = "vertical",
     layout_config = {mirror = true},
     sorting_strategy = "ascending",
-    scroll_strategy = "limit",
+    -- scroll_strategy = "limit", -- buggy
     -- path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
