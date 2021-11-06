@@ -39,12 +39,12 @@ M.setup = function()
     use {'kyazdani42/nvim-web-devicons'} -- lua `fork` of vim-web-devicons for neovim
     use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
     use {'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end}
+    use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
 
     -- {{{1
 
     -- Disabled
     -- use {'jose-elias-alvarez/buftabline.nvim', config = function() require('mrv.plugins.buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
-    -- use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
     -- use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
     -- use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
     -- use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
