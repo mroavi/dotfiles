@@ -17,9 +17,6 @@ nnoremap Y y$
 " https://stackoverflow.com/a/4468491/1706778
 nnoremap <silent> <Leader>dd :bprevious<bar>:bdelete #<CR>
 
-" Close all buffers but the current one
-map <Leader>bo :%bdelete\|e#\|bd#<CR>
-
 " Edit the alternate file
 nnoremap <silent> <Leader>l :b#<CR>
 
@@ -252,4 +249,7 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 " TODO: this clashes with <C-i> (go to next entry in jump list)
 "set wildcharm=<C-z>
 "nnoremap <Tab> :b <C-z><S-Tab>
+
+"" Close all buffers but the current one
+"map <Leader>bo :%bdelete\|e#\|bd#<CR>
 
