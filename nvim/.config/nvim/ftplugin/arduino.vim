@@ -30,6 +30,9 @@ nnoremap <buffer><silent><expr> <Leader>au b:upload_cmd . '<CR>'
 let b:screen_cmd = ':TomuxSend("screen " . b:serial_port . " " . b:serial_baud . "\n")'
 nnoremap <buffer><silent><expr> <Leader>as b:screen_cmd . '<CR>'
 
+" Compile and upload (p stands for program)
+nmap <buffer><silent> <Leader>ap <Leader>ac<Leader>au
+
 " Compile, upload and open serial port
 nmap <buffer><silent> <Leader>aa <Leader>ac<Leader>au<Leader>as
 
