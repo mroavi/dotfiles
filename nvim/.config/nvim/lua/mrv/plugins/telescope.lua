@@ -18,9 +18,7 @@ require("telescope").setup{
 		mappings = {
 			i = {
 				["<esc>"] = actions.close,
-				["<c-p>"] = false,
 				["<c-k>"] = actions.move_selection_previous,
-				["<c-n>"] = false,
 				["<c-j>"] = actions.move_selection_next,
 				["<C-q>"] = actions.send_to_qflist,
 				["<M-q>"] = actions.send_selected_to_qflist,
