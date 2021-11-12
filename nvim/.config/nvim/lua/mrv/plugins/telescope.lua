@@ -23,7 +23,6 @@ require("telescope").setup{
 				["<c-j>"] = actions.move_selection_next,
 				["<C-q>"] = actions.send_to_qflist,
 				["<M-q>"] = actions.send_selected_to_qflist,
-        ["<C-h>"] = "which_key",
 			},
 			n = {
 				["<esc>"] = actions.close
