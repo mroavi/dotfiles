@@ -3,6 +3,7 @@ local pickers = require('telescope.pickers')
 local finders = require('telescope.finders')
 local make_entry = require('telescope.make_entry')
 local conf = require('telescope.config').values
+local action_state = require "telescope.actions.state"
 
 local M = {}
 
@@ -23,6 +24,11 @@ require("telescope").setup{
 				["<c-j>"] = actions.move_selection_next,
 				["<C-q>"] = actions.send_to_qflist,
 				["<M-q>"] = actions.send_selected_to_qflist,
+        -- Custom actions
+        ["<C-a>"] = function(_) -- add to arglist
+            local selection_path = action_state.get_selected_entry()[1]
+            vim.cmd('arga ' .. selection_path)
+        end
 			},
 			n = {
 				["<esc>"] = actions.close
@@ -93,6 +99,61 @@ function M.dotfiles()
 		prompt_title = "Dotfiles",
 		cwd = "~/dotfiles",
 	}
+end
+
+Args = function(opts)
+  local results = vim.fn.argv()
+  pickers.new(opts, {
+    prompt_title = 'Argument List',
+    finder = finders.new_table{
+      results = results,
+      entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+    },
+    sorter = conf.file_sorter(opts),
+    previewer = conf.file_previewer(opts),
+  }):find()
+end
+
+function M.args()
+  local opts = {
+    layout_strategy = "vertical",
+    layout_config = {mirror = true},
+    sorting_strategy = "ascending",
+    attach_mappings = function(_, map)
+      map('i', 'k', actions.move_selection_previous)
+      map('i', 'j', actions.move_selection_next)
+      map('i', 'l', actions.file_edit)
+      -- Custom actions
+      map('i', 'x', function(prompt_bufnr) -- delete from arglist
+          local current_picker = action_state.get_current_picker(prompt_bufnr)
+          current_picker:delete_selection( function(_)
+            local selection_path = action_state.get_selected_entry()[1]
+            vim.cmd('argd ' .. selection_path)
+          end)
+      end)
+      return true
+    end,
+    on_complete = {
+      function(picker)
+        local selection_buf_nr = vim.api.nvim_win_get_buf(picker.original_win_id)
+        local selection_path = vim.api.nvim_buf_get_name(selection_buf_nr)
+        local selection_index
+        local i = 1
+        for entry in picker.manager:iter() do
+          local entry_path = vim.fn.fnamemodify(entry[1], ":p")
+          if entry_path == selection_path then
+            selection_index = i
+            break
+          end
+          i = i + 1
+        end
+        local row = picker:get_row(selection_index)
+        picker:set_selection(row)
+        picker._completion_callbacks = {}
+      end,
+    },
+  }
+  Args(opts)
 end
 
 ---------------------------------------------------------------------------------
@@ -235,6 +296,7 @@ utils.remap("n", "<Leader>fi", "<Cmd>lua require('mrv.plugins.telescope').find_f
 utils.remap("n", "<Leader>fg", "<Cmd>lua require('mrv.plugins.telescope').git_files()<CR>")
 utils.remap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
 utils.remap("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
+utils.remap("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<CR>")
 -- Vim pickers
 utils.remap("n", "<Leader>fh", "<Cmd>lua require('mrv.plugins.telescope').file_history()<CR>")
 utils.remap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').file_history()<CR>")
