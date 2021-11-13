@@ -13,7 +13,7 @@ local globals = {
 }
 
 local options = {
-  shada = "<10,'99,/20,:99,h,f1",
+  shada = "<10,'99,/99,:99,h,f1", -- :help sd
   number = false,
   relativenumber = false,
   swapfile = false,
