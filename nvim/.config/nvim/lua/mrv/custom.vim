@@ -150,26 +150,26 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 "" https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
 "function! Redir(cmd, rng, start, end)
 "for win in range(1, winnr('$'))
-"	if getwinvar(win, 'scratch')
-"		execute win . 'windo close'
-"	endif
+"  if getwinvar(win, 'scratch')
+"    execute win . 'windo close'
+"  endif
 "endfor
 "if a:cmd =~ '^!'
-"	let cmd = a:cmd =~' %'
-"		\ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
-"		\ : matchstr(a:cmd, '^!\zs.*')
-"	if a:rng == 0
-"		let output = systemlist(cmd)
-"	else
-"		let joined_lines = join(getline(a:start, a:end), '\n')
-"		let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
-"		let output = systemlist(cmd . " <<< $" . cleaned_lines)
-"	endif
+"  let cmd = a:cmd =~' %'
+"    \ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
+"    \ : matchstr(a:cmd, '^!\zs.*')
+"  if a:rng == 0
+"    let output = systemlist(cmd)
+"  else
+"    let joined_lines = join(getline(a:start, a:end), '\n')
+"    let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
+"    let output = systemlist(cmd . " <<< $" . cleaned_lines)
+"  endif
 "else
-"	redir => output
-"	execute a:cmd
-"	redir END
-"	let output = split(output, "\n")
+"  redir => output
+"  execute a:cmd
+"  redir END
+"  let output = split(output, "\n")
 "endif
 "vnew
 "let w:scratch = 1
@@ -180,18 +180,18 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 
 "" Convert all tabs to 2 space tabs (https://stackoverflow.com/a/16892086/1706778)
 "fun! ReTab()
-"	set tabstop=4 softtabstop=4 noexpandtab
-"	retab!
-"	set tabstop=2 softtabstop=2 expandtab
-"	retab!
+"  set tabstop=4 softtabstop=4 noexpandtab
+"  retab!
+"  set tabstop=2 softtabstop=2 expandtab
+"  retab!
 "endfun
 "nnoremap <Leader>rt :call ReTab()<CR>
 
 "" Strip trailing whitespace from all lines (https://vi.stackexchange.com/a/456/27039)
 "fun! TrimWhitespace()
-"	let l:save = winsaveview()
-"	keeppatterns %s/\s\+$//e
-"	call winrestview(l:save)
+"  let l:save = winsaveview()
+"  keeppatterns %s/\s\+$//e
+"  call winrestview(l:save)
 "endfun
 "command! TrimWhitespace call TrimWhitespace()
 "noremap <Leader>rw :call TrimWhitespace()<CR>
@@ -201,9 +201,9 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 
 "" Ignore case in command line
 "augroup toggle_ignorecase
-"	autocmd!
-"	autocmd CmdLineEnter : set ignorecase smartcase
-"	autocmd CmdlineLeave : set noignorecase nosmartcase
+"  autocmd!
+"  autocmd CmdLineEnter : set ignorecase smartcase
+"  autocmd CmdlineLeave : set noignorecase nosmartcase
 "augroup END
 
 "" Chrome-like tab mappings
