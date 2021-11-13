@@ -207,7 +207,6 @@ function M.marks()
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
-      map('i', 'x', actions.delete_buffer)
       map('i', 'l', actions.file_edit)
       return true
     end,
