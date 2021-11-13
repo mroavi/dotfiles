@@ -11,25 +11,27 @@ let b:tomux_clipboard_paste = 'include_string(Main, clipboard(), "' .. expand('%
 let g:tomux_config = {"socket_name": "default", "target_pane": "{bottom-right}"}
 " Start REPL cmd (activate environment found in the current dir or parents)
 let b:start_repl_cmd = 'julia --project=@.'
-" Start REPL in a BOTTOM split with active buffer as CWD (TODO: does now work
-" if the current buffer's file name contains spaces)
-nnoremap <buffer><silent><expr> <Leader>rj ':TomuxCommand("split-window -v -d -l 20% -c ' . expand('%:p:h') . '")<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>'
+" Start REPL in a BOTTOM split with active buffer as CWD (TODO: does now work if the current buffer's file name contains spaces)
+nnoremap <buffer><silent><expr> <Leader>tj ':TomuxCommand("split-window -v -d -l 20% -c ' . expand('%:p:h') . '")<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>'
 " Start REPL in a RIGHT split with active buffer as CWD
-nnoremap <buffer><silent><expr> <Leader>rl ':TomuxCommand("split-window -h -d -c ' . expand('%:p:h') . '")<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>'
+nnoremap <buffer><silent><expr> <Leader>tl ':TomuxCommand("split-window -h -d -c ' . expand('%:p:h') . '")<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>'
 " Restart REPL
-nnoremap <buffer><silent> <Leader>rr :TomuxSend("\bexit()\n")<CR>:sl 50m<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>
+nnoremap <buffer><silent> <Leader>tr :TomuxSend("\bexit()\n")<CR>:sl 50m<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>
 " Kill REPL
-nnoremap <buffer><silent> <Leader>rk :TomuxCommand("kill-pane -t " . shellescape(g:tomux_config["target_pane"]))<CR>
+nnoremap <buffer><silent> <Leader>tk :TomuxCommand("kill-pane -t " . shellescape(g:tomux_config["target_pane"]))<CR>
 " Clear REPL
 nnoremap <buffer><silent> <Leader>cl :TomuxSend("\bclr()\n")<CR>
 " Run tests
 let b:package = 'DiscreteBayes'
-nnoremap <buffer><silent> <Leader>rt :TomuxSend("\b]test " . b:package . "\n\b")<CR>
+nnoremap <buffer><silent> <Leader>tt :TomuxSend("\b]test " . b:package . "\n\b")<CR>
 " Run file
 nnoremap <buffer><silent><expr> <C-S-Cr> ':TomuxSend("\binclude(\"' . expand('%:p') . '\")\n")<CR>'
 " Exit any REPL mode
 nnoremap <buffer><silent> <BS> :TomuxSend("\b")<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Adds/Removes the passed string to the start/end of the cursor line
 function! ToggleString(str, insert_txt_cmd)
   if (search(a:str, 'cn', line('.'))) || (search(a:str, 'cnb', line('.')))
