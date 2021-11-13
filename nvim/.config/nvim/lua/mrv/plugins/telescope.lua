@@ -43,7 +43,10 @@ function TmuxTheme(opts)
   opts = opts or {}
   local theme_opts = {
     layout_strategy = "vertical",
-    layout_config = {mirror = true},
+    layout_config = {
+      mirror = true,
+      prompt_position = "top",
+    },
     sorting_strategy = "ascending",
     --scroll_strategy = "limit", -- buggy
     --path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
@@ -116,7 +119,10 @@ end
 function M.args()
   local opts = {
     layout_strategy = "vertical",
-    layout_config = {mirror = true},
+    layout_config = {
+      mirror = true,
+      prompt_position = "top",
+    },
     sorting_strategy = "ascending",
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
@@ -201,7 +207,10 @@ end
 function M.marks()
   Marks{
     layout_strategy = "vertical",
-    layout_config = {mirror = true},
+    layout_config = {
+      mirror = true,
+      prompt_position = "top",
+    },
     sorting_strategy = "ascending",
     scroll_strategy = "cycle",
     attach_mappings = function(_, map)
@@ -221,8 +230,8 @@ function M.git_commits()
   require("telescope.builtin").git_commits{
     cwd = vim.fn.expand("%:p:h"),
     layout_config = {
-      prompt_position = "top",
       mirror = true,
+      prompt_position = "top",
     },
     sorting_strategy = "ascending",
     layout_strategy = "vertical",
@@ -233,8 +242,8 @@ function M.git_bcommits()
   require("telescope.builtin").git_bcommits{
     cwd = vim.fn.expand("%:p:h"),
     layout_config = {
-      prompt_position = "top",
       mirror = true,
+      prompt_position = "top",
     },
     sorting_strategy = "ascending",
     layout_strategy = "vertical",
@@ -245,7 +254,10 @@ function M.git_status()
   require("telescope.builtin").git_status{
     cwd = vim.fn.expand("%:p:h"),
     layout_strategy = "vertical",
-    layout_config = {mirror = true},
+    layout_config = {
+      mirror = true,
+      prompt_position = "top",
+    },
     sorting_strategy = "ascending",
     scroll_strategy = "limit",
     --path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
@@ -281,7 +293,10 @@ end
 function M.recent_files()
   RecentFiles{
     layout_strategy = "vertical",
-    layout_config = {mirror = true},
+    layout_config = {
+      mirror = true,
+      prompt_position = "top",
+    },
     sorting_strategy = "ascending",
     scroll_strategy = "cycle",
     attach_mappings = function(_, map)
