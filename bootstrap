@@ -235,14 +235,18 @@ fi
 # -----------------------------------------------------------------------------------------
 echo "Installing texlab..."
 
-FILE=$HOME/.local/bin/texlab
-if [ -f "$FILE" ]; then
-  echo " texlab is already installed"
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed texlab
 else
-  cd ~/Downloads/
-  filepath="texlab-x86_64-linux.tar.gz"
-  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/latex-lsp/texlab/releases/download/v2.2.0/texlab-x86_64-linux.tar.gz
-  tar xvzf "$filepath" -C $HOME/.local/bin/
+  FILE=$HOME/.local/bin/texlab
+  if [ -f "$FILE" ]; then
+    echo " texlab is already installed"
+  else
+    cd ~/Downloads/
+    filepath="texlab-x86_64-linux.tar.gz"
+    [ -f $filepath ] || curl -fLo "$filepath" https://github.com/latex-lsp/texlab/releases/download/v2.2.0/texlab-x86_64-linux.tar.gz
+    tar xvzf "$filepath" -C $HOME/.local/bin/
+  fi
 fi
 
 # -----------------------------------------------------------------------------------------
