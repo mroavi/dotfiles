@@ -82,6 +82,7 @@ end
 function M.find_files()
   require("telescope.builtin").find_files{
     file_sorter = require'telescope.sorters'.get_fzy_sorter,
+    cwd = vim.fn.expand("%:p:h"),
   }
 end
 
@@ -278,8 +279,20 @@ Mru = function(opts)
   }):find()
 end
 
-function M.file_history()
-  Mru{}
+function M.mru()
+  Mru{
+    layout_strategy = "vertical",
+    layout_config = {mirror = true},
+    sorting_strategy = "ascending",
+    scroll_strategy = "cycle",
+    attach_mappings = function(_, map)
+      map('i', 'k', actions.move_selection_previous)
+      map('i', 'j', actions.move_selection_next)
+      map('i', 'x', actions.delete_buffer)
+      map('i', 'l', actions.file_edit)
+      return true
+    end,
+  }
 end
 
 ---------------------------------------------------------------------------------
@@ -290,17 +303,17 @@ local utils = require('mrv.utils')
 
 -- File pickers
 utils.remap("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
-utils.remap("n", "<Leader>fi", "<Cmd>lua require('mrv.plugins.telescope').find_files()<CR>")
-utils.remap("n", "<Leader>fg", "<Cmd>lua require('mrv.plugins.telescope').git_files()<CR>")
-utils.remap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
+utils.remap("n", "<Leader>f", "<Cmd>lua require('mrv.plugins.telescope').find_files()<CR>")
+utils.remap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').git_files()<CR>")
+--utils.remap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
 utils.remap("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
 utils.remap("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<CR>")
 -- Vim pickers
-utils.remap("n", "<Leader>fh", "<Cmd>lua require('mrv.plugins.telescope').file_history()<CR>")
-utils.remap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').file_history()<CR>")
+utils.remap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').mru()<CR>")
 utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 --utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
 utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
+--utils.remap("n", "<Leader>ma", "<Cmd>lua require('telescope.builtin').keymaps()<CR>")
 -- LSP pickers
 --utils.remap("n", "<Leader>ds", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 utils.remap("n", "<Leader>sy", "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
@@ -310,7 +323,7 @@ utils.remap("n", "<Leader>co", "<Cmd>lua require('mrv.plugins.telescope').git_co
 utils.remap("n", "<Leader>cb", "<Cmd>lua require('mrv.plugins.telescope').git_bcommits()<CR>")
 utils.remap("n", "<Leader>gs", "<Cmd>lua require('mrv.plugins.telescope').git_status()<CR>")
 -- Lists pickers
---utils.remap("n", "<Leader>te", "<Cmd>lua require('telescope.builtin').builtin()<CR>")
+--utils.remap("n", "<Leader>tj", "<Cmd>lua require('telescope.builtin').builtin()<CR>")
 
 return M
 
