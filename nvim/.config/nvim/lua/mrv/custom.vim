@@ -65,17 +65,6 @@ nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 nnoremap <Leader>k ['
 nnoremap <Leader>j ]'
 
-" Delete marks a-z on the current line
-function! Delmarks()
-let l:m = join(filter(
-   \ map(range(char2nr('a'), char2nr('z')), 'nr2char(v:val)'),
-   \ 'line("''".v:val) == line(".")'))
-if !empty(l:m)
-    exe 'delmarks' l:m
-endif
-endfunction
-nnoremap <silent> <Leader>dm :<c-u>call Delmarks()<cr>
-
 " Highlight the yanked text
 augroup highlight_yank
   autocmd!
@@ -252,4 +241,15 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 
 "" Close all buffers but the current one
 "map <Leader>bo :%bdelete\|e#\|bd#<CR>
+
+"" Delete marks a-z on the current line
+"function! Delmarks()
+"let l:m = join(filter(
+"   \ map(range(char2nr('a'), char2nr('z')), 'nr2char(v:val)'),
+"   \ 'line("''".v:val) == line(".")'))
+"if !empty(l:m)
+"    exe 'delmarks' l:m
+"endif
+"endfunction
+"nnoremap <silent> <Leader>dm :<c-u>call Delmarks()<cr>
 
