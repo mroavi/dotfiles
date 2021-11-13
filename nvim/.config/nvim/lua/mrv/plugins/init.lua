@@ -59,6 +59,7 @@ M.setup = function()
     --use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate'}
     --use {'terrortylor/nvim-comment', config = function() require('mrv.plugins.nvim-comment') end} -- a comment toggler for Neovim, written in Lua
     --use {'rafamadriz/friendly-snippets', } -- set of preconfigured snippets for different languages
+    --use {'chipsenkbeil/distant.nvim', } -- edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
 
     -- Abandoned
     --use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
