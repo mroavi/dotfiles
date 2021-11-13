@@ -146,96 +146,96 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 " DISABLED (enable when necessary)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" " Redirect the output of a Vim or external command into a scratch buffer
-" " https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
-" function! Redir(cmd, rng, start, end)
-" for win in range(1, winnr('$'))
-" 	if getwinvar(win, 'scratch')
-" 		execute win . 'windo close'
-" 	endif
-" endfor
-" if a:cmd =~ '^!'
-" 	let cmd = a:cmd =~' %'
-" 		\ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
-" 		\ : matchstr(a:cmd, '^!\zs.*')
-" 	if a:rng == 0
-" 		let output = systemlist(cmd)
-" 	else
-" 		let joined_lines = join(getline(a:start, a:end), '\n')
-" 		let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
-" 		let output = systemlist(cmd . " <<< $" . cleaned_lines)
-" 	endif
-" else
-" 	redir => output
-" 	execute a:cmd
-" 	redir END
-" 	let output = split(output, "\n")
-" endif
-" vnew
-" let w:scratch = 1
-" setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
-" call setline(1, output)
-" endfunction
-" command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
+"" Redirect the output of a Vim or external command into a scratch buffer
+"" https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
+"function! Redir(cmd, rng, start, end)
+"for win in range(1, winnr('$'))
+"	if getwinvar(win, 'scratch')
+"		execute win . 'windo close'
+"	endif
+"endfor
+"if a:cmd =~ '^!'
+"	let cmd = a:cmd =~' %'
+"		\ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
+"		\ : matchstr(a:cmd, '^!\zs.*')
+"	if a:rng == 0
+"		let output = systemlist(cmd)
+"	else
+"		let joined_lines = join(getline(a:start, a:end), '\n')
+"		let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
+"		let output = systemlist(cmd . " <<< $" . cleaned_lines)
+"	endif
+"else
+"	redir => output
+"	execute a:cmd
+"	redir END
+"	let output = split(output, "\n")
+"endif
+"vnew
+"let w:scratch = 1
+"setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
+"call setline(1, output)
+"endfunction
+"command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
 
-" " Convert all tabs to 2 space tabs (https://stackoverflow.com/a/16892086/1706778)
-" fun! ReTab()
-" 	set tabstop=4 softtabstop=4 noexpandtab
-" 	retab!
-" 	set tabstop=2 softtabstop=2 expandtab
-" 	retab!
-" endfun
-" nnoremap <Leader>rt :call ReTab()<CR>
+"" Convert all tabs to 2 space tabs (https://stackoverflow.com/a/16892086/1706778)
+"fun! ReTab()
+"	set tabstop=4 softtabstop=4 noexpandtab
+"	retab!
+"	set tabstop=2 softtabstop=2 expandtab
+"	retab!
+"endfun
+"nnoremap <Leader>rt :call ReTab()<CR>
 
-" " Strip trailing whitespace from all lines (https://vi.stackexchange.com/a/456/27039)
-" fun! TrimWhitespace()
-" 	let l:save = winsaveview()
-" 	keeppatterns %s/\s\+$//e
-" 	call winrestview(l:save)
-" endfun
-" command! TrimWhitespace call TrimWhitespace()
-" noremap <Leader>rw :call TrimWhitespace()<CR>
+"" Strip trailing whitespace from all lines (https://vi.stackexchange.com/a/456/27039)
+"fun! TrimWhitespace()
+"	let l:save = winsaveview()
+"	keeppatterns %s/\s\+$//e
+"	call winrestview(l:save)
+"endfun
+"command! TrimWhitespace call TrimWhitespace()
+"noremap <Leader>rw :call TrimWhitespace()<CR>
 
-" " Open a new unnamed buffer
-" nnoremap <M-n> :enew<CR>
+"" Open a new unnamed buffer
+"nnoremap <M-n> :enew<CR>
 
-" " Ignore case in command line
-" augroup toggle_ignorecase
-" 	autocmd!
-" 	autocmd CmdLineEnter : set ignorecase smartcase
-" 	autocmd CmdlineLeave : set noignorecase nosmartcase
-" augroup END
+"" Ignore case in command line
+"augroup toggle_ignorecase
+"	autocmd!
+"	autocmd CmdLineEnter : set ignorecase smartcase
+"	autocmd CmdlineLeave : set noignorecase nosmartcase
+"augroup END
 
-" " Chrome-like tab mappings
-" nnoremap <C-t>     :tabnew<CR>
-" nnoremap <C-S-W>   :close<CR>
+"" Chrome-like tab mappings
+"nnoremap <C-t>     :tabnew<CR>
+"nnoremap <C-S-W>   :close<CR>
 
-" " Source .vimrc
-" map <Leader>sv :source $MYVIMRC<CR>
+"" Source .vimrc
+"map <Leader>sv :source $MYVIMRC<CR>
 
-" " Write and source the currently opened file
-" map <Leader>ss :w<CR>:source %<CR>
+"" Write and source the currently opened file
+"map <Leader>ss :w<CR>:source %<CR>
 
-" " Close the quickfix window
-" nnoremap <Leader>cx :cclose<CR>
+"" Close the quickfix window
+"nnoremap <Leader>cx :cclose<CR>
 
-" " Go to previous (last accessed) window
-" nnoremap <silent> <Leader>; <C-w><C-p>
+"" Go to previous (last accessed) window
+"nnoremap <silent> <Leader>; <C-w><C-p>
 
 "" Move selected lines up/down reindenting if necessary
 "vnoremap J :m '>+1<CR>gv=gv
 "vnoremap K :m '<-2<CR>gv=gv
 
-" " Print the highlight group used for the word under the cursor
-" " https://vi.stackexchange.com/q/18454/27039
-" command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name")
+"" Print the highlight group used for the word under the cursor
+"" https://vi.stackexchange.com/q/18454/27039
+"command ShowHighlightGroup  echo synIDattr(synID(line("."), col("."), 1), "name")
 
-" " Move to next/prev buffer
-" nnoremap <silent> <S-h> :bprevious<CR>
-" nnoremap <silent> <S-l> :bnext<CR>
+"" Move to next/prev buffer
+"nnoremap <silent> <S-h> :bprevious<CR>
+"nnoremap <silent> <S-l> :bnext<CR>
 
 "" Open buffer wildmenu (https://noahfrederick.com/log/vim-wildcharm)
-" TODO: this clashes with <C-i> (go to next entry in jump list)
+"" TODO: this clashes with <C-i> (go to next entry in jump list)
 "set wildcharm=<C-z>
 "nnoremap <Tab> :b <C-z><S-Tab>
 

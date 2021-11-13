@@ -13,10 +13,10 @@ vim.g.ayu_overrides = {
   BufTabLineActive = {fg = colors.ui, bg = colors.bg},  --       'grey5 background'
   BufTabLineHidden = {fg = colors.ui, bg = colors.bg},  --       'grey4 background'
   TabLineFill = {bg = colors.bg},
-  -- BufTabLineFill =            'background background'
-  -- BufTabLineModifiedCurrent = 'yellow2 grey2'
-  -- BufTabLineModifiedActive =  'yellow2'
-  -- BufTabLineModifiedHidden =  'yellow2'
+  --BufTabLineFill =            'background background'
+  --BufTabLineModifiedCurrent = 'yellow2 grey2'
+  --BufTabLineModifiedActive =  'yellow2'
+  --BufTabLineModifiedHidden =  'yellow2'
 }
 
 vim.cmd [[ colorscheme ayu ]]

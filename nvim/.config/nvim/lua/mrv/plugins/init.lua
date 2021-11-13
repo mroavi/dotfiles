@@ -44,30 +44,30 @@ M.setup = function()
     -- {{{1
 
     -- Disabled
-    -- use {'jose-elias-alvarez/buftabline.nvim', config = function() require('mrv.plugins.buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
-    -- use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
-    -- use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
-    -- use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
-    -- use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
+    --use {'jose-elias-alvarez/buftabline.nvim', config = function() require('mrv.plugins.buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
+    --use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
+    --use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
+    --use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
+    --use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
 
     -- TODO: Try these out!
-    -- use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
-    -- use {'kassio/neoterm'} -- wrapper of some vim/neovim's :terminal functions
-    -- use {'sindrets/diffview.nvim'} -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
-    -- use {"ray-x/lsp_signature.nvim"} -- lsp signature hint when you type
-    -- use {"glepnir/lspsaga.nvim"} -- a light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
-    -- use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate'}
-    -- use {'terrortylor/nvim-comment', config = function() require('mrv.plugins.nvim-comment') end} -- a comment toggler for Neovim, written in Lua
-    -- use {'rafamadriz/friendly-snippets', } -- set of preconfigured snippets for different languages
+    --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
+    --use {'kassio/neoterm'} -- wrapper of some vim/neovim's :terminal functions
+    --use {'sindrets/diffview.nvim'} -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
+    --use {"ray-x/lsp_signature.nvim"} -- lsp signature hint when you type
+    --use {"glepnir/lspsaga.nvim"} -- a light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
+    --use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate'}
+    --use {'terrortylor/nvim-comment', config = function() require('mrv.plugins.nvim-comment') end} -- a comment toggler for Neovim, written in Lua
+    --use {'rafamadriz/friendly-snippets', } -- set of preconfigured snippets for different languages
 
     -- Abandoned
-    -- use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
-    -- use {'ap/vim-buftabline', config = function() require('mrv.plugins.vim-buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
-    -- use {'romgrk/barbar.nvim', config = function() require('mrv.plugins.barbar') end} -- a neovim tabline plugin
-    -- use {'voldikss/vim-floaterm', config = function() require('mrv.plugins.floaterm') end} -- use (neo)vim terminal in the floating/popup window
-    -- use {'b3nj5m1n/kommentary', config = function() require('mrv.plugins.kommentary') end} -- Neovim commenting plugin, written in lua
-    -- use {'qxxxb/vim-searchhi', config = function() require('mrv.plugins.vim-searchhi') end} -- highlight the current search result differently
-    -- use {'junegunn/vim-slash', config = function() require('mrv.plugins.slash') end} -- automatically clears search highlight when cursor is moved
+    --use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
+    --use {'ap/vim-buftabline', config = function() require('mrv.plugins.vim-buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
+    --use {'romgrk/barbar.nvim', config = function() require('mrv.plugins.barbar') end} -- a neovim tabline plugin
+    --use {'voldikss/vim-floaterm', config = function() require('mrv.plugins.floaterm') end} -- use (neo)vim terminal in the floating/popup window
+    --use {'b3nj5m1n/kommentary', config = function() require('mrv.plugins.kommentary') end} -- Neovim commenting plugin, written in lua
+    --use {'qxxxb/vim-searchhi', config = function() require('mrv.plugins.vim-searchhi') end} -- highlight the current search result differently
+    --use {'junegunn/vim-slash', config = function() require('mrv.plugins.slash') end} -- automatically clears search highlight when cursor is moved
 
     -- }}}
 

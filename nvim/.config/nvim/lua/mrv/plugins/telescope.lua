@@ -45,8 +45,8 @@ function TmuxTheme(opts)
     layout_strategy = "vertical",
     layout_config = {mirror = true},
     sorting_strategy = "ascending",
-    -- scroll_strategy = "limit", -- buggy
-    -- path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
+    --scroll_strategy = "limit", -- buggy
+    --path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
@@ -248,7 +248,7 @@ function M.git_status()
     layout_config = {mirror = true},
     sorting_strategy = "ascending",
     scroll_strategy = "limit",
-    -- path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
+    --path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
@@ -299,10 +299,10 @@ utils.remap("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<
 utils.remap("n", "<Leader>fh", "<Cmd>lua require('mrv.plugins.telescope').file_history()<CR>")
 utils.remap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').file_history()<CR>")
 utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
--- utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
+--utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
 utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
 -- LSP pickers
--- utils.remap("n", "<Leader>ds", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
+--utils.remap("n", "<Leader>ds", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 utils.remap("n", "<Leader>sy", "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
 utils.remap("n", "<Leader>ca", "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
 -- Git pickers
@@ -310,7 +310,7 @@ utils.remap("n", "<Leader>co", "<Cmd>lua require('mrv.plugins.telescope').git_co
 utils.remap("n", "<Leader>cb", "<Cmd>lua require('mrv.plugins.telescope').git_bcommits()<CR>")
 utils.remap("n", "<Leader>gs", "<Cmd>lua require('mrv.plugins.telescope').git_status()<CR>")
 -- Lists pickers
--- utils.remap("n", "<Leader>te", "<Cmd>lua require('telescope.builtin').builtin()<CR>")
+--utils.remap("n", "<Leader>te", "<Cmd>lua require('telescope.builtin').builtin()<CR>")
 
 return M
 

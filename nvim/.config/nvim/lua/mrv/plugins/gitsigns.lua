@@ -12,10 +12,10 @@ require('gitsigns').setup {
     ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk({wrap=false})<CR>'"},
     ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk({wrap=false})<CR>'"},
     -- Try out these other mappings
-    -- ['n <Leader>j'] = { expr = true, "&diff ? '<Leader>j' : '<cmd>lua require\"gitsigns.actions\".next_hunk({wrap=false})<CR>'"},
-    -- ['n <Leader>k'] = { expr = true, "&diff ? '<Leader>k' : '<cmd>lua require\"gitsigns.actions\".prev_hunk({wrap=false})<CR>'"},
-    -- ['n <M-]>'] = { expr = true, "&diff ? '<M-]>' : '<cmd>lua require\"gitsigns.actions\".next_hunk({wrap=false})<CR>'"},
-    -- ['n <M-[>'] = { expr = true, "&diff ? '<M-[>' : '<cmd>lua require\"gitsigns.actions\".prev_hunk({wrap=false})<CR>'"},
+    --['n <Leader>j'] = { expr = true, "&diff ? '<Leader>j' : '<cmd>lua require\"gitsigns.actions\".next_hunk({wrap=false})<CR>'"},
+    --['n <Leader>k'] = { expr = true, "&diff ? '<Leader>k' : '<cmd>lua require\"gitsigns.actions\".prev_hunk({wrap=false})<CR>'"},
+    --['n <M-]>'] = { expr = true, "&diff ? '<M-]>' : '<cmd>lua require\"gitsigns.actions\".next_hunk({wrap=false})<CR>'"},
+    --['n <M-[>'] = { expr = true, "&diff ? '<M-[>' : '<cmd>lua require\"gitsigns.actions\".prev_hunk({wrap=false})<CR>'"},
   },
 }
 

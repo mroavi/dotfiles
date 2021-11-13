@@ -12,7 +12,7 @@ utils.remap("n", "<Leader>gp",  "<Cmd>:Git push<CR>")
 utils.remap("n", "<Leader>gl",  "<Cmd>:Git pull<CR>")
 utils.remap("n", "<Leader>glg", "<Cmd>:Git log<CR>")
 -- The LHS of the mappings below are being used elsewhere
--- utils.remap("n", "<Leader>gr",  "<Cmd>:Gread<CR>")
--- utils.remap("n", "<Leader>gdi", "<Cmd>:Gdiff<CR>")
--- utils.remap("n", "<Leader>gds", "<Cmd>:Gdstaged<CR>")
+--utils.remap("n", "<Leader>gr",  "<Cmd>:Gread<CR>")
+--utils.remap("n", "<Leader>gdi", "<Cmd>:Gdiff<CR>")
+--utils.remap("n", "<Leader>gds", "<Cmd>:Gdstaged<CR>")
 
