@@ -320,7 +320,7 @@ utils.remap("n", "<Leader>ca", "<Cmd>lua require('telescope.builtin').lsp_code_a
 -- Git pickers
 utils.remap("n", "<Leader>co", "<Cmd>lua require('mrv.plugins.telescope').git_commits()<CR>")
 utils.remap("n", "<Leader>cb", "<Cmd>lua require('mrv.plugins.telescope').git_bcommits()<CR>")
-utils.remap("n", "<Leader>gs", "<Cmd>lua require('mrv.plugins.telescope').git_status()<CR>")
+utils.remap("n", "<Leader>st", "<Cmd>lua require('mrv.plugins.telescope').git_status()<CR>")
 -- Lists pickers
 --utils.remap("n", "<Leader>tj", "<Cmd>lua require('telescope.builtin').builtin()<CR>")
 
