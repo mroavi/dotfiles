@@ -1,3 +1,4 @@
-" Quit with <Esc>
 nmap <buffer> <Esc> gq
+nmap <buffer> j )
+nmap <buffer> k (
 
