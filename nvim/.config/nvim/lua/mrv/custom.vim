@@ -142,6 +142,16 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
  " Open help in vertical split
  cnoreabbrev H vert bo h
 
+" Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
