@@ -35,14 +35,17 @@ local lspconfig = require'lspconfig'
 
 --- vim ------------------------------------------------------------------------
 
+-- Installation: npm install -g vim-language-server
 lspconfig.vimls.setup{}
 
 --- python ---------------------------------------------------------------------
 
+-- Installation: sudo pacman -S pyright
 lspconfig.pyright.setup{}
 
 --- julia ----------------------------------------------------------------------
 
+--Installtaion: 1. Install Julia 2. Install LanguageServer and SymbolServer packages
 ---- based on: https://github.com/fredrikekre/.dotfiles/tree/master/.config/nvim/lsp-julia
 --local cmd = {
 --  "julia",
@@ -62,10 +65,12 @@ lspconfig.pyright.setup{}
 
 --- bash -----------------------------------------------------------------------
 
+-- Installation: npm i -g bash-language-server
 lspconfig.bashls.setup{}
 
 --- c --------------------------------------------------------------------------
 
+-- Installation: see bootstrap in dotfiles
 lspconfig.clangd.setup{
   cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
   filetypes = { "c", "cpp", "objc", "objcpp"},
@@ -73,6 +78,7 @@ lspconfig.clangd.setup{
 
 --- lua ------------------------------------------------------------------------
 
+-- Installation: sudo pacman -S lua-language-server
 local lua_lsp_dir = "/home/mroavi/lsp-servers/lua-language-server/"
 local luadev = require("lua-dev").setup({
   lspconfig = {
@@ -83,10 +89,12 @@ lspconfig.sumneko_lua.setup(luadev)
 
 --- texlab ---------------------------------------------------------------------
 
+-- Installation: sudo pacman -S texlab
 lspconfig.texlab.setup{}
 
 -- <disabled> ------------------------------------------------------------------
 
+-- Installation: pip install cmake-language-server
 --lspconfig.cmake.setup{}
 
 ---- Example of how to run code depending on a environment variable
