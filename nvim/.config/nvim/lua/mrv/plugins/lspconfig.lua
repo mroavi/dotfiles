@@ -39,7 +39,7 @@ lspconfig.vimls.setup{}
 
 --- python ---------------------------------------------------------------------
 
-lspconfig.jedi_language_server.setup{}
+lspconfig.pyright.setup{}
 
 --- julia ----------------------------------------------------------------------
 
