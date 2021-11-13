@@ -8,31 +8,31 @@ local action_state = require "telescope.actions.state"
 local M = {}
 
 require("telescope").setup{
-	defaults = {
+  defaults = {
     layout_config = {height = 0.9, width = 0.9},
-		sorting_strategy = "descending",
+    sorting_strategy = "descending",
     layout_strategy = "vertical",
-		file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-		grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-		qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-		mappings = {
-			i = {
-				["<esc>"] = actions.close,
-				["<c-k>"] = actions.move_selection_previous,
-				["<c-j>"] = actions.move_selection_next,
-				["<C-q>"] = actions.send_to_qflist,
-				["<M-q>"] = actions.send_selected_to_qflist,
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close,
+        ["<c-k>"] = actions.move_selection_previous,
+        ["<c-j>"] = actions.move_selection_next,
+        ["<C-q>"] = actions.send_to_qflist,
+        ["<M-q>"] = actions.send_selected_to_qflist,
         -- Custom actions
         ["<C-a>"] = function(_) -- add to arglist
             local selection_path = action_state.get_selected_entry()[1]
             vim.cmd('arga ' .. selection_path)
         end
-			},
-			n = {
-				["<esc>"] = actions.close
-			},
-		},
-	}
+      },
+      n = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
 }
 
 ---------------------------------------------------------------------------------
@@ -80,23 +80,23 @@ end
 ---------------------------------------------------------------------------------
 
 function M.find_files()
-	require("telescope.builtin").find_files{
-		file_sorter = require'telescope.sorters'.get_fzy_sorter,
-	}
+  require("telescope.builtin").find_files{
+    file_sorter = require'telescope.sorters'.get_fzy_sorter,
+  }
 end
 
 function M.git_files()
-	require("telescope.builtin").git_files{
-		cwd = vim.fn.expand("%:p:h"),
-	}
+  require("telescope.builtin").git_files{
+    cwd = vim.fn.expand("%:p:h"),
+  }
 end
 
 function M.dotfiles()
-	require('telescope.builtin').find_files {
-		find_command = {'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git',},
-		prompt_title = "Dotfiles",
-		cwd = "~/dotfiles",
-	}
+  require('telescope.builtin').find_files {
+    find_command = {'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git',},
+    prompt_title = "Dotfiles",
+    cwd = "~/dotfiles",
+  }
 end
 
 Args = function(opts)
@@ -163,12 +163,12 @@ function M.buffers()
 end
 
 function M.lines()
-	local ivy_theme = require("telescope.themes").get_ivy({
-		layout_config = {
-			height = 40,
-		},
-	})
-	require("telescope.builtin").current_buffer_fuzzy_find(ivy_theme)
+  local ivy_theme = require("telescope.themes").get_ivy({
+    layout_config = {
+      height = 40,
+    },
+  })
+  require("telescope.builtin").current_buffer_fuzzy_find(ivy_theme)
 end
 
 Marks = function(opts)
@@ -218,27 +218,27 @@ end
 -------------------------------------------------------------------------------
 
 function M.git_commits()
-	require("telescope.builtin").git_commits{
-		cwd = vim.fn.expand("%:p:h"),
-		layout_config = {
-			prompt_position = "top",
+  require("telescope.builtin").git_commits{
+    cwd = vim.fn.expand("%:p:h"),
+    layout_config = {
+      prompt_position = "top",
       mirror = true,
-		},
-		sorting_strategy = "ascending",
+    },
+    sorting_strategy = "ascending",
     layout_strategy = "vertical",
-	}
+  }
 end
 
 function M.git_bcommits()
-	require("telescope.builtin").git_bcommits{
-		cwd = vim.fn.expand("%:p:h"),
-		layout_config = {
-			prompt_position = "top",
+  require("telescope.builtin").git_bcommits{
+    cwd = vim.fn.expand("%:p:h"),
+    layout_config = {
+      prompt_position = "top",
       mirror = true,
-		},
-		sorting_strategy = "ascending",
+    },
+    sorting_strategy = "ascending",
     layout_strategy = "vertical",
-	}
+  }
 end
 
 function M.git_status()
@@ -260,26 +260,26 @@ function M.git_status()
 end
 
 Mru = function(opts)
-	Lines = {}
-	for line in io.lines(vim.fn.expand(vim.g.MRU_File)) do
-		Lines[#Lines + 1] = line
-	end
-	local results = vim.tbl_filter(function(val)
-		return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
-	end, Lines)
-	pickers.new(opts, {
-		prompt_title = 'File History',
-		finder = finders.new_table{
-			results = results,
-			entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-		},
-		sorter = conf.file_sorter(opts),
-		previewer = conf.file_previewer(opts),
-	}):find()
+  Lines = {}
+  for line in io.lines(vim.fn.expand(vim.g.MRU_File)) do
+    Lines[#Lines + 1] = line
+  end
+  local results = vim.tbl_filter(function(val)
+    return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
+  end, Lines)
+  pickers.new(opts, {
+    prompt_title = 'File History',
+    finder = finders.new_table{
+      results = results,
+      entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+    },
+    sorter = conf.file_sorter(opts),
+    previewer = conf.file_previewer(opts),
+  }):find()
 end
 
 function M.file_history()
-	Mru{}
+  Mru{}
 end
 
 ---------------------------------------------------------------------------------
