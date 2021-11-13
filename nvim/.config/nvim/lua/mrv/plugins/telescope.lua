@@ -259,7 +259,7 @@ function M.git_status()
   }
 end
 
-Mru = function(opts)
+RecentFiles = function(opts)
   Lines = {}
   for line in io.lines(vim.fn.expand(vim.g.MRU_File)) do
     Lines[#Lines + 1] = line
@@ -278,8 +278,8 @@ Mru = function(opts)
   }):find()
 end
 
-function M.mru()
-  Mru{
+function M.recent_files()
+  RecentFiles{
     layout_strategy = "vertical",
     layout_config = {mirror = true},
     sorting_strategy = "ascending",
@@ -308,7 +308,7 @@ utils.remap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').git_fil
 utils.remap("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
 utils.remap("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<CR>")
 -- Vim pickers
-utils.remap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').mru()<CR>")
+utils.remap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
 utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 --utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
 utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
