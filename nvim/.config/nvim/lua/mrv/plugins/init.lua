@@ -76,4 +76,4 @@ end
 
 return M
 
--- vim:set foldenable foldmethod=marker:
+-- vim:set foldenable foldmethod=marker nowrap:
