@@ -54,7 +54,7 @@ function TmuxTheme(opts)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       map('i', 'x', actions.delete_buffer)
-      map('i', 'l', actions.file_edit)
+      --map('i', 'l', actions.file_edit)
       return true
     end,
     on_complete = {
@@ -127,7 +127,7 @@ function M.args()
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
-      map('i', 'l', actions.file_edit)
+      --map('i', 'l', actions.file_edit)
       -- Custom actions
       map('i', 'x', function(prompt_bufnr) -- delete from arglist
           local current_picker = action_state.get_current_picker(prompt_bufnr)
@@ -216,7 +216,7 @@ function M.marks()
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
-      map('i', 'l', actions.file_edit)
+      --map('i', 'l', actions.file_edit)
       return true
     end,
   }
@@ -265,7 +265,7 @@ function M.git_status()
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       map('i', 'x', actions.delete_buffer)
-      map('i', 'l', actions.file_edit)
+      --map('i', 'l', actions.file_edit)
       return true
     end,
   }
@@ -303,7 +303,7 @@ function M.recent_files()
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       map('i', 'x', actions.delete_buffer)
-      map('i', 'l', actions.file_edit)
+      --map('i', 'l', actions.file_edit)
       return true
     end,
   }
