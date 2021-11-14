@@ -40,7 +40,7 @@ nnoremap <Leader>sc :cfdo %s///gc<left><left><left>
 nnoremap <expr> gp '`[' . getregtype()[0] . '`]'
 
 " Change to the directory of the current buffer and print it
-nnoremap <Leader>cd :cd %:p:h<CR> :pwd<CR>
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Clear highlight on pressing ESC
 nnoremap <silent> <ESC> :noh<CR><ESC>
