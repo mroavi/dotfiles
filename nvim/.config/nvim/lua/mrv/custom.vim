@@ -152,6 +152,13 @@ function! ToggleQuickFix()
 endfunction
 nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
 
+" Automatically open quickfix window after performing vimgrep
+augroup quickfix
+  autocmd!
+  autocmd QuickFixCmdPost vimgrep cwindow
+  autocmd QuickFixCmdPost lvimgrep lwindow
+augroup END
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
