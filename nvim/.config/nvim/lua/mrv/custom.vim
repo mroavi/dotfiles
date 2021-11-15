@@ -259,7 +259,7 @@ augroup END
 "" Close all buffers but the current one
 "map <Leader>bo :%bdelete\|e#\|bd#<CR>
 
-"" Delete marks a-z on the current line
+"" Delete marks a-z on the current line (https://vi.stackexchange.com/a/13986)
 "function! Delmarks()
 "let l:m = join(filter(
 "   \ map(range(char2nr('a'), char2nr('z')), 'nr2char(v:val)'),
