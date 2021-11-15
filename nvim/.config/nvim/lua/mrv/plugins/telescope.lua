@@ -217,6 +217,17 @@ function M.marks()
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       --map('i', 'l', actions.file_edit)
+      -- Custom actions
+      map('i', 'x', function(prompt_bufnr) -- delete selected mark
+        local current_picker = action_state.get_current_picker(prompt_bufnr)
+        current_picker:delete_selection( function(_)
+          local selection_value = action_state.get_selected_entry().value
+          local selection_mark = vim.fn.split(selection_value)[1]
+          -- TODO: the line below does not work because the mark gets deleted in Telescope's buffer
+          vim.cmd('delmarks ' .. selection_mark)
+          -- Another issue with local marks: https://github.com/neovim/neovim/issues/4295
+          end)
+      end)
       return true
     end,
   }
