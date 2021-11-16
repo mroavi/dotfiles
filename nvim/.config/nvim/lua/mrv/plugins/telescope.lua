@@ -140,19 +140,19 @@ function M.args()
     end,
     on_complete = {
       function(picker)
-        local selection_buf_nr = vim.api.nvim_win_get_buf(picker.original_win_id)
-        local selection_path = vim.api.nvim_buf_get_name(selection_buf_nr)
-        local selection_index
+        local original_bufnr = vim.api.nvim_win_get_buf(picker.original_win_id)
+        local original_buf_path = vim.api.nvim_buf_get_name(original_bufnr)
+        local selected_index
         local i = 1
         for entry in picker.manager:iter() do
           local entry_path = vim.fn.fnamemodify(entry[1], ":p")
-          if entry_path == selection_path then
-            selection_index = i
+          if entry_path == original_buf_path then
+            selected_index = i
             break
           end
           i = i + 1
         end
-        local row = picker:get_row(selection_index)
+        local row = picker:get_row(selected_index)
         picker:set_selection(row)
         picker._completion_callbacks = {}
       end,
