@@ -168,7 +168,7 @@ if !empty(l:m)
     exe 'delmarks' l:m
 endif
 endfunction
-nnoremap <silent> <Leader>dm :<c-u>call Delmarks()<cr>
+nnoremap <silent> <Leader>dm :<C-u>call Delmarks()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
