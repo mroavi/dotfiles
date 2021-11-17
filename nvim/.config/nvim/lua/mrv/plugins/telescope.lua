@@ -204,6 +204,7 @@ Marks = function(opts)
   }):find()
 end
 
+-- Local marks BUG: https://github.com/neovim/neovim/issues/4295
 function M.marks()
   Marks{
     layout_strategy = "vertical",
@@ -223,9 +224,8 @@ function M.marks()
         current_picker:delete_selection( function(_)
           local selection_value = action_state.get_selected_entry().value
           local selection_mark = vim.fn.split(selection_value)[1]
-          -- TODO: the line below does not work because the mark gets deleted in Telescope's buffer
-          vim.cmd('delmarks ' .. selection_mark)
-          -- Another issue with local marks: https://github.com/neovim/neovim/issues/4295
+          local original_bufnr = vim.api.nvim_win_get_buf(current_picker.original_win_id)
+          vim.api.nvim_buf_del_mark(original_bufnr, selection_mark)
           end)
       end)
       return true
