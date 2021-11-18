@@ -4,6 +4,7 @@
 
 let b:serial_port = '/dev/ttyACM0'
 let b:serial_baud = '9600'
+"let b:board = 'arduino:avr:uno'
 let b:board = 'arduino:avr:mega'
 
 " Open a BOTTOM split with active buffer as CWD (TODO: does now work if the current buffer's file name contains spaces)
