@@ -40,6 +40,7 @@ M.setup = function()
     use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
     use {'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end}
     use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
+    use {'junegunn/gv.vim', config = function() require('mrv.plugins.gv') end} -- a git commit browser in Vim
 
     -- {{{1
 

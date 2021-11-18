@@ -1,0 +1,2 @@
+nmap <buffer> <Esc> gq
+
