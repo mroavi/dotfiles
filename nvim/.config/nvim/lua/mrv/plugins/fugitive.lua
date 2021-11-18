@@ -16,3 +16,11 @@ utils.remap("n", "<Leader>glg", "<Cmd>:Git log<CR>")
 --utils.remap("n", "<Leader>gdi", "<Cmd>:Gdiff<CR>")
 --utils.remap("n", "<Leader>gds", "<Cmd>:Gdstaged<CR>")
 
+-- Emulates the zsh aliases in nvim's command line
+vim.cmd('cnoreabbrev gst  Gedit :')
+vim.cmd('cnoreabbrev ga   Gwrite')
+vim.cmd('cnoreabbrev gc   Git commit -v')
+vim.cmd('cnoreabbrev gp   Git push')
+vim.cmd('cnoreabbrev gl   Git pull')
+--vim.cmd('cnoreabbrev glg  Git log') -- using GV in favor of this
+
