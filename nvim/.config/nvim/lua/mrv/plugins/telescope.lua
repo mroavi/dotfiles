@@ -233,6 +233,44 @@ function M.marks()
   }
 end
 
+RecentFiles = function(opts)
+  Lines = {}
+  for line in io.lines(vim.fn.expand(vim.g.MRU_File)) do
+    Lines[#Lines + 1] = line
+  end
+  local results = vim.tbl_filter(function(val)
+    return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
+  end, Lines)
+  pickers.new(opts, {
+    prompt_title = 'File History',
+    finder = finders.new_table{
+      results = results,
+      entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+    },
+    sorter = conf.file_sorter(opts),
+    previewer = conf.file_previewer(opts),
+  }):find()
+end
+
+function M.recent_files()
+  RecentFiles{
+    layout_strategy = "vertical",
+    layout_config = {
+      mirror = true,
+      prompt_position = "top",
+    },
+    sorting_strategy = "ascending",
+    scroll_strategy = "cycle",
+    attach_mappings = function(_, map)
+      map('i', 'k', actions.move_selection_previous)
+      map('i', 'j', actions.move_selection_next)
+      map('i', 'x', actions.delete_buffer)
+      --map('i', 'l', actions.file_edit)
+      return true
+    end,
+  }
+end
+
 -------------------------------------------------------------------------------
 --- Git Pickers
 -------------------------------------------------------------------------------
@@ -272,44 +310,6 @@ function M.git_status()
     sorting_strategy = "ascending",
     scroll_strategy = "limit",
     --path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
-    attach_mappings = function(_, map)
-      map('i', 'k', actions.move_selection_previous)
-      map('i', 'j', actions.move_selection_next)
-      map('i', 'x', actions.delete_buffer)
-      --map('i', 'l', actions.file_edit)
-      return true
-    end,
-  }
-end
-
-RecentFiles = function(opts)
-  Lines = {}
-  for line in io.lines(vim.fn.expand(vim.g.MRU_File)) do
-    Lines[#Lines + 1] = line
-  end
-  local results = vim.tbl_filter(function(val)
-    return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
-  end, Lines)
-  pickers.new(opts, {
-    prompt_title = 'File History',
-    finder = finders.new_table{
-      results = results,
-      entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-    },
-    sorter = conf.file_sorter(opts),
-    previewer = conf.file_previewer(opts),
-  }):find()
-end
-
-function M.recent_files()
-  RecentFiles{
-    layout_strategy = "vertical",
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
-    scroll_strategy = "cycle",
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
