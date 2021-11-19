@@ -17,6 +17,7 @@ utils.remap("n", "<Leader>gl",  "<Cmd>:Git pull<CR>")
 --utils.remap("n", "<Leader>gds", "<Cmd>:Gdstaged<CR>")
 
 -- Emulates the zsh aliases in nvim's command line
+vim.cmd('cnoreabbrev git  Git')
 vim.cmd('cnoreabbrev gst  Gedit :')
 vim.cmd('cnoreabbrev ga   Gwrite')
 vim.cmd('cnoreabbrev gc   Git commit -v')
