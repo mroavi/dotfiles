@@ -22,7 +22,7 @@ let b:commentary_format = '--%s'
 
 function! InsertPrintStatement()
   let l:last_search = substitute(@/,'\\<\|\\>\|\\V','','g')
-  exe 'normal! o' . 'print("' . l:last_search ': ", ' . l:last_search . ')'
+  exe 'normal! o' . 'print("' . l:last_search . ': ", ' . l:last_search . ')'
 endfunction
 nnoremap <buffer> <Leader>pr :<C-u>call InsertPrintStatement()<CR>
 
