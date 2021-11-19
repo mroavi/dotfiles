@@ -242,7 +242,7 @@ RecentFiles = function(opts)
     return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
   end, Lines)
   pickers.new(opts, {
-    prompt_title = 'File History',
+    prompt_title = 'Recent Files',
     finder = finders.new_table{
       results = results,
       entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
