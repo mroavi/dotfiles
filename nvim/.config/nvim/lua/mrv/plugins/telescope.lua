@@ -61,13 +61,13 @@ function TmuxTheme(opts)
       function(picker)
         local buf = vim.api.nvim_win_get_buf(picker.original_win_id)
         local selection_index
-        local idx = 1
+        local i = 1
         for entry in picker.manager:iter() do
           if entry.bufnr == buf then
-            selection_index = idx
+            selection_index = i
             break
           end
-          idx = idx + 1
+          i = i + 1
         end
         local row = picker:get_row(selection_index)
         picker:set_selection(row)
