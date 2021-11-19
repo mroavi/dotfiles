@@ -61,10 +61,6 @@ noremap <C-M-Right> :vertical resize -3<CR>
 " Spelling completion in normal mode ( https://stackoverflow.com/a/25777332/1706778 )
 nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 
-" Alternate mappings for go to next/prev mark
-nnoremap <Leader>k ['
-nnoremap <Leader>j ]'
-
 " Highlight the yanked text
 augroup highlight_yank
   autocmd!
@@ -269,4 +265,8 @@ nnoremap <silent> <Leader>dm :<C-u>call Delmarks()<CR>
 
 "" Close all buffers but the current one
 "map <Leader>bo :%bdelete\|e#\|bd#<CR>
+
+"" Alternate mappings for go to next/prev mark
+"nnoremap <Leader>k ['
+"nnoremap <Leader>j ]'
 
