@@ -327,17 +327,18 @@ end
 local utils = require('mrv.utils')
 
 -- File pickers
-utils.remap("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
 utils.remap("n", "<Leader>f", "<Cmd>lua require('mrv.plugins.telescope').find_files()<CR>")
 utils.remap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').git_files()<CR>")
 --utils.remap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
 utils.remap("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
 utils.remap("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<CR>")
 -- Vim pickers
-utils.remap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
-utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
+utils.remap("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
 --utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
 utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
+utils.remap("n", "<Leader>hl", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
+utils.remap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
+utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 utils.remap("n", "<Leader>he", "<Cmd>lua require('telescope.builtin').help_tags()<CR>")
 --utils.remap("n", "<Leader>ma", "<Cmd>lua require('telescope.builtin').keymaps()<CR>")
 -- LSP pickers
