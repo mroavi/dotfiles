@@ -10,13 +10,13 @@ nnoremap <buffer><Leader>m2 m`<S-o>---<Esc>77a-<Esc>yyjp``
 nnoremap <buffer><Leader>m3 m`0dw :center 80<CR>hhv0r-A<Space><Esc>40A-<Esc>d77<Bar>I--<Space><Esc>``
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-commentary
+""" vim-commentary
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " No space between comment characters and code
 let b:commentary_format = '--%s'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Debug Utilities
+""" Debug Utilities
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertPrintStatement()
   let l:last_search = substitute(@/,'\\<\|\\>\|\\V','','g')
