@@ -42,7 +42,7 @@ nmap <buffer><silent> <Leader>e :write<CR>:luafile %<CR>
 lua function _G.buf_sel_start() return vim.api.nvim_buf_get_mark(0, '<')[1] end
 lua function _G.buf_sel_end() return vim.api.nvim_buf_get_mark(0, '>')[1] end
 " Function that gets executed after the motion is finished
-function! SourceVisualText(type)
+function! SourceMotion(type)
   " Yank the text covered by the motion/textobject
   silent exe 'normal! `[v`]Vy'    
   " Make a range with the selection start and end row numbers with "source"
@@ -54,11 +54,11 @@ function! SourceVisualText(type)
 endfunction
 
 "" Use either this line which does not support mapping predefined motions/textobjects
-"nnoremap <silent> s :let g:view=winsaveview()<Bar>set opfunc=SourceVisualText<CR>g@
+"nnoremap <silent> s :let g:view=winsaveview()<Bar>set opfunc=SourceMotion<CR>g@
 
 " or these lines that do support them
 " E.g, here we map Alt+Enter to `sic`, which executes the current cell
-noremap <SID>Operator :let g:view=winsaveview()<Bar>set opfunc=SourceVisualText<CR>g@
+noremap <SID>Operator :let g:view=winsaveview()<Bar>set opfunc=SourceMotion<CR>g@
 noremap <unique> <script> <silent> <Plug>LuaMotionSend <SID>Operator
 nmap <buffer> s <Plug>LuaMotionSend
 nmap <buffer> <M-Cr> sic
