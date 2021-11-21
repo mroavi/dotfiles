@@ -32,7 +32,7 @@ nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<lef
 vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 
 " Grep recursively in current directory and send results to quickfix list
-nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
+nnoremap <Leader>vg :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
 " Run :substitute inside every entry in the quickfix list
 nnoremap <Leader>sc :cfdo %s///gc<left><left><left>
 
