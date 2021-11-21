@@ -97,7 +97,7 @@ function! GoToPrevDelim(delim)
   endif 
 endfunction
 
-" My custom text object for cells
+""""""""""""""""""""""" My custom text object for cells """""""""""""""""""""""
 " Based on: https://vimways.org/2018/transactions-pending/
 function! s:cellTextObject(text_object_type)
   " Get the first character of the 'commentstring' and duplicate it
