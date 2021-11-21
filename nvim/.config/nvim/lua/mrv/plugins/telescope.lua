@@ -103,6 +103,10 @@ function M.dotfiles()
   }
 end
 
+---------------------------------------------------------------------------------
+--- My Custom File Pickers
+---------------------------------------------------------------------------------
+
 Args = function(opts)
   local results = vim.fn.argv()
   pickers.new(opts, {
@@ -177,6 +181,10 @@ function M.lines()
   })
   require("telescope.builtin").current_buffer_fuzzy_find(ivy_theme)
 end
+
+---------------------------------------------------------------------------------
+--- My Custom Vim Pickers
+---------------------------------------------------------------------------------
 
 Marks = function(opts)
   local marks = vim.api.nvim_exec("marks", true)
@@ -265,6 +273,67 @@ function M.recent_files()
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       --map('i', 'l', actions.file_edit)
+      return true
+    end,
+  }
+end
+
+Hunks = function(opts)
+  local current_buffer = vim.api.nvim_get_current_buf()
+  local ok, gitsigns = pcall(require, 'gitsigns')
+  if not ok then
+    vim.api.nvim_echo({{'gitsigns plugin not found', 'WarningMsg'}}, false, {})
+    return
+  end
+  local hunks = gitsigns.get_hunks(current_buffer)
+  local current_buffer_path = vim.api.nvim_buf_get_name(current_buffer)
+  local results = {}
+  for _, hunk in pairs(hunks) do
+    table.insert(results, {hunk.added.start, hunk.lines[1], current_buffer_path})
+  end
+  -- Create new picker
+  pickers.new(opts, {
+    prompt_title = "Hunks",
+    finder = finders.new_table {
+      results = results,
+      entry_maker = function(entry)
+        return {
+          value = entry,
+          display = string.format("%-6d", entry[1]) .. entry[2],
+          ordinal = entry[1],
+          lnum = entry[1],
+          path = entry[3],
+        }
+      end
+    },
+    previewer = conf.grep_previewer(opts),
+    sorter = conf.generic_sorter(opts),
+  }):find()
+end
+
+function M.hunks()
+  Hunks{
+    layout_strategy = "vertical",
+    layout_config = {
+      mirror = true,
+      prompt_position = "top",
+    },
+    sorting_strategy = "ascending",
+    scroll_strategy = "cycle",
+    attach_mappings = function(prompt_bufnr, map)
+      map('i', 'k', actions.move_selection_previous)
+      map('i', 'j', actions.move_selection_next)
+      -- Custom actions
+      actions.select_default:replace(function()
+        -- TODO: See if this can be implemented with action_set. edit. look at actions/set.lua line 139
+        local entry = action_state.get_selected_entry()
+        local current_picker = action_state.get_current_picker(prompt_bufnr)
+        local original_bufnr = vim.api.nvim_win_get_buf(current_picker.original_win_id)
+        vim.api.nvim_buf_call(original_bufnr, function(_)
+          vim.cmd(string.format("%d",entry.lnum))
+        end)
+        actions.close(prompt_bufnr)
+      end)
       return true
     end,
   }
