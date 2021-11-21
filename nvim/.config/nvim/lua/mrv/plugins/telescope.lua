@@ -4,6 +4,7 @@ local finders = require('telescope.finders')
 local make_entry = require('telescope.make_entry')
 local conf = require('telescope.config').values
 local action_state = require "telescope.actions.state"
+local entry_display = require "telescope.pickers.entry_display"
 
 local M = {}
 
@@ -242,13 +243,13 @@ function M.marks()
 end
 
 RecentFiles = function(opts)
-  Lines = {}
-  for line in io.lines(vim.fn.expand(vim.g.MRU_File)) do
-    Lines[#Lines + 1] = line
+  local mru_entries = {}
+  for mru_entry in io.lines(vim.fn.expand(vim.g.MRU_File)) do
+    mru_entries[#mru_entries + 1] = mru_entry
   end
   local results = vim.tbl_filter(function(val)
     return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
-  end, Lines)
+  end, mru_entries)
   pickers.new(opts, {
     prompt_title = 'Recent Files',
     finder = finders.new_table{
