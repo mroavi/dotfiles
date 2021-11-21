@@ -138,7 +138,7 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
  " Open help in vertical split
- cnoreabbrev H vert bo h
+ cnoreabbrev h vert bo h
 
 " Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
 function! ToggleQuickFix()
