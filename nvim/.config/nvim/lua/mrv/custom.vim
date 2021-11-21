@@ -206,7 +206,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Clear messages
-nnoremap <silent><Leader>cl :messages clear<CR>
+nnoremap <silent><Leader>mc :messages clear<CR>
 
 " Show messages
 nnoremap <silent><Leader>me :messages<CR>
