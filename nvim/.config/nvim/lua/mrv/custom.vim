@@ -100,23 +100,24 @@ endfunction
 """"""""""""""""""""""" My custom text object for cells """""""""""""""""""""""
 " Based on: https://vimways.org/2018/transactions-pending/
 function! s:cellTextObject(text_object_type)
-  " Get the first character of the 'commentstring' and duplicate it
-  let l:delim_cell = repeat(split(&commentstring, '%s')[0][0], 2)
-  " Create a regex that searches the cell delim
-  "let l:pattern_cell = '^' . l:delim_cell
-  let l:pattern_cell = l:delim_cell
+  " Get the first character of the buffer's 'commentstring'
+  let l:comment_char = split(&commentstring, '%s')[0][0]
+  " Create a default cell delimeter regex pattern by duplicating the comment character
+  let l:cell_delimeter_default = repeat(l:comment_char, 2)
+  " Get `b:cell_delimeter` regex pattern if it exists, otherwise get `l:cell_delimeter_default`
+  let l:cell_delimeter = get(b:, "cell_delimeter", l:cell_delimeter_default)
   " Move cursor to the previous cell delimiter if found, otherwise, to top-left of buffer
-  if (!search(l:pattern_cell, "bcW")) | silent exe "normal! gg0" | endif 
+  if (!search(l:cell_delimeter, "bcW")) | silent exe "normal! gg0" | endif 
   " Did we receive 'i' as argument (inner cell)?
   if a:text_object_type ==# 'i'
     " Yes, then jump to next valid statement (skips empty lines and those starting with comment char)
-    let l:pattern_statement =  '^\(\s*' . l:delim_cell[0] . '\)\@!\s*\S\+'
+    let l:pattern_statement =  '^\(\s*' . l:comment_char . '\)\@!\s*\S\+'
     call search(l:pattern_statement, "cW")
   endif
   " Start visual line mode
   normal! V
   " Move cursor to the next cell delimiter if found, otherwise, to bottom of buffer
-  if (!search(l:pattern_cell, "W")) | exe "normal! G" | endif
+  if (!search(l:cell_delimeter, "W")) | exe "normal! G" | endif
   " Did we receive 'i' as argument (inner cell)?
   if a:text_object_type ==# 'i'
     " Yes, then jump to prev valid statement (skips empty lines and those starting with comment char)
@@ -205,10 +206,10 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Clear messages
-nnoremap <buffer><Leader>cl :messages clear<CR>
+nnoremap <silent><Leader>cl :messages clear<CR>
 
 " Show messages
-nnoremap <buffer><Leader>me :messages clear<Bar>:messages<CR>
+nnoremap <silent><Leader>me :messages<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
