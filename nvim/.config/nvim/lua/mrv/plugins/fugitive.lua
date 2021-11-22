@@ -24,6 +24,7 @@ vim.cmd('cnoreabbrev gst  Gedit :')
 vim.cmd('cnoreabbrev gd   Gdiffsplit') -- Gdiff is broken
 vim.cmd('cnoreabbrev ga   Gwrite')
 vim.cmd('cnoreabbrev gc   Git commit -v')
+vim.cmd('cnoreabbrev gc!  Git commit -v --amend')
 vim.cmd('cnoreabbrev gp   Git push')
 vim.cmd('cnoreabbrev gl   Git pull')
 --vim.cmd('cnoreabbrev glg  Git log') -- using GV in favor of this

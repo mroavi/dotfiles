@@ -142,7 +142,7 @@ alias gl='git pull'
 alias glg='git log --stat'
 alias gd='git diff'
 alias gco='git checkout'
-alias gc!='git commit -v --amend'
+alias gca='git commit -v --amend'
 
 # =============================================================================
 ## Dir navigation
