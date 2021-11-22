@@ -1,7 +1,7 @@
 vim.g.vimtex_compiler_latexmk = {
   build_dir = "build",
   continuous = true,
-} 
+}
 
 -- Configure Okular
 vim.g.vimtex_view_general_viewer = "okular"
