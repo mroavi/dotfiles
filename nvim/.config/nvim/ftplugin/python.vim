@@ -37,8 +37,8 @@ nnoremap <buffer><silent> <Leader>tr :TomuxCommand("send-keys -t " . shellescape
 nnoremap <buffer><silent> <Leader>tq :TomuxCommand("send-keys -t " . shellescape(g:tomux_config["target_pane"]) . " C-c")<CR>:TomuxSend(b:quit_repl_cmd . "\n")<CR>
 " Kill pane
 nnoremap <buffer><silent> <Leader>tk :TomuxCommand("kill-pane -t " . shellescape(g:tomux_config["target_pane"]))<CR>
-" Run file
-nnoremap <buffer><silent><expr> <C-S-Cr> ':TomuxSend("exec(open(\"' . expand('%:p') . '\").read())\n")<CR>'
+" Execute file
+nnoremap <buffer><silent><expr> <Leader>e ':TomuxSend("exec(open(\"' . expand('%:p') . '\").read())\n")<CR>'
 " Clear REPL
 nnoremap <buffer><silent> <Leader>cl :TomuxSend("print(\"\\n\" * 100)\n")<CR>
 
