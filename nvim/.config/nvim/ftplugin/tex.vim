@@ -2,7 +2,7 @@
 setlocal spell spelllang=en_us
 
 " Open table of contents
-nmap <buffer> <Leader><Leader> \lt
+nmap <buffer> <Leader>\ \lt
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-commentary
