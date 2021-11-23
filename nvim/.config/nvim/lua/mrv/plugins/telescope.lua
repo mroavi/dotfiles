@@ -5,6 +5,9 @@ local make_entry = require('telescope.make_entry')
 local conf = require('telescope.config').values
 local action_state = require "telescope.actions.state"
 local entry_display = require "telescope.pickers.entry_display"
+local utils = require('telescope.utils')
+local strings = require('plenary.strings')
+local Path = require('plenary.path')
 
 local M = {}
 
@@ -36,9 +39,9 @@ require("telescope").setup{
   }
 }
 
----------------------------------------------------------------------------------
--- My themes
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--- My themes
+--------------------------------------------------------------------------------
 
 function TmuxTheme(opts)
   opts = opts or {}
@@ -79,9 +82,9 @@ function TmuxTheme(opts)
   return vim.tbl_deep_extend("force", theme_opts, opts)
 end
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 --- File Pickers
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 function M.find_files()
   require("telescope.builtin").find_files{
@@ -104,11 +107,14 @@ function M.dotfiles()
   }
 end
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 --- My Custom File Pickers
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+-- ------------------------------------- Args ----------------------------------
 
 Args = function(opts)
+  -- TODO: store a field that can be used to sort the entries based on how old they are
   local results = vim.fn.argv()
   pickers.new(opts, {
     prompt_title = 'Argument List',
@@ -166,9 +172,9 @@ function M.args()
   Args(opts)
 end
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 --- Vim Pickers
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 function M.buffers()
   require("telescope.builtin").buffers(TmuxTheme())
@@ -194,9 +200,11 @@ function M.help_tags()
   })
 end
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 --- My Custom Vim Pickers
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+--- ----------------------------------- Marks ----------------------------------
 
 Marks = function(opts)
   local marks = vim.api.nvim_exec("marks", true)
@@ -253,19 +261,106 @@ function M.marks()
   }
 end
 
+--- -------------------------------- Recent Files ------------------------------
+
+-- Source:
+--  https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#entry-maker
+--  https://github.com/TC72/telescope-tele-tabby.nvim/blob/main/lua/telescope/_extensions/tele_tabby.lua
+
+local function make_entry_gen_from_recent_files(opts)
+
+  opts = opts or {}
+
+  local disable_devicons = opts.disable_devicons
+
+  local icon_width = 0
+  if not disable_devicons then
+    local icon, _ = utils.get_devicons('fname', disable_devicons)
+    icon_width = strings.strdisplaywidth(icon)
+  end
+
+  local make_display = function(entry)
+
+    local cwd = vim.fn.expand(opts.cwd or vim.loop.cwd())
+    local display_path = Path:new(entry.path):normalize(cwd)
+
+    local pathtofile = vim.fn.fnamemodify(display_path, ":h")
+    local filename = vim.fn.fnamemodify(display_path, ":t")
+
+    local icon, hl_group = utils.get_devicons(filename, disable_devicons)
+
+    local displayer = entry_display.create {
+      separator = "",
+      items = {
+        { width = (icon_width + 3) },
+        { width = string.len(pathtofile)},
+        { width = 1 },
+        { remaining = true },
+      },
+    }
+
+    return displayer {
+      { icon, hl_group },
+      pathtofile,
+      '/',
+      { filename, "TelescopeResultsIdentifier" },
+    }
+  end
+
+  return function(entry)
+
+    return {
+      valid = true,
+      value = entry,
+      display = make_display,
+      ordinal = entry.path,
+      path = entry.path,
+    }
+
+  end
+end
+
 RecentFiles = function(opts)
+
   local mru_entries = {}
+
   for mru_entry in io.lines(vim.fn.expand(vim.g.MRU_File)) do
     mru_entries[#mru_entries + 1] = mru_entry
   end
-  local results = vim.tbl_filter(function(val)
+
+  local mru_entries_filtered = vim.tbl_filter(function(val)
     return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
   end, mru_entries)
+
+  local results = {}
+
+  for _, mru_entry in pairs(mru_entries_filtered) do
+
+    local element = {
+      ordinal = mru_entry,
+      path = mru_entry,
+      --path = Path:new({ opts.cwd, mru_entry }):absolute(),
+    }
+
+    table.insert(results, element)
+
+  end
+
+  ---- This works with: entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+  --local mru_entries = {}
+  --for mru_entry in io.lines(vim.fn.expand(vim.g.MRU_File)) do
+  --  mru_entries[#mru_entries + 1] = mru_entry
+  --end
+  --local results = vim.tbl_filter(function(val)
+  --  return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
+  --end, mru_entries)
+
   pickers.new(opts, {
     prompt_title = 'Recent Files',
     finder = finders.new_table{
       results = results,
-      entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+      --entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+      entry_maker = make_entry_gen_from_recent_files(opts),
     },
     sorter = conf.file_sorter(opts),
     previewer = conf.file_previewer(opts),
@@ -289,6 +384,8 @@ function M.recent_files()
     end,
   }
 end
+
+--- ----------------------------------- Hunks ----------------------------------
 
 Hunks = function(opts)
   local current_buffer = vim.api.nvim_get_current_buf()
@@ -337,12 +434,11 @@ function M.hunks()
       map('i', 'j', actions.move_selection_next)
       -- Custom actions
       actions.select_default:replace(function()
-        -- TODO: See if this can be implemented with action_set. edit. look at actions/set.lua line 139
-        local entry = action_state.get_selected_entry()
         local current_picker = action_state.get_current_picker(prompt_bufnr)
         local original_bufnr = vim.api.nvim_win_get_buf(current_picker.original_win_id)
         vim.api.nvim_buf_call(original_bufnr, function(_)
-          vim.cmd(string.format("%d",entry.lnum))
+          local entry = action_state.get_selected_entry()
+          vim.cmd(string.format("%d", entry.lnum))
         end)
         actions.close(prompt_bufnr)
       end)
@@ -405,7 +501,6 @@ end
 ---------------------------------------------------------------------------------
 
 local utils = require('mrv.utils')
-
 -- File pickers
 utils.remap("n", "<Leader>f", "<Cmd>lua require('mrv.plugins.telescope').find_files()<CR>")
 utils.remap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').git_files()<CR>")
@@ -416,7 +511,7 @@ utils.remap("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<
 utils.remap("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
 --utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
 utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
-utils.remap("n", "<Leader>hl", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
+utils.remap("n", "<Leader>hh", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
 utils.remap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
 utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 utils.remap("n", "<Leader>he", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
