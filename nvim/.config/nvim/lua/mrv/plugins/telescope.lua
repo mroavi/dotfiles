@@ -303,7 +303,7 @@ local function make_entry_gen_from_recent_files(opts)
       { icon, hl_group },
       pathtofile,
       '/',
-      { filename, "TelescopeResultsIdentifier" },
+      { filename, "TelescopePreviewExecute" },
     }
   end
 
