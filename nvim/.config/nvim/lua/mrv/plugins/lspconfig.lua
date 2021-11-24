@@ -107,10 +107,24 @@ lspconfig.sumneko_lua.setup(luadev)
 lspconfig.texlab.setup{}
 
 --------------------------------------------------------------------------------
---- cmake
+--- arduino
 --------------------------------------------------------------------------------
 
--- <disabled> ------------------------------------------------------------------
+---- Installation: yay -S arduino-language-server-git
+--lspconfig.arduino_language_server.setup({
+--  cmd =  {
+--    -- Required
+--    "arduino-language-server",
+--    "-cli-config", "/home/mroavi/.arduino15/arduino-cli.yaml",
+--    -- Optional
+--    "-cli", "/bin/arduino-cli",
+--    "-clangd", "/bin/clangd"
+--  }
+--})
+
+--------------------------------------------------------------------------------
+--- cmake
+--------------------------------------------------------------------------------
 
 -- Installation: pip install cmake-language-server
 --lspconfig.cmake.setup{}
