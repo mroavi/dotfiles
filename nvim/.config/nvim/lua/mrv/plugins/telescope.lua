@@ -217,8 +217,10 @@ Marks = function(opts)
     return string.match(mark, "%l") ~= nil -- return false for all non-lower case marks
   end, marks_table)
   -- Sort results by line number
-  table.sort(results, function(a,b)
-    return vim.fn.split(a)[2] < vim.fn.split(b)[2]
+  table.sort(results, function(a, b)
+    local a_row_num = tonumber(vim.fn.split(a)[2])
+    local b_row_num = tonumber(vim.fn.split(b)[2])
+    return a_row_num < b_row_num
   end)
   -- Create new picker
   pickers.new(opts, {
