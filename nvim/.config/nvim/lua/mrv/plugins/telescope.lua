@@ -178,13 +178,16 @@ function M.buffers()
   require("telescope.builtin").buffers(TmuxTheme())
 end
 
-function M.lines()
-  local ivy_theme = require("telescope.themes").get_ivy({
+function M.buffer_lines()
+  local opts = {
+    layout_strategy = "vertical",
     layout_config = {
-      height = 40,
+      mirror = true,
+      prompt_position = "top",
     },
-  })
-  require("telescope.builtin").current_buffer_fuzzy_find(ivy_theme)
+    sorting_strategy = "ascending",
+  }
+  require("telescope.builtin").current_buffer_fuzzy_find(opts)
 end
 
 function M.help_tags()
@@ -196,6 +199,27 @@ function M.help_tags()
       return true
     end,
   })
+end
+
+-- Sort based on line number of the result hits
+function M.fuzzy_star_search()
+  local opts = {
+    default_text=vim.fn.expand("<cword>"),
+    layout_strategy = "vertical",
+    layout_config = {
+      mirror = true,
+      prompt_position = "top",
+    },
+    sorting_strategy = "ascending",
+    scroll_strategy = "limit",
+    attach_mappings = function(_, map)
+      map('i', 'k', actions.move_selection_previous)
+      map('i', 'j', actions.move_selection_next)
+      map('i', 'x', actions.delete_buffer)
+      return true
+    end,
+  }
+  require("telescope.builtin").current_buffer_fuzzy_find(opts)
 end
 
 --------------------------------------------------------------------------------
@@ -561,9 +585,10 @@ my_utils.remap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').git_
 --my_utils.remap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
 my_utils.remap("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
 my_utils.remap("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<CR>")
+my_utils.remap("n", "<Leader>*", "<Cmd>lua require('mrv.plugins.telescope').fuzzy_star_search()<CR>")
 -- Vim pickers
 my_utils.remap("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
---my_utils.remap("n", "<Leader>bl", "<Cmd>lua require('mrv.plugins.telescope').lines()<CR>")
+my_utils.remap("n", "<Leader>/", "<Cmd>lua require('mrv.plugins.telescope').buffer_lines()<CR>")
 my_utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
 my_utils.remap("n", "<Leader>hh", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
 my_utils.remap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
