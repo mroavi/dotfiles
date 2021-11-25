@@ -23,10 +23,12 @@ require("telescope").setup{
     mappings = {
       i = {
         ["<esc>"] = actions.close,
-        ["<c-k>"] = actions.move_selection_previous,
-        ["<c-j>"] = actions.move_selection_next,
+        ["<C-p>"] = actions.move_selection_previous,
+        ["<C-n>"] = actions.move_selection_next,
         ["<C-q>"] = actions.send_to_qflist,
         ["<M-q>"] = actions.send_selected_to_qflist,
+        ["<C-l>"] = actions.file_vsplit,
+        ["<C-j>"] = actions.file_split,
         -- Custom actions
         ["<C-a>"] = function(_) -- add to arglist
             local selection_path = action_state.get_selected_entry()[1]
@@ -193,9 +195,7 @@ end
 function M.help_tags()
   require('telescope.builtin').help_tags({
     attach_mappings = function(_,map)
-      --actions.select_default:replace(actions.file_vsplit)
-      map('i', 'L', actions.file_vsplit)
-      map('i', 'J', actions.file_split)
+      actions.select_default:replace(actions.file_vsplit)
       return true
     end,
   })
