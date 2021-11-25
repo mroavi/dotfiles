@@ -19,6 +19,7 @@ require("telescope").setup{
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+    path_display = {"smart"},
     mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -52,13 +53,11 @@ function TmuxTheme(opts)
       prompt_position = "top",
     },
     sorting_strategy = "ascending",
-    --scroll_strategy = "limit", -- buggy
-    --path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
+    --scroll_strategy = "limit",
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       map('i', 'x', actions.delete_buffer)
-      --map('i', 'l', actions.file_edit)
       return true
     end,
     on_complete = {
@@ -542,12 +541,10 @@ function M.git_status()
     },
     sorting_strategy = "ascending",
     scroll_strategy = "limit",
-    --path_display = {"tail"}, -- TODO: change to "smart" when merged: https://github.com/caojoshua/telescope.nvim/pull/1
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       map('i', 'x', actions.delete_buffer)
-      --map('i', 'l', actions.file_edit)
       return true
     end,
   }
