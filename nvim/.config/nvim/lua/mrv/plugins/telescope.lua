@@ -281,6 +281,8 @@ local function make_entry_gen_from_recent_files(opts)
     icon_width = strings.strdisplaywidth(icon)
   end
 
+  -- `entry` is the table returned by the function that is returned by this function
+  -- This means that I can access `entry.value`, `entry.ordinal` and `entry.path`
   local make_display = function(entry)
 
     local cwd = vim.fn.expand(opts.cwd or vim.loop.cwd())
@@ -309,14 +311,17 @@ local function make_entry_gen_from_recent_files(opts)
     }
   end
 
-  return function(entry)
+  -- This function is assigned to the finder's `entry_maker` field
+  -- It allows us set the fields we need. mrv: in the displayer
+  -- `result` takes the value of each table inside the finder's `results` field
+  return function(result)
 
     return {
       valid = true,
-      value = entry,
+      value = result,
       display = make_display,
-      ordinal = entry.path,
-      path = entry.path,
+      ordinal = result.path,
+      path = result.path,
     }
 
   end
