@@ -138,7 +138,6 @@ function M.args()
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
-      --map('i', 'l', actions.file_edit)
       -- Custom actions
       map('i', 'x', function(prompt_bufnr) -- delete from arglist
           local current_picker = action_state.get_current_picker(prompt_bufnr)
@@ -206,28 +205,80 @@ end
 
 --- ----------------------------------- Marks ----------------------------------
 
+local function make_entry_gen_from_marks(_)
+
+  -- `entry` is the table returned by the function that is returned by this function
+  -- This means that I can access `entry.value`, `entry.ordinal` and `entry.path`
+  local make_display = function(entry)
+
+    local displayer = entry_display.create {
+      separator = "",
+      items = {
+        { width = 5 },
+        { width = 5 },
+        { width = 5 },
+        { remaining = true },
+      },
+    }
+
+    return displayer {
+      { entry.mark, "TelescopeResultsIdentifier" },
+      { entry.lnum, "TelescopePreviewGroup" },
+      { entry.col, "TelescopeResultsSpecialComment" },
+      entry.text,
+    }
+  end
+
+  -- This function is assigned to the finder's `entry_maker` field
+  -- It allows us set the fields we need. mrv: in the displayer
+  -- `result` takes the value of each table inside the finder's `results` field
+  return function(result)
+    local split_value = utils.max_split(result, "%s+", 4)
+
+    local mark_value = split_value[1]
+    local cursor_position = vim.fn.getpos("'" .. mark_value)
+
+    -- parts taken from: lua/telescope/make_entry.lua
+    return {
+      value = result,
+      ordinal = result,
+      display = make_display,
+      mark = split_value[1],
+      lnum = cursor_position[2],
+      col = cursor_position[3],
+      start = cursor_position[2],
+      filename = vim.api.nvim_buf_get_name(cursor_position[1]),
+      text = string.sub(result, 16, #result),
+    }
+  end
+end
+
 Marks = function(opts)
-  local marks = vim.api.nvim_exec("marks", true)
-  local marks_table = vim.fn.split(marks, "\n")
-  -- Pop off the header
-  table.remove(marks_table, 1)
+
+  local marks = vim.api.nvim_exec("marks", true)  -- get output from `marks` cmd
+  local marks_table = vim.fn.split(marks, "\n")   -- split into an array
+  table.remove(marks_table, 1) -- pop off the header
+
   -- Filter all non-lower case marks
   local results = vim.tbl_filter(function(val)
     local mark = string.sub(val,2,2) -- get second char in string
     return string.match(mark, "%l") ~= nil -- return false for all non-lower case marks
   end, marks_table)
+
   -- Sort results by line number
   table.sort(results, function(a, b)
     local a_row_num = tonumber(vim.fn.split(a)[2])
     local b_row_num = tonumber(vim.fn.split(b)[2])
     return a_row_num < b_row_num
   end)
+
   -- Create new picker
   pickers.new(opts, {
     prompt_title = "Marks",
     finder = finders.new_table {
       results = results,
-      entry_maker = opts.entry_maker or make_entry.gen_from_marks(opts),
+      --entry_maker = opts.entry_maker or make_entry.gen_from_marks(opts),
+      entry_maker = make_entry_gen_from_marks(opts),
     },
     previewer = conf.grep_previewer(opts),
     sorter = conf.generic_sorter(opts),
@@ -247,7 +298,6 @@ function M.marks()
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
-      --map('i', 'l', actions.file_edit)
       -- Custom actions
       map('i', 'x', function(prompt_bufnr) -- delete selected mark
         local current_picker = action_state.get_current_picker(prompt_bufnr)
