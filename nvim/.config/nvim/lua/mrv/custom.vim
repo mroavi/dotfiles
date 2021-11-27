@@ -211,6 +211,10 @@ nnoremap <Leader>mc :messages clear<CR>
 " Show messages
 nnoremap <Leader>me :messages<CR>
 
+" Remember cursor position (:h resotre-cursor)
+autocmd BufRead * autocmd FileType <buffer> ++once
+  \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
