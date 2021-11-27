@@ -590,7 +590,7 @@ my_utils.remap("n", "<Leader>*", "<Cmd>lua require('mrv.plugins.telescope').fuzz
 my_utils.remap("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
 my_utils.remap("n", "<Leader>/", "<Cmd>lua require('mrv.plugins.telescope').buffer_lines()<CR>")
 my_utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
-my_utils.remap("n", "<Leader>hh", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
+my_utils.remap("n", "<Leader>H", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
 my_utils.remap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
 my_utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 my_utils.remap("n", "<Leader>he", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
