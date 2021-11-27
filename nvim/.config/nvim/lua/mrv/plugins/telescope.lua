@@ -194,8 +194,22 @@ end
 
 function M.help_tags()
   require('telescope.builtin').help_tags({
-    attach_mappings = function(_,map)
-      actions.select_default:replace(actions.file_vsplit)
+    attach_mappings = function(prompt_bufnr)
+      action_set.select:replace(function(_, cmd)
+        local selection = action_state.get_selected_entry()
+        if selection == nil then
+          print "[telescope] Nothing currently selected"
+          return
+        end
+        actions.close(prompt_bufnr)
+        if cmd == "default" or cmd == "vertical" then
+          vim.cmd("vert bo help " .. selection.value)
+        elseif cmd == "horizontal" then
+          vim.cmd("help " .. selection.value)
+        elseif cmd == "tab" then
+          vim.cmd("tab help " .. selection.value)
+        end
+      end)
       return true
     end,
   })
