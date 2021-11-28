@@ -6,8 +6,8 @@ local conf = require('telescope.config').values
 local action_state = require "telescope.actions.state"
 local entry_display = require "telescope.pickers.entry_display"
 local utils = require('telescope.utils')
-local strings = require('plenary.strings')
 local Path = require('plenary.path')
+local action_set = require('telescope.actions.set')
 
 local M = {}
 
@@ -20,7 +20,6 @@ require("telescope").setup{
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-    path_display = {"smart"},
     mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -85,27 +84,135 @@ function TmuxTheme(opts)
 end
 
 --------------------------------------------------------------------------------
+--- My make entry functions
+--------------------------------------------------------------------------------
+
+-- Source:
+--  https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#entry-maker
+--  https://github.com/TC72/telescope-tele-tabby.nvim/blob/main/lua/telescope/_extensions/tele_tabby.lua
+
+local my_make_entry = {}
+
+do
+  local lookup_keys = {
+    ordinal = 1,
+    value = 1,
+    filename = 1,
+    cwd = 2,
+  }
+
+  function my_make_entry.gen_from_file(opts)
+
+    opts = opts or {}
+
+    local cwd = vim.fn.expand(opts.cwd or vim.loop.cwd())
+
+    local disable_devicons = opts.disable_devicons
+
+    local mt_file_entry = {}
+
+    mt_file_entry.cwd = cwd
+
+    mt_file_entry.display = function(entry)
+
+      local hl_group
+      local display = utils.transform_path(opts, entry.value)
+
+      -- display: string to display for the current entry
+      -- hl_group: highlihgt group for the devicon of the current entry
+      display, hl_group = utils.transform_devicons(entry.value, display, disable_devicons)
+
+      --- ------------------------------------ mrv -----------------------------
+      local display_path = vim.fn.split(display)[2]
+      local pathtofile = vim.fn.fnamemodify(display_path, ":h")
+      --local tail = vim.fn.fnamemodify(display_path, ":t")
+
+      -- Format:
+      -- display_format = { { { <start>, <end> }, <highlight_group> },
+      --                    { { <start>, <end> }, <highlight_group> },
+      --                    ... }
+      -- where <start> is including while <end> is excluding
+
+      local display_format = {}
+
+      table.insert(display_format, { { 1, 3 }, hl_group })
+
+      if pathtofile == "." then
+        -- `display` has no path to file (file is in cwd)
+        table.insert(display_format, { { 3 + #pathtofile, #display +1 }, "TelescopePreviewExecute" })
+      else
+        -- `display` does have a path to file
+        table.insert(display_format, { {4 + #pathtofile + 1 , #display +1  }, "TelescopePreviewExecute" })
+      end
+
+      if hl_group then
+        return display, display_format
+      else
+        return display
+      end
+      --- ------------------------------------ mrv -----------------------------
+
+      ----- ------------------------------------ original --------------------------
+      --if hl_group then
+      --  return display, { { { 1, 3 }, hl_group } }
+      --else
+      --  return display
+      --end
+      ----- ------------------------------------------------------------------------
+
+    end
+
+    mt_file_entry.__index = function(t, k)
+      local raw = rawget(mt_file_entry, k)
+      if raw then
+        return raw
+      end
+
+      if k == "path" then
+        local retpath = Path:new({ t.cwd, t.value }):absolute()
+        if not vim.loop.fs_access(retpath, "R", nil) then
+          retpath = t.value
+        end
+        return retpath
+      end
+
+      return rawget(t, rawget(lookup_keys, k))
+    end
+
+    return function(line)
+      return setmetatable({ line }, mt_file_entry)
+    end
+  end
+end
+
+--------------------------------------------------------------------------------
 --- File Pickers
 --------------------------------------------------------------------------------
 
 function M.find_files()
+  local opts = { cwd = vim.fn.expand("%:p:h") }
   require("telescope.builtin").find_files{
     file_sorter = require'telescope.sorters'.get_fzy_sorter,
-    cwd = vim.fn.expand("%:p:h"),
+    cwd = opts.cwd,
+    entry_maker = my_make_entry.gen_from_file(opts),
   }
 end
 
 function M.git_files()
+  local opts = { cwd = vim.fn.expand("%:p:h") }
   require("telescope.builtin").git_files{
-    cwd = vim.fn.expand("%:p:h"),
+    cwd = opts.cwd,
+    --entry_maker = my_make_entry.gen_from_file(opts), -- TODO: buggy
   }
 end
 
 function M.dotfiles()
+  local opts = { cwd = "~/dotfiles" }
   require('telescope.builtin').find_files {
     find_command = {'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git',},
     prompt_title = "Dotfiles",
-    cwd = "~/dotfiles",
+    cwd = opts.cwd,
+    entry_maker = my_make_entry.gen_from_file(opts),
   }
 end
 
@@ -137,6 +244,7 @@ function M.args()
       prompt_position = "top",
     },
     sorting_strategy = "ascending",
+    entry_maker = my_make_entry.gen_from_file(),
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
@@ -157,7 +265,7 @@ function M.args()
         local selected_index
         local i = 1
         for entry in picker.manager:iter() do
-          local entry_path = vim.fn.fnamemodify(entry[1], ":p")
+          local entry_path = vim.fn.fnamemodify(entry.value, ":p")
           if entry_path == original_buf_path then
             selected_index = i
             break
@@ -315,8 +423,7 @@ Marks = function(opts)
     prompt_title = "Marks",
     finder = finders.new_table {
       results = results,
-      --entry_maker = opts.entry_maker or make_entry.gen_from_marks(opts),
-      entry_maker = make_entry_gen_from_marks(opts),
+      entry_maker = opts.entry_maker or make_entry.gen_from_marks(opts),
     },
     previewer = conf.grep_previewer(opts),
     sorter = conf.generic_sorter(opts),
@@ -333,6 +440,7 @@ function M.marks()
     },
     sorting_strategy = "ascending",
     scroll_strategy = "cycle",
+    entry_maker = make_entry_gen_from_marks(),
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
@@ -353,109 +461,39 @@ end
 
 --- -------------------------------- Recent Files ------------------------------
 
--- Source:
---  https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#entry-maker
---  https://github.com/TC72/telescope-tele-tabby.nvim/blob/main/lua/telescope/_extensions/tele_tabby.lua
-
-local function make_entry_gen_from_recent_files(opts)
-
-  opts = opts or {}
-
-  local disable_devicons = opts.disable_devicons
-
-  local icon_width = 0
-  if not disable_devicons then
-    local icon, _ = utils.get_devicons('fname', disable_devicons)
-    icon_width = strings.strdisplaywidth(icon)
-  end
-
-  -- `entry` is the table returned by the function that is returned by this function
-  -- This means that I can access `entry.value`, `entry.ordinal` and `entry.path`
-  local make_display = function(entry)
-
-    local cwd = vim.fn.expand(opts.cwd or vim.loop.cwd())
-    local display_path = Path:new(entry.path):normalize(cwd)
-
-    local pathtofile = vim.fn.fnamemodify(display_path, ":h")
-    local filename = vim.fn.fnamemodify(display_path, ":t")
-
-    local icon, hl_group = utils.get_devicons(filename, disable_devicons)
-
-    local displayer = entry_display.create {
-      separator = "",
-      items = {
-        { width = (icon_width + 3) },
-        { width = string.len(pathtofile)},
-        { width = 1 },
-        { remaining = true },
-      },
-    }
-
-    return displayer {
-      { icon, hl_group },
-      pathtofile,
-      '/',
-      { filename, "TelescopePreviewExecute" },
-    }
-  end
-
-  -- This function is assigned to the finder's `entry_maker` field
-  -- It allows us set the fields we need. mrv: in the displayer
-  -- `result` takes the value of each table inside the finder's `results` field
-  return function(result)
-
-    return {
-      valid = true,
-      value = result,
-      display = make_display,
-      ordinal = result.path,
-      path = result.path,
-    }
-
-  end
-end
-
 RecentFiles = function(opts)
 
-  local mru_entries = {}
-
-  for mru_entry in io.lines(vim.fn.expand(vim.g.MRU_File)) do
-    mru_entries[#mru_entries + 1] = mru_entry
-  end
-
-  local mru_entries_filtered = vim.tbl_filter(function(val)
-    return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
-  end, mru_entries)
-
-  local results = {}
-
-  for _, mru_entry in pairs(mru_entries_filtered) do
-
-    local element = {
-      ordinal = mru_entry,
-      path = mru_entry,
-      --path = Path:new({ opts.cwd, mru_entry }):absolute(),
-    }
-
-    table.insert(results, element)
-
-  end
-
-  ---- This works with: entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+  -- Here the `results` var is an array of tables instead of an array of strings
   --local mru_entries = {}
   --for mru_entry in io.lines(vim.fn.expand(vim.g.MRU_File)) do
   --  mru_entries[#mru_entries + 1] = mru_entry
   --end
-  --local results = vim.tbl_filter(function(val)
+  --local mru_entries_filtered = vim.tbl_filter(function(val)
   --  return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
   --end, mru_entries)
+  --local results = {}
+  --for _, mru_entry in pairs(mru_entries_filtered) do
+  --  local element = {
+  --    ordinal = mru_entry,
+  --    path = mru_entry,
+  --    --path = Path:new({ opts.cwd, mru_entry }):absolute(),
+  --  }
+  --  table.insert(results, element)
+  --end
+
+  local mru_entries = {}
+  for mru_entry in io.lines(vim.fn.expand(vim.g.MRU_File)) do
+    mru_entries[#mru_entries + 1] = mru_entry
+  end
+  local results = vim.tbl_filter(function(val)
+    return (vim.fn.filereadable(val) ~= 0 and vim.fn.expand("%:p") ~= val)
+  end, mru_entries)
 
   pickers.new(opts, {
     prompt_title = 'Recent Files',
     finder = finders.new_table{
       results = results,
-      --entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-      entry_maker = make_entry_gen_from_recent_files(opts),
+      entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
     },
     sorter = conf.file_sorter(opts),
     previewer = conf.file_previewer(opts),
@@ -471,10 +509,10 @@ function M.recent_files()
     },
     sorting_strategy = "ascending",
     scroll_strategy = "cycle",
+    entry_maker = my_make_entry.gen_from_file(),
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
-      --map('i', 'l', actions.file_edit)
       return true
     end,
   }
