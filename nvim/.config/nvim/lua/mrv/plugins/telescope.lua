@@ -91,6 +91,7 @@ end
 --  https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#entry-maker
 --  https://github.com/TC72/telescope-tele-tabby.nvim/blob/main/lua/telescope/_extensions/tele_tabby.lua
 local my_make_entry = {}
+
 do
   local lookup_keys = {
     ordinal = 1,
