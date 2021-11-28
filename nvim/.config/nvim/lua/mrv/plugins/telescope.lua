@@ -181,7 +181,8 @@ function M.buffers()
 end
 
 function M.buffer_lines()
-  local opts = {
+  require("telescope.builtin").current_buffer_fuzzy_find {
+    prompt_title = 'Buffer Lines',
     layout_strategy = "vertical",
     layout_config = {
       mirror = true,
@@ -189,7 +190,6 @@ function M.buffer_lines()
     },
     sorting_strategy = "ascending",
   }
-  require("telescope.builtin").current_buffer_fuzzy_find(opts)
 end
 
 function M.help_tags(opts)
@@ -604,7 +604,7 @@ my_utils.remap("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args
 my_utils.remap("n", "<Leader>*", "<Cmd>lua require('mrv.plugins.telescope').fuzzy_star_search()<CR>")
 -- Vim pickers
 my_utils.remap("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
-my_utils.remap("n", "<Leader>/", "<Cmd>lua require('mrv.plugins.telescope').buffer_lines()<CR>")
+my_utils.remap("n", "<Leader>L", "<Cmd>lua require('mrv.plugins.telescope').buffer_lines()<CR>")
 my_utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
 my_utils.remap("n", "<Leader>H", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
 my_utils.remap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
