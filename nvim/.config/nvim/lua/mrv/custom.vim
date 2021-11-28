@@ -205,11 +205,14 @@ augroup vim_lua_execute
 augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Clear messages
-nnoremap <Leader>mc :messages clear<CR>
-
-" Show messages
-nnoremap <Leader>me :messages<CR>
+" Debug related mappings for vim and lua files
+augroup vim_lua_debug
+  au!
+  " Clear messages
+  au FileType vim,lua nnoremap <Leader>cl :messages clear<CR>
+  " Show messages
+  au FileType vim,lua nnoremap <Leader>m :messages<CR>
+augroup END
 
 " Remember cursor position (:h resotre-cursor)
 autocmd BufRead * autocmd FileType <buffer> ++once
