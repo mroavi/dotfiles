@@ -481,6 +481,9 @@ end
 
 --- ----------------------------------- Hunks ----------------------------------
 
+-- TODO: implement a displayer that colors the git sign and line number
+-- differently than the rest of the line.
+
 Hunks = function(opts)
   local current_buffer = vim.api.nvim_get_current_buf()
   local ok, gitsigns = pcall(require, 'gitsigns')
