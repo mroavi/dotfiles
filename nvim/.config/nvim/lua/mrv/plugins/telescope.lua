@@ -17,6 +17,7 @@ require("telescope").setup{
     layout_config = {height = 0.9, width = 0.9},
     sorting_strategy = "descending",
     layout_strategy = "vertical",
+    scroll_strategy = "cycle",
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
@@ -55,7 +56,6 @@ function TmuxTheme(opts)
       prompt_position = "top",
     },
     sorting_strategy = "ascending",
-    --scroll_strategy = "limit",
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
