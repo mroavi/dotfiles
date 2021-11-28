@@ -192,8 +192,9 @@ function M.buffer_lines()
   require("telescope.builtin").current_buffer_fuzzy_find(opts)
 end
 
-function M.help_tags()
-  require('telescope.builtin').help_tags({
+function M.help_tags(opts)
+  opts = opts or {}
+  local default_opts = {
     attach_mappings = function(prompt_bufnr)
       action_set.select:replace(function(_, cmd)
         local selection = action_state.get_selected_entry()
@@ -212,7 +213,8 @@ function M.help_tags()
       end)
       return true
     end,
-  })
+  }
+  require('telescope.builtin').help_tags(vim.tbl_deep_extend("force", default_opts, opts))
 end
 
 -- Sort based on line number of the result hits
@@ -607,7 +609,8 @@ my_utils.remap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').mark
 my_utils.remap("n", "<Leader>H", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
 my_utils.remap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
 my_utils.remap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
-my_utils.remap("n", "<Leader>he", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
+my_utils.remap("n", "<Leader>k", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
+my_utils.remap("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags({default_text = vim.fn.expand(\"<cword>\")})<CR>")
 --my_utils.remap("n", "<Leader>ma", "<Cmd>lua require('telescope.builtin').keymaps()<CR>")
 my_utils.remap("n", "<Leader>hi", "<Cmd>lua require('telescope.builtin').highlights()<CR>")
 -- LSP pickers
