@@ -11,6 +11,7 @@ local Path = require('plenary.path')
 
 local M = {}
 
+-- TODO: Improve default configuration by factoring out the most common options of my pickers
 require("telescope").setup{
   defaults = {
     layout_config = {height = 0.9, width = 0.9},
