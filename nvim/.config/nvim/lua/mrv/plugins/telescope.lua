@@ -1,13 +1,13 @@
-local actions = require('telescope.actions')
-local pickers = require('telescope.pickers')
-local finders = require('telescope.finders')
-local make_entry = require('telescope.make_entry')
-local conf = require('telescope.config').values
+local actions = require 'telescope.actions'
+local pickers = require 'telescope.pickers'
+local finders = require 'telescope.finders'
+local make_entry = require 'telescope.make_entry'
+local conf = require 'telescope.config'.value
 local action_state = require "telescope.actions.state"
 local entry_display = require "telescope.pickers.entry_display"
-local utils = require('telescope.utils')
-local Path = require('plenary.path')
-local action_set = require('telescope.actions.set')
+local utils = require 'telescope.utils'
+local Path = require 'plenary.path'
+local action_set = require 'telescope.actions.set'
 
 local M = {}
 
