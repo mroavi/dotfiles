@@ -90,9 +90,7 @@ end
 -- Source:
 --  https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#entry-maker
 --  https://github.com/TC72/telescope-tele-tabby.nvim/blob/main/lua/telescope/_extensions/tele_tabby.lua
-
 local my_make_entry = {}
-
 do
   local lookup_keys = {
     ordinal = 1,
@@ -100,74 +98,48 @@ do
     filename = 1,
     cwd = 2,
   }
-
   function my_make_entry.gen_from_file(opts)
-
     opts = opts or {}
-
     local cwd = vim.fn.expand(opts.cwd or vim.loop.cwd())
-
     local disable_devicons = opts.disable_devicons
-
     local mt_file_entry = {}
-
     mt_file_entry.cwd = cwd
-
     mt_file_entry.display = function(entry)
-
       local hl_group
       local display = utils.transform_path(opts, entry.value)
-
       -- display: string to display for the current entry
       -- hl_group: highlihgt group for the devicon of the current entry
       display, hl_group = utils.transform_devicons(entry.value, display, disable_devicons)
-
       --- ------------------------------------ mrv -----------------------------
       local display_path = vim.fn.split(display)[2]
       local pathtofile = vim.fn.fnamemodify(display_path, ":h")
       --local tail = vim.fn.fnamemodify(display_path, ":t")
-
       -- Format:
       -- display_format = { { { <start>, <end> }, <highlight_group> },
       --                    { { <start>, <end> }, <highlight_group> },
       --                    ... }
       -- where <start> is including while <end> is excluding
-
       local display_format = {}
-
       table.insert(display_format, { { 1, 3 }, hl_group })
-
       if pathtofile == "." then
         -- `display` has no path to file (file is in cwd)
-        table.insert(display_format, { { 3 + #pathtofile, #display +1 }, "TelescopePreviewExecute" })
+        table.insert(display_format, { { 3 + #pathtofile, #display + 1 }, "TelescopePreviewExecute" })
       else
         -- `display` does have a path to file
-        table.insert(display_format, { {4 + #pathtofile + 1 , #display +1  }, "TelescopePreviewExecute" })
+        table.insert(display_format, { {4 + #pathtofile + 1 , #display + 1  }, "TelescopePreviewExecute" })
       end
-
       if hl_group then
         return display, display_format
       else
         return display
       end
       --- ------------------------------------ mrv -----------------------------
-
-      ----- ------------------------------------ original --------------------------
-      --if hl_group then
-      --  return display, { { { 1, 3 }, hl_group } }
-      --else
-      --  return display
-      --end
-      ----- ------------------------------------------------------------------------
-
     end
-
     mt_file_entry.__index = function(t, k)
       local raw = rawget(mt_file_entry, k)
       if raw then
         return raw
       end
-
       if k == "path" then
         local retpath = Path:new({ t.cwd, t.value }):absolute()
         if not vim.loop.fs_access(retpath, "R", nil) then
@@ -175,10 +147,8 @@ do
         end
         return retpath
       end
-
       return rawget(t, rawget(lookup_keys, k))
     end
-
     return function(line)
       return setmetatable({ line }, mt_file_entry)
     end
