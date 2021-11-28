@@ -253,17 +253,15 @@ local function make_entry_gen_from_marks(_)
     local displayer = entry_display.create {
       separator = "",
       items = {
-        { width = 5 },
-        { width = 5 },
-        { width = 5 },
+        { width = 4 },
+        { width = 8 },
         { remaining = true },
       },
     }
 
     return displayer {
       { entry.mark, "TelescopeResultsIdentifier" },
-      { entry.lnum, "TelescopePreviewGroup" },
-      { entry.col, "TelescopeResultsSpecialComment" },
+      { entry.lnum, "TelescopeResultsNumber" },
       entry.text,
     }
   end
