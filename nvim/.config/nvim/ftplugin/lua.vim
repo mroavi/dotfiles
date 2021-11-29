@@ -20,13 +20,13 @@ let b:commentary_format = '--%s'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertPrintStatement()
   let l:last_search = substitute(@/,'\\<\|\\>\|\\V','','g')
-  exe 'normal! o' . 'print("' . l:last_search . ': ", ' . l:last_search . ')'
+  exe 'normal! ' . 'mz' . 'o' . 'print("' . l:last_search . ': ", ' . l:last_search . ')' . '`z'
 endfunction
 nnoremap <buffer> <Leader>pr :<C-u>call InsertPrintStatement()<CR>
 
 function! InsertPrintInspectStatement()
   let l:last_search = substitute(@/,'\\<\|\\>\|\\V','','g')
-  exe 'normal! o' . 'print("' . l:last_search . ': ", vim.inspect(' . l:last_search . '))'
+  exe 'normal! ' . 'mz' . 'o' . 'print("' . l:last_search . ': ", vim.inspect(' . l:last_search . '))' . '`z'
 endfunction
 nnoremap <buffer> <Leader>pi :<C-u>call InsertPrintInspectStatement()<CR>
 
