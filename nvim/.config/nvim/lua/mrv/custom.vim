@@ -2,7 +2,7 @@
 nnoremap <silent> gx :execute 'silent! !xdg-open ' . shellescape(expand('<cWORD>'), 1)<cr>
 
 " Write to disk
-nnoremap <Leader>w :write<CR>
+nnoremap <Leader>w :update<CR>
 
 " Suspend vim
 nnoremap <Leader>z <C-z><CR>
