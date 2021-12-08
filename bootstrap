@@ -125,6 +125,8 @@ fi
 echo "Installing Fonts..."
 # To see installed mono fonts:
 # fc-list :scalable=true:spacing=mono: family
+# To load recently installed fonts:
+# sudo fc-cache
 
 mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
 
