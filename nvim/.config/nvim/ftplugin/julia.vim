@@ -25,7 +25,7 @@ nnoremap <buffer><silent> <Leader>cl :TomuxSend("\bclr()\n")<CR>
 let b:package = 'DiscreteBayes'
 nnoremap <buffer><silent> <Leader>tt :TomuxSend("\b]test " . b:package . "\n\b")<CR>
 " Execute file
-nnoremap <buffer><silent><expr> <Leader>e ':TomuxSend("\binclude(\"' . expand('%:p') . '\")\n")<CR>'
+nnoremap <buffer><silent><expr> <Leader>e ':w<Bar>:TomuxSend("\binclude(\"' . expand('%:p') . '\")\n")<CR>'
 " Exit any REPL mode
 nnoremap <buffer><silent> <BS> :TomuxSend("\b")<CR>
 
