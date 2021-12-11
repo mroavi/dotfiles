@@ -218,6 +218,13 @@ augroup END
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 
+" Automatically quit Vim if quickfix window is the last
+" https://stackoverflow.com/a/7477056/1706778
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
+aug END
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
