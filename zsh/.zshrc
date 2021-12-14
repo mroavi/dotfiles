@@ -121,6 +121,7 @@ preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt.
 # =============================================================================
 
 alias v="nvim"
+alias vs="nvim -S"
 alias jl="julia --project=@."
 alias o="xdg-open"
 alias l="ls -1"
