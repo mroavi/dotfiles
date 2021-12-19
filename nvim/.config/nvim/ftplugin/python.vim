@@ -25,6 +25,7 @@ let b:start_repl_cmd = 'python3.8 -m IPython'
 " Start REPL cmd
 let b:quit_repl_cmd = 'exit()'
 
+" TODO: adapt this code based on the new changes of tomux (see julia ftplugin file)
 " Start REPL in an already opened split
 nnoremap <buffer><silent> <Leader>ts :TomuxSend(b:start_repl_cmd . "\n")<CR>
 " Create a BOTTOM split with active buffer as CWD and start REPL

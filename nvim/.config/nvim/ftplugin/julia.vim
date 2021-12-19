@@ -8,24 +8,53 @@ nnoremap <buffer><silent> <M-k> :call GoToPrevDelim(b:cell_delimeter)<CR>z<CR>
 " vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let b:tomux_clipboard_paste = 'include_string(Main, clipboard(), "' .. expand('%:p') .. '")'
-let g:tomux_config = {"socket_name": "default", "target_pane": "{bottom-right}"}
+
 " Start REPL cmd (activate environment found in the current dir or parents)
 let b:start_repl_cmd = 'julia --project=@.'
-" Start REPL in a BOTTOM split with active buffer as CWD (TODO: does now work if the current buffer's file name contains spaces)
-nnoremap <buffer><silent><expr> <Leader>tj ':TomuxCommand("split-window -v -d -l 20% -c ' . expand('%:p:h') . '")<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>'
+
 " Start REPL in a RIGHT split with active buffer as CWD
-nnoremap <buffer><silent><expr> <Leader>tl ':TomuxCommand("split-window -h -d -c ' . expand('%:p:h') . '")<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>'
+function! OpenRightOf()
+  let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
+  TomuxCommand("split-window -h -d -c " . expand("%:p:h"))
+  TomuxSend(b:start_repl_cmd . "\n")
+endfunction
+nnoremap <buffer><silent> <Leader>tl :call OpenRightOf()<CR>
+
+" Start REPL in a BOTTOM split with active buffer as CWD
+function! OpenDownOf()
+  let b:tomux_config = {"socket_name": "default", "target_pane": "{down-of}"}
+  TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))
+  TomuxSend(b:start_repl_cmd . "\n")
+endfunction
+nnoremap <buffer><silent> <Leader>tj :call OpenDownOf()<CR>
+
+" Execute buffer
+function! ExecuteBuffer()
+  if !exists("b:tomux_config")
+    call OpenRightOf()
+  end
+  write
+  TomuxSend("\binclude(\"" . expand('%:p') . "\")\n")
+endfunction
+nnoremap <buffer><silent> <Leader>e :call ExecuteBuffer()<CR>
+
 " Restart REPL
 nnoremap <buffer><silent> <Leader>tr :TomuxSend("\bexit()\n")<CR>:sl 50m<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>
+
 " Kill REPL
-nnoremap <buffer><silent> <Leader>tk :TomuxCommand("kill-pane -t " . shellescape(g:tomux_config["target_pane"]))<CR>
+function! KillPane()
+  TomuxCommand("kill-pane -t " . shellescape(b:tomux_config["target_pane"]))
+  unlet b:tomux_config
+endfunction
+nnoremap <silent><Leader>tk :call KillPane()<CR>
+
 " Clear REPL
 nnoremap <buffer><silent> <Leader>cl :TomuxSend("\bclr()\n")<CR>
+
 " Run tests
 let b:package = 'DiscreteBayes'
 nnoremap <buffer><silent> <Leader>tt :TomuxSend("\b]test " . b:package . "\n\b")<CR>
-" Execute file
-nnoremap <buffer><silent><expr> <Leader>e ':w<Bar>:TomuxSend("\binclude(\"' . expand('%:p') . '\")\n")<CR>'
+
 " Exit any REPL mode
 nnoremap <buffer><silent> <BS> :TomuxSend("\b")<CR>
 
