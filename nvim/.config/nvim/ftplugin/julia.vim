@@ -14,17 +14,27 @@ let b:start_repl_cmd = 'julia --project=@.'
 
 " Start REPL in a RIGHT split with active buffer as CWD
 function! OpenRightOf()
-  let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
-  TomuxCommand("split-window -h -d -c " . expand("%:p:h"))
-  TomuxSend(b:start_repl_cmd . "\n")
+  if exists("b:tomux_config")
+    echohl ErrorMsg | echo "tomux instance already running" | echohl None
+    return
+  else
+    let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
+    TomuxCommand("split-window -h -d -c " . expand("%:p:h"))
+    TomuxSend(b:start_repl_cmd . "\n")
+  end
 endfunction
 nnoremap <buffer><silent> <Leader>tl :call OpenRightOf()<CR>
 
 " Start REPL in a BOTTOM split with active buffer as CWD
 function! OpenDownOf()
-  let b:tomux_config = {"socket_name": "default", "target_pane": "{down-of}"}
-  TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))
-  TomuxSend(b:start_repl_cmd . "\n")
+  if exists("b:tomux_config")
+    echohl ErrorMsg | echo "tomux instance already running" | echohl None
+    return
+  else
+    let b:tomux_config = {"socket_name": "default", "target_pane": "{down-of}"}
+    TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))
+    TomuxSend(b:start_repl_cmd . "\n")
+  end
 endfunction
 nnoremap <buffer><silent> <Leader>tj :call OpenDownOf()<CR>
 
