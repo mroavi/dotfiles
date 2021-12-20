@@ -5,7 +5,7 @@ nnoremap <buffer><silent> <M-j> :call GoToNextDelim(b:cell_delimeter)<CR>z<CR>
 nnoremap <buffer><silent> <M-k> :call GoToPrevDelim(b:cell_delimeter)<CR>z<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-tomux
+""" vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let b:tomux_clipboard_paste = 'include_string(Main, clipboard(), "' .. expand('%:p') .. '")'
 
@@ -69,7 +69,7 @@ nnoremap <buffer><silent> <Leader>tt :TomuxSend("\b]test " . b:package . "\n\b")
 nnoremap <buffer><silent> <BS> :TomuxSend("\b")<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Misc
+""" Misc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Adds/Removes the passed string to the start/end of the cursor line
 function! ToggleString(str, insert_txt_cmd)
@@ -84,12 +84,12 @@ noremap <Leader>sh :call ToggleString('@show ', 'I')<CR>
 noremap <Leader>pr :call ToggleString(' \|> println', 'A')<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" julia-vim
+""" julia-vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <Leader>tf :call julia#toggle_function_blockassign()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Useful mappings
+""" Useful mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Inserts different kinds of headers
