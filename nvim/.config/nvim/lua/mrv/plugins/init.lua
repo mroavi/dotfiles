@@ -37,7 +37,7 @@ M.setup = function()
     use {'hrsh7th/vim-vsnip', requires = {'rafamadriz/friendly-snippets'}} -- VSCode(LSP)'s snippet feature in vim
     use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
     use {'kyazdani42/nvim-web-devicons'} -- lua `fork` of vim-web-devicons for neovim
-    use {'AckslD/nvim-whichkey-setup.lua', config = function() require('mrv.plugins.which-key') end, requires = {'liuchengxu/vim-which-key'}}
+    use {'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end}
     use {'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end}
     use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
     use {'junegunn/gv.vim', config = function() require('mrv.plugins.gv') end} -- a git commit browser in Vim
