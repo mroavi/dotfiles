@@ -8,8 +8,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 M.setup = function()
-
   require('packer').startup(function(use)
+
     use {'wbthomason/packer.nvim', config = function() require('mrv.plugins.packer') end} -- packer can manage itself
     use {'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
     use {'tpope/vim-commentary'} -- comment stuff out
