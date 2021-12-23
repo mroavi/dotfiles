@@ -33,7 +33,7 @@ M.setup = function()
     use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}} -- preview markdown on your browser with synchronised scrolling
     use {'~/repos/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end} -- send text to tmux
     use {'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end} -- vim support for Julia
-    use {'hrsh7th/vim-vsnip', requires = {'rafamadriz/friendly-snippets'}} -- VSCode(LSP)'s snippet feature in vim
+    use {'kdheepak/JuliaFormatter.vim', ft = "julia", config = function() require('mrv.plugins.JuliaFormatter') end} -- formatter for Julia
     use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
     use {'kyazdani42/nvim-web-devicons'} -- lua `fork` of vim-web-devicons for neovim
     use {'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end}
