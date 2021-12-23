@@ -56,7 +56,7 @@ function! KillPane()
   TomuxCommand("kill-pane -t " . shellescape(b:tomux_config["target_pane"]))
   unlet b:tomux_config
 endfunction
-nnoremap <silent><Leader>tk :call KillPane()<CR>
+nnoremap <buffer><silent><Leader>tk :call KillPane()<CR>
 
 " Clear REPL
 nnoremap <buffer><silent> <Leader>cl :TomuxSend("\bclr()\n")<CR>
@@ -80,13 +80,13 @@ function! ToggleString(str, insert_txt_cmd)
     silent exe "normal! m`" .. a:insert_txt_cmd .. a:str .. "\<Esc>``"
   endif 
 endfunction
-noremap <Leader>sh :call ToggleString('@show ', 'I')<CR>
-noremap <Leader>pr :call ToggleString(' \|> println', 'A')<CR>
+noremap <buffer><Leader>sh :call ToggleString('@show ', 'I')<CR>
+noremap <buffer><Leader>pr :call ToggleString(' \|> println', 'A')<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ julia-vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <Leader>tf :call julia#toggle_function_blockassign()<CR>
+noremap <buffer><Leader>tf :call julia#toggle_function_blockassign()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Useful mappings
