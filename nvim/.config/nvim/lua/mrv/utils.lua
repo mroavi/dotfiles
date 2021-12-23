@@ -6,8 +6,8 @@ M.remap = function(mode, lhs, rhs, opts)
 end
 
 -- Buffer-local mappings
-M.remap_buff = function(mode, lhs, rhs, opts)
-  vim.api.nvim_buf_set_keymap(mode, lhs, rhs, opts or {noremap = true})
+M.remap_buff = function(buff, mode, lhs, rhs, opts)
+  vim.api.nvim_buf_set_keymap(buff, mode, lhs, rhs, opts or {noremap = true})
 end
 
 M.reload = function(verbose)
