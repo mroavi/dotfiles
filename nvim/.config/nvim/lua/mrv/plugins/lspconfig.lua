@@ -52,22 +52,15 @@ lspconfig.pyright.setup{}
 --- julia
 --------------------------------------------------------------------------------
 
---Installtaion: 1. Install Julia 2. Install LanguageServer and SymbolServer packages
----- based on: https://github.com/fredrikekre/.dotfiles/tree/master/.config/nvim/lsp-julia
---local cmd = {
---  "julia",
---  "--startup-file=no",
---  "--history-file=no",
---  vim.fn.expand("~/.config/nvim/lua/mrv/plugins/lspconfig/run.jl")
---}
---require'lspconfig'.julials.setup{
---  cmd = cmd,
---  -- Why do I need this? Shouldn't it be enough to override cmd on the line above?
---  on_new_config = function(new_config, _)
---    new_config.cmd = cmd
---  end,
---  filetypes = {"julia"},
---}
+-- Installation:
+--  https://discourse.julialang.org/t/neovim-languageserver-jl/37286/63?u=mroavi
+--  $ julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
+-- Instant startup with PackageCompiler:
+--  https://discourse.julialang.org/t/neovim-languageserver-jl/37286/72?u=mroavi
+require'lspconfig'.julials.setup{
+  capabilities = capabilities,
+}
+
 ---- vim.lsp.set_log_level("debug")
 
 --------------------------------------------------------------------------------
