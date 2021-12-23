@@ -25,12 +25,12 @@ end
 M.setup()
 
 local utils = require('mrv.utils')
-utils.remap("i", "<C-Space>", "compe#complete()", {expr = true, noremap = true}) -- trigger completion menu
-utils.remap("i", "<C-e>", "compe#close('<C-e>')", {expr = true, noremap = true}) -- close completion menu
+utils.keymap("i", "<C-Space>", "compe#complete()", {expr = true, noremap = true}) -- trigger completion menu
+utils.keymap("i", "<C-e>", "compe#close('<C-e>')", {expr = true, noremap = true}) -- close completion menu
 
 -- Select option from completion menu
---utils.remap("i", "<CR>", "compe#confirm('<CR>')", {expr = true, noremap = true})
---utils.remap("i", "<CR>", "compe#confirm({ 'keys': \"\\<Plug>delimitMateCR\", 'mode': '' })", {expr = true}) -- compatitbility with DelimitMate
+--utils.keymap("i", "<CR>", "compe#confirm('<CR>')", {expr = true, noremap = true})
+--utils.keymap("i", "<CR>", "compe#confirm({ 'keys': \"\\<Plug>delimitMateCR\", 'mode': '' })", {expr = true}) -- compatitbility with DelimitMate
 vim.cmd [[ inoremap <silent><expr> <CR> compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()")) ]] -- compatitbility with nvim-autopairs
 
 return M

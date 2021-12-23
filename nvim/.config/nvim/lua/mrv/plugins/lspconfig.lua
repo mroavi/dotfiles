@@ -154,15 +154,15 @@ vim.diagnostic.config({
 
 local utils = require('mrv.utils')
 -- See `:h lsp-buf`
-utils.remap("n", "<Leader>de", "<Cmd>lua vim.lsp.buf.definition()<CR>")
-utils.remap("n", "<Leader>us", "<Cmd>lua vim.lsp.buf.references<CR>")
-utils.remap("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
---utils.remap("n", "<Leader>fo", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
-utils.remap("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
-utils.remap("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
+utils.keymap("n", "<Leader>de", "<Cmd>lua vim.lsp.buf.definition()<CR>")
+utils.keymap("n", "<Leader>us", "<Cmd>lua vim.lsp.buf.references<CR>")
+utils.keymap("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
+--utils.keymap("n", "<Leader>fo", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
+utils.keymap("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
+utils.keymap("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
 -- See `:h lsp-diagnostic`
-utils.remap("n", "]d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_next()<CR>")
-utils.remap("n", "[d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_prev()<CR>")
+utils.keymap("n", "]d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_next()<CR>")
+utils.keymap("n", "[d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_prev()<CR>")
 
 return M
 

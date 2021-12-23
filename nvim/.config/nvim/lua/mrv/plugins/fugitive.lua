@@ -5,17 +5,17 @@ command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
 ]])
 
 local utils = require('mrv.utils')
-utils.remap("n", "<Leader>g", "<Cmd>:Gedit :<CR>")
+utils.keymap("n", "<Leader>g", "<Cmd>:Gedit :<CR>")
 
 ---- Disabled in favor of the command line abbreviations below
---utils.remap("n", "<Leader>gw",  "<Cmd>:Gwrite<CR>")
---utils.remap("n", "<Leader>gc",  "<Cmd>:Git commit -v<CR>")
---utils.remap("n", "<Leader>gp",  "<Cmd>:Git push<CR>")
---utils.remap("n", "<Leader>gl",  "<Cmd>:Git pull<CR>")
+--utils.keymap("n", "<Leader>gw",  "<Cmd>:Gwrite<CR>")
+--utils.keymap("n", "<Leader>gc",  "<Cmd>:Git commit -v<CR>")
+--utils.keymap("n", "<Leader>gp",  "<Cmd>:Git push<CR>")
+--utils.keymap("n", "<Leader>gl",  "<Cmd>:Git pull<CR>")
 ---- The LHS of the mappings below are being used elsewhere
---utils.remap("n", "<Leader>gr",  "<Cmd>:Gread<CR>")
---utils.remap("n", "<Leader>gdi", "<Cmd>:Gdiff<CR>")
---utils.remap("n", "<Leader>gds", "<Cmd>:Gdstaged<CR>")
+--utils.keymap("n", "<Leader>gr",  "<Cmd>:Gread<CR>")
+--utils.keymap("n", "<Leader>gdi", "<Cmd>:Gdiff<CR>")
+--utils.keymap("n", "<Leader>gds", "<Cmd>:Gdstaged<CR>")
 
 -- Emulates the zsh aliases in nvim's command line
 vim.cmd('cnoreabbrev g    Git')

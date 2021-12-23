@@ -8,7 +8,7 @@ vim.g["lf#action"] = { ['<C-t>'] = 'tab split', -- open in tab
                      }
 
 local utils = require("mrv.utils")
-utils.remap("n", "<Leader>/",
+utils.keymap("n", "<Leader>/",
             "expand('%') == '' ? '<Cmd>Lp %:p:h<CR>' : '<Cmd>Lp %<CR>'",
             {noremap = true, expr = true})
 

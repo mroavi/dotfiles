@@ -4,5 +4,5 @@ function MyPackerSync()
 	vim.cmd [[ :PackerSync ]]
 end
 
-utils.remap("n", "<Leader>ps", "<Cmd>:PackerSync<CR>")
+utils.keymap("n", "<Leader>ps", "<Cmd>:PackerSync<CR>")
 
