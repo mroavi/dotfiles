@@ -137,14 +137,17 @@ lspconfig.texlab.setup{}
 --------------------------------------------------------------------------------
 -- Signs
 --------------------------------------------------------------------------------
-vim.cmd [[ sign define LspDiagnosticsSignHint         text=➤ ]]
-vim.cmd [[ sign define LspDiagnosticsSignError        text=✖ ]]
-vim.cmd [[ sign define LspDiagnosticsSignWarning      text=⚠ ]]
-vim.cmd [[ sign define LspDiagnosticsSignInformation  text=ℹ ]]
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 --------------------------------------------------------------------------------
 -- Mappings
 --------------------------------------------------------------------------------
+
 local utils = require('mrv.utils')
 -- See `:h lsp-buf`
 utils.remap("n", "<Leader>de", "<Cmd>lua vim.lsp.buf.definition()<CR>")
