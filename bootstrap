@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # TODO: separate the installation of different programs into different files so that they
-# can be installed independently
+# can be installed independently and have one main file that calls them all
 
 # Save current directory
 currentdir="$PWD"
