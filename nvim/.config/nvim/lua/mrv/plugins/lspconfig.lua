@@ -15,6 +15,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+-- Configure diagnostic options
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,
@@ -24,6 +25,20 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     severity_sort = false,
   }
 )
+
+-- Signs
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+-- Virtual text prefix
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = '■', -- Could be '●', '▎', 'x'
+  }
+})
 
 -- Enable logging, open the log with :lua vim.cmd('e'..vim.lsp.get_log_path())
 --vim.lsp.set_log_level("debug")
@@ -127,26 +142,6 @@ lspconfig.texlab.setup{}
 --if not os.getenv("SSH_CONNECTION") then
 --  -- <CODE>
 --end
-
---------------------------------------------------------------------------------
--- Signs
---------------------------------------------------------------------------------
-
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
---------------------------------------------------------------------------------
--- Virtual text prefix
---------------------------------------------------------------------------------
-
-vim.diagnostic.config({
-  virtual_text = {
-    prefix = '■', -- Could be '●', '▎', 'x'
-  }
-})
 
 --------------------------------------------------------------------------------
 -- Mappings
