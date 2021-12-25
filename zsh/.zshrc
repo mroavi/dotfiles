@@ -2,6 +2,7 @@
 export PATH=$HOME/.local/bin:$PATH
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export MANPAGER='nvim +Man!'
 export LANG="en_US.UTF-8"
 # export ARCHFLAGS="-arch x86_64"
 
