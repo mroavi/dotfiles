@@ -575,3 +575,6 @@ awful.spawn.with_shell("nitrogen --restore")
 -- Gaps between windows
 beautiful.useless_gap = 5
 
+-- Change key repeat frequency
+os.execute("xset r rate 260 60")
+
