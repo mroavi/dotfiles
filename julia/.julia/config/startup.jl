@@ -71,7 +71,7 @@ end
 ## Clear screen leaving prompt at the bottom
 # ------------------------------------------------------------------------------
 function clr()
-  for i = 1:60
+  for _ = 1:60
     println()
   end
 end
