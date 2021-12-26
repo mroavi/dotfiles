@@ -568,3 +568,6 @@ awful.spawn.with_shell("picom") -- enables transparency
 awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("nitrogen --restore")
 
+-- Gaps between windows
+beautiful.useless_gap = 5
+
