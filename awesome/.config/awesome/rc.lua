@@ -570,7 +570,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart applications
 awful.spawn.with_shell("picom") -- enables transparency
 awful.spawn.with_shell("dropbox")
-awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("nitrogen --restore") -- restores background image
 
 -- Gaps between windows
 beautiful.useless_gap = 5
