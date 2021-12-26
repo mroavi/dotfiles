@@ -1,0 +1,39 @@
+[keybindings]
+page_up = ctrl u
+page_down = ctrl d
+first_story = g
+last_story = G
+up = j
+down = k
+refresh = r
+show_comments_link = c
+open_comments_link = C
+show_story_link = s
+open_story_link = S,enter
+show_submitter_link = u
+open_submitter_link = U
+reload_config = ctrl R
+newest_stories = n
+top_stories = t
+best_stories = b
+show_stories = d
+show_newest_stories = D
+ask_stories = a
+jobs_stories = J
+
+[settings]
+extra_page = 1
+cache = /home/mroavi/.pyhn/cache
+cache_age = 5
+browser_cmd = __default__
+refresh_interval = 5
+
+[colors]
+body = default||standout
+focus = dark blue||underline
+footer = black|light gray
+footer-error = dark red,bold|light gray
+header = dark gray,bold|white|
+title = black,bold|light gray
+help = black|dark cyan|standout
+
