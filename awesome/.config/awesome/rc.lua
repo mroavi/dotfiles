@@ -577,9 +577,6 @@ awful.spawn.with_shell("picom") -- enables transparency
 awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("nitrogen --restore") -- restores background image
 
--- Gaps between windows
-beautiful.useless_gap = 5
-
 -- Change key repeat frequency
 os.execute("xset r rate 260 60")
 
