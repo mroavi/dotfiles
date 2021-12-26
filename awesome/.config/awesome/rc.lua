@@ -235,15 +235,26 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "l", awful.tag.history.restore,
+    awful.key({ modkey,           }, ";", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    awful.key({ modkey,           }, "j", function () awful.client.focus.byidx( 1) end,
-        {description = "focus next by index", group = "client"}
-    ),
-    awful.key({ modkey,           }, "k", function () awful.client.focus.byidx(-1) end,
-        {description = "focus previous by index", group = "client"}
-    ),
+    -- Switching window focus
+    awful.key({ modkey,           }, "j", function (c)
+      awful.client.focus.global_bydirection("down")
+    end,
+              {description = "focus next window up", group = "client"}),
+    awful.key({ modkey,           }, "k", function (c)
+      awful.client.focus.global_bydirection("up")
+    end,
+              {description = "focus next window down", group = "client"}),
+    awful.key({ modkey,           }, "l", function (c)
+      awful.client.focus.global_bydirection("right")
+    end,
+              {description = "focus next window right", group = "client"}),
+    awful.key({ modkey,           }, "h", function (c)
+      awful.client.focus.global_bydirection("left")
+    end,
+              {description = "focus next window left", group = "client"}),
     --awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
     --          {description = "show main menu", group = "awesome"}),
 
