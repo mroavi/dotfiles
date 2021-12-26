@@ -239,7 +239,7 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "'", awful.tag.history.restore,
+    awful.key({ modkey,           }, "p", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
     -- Client focus
@@ -348,10 +348,7 @@ globalkeys = gears.table.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"}),
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "lua execute prompt", group = "awesome"})
 )
 
 clientkeys = gears.table.join(
@@ -518,9 +515,9 @@ awful.rules.rules = {
     --  }, properties = { titlebars_enabled = true }
     --},
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    -- Set Chrome to always map on the tag named "2" on screen 1.
+    { rule = { class = "Google-chrome" },
+      properties = { screen = 2, tag = "2", switch_to_tags = true,} },
 }
 -- }}}
 
