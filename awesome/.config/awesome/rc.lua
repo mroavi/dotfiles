@@ -314,6 +314,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "space", function () awful.util.spawn("dmenu_run") end,
               {description = "launch dmenu", group = "launcher"}),
 
+    -- Launch Chrome
+    awful.key({ modkey }, "b", function () awful.util.spawn("google-chrome-stable") end,
+              {description = "launch Chrome", group = "launcher"}),
+
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
