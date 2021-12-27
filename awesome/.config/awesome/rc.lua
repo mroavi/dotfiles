@@ -544,6 +544,7 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
+-- mrv: see the `xprop` command line application to query properties for a client
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
