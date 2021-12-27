@@ -645,7 +645,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart applications
-awful.spawn.with_shell("picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0") -- enables transparency
+awful.spawn.with_shell("picom") -- enables transparency
 awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("nitrogen --restore") -- restores background image
 awful.spawn.with_shell("xscreensaver -no-splash &") -- locks the system
