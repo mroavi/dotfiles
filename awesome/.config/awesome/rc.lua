@@ -351,13 +351,14 @@ globalkeys = gears.table.join(
     -- Launch chrome
     awful.key({ modkey, altkey }, "b", function () awful.util.spawn("google-chrome-stable") end,
               {description = "launch chrome", group = "launcher"}),
-    -- View chrome
-    awful.key({ modkey }, "b" ,
+    -- View screen 2, tag 9 (where normally chrome will be opened)
+    awful.key({ modkey         }, "b" ,
               function ()
-                    local screen = awful.screen.focused()
-                    local tag = screen.tags[2]
+                    awful.screen.focus(2)                 -- change focus to screen 2
+                    local screen = awful.screen.focused() -- get the focused screen object
+                    local tag = screen.tags[9]            -- get the tag 9 object
                     if tag then
-                        tag:view_only()
+                        tag:view_only()                   -- change focus to tag 9
                     end
               end,
               {description = "view chrome tag", group = "tag"}),
