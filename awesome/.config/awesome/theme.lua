@@ -12,7 +12,7 @@ local themes_path = gfs.get_themes_dir()
 local theme = {}
 
 local font = "Sans Noto Regular "
-theme.font          = font .. "9"
+theme.font          = font .. "10"
 theme.hotkeys_font  = font .. "10"
 theme.hotkeys_description_font  = font .. "10"
 
