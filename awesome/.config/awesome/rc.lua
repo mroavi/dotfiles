@@ -311,7 +311,7 @@ globalkeys = gears.table.join(
     --          {description = "decrease the number of columns", group = "layout"}),
 
     -- Swap layout
-    awful.key({ modkey, "Shift"            }, "space", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey, "Control"          }, "space", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift", "Control" }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
