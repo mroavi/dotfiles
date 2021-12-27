@@ -545,6 +545,23 @@ for i = 1, 9 do
     )
 end
 
+-- View the first three tags on the focused screen with `modkey + {h,k,l}`
+local tag_keys = {"h", "j", "k"}
+for i,v in ipairs(tag_keys) do
+    globalkeys = gears.table.join(globalkeys,
+        -- View tag only.
+        awful.key({ modkey }, v,
+                  function ()
+                        local screen = awful.screen.focused()
+                        local tag = screen.tags[i]
+                        if tag then
+                           tag:view_only()
+                        end
+                  end,
+                  {description = "view tag #"..i, group = "tag"})
+    )
+end
+
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c)
         c:emit_signal("request::activate", "mouse_click", {raise = true})
