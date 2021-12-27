@@ -73,11 +73,21 @@ lspconfig.pyright.setup{}
 --  $ julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
 -- Instant startup with PackageCompiler:
 --  https://discourse.julialang.org/t/neovim-languageserver-jl/37286/72?u=mroavi
+
+-- Makes use of the julia bin generated using PackageCompiler to remove startup time
 require'lspconfig'.julials.setup{
-  capabilities = capabilities,
+  on_new_config = function(new_config, _)
+    local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
+    if require'lspconfig'.util.path.is_file(julia) then
+      new_config.cmd[1] = julia
+    end
+  end
 }
 
----- vim.lsp.set_log_level("debug")
+---- Does not make use of the julia bin generated using PackageCompiler
+--require'lspconfig'.julials.setup{
+--  capabilities = capabilities,
+--}
 
 --------------------------------------------------------------------------------
 --- bash
