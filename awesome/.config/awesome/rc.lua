@@ -334,13 +334,33 @@ globalkeys = gears.table.join(
     awful.key({ modkey            }, "space", function () awful.util.spawn("dmenu_run") end,
               {description = "launch dmenu", group = "launcher"}),
 
-    -- Launch Chrome
-    awful.key({ modkey, altKey }, "b", function () awful.util.spawn("google-chrome-stable") end,
-              {description = "launch Chrome", group = "launcher"}),
-
     -- Launch nvim
     awful.key({ modkey, altkey }, "v", function () awful.util.spawn("alacritty -e nvim") end,
               {description = "launch nvim", group = "launcher"}),
+    -- View nvim
+    awful.key({ modkey }, "v" ,
+              function ()
+                    local screen = awful.screen.focused()
+                    local tag = screen.tags[1]
+                    if tag then
+                        tag:view_only()
+                    end
+              end,
+              {description = "view nvim tag", group = "tag"}),
+
+    -- Launch chrome
+    awful.key({ modkey, altkey }, "b", function () awful.util.spawn("google-chrome-stable") end,
+              {description = "launch chrome", group = "launcher"}),
+    -- View chrome
+    awful.key({ modkey }, "b" ,
+              function ()
+                    local screen = awful.screen.focused()
+                    local tag = screen.tags[2]
+                    if tag then
+                        tag:view_only()
+                    end
+              end,
+              {description = "view chrome tag", group = "tag"}),
 
     -- Execute Lua code
     awful.key({ modkey }, "r",
