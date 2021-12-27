@@ -248,23 +248,23 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, ".",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey, altkey    }, "l", awful.tag.history.restore,
+    awful.key({ modkey,           }, "l", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
     -- Client focus
-    awful.key({ modkey,           }, "j", function ()
+    awful.key({ modkey, altkey    }, "j", function ()
       awful.client.focus.global_bydirection("down")
     end,
               {description = "focus next window up", group = "client"}),
-    awful.key({ modkey,           }, "k", function ()
+    awful.key({ modkey, altkey    }, "k", function ()
       awful.client.focus.global_bydirection("up")
     end,
               {description = "focus next window down", group = "client"}),
-    awful.key({ modkey,           }, "l", function ()
+    awful.key({ modkey, altkey    }, "l", function ()
       awful.client.focus.global_bydirection("right")
     end,
               {description = "focus next window right", group = "client"}),
-    awful.key({ modkey,           }, "h", function ()
+    awful.key({ modkey, altkey    }, "h", function ()
       awful.client.focus.global_bydirection("left")
     end,
               {description = "focus next window left", group = "client"}),
@@ -337,16 +337,6 @@ globalkeys = gears.table.join(
     -- Launch nvim
     awful.key({ modkey, altkey }, "v", function () awful.util.spawn("alacritty -e nvim") end,
               {description = "launch nvim", group = "launcher"}),
-    -- View nvim
-    awful.key({ modkey }, "v" ,
-              function ()
-                    local screen = awful.screen.focused()
-                    local tag = screen.tags[1]
-                    if tag then
-                        tag:view_only()
-                    end
-              end,
-              {description = "view nvim tag", group = "tag"}),
 
     -- Launch chrome
     awful.key({ modkey, altkey }, "b", function () awful.util.spawn("google-chrome-stable") end,
