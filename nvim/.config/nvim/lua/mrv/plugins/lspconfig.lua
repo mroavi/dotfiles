@@ -100,14 +100,37 @@ lspconfig.clangd.setup{
 --- lua
 --------------------------------------------------------------------------------
 
--- Installation: sudo pacman -S lua-language-server
-local lua_lsp_dir = "/home/mroavi/lsp-servers/lua-language-server/"
-local luadev = require("lua-dev").setup({
-  lspconfig = {
-  cmd = {lua_lsp_dir .. "bin/Linux/lua-language-server", "-E", lua_lsp_dir .. "/main.lua"}
-  },
-})
-lspconfig.sumneko_lua.setup(luadev)
+local lua_lsp_dir = vim.fn.expand("~/lsp-servers/lua-language-server/")
+lspconfig.sumneko_lua.setup{
+  cmd = {lua_lsp_dir .. "bin/Linux/lua-language-server", "-E", lua_lsp_dir .. "/main.lua"},
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
+      diagnostics = {globals = {"vim"}},
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true
+        }
+      }
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+--- lua-dev (dev setup for init.lua and plugin development)
+--------------------------------------------------------------------------------
+
+---- Installation: sudo pacman -S lua-language-server
+--local lua_lsp_dir = "/home/mroavi/lsp-servers/lua-language-server/"
+--local luadev = require("lua-dev").setup({
+--  lspconfig = {
+--  cmd = {lua_lsp_dir .. "bin/Linux/lua-language-server", "-E", lua_lsp_dir .. "/main.lua"}
+--  },
+--})
+--lspconfig.sumneko_lua.setup(luadev)
 
 --------------------------------------------------------------------------------
 --- texlab
