@@ -58,7 +58,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
-altKey = "Mod1"
+altkey = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -248,7 +248,7 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, ".",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey, altKey    }, "l", awful.tag.history.restore,
+    awful.key({ modkey, altkey    }, "l", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
     -- Client focus
@@ -298,7 +298,7 @@ globalkeys = gears.table.join(
               {description = "swap with up client", group = "client"}),
 
     -- Screen focus
-    awful.key({ modkey, altKey    }, "o", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey, altkey    }, "o", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
 
     ---- Master and column manipulation TODO: think of good key mappings for these actions
@@ -339,7 +339,7 @@ globalkeys = gears.table.join(
               {description = "launch Chrome", group = "launcher"}),
 
     -- Launch nvim
-    awful.key({ modkey }, "v", function () awful.util.spawn("alacritty -e nvim") end,
+    awful.key({ modkey, altkey }, "v", function () awful.util.spawn("alacritty -e nvim") end,
               {description = "launch nvim", group = "launcher"}),
 
     -- Execute Lua code
@@ -366,7 +366,7 @@ globalkeys = gears.table.join(
     end),
 
     -- Lock system
-    awful.key({ altKey, "Control" }, "l", function ()
+    awful.key({ altkey, "Control" }, "l", function ()
       awful.util.spawn("xscreensaver-command -lock")
     end,
               {description = "launch xscreensaver", group = "launcher"})
@@ -382,7 +382,7 @@ clientkeys = gears.table.join(
               {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey,           }, "x",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, altKey }, "f",  awful.client.floating.toggle                     ,
+    awful.key({ modkey, altkey }, "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
 
     -- Layout control
