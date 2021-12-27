@@ -317,7 +317,7 @@ globalkeys = gears.table.join(
               {description = "select previous", group = "layout"}),
 
     -- Restore minimized client
-    awful.key({ modkey, "Control" }, "n",
+    awful.key({ modkey, "Shift", "Control" }, "n",
               function ()
                   local c = awful.client.restore()
                   -- Focus restored client
@@ -459,7 +459,7 @@ clientkeys = gears.table.join(
               {description = "(un)maximize horizontally", group = "client"}),
 
     -- Minimize client
-    awful.key({ modkey, "Mod1"    }, "n",
+    awful.key({ modkey, "Control" }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
