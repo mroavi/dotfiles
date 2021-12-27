@@ -358,8 +358,13 @@ globalkeys = gears.table.join(
     end),
     awful.key({}, "XF86AudioMute", function ()
       awful.util.spawn("amixer -D pulse sset Master toggle", false)
-    end)
+    end),
 
+    -- Lock system
+    awful.key({ "Mod1", "Control" }, "l", function ()
+      awful.util.spawn("xscreensaver-command -lock")
+    end,
+              {description = "launch xscreensaver", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
@@ -658,6 +663,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0") -- enables transparency
 awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("nitrogen --restore") -- restores background image
+awful.spawn.with_shell("xscreensaver -no-splash &") -- locks the system
 
 -- Change key repeat frequency
 os.execute("xset r rate 260 60")
