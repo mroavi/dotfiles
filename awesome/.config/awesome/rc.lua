@@ -596,9 +596,10 @@ awful.rules.rules = {
     --  }, properties = { titlebars_enabled = true }
     --},
 
-    -- Set Chrome to always map on the tag named "2" on screen 1.
-    { rule = { class = "Google-chrome" },
-      properties = { screen = 2, tag = "2", switch_to_tags = true,} },
+    ---- Set chrome to always map on the tag named "2" on screen 1.
+    --{ rule = { class = "Google-chrome" },
+    --  properties = { screen = 2, tag = "9", switch_to_tags = true,} },
+
 }
 -- }}}
 
