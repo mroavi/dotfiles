@@ -194,7 +194,7 @@ local utils = require('mrv.utils')
 utils.keymap("n", "<Leader>de", "<Cmd>lua vim.lsp.buf.definition()<CR>")
 utils.keymap("n", "<Leader>us", "<Cmd>lua vim.lsp.buf.references<CR>")
 utils.keymap("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
---utils.keymap("n", "<Leader>fo", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
+utils.keymap("n", "<Leader>f", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
 utils.keymap("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
 utils.keymap("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
 -- See `:h lsp-diagnostic`
