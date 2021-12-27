@@ -288,8 +288,8 @@ globalkeys = gears.table.join(
     end,
               {description = "swap with up client", group = "client"}),
 
-    -- Screen focus (TODO: I only need one mapping to switch to last screen)
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    -- Screen focus
+    awful.key({ modkey, "Mod1" }, "o", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
