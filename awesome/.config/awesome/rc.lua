@@ -337,6 +337,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "b", function () awful.util.spawn("google-chrome-stable") end,
               {description = "launch Chrome", group = "launcher"}),
 
+    -- Launch nvim
+    awful.key({ modkey }, "v", function () awful.util.spawn("alacritty -e nvim") end,
+              {description = "launch nvim", group = "launcher"}),
+
     -- Execute Lua code
     awful.key({ modkey }, "r",
               function ()
