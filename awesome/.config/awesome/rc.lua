@@ -348,7 +348,19 @@ globalkeys = gears.table.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"})
+              {description = "lua execute prompt", group = "awesome"}),
+
+    -- Enable keyboard volume control
+    awful.key({}, "XF86AudioRaiseVolume", function ()
+      awful.util.spawn("amixer -D pulse sset Master 2%+", false)
+    end),
+    awful.key({}, "XF86AudioLowerVolume", function ()
+      awful.util.spawn("amixer -D pulse sset Master 2%-", false)
+    end),
+    awful.key({}, "XF86AudioMute", function ()
+      awful.util.spawn("amixer -D pulse sset Master toggle", false)
+    end)
+
 )
 
 clientkeys = gears.table.join(
