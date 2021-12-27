@@ -244,9 +244,9 @@ globalkeys = gears.table.join(
               {description = "quit awesome", group = "awesome"}),
 
     -- Tag focus
-    awful.key({ modkey,           }, "p",   awful.tag.viewprev,
+    awful.key({ modkey,           }, ",",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "n",  awful.tag.viewnext,
+    awful.key({ modkey,           }, ".",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
     awful.key({ modkey, altKey    }, "l", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
@@ -647,7 +647,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart applications
-awful.spawn.with_shell("picom --experimental-backends") -- enables transparency
+awful.spawn.with_shell("picom") -- enables transparency
 awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("nitrogen --restore") -- restores background image
 awful.spawn.with_shell("xscreensaver -no-splash &") -- locks the system
