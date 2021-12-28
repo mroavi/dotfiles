@@ -311,7 +311,7 @@ fi
 # TODO: Consider replacing vimv with trapd00r/vidir which seems more mature.
 
 # -----------------------------------------------------------------------------------------
-# TODO: Add pure prompt installation
+# TODO: Add installation of my fork of pure prompt: git@github.com:mroavi/pure.git
 
 # -----------------------------------------------------------------------------------------
 # Return to original directory
