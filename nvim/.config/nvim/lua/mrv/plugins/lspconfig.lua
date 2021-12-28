@@ -189,7 +189,10 @@ require"lspconfig".efm.setup {
     languages = {
       lua = {
         {
-          formatCommand = "lua-format --indent-width=2 --tab-width=2",
+          --  Repo: https://github.com/Koihik/LuaFormatter
+          --  Style config: https://github.com/Koihik/LuaFormatter/blob/master/docs/Style-Config.md
+          formatCommand = "lua-format --indent-width=2 --tab-width=2 \z
+          --continuation-indent-width=2",
           formatStdin = true
         }
       }
