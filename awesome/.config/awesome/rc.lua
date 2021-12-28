@@ -45,7 +45,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/home/mroavi/.config/awesome/theme.lua")
+local my_theme = os.getenv("HOME").."/.config/awesome/theme.lua"
+beautiful.init(my_theme)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
