@@ -8,7 +8,6 @@ function M.goto_next() vim.lsp.diagnostic.goto_next {wrap = false} end
 
 function M.goto_prev() vim.lsp.diagnostic.goto_prev {wrap = false} end
 
--- TODO: pass this var to more lsp servers and see if the snippets work
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -50,7 +49,9 @@ local lspconfig = require 'lspconfig'
 --------------------------------------------------------------------------------
 
 -- Installation: npm install -g vim-language-server
-lspconfig.vimls.setup {}
+lspconfig.vimls.setup {
+  capabilities = capabilities,
+}
 
 --------------------------------------------------------------------------------
 --- python
