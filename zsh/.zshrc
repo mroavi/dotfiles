@@ -43,18 +43,6 @@ bindkey -M menuselect '' .send-break # break from menu with tab
 #bindkey '^ ' complete-word
 
 # =============================================================================
-## Prompt
-# =============================================================================
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-if [ "$SSH_CONNECTION" ]; then
-  source "$HOME/.local/share/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme"
-else
-  source "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
-fi
-
-# =============================================================================
 ## Plugins
 # =============================================================================
 
@@ -116,6 +104,19 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt.
+
+# =============================================================================
+## Prompt
+# =============================================================================
+
+fpath+=$HOME/.zsh/pure
+
+autoload -U promptinit; promptinit
+prompt pure
+
+zstyle :prompt:pure:prompt:success color green
+zstyle :prompt:pure:git:stash show yes
+zstyle :prompt:pure:git:branch color green
 
 # =============================================================================
 ## Aliases
