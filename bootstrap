@@ -110,16 +110,12 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
-echo "Installing Powerlevel10k..."
+echo "Installing pure..."
 
-if [ ! "$SSH_CONNECTION" ]; then
-  sudo pacman -S --needed zsh-theme-powerlevel10k
-else
-  mkdir -p ~/.local/share/zsh/themes
-  LOCAL_REPO=$HOME/.local/share/zsh/themes/powerlevel10k
-  REPO_URL=https://github.com/romkatv/powerlevel10k.git
-  git clone --depth=1 "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
-fi
+mkdir -p ~/.zsh
+LOCAL_REPO=$HOME/.zsh/pure
+REPO_URL=https://github.com/romkatv/powerlevel10k.git
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 
 # -----------------------------------------------------------------------------------------
 echo "Installing Fonts..."
@@ -309,9 +305,6 @@ fi
 # TODO: Add vimv installation (git clones and copies to .local/bin like the above example)
 # vimv is also available in AUR
 # TODO: Consider replacing vimv with trapd00r/vidir which seems more mature.
-
-# -----------------------------------------------------------------------------------------
-# TODO: Add installation of my fork of pure prompt: git@github.com:mroavi/pure.git
 
 # -----------------------------------------------------------------------------------------
 # Return to original directory
