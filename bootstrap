@@ -311,6 +311,9 @@ fi
 # TODO: Consider replacing vimv with trapd00r/vidir which seems more mature.
 
 # -----------------------------------------------------------------------------------------
+# TODO: Add pure prompt installation
+
+# -----------------------------------------------------------------------------------------
 # Return to original directory
 cd "$currentdir"
 
