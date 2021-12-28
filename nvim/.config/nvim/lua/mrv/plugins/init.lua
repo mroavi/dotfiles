@@ -17,7 +17,7 @@ M.setup = function()
     use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
     use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
-    use {'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, requires = {'hrsh7th/cmp-nvim-lsp'}} -- a completion plugin for neovim coded in Lua
+    use {'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, requires = {'hrsh7th/cmp-nvim-lsp','hrsh7th/cmp-buffer','hrsh7th/cmp-path'}} -- a completion plugin for neovim coded in Lua
     use {'L3MON4D3/LuaSnip',  config = function() require('mrv.plugins.luasnip') end, requires = {'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip'}}
     use {'~/repos/tender.nvim', config = function() vim.cmd [[ colorscheme tender ]] end} -- my color scheme
     use {'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end} -- autopairs for neovim written by lua
