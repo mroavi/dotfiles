@@ -270,7 +270,7 @@ if [ ! "$SSH_CONNECTION" ]; then
 else
   FILE=$HOME/.local/bin/fd
   if [ -f "$FILE" ]; then
-    echo "fd is already installed"
+    echo "  fd is already installed"
   else
     cd $HOME/Downloads/
     tarfile="fd-v8.2.1-x86_64-unknown-linux-gnu.tar.gz"
@@ -287,7 +287,7 @@ echo "Installing julia..."
 
 FILE=$HOME/.local/bin/julia
 if [ -e "$FILE" ]; then
-  echo "julia is already installed"
+  echo "  julia is already installed"
 else
   bash -ci "$(curl -fsSL https://raw.githubusercontent.com/abelsiqueira/jill/main/jill.sh)"
 fi
