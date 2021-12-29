@@ -207,7 +207,7 @@ require"lspconfig".efm.setup {
 
 local utils = require('mrv.utils')
 -- See `:h lsp-buf`
-utils.keymap("n", "<Leader>de", "<Cmd>lua vim.lsp.buf.definition()<CR>")
+utils.keymap("n", "<Leader>d", "<Cmd>lua vim.lsp.buf.definition()<CR>")
 utils.keymap("n", "<Leader>us", "<Cmd>lua vim.lsp.buf.references<CR>")
 utils.keymap("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
 utils.keymap("n", "<Leader>f", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
