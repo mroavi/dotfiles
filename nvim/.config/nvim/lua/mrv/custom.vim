@@ -165,7 +165,7 @@ if !empty(l:m)
     exe 'delmarks' l:m
 endif
 endfunction
-nnoremap <silent> <Leader>dm :<C-u>call Delmarks()<CR>
+"nnoremap <silent> <Leader>dm :<C-u>call Delmarks()<CR>
 
 """""""""""""""""""""" Execute motion/textobject of code """"""""""""""""""""""
 
