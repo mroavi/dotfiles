@@ -684,6 +684,7 @@ awful.spawn.with_shell("picom --experimental-backends") -- enables transparency
 awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("xscreensaver -no-splash &") -- locks the system
 awful.spawn.with_shell("blueman-applet") -- start bluetooth
+awful.spawn.with_shell("flameshot") -- screenshot software
 
 -- Change key repeat frequency
 os.execute("xset r rate 260 60")
