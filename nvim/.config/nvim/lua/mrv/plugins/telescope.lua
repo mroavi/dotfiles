@@ -178,6 +178,15 @@ function M.git_files()
   }
 end
 
+-- Defaults to `find_files` if not in a git repo
+function M.my_git_files()
+  local ok = pcall(require('mrv.plugins.telescope').git_files)
+  if not ok then
+    print("NOT OK")
+    require('mrv.plugins.telescope').find_files()
+  end
+end
+
 function M.dotfiles()
   local opts = { cwd = "~/dotfiles" }
   require('telescope.builtin').find_files {
@@ -608,8 +617,7 @@ end
 
 local my_utils = require('mrv.utils')
 -- File pickers
---my_utils.keymap("n", "<Leader>f", "<Cmd>lua require('mrv.plugins.telescope').find_files()<CR>")
-my_utils.keymap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').git_files()<CR>")
+my_utils.keymap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').my_git_files()<CR>")
 --my_utils.keymap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
 my_utils.keymap("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
 my_utils.keymap("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<CR>")
