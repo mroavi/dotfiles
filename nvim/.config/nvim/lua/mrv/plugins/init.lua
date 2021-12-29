@@ -40,6 +40,8 @@ M.setup = function()
     use {'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end}
     use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
     use {'junegunn/gv.vim', config = function() require('mrv.plugins.gv') end} -- a git commit browser in Vim
+    use {'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, run = ':TSUpdate'}
+    use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
 
     -- {{{1
 
@@ -57,7 +59,6 @@ M.setup = function()
     --use {'sindrets/diffview.nvim'} -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
     --use {"ray-x/lsp_signature.nvim"} -- lsp signature hint when you type
     --use {"glepnir/lspsaga.nvim"} -- a light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
-    --use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate'}
     --use {'terrortylor/nvim-comment', config = function() require('mrv.plugins.nvim-comment') end} -- a comment toggler for Neovim, written in Lua
     --use {'rafamadriz/friendly-snippets', } -- set of preconfigured snippets for different languages
     --use {'chipsenkbeil/distant.nvim', } -- edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
