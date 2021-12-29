@@ -342,6 +342,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey, altkey }, "v", function () awful.util.spawn("alacritty -e nvim") end,
               {description = "launch nvim", group = "launcher"}),
 
+    -- Launch flameshot
+    awful.key({                }, "Print", function () awful.util.spawn("flameshot gui") end,
+              {description = "launch flameshot", group = "launcher"}),
+
     -- Launch chrome
     awful.key({ modkey, altkey }, "b", function () awful.util.spawn("google-chrome-stable") end,
               {description = "launch chrome", group = "launcher"}),
