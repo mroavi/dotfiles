@@ -14,7 +14,7 @@ M.setup = function()
     use {'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
     use {'tpope/vim-commentary'} -- comment stuff out
     use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by lf
-    use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
+    use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons'}}
     use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
     use {'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, requires = {'hrsh7th/cmp-nvim-lsp','hrsh7th/cmp-buffer','hrsh7th/cmp-path'}} -- a completion plugin for neovim coded in Lua
@@ -35,7 +35,6 @@ M.setup = function()
     use {'~/repos/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end} -- send text to tmux
     use {'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end} -- vim support for Julia
     use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
-    use {'kyazdani42/nvim-web-devicons'} -- lua `fork` of vim-web-devicons for neovim
     use {'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end}
     use {'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end}
     use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
