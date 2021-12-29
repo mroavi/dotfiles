@@ -16,10 +16,6 @@ nnoremap <Leader>x :close<CR>
 " Make Y behave like other capitals
 nnoremap Y y$
 
-" Delete current buffer without losing split windows
-" https://stackoverflow.com/a/4468491/1706778
-nnoremap <silent> <Leader>dd :bprevious<bar>:bdelete #<CR>
-
 " Edit the alternate file
 nnoremap <silent> <Leader>l :b#<CR>
 
@@ -331,4 +327,8 @@ aug END
 "" Alternate mappings for go to next/prev mark
 "nnoremap <Leader>k ['
 "nnoremap <Leader>j ]'
+
+"" Delete current buffer without losing split windows
+"" https://stackoverflow.com/a/4468491/1706778
+"nnoremap <silent> <Leader>dd :bprevious<bar>:bdelete #<CR>
 
