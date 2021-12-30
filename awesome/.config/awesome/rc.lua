@@ -258,9 +258,9 @@ globalkeys = gears.table.join(
               {description = "quit awesome", group = "awesome"}),
 
     -- Tag focus
-    awful.key({ modkey,           }, ",",   awful.tag.viewprev,
+    awful.key({ modkey,           }, "j",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, ".",  awful.tag.viewnext,
+    awful.key({ modkey,           }, "k",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "l", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
@@ -452,7 +452,7 @@ for i = 1, 9 do
 end
 
 -- View the first three tags on the focused screen with `modkey + {h,k,l}`
-local tag_keys = {"j", "k"}
+local tag_keys = {"m", ",", ".", "/"}
 for i,v in ipairs(tag_keys) do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
