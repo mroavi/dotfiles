@@ -109,8 +109,8 @@ awful.layout.layouts = {
 --mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 --                                     menu = mymainmenu })
 
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+---- Menubar configuration
+--menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 
 ---- Keyboard map indicator and switcher
 --mykeyboardlayout = awful.widget.keyboardlayout()
