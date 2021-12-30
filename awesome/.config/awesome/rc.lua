@@ -392,6 +392,7 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
+
     -- Window states
     awful.key({ modkey,           }, "f",
         function (c)
