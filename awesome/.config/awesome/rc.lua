@@ -240,7 +240,7 @@ root.buttons(gears.table.join(
 ))
 
 --------------------------------------------------------------------------------
---- Key bindings
+--- Global key bindings
 --------------------------------------------------------------------------------
 
 globalkeys = gears.table.join(
@@ -400,6 +400,10 @@ globalkeys = gears.table.join(
     end,
               {description = "launch xscreensaver", group = "launcher"})
 )
+
+--------------------------------------------------------------------------------
+--- Client key bindings
+--------------------------------------------------------------------------------
 
 clientkeys = gears.table.join(
 
