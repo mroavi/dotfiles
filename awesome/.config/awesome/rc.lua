@@ -262,7 +262,7 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, ".",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "l", awful.tag.history.restore,
+    awful.key({ modkey,           }, "p", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
     -- Client focus
@@ -364,7 +364,7 @@ globalkeys = gears.table.join(
               function ()
                     awful.screen.focus(2)                 -- change focus to screen 2
                     local screen = awful.screen.focused() -- get the focused screen object
-                    local tag = screen.tags[9]            -- get the tag 9 object
+                    local tag = screen.tags[4]            -- get the tag 4 object
                     if tag then
                         tag:view_only()                   -- change focus to tag 9
                     end
@@ -452,7 +452,7 @@ for i = 1, 9 do
 end
 
 -- View the first three tags on the focused screen with `modkey + {h,k,l}`
-local tag_keys = {"h", "j", "k"}
+local tag_keys = {"j", "k", "l", ";"}
 for i,v in ipairs(tag_keys) do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
