@@ -21,7 +21,10 @@ require("awful.hotkeys_popup.keys")
 -- mrv: Info on how to test and debug rc.lua
 -- https://stackoverflow.com/a/70503451/1706778
 
--- {{{ Error handling
+--------------------------------------------------------------------------------
+--- Error handling
+--------------------------------------------------------------------------------
+
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -44,9 +47,10 @@ do
         in_error = false
     end)
 end
--- }}}
 
--- {{{ Variable definitions
+--------------------------------------------------------------------------------
+--- Variable definitions
+--------------------------------------------------------------------------------
 -- Themes define colours, icons, font and wallpapers.
 local my_theme = os.getenv("HOME").."/.config/awesome/theme.lua"
 beautiful.init(my_theme)
@@ -83,9 +87,11 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
--- }}}
 
--- {{{ Menu
+--------------------------------------------------------------------------------
+--- Menu
+--------------------------------------------------------------------------------
+
 ---- Create a launcher widget and a main menu
 --myawesomemenu = {
 --   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
@@ -105,12 +111,13 @@ awful.layout.layouts = {
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
 
 ---- Keyboard map indicator and switcher
 --mykeyboardlayout = awful.widget.keyboardlayout()
 
--- {{{ Wibar
+--------------------------------------------------------------------------------
+--- Wibar
+--------------------------------------------------------------------------------
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
@@ -222,17 +229,21 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
--- }}}
 
--- {{{ Mouse bindings
+--------------------------------------------------------------------------------
+--- Mouse bindings
+--------------------------------------------------------------------------------
+
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end)
     --awful.button({ }, 4, awful.tag.viewnext),
     --awful.button({ }, 5, awful.tag.viewprev)
 ))
--- }}}
 
--- {{{ Key bindings
+--------------------------------------------------------------------------------
+--- Key bindings
+--------------------------------------------------------------------------------
+
 globalkeys = gears.table.join(
 
     -- Help
@@ -577,9 +588,11 @@ clientbuttons = gears.table.join(
 
 -- Set keys
 root.keys(globalkeys)
--- }}}
 
--- {{{ Rules
+
+--------------------------------------------------------------------------------
+--- Rules
+--------------------------------------------------------------------------------
 -- Rules to apply to new clients (through the "manage" signal).
 -- mrv: see the `xprop` command line application to query properties for a client
 awful.rules.rules = {
@@ -618,9 +631,10 @@ awful.rules.rules = {
     --  properties = { screen = 2, tag = "9", switch_to_tags = true,} },
 
 }
--- }}}
 
--- {{{ Signals
+--------------------------------------------------------------------------------
+--- Signals
+--------------------------------------------------------------------------------
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
@@ -682,9 +696,10 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
 
--- Autostart applications
+--------------------------------------------------------------------------------
+--- Autostart applications
+--------------------------------------------------------------------------------
 awful.spawn.with_shell("picom --experimental-backends") -- enables transparency
 awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("xscreensaver -no-splash &") -- locks the system
