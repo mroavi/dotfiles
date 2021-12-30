@@ -262,7 +262,7 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, ".",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "p", awful.tag.history.restore,
+    awful.key({ modkey,           }, "l", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
     -- Client focus
@@ -452,7 +452,7 @@ for i = 1, 9 do
 end
 
 -- View the first three tags on the focused screen with `modkey + {h,k,l}`
-local tag_keys = {"j", "k", "l", ";"}
+local tag_keys = {"j", "k"}
 for i,v in ipairs(tag_keys) do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
