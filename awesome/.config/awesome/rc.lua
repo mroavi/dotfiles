@@ -356,17 +356,22 @@ globalkeys = gears.table.join(
     awful.key({                }, "Print", function () awful.util.spawn("flameshot gui") end,
               {description = "launch flameshot", group = "launcher"}),
 
+    -- Launch thunar
+    awful.key({ modkey         }, "t", function () awful.util.spawn("thunar") end,
+              {description = "launch thunar", group = "launcher"}),
+
     -- Launch chrome
     awful.key({ modkey, altkey }, "b", function () awful.util.spawn("google-chrome-stable") end,
               {description = "launch chrome", group = "launcher"}),
-    -- View screen 2, tag 9 (where normally chrome will be opened)
+
+    -- View screen 2, tag 4 (where normally chrome will be opened)
     awful.key({ modkey         }, "b" ,
               function ()
                     awful.screen.focus(2)                 -- change focus to screen 2
                     local screen = awful.screen.focused() -- get the focused screen object
                     local tag = screen.tags[4]            -- get the tag 4 object
                     if tag then
-                        tag:view_only()                   -- change focus to tag 9
+                        tag:view_only()                   -- change focus to tag 4
                     end
               end,
               {description = "view chrome tag", group = "tag"}),
