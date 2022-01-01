@@ -34,9 +34,7 @@ theme.border_normal = "#000000"
 theme.border_focus  = "#73cef4"
 theme.border_marked = "#a9a1e1"
 
--- There are other variable sets
--- overriding the default one when
--- defined, the sets are:
+-- There are other variable sets overriding the default one when defined, the sets are:
 -- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
 -- tasklist_[bg|fg]_[focus|urgent]
 -- titlebar_[bg|fg]_[normal|focus]
