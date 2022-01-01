@@ -17,7 +17,7 @@ theme.hotkeys_font              = font
 theme.hotkeys_description_font  = font
 
 -- "<color>" .. "opacity"
-theme.bg_normal     = "#222222"
+theme.bg_normal     = "#222222" .. "00"
 theme.bg_focus      = "#393939" .. "00"
 theme.bg_urgent     = "#f43753"
 theme.bg_minimize   = "#444444"
