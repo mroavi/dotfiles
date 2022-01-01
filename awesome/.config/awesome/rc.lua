@@ -356,8 +356,8 @@ globalkeys = gears.table.join(
     awful.key({                }, "Print", function () awful.util.spawn("flameshot gui") end,
               {description = "launch flameshot", group = "launcher"}),
 
-    -- Launch thunar
-    awful.key({ modkey         }, "t", function () awful.util.spawn("thunar") end,
+    -- Launch file manager
+    awful.key({ modkey, altkey }, "f", function () awful.util.spawn("thunar") end,
               {description = "launch thunar", group = "launcher"}),
 
     -- Launch chrome
@@ -505,7 +505,7 @@ clientkeys = gears.table.join(
               {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey,           }, "x",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, altkey }, "f",  awful.client.floating.toggle                     ,
+    awful.key({ modkey, "Control" }, "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
 
     -- Layout control
