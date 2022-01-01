@@ -51,6 +51,7 @@ end
 --------------------------------------------------------------------------------
 --- Variable definitions
 --------------------------------------------------------------------------------
+
 -- Themes define colours, icons, font and wallpapers.
 local my_theme = os.getenv("HOME").."/.config/awesome/theme.lua"
 beautiful.init(my_theme)
