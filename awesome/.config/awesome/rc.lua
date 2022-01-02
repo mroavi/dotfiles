@@ -551,12 +551,13 @@ clientkeys = gears.table.join(
 --------------------------------------------------------------------------------
 --- Rules
 --------------------------------------------------------------------------------
+
 -- Rules to apply to new clients (through the "manage" signal).
 -- mrv: see the `xprop` command line application to query properties for a client
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = beautiful.border_width,
+      properties = { border_width = 0, -- beautiful.border_width, -- mrv: disable borders
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,
