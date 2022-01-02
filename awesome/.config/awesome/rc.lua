@@ -90,33 +90,6 @@ awful.layout.layouts = {
 }
 
 --------------------------------------------------------------------------------
---- Menu
---------------------------------------------------------------------------------
-
----- Create a launcher widget and a main menu
---myawesomemenu = {
---   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
---   { "manual", terminal .. " -e man awesome" },
---   { "edit config", editor_cmd .. " " .. awesome.conffile },
---   { "restart", awesome.restart },
---   { "quit", function() awesome.quit() end },
---}
-
---mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
---                                    { "open terminal", terminal }
---                                  }
---                        })
-
---mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
---                                     menu = mymainmenu })
-
----- Menubar configuration
---menubar.utils.terminal = terminal -- Set the terminal for applications that require it
-
----- Keyboard map indicator and switcher
---mykeyboardlayout = awful.widget.keyboardlayout()
-
---------------------------------------------------------------------------------
 --- Wibar
 --------------------------------------------------------------------------------
 
@@ -139,28 +112,6 @@ local taglist_buttons = gears.table.join(
                         end),
   awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
   awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end))
-
---local tasklist_buttons = gears.table.join(
---    awful.button({ }, 1, function (c)
---                            if c == client.focus then
---                                c.minimized = true
---                            else
---                                c:emit_signal(
---                                    "request::activate",
---                                    "tasklist",
---                                    {raise = true}
---                                )
---                            end
---                        end),
---    awful.button({ }, 3, function()
---                            awful.menu.client_list({ theme = { width = 250 } })
---                        end),
---    awful.button({ }, 4, function ()
---                            awful.client.focus.byidx(1)
---                        end),
---    awful.button({ }, 5, function ()
---                            awful.client.focus.byidx(-1)
---                        end))
 
 local function set_wallpaper(s)
     -- Wallpaper
@@ -201,13 +152,6 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = taglist_buttons
     }
 
-    ---- Create a tasklist widget
-    --s.mytasklist = awful.widget.tasklist {
-    --    screen  = s,
-    --    filter  = awful.widget.tasklist.filter.currenttags,
-    --    buttons = tasklist_buttons
-    --}
-
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "bottom", screen = s })
 
@@ -218,14 +162,12 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.align.horizontal,
             { -- Left widgets
                 layout = wibox.layout.fixed.horizontal,
-                --mylauncher,
                 s.mytaglist,
                 s.mypromptbox,
             },
             nil,
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                --mykeyboardlayout,
                 wibox.widget.systray(),
                 s.mylayoutbox,
             },
@@ -246,8 +188,6 @@ end)
 
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end)
-    --awful.button({ }, 4, awful.tag.viewnext),
-    --awful.button({ }, 5, awful.tag.viewprev)
 ))
 
 --------------------------------------------------------------------------------
@@ -256,13 +196,9 @@ root.buttons(gears.table.join(
 
 globalkeys = gears.table.join(
 
-    -- Help
+    -- General
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-
-    -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -354,6 +290,10 @@ globalkeys = gears.table.join(
                   end
               end,
               {description = "restore minimized", group = "client"}),
+
+    -- Terminal
+    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+              {description = "open a terminal", group = "launcher"}),
 
     -- Dmenu
     awful.key({ modkey            }, "space", function () awful.util.spawn("dmenu_run") end,
@@ -707,11 +647,6 @@ client.connect_signal("request::titlebars", function(c)
         layout = wibox.layout.align.horizontal
     }
 end)
-
----- Enable sloppy focus, so that focus follows mouse.
---client.connect_signal("mouse::enter", function(c)
---    c:emit_signal("request::activate", "mouse_enter", {raise = false})
---end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
