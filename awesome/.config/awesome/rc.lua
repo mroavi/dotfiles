@@ -297,7 +297,7 @@ globalkeys = gears.table.join(
 
     -- Dmenu
     awful.key({ modkey            }, "space", function () awful.util.spawn("dmenu_run") end,
-              {description = "launch dmenu", group = "launcher"}),
+                    {description = "launch dmenu", group = "launcher"}),
 
     -- Launch nvim
     awful.key({ modkey, altkey }, "v", function () awful.util.spawn("alacritty -e nvim") end,

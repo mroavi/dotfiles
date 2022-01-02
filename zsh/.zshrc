@@ -114,9 +114,9 @@ fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
 
-zstyle :prompt:pure:prompt:success  color yellow
+zstyle :prompt:pure:prompt:success  color green
 zstyle :prompt:pure:git:branch      color green
-zstyle :prompt:pure:git:arrow       color green
+zstyle :prompt:pure:git:arrow       color yellow
 
 zstyle :prompt:pure:git:stash show yes
 
