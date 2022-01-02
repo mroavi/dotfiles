@@ -17,16 +17,17 @@ theme.hotkeys_font              = font
 theme.hotkeys_description_font  = font
 
 -- "<color>" .. "opacity"
-theme.bg_normal     = "#222222" .. "88"
-theme.bg_focus      = "#393939" .. "88"
-theme.bg_urgent     = "#f43753"
-theme.bg_minimize   = "#444444"
+local myopacity = "88"
+theme.bg_normal     = "#282828" .. myopacity
+theme.bg_focus      = "#393939" .. myopacity
+theme.bg_urgent     = "#f43753" .. myopacity
+theme.bg_minimize   = "#444444" .. myopacity
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#ffffff"
+theme.fg_normal     = "#eeeeee"
 theme.fg_focus      = "#73cef4"
-theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+theme.fg_urgent     = "#eeeeee"
+theme.fg_minimize   = "#eeeeee"
 
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(2)
