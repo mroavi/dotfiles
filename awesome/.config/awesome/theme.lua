@@ -45,6 +45,9 @@ theme.border_marked = "#a9a1e1"
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
+theme.hotkeys_fg = "#eeeeee"
+theme.hotkeys_bg = "#282828"
+theme.hotkeys_modifiers_fg = "#999999"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
