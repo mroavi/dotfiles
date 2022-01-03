@@ -65,12 +65,6 @@ bindsym $mod+$alt+j focus down
 bindsym $mod+$alt+k focus up
 bindsym $mod+$alt+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -81,12 +75,6 @@ bindsym $mod+Shift+l move right
 # https://www.reddit.com/r/i3wm/comments/4d4luc/how_to_focus_the_last_window/
 exec --no-startup-id i3-focus-last-window
 bindsym $mod+semicolon [con_mark=_last] focus
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # # split in horizontal orientation
 # bindsym $mod+h split h
@@ -173,12 +161,6 @@ mode "resize" {
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
