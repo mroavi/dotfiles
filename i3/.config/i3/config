@@ -193,3 +193,6 @@ exec_always feh --bg-scale /home/mroavi/Pictures/zelda2.jpg
 
 # # use picom to enable transparency and fading effects
 # exec_always picom --experimental-backends
+
+# Moving workspaces between screens 
+bindsym $mod+o move workspace to output right
