@@ -198,3 +198,6 @@ bar {
 gaps inner 10
 gaps outer 0
 smart_gaps on
+
+# set wallpaper
+exec_always feh --bg-scale /home/mroavi/Pictures/zelda2.jpg
