@@ -248,3 +248,5 @@ exec_always dropbox
 exec_always blueman-applet
 exec_always flameshot
 
+exec google-chrome-stable
+exec teams
