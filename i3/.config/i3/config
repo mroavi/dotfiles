@@ -211,11 +211,11 @@ bindsym $mod+$alt+t exec --no-startup-id teams; workspace number $ws9
 
 # color definitions
 
-set $bg-color 	         #282828
-set $inactive-bg-color   #393939
-set $text-color          #eeeeee
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #f43753
+set $bg-color 	         #282828aa
+set $inactive-bg-color   #393939aa
+set $text-color          #eeeeeeaa
+set $inactive-text-color #676E7Daa
+set $urgent-bg-color     #f43753aa
 # window colors
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #00ff00
