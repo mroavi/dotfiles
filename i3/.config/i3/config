@@ -184,12 +184,13 @@ bindsym $mod+r mode "resize"
 # my key bindings
 # -----------------------------------------------------------------------------
 
-# Add key binding to lock the session
+# add key binding to lock the session
 bindsym Control+$alt+l exec i3lock --color $"$bg-color"
 
 # moving workspaces between screens 
 bindsym $mod+o move workspace to output right
 
+# capture screen with flameshot using the prt sc key
 bindsym Print exec flameshot gui
 
 # make browser open in the screen "DP-1" in workspace $ws10 
@@ -198,7 +199,40 @@ assign [class="Google-chrome"] $ws10
 workspace $ws10 output DP-1
 bindsym $mod+$alt+b exec --no-startup-id google-chrome-stable ; workspace number $ws10
 
-# only for i3-gaps: set gap settings
+# -----------------------------------------------------------------------------
+# appearance
+# -----------------------------------------------------------------------------
+
+# color definitions
+
+set $bg-color 	         #282828
+set $inactive-bg-color   #393939
+set $text-color          #eeeeee
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #f43753
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+
+# bar customization
+bar {
+  # status_command i3blocks -c /home/booker/.i3/i3blocks.conf
+  tray_padding 4
+  status_command i3blocks -c /home/mroavi/.config/i3/i3blocks.conf
+	colors {
+		background $bg-color
+	    	separator #757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
+}
+
+# set gap settings (only for i3-gaps)
 gaps inner 10
 gaps outer 0
 smart_gaps on
@@ -212,11 +246,3 @@ exec_always blueman-applet
 exec_always flameshot
 # exec_always picom --experimental-backends
 
-# Moving workspaces between screens 
-bindsym $mod+o move workspace to output right
-
-# Make browser open in the screen "DP-1" in workspace $ws10 
-# (use the `xrandr` program to get the name of the screens)
-assign [class="Google-chrome"] $ws10
-workspace $ws10 output DP-1
-bindsym $mod+$alt+b exec --no-startup-id google-chrome-stable ; workspace number $ws10
