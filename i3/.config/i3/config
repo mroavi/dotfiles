@@ -194,6 +194,7 @@ bindsym $mod+o move workspace to output right
 bindsym Print exec flameshot gui
 
 # make browser open in the screen "DP-1" in workspace $ws10 
+# (use the `xprop` program to get the class name of the application)
 # (use the `xrandr` program to get the name of the screens)
 assign [class="Google-chrome"] $ws10
 workspace $ws10 output DP-1
