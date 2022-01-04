@@ -184,7 +184,7 @@ focus_follows_mouse no
 # my key bindings
 # -----------------------------------------------------------------------------
 
-# add key binding to lock the session
+# lock session
 bindsym Control+$alt+l exec i3lock --color $"$bg-color"
 
 # moving workspaces between screens 
@@ -192,6 +192,9 @@ bindsym $mod+o move workspace to output right
 
 # capture screen with flameshot using the prt sc key
 bindsym Print exec flameshot gui
+
+# open file manager
+bindsym $mod+$alt+f exec thunar
 
 # make browser open in the screen "DP-1" in workspace $ws10 
 # (use the `xprop` program to get the class name of the application)
