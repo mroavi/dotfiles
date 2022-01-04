@@ -180,8 +180,23 @@ bindsym $mod+r mode "resize"
 # mrv
 # -----------------------------------------------------------------------------
 
+# -----------------------------------------------------------------------------
+# my key bindings
+# -----------------------------------------------------------------------------
+
 # Add key binding to lock the session
-bindsym Control+$alt+l exec i3lock
+bindsym Control+$alt+l exec i3lock --color $"$bg-color"
+
+# moving workspaces between screens 
+bindsym $mod+o move workspace to output right
+
+bindsym Print exec flameshot gui
+
+# make browser open in the screen "DP-1" in workspace $ws10 
+# (use the `xrandr` program to get the name of the screens)
+assign [class="Google-chrome"] $ws10
+workspace $ws10 output DP-1
+bindsym $mod+$alt+b exec --no-startup-id google-chrome-stable ; workspace number $ws10
 
 # only for i3-gaps: set gap settings
 gaps inner 10
