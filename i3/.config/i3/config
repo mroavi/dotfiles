@@ -243,7 +243,8 @@ smart_gaps on
 # -----------------------------------------------------------------------------
 
 exec_always feh --bg-scale /home/mroavi/Pictures/zelda2.jpg
+exec_always picom --experimental-backends
+exec_always dropbox
 exec_always blueman-applet
 exec_always flameshot
-exec_always picom --experimental-backends
 
