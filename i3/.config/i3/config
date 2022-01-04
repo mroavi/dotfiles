@@ -219,6 +219,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # bar customization
 bar {
+  i3bar_command i3bar --transparency
   # status_command i3blocks -c /home/booker/.i3/i3blocks.conf
   tray_padding 4
   status_command i3blocks -c /home/mroavi/.config/i3/i3blocks.conf
@@ -244,5 +245,5 @@ smart_gaps on
 exec_always feh --bg-scale /home/mroavi/Pictures/zelda2.jpg
 exec_always blueman-applet
 exec_always flameshot
-# exec_always picom --experimental-backends
+exec_always picom --experimental-backends
 
