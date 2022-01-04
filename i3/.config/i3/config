@@ -188,10 +188,13 @@ gaps inner 10
 gaps outer 0
 smart_gaps on
 
-# set wallpaper
-exec_always feh --bg-scale /home/mroavi/Pictures/zelda2.jpg
+# -----------------------------------------------------------------------------
+# launch programs at startup
+# -----------------------------------------------------------------------------
 
-# # use picom to enable transparency and fading effects
+exec_always feh --bg-scale /home/mroavi/Pictures/zelda2.jpg
+exec_always blueman-applet
+exec_always flameshot
 # exec_always picom --experimental-backends
 
 # Moving workspaces between screens 
