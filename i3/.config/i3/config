@@ -71,10 +71,8 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# # focus last window
-# # https://www.reddit.com/r/i3wm/comments/4d4luc/how_to_focus_the_last_window/
-# exec --no-startup-id i3-focus-last-window
-# bindsym $mod+semicolon [con_mark=_last] focus
+# focus last window (hack: i3 doesn't want to support this)
+bindsym $mod+semicolon focus right
 
 # split in horizontal orientation
 bindsym $mod+s split h
