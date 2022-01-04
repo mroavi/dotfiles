@@ -57,6 +57,9 @@ bindsym $mod+x kill
 # start rofi (a more modern dmenu replacement):
 bindsym $mod+space  exec "rofi -show drun"
 
+# start rofi in "switch workspaces mode"
+bindsym $mod+w      exec i3_switch_workspaces.sh
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -83,7 +86,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+# bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
