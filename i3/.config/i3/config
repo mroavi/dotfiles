@@ -148,7 +148,7 @@ focus_follows_mouse no
 # -----------------------------------------------------------------------------
 
 # lock session
-bindsym Control+$alt+l exec i3lock --color $"$bg-color"
+bindsym Control+$alt+l exec i3lock --color $"#282828"
 
 # moving workspaces between screens 
 bindsym $mod+o move workspace to output right
