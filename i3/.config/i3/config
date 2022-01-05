@@ -230,7 +230,6 @@ exec_always --no-startup-id dropbox
 exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id flameshot
 
-exec        --no-startup-id teams
 exec        --no-startup-id google-chrome-stable
 
 # open new windows in i3wm/Sway using alternating layouts (splith/splitv) for each new window
