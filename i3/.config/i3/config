@@ -141,6 +141,7 @@ bindsym $mod+Control+Shift l resize grow width 10 px or 10 ppt
 # mrv
 # -----------------------------------------------------------------------------
 
+# disable a window from getting focus when hovered with the mouse
 focus_follows_mouse no
 
 # -----------------------------------------------------------------------------
