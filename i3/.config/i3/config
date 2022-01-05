@@ -61,8 +61,10 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# focus last window (hack: i3 doesn't want to support this)
-bindsym $mod+semicolon focus right
+# focus last window
+# https://github.com/olivierlemoal/i3-swap-focus
+exec i3-swap-focus
+bindsym $mod+Tab exec pkill -USR1 -F "${XDG_RUNTIME_DIR}/swap_focus.pid"
 
 # split in horizontal orientation
 bindsym $mod+s split h
