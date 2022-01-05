@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,drun,ssh,combi";
+	modi: "window,drun,ssh,combi,run";
 	font: "hack 12";
 	combi-modi: "window,drun,ssh";
 	/* location: 0; */
