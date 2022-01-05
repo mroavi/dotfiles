@@ -160,17 +160,23 @@ bindsym Print exec flameshot gui
 # open file manager
 bindsym $mod+$alt+f exec thunar
 
-# make browser open in the screen "DP-1" in workspace $ws10 
-# (use the `xprop` program to get the class name of the application)
+# Store the names of the left and right screens in variables
 # (use the `xrandr` program to get the name of the screens)
-assign [class="Google-chrome"] $ws10
-workspace $ws10 output DP-1
-bindsym $mod+$alt+b exec --no-startup-id google-chrome-stable; workspace number $ws10
+set $left-screen eDP-1 
+set $right-screen DP-1
 
-# make Microsoft Teams open in the screen "eDP-1" in workspace $ws9
-assign [class="Microsoft Teams - Preview"] $ws9
-workspace $ws9 output eDP-1
-bindsym $mod+$alt+t exec --no-startup-id teams; workspace number $ws9
+# make chrome open in workspace $ws10 on the right screen
+# (use the `xprop` program to get the class name of the application)
+assign [class="Google-chrome"] → workspace $ws10
+workspace $ws10 output $right-screen
+for_window [class="Google-chrome"] focus
+bindsym $mod+$alt+b exec --no-startup-id google-chrome-stable
+
+# make teams open in the workspace $ws9 in the left screen
+assign [class="Microsoft Teams - Preview"] → workspace $ws9
+workspace $ws9 output $left-screen
+for_window [class="Microsoft Teams - Preview"] focus
+bindsym $mod+$alt+t exec --no-startup-id teams
 
 # -----------------------------------------------------------------------------
 # appearance
