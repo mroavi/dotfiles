@@ -138,6 +138,7 @@ alias t="tmux"
 
 # Configuration managers
 alias vol="alsamixer"
+alias audio="pavucontrol"
 alias blue="blueman-manager"
 alias disp="arandr"
 alias appearance="lxappearance"
