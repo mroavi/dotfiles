@@ -135,6 +135,7 @@ alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --
 alias pac="sudo pacman"
 alias bye="shutdown now"
 alias t="tmux"
+alias vol="alsamixer"
 
 # Dir bookmarks
 alias dotfiles="cd ~/dotfiles"
