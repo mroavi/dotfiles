@@ -43,6 +43,8 @@
 #  control+shift + q
 
 # set directly keycode (here control + f with my keyboard)
+# mrv: where `control` corresponds to `m:0x4` and `f` to `c:41` 
+# mrv: run `xmodmap -pke` to see the table that maps keycodes to symbols 
 #"xterm"
 #  c:41 + m:0x4
 
@@ -66,35 +68,44 @@
 #  Control + b:2 + Release
 
 # ------------------------------------------------------------------
+# NOTES:
+#
+# mrv: To reload changes to this file kill and restart xbindkeys:
+#   > killall -HUP xbindkeys
+#   > xbindkeys
+
+# ------------------------------------------------------------------
+# mrv: My key bindings
+
+# Shows all key bindings defined with xbindkeys
+"xbindkeys_show"
+  control+shift + k
+
+# ------------------------------------------------------------------
 # mrv: Running programs in sudo mode:
 #
 # Make sure to add a rule in /etc/sudoers to allow running
 # a program as sudo without prompting for a password.
 # To do this, run:
-#   $ pkexec visudo
+#   > pkexec visudo
 #
 # For more info see: https://unix.stackexchange.com/q/18830/184227
 #
 # If wanting to run a Bash script, make sure to make executable:
-#   $ chmod +x my-script.sh
-#
-# ------------------------------------------------------------------
-# mrv: To reload this file:
-#   $ killall -HUP xbindkeys
-#   $ xbindkeys
-# ------------------------------------------------------------------
+#   > chmod +x my-script.sh
 
-"sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/third-year/presentations/2020-05-20-biaslab-seminar/i-can-eat-glass.txt'"
-  control+shift+alt + 1
 
-"sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/software/julia/Plots.jl/animation/Fourier/onthefly-presentation/simon-xu/dft.jl'"
-  control+shift+alt + 2
+# "sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/third-year/presentations/2020-05-20-biaslab-seminar/i-can-eat-glass.txt'"
+#   control+shift+alt + 1
 
-"sudo ~/repos/Halide/mrv/automated-single-stage-practice.sh"
-  control+shift+alt + 3
+# "sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/software/julia/Plots.jl/animation/Fourier/onthefly-presentation/simon-xu/dft.jl'"
+#   control+shift+alt + 2
 
-"sudo ~/repos/Halide/mrv/automated-multi-stage-practice.sh"
-  control+shift+alt + 4
+# "sudo ~/repos/Halide/mrv/automated-single-stage-practice.sh"
+#   control+shift+alt + 3
+
+# "sudo ~/repos/Halide/mrv/automated-multi-stage-practice.sh"
+#   control+shift+alt + 4
 
 ##################################
 # End of xbindkeys configuration #
