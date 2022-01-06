@@ -135,7 +135,13 @@ alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --
 alias pac="sudo pacman"
 alias bye="shutdown now"
 alias t="tmux"
+
+# Configuration managers
 alias vol="alsamixer"
+alias blue="blueman-manager"
+alias disp="arandr"
+alias appearance="lxappearance"
+alias wifiscan="nmcli dev wifi"
 
 # Dir bookmarks
 alias dotfiles="cd ~/dotfiles"
