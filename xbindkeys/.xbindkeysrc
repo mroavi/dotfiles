@@ -68,22 +68,52 @@
 #  Control + b:2 + Release
 
 # ------------------------------------------------------------------
-# NOTES:
-#
-# mrv: To reload changes to this file kill and restart xbindkeys:
+# mrv: NOTES:
+# ------------------------------------------------------------------
+
+# Good source: https://wiki.archlinux.org/title/Xbindkeys
+
+# To reload changes to this file kill and restart xbindkeys:
 #   > killall -HUP xbindkeys
 #   > xbindkeys
 
+# To find the keycode for a key or key combination run
+#   > xbindkeys --key
+# or
+#   > xbindkeys --multikey
+
+# Focus on the window that opened and pres the keys you want the output for
+# source: https://www.linux.com/news/start-programs-pro-xbindkeys/
+
 # ------------------------------------------------------------------
 # mrv: My key bindings
+# ------------------------------------------------------------------
 
 # Shows all key bindings defined with xbindkeys
 "xbindkeys_show"
   control+shift + k
 
+# KEYBOARD VOLUME KEYS
+
+# Mute/Unmute using the keyboard volume keys
+"amixer sset Master toggle"
+  m:0x0 + c:121
+  XF86AudioMute 
+
+# Decrease volume using the keyboard volume keys
+"amixer set Master 1%-"
+  m:0x0 + c:122
+  XF86AudioLowerVolume 
+
+# Increase volume using the keyboard volume keys
+"amixer set Master 1%+"
+    m:0x0 + c:123
+    XF86AudioRaiseVolume 
+
 # ------------------------------------------------------------------
 # mrv: Running programs in sudo mode:
-#
+# ------------------------------------------------------------------
+
 # Make sure to add a rule in /etc/sudoers to allow running
 # a program as sudo without prompting for a password.
 # To do this, run:
