@@ -93,6 +93,11 @@
 "xbindkeys_show"
   control+shift + k
 
+# Launch screen capture gui
+"flameshot gui"
+  m:0x0 + c:107
+  Print
+
 # KEYBOARD VOLUME KEYS
 
 # Mute/Unmute using the keyboard volume keys
