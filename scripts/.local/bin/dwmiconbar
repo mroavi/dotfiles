@@ -19,12 +19,12 @@ dte(){
 }
 
 hdd(){
-        hdd="$(df -h /home | grep dev | awk '{print$3, " "  $5}')"
+        hdd="$(df -h /home | grep dev | awk '{print $3 "/" $2}')"
         echo "  $hdd"
 }
 
 mem(){
-        mem="$(free -h | awk '/Mem:/ {printf $3 " / " $2}')"
+        mem="$(free -h | awk '/Mem:/ {printf $3 "/" $2}')"
         echo "  $mem"
 }
 
@@ -102,7 +102,7 @@ netstat() {
 # }
 
 status(){
-        echo "$(cpu) | $(mem) | $(pkgs) | $(upgrades) | $(hdd) | $(vpn) | $(dte)"
+        echo "$(cpu) | $(mem) | $(hdd) | $(dte)"
 }
 
 while true; do
