@@ -4,6 +4,9 @@
 # Source:
 # https://github.com/linuxdabbler/personal-dot-files/blob/master/scripts/dwm-iconbar
 
+# Other source for scripts:
+# https://github.com/LukeSmithxyz/voidrice/tree/master/.local/bin/statusbar
+
 # Kill all running instances of this script
 # https://unix.stackexchange.com/a/213293/184227
 script_name=${BASH_SOURCE[0]}
