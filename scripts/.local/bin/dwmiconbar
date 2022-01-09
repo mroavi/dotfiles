@@ -17,7 +17,7 @@ for pid in $(pidof -x $script_name); do
 done
 
 dte(){
-        dte="$(date +"%a, %b %d %R")"
+        dte="$(date +"%a, %d/%m/%Y %R")"
         echo "$dte"
 }
 
