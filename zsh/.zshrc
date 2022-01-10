@@ -132,7 +132,6 @@ alias ll='ls -lh'
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias pac="sudo pacman"
 alias bye="shutdown now"
-alias t="tmux"
 
 # Configuration managers
 alias vol="alsamixer"
