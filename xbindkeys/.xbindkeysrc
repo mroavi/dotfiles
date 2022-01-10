@@ -94,7 +94,7 @@
   control+shift + k
 
 # Launch screen capture gui
-"flameshot gui"
+"spectacle"
   m:0x0 + c:107
   Print
 
