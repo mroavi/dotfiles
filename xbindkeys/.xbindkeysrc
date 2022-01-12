@@ -106,12 +106,12 @@
   XF86AudioMute 
 
 # Decrease volume using the keyboard volume keys
-"amixer set Master 1%-"
+"pactl -- set-sink-volume 0 -3%"
   m:0x0 + c:122
   XF86AudioLowerVolume 
 
 # Increase volume using the keyboard volume keys
-"amixer set Master 1%+"
+"pactl -- set-sink-volume 0 +3%"
   m:0x0 + c:123
   XF86AudioRaiseVolume 
 
