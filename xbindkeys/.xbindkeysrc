@@ -112,8 +112,8 @@
 
 # Increase volume using the keyboard volume keys
 "amixer set Master 1%+"
-    m:0x0 + c:123
-    XF86AudioRaiseVolume 
+  m:0x0 + c:123
+  XF86AudioRaiseVolume 
 
 # ------------------------------------------------------------------
 # mrv: Running programs in sudo mode:

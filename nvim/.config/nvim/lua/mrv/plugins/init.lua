@@ -28,7 +28,8 @@ M.setup = function()
     use {'pgdouyon/vim-evanesco'} -- automatically clears search highlight
     use {'~/repos/vim-pasta'} -- auto format pasted code
     use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end} -- vim plugin that provides additional text objects
-    use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
+    --use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
+    use {'~/repos/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
     use {'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end} -- quickstart configurations for the Nvim LSP client
     use {'plasticboy/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
     use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}} -- preview markdown on your browser with synchronised scrolling
