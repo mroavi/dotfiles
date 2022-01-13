@@ -225,10 +225,12 @@ smart_gaps on
 # -----------------------------------------------------------------------------
 
 exec_always --no-startup-id feh --bg-scale /home/mroavi/Pictures/zelda2.jpg
-exec_always --no-startup-id picom --experimental-backends
 exec_always --no-startup-id dropbox
 exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id flameshot
+# https://aur.archlinux.org/packages/picom-jonaburg-git/
+# https://aur.archlinux.org/packages/picom-tryone-git/ <- currently installed
+exec_always --no-startup-id picom --experimental-backends
 
 exec        --no-startup-id google-chrome-stable
 
