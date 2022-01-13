@@ -139,7 +139,7 @@ alias audio="pavucontrol"
 alias blue="blueman-manager"
 alias disp="arandr"
 alias appearance="lxappearance"
-alias wifiscan="nmcli dev wifi"
+alias wifiscan="nmcli dev wifi list"
 
 # Dir bookmarks
 alias dotfiles="cd ~/dotfiles"
