@@ -118,7 +118,7 @@ font:
     #family: monospace
     #family: Hack Nerd Font
     #family: Source Code Pro
-    family: MesloLGSDZ Nerd FontMono
+    #family: MesloLGSDZ Nerd FontMono
     #family: JetBrainsMono Nerd Font
     #family: DejaVuSansMono Nerd Font
     #family: FiraCode Nerd Font
@@ -126,6 +126,7 @@ font:
     #family: UbuntuMono Nerd Font
     #family: Inconsolata Nerd Font
     #family: Monoid Nerd Font
+    family: JuliaMono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
