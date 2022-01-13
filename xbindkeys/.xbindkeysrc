@@ -117,7 +117,7 @@
 
 # lock display
 "slock"
-  control+alt+l
+  control+alt + Delete
 
 # ------------------------------------------------------------------
 # mrv: Running programs in sudo mode:
