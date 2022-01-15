@@ -317,10 +317,6 @@ fi
 # https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 
 # -----------------------------------------------------------------------------------------
-# TODO: install fd: 
-# https://github.com/sharkdp/fd
-
-# -----------------------------------------------------------------------------------------
 # TODO: Add vimv installation (git clones and copies to .local/bin like the above example)
 # vimv is also available in AUR
 # TODO: Consider replacing vimv with trapd00r/vidir which seems more mature.
