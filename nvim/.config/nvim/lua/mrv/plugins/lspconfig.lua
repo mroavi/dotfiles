@@ -100,6 +100,7 @@ lspconfig.bashls.setup {}
 
 -- Installation: see bootstrap in dotfiles
 lspconfig.clangd.setup {
+  autostart = false,
   cmd = {"clangd", "--background-index", "--fallback-style=LLVM"},
   filetypes = {"c", "cpp", "objc", "objcpp"}
 }
