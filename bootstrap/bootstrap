@@ -9,6 +9,7 @@ currentdir="$PWD"
 # Ensure these dirs exist
 mkdir -p ~/.local
 mkdir -p ~/Downloads
+mkdir -p ~/repos
 
 # -----------------------------------------------------------------------------------------
 echo "Installing stow..."
