@@ -52,18 +52,6 @@ fi
 pip3 install pynvim
 
 # -----------------------------------------------------------------------------------------
-echo "Installing vim-plug for nvim..."
-
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# -----------------------------------------------------------------------------------------
-echo "Installing neovim plugins..."
-
-# https://github.com/junegunn/vim-plug/wiki/tips#install-plugins-on-the-command-line
-nvim -es -u ~/dotfiles/nvim/.config/nvim/init.vim -i NONE -c "PlugInstall" -c "qa"
-
-# -----------------------------------------------------------------------------------------
 echo "Installing zsh..."
 
 if [ "$SSH_CONNECTION" ]; then
