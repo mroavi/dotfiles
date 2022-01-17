@@ -20,9 +20,10 @@ let b:commentary_format = '#%s'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tomux_use_clipboard = 1
 let b:tomux_clipboard_paste = "paste -q"
+let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
 " Start REPL cmd
-let b:start_repl_cmd = 'python3.8 -m IPython'
-" Start REPL cmd
+let b:start_repl_cmd = 'python -m IPython'
+" Exit REPL cmd
 let b:quit_repl_cmd = 'exit()'
 
 " TODO: adapt this code based on the new changes of tomux (see julia ftplugin file)
@@ -33,11 +34,11 @@ nnoremap <buffer><silent><expr> <Leader>tj ':TomuxCommand("split-window -v -d -l
 " Create a RIGHT split with active buffer as CWD and start REPL
 nnoremap <buffer><silent><expr> <Leader>tl ':TomuxCommand("split-window -h -d -c ' . expand('%:p:h') . '")<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>'
 " Restart REPL (send first CTRL-c, and then restart)
-nnoremap <buffer><silent> <Leader>tr :TomuxCommand("send-keys -t " . shellescape(g:tomux_config["target_pane"]) . " C-c")<CR>:TomuxSend(b:quit_repl_cmd . "\n")<CR>:sl 50m<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>
+nnoremap <buffer><silent> <Leader>tr :TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")<CR>:TomuxSend(b:quit_repl_cmd . "\n")<CR>:sl 50m<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>
 " Quit REPL (send first CTRL-c and then quit)
-nnoremap <buffer><silent> <Leader>tq :TomuxCommand("send-keys -t " . shellescape(g:tomux_config["target_pane"]) . " C-c")<CR>:TomuxSend(b:quit_repl_cmd . "\n")<CR>
+nnoremap <buffer><silent> <Leader>tq :TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")<CR>:TomuxSend(b:quit_repl_cmd . "\n")<CR>
 " Kill pane
-nnoremap <buffer><silent> <Leader>tk :TomuxCommand("kill-pane -t " . shellescape(g:tomux_config["target_pane"]))<CR>
+nnoremap <buffer><silent> <Leader>tk :TomuxCommand("kill-pane -t " . shellescape(b:tomux_config["target_pane"]))<CR>
 " Execute file
 nnoremap <buffer><silent><expr> <Leader>e ':w<Bar>:TomuxSend("exec(open(\"' . expand('%:p') . '\").read())\n")<CR>'
 " Clear REPL
