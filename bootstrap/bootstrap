@@ -112,26 +112,27 @@ echo "Installing Fonts..."
 # To load recently installed fonts:
 # sudo fc-cache
 
-# TODO: use yay to install nerd fonts, e.g:
-# ❯ yay -S nerd-fonts-meslo
-
-mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
-
-# Hack Nerd Font
-# https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
-filepath=Hack-for-Powerline-Nerd-Font-regular-complete.ttf
-[ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
-filepath=Hack-for-Powerline-Nerd-Font-bold-complete.ttf
-[ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete.ttf
-filepath=Hack-for-Powerline-Nerd-Font-italic-complete.ttf
-[ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Italic/complete/Hack%20Italic%20Nerd%20Font%20Complete.ttf
-filepath=Hack-for-Powerline-Nerd-Font-bold-italic-complete.ttf
-[ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/BoldItalic/complete/Hack%20Bold%20Italic%20Nerd%20Font%20Complete.ttf
-
-# Awesome Terminal font
-# https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy/patched
-filepath=Droid-Sans-Mono-Awesome.ttf
-[ -f $filepath ] || curl -fLo "$filepath" https://github.com/gabrielelana/awesome-terminal-fonts/raw/patching-strategy/patched/Droid%2BSans%2BMono%2BAwesome.ttf
+if [ ! "$SSH_CONNECTION" ]; then
+  yay -S --needed nerd-fonts-meslo
+  yay -S --needed nerd-fonts-hack
+  yay -S --needed ttf-juliamono
+else
+  mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
+  # Hack Nerd Font
+  # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
+  filepath=Hack-for-Powerline-Nerd-Font-regular-complete.ttf
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
+  filepath=Hack-for-Powerline-Nerd-Font-bold-complete.ttf
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete.ttf
+  filepath=Hack-for-Powerline-Nerd-Font-italic-complete.ttf
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Italic/complete/Hack%20Italic%20Nerd%20Font%20Complete.ttf
+  filepath=Hack-for-Powerline-Nerd-Font-bold-italic-complete.ttf
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/BoldItalic/complete/Hack%20Bold%20Italic%20Nerd%20Font%20Complete.ttf
+  # Meslo S-DZ
+  # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/S-DZ/Regular/complete
+  filepath=Meslo-LG-S-DZ-Regular-Nerd-Font-Complete.ttf
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/blob/877887cac2d6ccc7354a8d95e8c39fff10bf120b/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete.ttf
+fi
 
 # -----------------------------------------------------------------------------------------
 # https://github.com/BurntSushi/ripgrep#installation
