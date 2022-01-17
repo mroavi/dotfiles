@@ -112,6 +112,9 @@ echo "Installing Fonts..."
 # To load recently installed fonts:
 # sudo fc-cache
 
+# TODO: use yay to install nerd fonts, e.g:
+# ❯ yay -S nerd-fonts-meslo
+
 mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
 
 # Hack Nerd Font
