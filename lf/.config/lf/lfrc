@@ -148,5 +148,6 @@ map c
 map w
 # Now that c and w are cleared, map cl and cw
 map cl        :clear; unselect
+# https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files
 map cw        $printf '%s\n' $fx | vidir -
 
