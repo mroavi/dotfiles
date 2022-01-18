@@ -48,8 +48,8 @@ cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
 " Resize splits easier
 noremap <C-M-Down> :resize -3<CR>
 noremap <C-M-Up> :resize +3<CR>
-noremap <C-M-Left> :vertical resize +3<CR>
-noremap <C-M-Right> :vertical resize -3<CR>
+noremap <C-M-Left> :vertical resize -3<CR>
+noremap <C-M-Right> :vertical resize +3<CR>
 
 " Spelling completion in normal mode ( https://stackoverflow.com/a/25777332/1706778 )
 nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
