@@ -15,7 +15,6 @@
 set shell sh 
 set shellopts '-eu'
 set ifs "\n"
-$mkdir -p ~/.trash
 
 # -----------------------------------------------------------------------------
 # Options
@@ -31,9 +30,9 @@ set ignorecase
 # Custom commands
 # -----------------------------------------------------------------------------
 
-# Moves current file or selected files to trash folder
-# (also see 'man mv' for backup/overwrite options)
-cmd trash %set -f; mv $fx ~/.trash
+# Use trash-cli to move selected files/dirs to trash
+# - https://github.com/gokcehan/lf/issues/579
+cmd trash %trash-put $fx
 
 # Creates a file with the argument as name and selects it
 cmd touch %{{
@@ -130,7 +129,8 @@ map u # TODO: map this to undo deletion
 
 # Mappings
 map dd        trash
-map <delete>  delete
+map DD        delete
+map u         $trash-restore
 map y         copy
 map x         cut
 map p         paste
