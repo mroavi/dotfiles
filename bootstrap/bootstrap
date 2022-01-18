@@ -55,7 +55,9 @@ pip3 install pynvim
 # -----------------------------------------------------------------------------------------
 echo "Installing zsh..."
 
-if [ "$SSH_CONNECTION" ]; then
+if [ ! "$SSH_CONNECTION" ]; then
+  sudo pacman -S --needed zsh
+else
   # Build locally (needed when root access is not available)
   # https://stackoverflow.com/a/15293565/1706778
   FILE=$HOME/.local/bin/zsh
@@ -70,8 +72,6 @@ if [ "$SSH_CONNECTION" ]; then
     make
     make install
   fi
-else
-  sudo pacman -S --needed zsh
 fi
 
 # -----------------------------------------------------------------------------------------
