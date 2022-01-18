@@ -31,7 +31,6 @@ set ignorecase
 # -----------------------------------------------------------------------------
 
 # Use trash-cli to move selected files/dirs to trash
-# - https://github.com/gokcehan/lf/issues/579
 cmd trash %trash-put $fx
 
 # Creates a file with the argument as name and selects it
@@ -125,12 +124,11 @@ cmd myopen ${{
 # Remove some default mappings
 map d
 map v
-map u # TODO: map this to undo deletion
+map u
 
 # Mappings
 map dd        trash
 map DD        delete
-map u         $trash-restore
 map y         copy
 map x         cut
 map p         paste
@@ -150,4 +148,11 @@ map w
 map cl        :clear; unselect
 # https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files
 map cw        $printf '%s\n' $fx | vidir -
+# https://github.com/gokcehan/lf/issues/579
+# TODO: support selection of multiple files
+map u ${{
+    file="$(trash-list | grep "$(pwd)" | fzf | awk '{$1=$2=""; print substr($0,3)}')"
+    [ -z "$file" ] && exit 1
+    yes 0 | trash-restore "$file"
+}}
 
