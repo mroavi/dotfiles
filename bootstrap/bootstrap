@@ -291,13 +291,17 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
-# TODO: install LUA server: 
-# https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
+echo "Installing vidir..."
+
+if [ ! "$SSH_CONNECTION" ]; then
+  yay -S --needed vidir
+else
+  # TODO
+fi
 
 # -----------------------------------------------------------------------------------------
-# TODO: Add vimv installation (git clones and copies to .local/bin like the above example)
-# vimv is also available in AUR
-# TODO: Consider replacing vimv with trapd00r/vidir which seems more mature.
+# TODO: install LUA server: 
+# https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 
 # -----------------------------------------------------------------------------------------
 # Return to original directory
