@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# # Map caps lock key to escape
+# setxkbmap -option caps:escape
+
 # Incrase keyboard repeat rate
 # https://www.reddit.com/r/i3wm/comments/1yiu36/increase_keyboard_repeat_rate/
 xset r rate 260 60
