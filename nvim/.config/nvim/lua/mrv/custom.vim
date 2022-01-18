@@ -10,9 +10,6 @@ nnoremap <C-z> zz
 " Close the current window
 nnoremap <Leader>x :close<CR>
 
-" Make Y behave like other capitals
-nnoremap Y y$
-
 " Edit the alternate file
 nnoremap <silent> <Leader>l :b#<CR>
 
