@@ -56,14 +56,14 @@ cmd touch %touch "$1"
 
 # fasd integration
 cmd fasd ${{
-   res="$(fasd -dl | grep -iv cache | fzf 2>/dev/tty | sed 's/\\/\\\\/g;s/"/\\"/g')"
-   if [ -d "$res" ]; then
+    res="$(fasd -dl | grep -iv cache | fzf 2>/dev/tty | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ]; then
       cmd="cd"
-   else
+    else
       cmd="select"
-   fi
- lf -remote "send $id $cmd \"$res\""
- }}
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
 
 # Open with $EDITOR or xdg-open based on type of file
 # Note: this command is hijacked (redefined) when using nvim's lf plugin,
