@@ -108,9 +108,9 @@ git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 # -----------------------------------------------------------------------------------------
 echo "Installing Fonts..."
 # To see installed mono fonts:
-# fc-list :scalable=true:spacing=mono: family
+#   > fc-list :scalable=true:spacing=mono: family
 # To load recently installed fonts:
-# sudo fc-cache
+#   > sudo fc-cache
 
 if [ ! "$SSH_CONNECTION" ]; then
   yay -S --needed nerd-fonts-meslo
