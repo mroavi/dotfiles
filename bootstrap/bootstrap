@@ -116,6 +116,7 @@ if [ ! "$SSH_CONNECTION" ]; then
   yay -S --needed nerd-fonts-meslo
   yay -S --needed nerd-fonts-hack
   yay -S --needed ttf-juliamono
+  yay -S --needed ttf-font-awesome-4
 else
   mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
   # Hack Nerd Font
@@ -278,16 +279,6 @@ if [ -e "$FILE" ]; then
   echo "  julia is already installed"
 else
   bash -ci "$(curl -fsSL https://raw.githubusercontent.com/abelsiqueira/jill/main/jill.sh)"
-fi
-
-# -----------------------------------------------------------------------------------------
-# Needed for dwm bar
-echo "Installing font awesome..."
-
-if [ ! "$SSH_CONNECTION" ]; then
-  yay -S --needed ttf-font-awesome-4
-else
-  # TODO
 fi
 
 # -----------------------------------------------------------------------------------------
