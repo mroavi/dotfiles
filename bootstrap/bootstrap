@@ -75,6 +75,15 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
+echo "Installing tmux..."
+if [ ! "$SSH_CONNECTION" ]; then
+  yay -S --needed tmux
+else
+  # TODO: Install the prebuilt appimages in this page:
+  # https://github.com/nelsonenzo/tmux-appimage/releases
+fi
+
+# -----------------------------------------------------------------------------------------
 echo "Installing autosuggestions..."
 
 if [ ! "$SSH_CONNECTION" ]; then
@@ -280,11 +289,6 @@ if [ -e "$FILE" ]; then
 else
   bash -ci "$(curl -fsSL https://raw.githubusercontent.com/abelsiqueira/jill/main/jill.sh)"
 fi
-
-# -----------------------------------------------------------------------------------------
-# TODO: Add tmux installation
-# Use the prebuilt appimages in this page for SSH connections:
-# https://github.com/nelsonenzo/tmux-appimage/releases
 
 # -----------------------------------------------------------------------------------------
 # TODO: install LUA server: 
