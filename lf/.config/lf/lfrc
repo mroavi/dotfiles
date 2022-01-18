@@ -30,8 +30,22 @@ set ignorecase
 # Custom commands
 # -----------------------------------------------------------------------------
 
-# Use trash-cli to move selected files/dirs to trash
+# Uses trash-cli to move selected files/dirs to the trash
 cmd trash %trash-put $fx
+
+# Uses fzf and trash-cli to restore the selected files
+# https://github.com/gokcehan/lf/issues/579
+# https://linuxhint.com/print-columns-awk/ (source for first awk below)
+cmd fzf-restore ${{
+    ids="$(echo -ne '\n'              | \
+      trash-restore                   | \
+      awk '$1 ~ /^[0-9]+/ {print $0}' | \
+      fzf --multi                     | \
+      awk '{print $1}'                | \
+      sed -z 's/\n/,/g;s/,$/\n/')"
+    echo $ids | trash-restore 
+    clear
+}}
 
 # Creates a file with the argument as name and selects it
 cmd touch %{{
@@ -129,6 +143,8 @@ map u
 # Mappings
 map dd        trash
 map DD        delete
+map u         $trash-restore; clear
+map U         fzf-restore
 map y         copy
 map x         cut
 map p         paste
@@ -148,11 +164,4 @@ map w
 map cl        :clear; unselect
 # https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files
 map cw        $printf '%s\n' $fx | vidir -
-# https://github.com/gokcehan/lf/issues/579
-# TODO: support selection of multiple files
-map u ${{
-    file="$(trash-list | grep "$(pwd)" | fzf | awk '{$1=$2=""; print substr($0,3)}')"
-    [ -z "$file" ] && exit 1
-    yes 0 | trash-restore "$file"
-}}
 
