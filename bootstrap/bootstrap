@@ -300,6 +300,15 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
+echo "Installing trash-cli..."
+
+if [ ! "$SSH_CONNECTION" ]; then
+  yay -S --needed trash-cli
+else
+  # TODO
+fi
+
+# -----------------------------------------------------------------------------------------
 # TODO: install LUA server: 
 # https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 
