@@ -87,6 +87,8 @@ cmd myopen ${{
     esac
 }}
 
+# TODO: get rid of vimv. It can unintentionally and permanently delete files.
+# TODO: investigate how to replace it with vidir which seems a better option.
 # Batch rename selected files using external program vimv
 # https://github.com/gokcehan/lf/issues/149#issuecomment-660017013
 cmd batch_rename ${{
