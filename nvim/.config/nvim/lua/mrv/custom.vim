@@ -4,9 +4,6 @@ nnoremap <Leader>w :update<CR>
 " Suspend vim
 nnoremap <Leader>z <C-z><CR>
 
-" Scroll window such that the line with the cursor appears in the middle
-nnoremap <C-z> zz
-
 " Close the current window
 nnoremap <Leader>x :close<CR>
 
