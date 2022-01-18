@@ -259,7 +259,7 @@ if [ ! "$SSH_CONNECTION" ]; then
 fi
 
 # Layout options
-export FZF_DEFAULT_OPTS='--height 40% --layout=default --multi'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --multi'
 #export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
 # -----------------------------------------------------------------------------
