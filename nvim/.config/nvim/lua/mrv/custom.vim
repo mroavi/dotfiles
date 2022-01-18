@@ -1,4 +1,4 @@
-" TEMP: fixes gx bug in Neovim (https://github.com/vim/vim/issues/4738#issuecomment-856925080)
+" TEMP: fixes gx bug in Neovim ( https://github.com/vim/vim/issues/4738#issuecomment-856925080 )
 nnoremap <silent> gx :execute 'silent! !xdg-open ' . shellescape(expand('<cWORD>'), 1)<cr>
 
 " Write to disk
