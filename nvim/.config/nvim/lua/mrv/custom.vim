@@ -51,6 +51,9 @@ noremap <C-M-Right> :vertical resize +3<CR>
 " Spelling completion in normal mode ( https://stackoverflow.com/a/25777332/1706778 )
 nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 
+" Toggle spelling language
+nnoremap <expr> <F6> ':setlocal spelllang=' . (&spelllang == 'en' ? 'es' : 'en') . '<CR>'
+
 " Highlight the yanked text
 augroup highlight_yank
   autocmd!
