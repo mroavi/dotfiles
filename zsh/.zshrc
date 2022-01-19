@@ -137,7 +137,7 @@ alias lsa="ls -lah"
 alias ll='ls -lh'
 alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias pac="sudo pacman"
-alias bye="shutdown now"
+alias bye="systemctl poweroff"
 
 # Configuration managers
 alias vol="alsamixer"
@@ -163,11 +163,15 @@ alias gd='git diff'
 alias gco='git checkout'
 alias gca='git commit -v --amend'
 
-# Miscellaneous
+# Audio
 alias port1='pactl set-sink-port alsa_output.pci-0000_00_1f.3.analog-stereo analog-output-speaker'
 alias port2='pactl set-sink-port alsa_output.pci-0000_00_1f.3.analog-stereo analog-output-headphones'
 alias sink1='pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo'
 alias sink2='pactl set-default-sink bluez_output.38_18_4C_BC_F1_AC.a2dp-sink'
+
+# Keyboard layout
+alias es='setxkbmap -layout es'
+alias us='setxkbmap -layout us'
 
 # =============================================================================
 ## Dir navigation
