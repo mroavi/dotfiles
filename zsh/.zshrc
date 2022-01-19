@@ -176,11 +176,9 @@ alias us='setxkbmap -layout us'
 # =============================================================================
 ## Dir navigation
 # =============================================================================
+
 # Change directories without typing `cd`
 setopt auto_cd
-
-# Move up one dir with Alt-h
-#bindkey -s '^[h' 'cd ..^M'
 
 # Move up one dir with Ctrl-u
 bindkey -s '^u' 'cd ..^M'
