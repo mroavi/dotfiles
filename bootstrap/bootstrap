@@ -111,7 +111,7 @@ echo "Installing pure..."
 
 mkdir -p ~/.zsh
 LOCAL_REPO=$HOME/.zsh/pure
-REPO_URL=https://github.com/romkatv/powerlevel10k.git
+REPO_URL=https://github.com/sindresorhus/pure.git
 git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 
 # -----------------------------------------------------------------------------------------
