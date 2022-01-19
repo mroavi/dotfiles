@@ -2,3 +2,5 @@ vifm/.config/vifm/vifminfo
 vifm/.config/vifm/colors
 vifm/.config/vifm/scripts
 nvim/.config/nvim/plugin
+*.spl
+*.sug
