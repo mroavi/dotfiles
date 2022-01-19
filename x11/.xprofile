@@ -14,6 +14,9 @@ feh --bg-scale ~/dotfiles/wallpapers/shifaaz-shamoon-unsplash-1.jpg &
 # Run my dwm bar script
 dwmiconbar &
 
+# Launch dropbox
+dropbox &
+
 # Launch compositor (used for blur and fading effects)
 # https://aur.archlinux.org/packages/picom-jonaburg-git/
 # https://aur.archlinux.org/packages/picom-tryone-git/ <- currently installed
