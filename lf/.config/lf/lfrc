@@ -143,8 +143,7 @@ map u
 # Mappings
 map dd        trash
 map DD        delete
-map u         $trash-restore; clear
-map U         fzf-restore
+map R         fzf-restore
 map y         copy
 map x         cut
 map p         paste
