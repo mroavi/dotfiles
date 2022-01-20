@@ -629,8 +629,8 @@ my_utils.keymap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').mar
 my_utils.keymap("n", "<Leader>H", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
 my_utils.keymap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
 my_utils.keymap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
-my_utils.keymap("n", "<Leader>k", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
-my_utils.keymap("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags({default_text = vim.fn.expand(\"<cword>\")})<CR>")
+my_utils.keymap("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
+--my_utils.keymap("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags({default_text = vim.fn.expand(\"<cword>\")})<CR>")
 --my_utils.keymap("n", "<Leader>ma", "<Cmd>lua require('telescope.builtin').keymaps()<CR>")
 my_utils.keymap("n", "<Leader>hi", "<Cmd>lua require('telescope.builtin').highlights()<CR>")
 -- LSP pickers
