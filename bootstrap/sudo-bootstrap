@@ -60,12 +60,13 @@ FILE=$HOME/.local/bin/clangd
 if [ -f "$FILE" ]; then
   echo " clangd is already installed"
 else
+  VERSION="13.0.0"
   cd ~/Downloads/
-  filepath="clangd-linux-10.0.0.zip"
-  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/10.0.0/clangd-linux-10.0.0.zip
+  filepath="clangd-linux-$VERSION.zip"
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/$VERSION/clangd-linux-$VERSION.zip
   unzip "$filepath"
-  cp clangd_10.0.0/bin/clangd $HOME/.local/bin
-  cp -r clangd_10.0.0/lib/clang $HOME/.local/lib
+  cp clangd_$VERSION/bin/clangd $HOME/.local/bin
+  cp -r clangd_$VERSION/lib/clang $HOME/.local/lib
 fi
 
 # julia
