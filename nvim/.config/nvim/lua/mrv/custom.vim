@@ -13,6 +13,10 @@ nnoremap <silent> <Leader>l :b#<CR>
 " Go to previous (last accessed) window
 nnoremap <silent><Leader>; <C-w>p
 
+" Go to the next/prev window
+nnoremap <silent><Leader>j <C-w>w
+nnoremap <silent><Leader>k <C-w>W
+
 " Create horizontal an vertical splits
 map <Leader>sj :split<CR>
 map <Leader>sl :vsplit<CR>
