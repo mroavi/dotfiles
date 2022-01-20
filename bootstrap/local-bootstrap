@@ -1,0 +1,257 @@
+#!/bin/bash
+
+# Save current directory
+currentdir="$PWD"
+
+# Ensure these dirs exist
+mkdir -p ~/.local
+mkdir -p ~/Downloads
+mkdir -p ~/repos
+
+# -----------------------------------------------------------------------------------------
+echo "Installing stow..."
+
+FILE=$HOME/.local/bin/stow
+if [ -f "$FILE" ]; then
+  echo " stow is already installed"
+else
+  # See INSTALL.md in root dir
+  LOCAL_REPO=~/Downloads/stow
+  REPO_URL=https://git.savannah.gnu.org/git/stow.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cd $LOCAL_REPO
+  autoreconf -iv
+  ./configure --prefix=$HOME/.local
+  make install
+fi
+
+# -----------------------------------------------------------------------------------------
+echo "Installing nvim..."
+
+# Local installation
+# https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
+FILE=$HOME/.local/bin/nvim
+if [ -f "$FILE" ]; then
+  echo " nvim is already installed"
+else
+  mkdir -p ~/.local/bin && cd ~/.local/bin
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  chmod u+x nvim.appimage
+  mv nvim.appimage nvim
+fi
+pip3 install pynvim
+
+# -----------------------------------------------------------------------------------------
+echo "Installing zsh..."
+
+# Build locally (needed when root access is not available)
+# https://stackoverflow.com/a/15293565/1706778
+FILE=$HOME/.local/bin/zsh
+if [ -f "$FILE" ]; then
+  echo " zsh is already installed"
+else
+  cd ~/Downloads
+  wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
+  mkdir zsh && unxz zsh.tar.xz && tar -xvf zsh.tar -C zsh --strip-components 1
+  cd zsh
+  ./configure --prefix=$HOME/.local
+  make
+  make install
+fi
+
+# -----------------------------------------------------------------------------------------
+echo "Installing tmux..."
+
+# TODO: Install the prebuilt appimages in this page:
+# https://github.com/nelsonenzo/tmux-appimage/releases
+
+echo "  TODO"
+
+# -----------------------------------------------------------------------------------------
+echo "Installing autosuggestions..."
+
+mkdir -p ~/.local/share/zsh/plugins
+LOCAL_REPO=$HOME/.local/share/zsh/plugins/zsh-autosuggestions
+REPO_URL=https://github.com/zsh-users/zsh-autosuggestions.git
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+
+# -----------------------------------------------------------------------------------------
+echo "Installing zsh-syntax-highlighting..."
+
+LOCAL_REPO=$HOME/.local/share/zsh/plugins/zsh-syntax-highlighting
+REPO_URL=https://github.com/zsh-users/zsh-syntax-highlighting.git
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+
+# -----------------------------------------------------------------------------------------
+echo "Installing pure..."
+
+mkdir -p ~/.zsh
+LOCAL_REPO=$HOME/.zsh/pure
+REPO_URL=https://github.com/sindresorhus/pure.git
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+
+# -----------------------------------------------------------------------------------------
+echo "Installing Fonts..."
+# To see installed mono fonts:
+#   > fc-list :scalable=true:spacing=mono: family
+# To load recently installed fonts:
+#   > sudo fc-cache
+
+mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
+# Hack Nerd Font
+# https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
+filepath=Hack-for-Powerline-Nerd-Font-regular-complete.ttf
+[ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
+filepath=Hack-for-Powerline-Nerd-Font-bold-complete.ttf
+[ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete.ttf
+filepath=Hack-for-Powerline-Nerd-Font-italic-complete.ttf
+[ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Italic/complete/Hack%20Italic%20Nerd%20Font%20Complete.ttf
+filepath=Hack-for-Powerline-Nerd-Font-bold-italic-complete.ttf
+[ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/BoldItalic/complete/Hack%20Bold%20Italic%20Nerd%20Font%20Complete.ttf
+# Meslo S-DZ
+# https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/S-DZ/Regular/complete
+filepath=Meslo-LG-S-DZ-Regular-Nerd-Font-Complete.ttf
+[ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/blob/877887cac2d6ccc7354a8d95e8c39fff10bf120b/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete.ttf
+
+# -----------------------------------------------------------------------------------------
+# https://github.com/BurntSushi/ripgrep#installation
+echo "Installing ripgrep..."
+
+echo "  TODO"
+
+# -----------------------------------------------------------------------------------------
+# https://computingforgeeks.com/bat-cat-command-with-syntax-highlighting-and-git-integration/
+echo "Installing bat..."
+
+echo "  TODO"
+
+## -----------------------------------------------------------------------------------------
+# https://github.com/clvv/fasd
+echo "Installing fasd..."
+
+FILE=$HOME/.local/bin/fasd
+if [ -f "$FILE" ]; then
+  echo " fasd is already installed"
+else
+  LOCAL_REPO=~/repos/fasd
+  REPO_URL=git@github.com:clvv/fasd.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cd $LOCAL_REPO
+  PREFIX="$HOME/.local" make install
+fi
+
+# -----------------------------------------------------------------------------------------
+echo "Installing lf..."
+
+FILE=$HOME/.local/bin/lf
+if [ -f "$FILE" ]; then
+  echo "lf is already installed"
+else
+  cd ~/Downloads/
+  filename="lf.tar.gz"
+  wget -O $filename https://github.com/gokcehan/lf/releases/download/r18/lf-linux-amd64.tar.gz
+  tar xvzf "$filename" -C $HOME/.local/bin/
+fi
+
+# -----------------------------------------------------------------------------------------
+echo "Installing diff-so-fancy..."
+
+FILE=$HOME/.local/bin/diff-so-fancy
+if [ -f "$FILE" ]; then
+  echo "diff-so-fancy is already installed"
+else
+  LOCAL_REPO=~/Downloads/diff-so-fancy
+  REPO_URL=git@github.com:so-fancy/diff-so-fancy.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cp $LOCAL_REPO/diff-so-fancy $HOME/.local/bin/
+  cp -r $LOCAL_REPO/lib $HOME/.local/bin/
+fi
+
+# -----------------------------------------------------------------------------------------
+# LSP servers
+# -----------------------------------------------------------------------------------------
+
+echo "Installing clangd..."
+
+FILE=$HOME/.local/bin/clangd
+if [ -f "$FILE" ]; then
+  echo " clangd is already installed"
+else
+  cd ~/Downloads/
+  filepath="clangd-linux-10.0.0.zip"
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/10.0.0/clangd-linux-10.0.0.zip
+  unzip "$filepath"
+  cp clangd_10.0.0/bin/clangd $HOME/.local/bin
+  cp -r clangd_10.0.0/lib/clang $HOME/.local/lib
+fi
+
+# -----------------------------------------------------------------------------------------
+echo "Installing texlab..."
+
+FILE=$HOME/.local/bin/texlab
+if [ -f "$FILE" ]; then
+  echo " texlab is already installed"
+else
+  cd ~/Downloads/
+  filepath="texlab-x86_64-linux.tar.gz"
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/latex-lsp/texlab/releases/download/v2.2.0/texlab-x86_64-linux.tar.gz
+  tar xvzf "$filepath" -C $HOME/.local/bin/
+fi
+
+# -----------------------------------------------------------------------------------------
+echo "Installing z..."
+
+LOCAL_REPO=~/Downloads/z
+REPO_URL=https://github.com/rupa/z.git
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+
+# -----------------------------------------------------------------------------------------
+echo "Installing fd..."
+
+FILE=$HOME/.local/bin/fd
+if [ -f "$FILE" ]; then
+  echo "  fd is already installed"
+else
+  cd $HOME/Downloads/
+  tarfile="fd-v8.2.1-x86_64-unknown-linux-gnu.tar.gz"
+  [ -f $tarfile ] || curl -fLo "$tarfile" https://github.com/sharkdp/fd/releases/download/v8.2.1/fd-v8.2.1-x86_64-unknown-linux-gnu.tar.gz
+  tar xvzf "$tarfile"
+  dirname="${tarfile%.*.*}"
+  cp $dirname/fd $HOME/.local/bin
+fi
+
+# -----------------------------------------------------------------------------------------
+# https://github.com/abelsiqueira/jill
+echo "Installing julia..."
+
+FILE=$HOME/.local/bin/julia
+if [ -e "$FILE" ]; then
+  echo "  julia is already installed"
+else
+  bash -ci "$(curl -fsSL https://raw.githubusercontent.com/abelsiqueira/jill/main/jill.sh)"
+fi
+
+# -----------------------------------------------------------------------------------------
+echo "Installing vidir..."
+
+echo "  TODO"
+
+# -----------------------------------------------------------------------------------------
+echo "Installing trash-cli..."
+
+echo "  TODO"
+
+# -----------------------------------------------------------------------------------------
+# TODO: install LUA server: 
+# https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
+
+# -----------------------------------------------------------------------------------------
+# TODO: clone my dwm repo and make install
+
+# -----------------------------------------------------------------------------------------
+# TODO: clone my slock repo and make install
+
+# -----------------------------------------------------------------------------------------
+# Return to original directory
+cd "$currentdir"
+

@@ -1,0 +1,85 @@
+#!/bin/bash
+
+# Save current directory
+currentdir="$PWD"
+
+sudo -v # give sudo privileges ahead of time, so that we hopefully only have to enter a password once
+
+# Ensure these dirs exist
+mkdir -p ~/.local
+mkdir -p ~/Downloads
+mkdir -p ~/repos
+
+pac_pkgs=(
+          stow
+          neovim
+          zsh
+          zsh-autosuggestions
+          zsh-syntax-highlighting
+          ripgrep
+          bat
+          fasd
+          diff-so-fancy
+          texlab
+          z
+          fd
+          feh
+          xbindkeys
+          spectacle
+          pipewire
+          bluez
+          bluez-utils
+         )
+
+yay_pkgs=(
+          tmux
+          bat
+          nerd-fonts-meslo
+          ttf-font-awesome-4
+          lf
+          vidir
+          trash-cli
+          picom-tryone-git
+          brave-bin
+          dropbox
+         )
+
+yay           -S --needed ${yay_pkgs[@]}
+sudo pacman   -S --needed ${pac_pkgs[@]}
+
+# pure
+echo "Installing pure..."
+mkdir -p ~/.zsh
+LOCAL_REPO=$HOME/.zsh/pure
+REPO_URL=https://github.com/sindresorhus/pure.git
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+
+# clangd
+echo "Installing clangd..."
+FILE=$HOME/.local/bin/clangd
+if [ -f "$FILE" ]; then
+  echo " clangd is already installed"
+else
+  cd ~/Downloads/
+  filepath="clangd-linux-10.0.0.zip"
+  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/10.0.0/clangd-linux-10.0.0.zip
+  unzip "$filepath"
+  cp clangd_10.0.0/bin/clangd $HOME/.local/bin
+  cp -r clangd_10.0.0/lib/clang $HOME/.local/lib
+fi
+
+# julia
+echo "Installing julia..."
+FILE=$HOME/.local/bin/julia
+if [ -e "$FILE" ]; then
+  echo "  julia is already installed"
+else
+  bash -ci "$(curl -fsSL https://raw.githubusercontent.com/abelsiqueira/jill/main/jill.sh)"
+fi
+
+# TODO: clone my dwm repo and make install
+# TODO: clone my slock repo and make install
+
+# Return to original directory
+cd "$currentdir"
+
