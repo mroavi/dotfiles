@@ -40,7 +40,6 @@ yay_pkgs=(
           lf
           vidir
           trash-cli
-          picom-tryone-git
           brave-bin
           dropbox
          )
