@@ -29,6 +29,7 @@ pac_pkgs=(
           pipewire
           bluez
           bluez-utils
+          okular
          )
 
 yay_pkgs=(
