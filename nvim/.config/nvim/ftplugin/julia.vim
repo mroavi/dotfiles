@@ -7,6 +7,11 @@ nnoremap <buffer><silent> <M-k> :call GoToPrevDelim(b:cell_delimeter)<CR>z<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Default config
+let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
+
+" Julia's "paste" function
 let b:tomux_clipboard_paste = 'include_string(Main, clipboard(), "' .. expand('%:p') .. '")'
 
 " Start REPL cmd (activate environment found in the current dir or parents)
@@ -14,35 +19,22 @@ let b:start_repl_cmd = 'julia --project=@.'
 
 " Start REPL in a RIGHT split with active buffer as CWD
 function! OpenRightOf()
-  if exists("b:tomux_config")
-    echohl ErrorMsg | echo "tomux instance already running" | echohl None
-    return
-  else
-    let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
-    TomuxCommand("split-window -h -d -c " . expand("%:p:h"))
-    TomuxSend(b:start_repl_cmd . "\n")
-  end
+  let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
+  TomuxCommand("split-window -h -d -c " . expand("%:p:h"))
+  TomuxSend(b:start_repl_cmd . "\n")
 endfunction
 nnoremap <buffer><silent> <Leader>tl :call OpenRightOf()<CR>
 
 " Start REPL in a BOTTOM split with active buffer as CWD
 function! OpenDownOf()
-  if exists("b:tomux_config")
-    echohl ErrorMsg | echo "tomux instance already running" | echohl None
-    return
-  else
-    let b:tomux_config = {"socket_name": "default", "target_pane": "{down-of}"}
-    TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))
-    TomuxSend(b:start_repl_cmd . "\n")
-  end
+  let b:tomux_config = {"socket_name": "default", "target_pane": "{down-of}"}
+  TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))
+  TomuxSend(b:start_repl_cmd . "\n")
 endfunction
 nnoremap <buffer><silent> <Leader>tj :call OpenDownOf()<CR>
 
 " Execute buffer
 function! ExecuteBuffer()
-  if !exists("b:tomux_config")
-    call OpenRightOf()
-  end
   write
   TomuxSend("\binclude(\"" . expand('%:p') . "\")\n")
 endfunction
@@ -54,7 +46,6 @@ nnoremap <buffer><silent> <Leader>tr :TomuxSend("\bexit()\n")<CR>:sl 50m<CR>:Tom
 " Kill REPL
 function! KillPane()
   TomuxCommand("kill-pane -t " . shellescape(b:tomux_config["target_pane"]))
-  unlet b:tomux_config
 endfunction
 nnoremap <buffer><silent><Leader>tk :call KillPane()<CR>
 

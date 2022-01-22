@@ -18,29 +18,62 @@ let b:commentary_format = '#%s'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tomux_use_clipboard = 1
-let b:tomux_clipboard_paste = "paste -q"
+
+" Default config
 let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
+
+let g:tomux_use_clipboard = 1
+
+" IPython's "paste" function
+let b:tomux_clipboard_paste = "%paste -q"
+
 " Start REPL cmd
 let b:start_repl_cmd = 'python -m IPython'
+
 " Exit REPL cmd
 let b:quit_repl_cmd = 'exit()'
 
-" TODO: adapt this code based on the new changes of tomux (see julia ftplugin file)
-" Start REPL in an already opened split
-nnoremap <buffer><silent> <Leader>ts :TomuxSend(b:start_repl_cmd . "\n")<CR>
 " Create a BOTTOM split with active buffer as CWD and start REPL
 nnoremap <buffer><silent><expr> <Leader>tj ':TomuxCommand("split-window -v -d -l 20% -c ' . expand('%:p:h') . '")<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>'
-" Create a RIGHT split with active buffer as CWD and start REPL
-nnoremap <buffer><silent><expr> <Leader>tl ':TomuxCommand("split-window -h -d -c ' . expand('%:p:h') . '")<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>'
+
+" Start REPL in a RIGHT split with active buffer as CWD
+function! OpenRightOf()
+  let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
+  TomuxCommand("split-window -h -d -c " . expand("%:p:h"))
+  TomuxSend(b:start_repl_cmd . "\n")
+endfunction
+nnoremap <buffer><silent> <Leader>tl :call OpenRightOf()<CR>
+
+" Start REPL in a BOTTOM split with active buffer as CWD
+function! OpenDownOf()
+  let b:tomux_config = {"socket_name": "default", "target_pane": "{down-of}"}
+  TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))
+  TomuxSend(b:start_repl_cmd . "\n")
+endfunction
+nnoremap <buffer><silent> <Leader>tj :call OpenDownOf()<CR>
+
 " Restart REPL (send first CTRL-c, and then restart)
 nnoremap <buffer><silent> <Leader>tr :TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")<CR>:TomuxSend(b:quit_repl_cmd . "\n")<CR>:sl 50m<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>
+
 " Quit REPL (send first CTRL-c and then quit)
 nnoremap <buffer><silent> <Leader>tq :TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")<CR>:TomuxSend(b:quit_repl_cmd . "\n")<CR>
-" Kill pane
-nnoremap <buffer><silent> <Leader>tk :TomuxCommand("kill-pane -t " . shellescape(b:tomux_config["target_pane"]))<CR>
-" Execute file
-nnoremap <buffer><silent><expr> <Leader>e ':w<Bar>:TomuxSend("exec(open(\"' . expand('%:p') . '\").read())\n")<CR>'
+
+" Kill REPL
+function! KillPane()
+  TomuxCommand("kill-pane -t " . shellescape(b:tomux_config["target_pane"]))
+endfunction
+nnoremap <buffer><silent><Leader>tk :call KillPane()<CR>
+
+" Execute buffer
+function! ExecuteBuffer()
+  write
+  TomuxSend("exec(open(\"" . expand('%:p') . "\").read())\n")
+endfunction
+nnoremap <buffer><silent> <Leader>e :call ExecuteBuffer()<CR>
+
 " Clear REPL
 nnoremap <buffer><silent> <Leader>cl :TomuxSend("print(\"\\n\" * 100)\n")<CR>
+
+" Execute file
+nnoremap <buffer><silent><expr> <Leader>e ':w<Bar>:TomuxSend("exec(open(\"' . expand('%:p') . '\").read())\n")<CR>'
 
