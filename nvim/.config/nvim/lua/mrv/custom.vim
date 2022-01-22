@@ -190,12 +190,12 @@ augroup vim_lua_execute
   au!
 
   " Use either this line which does not support mapping of predefined motions/textobjects
-  au FileType vim,lua nnoremap <silent> s :let g:view=winsaveview()<Bar>set opfunc=SourceMotion<CR>g@
+  au FileType vim,lua nnoremap <buffer> <silent> s :let g:view=winsaveview()<Bar>set opfunc=SourceMotion<CR>g@
 
   "" or these lines that do support them
   "" E.g, here we map Alt+Enter to `sic`, which executes the current cell
-  "au FileType vim,lua noremap <SID>Operator :let g:view=winsaveview()<Bar>set opfunc=SourceMotion<CR>g@
-  "au FileType vim,lua noremap <unique> <script> <silent> <Plug>LuaMotionSend <SID>Operator
+  "au FileType vim,lua noremap <buffer> <SID>Operator :let g:view=winsaveview()<Bar>set opfunc=SourceMotion<CR>g@
+  "au FileType vim,lua noremap <buffer> <unique> <script> <silent> <Plug>LuaMotionSend <SID>Operator
   "au FileType vim,lua nmap <buffer> s <Plug>LuaMotionSend
   "au FileType vim,lua nmap <buffer> <M-Cr> sic
 
@@ -206,9 +206,9 @@ augroup END
 augroup vim_lua_debug
   au!
   " Clear messages
-  au FileType vim,lua nnoremap <Leader>cl :messages clear<CR>
+  au FileType vim,lua nnoremap <buffer> <Leader>cl :messages clear<CR>
   " Show messages
-  au FileType vim,lua nnoremap <Leader>m :messages<CR>
+  au FileType vim,lua nnoremap <buffer> <Leader>m :messages<CR>
 augroup END
 
 " Remember cursor position (:h resotre-cursor)
