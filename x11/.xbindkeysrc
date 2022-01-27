@@ -94,7 +94,7 @@
   control+shift+alt + k
 
 # Set us layout
-"setxkbmap -layout us"
+"setxkbmap -layout us -variant alt-intl"
   control+shift+alt + u
 
 # Set es layout

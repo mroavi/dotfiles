@@ -621,7 +621,7 @@ key_bindings:
   # Hack: intercept WindowsKey and RightAlt, and send Ctrl+b hex code
   # I used `alacritty --print-events` to figure out the correct scan code
   #- { key: 125,     mods: Super,         chars:  "\x02"             }
-  - { key: 100,     mods: Alt,           chars:  "\x02"             }
+  - { key: 100,                          chars:  "\x02"             }
 
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
