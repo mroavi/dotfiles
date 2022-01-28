@@ -4,9 +4,9 @@ local M = {}
 --- General
 -- ==============================================================================
 
-function M.goto_next() vim.lsp.diagnostic.goto_next {wrap = false} end
+function M.goto_next() vim.diagnostic.goto_next {wrap = false} end
 
-function M.goto_prev() vim.lsp.diagnostic.goto_prev {wrap = false} end
+function M.goto_prev() vim.diagnostic.goto_prev {wrap = false} end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -107,7 +107,7 @@ lspconfig.clangd.setup {
 
 -- Use `bear` to generate the `compile_commands.json` file needed by clangd
 -- Installation: yay -S bear
--- Github page: https://github.com/rizsotto/Bear  
+-- Github page: https://github.com/rizsotto/Bear
 
 --------------------------------------------------------------------------------
 --- lua
