@@ -91,15 +91,19 @@
 
 # Shows all key bindings defined with xbindkeys
 "xbindkeys_show"
-  control+shift+alt + k
+  control+shift+alt + h
 
 # Set us layout
+"setxkbmap -layout us"
+  control+shift+alt + j
+
+# Set us layout with alt-intl variant
 "setxkbmap -layout us -variant alt-intl"
-  control+shift+alt + u
+  control+shift+alt + k
 
 # Set es layout
 "setxkbmap -layout es"
-  control+shift+alt + e
+  control+shift+alt + l
 
 # Launch screen capture gui
 "spectacle"
