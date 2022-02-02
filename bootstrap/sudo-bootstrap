@@ -42,6 +42,7 @@ yay_pkgs=(
           trash-cli
           brave-bin
           dropbox
+          kmonad-bin
          )
 
 yay           -S --needed ${yay_pkgs[@]}
