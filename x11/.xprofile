@@ -4,7 +4,7 @@
 # setxkbmap -option caps:escape
 
 # Set my default layout
-setxkbmap -layout us -variant alt-intl
+setxkbmap -layout us -variant altgr-intl
 
 # Incrase keyboard repeat rate
 # https://www.reddit.com/r/i3wm/comments/1yiu36/increase_keyboard_repeat_rate/

@@ -172,7 +172,7 @@ alias sink2='pactl set-default-sink bluez_output.38_18_4C_BC_F1_AC.a2dp-sink'
 
 # Keyboard layout
 alias es='setxkbmap -layout es'
-alias en='setxkbmap -layout us -variant alt-intl'
+alias en='setxkbmap -layout us -variant altgr-intl'
 
 # =============================================================================
 ## Dir navigation
