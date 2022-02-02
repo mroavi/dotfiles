@@ -171,8 +171,8 @@ alias sink1='pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo'
 alias sink2='pactl set-default-sink bluez_output.38_18_4C_BC_F1_AC.a2dp-sink'
 
 # Keyboard layout
-alias es='setxkbmap -layout es'
 alias en='setxkbmap -layout us -variant altgr-intl'
+alias es='setxkbmap -layout es'
 
 # =============================================================================
 ## Dir navigation
