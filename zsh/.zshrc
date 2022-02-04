@@ -204,6 +204,9 @@ clr () {
 }
 clr
 
+# Clear screen with Ctrl-L and leave prompt at the bottom of the terminal
+bindkey -s '^l' 'clr^M'
+
 # Automatically run ls after every cd
 # Source: https://stackoverflow.com/a/3964198/1706778
 function chpwd() {
