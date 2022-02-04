@@ -40,11 +40,11 @@ M.setup = function()
     use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
     use {'junegunn/gv.vim', config = function() require('mrv.plugins.gv') end} -- a git commit browser in Vim
     use {'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, run = ':TSUpdate'}
-    use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
 
     -- {{{1
 
     -- Disabled
+    --use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
     --use {'jose-elias-alvarez/buftabline.nvim', config = function() require('mrv.plugins.buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
     --use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
     --use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
