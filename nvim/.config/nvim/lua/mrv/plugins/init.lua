@@ -44,13 +44,9 @@ M.setup = function()
 
     -- Disabled
     --use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
-    --use {'jose-elias-alvarez/buftabline.nvim', config = function() require('mrv.plugins.buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
     --use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
-    --use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
     --use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
-    --use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
     --use {'kdheepak/JuliaFormatter.vim', ft = "julia", config = function() require('mrv.plugins.JuliaFormatter') end} -- formatter for Julia
-    --use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
 
     -- TODO: Try these out!
     --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
@@ -72,6 +68,10 @@ M.setup = function()
     --use {'b3nj5m1n/kommentary', config = function() require('mrv.plugins.kommentary') end} -- Neovim commenting plugin, written in lua
     --use {'qxxxb/vim-searchhi', config = function() require('mrv.plugins.vim-searchhi') end} -- highlight the current search result differently
     --use {'junegunn/vim-slash', config = function() require('mrv.plugins.slash') end} -- automatically clears search highlight when cursor is moved
+    --use {'jose-elias-alvarez/buftabline.nvim', config = function() require('mrv.plugins.buftabline') end} -- a well-integrated, low-configuration buffer list that lives in the tabline
+    --use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
+    --use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
+    --use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
 
     -- }}}
 
