@@ -30,10 +30,8 @@ M.setup = function()
     use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
     use {'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end} -- quickstart configurations for the Nvim LSP client
     use {'plasticboy/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
-    use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}} -- preview markdown on your browser with synchronised scrolling
     use {'~/repos/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end} -- send text to tmux
     use {'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end} -- vim support for Julia
-    use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
     use {'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end}
     use {'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end}
     use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
@@ -47,6 +45,8 @@ M.setup = function()
     --use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
     --use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
     --use {'kdheepak/JuliaFormatter.vim', ft = "julia", config = function() require('mrv.plugins.JuliaFormatter') end} -- formatter for Julia
+    --use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
+    --use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}} -- preview markdown on your browser with synchronised scrolling
 
     -- TODO: Try these out!
     --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
