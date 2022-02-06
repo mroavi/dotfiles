@@ -29,7 +29,6 @@ M.setup = function()
     use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end} -- vim plugin that provides additional text objects
     use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
     use {'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end} -- quickstart configurations for the Nvim LSP client
-    use {'plasticboy/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
     use {'~/repos/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end} -- send text to tmux
     use {'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end} -- vim support for Julia
     use {'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end}
@@ -72,6 +71,7 @@ M.setup = function()
     --use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
     --use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
     --use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
+    --use {'plasticboy/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
 
     -- }}}
 
