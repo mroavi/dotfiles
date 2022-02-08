@@ -1,9 +1,6 @@
 " Turn spell checking on
 setlocal spell spelllang=en_us
 
-" Open table of contents
-nmap <buffer> <Leader><Cr> \lt
-
 " Define cell_delimeter
 let b:cell_delimeter = '%%'
 
