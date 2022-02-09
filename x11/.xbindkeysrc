@@ -93,6 +93,14 @@
 "xbindkeys_show"
   control+shift+alt + h
 
+# Launch brave browser
+"brave"
+  Mod4+shift + b
+
+# Launch terminal
+"alacritty"
+  Mod4+shift + t
+
 # Set us layout
 "setxkbmap -layout us"
   control+shift+alt + j
