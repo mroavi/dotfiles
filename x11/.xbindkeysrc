@@ -101,18 +101,6 @@
 "alacritty"
   Mod4+shift + t
 
-# Set us layout
-"setxkbmap -layout us"
-  control+shift+alt + j
-
-# Set us layout with alt-intl variant
-"setxkbmap -layout us -variant altgr-intl"
-  control+shift+alt + k
-
-# Set es layout
-"setxkbmap -layout es"
-  control+shift+alt + l
-
 # Launch screen capture gui
 "spectacle"
   m:0x0 + c:107
