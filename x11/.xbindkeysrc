@@ -93,12 +93,16 @@
 "xbindkeys_show"
   control+shift+alt + h
 
+# Launch terminal
+"alacritty"
+  Mod4+shift + a
+
 # Launch brave browser
 "brave"
   Mod4+shift + b
 
-# Launch terminal
-"alacritty"
+# Launch brave browser
+"teams"
   Mod4+shift + t
 
 # Launch screen capture gui
