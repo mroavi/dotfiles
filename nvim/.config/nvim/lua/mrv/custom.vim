@@ -27,8 +27,8 @@ vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left
 
 " Grep recursively in current directory and send results to quickfix list
 nnoremap <Leader>G :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
-" Run :substitute inside every entry in the quickfix list
-nnoremap <Leader>S :cfdo %s///gc<left><left><left>
+" Substitute last searched pattern with new text inside every entry in the quickfix list
+nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
 
 " Select pasted text
 nnoremap <expr> gp '`[' . getregtype()[0] . '`]'
