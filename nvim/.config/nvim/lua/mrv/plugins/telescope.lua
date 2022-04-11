@@ -18,7 +18,7 @@ require("telescope").setup{
     sorting_strategy = "descending",
     layout_strategy = "vertical",
     scroll_strategy = "cycle",
-    selection_strategy = "row",
+    --selection_strategy = "row", -- bug: causes some of the results to be hidden after a sort
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
