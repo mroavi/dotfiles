@@ -8,4 +8,3 @@
 require('mrv.settings').setup()
 require('mrv.plugins').setup()
 vim.cmd [[ exe "source " .. stdpath('config') .. "/lua/mrv/custom.vim" ]]
-

@@ -13,4 +13,3 @@ nnoremap <buffer><Leader>h2 m`0dw :center 80<cr>hhv0r"A<Space><Esc>40A"<Esc>d80<
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " No space between comment and code
 let b:commentary_format = '"%s'
-

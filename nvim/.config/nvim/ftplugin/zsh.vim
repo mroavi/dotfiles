@@ -9,4 +9,3 @@ nnoremap <buffer><silent> <M-k> :call GoToPrevDelim(b:cell_delimeter)<CR>z<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " No space between comment character and code
 let b:commentary_format = '#%s'
-

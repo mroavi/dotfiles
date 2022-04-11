@@ -76,4 +76,3 @@ nnoremap <buffer><silent> <Leader>cl :TomuxSend("print(\"\\n\" * 100)\n")<CR>
 
 " Execute file
 nnoremap <buffer><silent><expr> <Leader>e ':w<Bar>:TomuxSend("exec(open(\"' . expand('%:p') . '\").read())\n")<CR>'
-

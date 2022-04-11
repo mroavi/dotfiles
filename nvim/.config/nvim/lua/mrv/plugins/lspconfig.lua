@@ -224,4 +224,3 @@ utils.keymap("n", "]d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_next()<C
 utils.keymap("n", "[d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_prev()<CR>")
 
 return M
-

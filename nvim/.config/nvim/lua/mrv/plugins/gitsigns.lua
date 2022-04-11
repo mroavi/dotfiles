@@ -20,4 +20,3 @@ require('gitsigns').setup {
 }
 
 vim.cmd('cnoreabbrev gb lua require"gitsigns".blame_line{full=true}')
-

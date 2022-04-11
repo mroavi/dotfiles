@@ -49,4 +49,3 @@ function! MySendMotion(type, ...)
   let l:pattern =  '^\(\s*' . l:commentchar . '\)\@!\s*\S\+'
   call search(l:pattern, "W")
 endfunction
-

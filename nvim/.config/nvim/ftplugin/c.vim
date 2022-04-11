@@ -15,4 +15,3 @@ setlocal cinkeys-=:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " No space between comment characters and code
 let b:commentary_format = '//%s'
-

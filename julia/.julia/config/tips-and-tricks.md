@@ -95,4 +95,3 @@ debug> `                    # go to julia mode keeping the backtrace (backspace 
 |julia> print(x)            # print the content of `x`
 |julia> x = 2               # assign the value 2 to `x`
 ```
-

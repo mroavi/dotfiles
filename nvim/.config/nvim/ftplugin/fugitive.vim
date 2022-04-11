@@ -8,4 +8,3 @@ nmap <buffer> k (
 " Use h/l to insert/remove inline diffs of the file under the cursor
 nmap <buffer> h <
 nmap <buffer> l >
-

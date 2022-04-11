@@ -23,4 +23,3 @@ let g:searchhi_clear_all_autocmds = 'InsertEnter'
 ]])
 
 vim.g.searchhi_clear_all_asap = true
-

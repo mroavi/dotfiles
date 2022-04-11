@@ -645,4 +645,3 @@ my_utils.keymap("n", "<Leader>st", "<Cmd>lua require('mrv.plugins.telescope').gi
 --my_utils.keymap("n", "<Leader>tj", "<Cmd>lua require('telescope.builtin').builtin()<CR>")
 
 return M
-

@@ -34,4 +34,3 @@ utils.keymap("i", "<C-e>", "compe#close('<C-e>')", {expr = true, noremap = true}
 vim.cmd [[ inoremap <silent><expr> <CR> compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()")) ]] -- compatitbility with nvim-autopairs
 
 return M
-

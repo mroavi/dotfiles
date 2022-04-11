@@ -524,4 +524,3 @@ nnoremap <c-a> <c-w>
 
 " Open files in a vim server named "svim"
 nnoremap o :!vim --servername svim --remote-tab %f<cr>
-

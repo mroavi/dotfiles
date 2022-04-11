@@ -36,4 +36,3 @@ nmap <buffer><silent> <Leader>tp <Leader>ac<Leader>au
 
 " Compile, upload and open serial port
 nmap <buffer><silent> <Leader>tt <Leader>ac<Leader>au<Leader>as
-

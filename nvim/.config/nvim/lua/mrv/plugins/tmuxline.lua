@@ -20,4 +20,3 @@
 --	autocmd VimEnter,ColorScheme * silent! Tmuxline lightline_insert
 --endif
 --]])
-

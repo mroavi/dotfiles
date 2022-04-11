@@ -28,4 +28,3 @@ vim.cmd('cnoreabbrev gca  Git commit -v --amend')
 vim.cmd('cnoreabbrev gp   Git push')
 vim.cmd('cnoreabbrev gl   Git pull')
 --vim.cmd('cnoreabbrev glg  Git log') -- using GV in favor of this
-

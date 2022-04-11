@@ -8,4 +8,3 @@
 "  prefer_single_line_comments = true,
 "})
 "EOF
-

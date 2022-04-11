@@ -9,4 +9,3 @@ case "$1" in
     *) highlight -O ansi "$1" || cat "$1";;
     # *) bat --plain --color always "$1"
 esac
-

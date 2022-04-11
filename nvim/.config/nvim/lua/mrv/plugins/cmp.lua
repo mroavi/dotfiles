@@ -79,4 +79,3 @@ imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 ]]
-

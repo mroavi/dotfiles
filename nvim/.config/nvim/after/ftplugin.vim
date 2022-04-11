@@ -2,4 +2,3 @@
 
 " Disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=cro formatoptions+=t
-

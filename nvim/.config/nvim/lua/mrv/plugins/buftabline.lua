@@ -24,4 +24,3 @@ local options = {
 }
 
 require("buftabline").setup(options)
-

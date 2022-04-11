@@ -9,4 +9,3 @@ utils.keymap("i", "<C-h>", "<C-o>:TmuxNavigateLeft<CR>")
 utils.keymap("i", "<C-j>", "<C-o>:TmuxNavigateDown<CR>")
 utils.keymap("i", "<C-k>", "<C-o>:TmuxNavigateUp<CR>")
 utils.keymap("i", "<C-l>", "<C-o>:TmuxNavigateRight<CR>")
-

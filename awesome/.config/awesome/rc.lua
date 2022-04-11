@@ -663,4 +663,3 @@ awful.spawn.with_shell("flameshot") -- screenshot software
 
 -- Change key repeat frequency
 os.execute("xset r rate 260 60")
-

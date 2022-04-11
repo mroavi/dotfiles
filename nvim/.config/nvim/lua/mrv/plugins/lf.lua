@@ -11,4 +11,3 @@ local utils = require("mrv.utils")
 utils.keymap("n", "<Leader>/",
             "expand('%') == '' ? '<Cmd>Lp %:p:h<CR>' : '<Cmd>Lp %<CR>'",
             {noremap = true, expr = true})
-

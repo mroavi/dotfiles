@@ -32,4 +32,3 @@ nnoremap <buffer> <Leader>pi :<C-u>call InsertPrintInspectStatement()<CR>
 
 " Write and execute ( https://vim.fandom.com/wiki/Source_current_file_when_editing_a_script )
 nmap <buffer><silent> <Leader>e :write <Bar> luafile %<CR>
-

@@ -40,4 +40,3 @@ let g:mkdp_preview_options = {
       \ 'content_editable': v:false,
       \ 'disable_filename': 1
       \ }
-

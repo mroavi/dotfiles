@@ -9,4 +9,3 @@ vim.g["JuliaFormatter_options"] = {
   whitespace_typedefs = false,
   whitespace_ops_in_indices = true,
 }
-

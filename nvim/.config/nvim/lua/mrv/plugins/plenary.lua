@@ -12,4 +12,3 @@ local utils = require('mrv.utils')
 utils.keymap("n", "<Leader>cr", "<Cmd>lua require('mrv.plugins.plenary').reload(true)<CR>")
 
 return M
-

@@ -20,4 +20,3 @@ vim.g.ayu_overrides = {
 }
 
 vim.cmd [[ colorscheme ayu ]]
-

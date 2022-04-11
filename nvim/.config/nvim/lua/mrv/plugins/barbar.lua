@@ -21,4 +21,3 @@ utils.keymap("n", "<Leader>bd", "<Cmd>:BufferClose<CR>")
 utils.keymap("n", "<Leader>bo", "<Cmd>:BufferCloseAllButCurrent<CR>")
 utils.keymap("n", "<M-,>",      "<Cmd>:BufferMovePrevious<CR>")
 utils.keymap("n", "<M-.>",      "<Cmd>:BufferMoveNext<CR>")
-

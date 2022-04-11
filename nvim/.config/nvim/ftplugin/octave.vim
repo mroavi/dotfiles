@@ -10,4 +10,3 @@ nnoremap <buffer><silent> <M-k> :call search(b:cell_delimeter, "bW")<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " No space between comment character and code
 let b:commentary_format = '%%s'
-

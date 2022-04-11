@@ -11,4 +11,3 @@ vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
 
 local utils = require('mrv.utils')
 utils.keymap("n", "<Leader>f", "gqap", {noremap = false})
-

@@ -5,4 +5,3 @@ local options = {
 }
 
 require('nvim_comment').setup(options)
-

@@ -10,4 +10,3 @@ nmap <Leader>7 <Plug>BufTabLine.Go(7)
 nmap <Leader>8 <Plug>BufTabLine.Go(8)
 nmap <Leader>9 <Plug>BufTabLine.Go(9)
 ]])
-

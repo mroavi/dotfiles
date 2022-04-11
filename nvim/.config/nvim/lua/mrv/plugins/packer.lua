@@ -5,4 +5,3 @@ function MyPackerSync()
 end
 
 utils.keymap("n", "<Leader>ps", "<Cmd>:PackerSync<CR>")
-

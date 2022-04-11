@@ -163,4 +163,3 @@ map w
 map cl        :clear; unselect
 # https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files
 map cw        $printf '%s\n' $fx | vidir -
-
