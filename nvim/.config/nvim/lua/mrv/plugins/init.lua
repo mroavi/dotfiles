@@ -24,6 +24,7 @@ M.setup = function()
     use {'tpope/vim-unimpaired'} -- pairs of handy bracket mappings
     use {'tpope/vim-surround'} -- provides mappings to easily delete, change and add such surroundings in pairs
     use {'tpope/vim-repeat'} -- enable repeating supported plugin maps with "."
+    use {'tpope/vim-obsession'} -- continuously updated session files
     use {'pgdouyon/vim-evanesco'} -- automatically clears search highlight
     use {'~/repos/vim-pasta'} -- auto format pasted code
     use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end} -- vim plugin that provides additional text objects
