@@ -339,7 +339,7 @@ alias appearance="lxappearance"
 alias wifiscan="nmcli dev wifi list"
 
 # Dir bookmarks
-alias dotfiles="cd ~/dotfiles"
+alias d="cd ~/dotfiles"
 
 # Git
 alias g='git'
