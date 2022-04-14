@@ -8,6 +8,9 @@ nnoremap <buffer><silent> <M-k> :call GoToPrevDelim(b:cell_delimeter)<CR>z<CR>
 """ vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Include `!` as part of a vim 'word'
+setlocal iskeyword+=!
+
 " Default config
 let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
 
