@@ -125,56 +125,6 @@ zstyle :prompt:pure:git:arrow       color yellow
 zstyle :prompt:pure:git:stash show yes
 
 # =============================================================================
-## Aliases
-# =============================================================================
-
-alias v="nvim"
-alias vs="nvim -S"
-alias jl="julia --project=@."
-alias o="xdg-open"
-alias l="ls -1"
-alias lsa="ls -lah"
-alias ll='ls -lh'
-alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
-alias pac="sudo pacman"
-alias bye="systemctl poweroff"
-alias sz="du -h --max-depth=1 ."
-
-# Configuration managers
-alias vol="alsamixer"
-alias audio="pavucontrol"
-alias blue="blueman-manager"
-alias disp="arandr"
-alias appearance="lxappearance"
-alias wifiscan="nmcli dev wifi list"
-
-# Dir bookmarks
-alias dotfiles="cd ~/dotfiles"
-alias phd="cd ~/Dropbox/TUe/PhD"
-
-# Git
-alias g='git'
-alias gst='git status'
-alias ga='git add'
-alias gc='git commit -v'
-alias gp='git push'
-alias gl='git pull'
-alias glg='git log'
-alias gd='git diff'
-alias gco='git checkout'
-alias gca='git commit -v --amend'
-
-# Audio
-alias port1='pactl set-sink-port alsa_output.pci-0000_00_1f.3.analog-stereo analog-output-speaker'
-alias port2='pactl set-sink-port alsa_output.pci-0000_00_1f.3.analog-stereo analog-output-headphones'
-alias sink1='pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo'
-alias sink2='pactl set-default-sink bluez_output.38_18_4C_BC_F1_AC.a2dp-sink'
-
-# Keyboard layout
-alias en='setxkbmap -layout us -variant altgr-intl'
-alias es='setxkbmap -layout es'
-
-# =============================================================================
 ## Dir navigation
 # =============================================================================
 
@@ -217,23 +167,6 @@ function chpwd() {
 # Disable Ctrl-S from freezing Vim
 # See: https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
 stty -ixon
-
-# =============================================================================
-## fasd
-# =============================================================================
-
-eval "$(fasd --init auto)"
-
-unalias a
-unalias s
-unalias d
-unalias f
-unalias sd
-unalias sf
-unalias z
-unalias zz
-
-alias j='fasd_cd -d' 
 
 # =============================================================================
 ## z
@@ -363,6 +296,72 @@ fzf-pacman-install() {
 fzf-pacman-list() {
   pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
 }
+
+# =============================================================================
+## fasd
+# =============================================================================
+
+eval "$(fasd --init auto)"
+
+unalias a
+unalias s
+unalias d
+unalias f
+unalias sd
+unalias sf
+unalias z
+unalias zz
+
+alias j='fasd_cd -d' 
+
+# =============================================================================
+## Aliases
+# =============================================================================
+
+alias v="nvim"
+alias vs="nvim -S"
+alias jl="julia --project=@."
+alias o="xdg-open"
+alias l="ls -1"
+alias lsa="ls -lah"
+alias ll='ls -lh'
+alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
+alias pac="sudo pacman"
+#alias bye="systemctl poweroff"
+alias sz="du -h --max-depth=1 ."
+
+# Configuration managers
+alias vol="alsamixer"
+alias audio="pavucontrol"
+alias blue="blueman-manager"
+alias disp="arandr"
+alias appearance="lxappearance"
+alias wifiscan="nmcli dev wifi list"
+
+# Dir bookmarks
+alias dotfiles="cd ~/dotfiles"
+
+# Git
+alias g='git'
+alias gst='git status'
+alias ga='git add'
+alias gc='git commit -v'
+alias gp='git push'
+alias gl='git pull'
+alias glg='git log'
+alias gd='git diff'
+alias gco='git checkout'
+alias gca='git commit -v --amend'
+
+# Audio
+alias port1='pactl set-sink-port alsa_output.pci-0000_00_1f.3.analog-stereo analog-output-speaker'
+alias port2='pactl set-sink-port alsa_output.pci-0000_00_1f.3.analog-stereo analog-output-headphones'
+alias sink1='pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo'
+alias sink2='pactl set-default-sink bluez_output.38_18_4C_BC_F1_AC.a2dp-sink'
+
+# Keyboard layout
+alias en='setxkbmap -layout us -variant altgr-intl'
+alias es='setxkbmap -layout es'
 
 # =============================================================================
 ## >>> conda initialize >>> (contents within this block are managed by 'conda init' !!)
