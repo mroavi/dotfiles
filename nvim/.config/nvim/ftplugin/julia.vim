@@ -56,6 +56,9 @@ nnoremap <buffer><silent> <Leader>cl :TomuxSend("\bclr()\n")<CR>
 let b:package = 'JunctionTrees'
 nnoremap <buffer><silent> <Leader>tt :TomuxSend("\b]test " . b:package . "\n\b")<CR>
 
+" Help under the cursor
+nnoremap <buffer><silent> K :TomuxSend("\b?" . expand("<cword>") . "\n\b")<CR>
+
 " Exit any REPL mode
 nnoremap <buffer><silent> <BS> :TomuxSend("\b")<CR>
 
