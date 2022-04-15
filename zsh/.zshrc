@@ -322,6 +322,7 @@ alias v="nvim"
 alias vs="nvim -S"
 alias jl="julia --project=@."
 alias o="xdg-open"
+alias t="tmux"
 alias l="ls -1"
 alias lsa="ls -lah"
 alias ll='ls -lh'
