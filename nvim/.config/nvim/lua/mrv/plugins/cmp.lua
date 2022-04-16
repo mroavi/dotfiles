@@ -37,13 +37,13 @@ cmp.setup {
   completion = {
     completeopt = "menu,menuone,noselect",
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert ({
     --['<CR>'] = cmp.mapping.confirm({ select = true }),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(),
-  },
+  }),
   formatting = {
     fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
