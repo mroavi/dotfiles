@@ -22,9 +22,9 @@ augroup tomux_send
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   autocmd FileType julia,python,octave nmap <buffer> \ <Plug>TomuxMotionSend
   " Ctrl+Enter to send text in visual, normal and insert modes
-  autocmd FileType julia,python,octave xmap <buffer> <C-Cr> <Plug>TomuxVisualSend
-  autocmd FileType julia,python,octave nmap <buffer> <C-Cr> \_
-  autocmd FileType julia,python,octave imap <buffer> <C-Cr> <Esc>\_gi
+  "autocmd FileType julia,python,octave xmap <buffer> <C-Cr> <Plug>TomuxVisualSend
+  "autocmd FileType julia,python,octave nmap <buffer> <C-Cr> \_
+  "autocmd FileType julia,python,octave imap <buffer> <C-Cr> <Esc>\_gi
   " Alt+Enter to send cell
   autocmd FileType julia,python,octave nmap <buffer> <M-Cr> \ic
   " Ctrl+Shift+Enter to send entire buffer
