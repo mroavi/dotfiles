@@ -15,6 +15,7 @@ require'nvim-treesitter.configs'.setup {
     -- list of languages that will be disabled
     disable = {
       "vim",
+      "help",
       "julia",
     },
 
