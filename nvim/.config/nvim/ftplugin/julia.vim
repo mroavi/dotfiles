@@ -56,8 +56,7 @@ nnoremap <buffer><silent><Leader>tk :call KillPane()<CR>
 nnoremap <buffer><silent> <Leader>cl :TomuxSend("\bclr()\n")<CR>
 
 " Run tests
-let b:package = 'JunctionTrees'
-nnoremap <buffer><silent> <Leader>tt :TomuxSend("\b]test " . b:package . "\n\b")<CR>
+nnoremap <buffer><silent> <Leader>tt :TomuxSend("\b]test\n\b")<CR>
 
 " Help under the cursor
 nnoremap <buffer><silent> K :TomuxSend("\b?" . expand("<cword>") . "\n\b")<CR>
