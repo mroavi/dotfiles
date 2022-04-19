@@ -30,6 +30,7 @@ pac_pkgs=(
           bluez
           bluez-utils
           okular
+          dunst
          )
 
 yay_pkgs=(
