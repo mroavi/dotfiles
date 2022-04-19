@@ -20,6 +20,10 @@ dwmiconbar &
 # Launch dropbox
 dropbox &
 
+# Launch dunst (https://dunst-project.org/)
+# Used to fix Teams notification bug (see https://bit.ly/3MezkXY)
+dunst &
+
 # # Launch compositor (used for blur and fading effects)
 # # https://aur.archlinux.org/packages/picom-jonaburg-git/
 # # https://aur.archlinux.org/packages/picom-tryone-git/ <- currently installed
