@@ -211,16 +211,15 @@ require"lspconfig".efm.setup {
 --- Mappings
 -- ==============================================================================
 
-local utils = require('mrv.utils')
 -- See `:h lsp-buf`
-utils.keymap("n", "<Leader>d", "<Cmd>lua vim.lsp.buf.definition()<CR>")
-utils.keymap("n", "<Leader>u", "<Cmd>lua vim.lsp.buf.references()<CR>")
-utils.keymap("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
-utils.keymap("n", "<Leader>f", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
-utils.keymap("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
-utils.keymap("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
+vim.keymap.set("n", "<Leader>d", "<Cmd>lua vim.lsp.buf.definition()<CR>")
+vim.keymap.set("n", "<Leader>u", "<Cmd>lua vim.lsp.buf.references()<CR>")
+vim.keymap.set("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
+vim.keymap.set("n", "<Leader>f", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
+vim.keymap.set("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
+vim.keymap.set("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
 -- See `:h lsp-diagnostic`
-utils.keymap("n", "]d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_next()<CR>")
-utils.keymap("n", "[d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_prev()<CR>")
+vim.keymap.set("n", "]d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_next()<CR>")
+vim.keymap.set("n", "[d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_prev()<CR>")
 
 return M

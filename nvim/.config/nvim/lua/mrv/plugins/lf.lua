@@ -7,7 +7,6 @@ vim.g["lf#action"] = { ['<C-t>'] = 'tab split', -- open in tab
                        ['<C-l>'] = 'vsplit', -- vertical split
                      }
 
-local utils = require("mrv.utils")
-utils.keymap("n", "<Leader>/",
-            "expand('%') == '' ? '<Cmd>Lp %:p:h<CR>' : '<Cmd>Lp %<CR>'",
-            {noremap = true, expr = true})
+vim.keymap.set("n", "<Leader>/",
+               "expand('%') == '' ? '<Cmd>Lp %:p:h<CR>' : '<Cmd>Lp %<CR>'",
+               {noremap = true, expr = true})

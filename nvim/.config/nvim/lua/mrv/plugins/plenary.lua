@@ -8,7 +8,6 @@ M.reload = function(verbose)
   end
 end
 
-local utils = require('mrv.utils')
-utils.keymap("n", "<Leader>cr", "<Cmd>lua require('mrv.plugins.plenary').reload(true)<CR>")
+vim.keymap.set("n", "<Leader>cr", "<Cmd>lua require('mrv.plugins.plenary').reload(true)<CR>")
 
 return M

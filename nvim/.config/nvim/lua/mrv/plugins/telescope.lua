@@ -615,33 +615,32 @@ end
 -- Mappings
 ---------------------------------------------------------------------------------
 
-local my_utils = require('mrv.utils')
 -- File pickers
-my_utils.keymap("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').my_git_files()<CR>")
---my_utils.keymap("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
-my_utils.keymap("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
-my_utils.keymap("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<CR>")
-my_utils.keymap("n", "<Leader>*", "<Cmd>lua require('mrv.plugins.telescope').fuzzy_star_search()<CR>")
+vim.keymap.set("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').my_git_files()<CR>")
+--vim.keymap.set("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
+vim.keymap.set("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
+vim.keymap.set("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<CR>")
+vim.keymap.set("n", "<Leader>*", "<Cmd>lua require('mrv.plugins.telescope').fuzzy_star_search()<CR>")
 -- Vim pickers
-my_utils.keymap("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
-my_utils.keymap("n", "<Leader>L", "<Cmd>lua require('mrv.plugins.telescope').buffer_lines()<CR>")
-my_utils.keymap("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
-my_utils.keymap("n", "<Leader>H", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
-my_utils.keymap("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
-my_utils.keymap("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
-my_utils.keymap("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
---my_utils.keymap("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags({default_text = vim.fn.expand(\"<cword>\")})<CR>")
---my_utils.keymap("n", "<Leader>ma", "<Cmd>lua require('telescope.builtin').keymaps()<CR>")
-my_utils.keymap("n", "<Leader>hi", "<Cmd>lua require('telescope.builtin').highlights()<CR>")
+vim.keymap.set("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
+vim.keymap.set("n", "<Leader>L", "<Cmd>lua require('mrv.plugins.telescope').buffer_lines()<CR>")
+vim.keymap.set("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
+vim.keymap.set("n", "<Leader>H", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
+vim.keymap.set("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
+vim.keymap.set("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
+vim.keymap.set("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
+--vim.keymap.set("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags({default_text = vim.fn.expand(\"<cword>\")})<CR>")
+--vim.keymap.set("n", "<Leader>ma", "<Cmd>lua require('telescope.builtin').keymaps()<CR>")
+vim.keymap.set("n", "<Leader>hi", "<Cmd>lua require('telescope.builtin').highlights()<CR>")
 -- LSP pickers
---my_utils.keymap("n", "<Leader>ds", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
-my_utils.keymap("n", "<Leader>sy", "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
-my_utils.keymap("n", "<Leader>ca", "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
+--vim.keymap.set("n", "<Leader>ds", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
+vim.keymap.set("n", "<Leader>sy", "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
+vim.keymap.set("n", "<Leader>ca", "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
 -- Git pickers
-my_utils.keymap("n", "<Leader>co", "<Cmd>lua require('mrv.plugins.telescope').git_commits()<CR>")
-my_utils.keymap("n", "<Leader>cb", "<Cmd>lua require('mrv.plugins.telescope').git_bcommits()<CR>")
-my_utils.keymap("n", "<Leader>st", "<Cmd>lua require('mrv.plugins.telescope').git_status()<CR>")
+vim.keymap.set("n", "<Leader>co", "<Cmd>lua require('mrv.plugins.telescope').git_commits()<CR>")
+vim.keymap.set("n", "<Leader>cb", "<Cmd>lua require('mrv.plugins.telescope').git_bcommits()<CR>")
+vim.keymap.set("n", "<Leader>st", "<Cmd>lua require('mrv.plugins.telescope').git_status()<CR>")
 -- Lists pickers
---my_utils.keymap("n", "<Leader>tj", "<Cmd>lua require('telescope.builtin').builtin()<CR>")
+--vim.keymap.set("n", "<Leader>tj", "<Cmd>lua require('telescope.builtin').builtin()<CR>")
 
 return M
