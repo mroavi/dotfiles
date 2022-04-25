@@ -95,3 +95,12 @@ debug> `                    # go to julia mode keeping the backtrace (backspace 
 |julia> print(x)            # print the content of `x`
 |julia> x = 2               # assign the value 2 to `x`
 ```
+
+Search Documentation
+--------------------
+
+Search available docstrings for entries containing `pattern` with the `apropos`
+function. See ?apropos
+
+REPL help mode understands regex, e.g., enter r"^has" to get all methods
+starting with "has".
