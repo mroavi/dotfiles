@@ -78,6 +78,8 @@ function! ToggleString(str, insert_txt_cmd)
 endfunction
 noremap <buffer><Leader>sh :call ToggleString('@show ', 'I')<CR>
 noremap <buffer><Leader>pr :call ToggleString(' \|> println', 'A')<CR>
+"noremap <buffer><Leader>ti :call ToggleString('@btime ', 'I')<CR>
+"noremap <buffer><Leader>du :call ToggleString(' \|> dump', 'A')<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ julia-vim
