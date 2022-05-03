@@ -321,6 +321,7 @@ alias j='fasd_cd -d'
 alias v="nvim"
 alias vs="nvim -S"
 alias jl="julia --project=@."
+alias ijulia="julia --project=@. -e \"using IJulia; notebook(dir=pwd())\""
 alias o="xdg-open"
 alias t="tmux"
 alias l="ls -1"
