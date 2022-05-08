@@ -60,6 +60,7 @@ M.setup = function()
     --use {'rcarriga/nvim-notify', } -- a fancy, configurable, notification manager for NeoVim
     --use {'sainnhe/everforest', config = function() vim.cmd [[ let g:everforest_background = 'hard' | colorscheme everforest ]] end} -- comfortable & pleasant color scheme for vim
     --use {'lukas-reineke/indent-blankline.nvim'} -- indent guides for Neovim
+    --use {'ldelossa/gh.nvim.git'} -- Github integration powered by litee.nvim
 
     -- Abandoned
     --use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
