@@ -142,13 +142,18 @@
 # Make sure to add a rule in /etc/sudoers to allow running
 # a program as sudo without prompting for a password.
 # To do this, run:
-#   > pkexec visudo
+#   > sudo visudo
+# and add e.g.:
+#   mroavi ALL=(ALL) NOPASSWD: /usr/bin/onthefly
+# in the LAST line.
 #
 # For more info see: https://unix.stackexchange.com/q/18830/184227
 #
 # If wanting to run a Bash script, make sure to make executable:
 #   > chmod +x my-script.sh
 
+"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/epicurus/scripts/whatami.jl"
+  alt + F1
 
 # "sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/third-year/presentations/2020-05-20-biaslab-seminar/i-can-eat-glass.txt'"
 #   control+shift+alt + 1
