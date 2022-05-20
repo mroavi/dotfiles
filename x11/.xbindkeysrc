@@ -152,8 +152,29 @@
 # If wanting to run a Bash script, make sure to make executable:
 #   > chmod +x my-script.sh
 
-"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/epicurus/scripts/whatami.jl"
+# "sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/epicurus/scripts/whatami.jl"
+#   alt + F1
+
+"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/1.txt"
   alt + F1
+
+"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/2.txt"
+  alt + F2
+
+"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/3.txt"
+  alt + F3
+
+"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/4.txt"
+  alt + F4
+
+"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/5.txt"
+  alt + F5
+
+"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/6.txt"
+  alt + F6
+
+"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/all.txt"
+  alt + F9
 
 # "sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/third-year/presentations/2020-05-20-biaslab-seminar/i-can-eat-glass.txt'"
 #   control+shift+alt + 1
