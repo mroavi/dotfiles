@@ -14,9 +14,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Configure diagnostic options
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      virtual_text = true,
-      signs = true,
-      underline = false,
+      virtual_text = false,
+      signs = false,
+      underline = true,
       update_in_insert = false,
       severity_sort = false
     })
