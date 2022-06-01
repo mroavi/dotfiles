@@ -89,6 +89,17 @@ InteractiveUtils.define_editor("nvim", wait=false) do cmd, path, line
 end
 
 # ------------------------------------------------------------------------------
+## Find the git repo's root directory
+# ------------------------------------------------------------------------------
+function gitdir(currdir)
+  while true
+    dirname(currdir) == currdir && return nothing
+    isdir(joinpath(currdir, ".git")) && return currdir
+    currdir = dirname(currdir)
+  end
+end
+
+# ------------------------------------------------------------------------------
 ##  Improvement to the display of stack traces in the Julia REPL
 # ------------------------------------------------------------------------------
 
