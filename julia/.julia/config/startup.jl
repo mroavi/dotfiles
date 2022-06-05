@@ -100,6 +100,17 @@ function gitdir(currdir)
 end
 
 # ------------------------------------------------------------------------------
+## Return a date-time string to be used as filename for a benchmark file
+# Format based on: https://serverfault.com/a/370766
+# ------------------------------------------------------------------------------
+function benchmarkfilename()
+  dirname = joinpath("out", gethostname())
+  mkpath(dirname)
+  filename = Dates.format(now(),"yyyy-mm-dd--HH-MM-SS")
+  return joinpath(dirname, filename)
+end
+
+# ------------------------------------------------------------------------------
 ##  Improvement to the display of stack traces in the Julia REPL
 # ------------------------------------------------------------------------------
 
