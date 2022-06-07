@@ -100,14 +100,11 @@ function gitdir(currdir)
 end
 
 # ------------------------------------------------------------------------------
-## Return a date-time string to be used as filename for a benchmark file
+## Return a date-time string to be used as directory name for a benchmark
 # Format based on: https://serverfault.com/a/370766
 # ------------------------------------------------------------------------------
-function benchmarkfilename()
-  dirname = joinpath("out", gethostname())
-  mkpath(dirname)
-  filename = Dates.format(now(),"yyyy-mm-dd--HH-MM-SS")
-  return joinpath(dirname, filename)
+function benchmark_dirname()
+  joinpath("out", gethostname(), Dates.format(now(),"yyyy-mm-dd--HH-MM-SS"))
 end
 
 # ------------------------------------------------------------------------------
