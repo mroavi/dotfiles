@@ -400,16 +400,18 @@ alias es='setxkbmap -layout es'
 # If not running interactively, do not do anything
 # =============================================================================
 
+if [ ! "$SSH_CONNECTION" ]; then
+  # https://unix.stackexchange.com/a/113768/184227
+  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    #exec tmux a
+    exec tmux
+  fi
+fi
+
 #if [ "$SSH_CONNECTION" ]; then
 #  # https://unix.stackexchange.com/a/552619/184227
 #  if [[ -z $TMUX ]] && [[ -n $SSH_TTY ]]; then
 #    exec tmux new-session -A -s ssh
-#  fi
-#else
-#  # https://unix.stackexchange.com/a/113768/184227
-#  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#    exec tmux a
-#    #exec tmux
 #  fi
 #fi
 
