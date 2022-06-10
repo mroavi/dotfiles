@@ -1,3 +1,7 @@
+## Uncomment this and the last line in this file to profile 
+## See https://stevenvanbael.com/profiling-zsh-startup
+#zmodload zsh/zprof
+
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export MANPAGER='nvim +Man!'
@@ -396,8 +400,7 @@ alias es='setxkbmap -layout es'
 #compctl -K _pip_completion pip
 
 # =============================================================================
-## Start tmux automatically
-# If not running interactively, do not do anything
+## Start tmux automatically (if running interactively)
 # =============================================================================
 
 if [ ! "$SSH_CONNECTION" ]; then
@@ -415,6 +418,10 @@ fi
 #  fi
 #fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+## MRV: rvm increases the zsh startup time considerably
+## Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+#export PATH="$PATH:$HOME/.rvm/bin"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+## Uncomment to profile
+#zprof
