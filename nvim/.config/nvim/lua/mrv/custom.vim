@@ -222,6 +222,16 @@ aug QFClose
   au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
 aug END
 
+" Adds/Removes the passed string to the start/end of the cursor line
+function! ToggleString(str, insert_txt_cmd)
+  if (search(a:str, 'cn', line('.'))) || (search(a:str, 'cnb', line('.')))
+    " Gets the current line, performs the substitution, and replaces it
+    call setline(line('.'), substitute(getline('.'), a:str, '', ''))
+  else
+    silent exe "normal! m`" .. a:insert_txt_cmd .. a:str .. "\<Esc>``"
+  endif 
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
