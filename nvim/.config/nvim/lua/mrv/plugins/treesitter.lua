@@ -17,6 +17,7 @@ require'nvim-treesitter.configs'.setup {
       "vim",
       "help",
       "julia",
+      "markdown",
     },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.

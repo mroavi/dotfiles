@@ -36,6 +36,7 @@ M.setup = function()
     use {'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end}
     use {'junegunn/gv.vim', config = function() require('mrv.plugins.gv') end} -- a git commit browser in Vim
     use {'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, run = ':TSUpdate'}
+    use {'preservim/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
 
     -- {{{1
 
@@ -74,7 +75,6 @@ M.setup = function()
     --use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
     --use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
     --use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
-    --use {'plasticboy/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
 
     -- }}}
 
