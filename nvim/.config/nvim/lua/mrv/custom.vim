@@ -232,6 +232,14 @@ function! ToggleString(str, insert_txt_cmd)
   endif 
 endfunction
 
+" Run macro on multiple lines
+" https://www.rockyourcode.com/run-macro-on-multiple-lines-in-vim/
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
