@@ -48,6 +48,8 @@ M.setup = function()
     --use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
     --use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}} -- preview markdown on your browser with synchronised scrolling
     --use {'tpope/vim-obsession'} -- continuously updated session files
+    --use {'vim-pandoc/vim-pandoc-syntax'} -- pandoc markdown syntax, to be installed alongside vim-pandoc
+    --use {'quarto-dev/quarto-vim', requires = {'vim-pandoc/vim-pandoc-syntax'}} -- rmarkdown support for vim
 
     -- TODO: Try these out!
     --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
