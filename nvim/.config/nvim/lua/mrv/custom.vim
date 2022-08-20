@@ -1,26 +1,3 @@
-" Write to disk
-nnoremap <Leader>w :update<CR>
-
-" Suspend vim
-nnoremap <Leader>z <C-z><CR>
-
-" Close the current window
-nnoremap <Leader>x :close<CR>
-
-" Edit the alternate file
-nnoremap <silent> <Leader>l :b#<CR>
-
-" Go to previous (last accessed) window
-nnoremap <silent><Leader>; <C-w>p
-
-" Go to the next/prev window
-nnoremap <silent><Leader>j <C-w>w
-nnoremap <silent><Leader>k <C-w>W
-
-" Create horizontal an vertical splits
-map <Leader>J :split<CR>
-map <Leader><CR> :vsplit<CR>
-
 " Substitute all occurrences of the content of the search register with new text
 nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
@@ -29,34 +6,6 @@ vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left
 nnoremap <Leader>G :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
 " Substitute last searched pattern with new text inside every entry in the quickfix list
 nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
-
-" Select pasted text
-nnoremap <expr> gp '`[' . getregtype()[0] . '`]'
-
-" Change to the directory of the current buffer and print it
-nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
-
-" Clear highlight on pressing ESC
-nnoremap <silent> <ESC> :noh<CR><ESC>
-
-" Add line movements preceded by a count greater than 1 to the jump list
-nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
-nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
-
-" Avoid a double slash when pressing / when using wildmenu (like in zsh)
-cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
-
-" Resize splits easier
-noremap <C-M-Down> :resize -3<CR>
-noremap <C-M-Up> :resize +3<CR>
-noremap <C-M-Left> :vertical resize -3<CR>
-noremap <C-M-Right> :vertical resize +3<CR>
-
-" Spelling completion in normal mode ( https://stackoverflow.com/a/25777332/1706778 )
-nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
-
-" Toggle spelling language
-nnoremap <expr> <F6> ':setlocal spelllang=' . (&spelllang == 'en' ? 'es' : 'en') . '<CR>'
 
 " https://gist.github.com/romainl/d2ad868afd7520519057475bd8e9db0c
 " gq wrapper that:
