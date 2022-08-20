@@ -52,8 +52,13 @@ M.setup = function()
 
   -- Make Ctrl-u and Ctrl-d scroll 1/3 of the window height
   -- https://neovim.discourse.group/t/how-to-make-ctrl-d-and-ctrl-u-scroll-1-3-of-window-height/859
-  vim.keymap.set("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", {expr = true})
-  vim.keymap.set("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", {expr = true})
+  vim.keymap.set("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", { expr = true })
+  vim.keymap.set("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", { expr = true })
+
+  -- Highlight yanked text
+  local group = vim.api.nvim_create_augroup("highlight_yank", { clear = true })
+  local callback = function() vim.highlight.on_yank { higroup = 'IncSearch', timeout = 200 } end
+  vim.api.nvim_create_autocmd("TextYankPost", { callback = callback , group = group })
 
 end
 

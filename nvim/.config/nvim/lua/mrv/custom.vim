@@ -58,12 +58,6 @@ nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
 " Toggle spelling language
 nnoremap <expr> <F6> ':setlocal spelllang=' . (&spelllang == 'en' ? 'es' : 'en') . '<CR>'
 
-" Highlight the yanked text
-augroup highlight_yank
-  autocmd!
-  au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
-augroup END
-
 " https://gist.github.com/romainl/d2ad868afd7520519057475bd8e9db0c
 " gq wrapper that:
 " - tries its best at keeping the cursor in place
