@@ -335,6 +335,7 @@ alias vpn="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --
 alias pac="sudo pacman"
 #alias bye="systemctl poweroff"
 alias sz="du -h --max-depth=1 ."
+alias temp="curl wttr.in/Eindhoven"
 
 # Configuration managers
 alias vol="alsamixer"
