@@ -1,64 +1,45 @@
 local vim = vim
 local M = {}
 
-local apply_options = function(opts, endpoint)
-  for k, v in pairs(opts) do
-    endpoint[k] = v
-  end
-end
-
-local globals = {
-  mapleader = ' ',
-}
-
-local options = {
-  shada = "<10,'99,/99,:99,h,f1", -- :help sd
-  number = false,
-  relativenumber = false,
-  swapfile = false,
-  wrap = true,
-  linebreak = true,
-  list = false,
-  hidden = true,
-  formatoptions = 'tcqj',
-  splitbelow = true,
-  splitright = true,
-  signcolumn = 'yes:1',
-  tabstop = 2,
-  softtabstop = 2,
-  shiftwidth = 2,
-  shiftround = true,
-  expandtab = true,
-  smartindent = true,
-  updatetime = 100,
-  inccommand = 'split',
-  listchars = "tab:»\\ ,space:_,trail:·,eol:¬",
-  scrolloff = 5,
-  completeopt = 'menuone,noselect',
-  clipboard = 'unnamedplus',
-  termguicolors = true,
-  background = 'dark',
-  wildignorecase = true,
-}
-
 M.setup = function()
 
-  apply_options(globals, vim.g)
-  apply_options(options, vim.o)
+  --------------------------------------------------------------------------------
+  -- Options
+  --------------------------------------------------------------------------------
+
+  vim.o.shada = "<10,'99,/99,:99,h,f1" -- :help sd
+  vim.o.number = false
+  vim.o.relativenumber = false
+  vim.o.swapfile = false
+  vim.o.wrap = true
+  vim.o.linebreak = true
+  vim.o.list = false
+  vim.o.hidden = true
+  vim.o.formatoptions = 'tcqj'
+  vim.o.splitbelow = true
+  vim.o.splitright = true
+  vim.o.signcolumn = 'yes:1'
+  vim.o.tabstop = 2
+  vim.o.softtabstop = 2
+  vim.o.shiftwidth = 2
+  vim.o.shiftround = true
+  vim.o.expandtab = true
+  vim.o.smartindent = true
+  vim.o.updatetime = 100
+  vim.o.inccommand = 'split'
+  vim.o.listchars = "tab:»\\ ,space:_,trail:·,eol:¬"
+  vim.o.scrolloff = 5
+  vim.o.completeopt = 'menuone,noselect'
+  vim.o.clipboard = 'unnamedplus'
+  vim.o.termguicolors = true
+  vim.o.background = 'dark'
+  vim.o.wildignorecase = true
 
   if vim.env.SSH_CONNECTION then
     vim.o.clipboard = ''
   end
 
-  -- Make Ctrl-u and Ctrl-d scroll 1/3 of the window height
-  -- https://neovim.discourse.group/t/how-to-make-ctrl-d-and-ctrl-u-scroll-1-3-of-window-height/859
-  vim.keymap.set("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", { expr = true })
-  vim.keymap.set("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", { expr = true })
-
-  -- Highlight yanked text
-  local group = vim.api.nvim_create_augroup("highlight_yank", { clear = true })
-  local callback = function() vim.highlight.on_yank { higroup = 'IncSearch', timeout = 200 } end
-  vim.api.nvim_create_autocmd("TextYankPost", { callback = callback , group = group })
+  vim.g.mapleader = ' '
 
   --------------------------------------------------------------------------------
   -- Mappings
@@ -85,6 +66,20 @@ M.setup = function()
   vim.keymap.set("n", "k", "(v:count > 1 ? \"m'\" . v:count : '') . 'k'", { expr = true }) -- add line movements preceded by a count greater than 1 to the jump list
   vim.keymap.set("n", "j", "(v:count > 1 ? \"m'\" . v:count : '') . 'j'", { expr = true }) -- add line movements preceded by a count greater than 1 to the jump list
   vim.keymap.set("c", "/", "wildmenumode() ? \"\\<C-y>\" : \"/\"", { expr = true }) -- avoid a double slash when pressing / when using wildmenu (like in zsh)
+
+  --------------------------------------------------------------------------------
+  -- Misc
+  --------------------------------------------------------------------------------
+
+  -- Make Ctrl-u and Ctrl-d scroll 1/3 of the window height
+  -- https://neovim.discourse.group/t/how-to-make-ctrl-d-and-ctrl-u-scroll-1-3-of-window-height/859
+  vim.keymap.set("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", { expr = true })
+  vim.keymap.set("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", { expr = true })
+
+  -- Highlight yanked text
+  local group = vim.api.nvim_create_augroup("highlight_yank", { clear = true })
+  local callback = function() vim.highlight.on_yank { higroup = 'IncSearch', timeout = 200 } end
+  vim.api.nvim_create_autocmd("TextYankPost", { callback = callback , group = group })
 
 end
 
