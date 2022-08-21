@@ -84,4 +84,4 @@ noremap <buffer><Leader>tf :call julia#toggle_function_blockassign()<CR>
 " Inserts different kinds of headers
 nnoremap <buffer><Leader>h1 m`<S-o># <Esc>78a=<Esc>yyjp``
 nnoremap <buffer><Leader>h2 m`<S-o># <Esc>78a-<Esc>yyjp``
-nnoremap <buffer><Leader>h3 m`0dw :center 80<cr>hhv0r-A<Space><Esc>40A-<Esc>d78<Bar>I#<Space><Esc>``
+nnoremap <buffer><Leader>h3 m`0dw :center 80<CR>hhv0r-A<Space><Esc>40A-<Esc>d78<Bar>I#<Space><Esc>``
