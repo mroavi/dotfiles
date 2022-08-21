@@ -7,6 +7,8 @@ M.setup = function()
   -- Options
   --------------------------------------------------------------------------------
 
+  vim.g.mapleader = ' '
+
   vim.o.shada = "<10,'99,/99,:99,h,f1" -- :help sd
   vim.o.number = false
   vim.o.relativenumber = false
@@ -38,8 +40,6 @@ M.setup = function()
   if vim.env.SSH_CONNECTION then
     vim.o.clipboard = ''
   end
-
-  vim.g.mapleader = ' '
 
   --------------------------------------------------------------------------------
   -- Mappings
