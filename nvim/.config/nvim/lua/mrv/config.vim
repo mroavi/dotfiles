@@ -61,9 +61,6 @@ xnoremap <silent> id :<C-u>normal! ggVG<cr>
 onoremap <silent> id :<C-u>normal! ggVG<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
- " Open help in vertical split
- cnoreabbrev h vert bo h
-
 " Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix'))
@@ -290,3 +287,6 @@ endfunction
 "    unlet w:gqview
 "endfunction
 "nmap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=Format<CR>g@
+
+"" Open help in vertical split
+"cnoreabbrev h vert bo h
