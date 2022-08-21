@@ -7,22 +7,6 @@ nnoremap <Leader>G :vimgrep //gj **/*<left><left><left><left><left><left><left><
 " Substitute last searched pattern with new text inside every entry in the quickfix list
 nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
 
-" https://gist.github.com/romainl/d2ad868afd7520519057475bd8e9db0c
-" gq wrapper that:
-" - tries its best at keeping the cursor in place
-" - tries to handle formatter errors
-function! Format(type, ...)
-    normal! '[v']gq
-    if v:shell_error > 0
-        silent undo
-        redraw
-        echomsg 'formatprg "' . &formatprg . '" exited with status ' . v:shell_error
-    endif
-    call winrestview(w:gqview)
-    unlet w:gqview
-endfunction
-nmap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=Format<CR>g@
-
 " Jump to next delimiter
 function! GoToNextDelim(delim)
   if (!search(a:delim, "W"))
@@ -290,3 +274,19 @@ endfunction
 "" Delete current buffer without losing split windows
 "" https://stackoverflow.com/a/4468491/1706778
 "nnoremap <silent> <Leader>dd :bprevious<bar>:bdelete #<CR>
+
+"" https://gist.github.com/romainl/d2ad868afd7520519057475bd8e9db0c
+"" gq wrapper that:
+"" - tries its best at keeping the cursor in place
+"" - tries to handle formatter errors
+"function! Format(type, ...)
+"    normal! '[v']gq
+"    if v:shell_error > 0
+"        silent undo
+"        redraw
+"        echomsg 'formatprg "' . &formatprg . '" exited with status ' . v:shell_error
+"    endif
+"    call winrestview(w:gqview)
+"    unlet w:gqview
+"endfunction
+"nmap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=Format<CR>g@
