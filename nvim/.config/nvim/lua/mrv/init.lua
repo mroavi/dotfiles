@@ -7,4 +7,4 @@
 
 require('mrv.config').setup()
 require('mrv.plugins').setup()
-vim.cmd [[ exe "source " .. stdpath('config') .. "/lua/mrv/custom.vim" ]]
+vim.cmd [[ exe "source " .. stdpath('config') .. "/lua/mrv/config.vim" ]]
