@@ -156,15 +156,6 @@ function! ToggleString(str, insert_txt_cmd)
   endif 
 endfunction
 
-" Run macro on multiple lines
-" https://www.rockyourcode.com/run-macro-on-multiple-lines-in-vim/
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-" See: https://youtu.be/RaynmHxUixA for a better alternative
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DISABLED (enable when necessary)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -291,3 +282,12 @@ endfunction
 
 "" Open help in vertical split
 "cnoreabbrev h vert bo h
+
+"" Run macro on multiple lines
+"" https://www.rockyourcode.com/run-macro-on-multiple-lines-in-vim/
+"xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+"function! ExecuteMacroOverVisualRange()
+"  echo "@".getcmdline()
+"  execute ":'<,'>normal @".nr2char(getchar())
+"endfunction
+"" See: https://youtu.be/RaynmHxUixA for a better alternative
