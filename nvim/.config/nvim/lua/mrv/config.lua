@@ -46,7 +46,7 @@ M.setup = function()
   --------------------------------------------------------------------------------
 
   vim.keymap.set("n", "<Leader>w", ":update<CR>") -- write to disk
-  vim.keymap.set("n", "<Leader>z", "<C-z><CR>") -- suspend vim
+  vim.keymap.set("n", "<Leader>z", "<C-z><CR>") -- suspend vim (resume with `fg`)
   vim.keymap.set("n", "<Leader>x", ":close<CR>") -- close the current window
   vim.keymap.set("n", "<Leader>l", ":b#<CR>", { silent = true }) -- edit the alternate file
   vim.keymap.set("n", "<Leader>;", "<C-w>p", { silent = true }) -- go to the last accessed window
