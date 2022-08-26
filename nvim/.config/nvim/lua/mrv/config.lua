@@ -52,8 +52,8 @@ M.setup = function()
   vim.keymap.set("n", "<Leader>;", "<C-w>p", { silent = true }) -- go to the last accessed window
   vim.keymap.set("n", "<Leader>j", "<C-w>w", { silent = true }) -- go to the next window
   vim.keymap.set("n", "<Leader>k", "<C-w>W", { silent = true }) -- go to the prev window
-  vim.keymap.set("n", "<ESC>", ":noh<CR><ESC>", { silent = true }) -- clear highlight
   vim.keymap.set("n", "<Leader>cd", ":cd %:p:h<CR>:pwd<CR>") -- change to the dir of the current buffer
+  vim.keymap.set("n", "<ESC>", ":noh<CR><ESC>", { silent = true }) -- clear highlight
   vim.keymap.set("n", "<C-M-Down>", ":resize -3<CR>") -- resize split horizontally
   vim.keymap.set("n", "<C-M-Up>", ":resize +3<CR>") -- resize split horizontally
   vim.keymap.set("n", "<C-M-Left>", ":vertical resize -3<CR>") -- resize split vertically
