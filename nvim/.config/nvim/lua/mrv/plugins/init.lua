@@ -43,7 +43,7 @@ M.setup = function()
     -- Disabled
     --use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
     --use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
-    --use {'dstein64/nvim-scrollview'} -- a Neovim plugin that displays (non-interactive) scrollbars
+    --use {'dstein64/nvim-scrollview', config = function() require('mrv.plugins.scrollview') end} -- a Neovim plugin that displays (non-interactive) scrollbars
     --use {'kdheepak/JuliaFormatter.vim', ft = "julia", config = function() require('mrv.plugins.JuliaFormatter') end} -- formatter for Julia
     --use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
     --use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}} -- preview markdown on your browser with synchronised scrolling
