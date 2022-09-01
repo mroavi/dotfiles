@@ -105,7 +105,7 @@ netstat() {
 # }
 
 status(){
-  echo "$(dte);$(cpu) | $(mem) | $(hdd) "
+  echo "$(dte);$(cpu) | $(mem) | $(hdd) | $(bat)"
 }
 
 while true; do
