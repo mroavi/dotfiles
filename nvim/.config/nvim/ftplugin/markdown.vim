@@ -2,7 +2,10 @@
 setlocal spell spelllang=en
 
 " Suggest words from the active spell checking in the completion menu
-set complete+=kspell
+setlocal complete+=kspell
+
+" Maximum width of text that is being inserted
+setlocal textwidth=80
 
 " Align markdown tables
 vnoremap <Leader><Bslash> :EasyAlign*<Bar><Enter>
