@@ -203,6 +203,8 @@ end
 
 -- ------------------------------------- Args ----------------------------------
 
+-- Tip: use :$arga to add the current file to the end of the arglist
+
 Args = function(opts)
   -- TODO: store a field that can be used to sort the entries based on how old they are
   local results = vim.fn.argv()
