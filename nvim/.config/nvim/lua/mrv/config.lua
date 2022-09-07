@@ -10,8 +10,8 @@ M.setup = function()
   vim.g.mapleader = ' '
 
   vim.o.shada = "<10,'99,/99,:99,h,f1" -- :help sd
-  vim.o.number = false
-  vim.o.relativenumber = false
+  vim.o.number = true
+  vim.o.relativenumber = true
   vim.o.swapfile = false
   vim.o.wrap = true
   vim.o.linebreak = true
