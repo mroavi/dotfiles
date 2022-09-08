@@ -8,6 +8,10 @@ export MANPAGER='nvim +Man!'
 export LANG="en_US.UTF-8"
 # export ARCHFLAGS="-arch x86_64"
 
+if [ "$SSH_CONNECTION" ]; then
+  export DISPLAY=:0
+fi
+
 # =============================================================================
 ## History
 # =============================================================================
