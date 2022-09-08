@@ -232,7 +232,7 @@ function M.args()
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       -- Custom actions
-      map('i', 'x', function(prompt_bufnr) -- delete from arglist
+      map('i', '<C-x>', function(prompt_bufnr) -- delete from arglist
           local current_picker = action_state.get_current_picker(prompt_bufnr)
           current_picker:delete_selection( function(_)
             local selection_path = action_state.get_selected_entry()[1]
