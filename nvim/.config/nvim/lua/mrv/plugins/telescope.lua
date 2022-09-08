@@ -34,7 +34,7 @@ require("telescope").setup{
         -- Custom actions
         ["<C-a>"] = function(_) -- add to arglist
             local selection_path = action_state.get_selected_entry()[1]
-            vim.cmd('arga ' .. selection_path)
+            vim.cmd('$arga ' .. selection_path)
         end
       },
       n = {
