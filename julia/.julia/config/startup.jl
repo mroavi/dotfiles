@@ -112,3 +112,24 @@ end
 # ------------------------------------------------------------------------------
 
 # using AbbreviatedStackTraces
+
+# ------------------------------------------------------------------------------
+# Return time and expression result
+# https://discourse.julialang.org/t/save-btime-output/53595/6
+# ------------------------------------------------------------------------------
+
+# using BenchmarkTools
+# @eval BenchmarkTools macro btimed(args...)
+#   _, params = prunekwargs(args...)
+#   bench, trial, result = gensym(), gensym(), gensym()
+#   trialmin, trialallocs = gensym(), gensym()
+#   tune_phase = hasevals(params) ? :() : :($BenchmarkTools.tune!($bench))
+#   return esc(quote
+#                local $bench = $BenchmarkTools.@benchmarkable $(args...)
+#                $BenchmarkTools.warmup($bench)
+#                $tune_phase
+#                local $trial, $result = $BenchmarkTools.run_result($bench)
+#                local $trialmin = $BenchmarkTools.minimum($trial)
+#                $result, $BenchmarkTools.time($trialmin)
+#              end)
+# end
