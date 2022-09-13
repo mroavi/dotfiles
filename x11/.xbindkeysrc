@@ -93,10 +93,6 @@
 "xbindkeys_show"
   control+shift+alt + h
 
-# Launch terminal
-"alacritty"
-  Mod4+shift + a
-
 # Launch brave browser
 "brave"
   Mod4+shift + b
@@ -109,6 +105,14 @@
 "spectacle"
   m:0x0 + c:107
   Print
+
+# Increase volume using the keyboard volume keys
+"pactl -- set-sink-volume 0 +3%"
+Mod4 + equal
+
+# Decrease volume using the keyboard volume keys
+"pactl -- set-sink-volume 0 -3%"
+  Mod4 + minus
 
 # KEYBOARD VOLUME KEYS
 
