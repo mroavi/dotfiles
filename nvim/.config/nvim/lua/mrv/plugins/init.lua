@@ -82,7 +82,7 @@ M.setup = function()
     --use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
     --use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
     --use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
-    use {'mcchrish/nnn.vim'} -- file manager for vim/neovim powered by n³
+    --use {'mcchrish/nnn.vim'} -- file manager for vim/neovim powered by n³
 
     -- }}}
 
