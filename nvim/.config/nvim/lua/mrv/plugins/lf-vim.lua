@@ -7,10 +7,11 @@ vim.g["lf#action"] = { ['<C-t>'] = 'tab split', -- open in tab
                        ['<C-a>'] = '$arga', -- add to arglist
                      }
 
+-- TODO: stopped working with Neovim 0.8
 --vim.keymap.set("n", "<Leader>/",
 --               "expand('%') == '' ? '<Cmd>Lp %:p:h<CR>' : '<Cmd>Lp %<CR>'",
 --               {noremap = true, expr = true})
 
 vim.cmd [[
-nnoremap <expr> <Leader><Bslash> expand('%') == '' ? '<Cmd>Lp %:p:h<CR>' : '<Cmd>Lp %<CR>'
+nnoremap <expr> <Leader>/ expand('%') == '' ? '<Cmd>Lp %:p:h<CR>' : '<Cmd>Lp %<CR>'
 ]]
