@@ -66,6 +66,7 @@ M.setup = function()
     --use {'ldelossa/gh.nvim.git'} -- Github integration powered by litee.nvim
     --use {'rbong/vim-flog'} -- A lightweight and powerful git branch viewer for vim (mrv: potential replacement for gv)
     --use {'lewis6991/impatient.nvim', config = function() require('impatient') end} -- improve startup time for Neovim
+    --use {'tpope/vim-rhubarb'} -- GitHub extension for fugitive.vim
 
     -- Abandoned
     --use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
