@@ -13,7 +13,7 @@ M.setup = function()
     use {'wbthomason/packer.nvim', config = function() require('mrv.plugins.packer') end} -- packer can manage itself
     use {'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
     use {'tpope/vim-commentary', config = function() require('mrv.plugins.vim-commentary') end} -- comment stuff out
-    use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf') end} -- file manager for vim/neovim powered by lf
+    use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf-vim') end} -- file manager for vim/neovim powered by lf
     use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons'}}
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
     use {'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, requires = {'hrsh7th/cmp-nvim-lsp','hrsh7th/cmp-buffer','hrsh7th/cmp-path'}} -- a completion plugin for neovim coded in Lua
