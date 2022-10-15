@@ -50,6 +50,8 @@ M.setup = function()
     --use {'tpope/vim-obsession'} -- continuously updated session files
     --use {'vim-pandoc/vim-pandoc-syntax'} -- pandoc markdown syntax, to be installed alongside vim-pandoc
     --use {'quarto-dev/quarto-vim', requires = {'vim-pandoc/vim-pandoc-syntax'}} -- rmarkdown support for vim
+    --use {'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, requires = {'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim'}} -- lf file manager for Neovim (in Lua)
+    --use {'akinsho/toggleterm.nvim', config = function() require('mrv.plugins.toggleterm') end} -- a neovim lua plugin to help easily manage multiple terminal windows
 
     -- TODO: Try these out!
     --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
@@ -80,6 +82,7 @@ M.setup = function()
     --use {'edkolev/tmuxline.vim', config = function() require('mrv.plugins.tmuxline') end} -- simple tmux statusline generator with support for powerline symbols
     --use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
     --use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
+    use {'mcchrish/nnn.vim'} -- file manager for vim/neovim powered by n³
 
     -- }}}
 
