@@ -221,7 +221,7 @@ require'lspconfig'.rust_analyzer.setup{}
 vim.keymap.set("n", "<Leader>d", "<Cmd>lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "<Leader>u", "<Cmd>lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
-vim.keymap.set("n", "<Leader>f", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
+vim.keymap.set("n", "<Leader>f", "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>")
 vim.keymap.set("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
 vim.keymap.set("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
 -- See `:h lsp-diagnostic`
