@@ -621,7 +621,12 @@ key_bindings:
   # I used `alacritty --print-events` to figure out the correct scan code
   # Hack: intercept RightAlt, and send Ctrl+b hex code
   #- { key: 100,                          chars:  "\x02"             }
+  # Hack: intercept LeftAlt, and send Ctrl+b hex code
   #- { key: LAlt,   mods: Alt,            chars:  "\x02"             }
+  # Hack: intercept LeftAlt+l, and send <Ctrl+b>l hex code
+  #- { key: L,   mods: Alt,               chars:  "\x02\x70"         }
+  # Hack: intercept LeftAlt+w, and send <Ctrl+b>w hex code
+  #- { key: W,   mods: Alt,               chars:  "\x02\x77"         }
   # Hack: intercept WindowsKey and send Ctrl+b hex code
   #- { key: 125,     mods: Super,         chars:  "\x02"             }
 
