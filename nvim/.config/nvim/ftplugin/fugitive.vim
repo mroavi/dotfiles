@@ -5,6 +5,9 @@ exe "normal )"
 "nmap <buffer> <Esc> gq (old approach)
 nnoremap <buffer> <Esc> <Plug>fugitive:gq
 
+" Keep alternate file after opening a file with <Cr>
+nmap <buffer> <Cr> .keepalt Gedit<Cr>
+
 " Use j/k to jump to next/prev file, hunk or revision
 nnoremap <buffer> j <Plug>fugitive:)
 nnoremap <buffer> k <Plug>fugitive:(
