@@ -619,10 +619,10 @@ key_bindings:
   - { key: L,       mods: Control|Shift, chars:  "\x1b[27;6;76~"    }
 
   # I used `alacritty --print-events` to figure out the correct scan code
+  # Hack: intercept RightAlt, and send Ctrl+b hex code
+  - { key: 100,                          chars:  "\x02"             }
   # Hack: intercept WindowsKey and send Ctrl+b hex code
   #- { key: 125,     mods: Super,         chars:  "\x02"             }
-  # Hack: intercept RightAlt, and send Ctrl+b hex code
-  #- { key: 100,                          chars:  "\x02"             }
 
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
