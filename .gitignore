@@ -4,3 +4,8 @@ vifm/.config/vifm/scripts
 nvim/.config/nvim/plugin
 *.spl
 *.sug
+julia/.julia/environments/nvim-lspconfig/Manifest.toml
+julia/.julia/environments/nvim-lspconfig/Project.toml
+julia/.julia/environments/nvim-lspconfig/bin/
+julia/.julia/environments/nvim-lspconfig/languageserver.so
+julia/.julia/environments/nvim-lspconfig/packagecompiler/
