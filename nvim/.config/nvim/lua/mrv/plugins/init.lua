@@ -24,6 +24,7 @@ M.setup = function()
     use {'tpope/vim-unimpaired'} -- pairs of handy bracket mappings
     use {'tpope/vim-surround'} -- provides mappings to easily delete, change and add such surroundings in pairs
     use {'tpope/vim-repeat'} -- enable repeating supported plugin maps with "."
+    use {'tpope/vim-obsession'} -- continuously updated session files
     use {'pgdouyon/vim-evanesco'} -- automatically clears search highlight
     use {'mroavi/vim-pasta'} -- auto format pasted code
     use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end} -- vim plugin that provides additional text objects
@@ -47,7 +48,6 @@ M.setup = function()
     --use {'kdheepak/JuliaFormatter.vim', ft = "julia", config = function() require('mrv.plugins.JuliaFormatter') end} -- formatter for Julia
     --use {'folke/lua-dev.nvim'} -- dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
     --use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}} -- preview markdown on your browser with synchronised scrolling
-    --use {'tpope/vim-obsession'} -- continuously updated session files
     --use {'vim-pandoc/vim-pandoc-syntax'} -- pandoc markdown syntax, to be installed alongside vim-pandoc
     --use {'quarto-dev/quarto-vim', requires = {'vim-pandoc/vim-pandoc-syntax'}} -- rmarkdown support for vim
     --use {'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, requires = {'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim'}} -- lf file manager for Neovim (in Lua)
