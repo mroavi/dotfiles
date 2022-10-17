@@ -9,6 +9,7 @@ endif
 
 augroup tomux_send
   autocmd!
+
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " `s` to send motion
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -21,16 +22,21 @@ augroup tomux_send
   " Atom-like mappings for sending text (the `\` key is used as helper/hack)
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   autocmd FileType julia,python,octave nmap <buffer> \ <Plug>TomuxMotionSend
+
   " Ctrl+Enter to send text in visual, normal and insert modes
   "autocmd FileType julia,python,octave xmap <buffer> <C-Cr> <Plug>TomuxVisualSend
   "autocmd FileType julia,python,octave nmap <buffer> <C-Cr> \_
   "autocmd FileType julia,python,octave imap <buffer> <C-Cr> <Esc>\_gi
-  " Alt+Enter to send cell
-  autocmd FileType julia,python,octave nmap <buffer> <M-Cr> \ic
+
+  " Ctrl+Enter to send cell
+  autocmd FileType julia,python,octave nmap <buffer> <C-Cr> \ic
+
   " Ctrl+Shift+Enter to send entire buffer
   autocmd FileType octave              nmap <buffer> <C-S-Cr> \id
+
   " Shift+Enter to send paragraph and jump to next statement
   autocmd FileType julia,python,octave nmap <silent> <S-Cr> :set opfunc=MySendMotion<Cr>g@ap
+
 augroup END
 
 " My custom operator: sends a motion to the REPL and moves to the next

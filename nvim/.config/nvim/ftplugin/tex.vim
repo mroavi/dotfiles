@@ -8,8 +8,8 @@ setlocal textwidth=80
 let b:cell_delimeter = '%%'
 
 " Jump to the next/prev cell delimeter
-nnoremap <buffer><silent> <M-j> :call search(b:cell_delimeter, "W")<CR>
-nnoremap <buffer><silent> <M-k> :call search(b:cell_delimeter, "bW")<CR>
+nnoremap <buffer><silent> <C-j> :call search(b:cell_delimeter, "W")<CR>
+nnoremap <buffer><silent> <C-k> :call search(b:cell_delimeter, "bW")<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-commentary
