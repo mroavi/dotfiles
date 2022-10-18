@@ -55,11 +55,11 @@ onoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
 " Custom 'around cell' text object
 xnoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
 onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Custom 'in document' text object (from first line to last)
 xnoremap <silent> id :<C-u>normal! ggVG<cr>
 onoremap <silent> id :<C-u>normal! ggVG<cr>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
 function! ToggleQuickFix()

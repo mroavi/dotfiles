@@ -12,7 +12,7 @@ require'nvim-treesitter.configs'.setup {
     -- `false` will disable the whole extension
     enable = true,
 
-    -- list of languages that will be disabled
+    -- List of languages that will be disabled
     disable = {
       "vim",
       "help",
