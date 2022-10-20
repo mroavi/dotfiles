@@ -214,6 +214,27 @@ require"lspconfig".efm.setup {
 require'lspconfig'.rust_analyzer.setup{}
 
 -- ==============================================================================
+--- Custom format operator WIP: works flaky at the moment
+-- ==============================================================================
+
+function M.format_operator()
+  local old_func = vim.go.operatorfunc
+  _G.op_func_formatting = function()
+    local opts = {
+      range = { 
+        ['start'] = vim.api.nvim_buf_get_mark(0, '['),
+        ['end'] = vim.api.nvim_buf_get_mark(0, ']'),
+      }
+    }
+    vim.lsp.buf.format(opts)
+    vim.go.operatorfunc = old_func
+    _G.op_func_formatting = nil
+  end
+  vim.go.operatorfunc = 'v:lua.op_func_formatting'
+  vim.api.nvim_feedkeys('g@', 'n', false)
+end
+
+-- ==============================================================================
 --- Mappings
 -- ==============================================================================
 
@@ -222,6 +243,7 @@ vim.keymap.set("n", "<Leader>d", "<Cmd>lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "<Leader>u", "<Cmd>lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
 vim.keymap.set("n", "<Leader>f", "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>")
+vim.keymap.set("n", "gf", "<Cmd>lua require('mrv.plugins.lspconfig').format_operator()<CR>")
 vim.keymap.set("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
 vim.keymap.set("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
 -- See `:h lsp-diagnostic`
