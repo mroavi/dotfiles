@@ -617,6 +617,8 @@ end
 -- Mappings
 ---------------------------------------------------------------------------------
 
+-- TODO: create a visual mapping that prefills Telescope's help finder with the pre-visualized text
+
 -- File pickers
 vim.keymap.set("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').my_git_files()<CR>")
 --vim.keymap.set("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
