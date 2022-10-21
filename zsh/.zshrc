@@ -411,13 +411,13 @@ alias es='setxkbmap -layout es'
 ## Start tmux automatically (if running interactively)
 # =============================================================================
 
-if [ ! "$SSH_CONNECTION" ]; then
-  # https://unix.stackexchange.com/a/113768/184227
-  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    #exec tmux a
-    exec tmux
-  fi
-fi
+#if [ ! "$SSH_CONNECTION" ]; then
+#  # https://unix.stackexchange.com/a/113768/184227
+#  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#    #exec tmux a
+#    exec tmux
+#  fi
+#fi
 
 #if [ "$SSH_CONNECTION" ]; then
 #  # https://unix.stackexchange.com/a/552619/184227
