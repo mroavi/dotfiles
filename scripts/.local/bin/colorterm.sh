@@ -13,8 +13,8 @@ fi
 if [ "$1" == "co23" ]; then
   printf '\033]11;#192436\007'
 elif [ "$1" == "co3" ]; then
-  printf '\033]11;#331C1F\007'
-else
-  # Hostname not known
   printf '\033]11;#253320\007'
+else
+  # Other hostname
+  printf '\033]11;#331C1F\007'
 fi
