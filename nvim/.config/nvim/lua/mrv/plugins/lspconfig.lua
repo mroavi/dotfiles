@@ -45,6 +45,30 @@ vim.diagnostic.config({
 local lspconfig = require 'lspconfig'
 
 --------------------------------------------------------------------------------
+--- efm
+--------------------------------------------------------------------------------
+
+-- Installation: sudo pacman -S efm-langserver
+require"lspconfig".efm.setup {
+  init_options = {documentFormatting = true},
+  filetypes = {"lua"},
+  settings = {
+    rootMarkers = {".git/"},
+    languages = {
+      lua = {
+        {
+          --  Repo: https://github.com/Koihik/LuaFormatter
+          --  Style config: https://github.com/Koihik/LuaFormatter/blob/master/docs/Style-Config.md
+          formatCommand = "lua-format --indent-width=2 --tab-width=2 \z
+          --continuation-indent-width=2",
+          formatStdin = true
+        }
+      }
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
 --- vim
 --------------------------------------------------------------------------------
 
@@ -52,13 +76,6 @@ local lspconfig = require 'lspconfig'
 lspconfig.vimls.setup {
   capabilities = capabilities,
 }
-
---------------------------------------------------------------------------------
---- python
---------------------------------------------------------------------------------
-
--- Installation: sudo pacman -S pyright
-lspconfig.pyright.setup {}
 
 --------------------------------------------------------------------------------
 --- julia
@@ -87,6 +104,13 @@ require'lspconfig'.julials.setup {
 -- }
 
 --------------------------------------------------------------------------------
+--- python
+--------------------------------------------------------------------------------
+
+-- Installation: sudo pacman -S pyright
+lspconfig.pyright.setup {}
+
+--------------------------------------------------------------------------------
 --- bash
 --------------------------------------------------------------------------------
 
@@ -109,30 +133,44 @@ lspconfig.clangd.setup {
 -- Github page: https://github.com/rizsotto/Bear
 
 --------------------------------------------------------------------------------
+--- texlab
+--------------------------------------------------------------------------------
+
+-- Installation: sudo pacman -S texlab
+lspconfig.texlab.setup {}
+
+--------------------------------------------------------------------------------
+--- rust
+--------------------------------------------------------------------------------
+
+-- Installation: sudo pacman -S rust-analyzer
+require'lspconfig'.rust_analyzer.setup{}
+
+--------------------------------------------------------------------------------
 --- lua
 --------------------------------------------------------------------------------
 
-local lua_lsp_dir = vim.fn.expand("~/lsp-servers/lua-language-server/")
-lspconfig.sumneko_lua.setup {
-  cmd = {
-    lua_lsp_dir .. "bin/Linux/lua-language-server", "-E",
-    lua_lsp_dir .. "/main.lua"
-  },
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
-      diagnostics = {globals = {"vim"}},
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true
-        }
-      }
-    }
-  }
-}
+--local lua_lsp_dir = vim.fn.expand("~/lsp-servers/lua-language-server/")
+--lspconfig.sumneko_lua.setup {
+--  cmd = {
+--    lua_lsp_dir .. "bin/Linux/lua-language-server", "-E",
+--    lua_lsp_dir .. "/main.lua"
+--  },
+--  capabilities = capabilities,
+--  settings = {
+--    Lua = {
+--      runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
+--      diagnostics = {globals = {"vim"}},
+--      workspace = {
+--        -- Make the server aware of Neovim runtime files
+--        library = {
+--          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+--          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true
+--        }
+--      }
+--    }
+--  }
+--}
 
 --------------------------------------------------------------------------------
 --- lua-dev (dev setup for init.lua and plugin development)
@@ -146,13 +184,6 @@ lspconfig.sumneko_lua.setup {
 --  },
 -- })
 -- lspconfig.sumneko_lua.setup(luadev)
-
---------------------------------------------------------------------------------
---- texlab
---------------------------------------------------------------------------------
-
--- Installation: sudo pacman -S texlab
-lspconfig.texlab.setup {}
 
 --------------------------------------------------------------------------------
 --- arduino
@@ -181,37 +212,6 @@ lspconfig.texlab.setup {}
 -- if not os.getenv("SSH_CONNECTION") then
 --  -- <CODE>
 -- end
-
---------------------------------------------------------------------------------
---- efm
---------------------------------------------------------------------------------
-
--- Installation: sudo pacman -S efm-langserver
-require"lspconfig".efm.setup {
-  init_options = {documentFormatting = true},
-  filetypes = {"lua"},
-  settings = {
-    rootMarkers = {".git/"},
-    languages = {
-      lua = {
-        {
-          --  Repo: https://github.com/Koihik/LuaFormatter
-          --  Style config: https://github.com/Koihik/LuaFormatter/blob/master/docs/Style-Config.md
-          formatCommand = "lua-format --indent-width=2 --tab-width=2 \z
-          --continuation-indent-width=2",
-          formatStdin = true
-        }
-      }
-    }
-  }
-}
-
---------------------------------------------------------------------------------
---- rust
---------------------------------------------------------------------------------
-
--- Installation: sudo pacman -S rust-analyzer
-require'lspconfig'.rust_analyzer.setup{}
 
 -- ==============================================================================
 --- Custom format operator WIP: works flaky at the moment
