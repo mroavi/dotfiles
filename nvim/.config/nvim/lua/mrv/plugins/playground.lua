@@ -18,3 +18,5 @@ require "nvim-treesitter.configs".setup {
     },
   }
 }
+
+vim.keymap.set("n", "<Leader>hc", "<Cmd>:TSHighlightCapturesUnderCursor<CR>")
