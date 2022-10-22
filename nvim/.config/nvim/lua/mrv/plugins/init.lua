@@ -38,11 +38,11 @@ M.setup = function()
     use {'junegunn/gv.vim', config = function() require('mrv.plugins.gv') end} -- a git commit browser in Vim
     use {'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, run = ':TSUpdate'}
     use {'preservim/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
+    use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
 
     -- {{{1
 
     -- Disabled
-    --use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
     --use {'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end} -- the fastest Neovim colorizer.
     --use {'dstein64/nvim-scrollview', config = function() require('mrv.plugins.scrollview') end} -- a Neovim plugin that displays (non-interactive) scrollbars
     --use {'kdheepak/JuliaFormatter.vim', ft = "julia", config = function() require('mrv.plugins.JuliaFormatter') end} -- formatter for Julia
