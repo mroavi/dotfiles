@@ -142,8 +142,8 @@ zstyle :prompt:pure:git:stash show yes
 # Change directories without typing `cd`
 setopt auto_cd
 
-# Move up one dir with Ctrl-u
-bindkey -s '^u' 'cd ..^M'
+## Move up one dir with Ctrl-u
+#bindkey -s '^u' 'cd ..^M'
 
 # Navigate through command history with Ctrl-P and Ctrl-N
 bindkey '^P' up-line-or-search
