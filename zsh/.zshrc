@@ -309,6 +309,19 @@ fzf-pacman-list() {
 }
 
 # =============================================================================
+## Color terminal background in an SSH connection based on the hostname
+# https://bryangilbert.com/post/etc/term/dynamic-ssh-terminal-background-colors/
+# =============================================================================
+
+color-ssh() {
+  trap "colorterm.sh" INT EXIT
+  colorterm.sh "$*"
+  ssh "$*"
+}
+compdef _ssh color-ssh=ssh
+alias ssh=color-ssh
+
+# =============================================================================
 ## fasd
 # =============================================================================
 
