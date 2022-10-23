@@ -11,98 +11,98 @@
 # https://unix.stackexchange.com/a/213293/184227
 script_name=${BASH_SOURCE[0]}
 for pid in $(pidof -x $script_name); do
-    if [ $pid != $$ ]; then
-        kill -9 $pid
-    fi 
+  if [ $pid != $$ ]; then
+    kill -9 $pid
+  fi 
 done
 
 dte(){
-        dte="$(date +"%a %d/%m/%Y %R")"
-        echo "$dte"
+  dte="$(date +"%a %d/%m/%Y %R")"
+  echo "$dte"
 }
 
 hdd(){
-        hdd="$(df -h /home | grep dev | awk '{print $3 "/" $2}')"
-        echo "  $hdd"
+  hdd="$(df -h /home | grep dev | awk '{print $3 "/" $2}')"
+  echo "  $hdd"
 }
 
 mem(){
-        mem="$(free -h | awk '/Mem:/ {printf $3 "/" $2}')"
-        echo "  $mem"
+  mem="$(free -h | awk '/Mem:/ {printf $3 "/" $2}')"
+  echo "  $mem"
 }
 
 cpu() {
-    read cpu a b c previdle rest < /proc/stat
-      prevtotal=$((a+b+c+previdle))
-        sleep 0.5
-          read cpu a b c idle rest < /proc/stat
-            total=$((a+b+c+idle))
-              cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
-                echo "  $cpu% "
+  read cpu a b c previdle rest < /proc/stat
+  prevtotal=$((a+b+c+previdle))
+  sleep 0.5
+  read cpu a b c idle rest < /proc/stat
+  total=$((a+b+c+idle))
+  cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
+  echo "  $cpu% "
 }
 
 pkgs(){
-        pkgs="$(pacman -Qq | wc -l)"
-        echo "  $pkgs"
+  pkgs="$(pacman -Qq | wc -l)"
+  echo "  $pkgs"
 }
 
 upgrades(){
-        upgrades="$(pacman -Qu | wc -l)"
-        echo "  $upgrades"
+  upgrades="$(pacman -Qu | wc -l)"
+  echo "  $upgrades"
 }
 
 vpn(){
-        vpn="$(ip a | grep tun0 | grep inet | wc -l)"
-        echo "VPN  : $vpn"
+  vpn="$(ip a | grep tun0 | grep inet | wc -l)"
+  echo "VPN  : $vpn"
 }
 
 vol(){
-	vol="$(amixer -D pulse get Master | awk -F'[][]' 'END{print $4":"$2}')"
-	echo "  $vol"
+  vol="$(amixer -D pulse get Master | awk -F'[][]' 'END{print $4":"$2}')"
+  echo "  $vol"
 }
 
 kernel(){
-	kernel="$(uname -r | sed "s/-amd64//g")"
-	echo   $kernel
+  kernel="$(uname -r | sed "s/-amd64//g")"
+  echo   $kernel
 }
 
 weather() {
-	wthr="$(sed 20q ~/.config/weather.txt | grep value | awk '{print $2 $3}' | sed 's/"//g')"
-	echo " $wthr"
+  wthr="$(sed 20q ~/.config/weather.txt | grep value | awk '{print $2 $3}' | sed 's/"//g')"
+  echo " $wthr"
 }
 
 temp() {
-	tmp="$(grep temp_F ~/.config/weather.txt | awk '{print $2}' | sed 's/"//g' | sed 's/,/ F/')"
-	echo " $tmp"
+  tmp="$(grep temp_F ~/.config/weather.txt | awk '{print $2}' | sed 's/"//g' | sed 's/,/ F/')"
+  echo " $tmp"
 }
 
 bat() {
-	battery="$(cat /sys/class/power_supply/BAT0/capacity)"
-	echo " $battery %"
+  battery="$(cat /sys/class/power_supply/BAT0/capacity)"
+  echo " $battery %"
 }
 
 batstat() {
-	bstat="$(cat /sys/class/power_supply/BAT0/status)"
-	echo "$bstat"
+  bstat="$(cat /sys/class/power_supply/BAT0/status)"
+  echo "$bstat"
 }
 
 netstat() {
-	logfile="${XDG_CACHE_HOME:-$HOME/.cache}/netlog"
-	prevdata="$(cat $logfile)"
+  logfile="${XDG_CACHE_HOME:-$HOME/.cache}/netlog"
+  prevdata="$(cat $logfile)"
 
-	rxcurrent="$(( $(cat /sys/class/net/*/statistics/rx_bytes | paste -sd '+') ))"
-	txcurrent="$(( $(cat /sys/class/net/*/statistics/tx_bytes | paste -sd '+') ))"
+  rxcurrent="$(( $(cat /sys/class/net/*/statistics/rx_bytes | paste -sd '+') ))"
+  txcurrent="$(( $(cat /sys/class/net/*/statistics/tx_bytes | paste -sd '+') ))"
 
-	printf "%sKiB  %sKiB\\n" \
-        "  $(((rxcurrent-${prevdata%% *})/1024))" \
-        "  $(((txcurrent-${prevdata##* })/1024))"
+  printf "%sKiB  %sKiB\\n" \
+    "  $(((rxcurrent-${prevdata%% *})/1024))" \
+    "  $(((txcurrent-${prevdata##* })/1024))"
 
-	echo "$rxcurrent $txcurrent" > "$logfile"
+  echo "$rxcurrent $txcurrent" > "$logfile"
 }
 
-# status(){
-#         echo "$(cpu) | $(mem) | $(kernel)| $(pkgs) | $(upgrades) | $(hdd) | $(vpn) | $(netstat) | $(vol) | $(weather) $(temp) | $(dte)"
-# }
+#status(){
+#  echo "$(cpu) | $(mem) | $(kernel)| $(pkgs) | $(upgrades) | $(hdd) | $(vpn) | $(netstat) | $(vol) | $(weather) $(temp) | $(dte)"
+#}
 
 status(){
   echo "$(dte);$(cpu) | $(mem) | $(hdd) | $(bat)"
