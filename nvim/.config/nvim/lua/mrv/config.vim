@@ -21,46 +21,6 @@ function! GoToPrevDelim(delim)
   endif 
 endfunction
 
-""""""""""""""""""""""" My custom text object for cells """""""""""""""""""""""
-" Based on: https://vimways.org/2018/transactions-pending/
-function! s:cellTextObject(text_object_type)
-  " Get the first character of the buffer's 'commentstring'
-  let l:comment_char = split(&commentstring, '%s')[0][0]
-  " Create a default cell delimeter regex pattern by duplicating the comment character
-  let l:cell_delimeter_default = repeat(l:comment_char, 2)
-  " Get `b:cell_delimeter` regex pattern if it exists, otherwise get `l:cell_delimeter_default`
-  let l:cell_delimeter = get(b:, "cell_delimeter", l:cell_delimeter_default)
-  " Move cursor to the previous cell delimiter if found, otherwise, to top-left of buffer
-  if (!search(l:cell_delimeter, "bcW")) | silent exe "normal! gg0" | endif 
-  " Did we receive 'i' as argument (inner cell)?
-  if a:text_object_type ==# 'i'
-    " Yes, then jump to next valid statement (skips empty lines and those starting with comment char)
-    let l:pattern_statement =  '^\(\s*' . l:comment_char . '\)\@!\s*\S\+'
-    call search(l:pattern_statement, "cW")
-  endif
-  " Start visual line mode
-  normal! V
-  " Move cursor to the next cell delimiter if found, otherwise, to bottom of buffer
-  if (!search(l:cell_delimeter, "W")) | exe "normal! G" | endif
-  " Did we receive 'i' as argument (inner cell)?
-  if a:text_object_type ==# 'i'
-    " Yes, then jump to prev valid statement (skips empty lines and those starting with comment char)
-    call search(l:pattern_statement, "cbW")
-  endif
-endfunction
-
-" Custom 'in cell' text object
-xnoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
-onoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
-" Custom 'around cell' text object
-xnoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
-onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Custom 'in document' text object (from first line to last)
-xnoremap <silent> id :<C-u>normal! ggVG<cr>
-onoremap <silent> id :<C-u>normal! ggVG<cr>
-
 " Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix'))
@@ -77,43 +37,6 @@ augroup quickfix
   autocmd QuickFixCmdPost vimgrep cwindow
   autocmd QuickFixCmdPost lvimgrep lwindow
 augroup END
-
-"""""""""""""""""""""" Execute motion/textobject of code """"""""""""""""""""""
-
-" Works for Lua and Vim (:h map-operator)
-" - https://vi.stackexchange.com/a/5497/27039
-" - https://vi.stackexchange.com/a/25507/27039
-" Interface Lua function that gets the row and col of the '<' and '>' marks
-lua function _G.buf_sel_start() return vim.api.nvim_buf_get_mark(0, '<')[1] end
-lua function _G.buf_sel_end() return vim.api.nvim_buf_get_mark(0, '>')[1] end
-
-" Function that gets executed after the motion is finished
-function! SourceMotion(type)
-  " Yank the text covered by the motion/textobject
-  silent exe 'normal! `[v`]Vy'    
-  " Make a range with the selection start and end row numbers with "source"
-  let @z = v:lua.buf_sel_start() . "," . v:lua.buf_sel_end() . "source"
-  " Execute content of the z register
-  @z
-  " Restore the view of the current window (mainly to remember the cursor pos)
-  call winrestview(g:view)
-endfunction
-
-augroup vim_lua_execute
-  au!
-
-  " Use either this line which does not support mapping of predefined motions/textobjects
-  au FileType vim,lua nnoremap <buffer> <silent> s :let g:view=winsaveview()<Bar>set opfunc=SourceMotion<CR>g@
-
-  "" or these lines that do support them
-  "" E.g, here we map Alt+Enter to `sic`, which executes the current cell
-  "au FileType vim,lua noremap <buffer> <SID>Operator :let g:view=winsaveview()<Bar>set opfunc=SourceMotion<CR>g@
-  "au FileType vim,lua noremap <buffer> <unique> <script> <silent> <Plug>LuaMotionSend <SID>Operator
-  "au FileType vim,lua nmap <buffer> s <Plug>LuaMotionSend
-  "au FileType vim,lua nmap <buffer> <M-Cr> sic
-
-augroup END
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Debug related mappings for vim and lua files
 augroup vim_lua_debug
@@ -145,9 +68,88 @@ function! ToggleString(str, insert_txt_cmd)
   endif 
 endfunction
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ----------------------------------------------------------------------------
+" My custom text object for cells
+" ----------------------------------------------------------------------------
+
+" Based on: https://vimways.org/2018/transactions-pending/
+function! s:cellTextObject(text_object_type)
+  " Get the first character of the buffer's 'commentstring'
+  let l:comment_char = split(&commentstring, '%s')[0][0]
+  " Create a default cell delimeter regex pattern by duplicating the comment character
+  let l:cell_delimeter_default = repeat(l:comment_char, 2)
+  " Get `b:cell_delimeter` regex pattern if it exists, otherwise get `l:cell_delimeter_default`
+  let l:cell_delimeter = get(b:, "cell_delimeter", l:cell_delimeter_default)
+  " Move cursor to the previous cell delimiter if found, otherwise, to top-left of buffer
+  if (!search(l:cell_delimeter, "bcW")) | silent exe "normal! gg0" | endif 
+  " Did we receive 'i' as argument (inner cell)?
+  if a:text_object_type ==# 'i'
+    " Yes, then jump to next valid statement (skips empty lines and those starting with comment char)
+    let l:pattern_statement =  '^\(\s*' . l:comment_char . '\)\@!\s*\S\+'
+    call search(l:pattern_statement, "cW")
+  endif
+  " Start visual line mode
+  normal! V
+  " Move cursor to the next cell delimiter if found, otherwise, to bottom of buffer
+  if (!search(l:cell_delimeter, "W")) | exe "normal! G" | endif
+  " Did we receive 'i' as argument (inner cell)?
+  if a:text_object_type ==# 'i'
+    " Yes, then jump to prev valid statement (skips empty lines and those starting with comment char)
+    call search(l:pattern_statement, "cbW")
+  endif
+endfunction
+" Custom 'in cell' text object
+xnoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
+onoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
+" Custom 'around cell' text object
+xnoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
+onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
+
+" Custom 'in document' text object (from first line to last)
+xnoremap <silent> id :<C-u>normal! ggVG<cr>
+onoremap <silent> id :<C-u>normal! ggVG<cr>
+
+" ----------------------------------------------------------------------------
+" Execute motion/textobject of code
+" ----------------------------------------------------------------------------
+
+" Works for Lua and Vim (:h map-operator)
+" - https://vi.stackexchange.com/a/5497/27039
+" - https://vi.stackexchange.com/a/25507/27039
+" Interface Lua function that gets the row and col of the '<' and '>' marks
+lua function _G.buf_sel_start() return vim.api.nvim_buf_get_mark(0, '<')[1] end
+lua function _G.buf_sel_end() return vim.api.nvim_buf_get_mark(0, '>')[1] end
+
+" Function that gets executed after the motion is finished
+function! SourceOperator(type)
+  " Yank the text covered by the motion/textobject
+  silent exe 'normal! `[v`]Vy'    
+  " Make a range with the selection start and end row numbers with "source"
+  let @z = v:lua.buf_sel_start() . "," . v:lua.buf_sel_end() . "source"
+  " Execute content of the z register
+  @z
+  " Restore the view of the current window (mainly to remember the cursor pos)
+  call winrestview(g:view)
+endfunction
+
+augroup vim_lua_execute
+  au!
+
+  " Use either this line which does not support mapping of predefined motions/textobjects
+  au FileType vim,lua nnoremap <buffer> <silent> s :let g:view=winsaveview()<Bar>set opfunc=SourceOperator<CR>g@
+
+  "" or these lines that do support them
+  "" E.g, here we map Alt+Enter to `sic`, which executes the current cell
+  "au FileType vim,lua noremap <buffer> <SID>Operator :let g:view=winsaveview()<Bar>set opfunc=SourceOperator<CR>g@
+  "au FileType vim,lua noremap <buffer> <unique> <script> <silent> <Plug>LuaMotionSend <SID>Operator
+  "au FileType vim,lua nmap <buffer> s <Plug>LuaMotionSend
+  "au FileType vim,lua nmap <buffer> <M-Cr> sic
+
+augroup END
+
+" ============================================================================
 " DISABLED (enable when necessary)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ============================================================================
 
 "" Redirect the output of a Vim or external command into a scratch buffer
 "" https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
