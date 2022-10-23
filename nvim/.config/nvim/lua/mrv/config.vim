@@ -68,6 +68,8 @@ endfunction
 " My custom text object for cells
 " ----------------------------------------------------------------------------
 
+" CELL TEXT OBJECT
+
 " Based on: https://vimways.org/2018/transactions-pending/
 function! s:cellTextObject(text_object_type)
   " Get the first character of the buffer's 'commentstring'
@@ -100,6 +102,8 @@ onoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
 " Custom 'around cell' text object
 xnoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
 onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
+
+" DOCUMENT TEXT OBJECT
 
 " Custom 'in document' text object (from first line to last)
 xnoremap <silent> id :<C-u>normal! ggVG<cr>
