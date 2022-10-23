@@ -78,17 +78,6 @@ augroup quickfix
   autocmd QuickFixCmdPost lvimgrep lwindow
 augroup END
 
-" Delete marks a-z on the current line (https://vi.stackexchange.com/a/13986)
-function! Delmarks()
-let l:m = join(filter(
-   \ map(range(char2nr('a'), char2nr('z')), 'nr2char(v:val)'),
-   \ 'line("''".v:val) == line(".")'))
-if !empty(l:m)
-    exe 'delmarks' l:m
-endif
-endfunction
-"nnoremap <silent> <Leader>dm :<C-u>call Delmarks()<CR>
-
 """""""""""""""""""""" Execute motion/textobject of code """"""""""""""""""""""
 
 " Works for Lua and Vim (:h map-operator)
@@ -291,3 +280,14 @@ endfunction
 "  execute ":'<,'>normal @".nr2char(getchar())
 "endfunction
 "" See: https://youtu.be/RaynmHxUixA for a better alternative
+
+"" Delete marks a-z on the current line (https://vi.stackexchange.com/a/13986)
+"function! Delmarks()
+"let l:m = join(filter(
+"   \ map(range(char2nr('a'), char2nr('z')), 'nr2char(v:val)'),
+"   \ 'line("''".v:val) == line(".")'))
+"if !empty(l:m)
+"    exe 'delmarks' l:m
+"endif
+"endfunction
+""nnoremap <silent> <Leader>dm :<C-u>call Delmarks()<CR>
