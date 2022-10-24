@@ -39,6 +39,7 @@ M.setup = function()
     use {'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, run = ':TSUpdate'}
     use {'preservim/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
     use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
+    use {'ojroques/vim-oscyank', config = function() require('mrv.plugins.playground') end} -- a Vim plugin to copy text through SSH with OSC52
 
     -- {{{1
 
