@@ -42,7 +42,7 @@ cmp.setup {
     completeopt = "menu,menuone,noselect",
   },
   mapping = cmp.mapping.preset.insert ({
-    ["<C-Cr>"] = cmp.mapping.confirm({ select = true }),
+    ["<C-j>"] = cmp.mapping.confirm({ select = true }), -- accept currently selected item
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
