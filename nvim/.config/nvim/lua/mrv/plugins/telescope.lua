@@ -166,7 +166,7 @@ function M.find_files()
   require("telescope.builtin").find_files{
     file_sorter = require'telescope.sorters'.get_fzy_sorter,
     cwd = opts.cwd,
-    --entry_maker = my_make_entry.gen_from_file(opts),
+    entry_maker = my_make_entry.gen_from_file(opts),
   }
 end
 
@@ -174,7 +174,7 @@ function M.git_files()
   local opts = { cwd = vim.fn.expand("%:p:h") }
   require("telescope.builtin").git_files{
     cwd = opts.cwd,
-    --entry_maker = my_make_entry.gen_from_file(opts),
+    entry_maker = my_make_entry.gen_from_file(opts),
   }
 end
 
@@ -193,7 +193,7 @@ function M.dotfiles()
     find_command = {'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git',},
     prompt_title = "Dotfiles",
     cwd = opts.cwd,
-    --entry_maker = my_make_entry.gen_from_file(opts),
+    entry_maker = my_make_entry.gen_from_file(opts),
   }
 end
 
@@ -227,7 +227,7 @@ function M.args()
       prompt_position = "top",
     },
     sorting_strategy = "ascending",
-    --entry_maker = my_make_entry.gen_from_file(),
+    entry_maker = my_make_entry.gen_from_file(),
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
@@ -492,7 +492,7 @@ function M.recent_files()
     },
     sorting_strategy = "ascending",
     scroll_strategy = "cycle",
-    --entry_maker = my_make_entry.gen_from_file(),
+    entry_maker = my_make_entry.gen_from_file(),
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
