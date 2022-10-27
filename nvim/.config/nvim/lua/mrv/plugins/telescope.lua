@@ -161,8 +161,8 @@ end
 --- File Pickers
 --------------------------------------------------------------------------------
 
-function M.find_files()
-  local opts = { cwd = vim.fn.expand("%:p:h") }
+function M.find_files(opts)
+  opts = opts or {}
   require("telescope.builtin").find_files{
     file_sorter = require'telescope.sorters'.get_fzy_sorter,
     cwd = opts.cwd,
@@ -170,8 +170,8 @@ function M.find_files()
   }
 end
 
-function M.git_files()
-  local opts = { cwd = vim.fn.expand("%:p:h") }
+function M.git_files(opts)
+  opts = opts or {}
   require("telescope.builtin").git_files{
     cwd = opts.cwd,
     entry_maker = my_make_entry.gen_from_file(opts),
@@ -179,11 +179,20 @@ function M.git_files()
 end
 
 -- Defaults to `find_files` if not in a git repo
+-- Based on: ~/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/builtin/__git.lua
 function M.my_git_files()
-  local ok = pcall(require('mrv.plugins.telescope').git_files)
-  if not ok then
-    print("NOT OK")
-    require('mrv.plugins.telescope').find_files()
+  local opts = { cwd = vim.fn.expand("%:p:h") }
+  local git_root, ret = require'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--show-toplevel" }, opts.cwd)
+  if ret ~= 0 then
+    local in_worktree = require'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, opts.cwd)
+    local in_bare = require'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--is-bare-repository" }, opts.cwd)
+    if in_worktree[1] ~= "true" and in_bare[1] ~= "true" then
+      require('mrv.plugins.telescope').find_files(opts) -- not a git repo
+    else
+      require('mrv.plugins.telescope').git_files(opts) -- bare git repo
+    end
+  else
+    require('mrv.plugins.telescope').git_files(opts) -- normal git repo
   end
 end
 
