@@ -8,5 +8,3 @@ vim.g.vimtex_view_general_viewer = "okular"
 vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
 
 --vim.g.vimtex_quickfix_ignore_filters = { "Underfull .*", } -- disable custom warnings based on regexp
-
-vim.keymap.set("n", "<Leader>f", "gqap", {noremap = false})
