@@ -219,7 +219,7 @@ if not vim.env.SSH_CONNECTION then
 end
 
 -- ==============================================================================
---- Custom format operator WIP: works flaky at the moment
+--- Custom format operator
 -- ==============================================================================
 
 function M.format_operator()
