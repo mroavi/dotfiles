@@ -152,68 +152,68 @@ if not vim.env.SSH_CONNECTION then
   --- lua
   --------------------------------------------------------------------------------
 
-  --local lua_lsp_dir = vim.fn.expand("~/lsp-servers/lua-language-server/")
-  --lspconfig.sumneko_lua.setup {
-    --  cmd = {
-      --    lua_lsp_dir .. "bin/Linux/lua-language-server", "-E",
-      --    lua_lsp_dir .. "/main.lua"
-      --  },
-      --  capabilities = capabilities,
-      --  settings = {
-        --    Lua = {
-          --      runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
-          --      diagnostics = {globals = {"vim"}},
-          --      workspace = {
-            --        -- Make the server aware of Neovim runtime files
-            --        library = {
-              --          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-              --          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true
-              --        }
-              --      }
-              --    }
-              --  }
-              --}
+--local lua_lsp_dir = vim.fn.expand("~/lsp-servers/lua-language-server/")
+--lspconfig.sumneko_lua.setup {
+--    cmd = {
+--        lua_lsp_dir .. "bin/Linux/lua-language-server", "-E",
+--        lua_lsp_dir .. "/main.lua"
+--      },
+--      capabilities = capabilities,
+--      settings = {
+--          Lua = {
+--              runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
+--              diagnostics = {globals = {"vim"}},
+--              workspace = {
+--                  -- Make the server aware of Neovim runtime files
+--                  library = {
+--                      [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+--                      [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true
+--                    }
+--                  }
+--                }
+--              }
+--            }
 
-              --------------------------------------------------------------------------------
-              --- lua-dev (dev setup for init.lua and plugin development)
-              --------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--- lua-dev (dev setup for init.lua and plugin development)
+--------------------------------------------------------------------------------
 
-              -- -- Installation: sudo pacman -S lua-language-server
-              -- local lua_lsp_dir = "/home/mroavi/lsp-servers/lua-language-server/"
-              -- local luadev = require("lua-dev").setup({
-                --  lspconfig = {
-                  --  cmd = {lua_lsp_dir .. "bin/Linux/lua-language-server", "-E", lua_lsp_dir .. "/main.lua"}
-                  --  },
-                  -- })
-                  -- lspconfig.sumneko_lua.setup(luadev)
+---- Installation: sudo pacman -S lua-language-server
+--local lua_lsp_dir = "/home/mroavi/lsp-servers/lua-language-server/"
+--local luadev = require("lua-dev").setup({
+--  lspconfig = {
+--    cmd = {lua_lsp_dir .. "bin/Linux/lua-language-server", "-E", lua_lsp_dir .. "/main.lua"}
+--    },
+--    })
+--    lspconfig.sumneko_lua.setup(luadev)
 
-                  --------------------------------------------------------------------------------
-                  --- arduino
-                  --------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--- arduino
+--------------------------------------------------------------------------------
 
-                  -- -- Installation: yay -S arduino-language-server-git
-                  -- lspconfig.arduino_language_server.setup({
-                    --  cmd =  {
-                      --    -- Required
-                      --    "arduino-language-server",
-                      --    "-cli-config", "/home/mroavi/.arduino15/arduino-cli.yaml",
-                      --    -- Optional
-                      --    "-cli", "/bin/arduino-cli",
-                      --    "-clangd", "/bin/clangd"
-                      --  }
-                      -- })
+---- Installation: yay -S arduino-language-server-git
+--lspconfig.arduino_language_server.setup({
+--  cmd =  {
+--      -- Required
+--      "arduino-language-server",
+--      "-cli-config", "/home/mroavi/.arduino15/arduino-cli.yaml",
+--      -- Optional
+--      "-cli", "/bin/arduino-cli",
+--      "-clangd", "/bin/clangd"
+--    }
+--    })
 
-                      --------------------------------------------------------------------------------
-                      --- cmake
-                      --------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--- cmake
+--------------------------------------------------------------------------------
 
-                      -- Installation: pip install cmake-language-server
-                      -- lspconfig.cmake.setup{}
+----Installation: pip install cmake-language-server
+--lspconfig.cmake.setup{}
 
-                      -- -- Example of how to run code depending on a environment variable
-                      -- if not os.getenv("SSH_CONNECTION") then
-                      --  -- <CODE>
-                      -- end
+---- Example of how to run code depending on a environment variable
+--if not os.getenv("SSH_CONNECTION") then
+---- <CODE>
+--end
 
 end
 
