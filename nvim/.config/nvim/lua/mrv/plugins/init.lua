@@ -70,6 +70,7 @@ M.setup = function()
     --use {'lewis6991/impatient.nvim', config = function() require('impatient') end} -- improve startup time for Neovim
     --use {'tpope/vim-rhubarb'} -- GitHub extension for fugitive.vim
     --use {'smjonas/live-command.nvim'} -- the easiest way to create previewable commands in Neovim
+    --use {'jose-elias-alvarez/null-ls.nvim', config = function() require('mrv.plugins.null-ls') end} -- use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 
     -- Abandoned
     --use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
