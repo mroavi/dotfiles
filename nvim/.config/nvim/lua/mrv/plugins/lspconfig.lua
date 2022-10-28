@@ -73,27 +73,30 @@ require'lspconfig'.julials.setup {
 if not vim.env.SSH_CONNECTION then
 
   --------------------------------------------------------------------------------
-  --- efm
+  --- lua
   --------------------------------------------------------------------------------
 
-  -- Installation: sudo pacman -S efm-langserver
-  require"lspconfig".efm.setup {
-    init_options = {documentFormatting = true},
-    filetypes = {"lua"},
+  require'lspconfig'.sumneko_lua.setup {
     settings = {
-      rootMarkers = {".git/"},
-      languages = {
-        lua = {
-          {
-            --  Repo: https://github.com/Koihik/LuaFormatter
-            --  Style config: https://github.com/Koihik/LuaFormatter/blob/master/docs/Style-Config.md
-            formatCommand = "lua-format --indent-width=2 --tab-width=2 \z
-            --continuation-indent-width=2",
-            formatStdin = true
-          }
-        }
-      }
-    }
+      Lua = {
+        runtime = {
+          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+          version = 'LuaJIT',
+        },
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = {'vim'},
+        },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {
+          enable = false,
+        },
+      },
+    },
   }
 
   --------------------------------------------------------------------------------
@@ -148,32 +151,6 @@ if not vim.env.SSH_CONNECTION then
   -- Installation: sudo pacman -S rust-analyzer
   require'lspconfig'.rust_analyzer.setup{}
 
-  --------------------------------------------------------------------------------
-  --- lua
-  --------------------------------------------------------------------------------
-
---local lua_lsp_dir = vim.fn.expand("~/lsp-servers/lua-language-server/")
---lspconfig.sumneko_lua.setup {
---    cmd = {
---        lua_lsp_dir .. "bin/Linux/lua-language-server", "-E",
---        lua_lsp_dir .. "/main.lua"
---      },
---      capabilities = capabilities,
---      settings = {
---          Lua = {
---              runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
---              diagnostics = {globals = {"vim"}},
---              workspace = {
---                  -- Make the server aware of Neovim runtime files
---                  library = {
---                      [vim.fn.expand "$VIMRUNTIME/lua"] = true,
---                      [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true
---                    }
---                  }
---                }
---              }
---            }
-
 --------------------------------------------------------------------------------
 --- lua-dev (dev setup for init.lua and plugin development)
 --------------------------------------------------------------------------------
@@ -186,6 +163,30 @@ if not vim.env.SSH_CONNECTION then
 --    },
 --    })
 --    lspconfig.sumneko_lua.setup(luadev)
+
+--------------------------------------------------------------------------------
+--- efm
+--------------------------------------------------------------------------------
+
+---- Installation: sudo pacman -S efm-langserver
+--require"lspconfig".efm.setup {
+--  init_options = {documentFormatting = true},
+--  filetypes = {"lua"},
+--  settings = {
+--    rootMarkers = {".git/"},
+--    languages = {
+--      lua = {
+--        {
+--          --  Repo: https://github.com/Koihik/LuaFormatter
+--          --  Style config: https://github.com/Koihik/LuaFormatter/blob/master/docs/Style-Config.md
+--          formatCommand = "lua-format --indent-width=2 --tab-width=2 \z
+--          --continuation-indent-width=2",
+--          formatStdin = true
+--        }
+--      }
+--    }
+--  }
+--}
 
 --------------------------------------------------------------------------------
 --- arduino
