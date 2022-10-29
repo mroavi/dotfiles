@@ -53,6 +53,7 @@ M.setup = function()
     --use {'quarto-dev/quarto-vim', requires = {'vim-pandoc/vim-pandoc-syntax'}} -- rmarkdown support for vim
     --use {'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, requires = {'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim'}} -- lf file manager for Neovim (in Lua)
     --use {'akinsho/toggleterm.nvim', config = function() require('mrv.plugins.toggleterm') end} -- a neovim lua plugin to help easily manage multiple terminal windows
+    --use {'jose-elias-alvarez/null-ls.nvim', config = function() require('mrv.plugins.null-ls') end} -- use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 
     -- TODO: Try these out!
     --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
@@ -70,7 +71,6 @@ M.setup = function()
     --use {'lewis6991/impatient.nvim', config = function() require('impatient') end} -- improve startup time for Neovim
     --use {'tpope/vim-rhubarb'} -- GitHub extension for fugitive.vim
     --use {'smjonas/live-command.nvim'} -- the easiest way to create previewable commands in Neovim
-    --use {'jose-elias-alvarez/null-ls.nvim', config = function() require('mrv.plugins.null-ls') end} -- use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 
     -- Abandoned
     --use {'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end} -- provides insert mode auto-completion for quotes, parens, brackets, etc.
