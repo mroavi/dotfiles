@@ -151,70 +151,65 @@ if not vim.env.SSH_CONNECTION then
   -- Installation: sudo pacman -S rust-analyzer
   require'lspconfig'.rust_analyzer.setup{}
 
---------------------------------------------------------------------------------
---- lua-dev (dev setup for init.lua and plugin development)
---------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+  --- lua-dev (dev setup for init.lua and plugin development)
+  --------------------------------------------------------------------------------
 
----- Installation: sudo pacman -S lua-language-server
---local lua_lsp_dir = "/home/mroavi/lsp-servers/lua-language-server/"
---local luadev = require("lua-dev").setup({
---  lspconfig = {
---    cmd = {lua_lsp_dir .. "bin/Linux/lua-language-server", "-E", lua_lsp_dir .. "/main.lua"}
---    },
---    })
---    lspconfig.sumneko_lua.setup(luadev)
+  ---- Installation: sudo pacman -S lua-language-server
+  --local lua_lsp_dir = "/home/mroavi/lsp-servers/lua-language-server/"
+  --local luadev = require("lua-dev").setup({
+  --  lspconfig = {
+  --    cmd = {lua_lsp_dir .. "bin/Linux/lua-language-server", "-E", lua_lsp_dir .. "/main.lua"}
+  --    },
+  --    })
+  --    lspconfig.sumneko_lua.setup(luadev)
 
---------------------------------------------------------------------------------
---- efm
---------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+  --- efm
+  --------------------------------------------------------------------------------
 
----- Installation: sudo pacman -S efm-langserver
---require"lspconfig".efm.setup {
---  init_options = {documentFormatting = true},
---  filetypes = {"lua"},
---  settings = {
---    rootMarkers = {".git/"},
---    languages = {
---      lua = {
---        {
---          --  Repo: https://github.com/Koihik/LuaFormatter
---          --  Style config: https://github.com/Koihik/LuaFormatter/blob/master/docs/Style-Config.md
---          formatCommand = "lua-format --indent-width=2 --tab-width=2 \z
---          --continuation-indent-width=2",
---          formatStdin = true
---        }
---      }
---    }
---  }
---}
+  ---- Installation: sudo pacman -S efm-langserver
+  --require"lspconfig".efm.setup {
+  --  init_options = {documentFormatting = true},
+  --  filetypes = {"lua"},
+  --  settings = {
+  --    rootMarkers = {".git/"},
+  --    languages = {
+  --      lua = {
+  --        {
+  --          --  Repo: https://github.com/Koihik/LuaFormatter
+  --          --  Style config: https://github.com/Koihik/LuaFormatter/blob/master/docs/Style-Config.md
+  --          formatCommand = "lua-format --indent-width=2 --tab-width=2 \z
+  --          --continuation-indent-width=2",
+  --          formatStdin = true
+  --        }
+  --      }
+  --    }
+  --  }
+  --}
 
---------------------------------------------------------------------------------
---- arduino
---------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+  --- arduino
+  --------------------------------------------------------------------------------
 
----- Installation: yay -S arduino-language-server-git
---lspconfig.arduino_language_server.setup({
---  cmd =  {
---      -- Required
---      "arduino-language-server",
---      "-cli-config", "/home/mroavi/.arduino15/arduino-cli.yaml",
---      -- Optional
---      "-cli", "/bin/arduino-cli",
---      "-clangd", "/bin/clangd"
---    }
---    })
+  ---- Installation: yay -S arduino-language-server-git
+  --lspconfig.arduino_language_server.setup({
+  --  cmd =  {
+  --      -- Required
+  --      "arduino-language-server",
+  --      "-cli-config", "/home/mroavi/.arduino15/arduino-cli.yaml",
+  --      -- Optional
+  --      "-cli", "/bin/arduino-cli",
+  --      "-clangd", "/bin/clangd"
+  --    }
+  --    })
 
---------------------------------------------------------------------------------
---- cmake
---------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------
+  --- cmake
+  --------------------------------------------------------------------------------
 
-----Installation: pip install cmake-language-server
---lspconfig.cmake.setup{}
-
----- Example of how to run code depending on a environment variable
---if not os.getenv("SSH_CONNECTION") then
----- <CODE>
---end
+  ----Installation: pip install cmake-language-server
+  --lspconfig.cmake.setup{}
 
 end
 
