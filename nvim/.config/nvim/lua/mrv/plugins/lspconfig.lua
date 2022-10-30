@@ -244,7 +244,7 @@ end
 -- ==============================================================================
 
 -- See `:h lsp-buf`
-vim.keymap.set("n", "<Leader>d", "<Cmd>lua vim.lsp.buf.definition()<CR>")
+vim.keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "<Leader>u", "<Cmd>lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
 vim.keymap.set("n", "<Leader>f", "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>")
