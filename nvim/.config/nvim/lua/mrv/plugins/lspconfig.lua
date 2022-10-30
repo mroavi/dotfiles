@@ -45,30 +45,31 @@ vim.diagnostic.config({
 local lspconfig = require 'lspconfig'
 
 --------------------------------------------------------------------------------
---- julia
+--- julia (LanguageServer.jl)
 --------------------------------------------------------------------------------
 
--- Installation:
---  https://discourse.julialang.org/t/neovim-languageserver-jl/37286/63?u=mroavi
---  $ julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
--- Instant startup with PackageCompiler:
---  https://discourse.julialang.org/t/neovim-languageserver-jl/37286/72?u=mroavi
+-- Installation: https://discourse.julialang.org/t/neovim-languageserver-jl/37286/63
+--    $ julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
+-- Instant startup with PackageCompiler: https://discourse.julialang.org/t/neovim-languageserver-jl/37286/72?u=mroavi
 
--- Makes use of the julia bin generated using PackageCompiler to remove startup time
-require'lspconfig'.julials.setup {
-  autostart = true,
+-- Based on Fredrik's config:
+-- https://github.com/fredrikekre/.dotfiles/blob/2c141f6b574af1faae2ac718bce3bbe1152f083b/.config/nvim/init.vim#L74
+local REVISE_LANGUAGESERVER = true -- configure me!
+require'lspconfig'.julials.setup({
   on_new_config = function(new_config, _)
-    local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
-    if require'lspconfig'.util.path.is_file(julia) then
-      new_config.cmd[1] = julia
+    if REVISE_LANGUAGESERVER then
+      -- Use a setup that uses Revise to debug LanguageServer.jl
+      new_config.cmd[5] = (new_config.cmd[5]):gsub("using LanguageServer", "using Revise; using LanguageServer; if isdefined(LanguageServer, :USE_REVISE); LanguageServer.USE_REVISE[] = true; end")
+    else
+      -- Use the julia bin generated with PackageCompiler to remove startup time
+      local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
+      if require 'lspconfig'.util.path.is_file(julia) then
+        new_config.cmd[1] = julia
+      end
     end
-  end
-}
-
--- -- Does not make use of the julia bin generated using PackageCompiler
--- require'lspconfig'.julials.setup{
---  capabilities = capabilities,
--- }
+  end,
+  capabilities = capabilities,
+})
 
 if not vim.env.SSH_CONNECTION then
 
