@@ -642,7 +642,7 @@ vim.keymap.set("n", "<Leader>f", "<Cmd>lua require('mrv.plugins.telescope').rece
 vim.keymap.set("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 vim.keymap.set("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
 --vim.keymap.set("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags({default_text = vim.fn.expand(\"<cword>\")})<CR>")
-vim.keymap.set('v', '<Leader>K', function() builtin.help_tags({ default_text = require('mrv.utils').get_visual_selection() }) end)
+vim.keymap.set('v', '<Leader>K', function() M.help_tags({ default_text = require('mrv.utils').get_visual_selection() }) end)
 --vim.keymap.set("n", "<Leader>ma", "<Cmd>lua require('telescope.builtin').keymaps()<CR>")
 vim.keymap.set("n", "<Leader>hi", "<Cmd>lua require('telescope.builtin').highlights()<CR>")
 -- LSP pickers
