@@ -241,8 +241,8 @@ end
 -- See `:h lsp-buf`
 vim.keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "<Leader>u", "<Cmd>lua vim.lsp.buf.references()<CR>")
-vim.keymap.set("n", "<Leader>cw", "<Cmd>lua vim.lsp.buf.rename()<CR>")
-vim.keymap.set("n", "<Leader>f", "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>")
+vim.keymap.set("n", "<Leader>r", "<Cmd>lua vim.lsp.buf.rename()<CR>")
+vim.keymap.set("n", "<Leader>=", "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>")
 vim.keymap.set("n", "gf", "<Cmd>lua require('mrv.plugins.lspconfig').format_operator()<CR>")
 vim.keymap.set("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
 vim.keymap.set("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")

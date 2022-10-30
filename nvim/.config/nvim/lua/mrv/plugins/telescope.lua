@@ -638,7 +638,7 @@ vim.keymap.set("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buff
 vim.keymap.set("n", "<Leader>L", "<Cmd>lua require('mrv.plugins.telescope').buffer_lines()<CR>")
 vim.keymap.set("n", "<Leader>'", "<Cmd>lua require('mrv.plugins.telescope').marks()<CR>")
 vim.keymap.set("n", "<Leader>H", "<Cmd>lua require('mrv.plugins.telescope').hunks()<CR>")
-vim.keymap.set("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
+vim.keymap.set("n", "<Leader>f", "<Cmd>lua require('mrv.plugins.telescope').recent_files()<CR>")
 vim.keymap.set("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 vim.keymap.set("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
 --vim.keymap.set("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags({default_text = vim.fn.expand(\"<cword>\")})<CR>")
