@@ -1,3 +1,4 @@
+local builtin = require 'telescope.builtin'
 local actions = require 'telescope.actions'
 local pickers = require 'telescope.pickers'
 local finders = require 'telescope.finders'
@@ -163,7 +164,7 @@ end
 
 function M.find_files(opts)
   opts = opts or {}
-  require("telescope.builtin").find_files{
+  builtin.find_files{
     file_sorter = require'telescope.sorters'.get_fzy_sorter,
     cwd = opts.cwd,
     entry_maker = my_make_entry.gen_from_file(opts),
@@ -172,7 +173,7 @@ end
 
 function M.git_files(opts)
   opts = opts or {}
-  require("telescope.builtin").git_files{
+  builtin.git_files{
     cwd = opts.cwd,
     entry_maker = my_make_entry.gen_from_file(opts),
   }
@@ -198,7 +199,7 @@ end
 
 function M.dotfiles()
   local opts = { cwd = "~/dotfiles" }
-  require('telescope.builtin').find_files {
+  builtin.find_files {
     find_command = {'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git',},
     prompt_title = "Dotfiles",
     cwd = opts.cwd,
@@ -278,11 +279,11 @@ end
 --------------------------------------------------------------------------------
 
 function M.buffers()
-  require("telescope.builtin").buffers(TmuxTheme())
+  builtin.buffers(TmuxTheme())
 end
 
 function M.buffer_lines()
-  require("telescope.builtin").current_buffer_fuzzy_find {
+  builtin.current_buffer_fuzzy_find {
     prompt_title = 'Buffer Lines',
     layout_strategy = "vertical",
     layout_config = {
@@ -315,7 +316,7 @@ function M.help_tags(opts)
       return true
     end,
   }
-  require('telescope.builtin').help_tags(vim.tbl_deep_extend("force", default_opts, opts))
+  builtin.help_tags(vim.tbl_deep_extend("force", default_opts, opts))
 end
 
 -- Sort based on line number of the result hits
@@ -336,7 +337,7 @@ function M.fuzzy_star_search()
       return true
     end,
   }
-  require("telescope.builtin").current_buffer_fuzzy_find(opts)
+  builtin.current_buffer_fuzzy_find(opts)
 end
 
 --------------------------------------------------------------------------------
@@ -580,7 +581,7 @@ end
 -------------------------------------------------------------------------------
 
 function M.git_commits()
-  require("telescope.builtin").git_commits{
+  builtin.git_commits{
     cwd = vim.fn.expand("%:p:h"),
     layout_config = {
       mirror = true,
@@ -592,7 +593,7 @@ function M.git_commits()
 end
 
 function M.git_bcommits()
-  require("telescope.builtin").git_bcommits{
+  builtin.git_bcommits{
     cwd = vim.fn.expand("%:p:h"),
     layout_config = {
       mirror = true,
@@ -604,7 +605,7 @@ function M.git_bcommits()
 end
 
 function M.git_status()
-  require("telescope.builtin").git_status{
+  builtin.git_status{
     cwd = vim.fn.expand("%:p:h"),
     layout_strategy = "vertical",
     layout_config = {
