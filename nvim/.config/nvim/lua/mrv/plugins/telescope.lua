@@ -627,8 +627,6 @@ end
 -- Mappings
 ---------------------------------------------------------------------------------
 
--- TODO: create a visual mapping that prefills Telescope's help finder with the pre-visualized text
-
 -- File pickers
 vim.keymap.set("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').my_git_files()<CR>")
 --vim.keymap.set("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
@@ -644,6 +642,7 @@ vim.keymap.set("n", "<Leader>r", "<Cmd>lua require('mrv.plugins.telescope').rece
 vim.keymap.set("n", "<Leader>ch", "<Cmd>lua require('telescope.builtin').command_history()<CR>")
 vim.keymap.set("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags()<CR>")
 --vim.keymap.set("n", "<Leader>K", "<Cmd>lua require('mrv.plugins.telescope').help_tags({default_text = vim.fn.expand(\"<cword>\")})<CR>")
+vim.keymap.set('v', '<Leader>K', function() builtin.help_tags({ default_text = require('mrv.utils').get_visual_selection() }) end)
 --vim.keymap.set("n", "<Leader>ma", "<Cmd>lua require('telescope.builtin').keymaps()<CR>")
 vim.keymap.set("n", "<Leader>hi", "<Cmd>lua require('telescope.builtin').highlights()<CR>")
 -- LSP pickers
