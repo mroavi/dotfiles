@@ -43,7 +43,7 @@ augroup vim_lua_debug
   au FileType vim,lua nnoremap <buffer> <Leader>m :messages<CR>
 augroup END
 
-" Remember cursor position (:h resotre-cursor)
+" Remember cursor position (:h restore-cursor)
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 
