@@ -293,3 +293,11 @@ augroup END
 "endif
 "endfunction
 ""nnoremap <silent> <Leader>dm :<C-u>call Delmarks()<CR>
+
+" TODO: replace evanescu plugin with the following:
+"" Make star `*` command stay on current word
+"" https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word
+"nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch<Cr>
+" Search selected text
+"https://github.com/bronson/vim-visual-star-search
+"https://github.com/nelstrom/vim-visual-star-search
