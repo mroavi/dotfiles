@@ -3,6 +3,9 @@
 # # Map caps lock key to escape
 # setxkbmap -option caps:escape
 
+# # Map caps lock key to control
+# setxkbmap -option caps:ctrl_modifier
+
 # Set my default layout
 setxkbmap -layout us -variant altgr-intl
 
