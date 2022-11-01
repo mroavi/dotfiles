@@ -45,6 +45,7 @@ yay_pkgs=(
           brave-bin
           dropbox
           kmonad-bin
+          git-open
          )
 
 yay           -S --needed ${yay_pkgs[@]}
