@@ -31,7 +31,7 @@ end
 -- Virtual text prefix
 vim.diagnostic.config({
   virtual_text = {
-    prefix = '■' -- Could be '●', '▎', 'x'
+    prefix = '■' -- could be '●', '▎', 'x'
   }
 })
 
