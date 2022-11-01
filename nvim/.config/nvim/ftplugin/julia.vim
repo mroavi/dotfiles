@@ -67,7 +67,7 @@ nnoremap <buffer><silent> <BS> :TomuxSend("\b")<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Misc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <buffer><Leader>sh :call ToggleString('@show ', 'I')<CR>
+noremap <buffer><Leader>sh :call ToggleString('@myshow ', 'I')<CR>
 noremap <buffer><Leader>pr :call ToggleString(' \|> println', 'A')<CR>
 "noremap <buffer><Leader>ti :call ToggleString('@btime ', 'I')<CR>
 "noremap <buffer><Leader>du :call ToggleString(' \|> dump', 'A')<CR>
