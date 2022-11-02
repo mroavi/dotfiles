@@ -31,8 +31,6 @@ require("telescope").setup {
         ["<C-n>"] = actions.move_selection_next,
         ["<C-q>"] = actions.send_to_qflist,
         ["<M-q>"] = actions.send_selected_to_qflist,
-        --["<C-l>"] = actions.file_vsplit,
-        --["<C-j>"] = actions.file_split,
         -- Custom actions
         ["<C-a>"] = function(_) -- add to arglist
           local selection_path = action_state.get_selected_entry()[1]
@@ -432,7 +430,7 @@ local function make_entry_gen_from_marks(_)
   end
 end
 
-Marks = function(opts)
+local function my_marks_picker(opts)
 
   local marks = vim.api.nvim_exec("marks", true)  -- get output from `marks` cmd
   local marks_table = vim.fn.split(marks, "\n")   -- split into an array
@@ -465,7 +463,7 @@ end
 
 -- Local marks BUG: https://github.com/neovim/neovim/issues/4295
 function M.marks()
-  Marks{
+  my_marks_picker{
     layout_strategy = "vertical",
     layout_config = {
       mirror = true,
@@ -494,7 +492,7 @@ end
 
 --- -------------------------------- Recent Files ------------------------------
 
-RecentFiles = function(opts)
+local function my_recent_files_picker(opts)
 
   -- Here the `results` var is an array of tables instead of an array of strings
   --local mru_entries = {}
@@ -534,7 +532,7 @@ RecentFiles = function(opts)
 end
 
 function M.recent_files()
-  RecentFiles{
+  my_recent_files_picker{
     layout_strategy = "vertical",
     layout_config = {
       mirror = true,
@@ -556,7 +554,7 @@ end
 -- TODO: implement a displayer that colors the git sign and line number
 -- differently than the rest of the line.
 
-Hunks = function(opts)
+local function my_hunks_picker(opts)
   local current_buffer = vim.api.nvim_get_current_buf()
   local ok, gitsigns = pcall(require, 'gitsigns')
   if not ok then
@@ -590,7 +588,7 @@ Hunks = function(opts)
 end
 
 function M.hunks()
-  Hunks{
+  my_hunks_picker{
     layout_strategy = "vertical",
     layout_config = {
       mirror = true,
