@@ -65,7 +65,7 @@ function! ToggleString(str, insert_txt_cmd)
 endfunction
 
 " ----------------------------------------------------------------------------
-" My custom text object for cells
+""" My custom text object for cells
 " ----------------------------------------------------------------------------
 
 " CELL TEXT OBJECT
@@ -110,7 +110,7 @@ xnoremap <silent> id :<C-u>normal! ggVG<cr>
 onoremap <silent> id :<C-u>normal! ggVG<cr>
 
 " ----------------------------------------------------------------------------
-" Execute motion/textobject of code
+""" Execute motion/textobject of code
 " ----------------------------------------------------------------------------
 
 " Works for Lua and Vim (:h map-operator)
@@ -148,7 +148,7 @@ augroup vim_lua_execute
 augroup END
 
 " ============================================================================
-" DISABLED (enable when necessary)
+""" DISABLED (enable when necessary)
 " ============================================================================
 
 "" Redirect the output of a Vim or external command into a scratch buffer
