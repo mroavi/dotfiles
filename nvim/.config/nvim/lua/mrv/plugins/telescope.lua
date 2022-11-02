@@ -9,6 +9,7 @@ local entry_display = require "telescope.pickers.entry_display"
 local utils = require 'telescope.utils'
 local Path = require 'plenary.path'
 local action_set = require 'telescope.actions.set'
+local action_utils = require "telescope.actions.utils"
 
 local M = {}
 
@@ -30,8 +31,8 @@ require("telescope").setup {
         ["<C-n>"] = actions.move_selection_next,
         ["<C-q>"] = actions.send_to_qflist,
         ["<M-q>"] = actions.send_selected_to_qflist,
-        ["<C-l>"] = actions.file_vsplit,
-        ["<C-j>"] = actions.file_split,
+        --["<C-l>"] = actions.file_vsplit,
+        --["<C-j>"] = actions.file_split,
         -- Custom actions
         ["<C-a>"] = function(_) -- add to arglist
           local selection_path = action_state.get_selected_entry()[1]
@@ -215,18 +216,57 @@ end
 
 -- Tip: use :$arga to add the current file to the end of the arglist
 
-Args = function(opts)
-  -- TODO: store a field that can be used to sort the entries based on how old they are
-  local results = vim.fn.argv()
+local function new_args_finder(opts)
+  opts = opts or {}
+  return finders.new_table{
+    results = vim.fn.argv(),
+    entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+  }
+end
+
+local function my_args_picker(opts)
   pickers.new(opts, {
     prompt_title = 'Argument List',
-    finder = finders.new_table{
-      results = results,
-      entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-    },
+    finder = new_args_finder(opts),
     sorter = conf.file_sorter(opts),
     previewer = conf.file_previewer(opts),
   }):find()
+end
+
+local function get_num_entries(prompt_bufnr)
+  local num_entries = 0
+  action_utils.map_entries(prompt_bufnr, function(entry, index, row)
+    num_entries = num_entries + 1
+  end)
+  return num_entries
+end
+
+local function move_selected_entry(prompt_bufnr, add_at_offset, del_at_offset, sel_at_offset)
+  local selection_index = action_state.get_selected_entry().index
+  local selection_path = action_state.get_selected_entry()[1]
+  vim.cmd((selection_index + add_at_offset) .. 'arga ' .. selection_path)
+  local current_picker = action_state.get_current_picker(prompt_bufnr)
+  current_picker:delete_selection(function(_)
+    vim.cmd((selection_index + del_at_offset) .. 'argd ')
+  end)
+  -- More on refresh: https://github.com/nvim-telescope/telescope.nvim/issues/2016
+  current_picker:refresh(new_args_finder(), { reset_prompt = false })
+  current_picker:set_selection(selection_index + sel_at_offset)
+end
+
+-- Move down current entry
+local function move_selected_entry_down(prompt_bufnr)
+  local selection_index = action_state.get_selected_entry().index
+  local num_entries = get_num_entries(prompt_bufnr)
+  if selection_index == num_entries then return end
+  move_selected_entry(prompt_bufnr, 1, 0, 0)
+end
+
+-- Move up current entry
+local function move_selected_entry_up(prompt_bufnr)
+  local selection_index = action_state.get_selected_entry().index
+  if selection_index == 1 then return end
+  move_selected_entry(prompt_bufnr, -2, 1, -2)
 end
 
 function M.args()
@@ -237,7 +277,7 @@ function M.args()
       prompt_position = "top",
     },
     sorting_strategy = "ascending",
-    entry_maker = my_make_entry.gen_from_file(),
+    --entry_maker = my_make_entry.gen_from_file(),
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
@@ -249,12 +289,14 @@ function M.args()
             vim.cmd('argd ' .. selection_path)
           end)
       end)
+      map('i', '<C-k>', move_selected_entry_up)
+      map('i', '<C-j>', move_selected_entry_down)
       return true
     end,
     on_complete = {
       function(picker)
-        local original_bufnr = vim.api.nvim_win_get_buf(picker.original_win_id)
-        local original_buf_path = vim.api.nvim_buf_get_name(original_bufnr)
+        local original_buf_num = vim.api.nvim_win_get_buf(picker.original_win_id)
+        local original_buf_path = vim.api.nvim_buf_get_name(original_buf_num)
         local selected_index = 1
         for entry in picker.manager:iter() do
           local entry_path = vim.fn.fnamemodify(entry.value, ":p")
@@ -269,7 +311,7 @@ function M.args()
       end,
     },
   }
-  Args(opts)
+  my_args_picker(opts)
 end
 
 --------------------------------------------------------------------------------
