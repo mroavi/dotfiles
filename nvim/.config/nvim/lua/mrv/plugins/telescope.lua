@@ -48,7 +48,7 @@ require("telescope").setup {
 --- My themes
 --------------------------------------------------------------------------------
 
-function TmuxTheme(opts)
+local function my_tmux_theme(opts)
   opts = opts or {}
   local theme_opts = {
     layout_strategy = "vertical",
@@ -66,14 +66,12 @@ function TmuxTheme(opts)
     on_complete = {
       function(picker)
         local buf = vim.api.nvim_win_get_buf(picker.original_win_id)
-        local selection_index
-        local i = 1
+        local selection_index = 1
         for entry in picker.manager:iter() do
           if entry.bufnr == buf then
-            selection_index = i
             break
           end
-          i = i + 1
+          selection_index = selection_index + 1
         end
         local row = picker:get_row(selection_index)
         picker:set_selection(row)
@@ -317,7 +315,7 @@ end
 --------------------------------------------------------------------------------
 
 function M.buffers()
-  builtin.buffers(TmuxTheme())
+  builtin.buffers(my_tmux_theme())
 end
 
 function M.buffer_lines()
