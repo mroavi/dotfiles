@@ -216,7 +216,7 @@ local function new_args_finder(opts)
   opts = opts or {}
   return finders.new_table{
     results = vim.fn.argv(),
-    entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+    entry_maker = my_make_entry.gen_from_file(),
   }
 end
 
