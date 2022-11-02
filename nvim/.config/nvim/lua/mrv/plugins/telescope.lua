@@ -255,15 +255,13 @@ function M.args()
       function(picker)
         local original_bufnr = vim.api.nvim_win_get_buf(picker.original_win_id)
         local original_buf_path = vim.api.nvim_buf_get_name(original_bufnr)
-        local selected_index
-        local i = 1
+        local selected_index = 1
         for entry in picker.manager:iter() do
           local entry_path = vim.fn.fnamemodify(entry.value, ":p")
           if entry_path == original_buf_path then
-            selected_index = i
             break
           end
-          i = i + 1
+          selected_index = selected_index + 1
         end
         local row = picker:get_row(selected_index)
         picker:set_selection(row)
