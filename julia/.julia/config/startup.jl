@@ -34,23 +34,23 @@
     # frame number
     print(io, " ", lpad("[" * string(i) * "]", digit_align_width + 2))
     print(io, " ")
-    StackTraces.show_spec_linfo(IOContext(io, :backtrace=>true), frame)
+    StackTraces.show_spec_linfo(IOContext(io, :backtrace => true), frame)
     if n > 1
       printstyled(io, " (repeats $n times)"; color=:light_black)
     end
     println(io)
     # @
-    printstyled(io, " " ^ (digit_align_width + 2) * "@ ", color = :light_black)
+    printstyled(io, " "^(digit_align_width + 2) * "@ ", color=:light_black)
     # module
     if modul !== nothing
-      printstyled(io, modul, color = modulecolor)
+      printstyled(io, modul, color=modulecolor)
       print(io, " ")
     end
     # filepath
     pathparts = splitpath(file)
     folderparts = pathparts[1:end-1]
     if !isempty(folderparts)
-      printstyled(io, joinpath(folderparts...) * (Sys.iswindows() ? "\\" : "/"), color = path_color)
+      printstyled(io, joinpath(folderparts...) * (Sys.iswindows() ? "\\" : "/"), color=path_color)
     end
     # filename, separator, line
     # use escape codes for formatting, printstyled can't do underlined and color
@@ -58,12 +58,12 @@
     function print_underlined(io::IO, s...)
       colored = get(io, :color, false)::Bool
       start_s = colored ? text_colors[path_color] * "\033[4m" : ""
-      end_s   = colored ? "\033[0m"    : ""
+      end_s = colored ? "\033[0m" : ""
       print(io, start_s, s..., end_s)
     end
     print_underlined(io, pathparts[end], ":", line)
     # inlined
-    printstyled(io, inlined ? " [inlined]" : "", color = path_color)
+    printstyled(io, inlined ? " [inlined]" : "", color=path_color)
   end
 end
 
@@ -104,7 +104,7 @@ end
 # Format based on: https://serverfault.com/a/370766
 # ------------------------------------------------------------------------------
 function benchmark_dirname()
-  joinpath("out", gethostname(), Dates.format(now(),"yyyy-mm-dd--HH-MM-SS"))
+  joinpath("out", gethostname(), Dates.format(now(), "yyyy-mm-dd--HH-MM-SS"))
 end
 
 # ------------------------------------------------------------------------------
@@ -139,11 +139,11 @@ end
 #   trialmin, trialallocs = gensym(), gensym()
 #   tune_phase = hasevals(params) ? :() : :($BenchmarkTools.tune!($bench))
 #   return esc(quote
-#                local $bench = $BenchmarkTools.@benchmarkable $(args...)
-#                $BenchmarkTools.warmup($bench)
-#                $tune_phase
-#                local $trial, $result = $BenchmarkTools.run_result($bench)
-#                local $trialmin = $BenchmarkTools.minimum($trial)
-#                $result, $BenchmarkTools.time($trialmin)
-#              end)
+#     local $bench = $BenchmarkTools.@benchmarkable $(args...)
+#     $BenchmarkTools.warmup($bench)
+#     $tune_phase
+#     local $trial, $result = $BenchmarkTools.run_result($bench)
+#     local $trialmin = $BenchmarkTools.minimum($trial)
+#     $result, $BenchmarkTools.time($trialmin)
+#   end)
 # end
