@@ -28,8 +28,8 @@ augroup tomux_send
   "autocmd FileType julia,python,octave nmap <buffer> <C-Cr> \_
   "autocmd FileType julia,python,octave imap <buffer> <C-Cr> <Esc>\_gi
 
-  " Ctrl+Enter to send cell
-  autocmd FileType julia,python,octave nmap <buffer> <C-Cr> \ic
+  " Alt+Enter to send cell
+  autocmd FileType julia,python,octave nmap <buffer> <M-Cr> \ic
 
   " Ctrl+Shift+Enter to send entire buffer
   autocmd FileType octave              nmap <buffer> <C-S-Cr> \id
