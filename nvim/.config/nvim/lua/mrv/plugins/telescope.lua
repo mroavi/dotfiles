@@ -229,6 +229,15 @@ local function my_args_picker(opts)
   }):find()
 end
 
+-- Delete selected entry
+local function delete_selected_entry(prompt_bufnr)
+  local current_picker = action_state.get_current_picker(prompt_bufnr)
+  current_picker:delete_selection(function(_)
+    local selection_path = action_state.get_selected_entry()[1]
+    vim.cmd('argd ' .. selection_path)
+  end)
+end
+
 local function get_num_entries(prompt_bufnr)
   local num_entries = 0
   action_utils.map_entries(prompt_bufnr, function(entry, index, row)
@@ -273,18 +282,12 @@ function M.args()
       prompt_position = "top",
     },
     sorting_strategy = "ascending",
-    --entry_maker = my_make_entry.gen_from_file(),
+    entry_maker = my_make_entry.gen_from_file(),
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       -- Custom actions
-      map('i', '<C-x>', function(prompt_bufnr) -- delete from arglist
-          local current_picker = action_state.get_current_picker(prompt_bufnr)
-          current_picker:delete_selection( function(_)
-            local selection_path = action_state.get_selected_entry()[1]
-            vim.cmd('argd ' .. selection_path)
-          end)
-      end)
+      map('i', '<C-x>', delete_selected_entry)
       map('i', '<C-k>', move_selected_entry_up)
       map('i', '<C-j>', move_selected_entry_down)
       return true
