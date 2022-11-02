@@ -13,16 +13,16 @@ local action_set = require 'telescope.actions.set'
 local M = {}
 
 -- TODO: Improve default configuration by factoring out the most common options of my pickers
-require("telescope").setup{
+require("telescope").setup {
   defaults = {
-    layout_config = {height = 0.9, width = 0.9},
+    layout_config = { height = 0.9, width = 0.9 },
     sorting_strategy = "descending",
     layout_strategy = "vertical",
     scroll_strategy = "cycle",
     --selection_strategy = "row", -- bug: causes some of the results to be hidden after a sort
-    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+    file_previewer = require 'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require 'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require 'telescope.previewers'.vim_buffer_qflist.new,
     mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -34,8 +34,8 @@ require("telescope").setup{
         ["<C-j>"] = actions.file_split,
         -- Custom actions
         ["<C-a>"] = function(_) -- add to arglist
-            local selection_path = action_state.get_selected_entry()[1]
-            vim.cmd('$arga ' .. selection_path)
+          local selection_path = action_state.get_selected_entry()[1]
+          vim.cmd('$arga ' .. selection_path)
         end
       },
       n = {
