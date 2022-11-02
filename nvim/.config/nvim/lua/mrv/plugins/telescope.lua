@@ -110,7 +110,7 @@ do
       -- display: string to display for the current entry
       -- hl_group: highlihgt group for the devicon of the current entry
       display, hl_group = utils.transform_devicons(entry.value, display, disable_devicons)
-      --- ------------------------------------ mrv -----------------------------
+      -----------------------------------------mrv------------------------------
       local display_path = vim.fn.split(display)[2]
       local pathtofile = vim.fn.fnamemodify(display_path, ":h")
       --local tail = vim.fn.fnamemodify(display_path, ":t")
@@ -133,7 +133,7 @@ do
       else
         return display
       end
-      --- ------------------------------------ mrv -----------------------------
+      -----------------------------------------mrv------------------------------
     end
     mt_file_entry.__index = function(t, k)
       local raw = rawget(mt_file_entry, k)
@@ -208,7 +208,7 @@ end
 --- My Custom File Pickers
 --------------------------------------------------------------------------------
 
--- ------------------------------------- Args ----------------------------------
+-----------------------------------------Args-----------------------------------
 
 -- Tip: use :$arga to add the current file to the end of the arglist
 
@@ -383,7 +383,7 @@ end
 --- My Custom Vim Pickers
 --------------------------------------------------------------------------------
 
---- ----------------------------------- Marks ----------------------------------
+----------------------------------------Marks-----------------------------------
 
 local function make_entry_gen_from_marks(_)
 
@@ -491,7 +491,7 @@ function M.marks()
   }
 end
 
---- -------------------------------- Recent Files ------------------------------
+-------------------------------------Recent Files-------------------------------
 
 local function my_recent_files_picker(opts)
 
@@ -550,7 +550,7 @@ function M.recent_files()
   }
 end
 
---- ----------------------------------- Hunks ----------------------------------
+----------------------------------------Hunks-----------------------------------
 
 -- TODO: implement a displayer that colors the git sign and line number
 -- differently than the rest of the line.
