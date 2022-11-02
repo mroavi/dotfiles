@@ -71,6 +71,10 @@ M.setup = function()
   vim.keymap.set("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", { expr = true })
   vim.keymap.set("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", { expr = true })
 
+  -- Jump to the next/prev cell delimeter
+  vim.keymap.set("n", "<M-j>", "<Cmd>call GoToNextDelim(b:cell_delimeter)<CR>")
+  vim.keymap.set("n", "<M-k>", "<Cmd>call GoToPrevDelim(b:cell_delimeter)<CR>")
+
   -- Highlight yanked text
   local group = vim.api.nvim_create_augroup("highlight_yank", { clear = true })
   local callback = function() vim.highlight.on_yank { higroup = 'IncSearch', timeout = 200 } end
