@@ -309,17 +309,3 @@ augroup END
 "endif
 "endfunction
 ""nnoremap <silent> <Leader>dm :<C-u>call Delmarks()<CR>
-
-" TODO: replace evanescu plugin with the following:
-
-" Stop highlight on cursor move
-"https://www.reddit.com/r/neovim/comments/j6ugb4/is_there_away_to_disable_highlight_on_cursor_move/
-
-"" Make star `*` command stay on current word
-"" https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word
-"" https://www.reddit.com/r/vim/comments/1xzfjy/go_to_start_of_current_word_if_not_already_there/
-"nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm wb<Cr>
-
-" Visual star-search
-"https://github.com/bronson/vim-visual-star-search
-"https://github.com/nelstrom/vim-visual-star-search
