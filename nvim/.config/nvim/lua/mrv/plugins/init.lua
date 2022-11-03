@@ -39,7 +39,6 @@ M.setup = function()
     use {'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, run = ':TSUpdate'}
     use {'preservim/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
     use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
-    use {'ojroques/vim-oscyank', config = function() require('mrv.plugins.vim-oscyank') end} -- a Vim plugin to copy text through SSH with OSC52
 
     -- {{{1
 
@@ -85,6 +84,7 @@ M.setup = function()
     --use {'rafamadriz/neon', config = function() vim.cmd [[ colorscheme neon ]] end} -- the color scheme I used as base for my color scheme
     --use {'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end} -- navigate seamlessly between vim and tmux splits using a set of hotkeys
     --use {'mcchrish/nnn.vim'} -- file manager for vim/neovim powered by n³
+    --use {'ojroques/vim-oscyank', config = function() require('mrv.plugins.vim-oscyank') end} -- a Vim plugin to copy text through SSH with OSC52
 
     -- }}}
 
