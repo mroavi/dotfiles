@@ -1,4 +1,5 @@
 " Substitute all occurrences of the content of the search register with new text
+" https://stackoverflow.com/a/66440706/1706778
 nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 
@@ -57,7 +58,7 @@ if executable("rg")
   set grepformat=%f:%l:%c:%m
 endif
 
-" Prevent "Press ENTER or ..." prompt after external command executes
+" Prevent 'Press ENTER or ...' prompt after external command executes
 " https://vi.stackexchange.com/a/21010/27039
 command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw! | cwindow
 
