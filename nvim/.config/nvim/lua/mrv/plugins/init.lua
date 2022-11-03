@@ -25,7 +25,6 @@ M.setup = function()
     use {'tpope/vim-surround'} -- provides mappings to easily delete, change and add such surroundings in pairs
     use {'tpope/vim-repeat'} -- enable repeating supported plugin maps with "."
     use {'tpope/vim-obsession'} -- continuously updated session files
-    use {'mroavi/vim-evanesco'} -- automatically clears search highlight
     use {'mroavi/vim-pasta'} -- auto format pasted code
     use {'wellle/targets.vim', config = function() require('mrv.plugins.targets') end} -- vim plugin that provides additional text objects
     use {'yegappan/mru', config = function() require('mrv.plugins.mru') end} -- most recently used (MRU) vim plugin
@@ -54,6 +53,7 @@ M.setup = function()
     --use {'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, requires = {'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim'}} -- lf file manager for Neovim (in Lua)
     --use {'akinsho/toggleterm.nvim', config = function() require('mrv.plugins.toggleterm') end} -- a neovim lua plugin to help easily manage multiple terminal windows
     --use {'jose-elias-alvarez/null-ls.nvim', config = function() require('mrv.plugins.null-ls') end} -- use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
+    --use {'mroavi/vim-evanesco'} -- automatically clears search highlight
 
     -- TODO: Try these out!
     --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
