@@ -671,7 +671,7 @@ vim.keymap.set("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').my_g
 --vim.keymap.set("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
 vim.keymap.set("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
 vim.keymap.set("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<CR>")
-vim.keymap.set("n", "<Leader>*", "<Cmd>lua require('mrv.plugins.telescope').fuzzy_star_search()<CR>")
+--vim.keymap.set("n", "<Leader>*", "<Cmd>lua require('mrv.plugins.telescope').fuzzy_star_search()<CR>")
 -- Vim pickers
 vim.keymap.set("n", "<Leader>b", "<Cmd>lua require('mrv.plugins.telescope').buffers()<CR>")
 vim.keymap.set("n", "<Leader>L", "<Cmd>lua require('mrv.plugins.telescope').buffer_lines()<CR>")
