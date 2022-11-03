@@ -5,7 +5,7 @@ local M = {}
 M.setup = function()
 
   --------------------------------------------------------------------------------
-  -- Options
+  --- Options
   --------------------------------------------------------------------------------
 
   vim.g.mapleader = ' '
@@ -43,7 +43,7 @@ M.setup = function()
   end
 
   --------------------------------------------------------------------------------
-  -- Mappings
+  --- Mappings
   --------------------------------------------------------------------------------
 
   vim.keymap.set("n", "<Leader>w", ":update<CR>") -- write to disk
@@ -64,7 +64,7 @@ M.setup = function()
   vim.keymap.set("c", "/", "wildmenumode() ? \"\\<C-y>\" : \"/\"", { expr = true }) -- avoid a double slash when pressing / when using wildmenu (like in zsh)
 
   --------------------------------------------------------------------------------
-  -- Misc
+  --- Misc
   --------------------------------------------------------------------------------
 
   -- Make Ctrl-u and Ctrl-d scroll 1/3 of the window height
