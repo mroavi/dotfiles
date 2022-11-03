@@ -1,4 +1,4 @@
-require("toggleterm").setup{
+require("toggleterm").setup {
   open_mapping = [[<Leader>>]],
   insert_mappings = false, -- whether or not the open mapping applies in insert mode
   terminal_mappings = false, -- whether or not the open mapping applies in the opened terminals

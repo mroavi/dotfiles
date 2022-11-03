@@ -4,9 +4,9 @@ local M = {}
 --- General
 -- ==============================================================================
 
-function M.goto_next() vim.diagnostic.goto_next {wrap = false} end
+function M.goto_next() vim.diagnostic.goto_next { wrap = false } end
 
-function M.goto_prev() vim.diagnostic.goto_prev {wrap = false} end
+function M.goto_prev() vim.diagnostic.goto_prev { wrap = false } end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -22,10 +22,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
     })
 
 -- Signs
-local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 -- Virtual text prefix
@@ -55,7 +55,7 @@ local lspconfig = require 'lspconfig'
 -- Based on Fredrik's config:
 -- https://github.com/fredrikekre/.dotfiles/blob/2c141f6b574af1faae2ac718bce3bbe1152f083b/.config/nvim/init.vim#L74
 local REVISE_LANGUAGESERVER = false -- configure me!
-require'lspconfig'.julials.setup({
+require 'lspconfig'.julials.setup({
   on_new_config = function(new_config, _)
     if REVISE_LANGUAGESERVER then
       -- Use a setup that uses Revise to debug LanguageServer.jl
@@ -77,7 +77,7 @@ if not vim.env.SSH_CONNECTION then
   --- lua
   --------------------------------------------------------------------------------
 
-  require'lspconfig'.sumneko_lua.setup {
+  require 'lspconfig'.sumneko_lua.setup {
     settings = {
       Lua = {
         runtime = {
@@ -86,7 +86,7 @@ if not vim.env.SSH_CONNECTION then
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
-          globals = {'vim'},
+          globals = { 'vim' },
         },
         workspace = {
           -- Make the server aware of Neovim runtime files
@@ -130,8 +130,8 @@ if not vim.env.SSH_CONNECTION then
   -- Installation: see bootstrap in dotfiles
   lspconfig.clangd.setup {
     autostart = false,
-    cmd = {"clangd", "--background-index", "--fallback-style=LLVM"},
-    filetypes = {"c", "cpp", "objc", "objcpp"}
+    cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
+    filetypes = { "c", "cpp", "objc", "objcpp" }
   }
 
   -- Use `bear` to generate the `compile_commands.json` file needed by clangd
@@ -150,7 +150,7 @@ if not vim.env.SSH_CONNECTION then
   --------------------------------------------------------------------------------
 
   -- Installation: sudo pacman -S rust-analyzer
-  require'lspconfig'.rust_analyzer.setup{}
+  require 'lspconfig'.rust_analyzer.setup {}
 
   --------------------------------------------------------------------------------
   --- lua-dev (dev setup for init.lua and plugin development)
@@ -222,7 +222,7 @@ function M.format_operator()
   local old_func = vim.go.operatorfunc
   _G.op_func_formatting = function()
     local opts = {
-      range = { 
+      range = {
         ['start'] = vim.api.nvim_buf_get_mark(0, '['),
         ['end'] = vim.api.nvim_buf_get_mark(0, ']'),
       }

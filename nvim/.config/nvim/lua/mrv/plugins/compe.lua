@@ -3,7 +3,7 @@
 local M = {}
 
 M.setup = function()
-  require'compe'.setup {
+  require 'compe'.setup {
     documentation = {
       border = "rounded",
     };
@@ -17,15 +17,15 @@ M.setup = function()
       ultisnips = false;
       luasnip = false;
       latex_symbols = true;
-      spell ={filetypes={"gitcommit","markdown"},}
+      spell = { filetypes = { "gitcommit", "markdown" }, }
     };
   }
 end
 
 M.setup()
 
-vim.keymap.set("i", "<C-Space>", "compe#complete()", {expr = true, noremap = true}) -- trigger completion menu
-vim.keymap.set("i", "<C-e>", "compe#close('<C-e>')", {expr = true, noremap = true}) -- close completion menu
+vim.keymap.set("i", "<C-Space>", "compe#complete()", { expr = true, noremap = true }) -- trigger completion menu
+vim.keymap.set("i", "<C-e>", "compe#close('<C-e>')", { expr = true, noremap = true }) -- close completion menu
 
 -- Select option from completion menu
 --vim.keymap.set("i", "<CR>", "compe#confirm('<CR>')", {expr = true, noremap = true})

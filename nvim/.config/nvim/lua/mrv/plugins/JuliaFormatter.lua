@@ -1,5 +1,5 @@
-vim.keymap.set(0, "n", "<Leader>f", "<Cmd>JuliaFormatterFormat<CR>", { buffer=true})
-vim.keymap.set(0, "v", "<Leader>f", "<Cmd>JuliaFormatterFormat<CR>", { buffer=true})
+vim.keymap.set(0, "n", "<Leader>f", "<Cmd>JuliaFormatterFormat<CR>", { buffer = true })
+vim.keymap.set(0, "v", "<Leader>f", "<Cmd>JuliaFormatterFormat<CR>", { buffer = true })
 
 vim.g["JuliaFormatter_options"] = {
   indent = 2,

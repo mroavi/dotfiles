@@ -126,7 +126,7 @@ do
         table.insert(display_format, { { 3 + #pathtofile, #display + 1 }, "SpecialKey" })
       else
         -- `display` does have a path to file
-        table.insert(display_format, { {4 + #pathtofile + 1 , #display + 1  }, "SpecialKey" })
+        table.insert(display_format, { { 4 + #pathtofile + 1, #display + 1 }, "SpecialKey" })
       end
       if hl_group then
         return display, display_format
@@ -161,8 +161,8 @@ end
 
 function M.find_files(opts)
   opts = opts or {}
-  builtin.find_files{
-    file_sorter = require'telescope.sorters'.get_fzy_sorter,
+  builtin.find_files {
+    file_sorter = require 'telescope.sorters'.get_fzy_sorter,
     cwd = opts.cwd,
     entry_maker = my_make_entry.gen_from_file(opts),
   }
@@ -170,7 +170,7 @@ end
 
 function M.git_files(opts)
   opts = opts or {}
-  builtin.git_files{
+  builtin.git_files {
     cwd = opts.cwd,
     entry_maker = my_make_entry.gen_from_file(opts),
   }
@@ -180,10 +180,10 @@ end
 -- Based on: ~/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/builtin/__git.lua
 function M.my_git_files()
   local opts = { cwd = vim.fn.expand("%:p:h") }
-  local git_root, ret = require'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--show-toplevel" }, opts.cwd)
+  local git_root, ret = require 'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--show-toplevel" }, opts.cwd)
   if ret ~= 0 then
-    local in_worktree = require'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, opts.cwd)
-    local in_bare = require'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--is-bare-repository" }, opts.cwd)
+    local in_worktree = require 'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, opts.cwd)
+    local in_bare = require 'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--is-bare-repository" }, opts.cwd)
     if in_worktree[1] ~= "true" and in_bare[1] ~= "true" then
       require('mrv.plugins.telescope').find_files(opts) -- not a git repo
     else
@@ -197,7 +197,7 @@ end
 function M.dotfiles()
   local opts = { cwd = "~/dotfiles" }
   builtin.find_files {
-    find_command = {'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git',},
+    find_command = { 'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git', },
     prompt_title = "Dotfiles",
     cwd = opts.cwd,
     entry_maker = my_make_entry.gen_from_file(opts),
@@ -214,7 +214,7 @@ end
 
 local function new_args_finder(opts)
   opts = opts or {}
-  return finders.new_table{
+  return finders.new_table {
     results = vim.fn.argv(),
     entry_maker = my_make_entry.gen_from_file(),
   }
@@ -361,7 +361,7 @@ end
 -- Sort based on line number of the result hits
 function M.fuzzy_star_search()
   local opts = {
-    default_text=vim.fn.expand("<cword>"),
+    default_text = vim.fn.expand("<cword>"),
     layout_strategy = "vertical",
     layout_config = {
       mirror = true,
@@ -433,13 +433,13 @@ end
 
 local function my_marks_picker(opts)
 
-  local marks = vim.api.nvim_exec("marks", true)  -- get output from `marks` cmd
-  local marks_table = vim.fn.split(marks, "\n")   -- split into an array
+  local marks = vim.api.nvim_exec("marks", true) -- get output from `marks` cmd
+  local marks_table = vim.fn.split(marks, "\n") -- split into an array
   table.remove(marks_table, 1) -- pop off the header
 
   -- Filter all non-lower case marks
   local results = vim.tbl_filter(function(val)
-    local mark = string.sub(val,2,2) -- get second char in string
+    local mark = string.sub(val, 2, 2) -- get second char in string
     return string.match(mark, "%l") ~= nil -- return false for all non-lower case marks
   end, marks_table)
 
@@ -464,7 +464,7 @@ end
 
 -- Local marks BUG: https://github.com/neovim/neovim/issues/4295
 function M.marks()
-  my_marks_picker{
+  my_marks_picker {
     layout_strategy = "vertical",
     layout_config = {
       mirror = true,
@@ -479,12 +479,12 @@ function M.marks()
       -- Custom actions
       map('i', 'x', function(prompt_bufnr) -- delete selected mark
         local current_picker = action_state.get_current_picker(prompt_bufnr)
-        current_picker:delete_selection( function(_)
+        current_picker:delete_selection(function(_)
           local selection_value = action_state.get_selected_entry().value
           local selection_mark = vim.fn.split(selection_value)[1]
           local original_bufnr = vim.api.nvim_win_get_buf(current_picker.original_win_id)
           vim.api.nvim_buf_del_mark(original_bufnr, selection_mark)
-          end)
+        end)
       end)
       return true
     end,
@@ -523,7 +523,7 @@ local function my_recent_files_picker(opts)
 
   pickers.new(opts, {
     prompt_title = 'Recent Files',
-    finder = finders.new_table{
+    finder = finders.new_table {
       results = results,
       entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
     },
@@ -533,7 +533,7 @@ local function my_recent_files_picker(opts)
 end
 
 function M.recent_files()
-  my_recent_files_picker{
+  my_recent_files_picker {
     layout_strategy = "vertical",
     layout_config = {
       mirror = true,
@@ -559,14 +559,14 @@ local function my_hunks_picker(opts)
   local current_buffer = vim.api.nvim_get_current_buf()
   local ok, gitsigns = pcall(require, 'gitsigns')
   if not ok then
-    vim.api.nvim_echo({{'gitsigns plugin not found', 'WarningMsg'}}, false, {})
+    vim.api.nvim_echo({ { 'gitsigns plugin not found', 'WarningMsg' } }, false, {})
     return
   end
   local hunks = gitsigns.get_hunks(current_buffer)
   local current_buffer_path = vim.api.nvim_buf_get_name(current_buffer)
   local results = {}
   for _, hunk in pairs(hunks) do
-    table.insert(results, {hunk.added.start, hunk.lines[1], current_buffer_path})
+    table.insert(results, { hunk.added.start, hunk.lines[1], current_buffer_path })
   end
   -- Create new picker
   pickers.new(opts, {
@@ -589,7 +589,7 @@ local function my_hunks_picker(opts)
 end
 
 function M.hunks()
-  my_hunks_picker{
+  my_hunks_picker {
     layout_strategy = "vertical",
     layout_config = {
       mirror = true,
@@ -620,7 +620,7 @@ end
 -------------------------------------------------------------------------------
 
 function M.git_commits()
-  builtin.git_commits{
+  builtin.git_commits {
     cwd = vim.fn.expand("%:p:h"),
     layout_config = {
       mirror = true,
@@ -632,7 +632,7 @@ function M.git_commits()
 end
 
 function M.git_bcommits()
-  builtin.git_bcommits{
+  builtin.git_bcommits {
     cwd = vim.fn.expand("%:p:h"),
     layout_config = {
       mirror = true,
@@ -644,7 +644,7 @@ function M.git_bcommits()
 end
 
 function M.git_status()
-  builtin.git_status{
+  builtin.git_status {
     cwd = vim.fn.expand("%:p:h"),
     layout_strategy = "vertical",
     layout_config = {

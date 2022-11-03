@@ -1,7 +1,7 @@
 vim.g["lf#set_default_mappings"] = false
 vim.g["lf#replace_netrw"] = true
 vim.g["lf#layout"] = {
-  window = {width = 0.9, height = 0.9, highlight = "Normal"}
+  window = { width = 0.9, height = 0.9, highlight = "Normal" }
 }
 vim.g["lf#action"] = {
   ['<C-t>'] = 'tab split', -- open in tab
@@ -11,5 +11,5 @@ vim.g["lf#action"] = {
 }
 
 vim.keymap.set("n", "<Leader>/",
-               "expand('%') == '' ? '<Cmd>Lp %:p:h<CR>' : '<Cmd>Lp %<CR>'",
-               {noremap = true, expr = true, replace_keycodes = false})
+  "expand('%') == '' ? '<Cmd>Lp %:p:h<CR>' : '<Cmd>Lp %<CR>'",
+  { noremap = true, expr = true, replace_keycodes = false })

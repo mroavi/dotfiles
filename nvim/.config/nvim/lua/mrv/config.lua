@@ -78,7 +78,7 @@ M.setup = function()
   -- Highlight yanked text
   local group = vim.api.nvim_create_augroup("highlight_yank", { clear = true })
   local callback = function() vim.highlight.on_yank { higroup = 'IncSearch', timeout = 200 } end
-  vim.api.nvim_create_autocmd("TextYankPost", { callback = callback , group = group })
+  vim.api.nvim_create_autocmd("TextYankPost", { callback = callback, group = group })
 
 end
 
