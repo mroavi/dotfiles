@@ -39,6 +39,7 @@ M.setup = function()
     use {'preservim/vim-markdown'} -- syntax highlighting, matching rules and mappings for Markdown and extensions
     use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
     use {'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end}
+    use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
 
     -- {{{1
 
