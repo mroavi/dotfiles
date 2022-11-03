@@ -1,4 +1,5 @@
 local vim = vim
+local my_utils = require 'mrv.utils'
 local M = {}
 
 M.setup = function()
@@ -72,8 +73,8 @@ M.setup = function()
   vim.keymap.set("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", { expr = true })
 
   -- Jump to the next/prev cell delimeter
-  vim.keymap.set("n", "<M-j>", "<Cmd>call GoToNextDelim(b:cell_delimeter)<CR>")
-  vim.keymap.set("n", "<M-k>", "<Cmd>call GoToPrevDelim(b:cell_delimeter)<CR>")
+  vim.keymap.set('n', '<M-j>', function() my_utils.go_to_next_delim(vim.b.cell_delimeter) end)
+  vim.keymap.set('n', '<M-k>', function() my_utils.go_to_prev_delim(vim.b.cell_delimeter) end)
 
   -- Highlight yanked text
   local group = vim.api.nvim_create_augroup("highlight_yank", { clear = true })

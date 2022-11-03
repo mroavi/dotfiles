@@ -27,4 +27,14 @@ M.get_visual_selection = function()
   end
 end
 
+-- Go to next delimeter
+function M.go_to_next_delim(delim)
+  if vim.fn.search(delim, "W") == 0 then vim.cmd('normal! G0') end
+end
+
+-- Go to previous delimeter
+function M.go_to_prev_delim(delim)
+  if vim.fn.search(delim, "bW") == 0 then vim.cmd('normal! gg0') end
+end
+
 return M

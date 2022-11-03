@@ -7,20 +7,6 @@ nnoremap <Leader>G :vimgrep //gj **/*<left><left><left><left><left><left><left><
 " Substitute last searched pattern with the given text inside every file in the quickfix list
 nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
 
-" Jump to next delimiter
-function! GoToNextDelim(delim)
-  if (!search(a:delim, "W"))
-    silent exe "normal! G"
-  endif 
-endfunction
-
-" Jump to previous delimeter
-function! GoToPrevDelim(delim)
-  if (!search(a:delim, "bW"))
-    silent exe "normal! gg"
-  endif 
-endfunction
-
 " Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix')) | copen | else | cclose | endif
