@@ -348,6 +348,7 @@ alias jl="julia --project=@."
 alias ijulia="julia --project=@. -e \"using IJulia; notebook(dir=pwd())\""
 alias o="xdg-open"
 alias t="tmux"
+alias ta="tmux attach"
 alias l="ls -1"
 alias lsa="ls -lah"
 alias ll='ls -lh'
