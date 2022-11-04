@@ -243,7 +243,11 @@ end
 vim.keymap.set("n", "<Leader>d", "<Cmd>lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "<Leader>u", "<Cmd>lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "<Leader>r", "<Cmd>lua vim.lsp.buf.rename()<CR>")
-vim.keymap.set("n", "<Leader>=", "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>")
+if not vim.env.SSH_CONNECTION then
+  vim.keymap.set("n", "<Leader>=", "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>")
+else
+  vim.keymap.set("n", "<Leader>=", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
+end
 vim.keymap.set("n", "gf", "<Cmd>lua require('mrv.plugins.lspconfig').format_operator()<CR>")
 vim.keymap.set("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
 vim.keymap.set("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
