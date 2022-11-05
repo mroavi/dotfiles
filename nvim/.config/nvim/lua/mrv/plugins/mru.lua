@@ -1,6 +1,6 @@
 vim.g.MRU_File = "$HOME/.vim_mru_files"
 vim.g.MRU_Max_Entries = 1000
-vim.g.MRU_Exclude_Files = "\\.git"
+--vim.g.MRU_Exclude_Files = "\\.git"
 vim.g.MRU_Window_Height = 15
 vim.g.MRU_Set_Alternate_File = 1
 
