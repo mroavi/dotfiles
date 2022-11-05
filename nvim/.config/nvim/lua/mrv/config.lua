@@ -61,7 +61,6 @@ M.setup = function()
   vim.keymap.set("n", "<C-s>", ":call search('\\w\\>', 'c')<CR>a<C-X><C-S>") -- spelling completion in normal mode (https://stackoverflow.com/a/25777332/1706778)
   vim.keymap.set("n", "k", "(v:count > 1 ? \"m'\" . v:count : '') . 'k'", { expr = true }) -- add line movements preceded by a count greater than 1 to the jump list
   vim.keymap.set("n", "j", "(v:count > 1 ? \"m'\" . v:count : '') . 'j'", { expr = true }) -- add line movements preceded by a count greater than 1 to the jump list
-  vim.keymap.set("c", "/", "wildmenumode() ? \"\\<C-y>\" : \"/\"", { expr = true }) -- avoid a double slash when pressing / when using wildmenu (like in zsh)
 
   --------------------------------------------------------------------------------
   --- Misc
