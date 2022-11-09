@@ -80,6 +80,44 @@ M.setup = function()
   local callback = function() vim.highlight.on_yank { higroup = 'IncSearch', timeout = 200 } end
   vim.api.nvim_create_autocmd("TextYankPost", { callback = callback, group = group })
 
+  --------------------------------------------------------------------------------
+  --- Operators
+  --------------------------------------------------------------------------------
+
+  -- TODO: fix bug that appears in certain files (e.g. myargspicker) when sourceing the whole file (sid)
+
+  -- Source motion/textobject of code (only for lua and vim filetypes)
+  function M.source_opfunc(motion_type)
+    return my_utils.operator(false, nil, function()
+      -- Yank the text covered by the motion/textobject
+      local select_commands = { line = "'[V']", char = "`[v`]", block = "`[;<c-v>`]" }
+      vim.cmd("silent keepjumps normal! " .. select_commands[motion_type] .. 'y')
+      -- Get the start and end rows of the covered motion/textobject
+      local buf_sel_start = vim.api.nvim_buf_get_mark(0, '<')[1]
+      local buf_sel_end = vim.api.nvim_buf_get_mark(0, '>')[1]
+      -- Concat the range of the covered rows with "source" and set it to the unnamed reg
+      vim.fn.setreg('"', buf_sel_start .. "," .. buf_sel_end .. "source")
+      -- Execute the content of the unnamed register
+      vim.cmd('@"')
+    end
+    )
+  end
+  vim.cmd [[
+    function! __source_opfunc(motion_type) abort
+      return v:lua.require('mrv.config').source_opfunc(a:motion_type)
+    endfunction
+  ]]
+  -- Currently, opfunc needs to be set to a lua func (see https://github.com/neovim/neovim/issues/17503)
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "lua", "vim" },
+    callback = function()
+      local opfunc = "__source_opfunc"
+      vim.keymap.set('x', 's', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
+      vim.keymap.set('n', 's', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
+    end,
+    group = vim.api.nvim_create_augroup("lua_vim_source", { clear = true })
+  })
+
 end
 
 return M

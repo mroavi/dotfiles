@@ -112,47 +112,49 @@ onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
 xnoremap <silent> id :<C-u>normal! ggVG<cr>
 onoremap <silent> id :<C-u>normal! ggVG<cr>
 
+" ============================================================================
+""" DISABLED (enable when necessary)
+" ============================================================================
+
 " ----------------------------------------------------------------------------
 """ Execute motion/textobject of code
 " ----------------------------------------------------------------------------
 
-" Works for Lua and Vim (:h map-operator)
-" - https://vi.stackexchange.com/a/5497/27039
-" - https://vi.stackexchange.com/a/25507/27039
-" Interface Lua function that gets the row and col of the '<' and '>' marks
-lua function _G.buf_sel_start() return vim.api.nvim_buf_get_mark(0, '<')[1] end
-lua function _G.buf_sel_end() return vim.api.nvim_buf_get_mark(0, '>')[1] end
+"" Works for Lua and Vim (:h map-operator)
+"" - https://vi.stackexchange.com/a/5497/27039
+"" - https://vi.stackexchange.com/a/25507/27039
+"" Interface Lua function that gets the row and col of the '<' and '>' marks
+"lua function _G.buf_sel_start() return vim.api.nvim_buf_get_mark(0, '<')[1] end
+"lua function _G.buf_sel_end() return vim.api.nvim_buf_get_mark(0, '>')[1] end
 
-" Function that gets executed after the motion is finished
-function! SourceOperator(type)
-  " Yank the text covered by the motion/textobject
-  silent exe 'normal! `[v`]Vy'    
-  " Make a range with the selection start and end row numbers with "source"
-  let @z = v:lua.buf_sel_start() . "," . v:lua.buf_sel_end() . "source"
-  " Execute content of the z register
-  @z
-  " Restore the view of the current window (mainly to remember the cursor pos)
-  call winrestview(g:view)
-endfunction
+"" Function that gets executed after the motion is finished
+"function! SourceOperator(type)
+"  " Yank the text covered by the motion/textobject
+"  silent exe 'normal! `[v`]Vy'    
+"  " Make a range with the selection start and end row numbers with 'source'
+"  let @z = v:lua.buf_sel_start() . "," . v:lua.buf_sel_end() . "source"
+"  " Execute content of the z register
+"  @z
+"  " Restore the view of the current window (mainly to remember the cursor pos)
+"  call winrestview(g:view)
+"endfunction
 
-augroup vim_lua_execute
-  au!
+"augroup vim_lua_execute
+"  au!
 
-  " Use either this line which does not support mapping of predefined motions/textobjects
-  au FileType vim,lua nnoremap <buffer> <silent> s :let g:view=winsaveview()<Bar>set opfunc=SourceOperator<CR>g@
+"  " Use either this line which does not support mapping of predefined motions/textobjects
+"  au FileType vim,lua nnoremap <buffer> <silent> s :let g:view=winsaveview()<Bar>set opfunc=SourceOperator<CR>g@
 
-  "" or these lines that do support them
-  "" E.g, here we map Alt+Enter to `sic`, which executes the current cell
-  "au FileType vim,lua noremap <buffer> <SID>Operator :let g:view=winsaveview()<Bar>set opfunc=SourceOperator<CR>g@
-  "au FileType vim,lua noremap <buffer> <unique> <script> <silent> <Plug>LuaMotionSend <SID>Operator
-  "au FileType vim,lua nmap <buffer> s <Plug>LuaMotionSend
-  "au FileType vim,lua nmap <buffer> <M-Cr> sic
+"  "" or these lines that do support them
+"  "" E.g, here we map Alt+Enter to `sic`, which executes the current cell
+"  "au FileType vim,lua noremap <buffer> <SID>Operator :let g:view=winsaveview()<Bar>set opfunc=SourceOperator<CR>g@
+"  "au FileType vim,lua noremap <buffer> <unique> <script> <silent> <Plug>LuaMotionSend <SID>Operator
+"  "au FileType vim,lua nmap <buffer> s <Plug>LuaMotionSend
+"  "au FileType vim,lua nmap <buffer> <M-Cr> sic
 
-augroup END
+"augroup END
 
-" ============================================================================
-""" DISABLED (enable when necessary)
-" ============================================================================
+" ----------------------------------------------------------------------------
 
 "" Redirect the output of a Vim or external command into a scratch buffer
 "" https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
