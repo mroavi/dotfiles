@@ -38,7 +38,7 @@ function M.go_to_prev_delim(delim)
 end
 
 -- Define a new operator
-function M.operator(wait_for_motion, opfunc, handle_motion)
+function M.operator(wait_for_motion, opfunc, operate)
   if wait_for_motion == true then
     vim.g.cursor_pos_save = vim.fn.winsaveview()
     vim.opt.opfunc = opfunc
@@ -52,7 +52,7 @@ function M.operator(wait_for_motion, opfunc, handle_motion)
   --
   vim.api.nvim_set_option('selection', 'inclusive')
   vim.api.nvim_set_option('clipboard', '')
-  handle_motion()
+  operate()
   -- Restore state
   vim.fn.setpos("'<", visual_marks_save[1])
   vim.fn.setpos("'>", visual_marks_save[2])
