@@ -225,7 +225,7 @@ function M.range_format_opfunc(motion_type)
     local opts = {
       range = {
         ['start'] = vim.api.nvim_buf_get_mark(0, '['),
-['end'] = vim.api.nvim_buf_get_mark(0, ']'),
+        ['end'] = vim.api.nvim_buf_get_mark(0, ']'),
       }
     }
     vim.lsp.buf.format(opts)
@@ -233,8 +233,7 @@ function M.range_format_opfunc(motion_type)
   )
 end
 
--- Currently neovim won't repeat properly if you set the opfunc to a lua func
--- See: https://github.com/neovim/neovim/issues/17503.
+-- Repeat breaks if the opfunc is set to a lua func (https://github.com/neovim/neovim/issues/17503)
 vim.cmd [[
   function! __range_format_opfunc(motion_type) abort
     return v:lua.require('mrv.plugins.lspconfig').range_format_opfunc(a:motion_type)
