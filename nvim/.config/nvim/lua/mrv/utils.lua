@@ -37,4 +37,34 @@ function M.go_to_prev_delim(delim)
   if vim.fn.search(delim, "bW") == 0 then vim.cmd('normal! gg0') end
 end
 
+-- Define a new operator
+function M.operator(wait_for_motion, opfunc, handle_motion)
+  if wait_for_motion == true then
+    vim.g.cursor_pos_save = vim.fn.winsaveview()
+    vim.opt.opfunc = opfunc
+    return 'g@'
+  end
+  -- Save state
+  local selection_opt_save = vim.api.nvim_get_option('selection')
+  local unnamed_reg_save = vim.fn.getreginfo('"')
+  local clipboard_opt_save = vim.api.nvim_get_option('clipboard')
+  local visual_marks_save = { vim.fn.getpos("'<"), vim.fn.getpos("'>") }
+  --
+  vim.api.nvim_set_option('selection', 'inclusive')
+  vim.api.nvim_set_option('clipboard', '')
+  handle_motion()
+  -- Restore state
+  vim.fn.setpos("'<", visual_marks_save[1])
+  vim.fn.setpos("'>", visual_marks_save[2])
+  vim.fn.setreg('"', unnamed_reg_save)
+  vim.api.nvim_set_option('selection', selection_opt_save)
+  vim.api.nvim_set_option('clipboard', clipboard_opt_save)
+  vim.fn.winrestview(vim.g.cursor_pos_save)
+end
+function M.new_operator(lhs, opfunc)
+  vim.keymap.set('x', lhs, string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
+  vim.keymap.set('n', lhs, string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
+  vim.keymap.set('n', lhs .. lhs, string.format("v:lua.require('mrv.utils').operator(v:true, '%s') . '_'", opfunc), { expr = true })
+end
+
 return M

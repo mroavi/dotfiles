@@ -1,3 +1,5 @@
+local my_utils = require 'mrv.utils'
+
 local M = {}
 
 -- ==============================================================================
@@ -218,22 +220,26 @@ end
 --- Custom format operator
 -- ==============================================================================
 
-function M.format_operator()
-  local old_func = vim.go.operatorfunc
-  _G.op_func_formatting = function()
+function M.range_format_opfunc(motion_type)
+  return my_utils.operator(false, nil, function()
     local opts = {
       range = {
         ['start'] = vim.api.nvim_buf_get_mark(0, '['),
-        ['end'] = vim.api.nvim_buf_get_mark(0, ']'),
+['end'] = vim.api.nvim_buf_get_mark(0, ']'),
       }
     }
     vim.lsp.buf.format(opts)
-    vim.go.operatorfunc = old_func
-    _G.op_func_formatting = nil
   end
-  vim.go.operatorfunc = 'v:lua.op_func_formatting'
-  vim.api.nvim_feedkeys('g@', 'n', false)
+  )
 end
+
+-- Currently neovim won't repeat properly if you set the opfunc to a lua func
+-- See: https://github.com/neovim/neovim/issues/17503.
+vim.cmd [[
+  function! __range_format_opfunc(motion_type) abort
+    return v:lua.require('mrv.plugins.lspconfig').range_format_opfunc(a:motion_type)
+  endfunction
+]]
 
 -- ==============================================================================
 --- Mappings
@@ -248,11 +254,14 @@ if not vim.env.SSH_CONNECTION then
 else
   vim.keymap.set("n", "<Leader>=", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
 end
-vim.keymap.set("n", "gf", "<Cmd>lua require('mrv.plugins.lspconfig').format_operator()<CR>")
 vim.keymap.set("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
 vim.keymap.set("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
 -- See `:h lsp-diagnostic`
 vim.keymap.set("n", "]d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_next()<CR>")
 vim.keymap.set("n", "[d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_prev()<CR>")
+
+local opfunc = "__range_format_opfunc"
+vim.keymap.set('x', 'gf', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
+vim.keymap.set('n', 'gf', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
 
 return M
