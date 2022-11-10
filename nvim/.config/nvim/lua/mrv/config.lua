@@ -95,6 +95,17 @@ M.setup = function()
     group = vim.api.nvim_create_augroup("lua_vim_debug", { clear = true }),
   })
 
+  -- Debug related mappings for vim and lua filetypes
+  -- https://stackoverflow.com/a/7477056/1706778
+  vim.api.nvim_create_autocmd("WinEnter", {
+    callback = function()
+      if vim.fn.winnr('$') == 1 and vim.o.buftype == "quickfix" then
+        vim.cmd('quit')
+      end
+    end,
+    group = vim.api.nvim_create_augroup("quickfix-close", { clear = true }),
+  })
+
   --------------------------------------------------------------------------------
   --- Operators
   --------------------------------------------------------------------------------

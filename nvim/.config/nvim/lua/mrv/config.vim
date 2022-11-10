@@ -18,13 +18,6 @@ nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 
-" Automatically quit Vim if quickfix window is the last
-" https://stackoverflow.com/a/7477056/1706778
-aug QFClose
-  au!
-  au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
-aug END
-
 " Adds/Removes the passed string to the start/end of the cursor line
 function! ToggleString(str, insert_txt_cmd)
   if (search(a:str, 'cn', line('.'))) || (search(a:str, 'cnb', line('.')))
@@ -139,6 +132,13 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"" Automatically quit Vim if quickfix window is the last
+"" https://stackoverflow.com/a/7477056/1706778
+"aug QFClose
+"  au!
+"  au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
+"aug END
 
 "" Debug related mappings for vim and lua files
 "augroup vim_lua_debug
