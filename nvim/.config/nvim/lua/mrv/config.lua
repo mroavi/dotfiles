@@ -138,6 +138,15 @@ M.setup = function()
     group = vim.api.nvim_create_augroup("lua_vim_source", { clear = true })
   })
 
+  --------------------------------------------------------------------------------
+  --- Text-objects
+  --------------------------------------------------------------------------------
+
+  -- Document text-object
+  for _,mode in ipairs({ 'x', 'o' }) do
+    vim.api.nvim_set_keymap(mode, 'id', ':<C-u>normal! ggVG<CR>', { noremap = true, silent = true })
+  end
+
 end
 
 return M

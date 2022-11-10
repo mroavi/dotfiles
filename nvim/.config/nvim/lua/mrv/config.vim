@@ -85,9 +85,9 @@ onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
 
 " DOCUMENT TEXT OBJECT
 
-" Custom 'in document' text object (from first line to last)
-xnoremap <silent> id :<C-u>normal! ggVG<cr>
-onoremap <silent> id :<C-u>normal! ggVG<cr>
+"" Custom 'in document' text object (from first line to last)
+"xnoremap <silent> id :<C-u>normal! ggVG<cr>
+"onoremap <silent> id :<C-u>normal! ggVG<cr>
 
 " ============================================================================
 """ DISABLED (enable when necessary)
