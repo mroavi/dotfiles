@@ -134,11 +134,7 @@ M.setup = function()
   -- Currently, opfunc needs to be set to a lua func (see https://github.com/neovim/neovim/issues/17503)
   vim.api.nvim_create_autocmd("FileType", {
     pattern = { "lua", "vim" },
-    callback = function()
-      local opfunc = "__source_opfunc"
-      vim.keymap.set('x', 's', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
-      vim.keymap.set('n', 's', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
-    end,
+    callback = function() my_utils.new_operator('s', "__source_opfunc") end,
     group = vim.api.nvim_create_augroup("lua_vim_source", { clear = true })
   })
 
