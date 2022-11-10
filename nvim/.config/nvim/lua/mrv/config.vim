@@ -14,13 +14,6 @@ function! ToggleQuickFix()
 endfunction
 nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
 
-" Automatically open quickfix window after running vimgrep
-augroup quickfix
-  autocmd!
-  autocmd QuickFixCmdPost vimgrep cwindow
-  autocmd QuickFixCmdPost lvimgrep lwindow
-augroup END
-
 " Debug related mappings for vim and lua files
 augroup vim_lua_debug
   au!
@@ -155,6 +148,13 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"" Automatically open quickfix window after running vimgrep
+"augroup quickfix
+"  autocmd!
+"  autocmd QuickFixCmdPost vimgrep cwindow
+"  autocmd QuickFixCmdPost lvimgrep lwindow
+"augroup END
 
 "" Redirect the output of a Vim or external command into a scratch buffer
 "" https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7

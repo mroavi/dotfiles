@@ -80,6 +80,11 @@ M.setup = function()
   local callback = function() vim.highlight.on_yank { higroup = 'IncSearch', timeout = 200 } end
   vim.api.nvim_create_autocmd("TextYankPost", { callback = callback, group = group })
 
+  -- Automatically open quickfix window after running vimgrep
+  local quickfix_group = vim.api.nvim_create_augroup("quickfix", { clear = true })
+  vim.api.nvim_create_autocmd("QuickFixCmdPost", { pattern = "vimgrep", command = "cwindow", group = quickfix_group })
+  vim.api.nvim_create_autocmd("QuickFixCmdPost", { pattern = "lvimgrep", command = "lwindow", group = quickfix_group })
+
   --------------------------------------------------------------------------------
   --- Operators
   --------------------------------------------------------------------------------
