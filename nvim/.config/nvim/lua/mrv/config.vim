@@ -14,15 +14,6 @@ function! ToggleQuickFix()
 endfunction
 nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
 
-" Debug related mappings for vim and lua files
-augroup vim_lua_debug
-  au!
-  " Clear messages
-  au FileType vim,lua nnoremap <buffer> <Leader>cl :messages clear<CR>
-  " Show messages
-  au FileType vim,lua nnoremap <buffer> <Leader>m :messages<CR>
-augroup END
-
 " Remember cursor position (:h restore-cursor)
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
@@ -148,6 +139,15 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"" Debug related mappings for vim and lua files
+"augroup vim_lua_debug
+"  au!
+"  " Clear messages
+"  au FileType vim,lua nnoremap <buffer> <Leader>cl :messages clear<CR>
+"  " Show messages
+"  au FileType vim,lua nnoremap <buffer> <Leader>m :messages<CR>
+"augroup END
 
 "" Automatically open quickfix window after running vimgrep
 "augroup quickfix

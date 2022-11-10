@@ -85,11 +85,19 @@ M.setup = function()
   vim.api.nvim_create_autocmd("QuickFixCmdPost", { pattern = "vimgrep", command = "cwindow", group = quickfix_group })
   vim.api.nvim_create_autocmd("QuickFixCmdPost", { pattern = "lvimgrep", command = "lwindow", group = quickfix_group })
 
+  -- Debug related mappings for vim and lua filetypes
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "lua", "vim" },
+    callback = function()
+      vim.keymap.set("n", '<Leader>m', '<Cmd>messages<CR>')
+      vim.keymap.set("n", "<Leader>cl", ":messages clear<CR>")
+    end,
+    group = vim.api.nvim_create_augroup("lua_vim_debug", { clear = true }),
+  })
+
   --------------------------------------------------------------------------------
   --- Operators
   --------------------------------------------------------------------------------
-
-  -- TODO: fix bug that appears in certain files (e.g. myargspicker) when sourceing the whole file (sid)
 
   -- Source motion/textobject of code (only for lua and vim filetypes)
   function M.source_opfunc(motion_type)
