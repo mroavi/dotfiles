@@ -44,54 +44,54 @@ command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw! | 
 "" https://www.reddit.com/r/vim/comments/1xzfjy/go_to_start_of_current_word_if_not_already_there/
 nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm wb<Cr>
 
+" ============================================================================
+""" DISABLED (enable when necessary)
+" ============================================================================
+
 " ----------------------------------------------------------------------------
 """ My custom text object for cells
 " ----------------------------------------------------------------------------
 
 " CELL TEXT OBJECT
 
-" Based on: https://vimways.org/2018/transactions-pending/
-function! s:cellTextObject(text_object_type)
-  " Get the first character of the buffer's 'commentstring'
-  let l:comment_char = split(&commentstring, '%s')[0][0]
-  " Create a default cell delimeter regex pattern by duplicating the comment character
-  let l:cell_delimeter_default = repeat(l:comment_char, 2)
-  " Get `b:cell_delimeter` regex pattern if it exists, otherwise get `l:cell_delimeter_default`
-  let l:cell_delimeter = get(b:, "cell_delimeter", l:cell_delimeter_default)
-  " Move cursor to the previous cell delimiter if found, otherwise, to top-left of buffer
-  if (!search(l:cell_delimeter, "bcW")) | silent exe "normal! gg0" | endif 
-  " Did we receive 'i' as argument (inner cell)?
-  if a:text_object_type ==# 'i'
-    " Yes, then jump to next valid statement (skips empty lines and those starting with comment char)
-    let l:pattern_statement =  '^\(\s*' . l:comment_char . '\)\@!\s*\S\+'
-    call search(l:pattern_statement, "cW")
-  endif
-  " Start visual line mode
-  normal! V
-  " Move cursor to the next cell delimiter if found, otherwise, to bottom of buffer
-  if (!search(l:cell_delimeter, "W")) | exe "normal! G" | endif
-  " Did we receive 'i' as argument (inner cell)?
-  if a:text_object_type ==# 'i'
-    " Yes, then jump to prev valid statement (skips empty lines and those starting with comment char)
-    call search(l:pattern_statement, "cbW")
-  endif
-endfunction
-" Custom 'in cell' text object
-xnoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
-onoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
-" Custom 'around cell' text object
-xnoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
-onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
+"" Based on: https://vimways.org/2018/transactions-pending/
+"function! s:cellTextObject(text_object_type)
+"  " Get the first character of the buffer's 'commentstring'
+"  let l:comment_char = split(&commentstring, '%s')[0][0]
+"  " Create a default cell delimeter regex pattern by duplicating the comment character
+"  let l:cell_delimeter_default = repeat(l:comment_char, 2)
+"  " Get `b:cell_delimeter` regex pattern if it exists, otherwise get `l:cell_delimeter_default`
+"  let l:cell_delimeter = get(b:, "cell_delimeter", l:cell_delimeter_default)
+"  " Move cursor to the previous cell delimiter if found, otherwise, to top-left of buffer
+"  if (!search(l:cell_delimeter, "bcW")) | silent exe "normal! gg0" | endif 
+"  " Did we receive 'i' as argument (inner cell)?
+"  if a:text_object_type ==# 'i'
+"    " Yes, then jump to next valid statement (skips empty lines and those starting with comment char)
+"    let l:pattern_statement =  '^\(\s*' . l:comment_char . '\)\@!\s*\S\+'
+"    call search(l:pattern_statement, "cW")
+"  endif
+"  " Start visual line mode
+"  normal! V
+"  " Move cursor to the next cell delimiter if found, otherwise, to bottom of buffer
+"  if (!search(l:cell_delimeter, "W")) | exe "normal! G" | endif
+"  " Did we receive 'i' as argument (inner cell)?
+"  if a:text_object_type ==# 'i'
+"    " Yes, then jump to prev valid statement (skips empty lines and those starting with comment char)
+"    call search(l:pattern_statement, "cbW")
+"  endif
+"endfunction
+"" Custom 'in cell' text object
+"xnoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
+"onoremap <silent> ic :<C-u>call <sid>cellTextObject('i')<cr>
+"" Custom 'around cell' text object
+"xnoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
+"onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
 
 " DOCUMENT TEXT OBJECT
 
 "" Custom 'in document' text object (from first line to last)
 "xnoremap <silent> id :<C-u>normal! ggVG<cr>
 "onoremap <silent> id :<C-u>normal! ggVG<cr>
-
-" ============================================================================
-""" DISABLED (enable when necessary)
-" ============================================================================
 
 " ----------------------------------------------------------------------------
 """ Execute motion/textobject of code

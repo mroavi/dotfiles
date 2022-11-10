@@ -143,8 +143,38 @@ M.setup = function()
   --------------------------------------------------------------------------------
 
   -- Document text-object
-  for _,mode in ipairs({ 'x', 'o' }) do
-    vim.api.nvim_set_keymap(mode, 'id', ':<C-u>normal! ggVG<CR>', { noremap = true, silent = true })
+  for _, mode in ipairs({ 'x', 'o' }) do
+    vim.keymap.set(mode, 'id', ':<C-u>normal! ggVG<CR>', { silent = true })
+  end
+
+  -- Cell text-object
+  function M.cell_text_object(text_object_type)
+    local cell_delimeter = vim.b.cell_delimeter
+    -- Do nothing if `cell_delimeter` is not defined
+    if not cell_delimeter then return end
+    -- Move cursor to the previous cell delimiter if found, otherwise, to top-left of buffer
+    if vim.fn.search(cell_delimeter, "bcW") == 0 then vim.cmd [[silent exe "normal! gg0"]] end
+    -- Regex that captures lines that are not empty and that do not start with the comment char
+    local valid_statement_regex = [[^\(\s*]] .. string.sub(cell_delimeter, 1, 1) .. [[\)\@!\s*\S\+]]
+    -- Did we receive 'i' as argument (inner cell)?
+    if text_object_type == 'i' then
+      -- Yes, then jump to next valid statement (skips empty lines and those starting with comment char)
+      vim.fn.search(valid_statement_regex, "cW")
+    end
+    -- Start visual line mode
+    vim.cmd("normal! V")
+    -- Move cursor to the next cell delimiter if found, otherwise, to bottom of buffer
+    if vim.fn.search(cell_delimeter, "W") == 0 then vim.cmd([[exe "normal! G"]]) end
+    -- Did we receive 'i' as argument (inner cell)?
+    if text_object_type == 'i' then
+      -- Yes, then jump to prev valid statement (skips empty lines and those starting with comment char)
+      vim.fn.search(valid_statement_regex, "cbW")
+    end
+  end
+  for _, type in ipairs({ 'i', 'a' }) do
+    for _, mode in ipairs({ 'o', 'x' }) do
+      vim.keymap.set(mode, type .. 'c', ":<C-u>lua require('mrv.config').cell_text_object('" .. type .. "')<Cr>", { silent = true })
+    end
   end
 
 end
