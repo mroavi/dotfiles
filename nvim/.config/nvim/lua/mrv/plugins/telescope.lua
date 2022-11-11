@@ -668,7 +668,7 @@ end
 
 -- File pickers
 vim.keymap.set("n", "<Leader>o", "<Cmd>lua require('mrv.plugins.telescope').my_git_files()<CR>")
---vim.keymap.set("n", "<Leader>rg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
+--vim.keymap.set("n", "<Leader>G", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
 vim.keymap.set("n", "<Leader>.", "<Cmd>lua require('mrv.plugins.telescope').dotfiles()<CR>")
 vim.keymap.set("n", "<Leader>a", "<Cmd>lua require('mrv.plugins.telescope').args()<CR>")
 --vim.keymap.set("n", "<Leader>*", "<Cmd>lua require('mrv.plugins.telescope').fuzzy_star_search()<CR>")

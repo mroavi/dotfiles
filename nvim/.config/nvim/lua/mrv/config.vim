@@ -4,7 +4,7 @@ nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<lef
 vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 
 " Grep recursively in current directory and send results to quickfix list
-nnoremap <Leader>G :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
+nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
 " Substitute last searched pattern with the given text inside every file in the quickfix list
 nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
 
