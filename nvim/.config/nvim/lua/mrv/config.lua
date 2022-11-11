@@ -48,7 +48,6 @@ M.setup = function()
 
   vim.keymap.set("n", "<Leader>w", ":update<CR>") -- write to disk
   vim.keymap.set("n", "<Leader>z", "<C-z>") -- suspend vim (resume with `fg`)
-  vim.keymap.set("n", "<Leader>x", ":close<CR>") -- close the current window
   vim.keymap.set("n", "<Leader>l", ":b#<CR>", { silent = true }) -- edit the alternate file
   vim.keymap.set("n", "<Leader>cd", ":cd %:p:h<CR>:pwd<CR>") -- change to the dir of the current buffer
   vim.keymap.set("n", "<Leader>J", ":split<CR>") -- create a horizontal split
@@ -61,6 +60,7 @@ M.setup = function()
   vim.keymap.set("n", "j", "(v:count > 1 ? \"m'\" . v:count : '') . 'j'", { expr = true }) -- add line movements preceded by a count greater than 1 to the jump list
   --vim.keymap.set("n", "<Leader>j", "<C-w>w", { silent = true }) -- go to the next window
   --vim.keymap.set("n", "<Leader>k", "<C-w>W", { silent = true }) -- go to the prev window
+  --vim.keymap.set("n", "<Leader>x", ":close<CR>") -- close the current window
 
   --------------------------------------------------------------------------------
   --- Misc
