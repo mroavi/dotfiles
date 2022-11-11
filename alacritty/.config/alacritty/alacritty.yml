@@ -630,7 +630,7 @@ key_bindings:
   #- { key: 125,     mods: Super,         chars:  "\x02"             }
 
   # mrv: temporarily disable the Backspace key
-  - { key: Back,                         action:  None                                    }
+  #- { key: Back,                         action:  None                                    }
 
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
