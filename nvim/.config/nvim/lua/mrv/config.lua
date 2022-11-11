@@ -47,11 +47,8 @@ M.setup = function()
   --------------------------------------------------------------------------------
 
   vim.keymap.set("n", "<Leader>w", ":update<CR>") -- write to disk
-  vim.keymap.set("n", "<Leader>z", "<C-z>") -- suspend vim (resume with `fg`)
   vim.keymap.set("n", "<Leader>l", ":b#<CR>", { silent = true }) -- edit the alternate file
   vim.keymap.set("n", "<Leader>cd", ":cd %:p:h<CR>:pwd<CR>") -- change to the dir of the current buffer
-  vim.keymap.set("n", "<Leader>J", ":split<CR>") -- create a horizontal split
-  vim.keymap.set("n", "<Leader><CR>", ":vsplit<CR>") -- create a vertical split
   vim.keymap.set("n", "<ESC>", ":noh<CR><ESC>", { silent = true }) -- clear highlight
   vim.keymap.set("n", "<F6>", "':setlocal spelllang=' . (&spelllang == 'en' ? 'es' : 'en') . '<CR>'", { expr = true }) -- toggle spelling language
   vim.keymap.set("n", "gp", "'`[' . getregtype()[0] . '`]'", { expr = true }) -- select pasted text
@@ -61,6 +58,9 @@ M.setup = function()
   --vim.keymap.set("n", "<Leader>j", "<C-w>w", { silent = true }) -- go to the next window
   --vim.keymap.set("n", "<Leader>k", "<C-w>W", { silent = true }) -- go to the prev window
   --vim.keymap.set("n", "<Leader>x", ":close<CR>") -- close the current window
+  --vim.keymap.set("n", "<Leader>z", "<C-z>") -- suspend vim (resume with `fg`)
+  --vim.keymap.set("n", "<Leader>J", ":split<CR>") -- create a horizontal split
+  --vim.keymap.set("n", "<Leader><CR>", ":vsplit<CR>") -- create a vertical split
 
   --------------------------------------------------------------------------------
   --- Misc
