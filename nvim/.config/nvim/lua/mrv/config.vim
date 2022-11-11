@@ -8,12 +8,6 @@ nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left>
 " Substitute last searched pattern with the given text inside every file in the quickfix list
 nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
 
-" Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
-function! ToggleQuickFix()
-  if empty(filter(getwininfo(), 'v:val.quickfix')) | copen | else | cclose | endif
-endfunction
-nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
-
 " Remember cursor position (:h restore-cursor)
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
@@ -132,6 +126,12 @@ nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm w
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"" Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
+"function! ToggleQuickFix()
+"  if empty(filter(getwininfo(), 'v:val.quickfix')) | copen | else | cclose | endif
+"endfunction
+"nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
 
 "" Automatically quit Vim if quickfix window is the last
 "" https://stackoverflow.com/a/7477056/1706778
