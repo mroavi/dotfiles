@@ -141,25 +141,21 @@ map v
 map u
 
 # Mappings
-map dd        trash
-map DD        delete
-map R         fzf-restore
-map y         copy
-map x         cut
-map p         paste
-map f         find
-map r         rename
-map V         toggle
-map <esc>     quit
-map .         set hidden!
-map ~         cd ~
-map <enter>   open
-map o         myopen
-map z         fasd
-# Delete c and w mappings
-map c
-map w
-# Now that c and w are cleared, map cl and cw
-map cl        :clear; unselect
+map dd            trash
+map DD            delete
+map u             fzf-restore
+map y             copy
+map x             cut
+map p             paste
+map f             find
+map r             rename
 # https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files
-map cw        $printf '%s\n' $fx | vidir -
+map R             $printf '%s\n' $fx | vidir -
+map V             toggle
+map <esc>         quit
+map .             set hidden!
+map ~             cd ~
+map <enter>       open
+map o             myopen
+map z             fasd
+map <backspace2> :clear; unselect
