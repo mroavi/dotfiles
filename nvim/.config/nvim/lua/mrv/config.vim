@@ -2,13 +2,6 @@
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 
-" Use ripgrep as grep program
-" https://phelipetls.github.io/posts/extending-vim-with-ripgrep/
-if executable("rg")
-  set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
-  set grepformat=%f:%l:%c:%m
-endif
-
 " Prevent 'Press ENTER or ...' prompt after external command executes
 " https://vi.stackexchange.com/a/21010/27039
 command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw! | cwindow
@@ -106,6 +99,13 @@ nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm w
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"" Use ripgrep as grep program
+"" https://phelipetls.github.io/posts/extending-vim-with-ripgrep/
+"if executable("rg")
+"  set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+"  set grepformat=%f:%l:%c:%m
+"endif
 
 "" Adds/Removes the passed string to the start/end of the cursor line
 "function! ToggleString(str, insert_txt_cmd)
