@@ -77,4 +77,10 @@ function M.toggle_string(str, insert_text_cmd)
   end
 end
 
+-- Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
+function M.toggle_quickfix_window()
+  local quickfixwin = vim.tbl_filter(function(val) return val.quickfix == 1 end, vim.fn.getwininfo())
+  if next(quickfixwin) == nil then vim.cmd("copen") else vim.cmd("cclose") end
+end
+
 return M

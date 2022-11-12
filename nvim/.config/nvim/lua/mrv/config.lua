@@ -59,6 +59,12 @@ M.setup = function()
   vim.keymap.set("x", "<Leader>su", ":s//<C-r>=substitute(@/, '\\\\<\\|\\\\>\\|\\\\V', '', 'g')<CR>/g<Left><Left>") -- https://stackoverflow.com/a/66440706/1706778
   vim.keymap.set("n", "<Leader>gr", ":vimgrep //gj **/*<left><left><left><left><left><left><left><left>") -- grep recursively in current directory and send results to quickfix list
   vim.keymap.set("n", "<Leader>S", ":cfdo %s/<C-r>///gc<left><left><left>") -- substitute last searched pattern with the given text inside every file in the quickfix list
+  vim.keymap.set("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", { expr = true }) -- make Ctrl-u and Ctrl-d scroll 1/3 of the window height
+  vim.keymap.set("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", { expr = true }) -- https://neovim.discourse.group/t/how-to-make-ctrl-d-and-ctrl-u-scroll-1-3-of-window-height/859
+  vim.keymap.set('n', '<M-j>', function() my_utils.go_to_next_delim(vim.b.cell_delimeter) end) -- jump to the next cell delimeter
+  vim.keymap.set('n', '<M-k>', function() my_utils.go_to_prev_delim(vim.b.cell_delimeter) end) -- jump to the prev cell delimeter
+  vim.keymap.set("n", "<Leader>q", function() require('mrv.utils').toggle_quickfix_window() end) -- toggle quickfist window
+  vim.keymap.set("n", "*", [[:let @/ = '\<'.expand('<cword>').'\>' | :set hlsearch | norm wb<Cr>]], { silent = true, noremap = false}) -- make star `*` command stay on current word
   --vim.keymap.set("n", "<Leader>j", "<C-w>w", { silent = true }) -- go to the next window
   --vim.keymap.set("n", "<Leader>k", "<C-w>W", { silent = true }) -- go to the prev window
   --vim.keymap.set("n", "<Leader>x", ":close<CR>") -- close the current window
@@ -66,18 +72,19 @@ M.setup = function()
   --vim.keymap.set("n", "<Leader>J", ":split<CR>") -- create a horizontal split
   --vim.keymap.set("n", "<Leader><CR>", ":vsplit<CR>") -- create a vertical split
 
+  -- Debug-related mappings for vim and lua filetypes
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "lua", "vim" },
+    callback = function()
+      vim.keymap.set("n", '<Leader>m', '<Cmd>messages<CR>')
+      vim.keymap.set("n", "<Leader>cl", ":messages clear<CR>")
+    end,
+    group = vim.api.nvim_create_augroup("lua_vim_debug", { clear = true }),
+  })
+
   --------------------------------------------------------------------------------
   --- Misc
   --------------------------------------------------------------------------------
-
-  -- Make Ctrl-u and Ctrl-d scroll 1/3 of the window height
-  -- https://neovim.discourse.group/t/how-to-make-ctrl-d-and-ctrl-u-scroll-1-3-of-window-height/859
-  vim.keymap.set("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", { expr = true })
-  vim.keymap.set("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", { expr = true })
-
-  -- Jump to the next/prev cell delimeter
-  vim.keymap.set('n', '<M-j>', function() my_utils.go_to_next_delim(vim.b.cell_delimeter) end)
-  vim.keymap.set('n', '<M-k>', function() my_utils.go_to_prev_delim(vim.b.cell_delimeter) end)
 
   -- Highlight yanked text
   local group = vim.api.nvim_create_augroup("highlight_yank", { clear = true })
@@ -89,18 +96,7 @@ M.setup = function()
   vim.api.nvim_create_autocmd("QuickFixCmdPost", { pattern = "vimgrep", command = "cwindow", group = quickfix_group })
   vim.api.nvim_create_autocmd("QuickFixCmdPost", { pattern = "lvimgrep", command = "lwindow", group = quickfix_group })
 
-  -- Debug related mappings for vim and lua filetypes
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "lua", "vim" },
-    callback = function()
-      vim.keymap.set("n", '<Leader>m', '<Cmd>messages<CR>')
-      vim.keymap.set("n", "<Leader>cl", ":messages clear<CR>")
-    end,
-    group = vim.api.nvim_create_augroup("lua_vim_debug", { clear = true }),
-  })
-
-  -- Debug related mappings for vim and lua filetypes
-  -- https://stackoverflow.com/a/7477056/1706778
+  -- Debug related mappings for vim and lua filetypes (https://stackoverflow.com/a/7477056/1706778)
   vim.api.nvim_create_autocmd("WinEnter", {
     callback = function()
       if vim.fn.winnr('$') == 1 and vim.o.buftype == "quickfix" then
@@ -110,24 +106,11 @@ M.setup = function()
     group = vim.api.nvim_create_augroup("quickfix-close", { clear = true }),
   })
 
-  -- Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
-  function M.toggle_quickfix_window()
-    local quickfixwin = vim.tbl_filter(function(val) return val.quickfix == 1 end, vim.fn.getwininfo())
-    if next(quickfixwin) == nil then vim.cmd("copen") else vim.cmd("cclose") end
-  end
-  vim.keymap.set("n", "<Leader>q", function() M.toggle_quickfix_window() end)
-
-  -- Use ripgrep as grep program
-  -- https://phelipetls.github.io/posts/extending-vim-with-ripgrep/
+  -- Use ripgrep as grep program (https://phelipetls.github.io/posts/extending-vim-with-ripgrep/)
   if vim.fn.executable("rg") then
     vim.o.grepprg = "rg --vimgrep --smart-case --hidden"
     vim.o.grepformat = "%f:%l:%c:%m"
   end
-
-  -- Make star `*` command stay on current word
-  -- https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word
-  -- https://www.reddit.com/r/vim/comments/1xzfjy/go_to_start_of_current_word_if_not_already_there/
-  vim.keymap.set("n", "*", [[:let @/ = '\<'.expand('<cword>').'\>' | :set hlsearch | norm wb<Cr>]], { silent = true, noremap = false})
 
   --------------------------------------------------------------------------------
   --- Operators
@@ -154,7 +137,7 @@ M.setup = function()
       return v:lua.require('mrv.config').source_opfunc(a:motion_type)
     endfunction
   ]]
-  -- Currently, opfunc needs to be set to a lua func (see https://github.com/neovim/neovim/issues/17503)
+  -- Currently, opfunc needs to be set to a lua func (https://github.com/neovim/neovim/issues/17503)
   vim.api.nvim_create_autocmd("FileType", {
     pattern = { "lua", "vim" },
     callback = function() my_utils.new_operator('s', "__source_opfunc") end,
