@@ -1,8 +1,3 @@
-" Substitute all occurrences of the content of the search register with new text
-" https://stackoverflow.com/a/66440706/1706778
-nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
-vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
-
 " Grep recursively in current directory and send results to quickfix list
 nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
 " Substitute last searched pattern with the given text inside every file in the quickfix list
@@ -126,6 +121,11 @@ nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm w
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"" Substitute all occurrences of the content of the search register with new text
+"" https://stackoverflow.com/a/66440706/1706778
+"nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
+"vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 
 "" Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
 "function! ToggleQuickFix()

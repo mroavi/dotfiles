@@ -55,6 +55,8 @@ M.setup = function()
   vim.keymap.set("n", "<C-s>", ":call search('\\w\\>', 'c')<CR>a<C-X><C-S>") -- spelling completion in normal mode (https://stackoverflow.com/a/25777332/1706778)
   vim.keymap.set("n", "k", "(v:count > 1 ? \"m'\" . v:count : '') . 'k'", { expr = true }) -- add line movements preceded by a count greater than 1 to the jump list
   vim.keymap.set("n", "j", "(v:count > 1 ? \"m'\" . v:count : '') . 'j'", { expr = true }) -- add line movements preceded by a count greater than 1 to the jump list
+  vim.keymap.set("n", "<Leader>su", ":%s//<C-r>=substitute(@/, '\\\\<\\|\\\\>\\|\\\\V', '', 'g')<CR>/g<Left><Left>") -- Substitute all occurrences of the content of the search register with new text
+  vim.keymap.set("x", "<Leader>su", ":s//<C-r>=substitute(@/, '\\\\<\\|\\\\>\\|\\\\V', '', 'g')<CR>/g<Left><Left>") -- https://stackoverflow.com/a/66440706/1706778
   --vim.keymap.set("n", "<Leader>j", "<C-w>w", { silent = true }) -- go to the next window
   --vim.keymap.set("n", "<Leader>k", "<C-w>W", { silent = true }) -- go to the prev window
   --vim.keymap.set("n", "<Leader>x", ":close<CR>") -- close the current window
