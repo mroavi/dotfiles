@@ -6,11 +6,6 @@ autocmd BufRead * autocmd FileType <buffer> ++once
 " https://vi.stackexchange.com/a/21010/27039
 command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw! | cwindow
 
-"" Make star `*` command stay on current word
-"" https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word
-"" https://www.reddit.com/r/vim/comments/1xzfjy/go_to_start_of_current_word_if_not_already_there/
-nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm wb<Cr>
-
 " ============================================================================
 """ DISABLED (enable when necessary)
 " ============================================================================
@@ -99,6 +94,11 @@ nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm w
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"""" Make star `*` command stay on current word
+"""" https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word
+"""" https://www.reddit.com/r/vim/comments/1xzfjy/go_to_start_of_current_word_if_not_already_there/
+"nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm wb<Cr>
 
 "" Use ripgrep as grep program
 "" https://phelipetls.github.io/posts/extending-vim-with-ripgrep/

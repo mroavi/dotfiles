@@ -124,6 +124,11 @@ M.setup = function()
     vim.o.grepformat = "%f:%l:%c:%m"
   end
 
+  -- Make star `*` command stay on current word
+  -- https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word
+  -- https://www.reddit.com/r/vim/comments/1xzfjy/go_to_start_of_current_word_if_not_already_there/
+  vim.keymap.set("n", "*", [[:let @/ = '\<'.expand('<cword>').'\>' | :set hlsearch | norm wb<Cr>]], { silent = true, noremap = false})
+
   --------------------------------------------------------------------------------
   --- Operators
   --------------------------------------------------------------------------------
