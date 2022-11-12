@@ -1,8 +1,3 @@
-" Grep recursively in current directory and send results to quickfix list
-nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
-" Substitute last searched pattern with the given text inside every file in the quickfix list
-nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
-
 " Remember cursor position (:h restore-cursor)
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
@@ -121,6 +116,11 @@ nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm w
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"" Grep recursively in current directory and send results to quickfix list
+"nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
+"" Substitute last searched pattern with the given text inside every file in the quickfix list
+"nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
 
 "" Substitute all occurrences of the content of the search register with new text
 "" https://stackoverflow.com/a/66440706/1706778
