@@ -2,16 +2,6 @@
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 
-" Adds/Removes the passed string to the start/end of the cursor line
-function! ToggleString(str, insert_txt_cmd)
-  if (search(a:str, 'cn', line('.'))) || (search(a:str, 'cnb', line('.')))
-    " Gets the current line, performs the substitution, and replaces it
-    call setline(line('.'), substitute(getline('.'), a:str, '', ''))
-  else
-    silent exe "normal! m`" .. a:insert_txt_cmd .. a:str .. "\<Esc>``"
-  endif 
-endfunction
-
 " Use ripgrep as grep program
 " https://phelipetls.github.io/posts/extending-vim-with-ripgrep/
 if executable("rg")
@@ -116,6 +106,16 @@ nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm w
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"" Adds/Removes the passed string to the start/end of the cursor line
+"function! ToggleString(str, insert_txt_cmd)
+"  if (search(a:str, 'cn', line('.'))) || (search(a:str, 'cnb', line('.')))
+"    " Gets the current line, performs the substitution, and replaces it
+"    call setline(line('.'), substitute(getline('.'), a:str, '', ''))
+"  else
+"    silent exe "normal! m`" .. a:insert_txt_cmd .. a:str .. "\<Esc>``"
+"  endif 
+"endfunction
 
 "" Grep recursively in current directory and send results to quickfix list
 "nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left><left>

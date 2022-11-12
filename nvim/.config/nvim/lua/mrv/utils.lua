@@ -67,4 +67,14 @@ function M.new_operator(lhs, opfunc)
   vim.keymap.set('n', lhs .. lhs, string.format("v:lua.require('mrv.utils').operator(v:true, '%s') . '_'", opfunc), { expr = true })
 end
 
+-- Adds/Removes the passed string to the start/end of the cursor line
+function M.toggle_string(str, insert_text_cmd)
+  local current_line = vim.api.nvim_get_current_line()
+  if not string.find(current_line, str) then
+    vim.cmd([[exe "normal! m`]] .. insert_text_cmd .. str .. [[\<Esc>``"]])
+  else
+    vim.api.nvim_set_current_line((current_line:gsub(str, "")))
+  end
+end
+
 return M
