@@ -1,5 +1,100 @@
 ".vimrc
 
+" Remap <Leader> key (should be placed on top of this file)
+let mapleader = ' '
+let maplocalleader = ' '
+set nocompatible " No Vi compatibility (`set viminfo=xxx` should come after `set nocompatible`)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-plug
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Automatically install vim-plug if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Plugins will be downloaded under the specified directory.
+call plug#begin('~/.vim/plugged')
+
+" A simple, easy-to-use Vim alignment plugin
+Plug 'junegunn/vim-easy-align'
+
+" Provides support for writing LaTeX documents
+Plug 'lervag/vimtex'
+
+" Pairs of handy bracket mappings
+Plug 'tpope/vim-unimpaired'
+
+" Provides mappings to easily delete, change and add such surroundings in pairs
+Plug 'tpope/vim-surround'
+
+" Shows a git diff in the 'gutter' (sign column)
+Plug 'airblade/vim-gitgutter'
+
+" Make the yanked region apparent!
+Plug 'machakann/vim-highlightedyank'
+
+" Vim support for Julia.
+Plug 'JuliaEditorSupport/julia-vim'
+
+" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
+Plug 'jpalardy/vim-slime'
+
+" Start a * or # search from a visual block
+Plug 'nelstrom/vim-visual-star-search'
+
+call plug#end()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Write to disk
+nnoremap <Leader>w :update<CR>
+
+" Edit the alternate file
+nnoremap <silent> <Leader>l :b#<CR>
+
+" Change to the directory of the current buffer and print it
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Clear highlight on pressing ESC
+nnoremap <silent> <ESC> :noh<CR><ESC>
+
+" Toggle spelling language
+nnoremap <expr> <F6> ':setlocal spelllang=' . (&spelllang == 'en' ? 'es' : 'en') . '<CR>'
+
+" Select pasted text
+nnoremap <expr> gp '`[' . getregtype()[0] . '`]'
+
+" Spelling completion in normal mode ( https://stackoverflow.com/a/25777332/1706778 )
+nnoremap <C-s> :call search('\w\>', 'c')<CR>a<C-X><C-S>
+
+" Add line movements preceded by a count greater than 1 to the jump list
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
+
+" Grep recursively in current directory and send results to quickfix list
+nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
+" Substitute last searched pattern with the given text inside every file in the quickfix list
+nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
+
+" Substitute all occurrences of the content of the search register with new text
+" https://stackoverflow.com/a/66440706/1706778
+nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
+vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
+
+" Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
+function! ToggleQuickFix()
+  if empty(filter(getwininfo(), 'v:val.quickfix')) | copen | else | cclose | endif
+endfunction
+nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
+
+" Make star `*` command stay on current word
+" https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word
+" https://www.reddit.com/r/vim/comments/1xzfjy/go_to_start_of_current_word_if_not_already_there/
+nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm wb<Cr>
+
 " Remember cursor position (:h restore-cursor)
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
@@ -7,11 +102,6 @@ autocmd BufRead * autocmd FileType <buffer> ++once
 " Prevent 'Press ENTER or ...' prompt after external command executes
 " https://vi.stackexchange.com/a/21010/27039
 command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw! | cwindow
-
-" Make star `*` command stay on current word
-" https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word
-" https://www.reddit.com/r/vim/comments/1xzfjy/go_to_start_of_current_word_if_not_already_there/
-nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm wb<Cr>
 
 " Use ripgrep as grep program
 " https://phelipetls.github.io/posts/extending-vim-with-ripgrep/
@@ -29,22 +119,6 @@ function! ToggleString(str, insert_txt_cmd)
     silent exe "normal! m`" .. a:insert_txt_cmd .. a:str .. "\<Esc>``"
   endif 
 endfunction
-
-" Grep recursively in current directory and send results to quickfix list
-nnoremap <Leader>gr :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
-" Substitute last searched pattern with the given text inside every file in the quickfix list
-nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
-
-" Substitute all occurrences of the content of the search register with new text
-" https://stackoverflow.com/a/66440706/1706778
-nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
-vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
-
-" Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
-function! ToggleQuickFix()
-  if empty(filter(getwininfo(), 'v:val.quickfix')) | copen | else | cclose | endif
-endfunction
-nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
 
 " Automatically quit Vim if quickfix window is the last
 " https://stackoverflow.com/a/7477056/1706778
@@ -68,6 +142,18 @@ augroup quickfix
   autocmd QuickFixCmdPost vimgrep cwindow
   autocmd QuickFixCmdPost lvimgrep lwindow
 augroup END
+
+" Change curosr shape in insert mode (https://stackoverflow.com/a/42118416/1706778)
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+" Reset the cursor on start (for older versions of vim, usually not required)
+augroup myCmds
+  au!
+  autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
 
 " ----------------------------------------------------------------------------
 """ My custom text object for cells
