@@ -155,6 +155,35 @@ set ttimeout
 set ttimeoutlen=1
 set ttyfast
 
+" https://neovim.io/doc/user/options.html#'shada'
+set shada=%,<800,'50,/50,:100,h,f1
+"         |   |   |   |    |  |  + store file marks 0-9,A-Z
+"         |   |   |   |    |  + disable 'hlsearch' while loading viminfo
+"         |   |   |   |    + maximum number of items in the command-line history to be saved
+"         |   |   |   + maximum number of items in the search pattern history to be saved
+"         |   |   + files marks saved for the last XX files edited
+"         |   + maximum num of lines saved for each register (old name for <, vi6.2)
+"         + save/restore buffer list
+set relativenumber " lines are numbered relative to the line the cursor is on
+set noswapfile " they're just annoying. Who likes them?
+set wrap linebreak nolist " avoid breaking lines in the middle of words
+set noshowmode " don't show mode in status bar (taken care of by airline)
+set hidden " allows switching from unwritten buffers and remembers the buffer undo history
+set formatoptions-=tc " disable auto-wrap text using textwidth
+set grepprg=rg\ --vimgrep " program to used for the :grep command.
+set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
+set splitbelow splitright " open a new split at to bottom or to the right of the current one
+set signcolumn=yes " always show sign column
+set tabstop=2 " number of spaces that a <Tab> in the file counts for
+set softtabstop=2 " number of spaces that a <Tab> counts for while performing editing operations
+set shiftwidth=2 " number of spaces for indents in normal mode
+set expandtab " use spaces instead of tabs.
+set shiftround " tab / shifting moves to closest tabstop.
+set smartindent " intelligently dedent / indent new lines based on rules.
+set updatetime=100 " among others, governs gitgutter's update time
+set inccommand=split "shows the effects of a command incrementally, as you type
+set listchars=tab:▸\ ,space:_,eol:¬ " define symbols for tabstops, spaces and EOLs
+
 " ----------------------------------------------------------------------------
 """ My custom text object for cells
 " ----------------------------------------------------------------------------
