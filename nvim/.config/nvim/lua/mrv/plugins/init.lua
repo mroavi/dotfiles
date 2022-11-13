@@ -55,6 +55,7 @@ M.setup = function()
     --use {'akinsho/toggleterm.nvim', config = function() require('mrv.plugins.toggleterm') end} -- a neovim lua plugin to help easily manage multiple terminal windows
     --use {'jose-elias-alvarez/null-ls.nvim', config = function() require('mrv.plugins.null-ls') end} -- use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
     --use {'mroavi/vim-evanesco'} -- automatically clears search highlight
+    --use {'vladdoster/remember.nvim'} -- remembers cursor position
 
     -- TODO: Try these out!
     --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config

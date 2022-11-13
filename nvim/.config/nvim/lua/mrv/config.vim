@@ -1,7 +1,3 @@
-" Remember cursor position (:h restore-cursor)
-autocmd BufRead * autocmd FileType <buffer> ++once
-  \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
-
 " ============================================================================
 """ DISABLED (enable when necessary)
 " ============================================================================
@@ -90,6 +86,10 @@ autocmd BufRead * autocmd FileType <buffer> ++once
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"" Remember cursor position (:h restore-cursor)
+"autocmd BufRead * autocmd FileType <buffer> ++once
+"  \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 
 "" Prevent 'Press ENTER or ...' prompt after external command executes
 "" https://vi.stackexchange.com/a/21010/27039
