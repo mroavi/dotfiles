@@ -40,6 +40,7 @@ M.setup = function()
 
   if vim.env.SSH_CONNECTION then
     vim.o.clipboard = ''
+    --:set diffopt+=linematch:60 -- TODO: set this when 0.9 comes out
   end
 
   --------------------------------------------------------------------------------
