@@ -2,10 +2,6 @@
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 
-" Prevent 'Press ENTER or ...' prompt after external command executes
-" https://vi.stackexchange.com/a/21010/27039
-command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw! | cwindow
-
 " ============================================================================
 """ DISABLED (enable when necessary)
 " ============================================================================
@@ -94,6 +90,10 @@ command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw! | 
 "augroup END
 
 " ----------------------------------------------------------------------------
+
+"" Prevent 'Press ENTER or ...' prompt after external command executes
+"" https://vi.stackexchange.com/a/21010/27039
+"command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw! | cwindow
 
 """" Make star `*` command stay on current word
 """" https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word

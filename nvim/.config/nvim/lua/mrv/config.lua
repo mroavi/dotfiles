@@ -112,6 +112,14 @@ M.setup = function()
     vim.o.grepformat = "%f:%l:%c:%m"
   end
 
+  -- Prevent 'Press ENTER or ...' prompt after executing grep
+  -- https://vi.stackexchange.com/a/21010/27039
+  vim.api.nvim_create_user_command(
+    "Grep",
+    "exe 'silent grep! <args>' | redraw! | cwindow",
+    { bang = true, nargs = "+", complete = "file" }
+  )
+
   --------------------------------------------------------------------------------
   --- Operators
   --------------------------------------------------------------------------------
