@@ -40,7 +40,6 @@ M.setup = function()
     use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
     use {'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end}
     use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
-    use {'vladdoster/remember.nvim'} -- remembers cursor position
 
     -- {{{1
 
@@ -56,6 +55,7 @@ M.setup = function()
     --use {'jose-elias-alvarez/null-ls.nvim', config = function() require('mrv.plugins.null-ls') end} -- use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
     --use {'mroavi/vim-evanesco'} -- automatically clears search highlight
     --use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf-vim') end} -- file manager for vim/neovim powered by lf
+    --use {'vladdoster/remember.nvim', config = [[ require('remember') ]]} -- remembers cursor position
 
     -- TODO: Try these out!
     --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
