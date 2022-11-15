@@ -108,9 +108,9 @@ function benchmark_dirname()
 end
 
 # ------------------------------------------------------------------------------
-## My @show version (omit the right-hand side)
+## My silent @show version (omit the right-hand side)
 # ------------------------------------------------------------------------------
-macro myshow(exs...)
+macro sshow(exs...)
   blk = Expr(:block)
   for ex in exs
     push!(blk.args, :(println(repr(begin
