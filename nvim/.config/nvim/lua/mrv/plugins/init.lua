@@ -13,7 +13,7 @@ M.setup = function()
     use {'wbthomason/packer.nvim', config = function() require('mrv.plugins.packer') end} -- packer can manage itself
     use {'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end} -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
     use {'tpope/vim-commentary', config = function() require('mrv.plugins.vim-commentary') end} -- comment stuff out
-    use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf-vim') end} -- file manager for vim/neovim powered by lf
+    use {'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, requires = {'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim'}} -- lf file manager for Neovim (in Lua)
     use {'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons'}}
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function() require('mrv.plugins.gitsigns') end} -- super fast git decorations implemented purely in lua/teal
     use {'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, requires = {'hrsh7th/cmp-nvim-lsp','hrsh7th/cmp-buffer','hrsh7th/cmp-path'}} -- a completion plugin for neovim coded in Lua
@@ -40,6 +40,7 @@ M.setup = function()
     use {'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end}
     use {'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end}
     use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
+    use {'vladdoster/remember.nvim'} -- remembers cursor position
 
     -- {{{1
 
@@ -51,11 +52,10 @@ M.setup = function()
     --use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}} -- preview markdown on your browser with synchronised scrolling
     --use {'vim-pandoc/vim-pandoc-syntax'} -- pandoc markdown syntax, to be installed alongside vim-pandoc
     --use {'quarto-dev/quarto-vim', requires = {'vim-pandoc/vim-pandoc-syntax'}} -- rmarkdown support for vim
-    --use {'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, requires = {'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim'}} -- lf file manager for Neovim (in Lua)
     --use {'akinsho/toggleterm.nvim', config = function() require('mrv.plugins.toggleterm') end} -- a neovim lua plugin to help easily manage multiple terminal windows
     --use {'jose-elias-alvarez/null-ls.nvim', config = function() require('mrv.plugins.null-ls') end} -- use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
     --use {'mroavi/vim-evanesco'} -- automatically clears search highlight
-    --use {'vladdoster/remember.nvim'} -- remembers cursor position
+    --use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf-vim') end} -- file manager for vim/neovim powered by lf
 
     -- TODO: Try these out!
     --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
