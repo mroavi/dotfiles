@@ -1,4 +1,6 @@
-".vimrc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Vim philosopy: https://stackoverflow.com/a/1220118/1706778
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Remap <Leader> key (should be placed on top of this file)
 let mapleader = ' '
@@ -6,8 +8,9 @@ let maplocalleader = ' '
 set nocompatible " No Vi compatibility (`set viminfo=xxx` should come after `set nocompatible`)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-plug
+""" vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Automatically install vim-plug if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -48,8 +51,69 @@ Plug 'jpalardy/vim-slime'
 " Start a * or # search from a visual block
 Plug 'nelstrom/vim-visual-star-search'
 
+" A 24bit colorscheme for Vim, Airline and Lightline
+Plug 'jacoborus/tender.vim'
+
+" Make the yanked region apparent!
+Plug 'machakann/vim-highlightedyank'
+
+" Automatically clears search highlight
+Plug 'mroavi/vim-evanesco' 
+
 call plug#end()
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" https://stackoverflow.com/questions/23012391/how-and-where-is-my-viminfo-option-set
+set viminfo=%,<800,'50,/50,:100,h,f1
+"           | |    |   |   |    | + store file marks 0-9,A-Z
+"           | |    |   |   |    + disable 'hlsearch' while loading viminfo
+"           | |    |   |   + maximum number of items in the command-line history to be saved
+"           | |    |   + maximum number of items in the search pattern history to be saved
+"           | |    + files marks saved for the last XX files edited
+"           | + maximum num of lines saved for each register (old name for <, vi6.2)
+"           + save/restore buffer list
+
+set number " show line numbers
+set relativenumber " each line is numbered relative to the cursor’s current position
+set title " show file in titlebar
+set noswapfile " they're just annoying. Who likes them?
+"set colorcolumn=80 " highlight column
+set wrap linebreak nolist " avoid breaking lines in the middle of words
+set noshowmode " don't show mode in status bar (taken care of by airline)
+set noruler " don't show cursor position in status bar (taken care of by airline)
+set laststatus=2 " always display the status line (see :h laststatus)
+set noshowcmd " don't show partial typed commands in the right side of the status bar
+set cmdheight=1 " limit the cmd line height to one line
+set wildmenu " when entering a command, <Tab> shows possible matches above the command line
+set cursorline " highlight the line that the cursor is currently on
+set signcolumn=yes " always show sign column
+set hidden " allows switching from unwritten buffers and remembers the buffer undo history
+set formatoptions-=tc " disable auto-wrap text using textwidth
+"set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
+set shortmess-=S " show search count message when searching
+set grepprg=rg\ --vimgrep " program to used for the :grep command.
+set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
+set splitbelow splitright " open a new split at to bottom or to the right of the current one
+filetype on " enable filetype detection
+filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
+set tabstop=4 " number of spaces that a <Tab> in the file counts for
+set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
+set shiftwidth=4 " number of spaces for indents in normal mode
+set expandtab " use spaces instead of tabs.
+set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
+set shiftround " tab / shifting moves to closest tabstop.
+set autoindent " match indents on new lines.
+set smartindent " intelligently dedent / indent new lines based on rules.
+filetype indent on " enable file type based indentation
+set incsearch " live incremental searching
+set noshowmatch " no live match highlighting (brief jumping)
+set hlsearch " highlight matches
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Custom mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Write to disk
@@ -93,10 +157,54 @@ function! ToggleQuickFix()
 endfunction
 nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
 
-" Make star `*` command stay on current word
-" https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word
-" https://www.reddit.com/r/vim/comments/1xzfjy/go_to_start_of_current_word_if_not_already_there/
-nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm wb<Cr>
+" Make Y behave like other capitals
+nnoremap Y y$
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"---------------------------------------------------------------------
+" Colorscheme and airline theme settings
+"---------------------------------------------------------------------
+
+syntax enable
+colorscheme tender
+
+"---------------------------------------------------------------------
+""" vim-gitgutter
+"---------------------------------------------------------------------
+
+let g:gitgutter_map_keys = 0
+nmap <Leader>hs <Plug>(GitGutterStageHunk)
+nmap <Leader>hu <Plug>(GitGutterUndoHunk)
+nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
+nmap <C-j>      <Plug>(GitGutterNextHunk)
+nmap <C-k>      <Plug>(GitGutterPrevHunk)
+
+"---------------------------------------------------------------------
+"" vim-commentary
+"---------------------------------------------------------------------
+
+let b:commentary_startofline = 1
+
+"---------------------------------------------------------------------
+""" vim-easy-align
+"---------------------------------------------------------------------
+
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+
+"---------------------------------------------------------------------
+"" vim-highlightedyank
+"---------------------------------------------------------------------
+
+let g:highlightedyank_highlight_duration = 200
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Misc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Remember cursor position (:h restore-cursor)
 autocmd BufRead * autocmd FileType <buffer> ++once
@@ -158,38 +266,13 @@ set ttimeout
 set ttimeoutlen=1
 set ttyfast
 
-"" https://neovim.io/doc/user/options.html#'shada'
-"set shada=%,<800,'50,/50,:100,h,f1
-""         |   |   |   |    |  |  + store file marks 0-9,A-Z
-""         |   |   |   |    |  + disable 'hlsearch' while loading viminfo
-""         |   |   |   |    + maximum number of items in the command-line history to be saved
-""         |   |   |   + maximum number of items in the search pattern history to be saved
-""         |   |   + files marks saved for the last XX files edited
-""         |   + maximum num of lines saved for each register (old name for <, vi6.2)
-""         + save/restore buffer list
-"set relativenumber " lines are numbered relative to the line the cursor is on
-"set noswapfile " they're just annoying. Who likes them?
-"set wrap linebreak nolist " avoid breaking lines in the middle of words
-"set noshowmode " don't show mode in status bar (taken care of by airline)
-"set hidden " allows switching from unwritten buffers and remembers the buffer undo history
-"set formatoptions-=tc " disable auto-wrap text using textwidth
-"set grepprg=rg\ --vimgrep " program to used for the :grep command.
-"set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
-"set splitbelow splitright " open a new split at to bottom or to the right of the current one
-"set signcolumn=yes " always show sign column
-"set tabstop=2 " number of spaces that a <Tab> in the file counts for
-"set softtabstop=2 " number of spaces that a <Tab> counts for while performing editing operations
-"set shiftwidth=2 " number of spaces for indents in normal mode
-"set expandtab " use spaces instead of tabs.
-"set shiftround " tab / shifting moves to closest tabstop.
-"set smartindent " intelligently dedent / indent new lines based on rules.
-"set updatetime=100 " among others, governs gitgutter's update time
-"set inccommand=split "shows the effects of a command incrementally, as you type
-"set listchars=tab:▸\ ,space:_,eol:¬ " define symbols for tabstops, spaces and EOLs
+" Disable automatic comment insertion
+" https://superuser.com/a/271024/1087113
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
-" ----------------------------------------------------------------------------
+"--------------------------------------------------------------------
 """ My custom text object for cells
-" ----------------------------------------------------------------------------
+"--------------------------------------------------------------------
 
 " CELL TEXT OBJECT
 
@@ -232,9 +315,9 @@ onoremap <silent> ac :<C-u>call <sid>cellTextObject('a')<cr>
 xnoremap <silent> id :<C-u>normal! ggVG<cr>
 onoremap <silent> id :<C-u>normal! ggVG<cr>
 
-" ----------------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 """ Execute motion/textobject of code
-" ----------------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 
 " Works for Lua and Vim (:h map-operator)
 " - https://vi.stackexchange.com/a/5497/27039
@@ -267,9 +350,9 @@ endfunction
 "   au FileType vim,lua nmap <buffer> <M-Cr> sic
 " augroup END
 
-" ============================================================================
+"=============================================================================
 """ DISABLED (enable when necessary)
-" ============================================================================
+"=============================================================================
 
 "" Redirect the output of a Vim or external command into a scratch buffer
 "" https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
@@ -413,3 +496,9 @@ endfunction
 "endif
 "endfunction
 ""nnoremap <silent> <Leader>dm :<C-u>call Delmarks()<CR>
+
+" " Make star `*` command stay on current word
+" " https://superuser.com/questions/299646/vim-make-star-command-stay-on-current-word
+" " https://www.reddit.com/r/vim/comments/1xzfjy/go_to_start_of_current_word_if_not_already_there/
+" nmap <silent> * :let @/ = '\<'.expand('<cword>').'\>' \| :set hlsearch \| norm wb<Cr>
+
