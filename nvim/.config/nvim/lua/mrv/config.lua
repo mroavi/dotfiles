@@ -123,6 +123,7 @@ M.setup = function()
   )
 
   -- Remember cursor position (:h restore-cursor)
+  -- https://github.com/neovim/neovim/issues/16339
   vim.cmd([[
   autocmd BufRead * autocmd FileType <buffer> ++once
     \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
