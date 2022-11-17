@@ -7,7 +7,7 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [format]
   ; https://stackoverflow.com/a/9463536/1706778
-  pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
+  #pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
 [log]
   date = relative
   ; date = short
