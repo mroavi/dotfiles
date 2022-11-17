@@ -1,3 +1,4 @@
+; Git best practices: https://gist.github.com/luismts/495d982e8c5b1a0ced4a57cf3d93cf60
 ; Good reference: https://gist.github.com/rab/4067067
 [user]
   email = mroavi@gmail.com
