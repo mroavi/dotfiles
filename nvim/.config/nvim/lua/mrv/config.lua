@@ -65,13 +65,13 @@ M.setup = function()
   vim.keymap.set('n', '<M-j>', function() my_utils.go_to_next_delim(vim.b.cell_delimeter) end) -- jump to the next cell delimeter
   vim.keymap.set('n', '<M-k>', function() my_utils.go_to_prev_delim(vim.b.cell_delimeter) end) -- jump to the prev cell delimeter
   vim.keymap.set("n", "<Leader>q", function() require('mrv.utils').toggle_quickfix_window() end) -- toggle quickfist window
-  --vim.keymap.set("n", "<Leader>j", "<C-w>w", { silent = true }) -- go to the next window
-  --vim.keymap.set("n", "<Leader>k", "<C-w>W", { silent = true }) -- go to the prev window
-  --vim.keymap.set("n", "<Leader>x", ":close<CR>") -- close the current window
-  --vim.keymap.set("n", "<Leader>z", "<C-z>") -- suspend vim (resume with `fg`)
-  --vim.keymap.set("n", "<Leader>J", ":split<CR>") -- create a horizontal split
-  --vim.keymap.set("n", "<Leader><CR>", ":vsplit<CR>") -- create a vertical split
-  --vim.keymap.set("n", "*", [[:let @/ = '\<'.expand('<cword>').'\>' | :set hlsearch | norm wb<Cr>]], { silent = true, noremap = false}) -- make star `*` command stay on current word
+  vim.keymap.set("n", "<Leader>j", "<C-w>w", { silent = true }) -- go to the next window
+  vim.keymap.set("n", "<Leader>k", "<C-w>W", { silent = true }) -- go to the prev window
+  vim.keymap.set("n", "<Leader>x", ":close<CR>") -- close the current window
+  vim.keymap.set("n", "<Leader>z", "<C-z>") -- suspend vim (resume with `fg`)
+  vim.keymap.set("n", "<Leader>J", ":split<CR>") -- create a horizontal split
+  vim.keymap.set("n", "<Leader><CR>", ":vsplit<CR>") -- create a vertical split
+  vim.keymap.set("n", "*", [[:let @/ = '\<'.expand('<cword>').'\>' | :set hlsearch | norm wb<Cr>]], { silent = true, noremap = false}) -- make star `*` command stay on current word
 
   -- Debug-related mappings for vim and lua filetypes
   vim.api.nvim_create_autocmd("FileType", {
