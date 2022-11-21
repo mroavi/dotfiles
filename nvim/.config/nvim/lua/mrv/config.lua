@@ -65,8 +65,8 @@ M.setup = function()
   vim.keymap.set('n', '<M-j>', function() my_utils.go_to_next_delim(vim.b.cell_delimeter) end) -- jump to the next cell delimeter
   vim.keymap.set('n', '<M-k>', function() my_utils.go_to_prev_delim(vim.b.cell_delimeter) end) -- jump to the prev cell delimeter
   vim.keymap.set("n", "<Leader>q", function() my_utils.toggle_quickfix_window() end) -- toggle quickfist window
-  vim.keymap.set("n", "<Leader>j", "<C-w>w", { silent = true }) -- go to the next window
-  vim.keymap.set("n", "<Leader>k", "<C-w>W", { silent = true }) -- go to the prev window
+  vim.keymap.set("n", "<C-w>j", "<C-w>w", { silent = true }) -- go to the next window
+  vim.keymap.set("n", "<C-w>k", "<C-w>W", { silent = true }) -- go to the prev window
   vim.keymap.set("n", "<Leader>x", ":close<CR>") -- close the current window
   vim.keymap.set("n", "<Leader>z", "<C-z>") -- suspend vim (resume with `fg`)
   vim.keymap.set("n", "<Leader>J", ":split<CR>") -- create a horizontal split
