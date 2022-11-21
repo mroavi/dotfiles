@@ -71,7 +71,7 @@ M.setup = function()
   vim.keymap.set("n", "<Leader>z", "<C-z>") -- suspend vim (resume with `fg`)
   vim.keymap.set("n", "<Leader>J", ":split<CR>") -- create a horizontal split
   vim.keymap.set("n", "<Leader><CR>", ":vsplit<CR>") -- create a vertical split
-  vim.keymap.set("n", "*", [[:let @/ = '\<'.expand('<cword>').'\>' | :set hlsearch | norm wb<Cr>]], { silent = true, noremap = false}) -- make star `*` command stay on current word
+  --vim.keymap.set("n", "*", [[:let @/ = '\<'.expand('<cword>').'\>' | :set hlsearch | norm wb<Cr>]], { silent = true, noremap = false}) -- make star `*` command stay on current word
 
   -- Debug-related mappings for vim and lua filetypes
   vim.api.nvim_create_autocmd("FileType", {
