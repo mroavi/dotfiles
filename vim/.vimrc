@@ -21,43 +21,18 @@ endif
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
-" A simple, easy-to-use Vim alignment plugin
 Plug 'junegunn/vim-easy-align'
-
-" Provides support for writing LaTeX documents
 Plug 'lervag/vimtex'
-
-" Comment stuff out
 Plug 'tpope/vim-commentary'
-
-" Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
-
-" Provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
-
-" Shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
-
-" Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
-
-" Vim support for Julia.
 Plug 'JuliaEditorSupport/julia-vim'
-
-" Grab some text and send it to a GNU Screen/tmux/NeoVim Terminal/Vim Terminal
 Plug 'jpalardy/vim-slime'
-
-" Start a * or # search from a visual block
 Plug 'nelstrom/vim-visual-star-search'
-
-" A 24bit colorscheme for Vim, Airline and Lightline
 Plug 'jacoborus/tender.vim'
-
-" Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
-
-" Automatically clears search highlight
 Plug 'mroavi/vim-evanesco' 
 
 call plug#end()
