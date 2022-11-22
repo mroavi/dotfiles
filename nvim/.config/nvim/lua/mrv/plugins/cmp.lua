@@ -43,10 +43,27 @@ cmp.setup {
     autocomplete = false, -- open autocompletion menu manually
   },
   mapping = cmp.mapping.preset.insert({
+    ['<C-n>'] = cmp.mapping({
+      i = function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        else
+          cmp.complete()
+        end
+      end
+    }),
+    ['<C-p>'] = cmp.mapping({
+      i = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+        else
+          cmp.complete()
+        end
+      end
+    }),
     ["<C-j>"] = cmp.mapping.confirm({ select = true }), -- accept currently selected item
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(), -- open autocompletion menu
     ["<C-e>"] = cmp.mapping.close(),
   }),
   formatting = {
