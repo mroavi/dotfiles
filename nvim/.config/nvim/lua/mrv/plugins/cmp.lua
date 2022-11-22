@@ -82,10 +82,10 @@ cmp.setup {
   },
   sources = {
     -- The order of these sources determine their priority in cmp's results
+    { name = "path" },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = "buffer", keyword_length = 3 },
-    { name = "path" },
   },
 }
 
