@@ -56,6 +56,8 @@ M.setup = function()
     --use {'mroavi/lf.vim', config = function() require('mrv.plugins.lf-vim') end} -- file manager for vim/neovim powered by lf
     --use {'vladdoster/remember.nvim', config = [[ require('remember') ]]} -- remembers cursor position
     --use {'romainl/vim-cool'} -- disables search highlighting when you are done searching and re-enables it when you search again
+    --use {'junegunn/goyo.vim'} -- distraction-free writing in Vim
+    --use {'junegunn/limelight.vim', config = function() require('mrv.plugins.limelight') end} -- all the world's indeed a stage and we are merely players
 
     -- TODO: Try these out!
     --use {'famiu/nvim-reload'} -- plugin to easily reload your Neovim config
