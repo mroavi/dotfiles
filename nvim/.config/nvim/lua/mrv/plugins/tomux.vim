@@ -14,7 +14,7 @@ augroup tomux_send
   " `s` to send motion
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   autocmd FileType julia,python,octave nmap <buffer> s <Plug>TomuxMotionSend
-  "autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendMotion<Cr>g@
+  "autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendOperator<Cr>g@
   autocmd FileType julia,python,octave xmap <buffer> s <Plug>TomuxVisualSend
   autocmd FileType julia,python,octave omap <buffer> s _
 
@@ -35,14 +35,14 @@ augroup tomux_send
   autocmd FileType octave              nmap <buffer> <C-S-Cr> \id
 
   " Shift+Enter to send paragraph and jump to next statement
-  autocmd FileType julia,python,octave nmap <silent> <S-Cr> :set opfunc=MySendMotion<Cr>g@ap
+  autocmd FileType julia,python,octave nmap <silent> <S-Cr> :set opfunc=MySendOperator<Cr>g@ap
 
 augroup END
 
 " My custom operator: sends a motion to the REPL and moves to the next
 " statement (skips comments and empty lines) (see :h map-operator)
 " See: https://vi.stackexchange.com/questions/5495/mapping-with-motion
-function! MySendMotion(type, ...)
+function! MySendOperator(type, ...)
   " Select lines involved in the motion
   silent exe "normal! `[V`]"
   " Send the selected region
