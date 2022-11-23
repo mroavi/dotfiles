@@ -64,10 +64,10 @@ nnoremap <buffer><silent> <BS> :TomuxSend("\b")<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Misc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <buffer><Leader>sh :lua require('mrv.utils').toggle_string('@sshow ', 'I')<CR>
-noremap <buffer><Leader>pr :lua require('mrv.utils').toggle_string(' \|> println', 'A')<CR>
-"noremap <buffer><Leader>ti :lua require('mrv.utils').toggle_string('@btime ', 'I')<CR>
-"noremap <buffer><Leader>du :lua require('mrv.utils').toggle_string(' \|> dump', 'A')<CR>
+noremap <buffer><silent><Leader>sh :lua require('mrv.utils').toggle_string('@sshow ', 'I')<CR>
+noremap <buffer><silent><Leader>pr :lua require('mrv.utils').toggle_string(' \|> println', 'A')<CR>
+"noremap <buffer><silent><Leader>ti :lua require('mrv.utils').toggle_string('@btime ', 'I')<CR>
+"noremap <buffer><silent><Leader>du :lua require('mrv.utils').toggle_string(' \|> dump', 'A')<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ julia-vim
