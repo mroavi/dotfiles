@@ -40,9 +40,14 @@ augroup tomux_send
   "-----------------------------------------------------------------------------
   " `|` operator to send text up to the | character
   "-----------------------------------------------------------------------------
-  autocmd FileType julia nnoremap <expr> <Bar> SendUpToBarOperator()
-  autocmd FileType julia xnoremap <expr> <Bar> SendUpToBarOperator()
-  autocmd FileType julia nnoremap <expr> <Bar><Bar> SendUpToBarOperator() .. '_'
+  "autocmd FileType julia nnoremap <expr> <Bar> SendUpToBarOperator()
+  "autocmd FileType julia xnoremap <expr> <Bar> SendUpToBarOperator()
+  "autocmd FileType julia nnoremap <expr> <Bar><Bar> SendUpToBarOperator() .. '_'
+
+  "-----------------------------------------------------------------------------
+  " Convenience mapping to send code that uses Julia's pipe operator (|>)
+  "-----------------------------------------------------------------------------
+  autocmd FileType julia nnoremap <Bar><Bar> :call SendUpToBarChar()<Cr>
 
 augroup END
 
@@ -65,6 +70,7 @@ endfunction
 
 " My custom operator: sends a motion/text-object to the REPL up to the "|"
 " char in the last line covered by the motion/text-object
+" Deprecated in favor of the function below
 function! SendUpToBarOperator(type = '') abort
   if a:type == ''
     set opfunc=SendUpToBarOperator
@@ -84,5 +90,23 @@ function! SendUpToBarOperator(type = '') abort
     call setpos("'>", visual_marks_save[1])
     let &clipboard = cb_save
     let &selection = sel_save
+  endtry
+endfunction
+
+" Sends from the beginning of the paragraph up to the first "|" char on the
+" line where the cursor is at.
+function! SendUpToBarChar() abort
+  let win_save = winsaveview()
+  let sel_save = &selection
+  let visual_marks_save = [getpos("'<"), getpos("'>")]
+  try
+    set clipboard= selection=inclusive
+    silent exe "noautocmd keepjumps normal! mz{jv'zt|ge"
+    silent exe "normal \<Plug>TomuxVisualSend"
+  finally
+    call setpos("'<", visual_marks_save[0])
+    call setpos("'>", visual_marks_save[1])
+    let &selection = sel_save
+    call winrestview(win_save)
   endtry
 endfunction
