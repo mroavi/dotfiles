@@ -38,13 +38,6 @@ augroup tomux_send
   autocmd FileType julia,python,octave nmap <silent> <S-Cr> :set opfunc=MySendOperator<Cr>g@ap
 
   "-----------------------------------------------------------------------------
-  " `|` operator to send text up to the | character
-  "-----------------------------------------------------------------------------
-  "autocmd FileType julia nnoremap <expr> <Bar> SendUpToBarOperator()
-  "autocmd FileType julia xnoremap <expr> <Bar> SendUpToBarOperator()
-  "autocmd FileType julia nnoremap <expr> <Bar><Bar> SendUpToBarOperator() .. '_'
-
-  "-----------------------------------------------------------------------------
   " Convenience mapping to send code that uses Julia's pipe operator (|>)
   "-----------------------------------------------------------------------------
   autocmd FileType julia nnoremap <Bar><Bar> :call SendUpToBarChar()<Cr>
@@ -66,31 +59,6 @@ function! MySendOperator(type, ...)
   " Jump to next statement (skips empty lines or lines that start with comment char)
   let l:pattern =  '^\(\s*' . l:commentchar . '\)\@!\s*\S\+'
   call search(l:pattern, "W")
-endfunction
-
-" My custom operator: sends a motion/text-object to the REPL up to the "|"
-" char in the last line covered by the motion/text-object
-" Deprecated in favor of the function below
-function! SendUpToBarOperator(type = '') abort
-  if a:type == ''
-    set opfunc=SendUpToBarOperator
-    return 'g@'
-  endif
-  let sel_save = &selection
-  let reg_save = getreginfo('"')
-  let cb_save = &clipboard
-  let visual_marks_save = [getpos("'<"), getpos("'>")]
-  try
-    set clipboard= selection=inclusive
-    silent exe 'noautocmd keepjumps normal! `[^v`]^t|ge'
-    silent exe "normal \<Plug>TomuxVisualSend"
-  finally
-    call setreg('"', reg_save)
-    call setpos("'<", visual_marks_save[0])
-    call setpos("'>", visual_marks_save[1])
-    let &clipboard = cb_save
-    let &selection = sel_save
-  endtry
 endfunction
 
 " Sends from the beginning of the paragraph up to the first "|" char on the
