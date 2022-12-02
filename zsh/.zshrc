@@ -381,6 +381,7 @@ alias gd='git diff'
 alias gco='git checkout'
 alias gca='git commit -v --amend'
 alias gb='git branch'
+alias gm='git merge'
 alias gop='git open'
 
 # Audio
