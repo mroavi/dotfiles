@@ -69,7 +69,7 @@ function! SendUpToBarChar() abort
   let visual_marks_save = [getpos("'<"), getpos("'>")]
   try
     set clipboard= selection=inclusive
-    silent exe "noautocmd keepjumps normal! mz{jv'zt|ge"
+    silent exe "noautocmd keepjumps normal! mz{jv'z$T|ge"
     silent exe "normal \<Plug>TomuxVisualSend"
   finally
     call setpos("'<", visual_marks_save[0])
