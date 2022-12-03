@@ -131,10 +131,6 @@ Mod4 + equal
   m:0x0 + c:123
   XF86AudioRaiseVolume 
 
-# Open alsamixer in terminal
-"alacritty -e alsamixer"
-  Mod4 + v
-
 # lock display
 "slock"
   control+alt + Delete
