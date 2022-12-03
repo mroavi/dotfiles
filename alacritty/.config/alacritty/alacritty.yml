@@ -293,7 +293,7 @@ font:
     # Normal colors
     cursor:
       text:     '#1b2b34'
-      cursor:   '#eeeeee'
+      cursor:   "#eeeeee"
     selection:
       text:       '0xeeeeee'
       background: '0x393939'
