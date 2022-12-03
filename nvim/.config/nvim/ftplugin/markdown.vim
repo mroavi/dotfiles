@@ -18,6 +18,9 @@ nnoremap <buffer><Leader>h4 m`^i#### <ESC>``5l
 nnoremap <buffer><Leader>h5 m`^i##### <ESC>``6l
 nnoremap <buffer><Leader>h6 m`^i###### <ESC>``7l
 
+" Enable conceal
+setlocal conceallevel=2
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-markdown
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
