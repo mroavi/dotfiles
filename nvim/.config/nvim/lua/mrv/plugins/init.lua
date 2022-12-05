@@ -40,6 +40,11 @@ M.setup = function()
     use { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end }
     use { 'mroavi/vim-evanesco' } -- automatically clears search highlight
 
+    -- Presentation mode
+    use { 'junegunn/goyo.vim', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/goyo.vim'") end } -- distraction-free writing in Vim
+    use { 'edluffy/hologram.nvim', config = function() require('mrv.plugins.hologram') end } -- a cross platform terminal image viewer for Neovim
+    use { 'junegunn/limelight.vim', config = function() require('mrv.plugins.limelight') end } -- all the world's indeed a stage and we are merely players
+
     -- {{{1
 
     -- Disabled
@@ -56,8 +61,6 @@ M.setup = function()
     --use { 'mroavi/lf.vim', config = function() require('mrv.plugins.lf-vim') end } -- file manager for vim/neovim powered by lf
     --use { 'vladdoster/remember.nvim', config = [[ require('remember') ]] } -- remembers cursor position
     --use { 'romainl/vim-cool' } -- disables search highlighting when you are done searching and re-enables it when you search again
-    --use { 'junegunn/goyo.vim' } -- distraction-free writing in Vim
-    --use { 'junegunn/limelight.vim', config = function() require('mrv.plugins.limelight') end } -- all the world's indeed a stage and we are merely players
 
     -- TODO: Try these out!
     --use { 'famiu/nvim-reload' } -- plugin to easily reload your Neovim config
@@ -75,6 +78,7 @@ M.setup = function()
     --use { 'lewis6991/impatient.nvim', config = function() require('impatient') end } -- improve startup time for Neovim
     --use { 'tpope/vim-rhubarb' } -- GitHub extension for fugitive.vim
     --use { 'smjonas/live-command.nvim' } -- the easiest way to create previewable commands in Neovim
+    --use { 'xolox/vim-notes' } -- easy note taking in Vim
 
     -- Abandoned
     --use { 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end } -- provides insert mode auto-completion for quotes, parens, brackets, etc.
