@@ -31,13 +31,13 @@ M.setup = function()
     use { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end } -- quickstart configurations for the Nvim LSP client
     use { 'mroavi/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end } -- send text to tmux
     use { 'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end } -- vim support for Julia
-    use { 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end }
-    use { 'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end }
-    use { 'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end }
+    use { 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end } -- displays a popup with possible keybindings of the command you started typing
+    use { 'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end } -- a modern Vim and neovim filetype plugin for LaTeX files.
+    use { 'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end } -- a Vim alignment plugin
     use { 'junegunn/gv.vim', config = function() require('mrv.plugins.gv') end } -- a git commit browser in Vim
-    use { 'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, run = ':TSUpdate' }
-    use { 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end }
-    use { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end }
+    use { 'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, run = ':TSUpdate' } -- nvim treesitter configurations and abstraction layer
+    use { 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end } -- view treesitter information directly in Neovim
+    use { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end } -- run Async Shell Commands and Output to the Quickfix Window
     use { 'mroavi/vim-evanesco' } -- automatically clears search highlight
 
     -- Presentation mode
