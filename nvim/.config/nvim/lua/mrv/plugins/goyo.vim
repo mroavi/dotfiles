@@ -23,8 +23,6 @@ function StatuslineRefresh()
   set statusline+=%{StatuslineSlideNumber()} " insert slide number
 endfunction
 
-" TODO: font formatting (bold, italic, etc) gets lost after entering and
-" leaving goyo
 function! s:goyo_enter()
 
   " Clear the command line
