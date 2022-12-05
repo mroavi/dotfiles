@@ -11,7 +11,6 @@ if v:version < 600
   so <sfile>:p:h/html.vim
 else
   runtime! syntax/html.vim
-
   if exists('b:current_syntax')
     unlet b:current_syntax
   endif
@@ -112,7 +111,8 @@ syn region mkdFootnote     start="\[^"                     end="\]"
 syn match  mkdListItem     /^\s*\%([-*+]\|\d\+\.\)\ze\s\+/ contained nextgroup=mkdListItemCheckbox
 syn match  mkdListItemCheckbox     /\[[xXoO ]\]\ze\s\+/ contained contains=mkdListItem
 syn region mkdListItemLine start="^\s*\%([-*+]\|\d\+\.\)\s\+" end="$" oneline contains=@mkdNonListItem,mkdListItem,mkdListItemCheckbox,@Spell
-syn region mkdNonListItemBlock start="\(\%^\(\s*\([-*+]\|\d\+\.\)\s\+\)\@!\|\n\(\_^\_$\|\s\{4,}[^ ]\|\t+[^\t]\)\@!\)" end="^\(\s*\([-*+]\|\d\+\.\)\s\+\)\@=" contains=@mkdNonListItem,@Spell
+" The line below breaks conceals with cchar
+"syn region mkdNonListItemBlock start="\(\%^\(\s*\([-*+]\|\d\+\.\)\s\+\)\@!\|\n\(\_^\_$\|\s\{4,}[^ ]\|\t+[^\t]\)\@!\)" end="^\(\s*\([-*+]\|\d\+\.\)\s\+\)\@=" contains=@mkdNonListItem,@Spell
 syn match  mkdRule         /^\s*\*\s\{0,1}\*\s\{0,1}\*\(\*\|\s\)*$/
 syn match  mkdRule         /^\s*-\s\{0,1}-\s\{0,1}-\(-\|\s\)*$/
 syn match  mkdRule         /^\s*_\s\{0,1}_\s\{0,1}_\(_\|\s\)*$/
@@ -223,9 +223,12 @@ unlet! s:done_include
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom conceal (https://gist.github.com/huytd/668fc018b019fbc49fa1c09101363397)
-" TODO: not working
+
+" https://www.reddit.com/r/neovim/comments/vi1lqu/at_a_loss_with_conceal/
 syn match todoCheckbox "\[\ \]" conceal cchar=
 syn match todoCheckbox "\[x\]" conceal cchar=
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 setlocal concealcursor=nc
 setlocal conceallevel=2
