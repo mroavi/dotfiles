@@ -41,7 +41,7 @@ M.setup = function()
     use { 'mroavi/vim-evanesco' } -- automatically clears search highlight
 
     -- Presentation mode
-    use { 'junegunn/goyo.vim', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/goyo.vim'") end } -- distraction-free writing in Vim
+    use { '~/repos/goyo.vim', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/goyo.vim'") end } -- distraction-free writing in Vim
     use { 'edluffy/hologram.nvim', config = function() require('mrv.plugins.hologram') end } -- a cross platform terminal image viewer for Neovim
     use { 'junegunn/limelight.vim', config = function() require('mrv.plugins.limelight') end } -- all the world's indeed a stage and we are merely players
 
