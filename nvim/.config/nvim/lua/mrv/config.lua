@@ -209,7 +209,6 @@ end
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "*.sld",
   command = "setfiletype sld",
-  --command = "echom 'this is a test'",
   group = vim.api.nvim_create_augroup("slide_filetype", { clear = true })
 })
 
