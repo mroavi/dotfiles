@@ -124,6 +124,7 @@ function! s:goyo_enter()
     autocmd BufEnter *.sld call StatuslineRefresh() " refresh statusline
   augroup END
 
+  " Show statusline
   setlocal laststatus=2
 
   " Display the first slide
