@@ -155,6 +155,7 @@ function! s:goyo_leave()
   augroup presentation_mode
     autocmd!
   augroup END
+  augroup! presentation_mode
 
   " TODO: restore statusline
 
