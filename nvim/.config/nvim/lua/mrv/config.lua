@@ -129,6 +129,9 @@ M.setup = function()
     \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
   ]])
 
+  -- Enable fenced code block syntax highlighting in markdown files
+  vim.g.markdown_fenced_languages = {'html', 'python', 'bash=sh'}
+
   --------------------------------------------------------------------------------
   --- Operators
   --------------------------------------------------------------------------------
