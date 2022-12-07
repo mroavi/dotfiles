@@ -161,6 +161,9 @@ function! s:goyo_leave()
   " Reapply current color scheme
   execute 'colo '. get(g:, 'colors_name', 'default')
 
+  " Reapply sld syntax (which gets reset after re-applying the color schme)
+  setfiletype sld
+
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
