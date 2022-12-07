@@ -98,12 +98,6 @@ function! s:goyo_enter()
   " Clear the command line
   echo ''
 
-  " Remove artifacts for NeoVim on true colors transparent background (see https://github.com/junegunn/goyo.vim/issues/71)
-  hi! link EndOfBuffer Ignore
-  "hi! link VertSplit Ignore
-  "hi! link StatusLine Ignore
-  hi! link StatusLineNC Ignore
-
   " Hide gitsigns
   lua require"gitsigns".toggle_signs(false)
 
