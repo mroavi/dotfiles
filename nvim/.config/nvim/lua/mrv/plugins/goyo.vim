@@ -144,10 +144,10 @@ function! s:goyo_leave()
   call ResetCursorColor()
 
   " Unmap j/k
-  unmap j
-  unmap k
-  unmap gg
-  unmap G
+  nunmap j
+  nunmap k
+  nunmap gg
+  nunmap G
 
   " Clear autocommands 
   augroup presentation_mode
