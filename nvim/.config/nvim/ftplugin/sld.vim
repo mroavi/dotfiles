@@ -5,8 +5,8 @@ setlocal colorcolumn=78
 " Ascii border
 nmap <Leader>b :.!toilet -w 200 -f term -F border<Cr>
 
-" TODO: not working
-let g:markdown_fenced_languages = ['python']
+" Enable fenced code block syntax highlighting in sld files
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 " Execute statements in file if preceded by a given pattern
 " Inspired on: https://youtu.be/GDa7hrbcCB8?t=402
