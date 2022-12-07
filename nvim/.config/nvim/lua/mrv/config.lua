@@ -9,6 +9,7 @@ M.setup = function()
   --------------------------------------------------------------------------------
 
   vim.g.mapleader = ' '
+  vim.g.markdown_fenced_languages = {'html', 'python', 'bash=sh'}
 
   vim.o.shada = "<10,'99,/99,:99,h,f1" -- :help sd
   vim.o.number = false
@@ -128,9 +129,6 @@ M.setup = function()
   autocmd BufRead * autocmd FileType <buffer> ++once
     \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
   ]])
-
-  -- Enable fenced code block syntax highlighting in markdown files
-  vim.g.markdown_fenced_languages = {'html', 'python', 'bash=sh'}
 
   --------------------------------------------------------------------------------
   --- Operators
