@@ -123,8 +123,8 @@ function! s:goyo_enter()
   " Show statusline
   setlocal laststatus=2
 
-  " Display the first slide
-  argu 1
+  " Display the current entry in the arglist
+  argu
 
 endfunction
 
@@ -155,7 +155,10 @@ function! s:goyo_leave()
   augroup END
   augroup! presentation_mode
 
-  " Reapply current colorscheme
+  " Display the current entry in the arglist
+  argu
+
+  " Reapply current color scheme
   execute 'colo '. get(g:, 'colors_name', 'default')
 
 endfunction
