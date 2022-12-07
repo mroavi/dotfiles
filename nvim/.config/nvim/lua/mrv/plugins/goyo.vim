@@ -157,7 +157,8 @@ function! s:goyo_leave()
   augroup END
   augroup! presentation_mode
 
-  " TODO: restore statusline
+  " Reapply current colorscheme
+  execute 'colo '. get(g:, 'colors_name', 'default')
 
 endfunction
 
