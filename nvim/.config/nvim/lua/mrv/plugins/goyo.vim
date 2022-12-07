@@ -107,9 +107,11 @@ function! s:goyo_enter()
   " Change cursor's background color
   call SetCursorColor()
 
-  " Map j/k to next/prev slide
+  " Define slide navigation specific mappings
   nnoremap <silent> j :n<Cr>
   nnoremap <silent> k :N<Cr>
+  nnoremap <silent> gg :first<Cr>
+  nnoremap <silent> G :last<Cr>
 
   " Enable autocommands
   augroup presentation_mode
@@ -144,6 +146,8 @@ function! s:goyo_leave()
   " Unmap j/k
   unmap j
   unmap k
+  unmap gg
+  unmap G
 
   " Clear autocommands 
   augroup presentation_mode
