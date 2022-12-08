@@ -6,7 +6,7 @@ setlocal colorcolumn=78
 nmap <Leader>b :.!toilet -w 200 -f term -F border<Cr>
 
 " Enable fenced code block syntax highlighting in sld files
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+let g:markdown_fenced_languages = ['julia', 'html', 'python', 'bash=sh']
 
 " Execute statements in file if preceded by a given pattern
 " Inspired on: https://youtu.be/GDa7hrbcCB8?t=402
