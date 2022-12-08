@@ -1,3 +1,5 @@
+" TODO: replace with https://github.com/folke/zen-mode.nvim
+
 " Toggle Goyo mode
 nnoremap <silent> <F5> :Goyo<Cr>
 
