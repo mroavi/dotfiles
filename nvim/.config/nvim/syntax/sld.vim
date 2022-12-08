@@ -1,194 +1,28 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Source: https://github.com/tpope/vim-markdown/blob/master/syntax/markdown.vim
+
 " Vim syntax file
-" URL:          https://github.com/preservim/vim-markdown/blob/master/syntax/markdown.vim
-" Language:	Markdown
-" Maintainer:	Ben Williams <benw@plasticboy.com>
-" URL:		http://plasticboy.com/markdown-vim-mode/
-" Remark:	Uses HTML syntax file
-" TODO: 	Handle stuff contained within stuff (e.g. headings within blockquotes)
+" Language:     Markdown
+" Maintainer:   Tim Pope <https://github.com/tpope/vim-markdown>
+" Filenames:    *.markdown
+" Last Change:  2022 Oct 13
 
-" Read the HTML syntax to start with
-if v:version < 600
-  so <sfile>:p:h/html.vim
-else
-  runtime! syntax/html.vim
-  if exists('b:current_syntax')
-    unlet b:current_syntax
-  endif
-endif
-
-if v:version < 600
-  syntax clear
-elseif exists('b:current_syntax')
+if exists("b:current_syntax")
   finish
 endif
 
-" don't use standard HiLink, it will not work with included syntax files
-if v:version < 508
-  command! -nargs=+ HtmlHiLink hi link <args>
-else
-  command! -nargs=+ HtmlHiLink hi def link <args>
+if !exists('main_syntax')
+  let main_syntax = 'markdown'
 endif
 
-syn spell toplevel
-syn case ignore
-syn sync linebreaks=1
-
-let s:conceal = ''
-let s:concealends = ''
-let s:concealcode = ''
-if has('conceal') && get(g:, 'vim_markdown_conceal', 1)
-  let s:conceal = ' conceal'
-  let s:concealends = ' concealends'
+if has('folding')
+  let s:foldmethod = &l:foldmethod
+  let s:foldtext = &l:foldtext
 endif
-if has('conceal') && get(g:, 'vim_markdown_conceal_code_blocks', 1)
-  let s:concealcode = ' concealends'
-endif
+let s:iskeyword = &l:iskeyword
 
-" additions to HTML groups
-if get(g:, 'vim_markdown_emphasis_multiline', 1)
-    let s:oneline = ''
-else
-    let s:oneline = ' oneline'
-endif
-syn region mkdItalic matchgroup=mkdItalic start="\%(\*\|_\)"    end="\%(\*\|_\)"
-syn region mkdBold matchgroup=mkdBold start="\%(\*\*\|__\)"    end="\%(\*\*\|__\)"
-syn region mkdBoldItalic matchgroup=mkdBoldItalic start="\%(\*\*\*\|___\)"    end="\%(\*\*\*\|___\)"
-execute 'syn region htmlItalic matchgroup=mkdItalic start="\%(^\|\s\)\zs\*\ze[^\\\*\t ]\%(\%([^*]\|\\\*\|\n\)*[^\\\*\t ]\)\?\*\_W" end="[^\\\*\t ]\zs\*\ze\_W" keepend contains=@Spell' . s:oneline . s:concealends
-execute 'syn region htmlItalic matchgroup=mkdItalic start="\%(^\|\s\)\zs_\ze[^\\_\t ]" end="[^\\_\t ]\zs_\ze\_W" keepend contains=@Spell' . s:oneline . s:concealends
-execute 'syn region htmlBold matchgroup=mkdBold start="\%(^\|\s\)\zs\*\*\ze\S" end="\S\zs\*\*" keepend contains=@Spell' . s:oneline . s:concealends
-execute 'syn region htmlBold matchgroup=mkdBold start="\%(^\|\s\)\zs__\ze\S" end="\S\zs__" keepend contains=@Spell' . s:oneline . s:concealends
-execute 'syn region htmlBoldItalic matchgroup=mkdBoldItalic start="\%(^\|\s\)\zs\*\*\*\ze\S" end="\S\zs\*\*\*" keepend contains=@Spell' . s:oneline . s:concealends
-execute 'syn region htmlBoldItalic matchgroup=mkdBoldItalic start="\%(^\|\s\)\zs___\ze\S" end="\S\zs___" keepend contains=@Spell' . s:oneline . s:concealends
-
-" [link](URL) | [link][id] | [link][] | ![image](URL)
-syn region mkdFootnotes matchgroup=mkdDelimiter start="\[^"    end="\]"
-execute 'syn region mkdID matchgroup=mkdDelimiter    start="\["    end="\]" contained oneline' . s:conceal
-execute 'syn region mkdURL matchgroup=mkdDelimiter   start="("     end=")"  contained oneline' . s:conceal
-execute 'syn region mkdLink matchgroup=mkdDelimiter  start="\\\@<!!\?\[\ze[^]\n]*\n\?[^]\n]*\][[(]" end="\]" contains=@mkdNonListItem,@Spell nextgroup=mkdURL,mkdID skipwhite' . s:concealends
-
-" Autolink without angle brackets.
-" mkd  inline links:      protocol     optional  user:pass@  sub/domain                    .com, .co.uk, etc         optional port   path/querystring/hash fragment
-"                         ------------ _____________________ ----------------------------- _________________________ ----------------- __
-syn match   mkdInlineURL /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z0-9][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?[^] \t]*/
-
-" Autolink with parenthesis.
-syn region  mkdInlineURL matchgroup=mkdDelimiter start="(\(https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z0-9][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?[^] \t]*)\)\@=" end=")"
-
-" Autolink with angle brackets.
-syn region mkdInlineURL matchgroup=mkdDelimiter start="\\\@<!<\ze[a-z][a-z0-9,.-]\{1,22}:\/\/[^> ]*>" end=">"
-
-" Link definitions: [id]: URL (Optional Title)
-syn region mkdLinkDef matchgroup=mkdDelimiter   start="^ \{,3}\zs\[\^\@!" end="]:" oneline nextgroup=mkdLinkDefTarget skipwhite
-syn region mkdLinkDefTarget start="<\?\zs\S" excludenl end="\ze[>[:space:]\n]"   contained nextgroup=mkdLinkTitle,mkdLinkDef skipwhite skipnl oneline
-syn region mkdLinkTitle matchgroup=mkdDelimiter start=+"+     end=+"+  contained
-syn region mkdLinkTitle matchgroup=mkdDelimiter start=+'+     end=+'+  contained
-syn region mkdLinkTitle matchgroup=mkdDelimiter start=+(+     end=+)+  contained
-
-"HTML headings
-execute 'syn region htmlH1       matchgroup=mkdHeading     start="^\s*#"                   end="$" contains=mkdLink,mkdInlineURL,@Spell' . s:concealends
-execute 'syn region htmlH2       matchgroup=mkdHeading     start="^\s*##"                  end="$" contains=mkdLink,mkdInlineURL,@Spell' . s:concealends
-execute 'syn region htmlH3       matchgroup=mkdHeading     start="^\s*###"                 end="$" contains=mkdLink,mkdInlineURL,@Spell' . s:concealends
-execute 'syn region htmlH4       matchgroup=mkdHeading     start="^\s*####"                end="$" contains=mkdLink,mkdInlineURL,@Spell' . s:concealends
-execute 'syn region htmlH5       matchgroup=mkdHeading     start="^\s*#####"               end="$" contains=mkdLink,mkdInlineURL,@Spell' . s:concealends
-execute 'syn region htmlH6       matchgroup=mkdHeading     start="^\s*######"              end="$" contains=mkdLink,mkdInlineURL,@Spell' . s:concealends
-syn match  htmlH1       /^.\+\n=\+$/ contains=mkdLink,mkdInlineURL,@Spell
-syn match  htmlH2       /^.\+\n-\+$/ contains=mkdLink,mkdInlineURL,@Spell
-
-"define Markdown groups
-syn match  mkdLineBreak    /  \+$/
-syn region mkdBlockquote   start=/^\s*>/                   end=/$/ contains=mkdLink,mkdInlineURL,mkdLineBreak,@Spell
-execute 'syn region mkdCode matchgroup=mkdCodeDelimiter start=/\(\([^\\]\|^\)\\\)\@<!`/                     end=/`/'  . s:concealcode
-execute 'syn region mkdCode matchgroup=mkdCodeDelimiter start=/\(\([^\\]\|^\)\\\)\@<!``/ skip=/[^`]`[^`]/   end=/``/' . s:concealcode
-execute 'syn region mkdCode matchgroup=mkdCodeDelimiter start=/^\s*\z(`\{3,}\)[^`]*$/                       end=/^\s*\z1`*\s*$/'            . s:concealcode
-execute 'syn region mkdCode matchgroup=mkdCodeDelimiter start=/\(\([^\\]\|^\)\\\)\@<!\~\~/  end=/\(\([^\\]\|^\)\\\)\@<!\~\~/'               . s:concealcode
-execute 'syn region mkdCode matchgroup=mkdCodeDelimiter start=/^\s*\z(\~\{3,}\)\s*[0-9A-Za-z_+-]*\s*$/      end=/^\s*\z1\~*\s*$/'           . s:concealcode
-execute 'syn region mkdCode matchgroup=mkdCodeDelimiter start="<pre\(\|\_s[^>]*\)\\\@<!>"                   end="</pre>"'                   . s:concealcode
-execute 'syn region mkdCode matchgroup=mkdCodeDelimiter start="<code\(\|\_s[^>]*\)\\\@<!>"                  end="</code>"'                  . s:concealcode
-syn region mkdFootnote     start="\[^"                     end="\]"
-"syn match  mkdCode         /^\s*\n\(\(\s\{8,}[^ ]\|\t\t\+[^\t]\).*\n\)\+/
-"syn match  mkdCode         /\%^\(\(\s\{4,}[^ ]\|\t\+[^\t]\).*\n\)\+/
-"syn match  mkdCode         /^\s*\n\(\(\s\{4,}[^ ]\|\t\+[^\t]\).*\n\)\+/ contained
-syn match  mkdListItem     /^\s*\%([-*+]\|\d\+\.\)\ze\s\+/ contained nextgroup=mkdListItemCheckbox
-syn match  mkdListItemCheckbox     /\[[xXoO ]\]\ze\s\+/ contained contains=mkdListItem
-syn region mkdListItemLine start="^\s*\%([-*+]\|\d\+\.\)\s\+" end="$" oneline contains=@mkdNonListItem,mkdListItem,mkdListItemCheckbox,@Spell
-" The line below breaks conceals with cchar
-"syn region mkdNonListItemBlock start="\(\%^\(\s*\([-*+]\|\d\+\.\)\s\+\)\@!\|\n\(\_^\_$\|\s\{4,}[^ ]\|\t+[^\t]\)\@!\)" end="^\(\s*\([-*+]\|\d\+\.\)\s\+\)\@=" contains=@mkdNonListItem,@Spell
-syn match  mkdRule         /^\s*\*\s\{0,1}\*\s\{0,1}\*\(\*\|\s\)*$/
-syn match  mkdRule         /^\s*-\s\{0,1}-\s\{0,1}-\(-\|\s\)*$/
-syn match  mkdRule         /^\s*_\s\{0,1}_\s\{0,1}_\(_\|\s\)*$/
-
-" YAML frontmatter
-if get(g:, 'vim_markdown_frontmatter', 0)
-  syn include @yamlTop syntax/yaml.vim
-  syn region Comment matchgroup=mkdDelimiter start="\%^---$" end="^\(---\|\.\.\.\)$" contains=@yamlTop keepend
-  unlet! b:current_syntax
-endif
-
-if get(g:, 'vim_markdown_toml_frontmatter', 0)
-  try
-    syn include @tomlTop syntax/toml.vim
-    syn region Comment matchgroup=mkdDelimiter start="\%^+++$" end="^+++$" transparent contains=@tomlTop keepend
-    unlet! b:current_syntax
-  catch /E484/
-    syn region Comment matchgroup=mkdDelimiter start="\%^+++$" end="^+++$"
-  endtry
-endif
-
-if get(g:, 'vim_markdown_json_frontmatter', 0)
-  try
-    syn include @jsonTop syntax/json.vim
-    syn region Comment matchgroup=mkdDelimiter start="\%^{$" end="^}$" contains=@jsonTop keepend
-    unlet! b:current_syntax
-  catch /E484/
-    syn region Comment matchgroup=mkdDelimiter start="\%^{$" end="^}$"
-  endtry
-endif
-
-"LaTeX
-syn include @tex syntax/tex.vim
-syn region mkdMath start="\\\@<!\$" end="\$" skip="\\\$" contains=@tex keepend
-syn region mkdMath start="\\\@<!\$\$" end="\$\$" skip="\\\$" contains=@tex keepend
-
-" Strike through
-execute 'syn region mkdStrike matchgroup=htmlStrike start="\%(\~\~\)" end="\%(\~\~\)"' . s:concealends
-HtmlHiLink mkdStrike        htmlStrike
-
-syn cluster mkdNonListItem contains=@htmlTop,htmlItalic,htmlBold,htmlBoldItalic,mkdFootnotes,mkdInlineURL,mkdLink,mkdLinkDef,mkdLineBreak,mkdBlockquote,mkdCode,mkdRule,htmlH1,htmlH2,htmlH3,htmlH4,htmlH5,htmlH6,mkdMath,mkdStrike
-
-"highlighting for Markdown groups
-HtmlHiLink mkdString           String
-HtmlHiLink mkdCode             String
-HtmlHiLink mkdCodeDelimiter    String
-HtmlHiLink mkdCodeStart        String
-HtmlHiLink mkdCodeEnd          String
-HtmlHiLink mkdFootnote         Comment
-HtmlHiLink mkdBlockquote       Comment
-HtmlHiLink mkdListItem         Identifier
-HtmlHiLink mkdListItemCheckbox Identifier
-HtmlHiLink mkdRule             Identifier
-HtmlHiLink mkdLineBreak        Visual
-HtmlHiLink mkdFootnotes        htmlLink
-HtmlHiLink mkdLink             htmlLink
-HtmlHiLink mkdURL              htmlString
-HtmlHiLink mkdInlineURL        htmlLink
-HtmlHiLink mkdID               Identifier
-HtmlHiLink mkdLinkDef          mkdID
-HtmlHiLink mkdLinkDefTarget    mkdURL
-HtmlHiLink mkdLinkTitle        htmlString
-HtmlHiLink mkdDelimiter        Delimiter
-
-let b:current_syntax = 'mkd'
-
-delcommand HtmlHiLink
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Source: https://github.com/tpope/vim-markdown/blob/master/syntax/markdown.vim
-" TODO: not working
-
-syn region markdownCode matchgroup=markdownCodeDelimiter start="`" end="`" keepend contains=markdownLineStart
-syn region markdownCode matchgroup=markdownCodeDelimiter start="`` \=" end=" \=``" keepend contains=markdownLineStart
-syn region markdownCodeBlock matchgroup=markdownCodeDelimiter start="^\s*\z(`\{3,\}\).*$" end="^\s*\z1\ze\s*$" keepend
-syn region markdownCodeBlock matchgroup=markdownCodeDelimiter start="^\s*\z(\~\{3,\}\).*$" end="^\s*\z1\ze\s*$" keepend
+runtime! syntax/html.vim
+unlet! b:current_syntax
 
 if !exists('g:markdown_fenced_languages')
   let g:markdown_fenced_languages = []
@@ -209,6 +43,94 @@ endfor
 unlet! s:type
 unlet! s:done_include
 
+syn spell toplevel
+if exists('s:foldmethod') && s:foldmethod !=# &l:foldmethod
+  let &l:foldmethod = s:foldmethod
+  unlet s:foldmethod
+endif
+if exists('s:foldtext') && s:foldtext !=# &l:foldtext
+  let &l:foldtext = s:foldtext
+  unlet s:foldtext
+endif
+if s:iskeyword !=# &l:iskeyword
+  let &l:iskeyword = s:iskeyword
+endif
+unlet s:iskeyword
+
+if !exists('g:markdown_minlines')
+  let g:markdown_minlines = 50
+endif
+execute 'syn sync minlines=' . g:markdown_minlines
+syn sync linebreaks=1
+syn case ignore
+
+syn match markdownValid '[<>]\c[a-z/$!]\@!' transparent contains=NONE
+syn match markdownValid '&\%(#\=\w*;\)\@!' transparent contains=NONE
+
+syn match markdownLineStart "^[<@]\@!" nextgroup=@markdownBlock,htmlSpecialChar
+
+syn cluster markdownBlock contains=markdownH1,markdownH2,markdownH3,markdownH4,markdownH5,markdownH6,markdownBlockquote,markdownListMarker,markdownOrderedListMarker,markdownCodeBlock,markdownRule
+syn cluster markdownInline contains=markdownLineBreak,markdownLinkText,markdownItalic,markdownBold,markdownCode,markdownEscape,@htmlTop,markdownError,markdownValid
+
+syn match markdownH1 "^.\+\n=\+$" contained contains=@markdownInline,markdownHeadingRule,markdownAutomaticLink
+syn match markdownH2 "^.\+\n-\+$" contained contains=@markdownInline,markdownHeadingRule,markdownAutomaticLink
+
+syn match markdownHeadingRule "^[=-]\+$" contained
+
+syn region markdownH1 matchgroup=markdownH1Delimiter start=" \{,3}#\s"      end="#*\s*$" keepend oneline contains=@markdownInline,markdownAutomaticLink contained
+syn region markdownH2 matchgroup=markdownH2Delimiter start=" \{,3}##\s"     end="#*\s*$" keepend oneline contains=@markdownInline,markdownAutomaticLink contained
+syn region markdownH3 matchgroup=markdownH3Delimiter start=" \{,3}###\s"    end="#*\s*$" keepend oneline contains=@markdownInline,markdownAutomaticLink contained
+syn region markdownH4 matchgroup=markdownH4Delimiter start=" \{,3}####\s"   end="#*\s*$" keepend oneline contains=@markdownInline,markdownAutomaticLink contained
+syn region markdownH5 matchgroup=markdownH5Delimiter start=" \{,3}#####\s"  end="#*\s*$" keepend oneline contains=@markdownInline,markdownAutomaticLink contained
+syn region markdownH6 matchgroup=markdownH6Delimiter start=" \{,3}######\s" end="#*\s*$" keepend oneline contains=@markdownInline,markdownAutomaticLink contained
+
+syn match markdownBlockquote ">\%(\s\|$\)" contained nextgroup=@markdownBlock
+
+"syn region markdownCodeBlock start="^\n\( \{4,}\|\t\)" end="^\ze \{,3}\S.*$" keepend " mrv: disable tab-based code blocks
+
+" TODO: real nesting
+syn match markdownListMarker "\%(\t\| \{0,4\}\)[-*+]\%(\s\+\S\)\@=" contained
+syn match markdownOrderedListMarker "\%(\t\| \{0,4}\)\<\d\+\.\%(\s\+\S\)\@=" contained
+
+syn match markdownRule "\* *\* *\*[ *]*$" contained
+syn match markdownRule "- *- *-[ -]*$" contained
+
+syn match markdownLineBreak " \{2,\}$"
+
+syn region markdownIdDeclaration matchgroup=markdownLinkDelimiter start="^ \{0,3\}!\=\[" end="\]:" oneline keepend nextgroup=markdownUrl skipwhite
+syn match markdownUrl "\S\+" nextgroup=markdownUrlTitle skipwhite contained
+syn region markdownUrl matchgroup=markdownUrlDelimiter start="<" end=">" oneline keepend nextgroup=markdownUrlTitle skipwhite contained
+syn region markdownUrlTitle matchgroup=markdownUrlTitleDelimiter start=+"+ end=+"+ keepend contained
+syn region markdownUrlTitle matchgroup=markdownUrlTitleDelimiter start=+'+ end=+'+ keepend contained
+syn region markdownUrlTitle matchgroup=markdownUrlTitleDelimiter start=+(+ end=+)+ keepend contained
+
+syn region markdownLinkText matchgroup=markdownLinkTextDelimiter start="!\=\[\%(\_[^][]*\%(\[\_[^][]*\]\_[^][]*\)*]\%( \=[[(]\)\)\@=" end="\]\%( \=[[(]\)\@=" nextgroup=markdownLink,markdownId skipwhite contains=@markdownInline,markdownLineStart
+syn region markdownLink matchgroup=markdownLinkDelimiter start="(" end=")" contains=markdownUrl keepend contained
+syn region markdownId matchgroup=markdownIdDelimiter start="\[" end="\]" keepend contained
+"syn region markdownAutomaticLink matchgroup=markdownUrlDelimiter start="<\%(\w\+:\|[[:alnum:]_+-]\+@\)\@=" end=">" keepend oneline
+
+let s:concealends = ''
+if has('conceal') && get(g:, 'markdown_syntax_conceal', 1) == 1
+  let s:concealends = ' concealends'
+endif
+exe 'syn region markdownItalic matchgroup=markdownItalicDelimiter start="\*\S\@=" end="\S\@<=\*\|^$" skip="\\\*" contains=markdownLineStart,@Spell' . s:concealends
+exe 'syn region markdownItalic matchgroup=markdownItalicDelimiter start="\w\@<!_\S\@=" end="\S\@<=_\w\@!\|^$" skip="\\_" contains=markdownLineStart,@Spell' . s:concealends
+exe 'syn region markdownBold matchgroup=markdownBoldDelimiter start="\*\*\S\@=" end="\S\@<=\*\*\|^$" skip="\\\*" contains=markdownLineStart,markdownItalic,@Spell' . s:concealends
+exe 'syn region markdownBold matchgroup=markdownBoldDelimiter start="\w\@<!__\S\@=" end="\S\@<=__\w\@!\|^$" skip="\\_" contains=markdownLineStart,markdownItalic,@Spell' . s:concealends
+exe 'syn region markdownBoldItalic matchgroup=markdownBoldItalicDelimiter start="\*\*\*\S\@=" end="\S\@<=\*\*\*\|^$" skip="\\\*" contains=markdownLineStart,@Spell' . s:concealends
+exe 'syn region markdownBoldItalic matchgroup=markdownBoldItalicDelimiter start="\w\@<!___\S\@=" end="\S\@<=___\w\@!\|^$" skip="\\_" contains=markdownLineStart,@Spell' . s:concealends
+exe 'syn region markdownStrike matchgroup=markdownStrikeDelimiter start="\~\~\S\@=" end="\S\@<=\~\~\|^$" contains=markdownLineStart,@Spell' . s:concealends
+" mrv: copy `markdownAutomaticLink syn statement above and add `concealends`
+exe 'syn region markdownAutomaticLink matchgroup=markdownUrlDelimiter start="<\%(\w\+:\|[[:alnum:]_+-]\+@\)\@=" end=">" keepend oneline' . s:concealends
+
+syn region markdownCode matchgroup=markdownCodeDelimiter start="`" end="`" keepend contains=markdownLineStart
+syn region markdownCode matchgroup=markdownCodeDelimiter start="`` \=" end=" \=``" keepend contains=markdownLineStart
+syn region markdownCodeBlock matchgroup=markdownCodeDelimiter start="^\s*\z(`\{3,\}\).*$" end="^\s*\z1\ze\s*$" keepend
+syn region markdownCodeBlock matchgroup=markdownCodeDelimiter start="^\s*\z(\~\{3,\}\).*$" end="^\s*\z1\ze\s*$" keepend
+
+syn match markdownFootnote "\[^[^\]]\+\]"
+syn match markdownFootnoteDefinition "^\[^[^\]]\+\]:"
+
 let s:done_include = {}
 for s:type in g:markdown_fenced_languages
   if has_key(s:done_include, matchstr(s:type,'[^.]*'))
@@ -221,16 +143,83 @@ endfor
 unlet! s:type
 unlet! s:done_include
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Custom conceal (https://gist.github.com/huytd/668fc018b019fbc49fa1c09101363397)
+if get(b:, 'markdown_yaml_head', get(g:, 'markdown_yaml_head', main_syntax ==# 'markdown'))
+  syn include @markdownYamlTop syntax/yaml.vim
+  unlet! b:current_syntax
+  syn region markdownYamlHead start="\%^---$" end="^\%(---\|\.\.\.\)\s*$" keepend contains=@markdownYamlTop,@Spell
+endif
 
+syn match markdownEscape "\\[][\\`*_{}()<>#+.!-]"
+syn match markdownError "\w\@<=_\w\@="
+
+hi def link markdownH1                    htmlH1
+hi def link markdownH2                    htmlH2
+hi def link markdownH3                    htmlH3
+hi def link markdownH4                    htmlH4
+hi def link markdownH5                    htmlH5
+hi def link markdownH6                    htmlH6
+hi def link markdownHeadingRule           markdownRule
+hi def link markdownH1Delimiter           markdownHeadingDelimiter
+hi def link markdownH2Delimiter           markdownHeadingDelimiter
+hi def link markdownH3Delimiter           markdownHeadingDelimiter
+hi def link markdownH4Delimiter           markdownHeadingDelimiter
+hi def link markdownH5Delimiter           markdownHeadingDelimiter
+hi def link markdownH6Delimiter           markdownHeadingDelimiter
+hi def link markdownHeadingDelimiter      Delimiter
+hi def link markdownOrderedListMarker     markdownListMarker
+hi def link markdownListMarker            htmlTagName
+hi def link markdownBlockquote            Comment
+hi def link markdownRule                  PreProc
+
+hi def link markdownFootnote              Typedef
+hi def link markdownFootnoteDefinition    Typedef
+
+hi def link markdownLinkText              htmlLink
+hi def link markdownIdDeclaration         Typedef
+hi def link markdownId                    Type
+hi def link markdownAutomaticLink         markdownUrl
+hi def link markdownUrl                   Float
+hi def link markdownUrlTitle              String
+hi def link markdownIdDelimiter           markdownLinkDelimiter
+hi def link markdownUrlDelimiter          htmlTag
+hi def link markdownUrlTitleDelimiter     Delimiter
+
+hi def link markdownItalic                htmlItalic
+hi def link markdownItalicDelimiter       markdownItalic
+hi def link markdownBold                  htmlBold
+hi def link markdownBoldDelimiter         markdownBold
+hi def link markdownBoldItalic            htmlBoldItalic
+hi def link markdownBoldItalicDelimiter   markdownBoldItalic
+hi def link markdownStrike                htmlStrike
+hi def link markdownStrikeDelimiter       markdownStrike
+hi def link markdownCodeDelimiter         Delimiter
+
+hi def link markdownEscape                Special
+hi def link markdownError                 Error
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Additions to the original file
+
+" Custom conceal (https://gist.github.com/huytd/668fc018b019fbc49fa1c09101363397)
 " https://www.reddit.com/r/neovim/comments/vi1lqu/at_a_loss_with_conceal/
 syn match todoCheckbox "\[\ \]" conceal cchar=
 syn match todoCheckbox "\[x\]" conceal cchar=
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"LaTeX
+syn include @tex syntax/tex.vim
+syn region markdownMath start="\\\@<!\$" end="\$" skip="\\\$" contains=@tex keepend
+syn region markdownMath start="\\\@<!\$\$" end="\$\$" skip="\\\$" contains=@tex keepend
 
+" Set conceal
 setlocal concealcursor=nc
 setlocal conceallevel=2
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let b:current_syntax = "markdown"
+if main_syntax ==# 'markdown'
+  unlet main_syntax
+endif
 
 " vim: ts=8
