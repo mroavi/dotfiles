@@ -99,23 +99,23 @@ function! s:goyo_enter()
   call s:set_font_size() " set presentation mode font size
   call s:set_cursor_color() " change cursor's background color
 
+  " Slide navigation mappings 
   nnoremap <silent> j :n<Cr>
   nnoremap <silent> k :N<Cr>
   nnoremap <silent> gg :first<Cr>
   nnoremap <silent> G :last<Cr>
 
-  " Enable autocommands
+  " Create autocommands
   augroup presentation_mode
     autocmd!
     autocmd BufEnter *.sld call search("^$", 'cw') " place cursor on the next empty line
     autocmd BufEnter *.sld call s:statusline_refresh() " refresh statusline
   augroup END
 
-  " Show statusline
-  setlocal laststatus=2
+  "setlocal laststatus=2 " show statusline " mrv: not needed
+  argu " open the current entry in the arglist
 
-  " Display the current entry in the arglist
-  argu
+  let g:argidx = argidx() " initialize global var used to set last visited slide at Goyo leave
 
 endfunction
 
@@ -128,23 +128,22 @@ function! s:goyo_leave()
   call s:reset_font_size() " reset font size
   call s:reset_cursor_color() " reset cursor's color
 
+  " Unmap slide navigation mappings
   nunmap j
   nunmap k
   nunmap gg
   nunmap G
 
-  " Clear autocommands 
+  " Remove autocommands 
   augroup presentation_mode
     autocmd!
   augroup END
   augroup! presentation_mode
 
-  argu " open the current entry in the arglist
+  " Open the last visited slide
+  exe 'argu ' . (g:argidx + 1) 
 
-  " Reapply current color scheme
-  execute 'colo '. get(g:, 'colors_name', 'default')
-
-  setfiletype sld " reapply sld syntax (which gets reset after re-applying the color schme)
+  setfiletype sld " reapply sld syntax (which gets reset after reapplying the color scheme)
 
 endfunction
 
