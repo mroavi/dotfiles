@@ -2,8 +2,8 @@
 nnoremap <silent> <F5> :Goyo<Cr>
 
 " Terminal config filepaths
-let g:alacritty_config_filepath = expand('~/.config/alacritty/alacritty.yml')
-let g:kitty_config_filepath = expand('~/.config/kitty/kitty.conf')
+let s:alacritty_config_filepath = expand('~/.config/alacritty/alacritty.yml')
+let s:kitty_config_filepath = expand('~/.config/kitty/kitty.conf')
 
 " ---------------------------------------------------------------------------
 " statusline
@@ -35,26 +35,26 @@ endfunction
 
 function s:set_font_size()
   if $TERM ==# 'alacritty'
-    let g:font_size_new = '  size: 18.0'
-    let g:font_size_current = matchstr(readfile(expand(g:alacritty_config_filepath)), '^  size:')
-    let sed_cmd = "sed -i 's/" . g:font_size_current . "/" . g:font_size_new . "/g'"
-    silent execute "!" . sed_cmd . " " . g:alacritty_config_filepath
+    let s:font_size_new = '  size: 18.0'
+    let s:font_size_current = matchstr(readfile(expand(s:alacritty_config_filepath)), '^  size:')
+    let sed_cmd = "sed -i 's/" . s:font_size_current . "/" . s:font_size_new . "/g'"
+    silent execute "!" . sed_cmd . " " . s:alacritty_config_filepath
   elseif $TERM ==# 'xterm-kitty'
-    let g:font_size_new = 'font_size 18.0'
-    let g:font_size_current = matchstr(readfile(expand(g:kitty_config_filepath)), '^font_size ')
-    let sed_cmd = "sed -i 's/" . g:font_size_current . "/" . g:font_size_new . "/g'"
-    silent execute "!" . sed_cmd . " " . g:kitty_config_filepath
+    let s:font_size_new = 'font_size 18.0'
+    let s:font_size_current = matchstr(readfile(expand(s:kitty_config_filepath)), '^font_size ')
+    let sed_cmd = "sed -i 's/" . s:font_size_current . "/" . s:font_size_new . "/g'"
+    silent execute "!" . sed_cmd . " " . s:kitty_config_filepath
     silent exec "!kill -s USR1 `pgrep -f kitty`"
   endif
 endfunction
 
 function s:reset_font_size()
   if $TERM ==# 'alacritty'
-    let sed_cmd = "sed -i 's/" . g:font_size_new . "/" . g:font_size_current . "/g'"
-    silent execute "!" . sed_cmd . " " . g:alacritty_config_filepath
+    let sed_cmd = "sed -i 's/" . s:font_size_new . "/" . s:font_size_current . "/g'"
+    silent execute "!" . sed_cmd . " " . s:alacritty_config_filepath
   elseif $TERM ==# 'xterm-kitty'
-    let sed_cmd = "sed -i 's/" . g:font_size_new . "/" . g:font_size_current . "/g'"
-    silent execute "!" . sed_cmd . " " . g:kitty_config_filepath
+    let sed_cmd = "sed -i 's/" . s:font_size_new . "/" . s:font_size_current . "/g'"
+    silent execute "!" . sed_cmd . " " . s:kitty_config_filepath
     silent exec "!kill -s USR1 `pgrep -f kitty`"
   endif
 endfunction
@@ -65,26 +65,26 @@ endfunction
 
 function s:set_cursor_color()
   if $TERM ==# 'alacritty'
-    let g:cursor_color_new = '      cursor:   "#282828"'
-    let g:cursor_color_current = matchstr(readfile(expand(g:alacritty_config_filepath)), '^      cursor:')
-    let sed_cmd = "sed -i 's/" . escape(g:cursor_color_current, '#') . "/" . escape(g:cursor_color_new, '#') . "/g'"
-    silent execute "!" . sed_cmd . " " . g:alacritty_config_filepath
+    let s:cursor_color_new = '      cursor:   "#282828"'
+    let s:cursor_color_current = matchstr(readfile(expand(s:alacritty_config_filepath)), '^      cursor:')
+    let sed_cmd = "sed -i 's/" . escape(s:cursor_color_current, '#') . "/" . escape(s:cursor_color_new, '#') . "/g'"
+    silent execute "!" . sed_cmd . " " . s:alacritty_config_filepath
   elseif $TERM ==# 'xterm-kitty'
-    let g:cursor_color_new = 'cursor #282828'
-    let g:cursor_color_current = matchstr(readfile(expand(g:kitty_config_filepath)), '^cursor ')
-    let sed_cmd = "sed -i 's/" . escape(g:cursor_color_current, '#') . "/" . escape(g:cursor_color_new, '#') . "/g'"
-    silent execute "!" . sed_cmd . " " . g:kitty_config_filepath
+    let s:cursor_color_new = 'cursor #282828'
+    let s:cursor_color_current = matchstr(readfile(expand(s:kitty_config_filepath)), '^cursor ')
+    let sed_cmd = "sed -i 's/" . escape(s:cursor_color_current, '#') . "/" . escape(s:cursor_color_new, '#') . "/g'"
+    silent execute "!" . sed_cmd . " " . s:kitty_config_filepath
     silent exec "!kill -s USR1 `pgrep -f kitty`"
   endif
 endfunction
 
 function s:reset_cursor_color()
   if $TERM ==# 'alacritty'
-    let sed_cmd = "sed -i 's/" . escape(g:cursor_color_new, '#') . "/" . escape(g:cursor_color_current, '#') . "/g'"
-    silent execute "!" . sed_cmd . " " . g:alacritty_config_filepath
+    let sed_cmd = "sed -i 's/" . escape(s:cursor_color_new, '#') . "/" . escape(s:cursor_color_current, '#') . "/g'"
+    silent execute "!" . sed_cmd . " " . s:alacritty_config_filepath
   elseif $TERM ==# 'xterm-kitty'
-    let sed_cmd = "sed -i 's/" . escape(g:cursor_color_new, '#') . "/" . escape(g:cursor_color_current, '#') . "/g'"
-    silent execute "!" . sed_cmd . " " . g:kitty_config_filepath
+    let sed_cmd = "sed -i 's/" . escape(s:cursor_color_new, '#') . "/" . escape(s:cursor_color_current, '#') . "/g'"
+    silent execute "!" . sed_cmd . " " . s:kitty_config_filepath
     silent exec "!kill -s USR1 `pgrep -f kitty`"
   endif
 endfunction
