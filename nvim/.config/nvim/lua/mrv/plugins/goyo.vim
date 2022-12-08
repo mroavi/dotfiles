@@ -1,7 +1,7 @@
 " Toggle Goyo mode
 nnoremap <silent> <F5> :Goyo<Cr>
 
-" Config filepaths
+" Terminal config filepaths
 let g:alacritty_config_filepath = expand('~/.config/alacritty/alacritty.yml')
 let g:kitty_config_filepath = expand('~/.config/kitty/kitty.conf')
 
@@ -20,7 +20,7 @@ function StatuslineSlideNumber()
 endfunction
 
 " Returns the current argument file in the arglist (which is equivalent to the slide number)
-function StatuslineRefresh()
+function s:statusline_refresh()
   setlocal statusline=
   setlocal statusline+=%#Conceal# " set `Conceal` highlight color
   setlocal statusline+=%{StatuslineDate()} " insert date
@@ -33,7 +33,7 @@ endfunction
 " font size
 " ---------------------------------------------------------------------------
 
-function SetFontSize()
+function s:set_font_size()
   if $TERM ==# 'alacritty'
     let g:font_size_new = '  size: 18.0'
     let g:font_size_current = matchstr(readfile(expand(g:alacritty_config_filepath)), '^  size:')
@@ -48,7 +48,7 @@ function SetFontSize()
   endif
 endfunction
 
-function ResetFontSize()
+function s:reset_font_size()
   if $TERM ==# 'alacritty'
     let sed_cmd = "sed -i 's/" . g:font_size_new . "/" . g:font_size_current . "/g'"
     silent execute "!" . sed_cmd . " " . g:alacritty_config_filepath
@@ -63,7 +63,7 @@ endfunction
 " Cursor color
 " ---------------------------------------------------------------------------
 
-function SetCursorColor()
+function s:set_cursor_color()
   if $TERM ==# 'alacritty'
     let g:cursor_color_new = '      cursor:   "#282828"'
     let g:cursor_color_current = matchstr(readfile(expand(g:alacritty_config_filepath)), '^      cursor:')
@@ -78,7 +78,7 @@ function SetCursorColor()
   endif
 endfunction
 
-function ResetCursorColor()
+function s:reset_cursor_color()
   if $TERM ==# 'alacritty'
     let sed_cmd = "sed -i 's/" . escape(g:cursor_color_new, '#') . "/" . escape(g:cursor_color_current, '#') . "/g'"
     silent execute "!" . sed_cmd . " " . g:alacritty_config_filepath
@@ -94,20 +94,11 @@ endfunction
 " ---------------------------------------------------------------------------
 
 function! s:goyo_enter()
-
-  " Clear the command line
   echo ''
-
-  " Hide gitsigns
   lua require"gitsigns".toggle_signs(false)
+  call s:set_font_size() " set presentation mode font size
+  call s:set_cursor_color() " change cursor's background color
 
-  " Set presentation mode font size
-  call SetFontSize()
-
-  " Change cursor's background color
-  call SetCursorColor()
-
-  " Define slide navigation specific mappings
   nnoremap <silent> j :n<Cr>
   nnoremap <silent> k :N<Cr>
   nnoremap <silent> gg :first<Cr>
@@ -117,7 +108,7 @@ function! s:goyo_enter()
   augroup presentation_mode
     autocmd!
     autocmd BufEnter *.sld call search("^$", 'cw') " place cursor on the next empty line
-    autocmd BufEnter *.sld call StatuslineRefresh() " refresh statusline
+    autocmd BufEnter *.sld call s:statusline_refresh() " refresh statusline
   augroup END
 
   " Show statusline
@@ -133,17 +124,10 @@ endfunction
 " ---------------------------------------------------------------------------
 
 function! s:goyo_leave()
-
-  " Show gitsigns
   lua require"gitsigns".toggle_signs(true)
+  call s:reset_font_size() " reset font size
+  call s:reset_cursor_color() " reset cursor's color
 
-  " Reset font size
-  call ResetFontSize()
-
-  " Reset cursor's color
-  call ResetCursorColor()
-
-  " Unmap j/k
   nunmap j
   nunmap k
   nunmap gg
@@ -155,14 +139,12 @@ function! s:goyo_leave()
   augroup END
   augroup! presentation_mode
 
-  " Display the current entry in the arglist
-  argu
+  argu " open the current entry in the arglist
 
   " Reapply current color scheme
   execute 'colo '. get(g:, 'colors_name', 'default')
 
-  " Reapply sld syntax (which gets reset after re-applying the color schme)
-  setfiletype sld
+  setfiletype sld " reapply sld syntax (which gets reset after re-applying the color schme)
 
 endfunction
 
