@@ -11,8 +11,8 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 " Execute statements in file if preceded by a given pattern
 " Inspired on: https://youtu.be/GDa7hrbcCB8?t=402
 function! FindAndExecute()
-  let startrow = search('\S*!!start')
-  let endrow = search('\S*!!end')
+  let startrow = search('\S*!!start', 'n')
+  let endrow = search('\S*!!end', 'n')
   if (startrow != 0) && (endrow != 0)
     exe string(startrow + 1) . ',' . string(endrow - 1) . 'source'
     redraw
