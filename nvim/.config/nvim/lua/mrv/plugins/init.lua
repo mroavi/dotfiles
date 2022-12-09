@@ -11,10 +11,10 @@ M.setup = function()
   require('packer').startup(function(use)
 
     use { 'wbthomason/packer.nvim', config = function() require('mrv.plugins.packer') end } -- packer can manage itself
-    use { 'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end } -- all the lua functions you don't want to write twice (I use it to reload the nvim configuration)
+    use { 'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end } -- all the lua functions you don't want to write twice (I use it to reload my nvim config)
     use { 'tpope/vim-commentary', config = function() require('mrv.plugins.vim-commentary') end } -- comment stuff out
     use { 'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, requires = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } } -- lf file manager for Neovim (in Lua)
-    use { 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } }
+    use { 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } } -- find, filter, preview, pick
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = function() require('mrv.plugins.gitsigns') end } -- super fast git decorations implemented purely in lua/teal
     use { 'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, requires = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' } } -- a completion plugin for neovim coded in Lua
     use { 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end, requires = { 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip' } }
