@@ -26,7 +26,7 @@ require("telescope").setup {
     qflist_previewer = require 'telescope.previewers'.vim_buffer_qflist.new,
     mappings = {
       i = {
-        ["<esc>"] = actions.close,
+        ["<Esc>"] = actions.close,
         ["<C-p>"] = actions.move_selection_previous,
         ["<C-n>"] = actions.move_selection_next,
         ["<C-q>"] = actions.send_to_qflist,
@@ -38,7 +38,7 @@ require("telescope").setup {
         end
       },
       n = {
-        ["<esc>"] = actions.close
+        ["<Esc>"] = actions.close
       },
     },
   }
