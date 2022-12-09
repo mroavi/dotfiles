@@ -210,7 +210,8 @@ end
 
 ---------------------------------------- args ----------------------------------
 
--- Tip: use :$arga to add the current file to the end of the arglist
+-- NOTE: Someone else's implementation: https://github.com/sam4llis/telescope-arglist.nvim
+-- NOTE: use :$arga to add the current file to the end of the arglist
 
 local function new_args_finder(opts)
   opts = opts or {}
