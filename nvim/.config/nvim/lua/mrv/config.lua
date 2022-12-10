@@ -38,6 +38,7 @@ M.setup = function()
   vim.o.termguicolors = true
   vim.o.background = 'dark'
   vim.o.wildignorecase = true
+  vim.o.cmdheight = 1 -- `0` hides the command-line when not being used
 
   if vim.env.SSH_CONNECTION then
     vim.o.clipboard = ''
