@@ -21,7 +21,7 @@ function StatuslineSlideNumber()
   return 'slide ' . string(argidx() + 1) . ' / ' . argc()
 endfunction
 
-" Returns the current argument file in the arglist (which is equivalent to the slide number)
+" Sets the date and slide number in the status line
 function s:statusline_refresh()
   setlocal statusline=
   setlocal statusline+=%#Conceal# " set `Conceal` highlight color
