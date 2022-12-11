@@ -20,3 +20,5 @@ require "nvim-treesitter.configs".setup {
 }
 
 vim.keymap.set("n", "<Leader>hc", "<Cmd>:TSHighlightCapturesUnderCursor<CR>")
+
+-- NOTE: Use `vim.treesitter.get_captures_at_pos()` to capture highlights at the given position
