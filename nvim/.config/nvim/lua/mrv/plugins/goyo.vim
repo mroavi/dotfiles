@@ -27,7 +27,6 @@ function s:statusline_refresh()
   setlocal statusline+=%#Conceal# " set `Conceal` highlight color
   setlocal statusline+=%{StatuslineDate()} " insert date
   setlocal statusline+=%= " switch to the right side
-  setlocal statusline+=%#Conceal# " set `SpecialKey` highlight color
   setlocal statusline+=%{StatuslineSlideNumber()} " insert slide number
 endfunction
 
