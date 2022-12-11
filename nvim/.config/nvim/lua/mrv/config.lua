@@ -204,14 +204,4 @@ M.setup = function()
 
 end
 
---------------------------------------------------------------------------------
---- Custom filetype
---------------------------------------------------------------------------------
-
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = "*.sld",
-  command = "setfiletype sld",
-  group = vim.api.nvim_create_augroup("slide_filetype", { clear = true })
-})
-
 return M
