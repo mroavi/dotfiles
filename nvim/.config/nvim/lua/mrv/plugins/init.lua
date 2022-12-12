@@ -39,11 +39,7 @@ M.setup = function()
     use { 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end } -- view treesitter information directly in Neovim
     use { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end } -- run Async Shell Commands and Output to the Quickfix Window
     use { 'mroavi/vim-evanesco' } -- automatically clears search highlight
-
-    -- Presentation mode
-    use { '~/repos/goyo.vim', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/goyo.vim'") end } -- distraction-free writing in Vim
-    use { 'edluffy/hologram.nvim', config = function() require('mrv.plugins.hologram') end } -- a cross platform terminal image viewer for Neovim
-    use { 'junegunn/limelight.vim', config = function() require('mrv.plugins.limelight') end } -- all the world's indeed a stage and we are merely players
+    use { '~/repos/slides.vim', config = function() require('mrv.plugins.slides') end, requires = { '~/repos/goyo.vim', 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } } -- presentation slides in vim
 
     -- {{{1
 
@@ -61,6 +57,9 @@ M.setup = function()
     --use { 'mroavi/lf.vim', config = function() require('mrv.plugins.lf-vim') end } -- file manager for vim/neovim powered by lf
     --use { 'vladdoster/remember.nvim', config = [[ require('remember') ]] } -- remembers cursor position
     --use { 'romainl/vim-cool' } -- disables search highlighting when you are done searching and re-enables it when you search again
+    --use { '~/repos/goyo.vim', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/goyo.vim'") end } -- distraction-free writing in Vim
+    --use { 'edluffy/hologram.nvim', config = function() require('mrv.plugins.hologram') end } -- a cross platform terminal image viewer for Neovim
+    --use { 'junegunn/limelight.vim', config = function() require('mrv.plugins.limelight') end } -- all the world's indeed a stage and we are merely players
 
     -- TODO: Try these out!
     --use { 'famiu/nvim-reload' } -- plugin to easily reload your Neovim config
