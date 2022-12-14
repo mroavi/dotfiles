@@ -5,8 +5,27 @@
 # atreplinit() do repl
 #   try
 #     @eval using OhMyREPL
-#     @eval colorscheme!("Base16MaterialDarker")
+#     # @eval colorscheme!("OneDark")
 #     @eval enable_autocomplete_brackets(false)
+#     # Custom color color_scheme
+#     @eval using Crayons
+#     @eval import OhMyREPL: Passes.SyntaxHighlighter
+#     @eval color_scheme = SyntaxHighlighter.ColorScheme()
+#     @eval SyntaxHighlighter.symbol!(color_scheme,crayon"#73cef4")
+#     @eval SyntaxHighlighter.comment!(color_scheme, crayon"#999999")
+#     @eval SyntaxHighlighter.string!(color_scheme, crayon"#d3b987")
+#     @eval SyntaxHighlighter.call!(color_scheme, crayon"#c9d05c")
+#     @eval SyntaxHighlighter.op!(color_scheme, crayon"#f43753")
+#     @eval SyntaxHighlighter.keyword!(color_scheme, crayon"#b3deef")
+#     @eval SyntaxHighlighter.macro!(color_scheme, crayon"#b3deef")
+#     @eval SyntaxHighlighter.function_def!(color_scheme, crayon"#c9d05c")
+#     @eval SyntaxHighlighter.text!(color_scheme, crayon"#eeeeee")
+#     @eval SyntaxHighlighter.error!(color_scheme, crayon"#f43753")
+#     @eval SyntaxHighlighter.argdef!(color_scheme, crayon"#73cef4")
+#     @eval SyntaxHighlighter.number!(color_scheme, crayon"#d3b987")
+#     # @eval test_colorscheme(color_scheme)
+#     @eval SyntaxHighlighter.add!("Tender", color_scheme)
+#     @eval colorscheme!("Tender")
 #   catch e
 #     @warn "error while importing OhMyREPL" e
 #   end
