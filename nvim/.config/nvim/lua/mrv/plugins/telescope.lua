@@ -210,8 +210,11 @@ end
 
 ---------------------------------------- args ----------------------------------
 
--- NOTE: Someone else's implementation: https://github.com/sam4llis/telescope-arglist.nvim
--- NOTE: use :$arga to add the current file to the end of the arglist
+-- NOTES:
+-- - use :$arga to add the current buffer to the end of the arglist
+-- - use :argu[INDEX] to edit file [INDEX] in the list
+-- - Someone else's implementation: https://github.com/sam4llis/telescope-arglist.nvim
+-- TODO: remove duplicate filenames from argument list after every addition of an entry
 
 local function new_args_finder(opts)
   opts = opts or {}
@@ -275,6 +278,13 @@ local function move_selected_entry_up(prompt_bufnr)
   move_selected_entry(prompt_bufnr, -2, 1, -2)
 end
 
+-- Edit selected entry
+local function edit_selected_entry(prompt_bufnr)
+  local selection_index = action_state.get_selected_entry().index
+  actions.close(prompt_bufnr)
+  vim.cmd('argu!' .. selection_index)
+end
+
 function M.args()
   local opts = {
     layout_strategy = "vertical",
@@ -289,6 +299,7 @@ function M.args()
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       -- Custom actions
+      map('i', '<Cr>', edit_selected_entry)
       map('i', '<C-x>', delete_selected_entry)
       map('i', '<C-k>', move_selected_entry_up)
       map('i', '<C-j>', move_selected_entry_down)
@@ -385,7 +396,7 @@ end
 --- My Custom Vim Pickers
 --------------------------------------------------------------------------------
 
-----------------------------------------Marks-----------------------------------
+--------------------------------------- marks ----------------------------------
 
 local function make_entry_gen_from_marks(_)
 
