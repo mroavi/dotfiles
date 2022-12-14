@@ -187,7 +187,7 @@ M.setup = function()
       vim.fn.search(valid_statement_regex, "cW")
     end
     -- Start visual line mode
-    vim.cmd("normal! V")
+    vim.cmd.norm[[V]]
     -- Move cursor to the next cell delimiter if found, otherwise, to bottom of buffer
     if vim.fn.search(cell_delimeter, "W") == 0 then vim.cmd([[exe "normal! G"]]) end
     -- Did we receive 'i' as argument (inner cell)?
