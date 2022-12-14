@@ -104,3 +104,20 @@ function. See ?apropos
 
 REPL help mode understands regex, e.g., enter r"^has" to get all methods
 starting with "has".
+
+
+Disabling auto-indentation of code in Julia REPL
+------------------------------------------------
+
+Source: <https://juliasnippets.blogspot.com/2018/11/disabling-auto-indentation-of-code-in.html>
+
+Consists of overwriting `REPL.LineEdit.options` method to make sure that we
+always use `REPL.GlobalOptions` with auto-indentation disabled.
+
+Useful when using **onthefly** for live-coding presentations.
+
+```julia
+import REPL
+REPL.GlobalOptions.auto_indent = false
+REPL.LineEdit.options(s::REPL.LineEdit.PromptState) = REPL.GlobalOptions
+```
