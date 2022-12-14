@@ -283,6 +283,7 @@ function M.args()
       prompt_position = "top",
     },
     sorting_strategy = "ascending",
+    scroll_strategy = "limit",
     entry_maker = my_make_entry.gen_from_file(),
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
