@@ -60,6 +60,7 @@ M.setup = function()
     --use { '~/repos/goyo.vim', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/goyo.vim'") end } -- distraction-free writing in Vim
     --use { 'edluffy/hologram.nvim', config = function() require('mrv.plugins.hologram') end } -- a cross platform terminal image viewer for Neovim
     --use { 'junegunn/limelight.vim', config = function() require('mrv.plugins.limelight') end } -- all the world's indeed a stage and we are merely players
+    --use { 'folke/zen-mode.nvim' , config = function() require('mrv.plugins.zen-mode') end } -- distraction-free coding for Neovim
 
     -- TODO: Try these out!
     --use { 'famiu/nvim-reload' } -- plugin to easily reload your Neovim config
