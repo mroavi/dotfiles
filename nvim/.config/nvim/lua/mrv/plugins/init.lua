@@ -39,7 +39,7 @@ M.setup = function()
     use { 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end } -- view treesitter information directly in Neovim
     use { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end } -- run Async Shell Commands and Output to the Quickfix Window
     use { 'mroavi/vim-evanesco' } -- automatically clears search highlight
-    use { '~/repos/slides.vim', config = function() require('mrv.plugins.slides') end, requires = { '~/repos/goyo.vim', 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } } -- presentation slides in vim
+    use { '~/repos/slides.vim', config = function() require('mrv.plugins.slides') end, requires = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } } -- presentation slides in vim
 
     -- {{{1
 
