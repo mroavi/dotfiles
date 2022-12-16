@@ -155,26 +155,26 @@ Mod4 + equal
 # "sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/epicurus/scripts/whatami.jl"
 #   alt + F1
 
-"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/1.txt"
-  alt + F1
+# "sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/1.txt"
+#   alt + F1
 
-"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/2.txt"
-  alt + F2
+# "sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/2.txt"
+#   alt + F2
 
-"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/3.txt"
-  alt + F3
+# "sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/3.txt"
+#   alt + F3
 
-"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/4.txt"
-  alt + F4
+# "sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/4.txt"
+#   alt + F4
 
-"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/5.txt"
-  alt + F5
+# "sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/5.txt"
+#   alt + F5
 
-"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/6.txt"
-  alt + F6
+# "sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/6.txt"
+#   alt + F6
 
-"sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/all.txt"
-  alt + F9
+# "sudo onthefly ~/repos/5lia0-embedded-visual-control/2022/slides/02-3d-printing/scripts/all.txt"
+#   alt + F9
 
 # "sudo /home/mroavi/repos/onthefly/dist/onthefly '/home/mroavi/Dropbox/TUe/PhD/third-year/presentations/2020-05-20-biaslab-seminar/i-can-eat-glass.txt'"
 #   control+shift+alt + 1
@@ -187,6 +187,24 @@ Mod4 + equal
 
 # "sudo ~/repos/Halide/mrv/automated-multi-stage-practice.sh"
 #   control+shift+alt + 4
+
+"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/01-a-trivial-but-revealing-example-in-depth.jl"
+  alt + F1
+
+"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/02-a-trivial-but-revealing-example-in-depth.jl"
+  alt + F2
+
+"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/03-a-trivial-but-revealing-example-in-depth.jl"
+  alt + F3
+
+"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/04-dispatch-compile-time.jl"
+  alt + F4
+
+"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/05-dispatch-runtime.jl"
+  alt + F5
+
+"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/06-runtime-vs-compile-time-performance-comparison.jl"
+  alt + F6
 
 ##################################
 # End of xbindkeys configuration #
