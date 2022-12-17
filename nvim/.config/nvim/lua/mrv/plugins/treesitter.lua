@@ -35,6 +35,16 @@ require 'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 
+  -- Incremental selection based on the named nodes from the grammar
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = '<Leader>v',
+      node_incremental = '<Leader>v',
+      node_decremental = '<Leader>V',
+    },
+  },
+
   -- Text objects extension (https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
   textobjects = {
     select = {
@@ -69,4 +79,5 @@ require 'nvim-treesitter.configs'.setup {
       },
     },
   },
+
 }
