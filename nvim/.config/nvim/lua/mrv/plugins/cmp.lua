@@ -46,7 +46,7 @@ cmp.setup {
     ['<C-n>'] = cmp.mapping({
       i = function(fallback)
         if cmp.visible() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
         else
           cmp.complete()
         end
@@ -55,7 +55,7 @@ cmp.setup {
     ['<C-p>'] = cmp.mapping({
       i = function(fallback)
         if cmp.visible() then
-          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
         else
           cmp.complete()
         end
