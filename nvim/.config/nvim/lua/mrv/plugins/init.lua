@@ -35,7 +35,7 @@ M.setup = function()
     use { 'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end } -- a modern Vim and neovim filetype plugin for LaTeX files.
     use { 'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end } -- a Vim alignment plugin
     use { 'junegunn/gv.vim', config = function() require('mrv.plugins.gv') end } -- a git commit browser in Vim
-    use { 'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, run = ':TSUpdate' } -- nvim treesitter configurations and abstraction layer
+    use { 'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, run = ':TSUpdate', requires = { 'nvim-treesitter/nvim-treesitter-textobjects' } } -- nvim treesitter configurations and abstraction layer
     use { 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end, requires = { 'nvim-treesitter/nvim-treesitter' } } -- view treesitter information directly in Neovim
     use { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end } -- run Async Shell Commands and Output to the Quickfix Window
     use { 'mroavi/vim-evanesco' } -- automatically clears search highlight
