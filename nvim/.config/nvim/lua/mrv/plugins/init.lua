@@ -28,7 +28,7 @@ M.setup = function()
     use { 'mroavi/vim-pasta' } -- auto format pasted code
     use { 'wellle/targets.vim', config = function() require('mrv.plugins.targets') end } -- vim plugin that provides additional text objects
     use { 'yegappan/mru', config = function() require('mrv.plugins.mru') end } -- most recently used (MRU) vim plugin
-    use { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end } -- quickstart configurations for the Nvim LSP client
+    use { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end, requires = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' } } -- quickstart configurations for the Nvim LSP client
     use { 'mroavi/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end } -- send text to tmux
     use { 'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end } -- vim support for Julia
     use { 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end } -- displays a popup with possible keybindings of the command you started typing
