@@ -1,6 +1,14 @@
 require 'nvim-treesitter.configs'.setup {
+
   -- One of "all" or a list of languages
-  ensure_installed = "all",
+  ensure_installed = {
+    "julia",
+    "lua",
+    "python",
+    "c",
+    "vim",
+    "rust",
+  },
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
