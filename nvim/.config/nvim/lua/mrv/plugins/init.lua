@@ -30,7 +30,6 @@ M.setup = function()
     use { 'yegappan/mru', config = function() require('mrv.plugins.mru') end } -- most recently used (MRU) vim plugin
     use { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end, requires = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' } } -- quickstart configurations for the Nvim LSP client
     use { 'mroavi/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end } -- send text to tmux
-    use { 'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end } -- vim support for Julia
     use { 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end } -- displays a popup with possible keybindings of the command you started typing
     use { 'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end } -- a modern Vim and neovim filetype plugin for LaTeX files.
     use { 'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end } -- a Vim alignment plugin
@@ -61,6 +60,7 @@ M.setup = function()
     --use { 'edluffy/hologram.nvim', config = function() require('mrv.plugins.hologram') end } -- a cross platform terminal image viewer for Neovim
     --use { 'junegunn/limelight.vim', config = function() require('mrv.plugins.limelight') end } -- all the world's indeed a stage and we are merely players
     --use { 'folke/zen-mode.nvim' , config = function() require('mrv.plugins.zen-mode') end } -- distraction-free coding for Neovim
+    --use { 'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end } -- vim support for Julia
 
     -- TODO: Try these out!
     --use { 'famiu/nvim-reload' } -- plugin to easily reload your Neovim config
