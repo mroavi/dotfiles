@@ -4,7 +4,7 @@ command! -complete=file -nargs=* Gdiff Git diff <args>
 command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
 ]])
 
-vim.keymap.set("n", "<Leader>g", "<Cmd>Gedit :<CR>") -- https://github.com/tpope/vim-fugitive/issues/1296
+vim.keymap.set("n", "<Leader>gs", "<Cmd>Gedit :<CR>") -- https://github.com/tpope/vim-fugitive/issues/1296
 --vim.keymap.set("n", "<C-g>", "<Cmd>keepalt Gedit :<CR>") -- keep the alternate file
 
 ---- Disabled in favor of the command line abbreviations below
