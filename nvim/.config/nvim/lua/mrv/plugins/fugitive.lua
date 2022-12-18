@@ -7,16 +7,6 @@ command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
 vim.keymap.set("n", "<Leader>gs", "<Cmd>Gedit :<CR>") -- https://github.com/tpope/vim-fugitive/issues/1296
 --vim.keymap.set("n", "<C-g>", "<Cmd>keepalt Gedit :<CR>") -- keep the alternate file
 
----- Disabled in favor of the command line abbreviations below
---vim.keymap.set("n", "<Leader>gw",  "<Cmd>:Gwrite<CR>")
---vim.keymap.set("n", "<Leader>gc",  "<Cmd>:Git commit -v<CR>")
---vim.keymap.set("n", "<Leader>gp",  "<Cmd>:Git push<CR>")
---vim.keymap.set("n", "<Leader>gl",  "<Cmd>:Git pull<CR>")
----- The LHS of the mappings below are being used elsewhere
---vim.keymap.set("n", "<Leader>gr",  "<Cmd>:Gread<CR>")
---vim.keymap.set("n", "<Leader>gdi", "<Cmd>:Gdiff<CR>")
---vim.keymap.set("n", "<Leader>gds", "<Cmd>:Gdstaged<CR>")
-
 -- Emulates the zsh aliases in nvim's command line
 vim.cmd('cnoreabbrev g    Git')
 vim.cmd('cnoreabbrev git  Git')
