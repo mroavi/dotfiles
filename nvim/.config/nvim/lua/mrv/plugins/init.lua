@@ -17,7 +17,7 @@ M.setup = function()
     use { 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } } -- find, filter, preview, pick
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = function() require('mrv.plugins.gitsigns') end } -- super fast git decorations implemented purely in lua/teal
     use { 'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, requires = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' } } -- a completion plugin for neovim coded in Lua
-    use { 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end, requires = { 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip' } }
+    use { 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end }
     use { '~/repos/tender.nvim', config = function() vim.cmd.colorscheme("tender") end } -- my color scheme
     use { 'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end } -- autopairs for neovim written by lua
     use { 'tpope/vim-fugitive', config = function() require('mrv.plugins.fugitive') end } -- a Git wrapper so awesome, it should be illegal
@@ -61,6 +61,7 @@ M.setup = function()
     --use { 'junegunn/limelight.vim', config = function() require('mrv.plugins.limelight') end } -- all the world's indeed a stage and we are merely players
     --use { 'folke/zen-mode.nvim' , config = function() require('mrv.plugins.zen-mode') end } -- distraction-free coding for Neovim
     --use { 'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end } -- vim support for Julia
+    --use { 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end, requires = { 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip' } }
 
     -- TODO: Try these out!
     --use { 'famiu/nvim-reload' } -- plugin to easily reload your Neovim config
