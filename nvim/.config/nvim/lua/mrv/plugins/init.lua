@@ -28,7 +28,7 @@ M.setup = function()
     use { 'mroavi/vim-pasta' } -- auto format pasted code
     use { 'wellle/targets.vim', config = function() require('mrv.plugins.targets') end } -- vim plugin that provides additional text objects
     use { 'yegappan/mru', config = function() require('mrv.plugins.mru') end } -- most recently used (MRU) vim plugin
-    use { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end, requires = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' } } -- quickstart configurations for the Nvim LSP client
+    use { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end } -- quickstart configurations for the Nvim LSP client
     use { 'mroavi/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end } -- send text to tmux
     use { 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end } -- displays a popup with possible keybindings of the command you started typing
     use { 'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end } -- a modern Vim and neovim filetype plugin for LaTeX files.
@@ -62,6 +62,7 @@ M.setup = function()
     --use { 'folke/zen-mode.nvim' , config = function() require('mrv.plugins.zen-mode') end } -- distraction-free coding for Neovim
     --use { 'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end } -- vim support for Julia
     --use { 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end, requires = { 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip' } }
+    --use { 'williamboman/mason.nvim', config = function() require('mrv.plugins.mason') end, requires = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' } } -- easily install and manage LSP servers, DAP servers, linters, and formatters
 
     -- TODO: Try these out!
     --use { 'famiu/nvim-reload' } -- plugin to easily reload your Neovim config
