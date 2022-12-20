@@ -8,5 +8,16 @@ nnoremap <buffer><Leader>h2 m`0dw :center 80<cr>hhv0r"A<Space><Esc>40A"<Esc>d80<
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-commentary
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " No space between comment and code
 let b:commentary_format = '"%s'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Debug utilities
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! Echo()
+  let l:last_search = substitute(@/,'\\<\|\\>\|\\V','','g')
+  exe 'normal! ' . 'mz' . 'o' . 'echom "' . l:last_search . ': " ' . l:last_search . '`z'
+endfunction
+nnoremap <buffer> <Leader>pr :<C-u>call Echo()<CR>
