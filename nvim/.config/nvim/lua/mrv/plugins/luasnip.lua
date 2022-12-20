@@ -3,7 +3,7 @@ local vim = vim
 
 --require("luasnip/loaders/from_vscode").lazy_load() -- to use existing vs-code style snippets from a plugin
 
--- Simple example of a global snippet (type "expand" followed by <Tab> )
+-- Simple example of a global snippet (type "expand" followed by <Tab> ) (https://www.youtube.com/watch?v=Dn800rlPIho)
 ls.add_snippets("all", {
     -- Available for any filetype
     ls.parser.parse_snippet("expand", "Hello, World!"),
