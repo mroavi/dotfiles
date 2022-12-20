@@ -13,19 +13,13 @@ nnoremap <buffer><Leader>h3 m`0dw :center 80<CR>hhv0r-A<Space><Esc>40A-<Esc>d77<
 let b:commentary_format = '--%s'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Debug Utilities
+""" Debug utilities
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! InsertPrintStatement()
+function! PrettyPrint()
   let l:last_search = substitute(@/,'\\<\|\\>\|\\V','','g')
-  exe 'normal! ' . 'mz' . 'o' . 'print("' . l:last_search . ': ", ' . l:last_search . ')' . '`z'
+  exe 'normal! ' . 'mz' . 'o' . 'vim.pretty_print("' . l:last_search . ': ", ' . l:last_search . ')' . '`z'
 endfunction
-nnoremap <buffer> <Leader>pr :<C-u>call InsertPrintStatement()<CR>
-
-function! InsertPrintInspectStatement()
-  let l:last_search = substitute(@/,'\\<\|\\>\|\\V','','g')
-  exe 'normal! ' . 'mz' . 'o' . 'print("' . l:last_search . ': ", vim.inspect(' . l:last_search . '))' . '`z'
-endfunction
-nnoremap <buffer> <Leader>pi :<C-u>call InsertPrintInspectStatement()<CR>
+nnoremap <buffer> <Leader>pr :<C-u>call PrettyPrint()<CR>
 
 " Write and execute ( https://vim.fandom.com/wiki/Source_current_file_when_editing_a_script )
 nmap <buffer><silent> <Leader>e :write <Bar> luafile %<CR>
