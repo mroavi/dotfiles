@@ -89,16 +89,14 @@ end
 # ------------------------------------------------------------------------------
 ## Clear screen leaving prompt at the bottom
 # ------------------------------------------------------------------------------
-function clr()
-  for _ = 1:60
-    println()
-  end
-end
+
+clr() = foreach(_ -> println(), 1:60)
 
 # ------------------------------------------------------------------------------
 # Open files in another tmux instance where nvim should already be running
 # with @edit <function call> or, when a stacktrace is displayed, with [number]<C-q>
 # ------------------------------------------------------------------------------
+
 using InteractiveUtils
 InteractiveUtils.define_editor("nvim", wait=false) do cmd, path, line
   # Open in pane to the left of REPL
@@ -110,6 +108,7 @@ end
 # ------------------------------------------------------------------------------
 ## Find the git repo's root directory
 # ------------------------------------------------------------------------------
+
 function gitdir(currdir)
   while true
     dirname(currdir) == currdir && return nothing
@@ -122,6 +121,7 @@ end
 ## Return a date-time string to be used as directory name for a benchmark
 # Format based on: https://serverfault.com/a/370766
 # ------------------------------------------------------------------------------
+
 function benchmark_dirname()
   joinpath("out", gethostname(), Dates.format(now(), "yyyy-mm-dd--HH-MM-SS"))
 end
@@ -129,6 +129,7 @@ end
 # ------------------------------------------------------------------------------
 ## My silent @show version (omit the right-hand side)
 # ------------------------------------------------------------------------------
+
 macro sshow(exs...)
   blk = Expr(:block)
   for ex in exs
