@@ -87,4 +87,7 @@ cmp.setup {
     { name = 'luasnip' },
     { name = "buffer", keyword_length = 3 },
   },
+  experimental = {
+    ghost_text = true, -- use virtual text to preview the completion
+  }
 }
