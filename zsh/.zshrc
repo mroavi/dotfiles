@@ -33,8 +33,8 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # include hidden files.
 
-# Accept autosuggestions with Ctrl+Space
-bindkey '^ ' autosuggest-accept
+# Accept autosuggestions with Ctrl+j
+bindkey '^j' autosuggest-accept
 
 # Auto complete with case insenstivity
 zstyle ':completion:*' menu select=1
