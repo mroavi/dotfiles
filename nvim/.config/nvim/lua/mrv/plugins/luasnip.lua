@@ -1,5 +1,9 @@
-local ls = require "luasnip"
 local vim = vim
+local ls = require "luasnip"
+
+ls.config.set_config {
+  history = true, -- allows to jump back into last snippet
+}
 
 --require("luasnip/loaders/from_vscode").lazy_load() -- to use existing vs-code style snippets from a plugin
 
