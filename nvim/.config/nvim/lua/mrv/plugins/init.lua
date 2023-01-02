@@ -63,6 +63,8 @@ M.setup = function()
     --use { 'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end } -- vim support for Julia
     --use { 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end, requires = { 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip' } }
     --use { 'williamboman/mason.nvim', config = function() require('mrv.plugins.mason') end, requires = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' } } -- easily install and manage LSP servers, DAP servers, linters, and formatters
+    --use { 'amarakon/nvim-cmp-lua-latex-symbols' } -- nvim-cmp source for LaTeX symbols (100% Lua)
+    --use { 'hrsh7th/cmp-emoji' } -- nvim-cmp source for emoji
 
     -- TODO: Try these out!
     --use { 'famiu/nvim-reload' } -- plugin to easily reload your Neovim config
