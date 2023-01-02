@@ -10,7 +10,10 @@ ls.add_snippets("all", {
   }
 )
 
--- Expand or jump forward
+-- Expand
+vim.keymap.set({ "i", "s" }, "<C-j>", "<Plug>luasnip-expand-snippet")
+
+-- Expand or jump forward (TODO: do not expand with tab)
 vim.keymap.set({ "i", "s" }, "<Tab>", function()
   if ls.expand_or_jumpable() then
     ls.expand_or_jump()
