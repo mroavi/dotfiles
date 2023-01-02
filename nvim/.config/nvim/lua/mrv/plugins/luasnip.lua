@@ -26,8 +26,14 @@ end, { silent = true })
 --------------------------------------------------------------------------------
 
 -- Simple example of a global snippet (type "expand" followed by <Tab> ) (https://www.youtube.com/watch?v=Dn800rlPIho)
-ls.add_snippets("all", {
-    -- Available for any filetype
+ls.add_snippets("all", { -- available for any filetype
     ls.parser.parse_snippet("expand", "Hello, World!"),
+  }
+)
+
+--- julia
+
+ls.add_snippets("julia", {
+    ls.parser.parse_snippet("pr", "println($0)"),
   }
 )
