@@ -35,5 +35,6 @@ ls.add_snippets("all", { -- available for any filetype
 
 ls.add_snippets("julia", {
     ls.parser.parse_snippet("pr", "println($0)"),
+    ls.parser.parse_snippet("fun", "function $1($2)\n\t$0\nend"),
   }
 )
