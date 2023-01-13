@@ -66,7 +66,7 @@ nnoremap <buffer><silent> <BS> :TomuxSend("\b")<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <buffer><silent><Leader>sh :lua require('mrv.utils').toggle_string('@sshow ', 'I')<CR>
 noremap <buffer><silent><Leader>pr :lua require('mrv.utils').toggle_string(' \|> println', 'A')<CR>
-"noremap <buffer><silent><Leader>ti :lua require('mrv.utils').toggle_string('@btime ', 'I')<CR>
+noremap <buffer><silent><Leader>bt :lua require('mrv.utils').toggle_string('@btime ', 'I')<CR>
 "noremap <buffer><silent><Leader>du :lua require('mrv.utils').toggle_string(' \|> dump', 'A')<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
