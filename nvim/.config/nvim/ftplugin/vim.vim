@@ -2,8 +2,8 @@
 let b:cell_delimeter = '^\"\"\" '
 
 " Handy header mappings
-nnoremap <buffer><Leader>h1 m`<S-o><Esc>80a"<Esc>yyjp``
-nnoremap <buffer><Leader>h2 m`0dw :center 80<cr>hhv0r"A<Space><Esc>40A"<Esc>d80<Bar>``
+nnoremap <buffer> <Leader>h1 m`<S-o><Esc>80a"<Esc>yyjp``
+nnoremap <buffer> <Leader>h2 m`0dw :center 80<cr>hhv0r"A<Space><Esc>40A"<Esc>d80<Bar>``
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-commentary
