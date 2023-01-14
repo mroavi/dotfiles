@@ -21,3 +21,6 @@ function! Echo()
   exe 'normal! ' . 'mz' . 'o' . 'echom "' . l:last_search . ': " ' . l:last_search . '`z'
 endfunction
 nnoremap <buffer> <Leader>pr :<C-u>call Echo()<CR>
+
+" Write and execute ( https://vim.fandom.com/wiki/Source_current_file_when_editing_a_script )
+nmap <buffer><silent> <Leader>e :write <Bar> source %<CR>
