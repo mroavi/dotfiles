@@ -16,6 +16,7 @@ let b:commentary_format = '"%s'
 """ Debug utilities
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Insert a line below the current line that echos the content of the search register
 function! Echo()
   let l:last_search = substitute(@/,'\\<\|\\>\|\\V','','g')
   exe 'normal! ' . 'mz' . 'o' . 'echom "' . l:last_search . ': " ' . l:last_search . '`z'
