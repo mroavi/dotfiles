@@ -77,6 +77,21 @@ function M.toggle_string(str, insert_text_cmd)
   end
 end
 
+-- Inserts a debug statement below the curosor line using the content of the search register
+function M.insert_string(str, insert_text_cmd)
+  local search_reg = vim.fn.getreg('/')
+  -- If present, remove \< and \> from the beginning and end of the string
+  local search_reg_clean, num_subs = string.gsub(search_reg, "^\\<(.*)\\>$", "%1")
+  -- Did the substitution fail?
+  if num_subs == 0 then -- https://stackoverflow.com/a/3463550/1706778
+    -- Yes, then remove \V from the beginning of the string
+    search_reg_clean, num_subs = string.gsub(search_reg, "^\\V(.*)", "%1")
+  end
+  vim.pretty_print(str)
+  vim.pretty_print(string.format(str, search_reg_clean, search_reg_clean))
+  vim.cmd([[exe "norm! m`]] .. insert_text_cmd .. string.format(str, search_reg_clean, search_reg_clean) .. [[\<Esc>``"]])
+end
+
 -- Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
 function M.toggle_quickfix_window()
   local quickfixwin = vim.tbl_filter(function(val) return val.quickfix == 1 end, vim.fn.getwininfo())
