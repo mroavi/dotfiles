@@ -62,14 +62,6 @@ nnoremap <buffer><silent> K :TomuxSend("\b?" . expand("<cword>") . "\n\b")<CR>
 nnoremap <buffer><silent> <BS> :TomuxSend("\b")<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Misc
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <buffer><silent><Leader>sh :lua require('mrv.utils').toggle_string('@sshow ', 'I')<CR>
-noremap <buffer><silent><Leader>pr :lua require('mrv.utils').toggle_string(' \|> println', 'A')<CR>
-noremap <buffer><silent><Leader>bt :lua require('mrv.utils').toggle_string('@btime ', 'I')<CR>
-"noremap <buffer><silent><Leader>du :lua require('mrv.utils').toggle_string(' \|> dump', 'A')<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ julia-vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <buffer><Leader>tf :call julia#toggle_function_blockassign()<CR>
