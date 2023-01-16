@@ -39,6 +39,7 @@ M.setup = function()
   vim.opt.background = 'dark'
   vim.opt.wildignorecase = true
   vim.opt.cmdheight = 1 -- `0` hides the command-line when not being used
+  vim.opt.wildignore:append { 'build/**' }
 
   if vim.env.SSH_CONNECTION then
     vim.opt.clipboard = ''
