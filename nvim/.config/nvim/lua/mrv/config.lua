@@ -11,37 +11,37 @@ M.setup = function()
   vim.g.mapleader = ' '
   vim.g.markdown_fenced_languages = {'html', 'python', 'bash=sh'}
 
-  vim.o.shada = "<10,'99,/99,:99,h,f1" -- :help sd
-  vim.o.number = false
-  vim.o.relativenumber = false
-  vim.o.swapfile = false
-  vim.o.wrap = true
-  vim.o.linebreak = true
-  vim.o.list = false
-  vim.o.hidden = true
-  vim.o.formatoptions = 'tcqj'
-  vim.o.splitbelow = true
-  vim.o.splitright = true
-  vim.o.signcolumn = 'yes:1'
-  vim.o.tabstop = 2
-  vim.o.softtabstop = 2
-  vim.o.shiftwidth = 2
-  vim.o.shiftround = true
-  vim.o.expandtab = true
-  vim.o.smartindent = true
-  vim.o.updatetime = 100
-  vim.o.inccommand = 'split'
-  vim.o.listchars = "tab:»\\ ,space:_,trail:·,eol:¬"
-  vim.o.scrolloff = 5
-  vim.o.completeopt = 'menuone,noselect'
-  vim.o.clipboard = 'unnamedplus'
-  vim.o.termguicolors = true
-  vim.o.background = 'dark'
-  vim.o.wildignorecase = true
-  vim.o.cmdheight = 1 -- `0` hides the command-line when not being used
+  vim.opt.shada = { '<10', "'99", '/99', ':99', 'h', 'f1' } -- :help sd
+  vim.opt.number = false
+  vim.opt.relativenumber = false
+  vim.opt.swapfile = false
+  vim.opt.wrap = true
+  vim.opt.linebreak = true
+  vim.opt.list = false
+  vim.opt.hidden = true
+  vim.opt.formatoptions = 'tcqj'
+  vim.opt.splitbelow = true
+  vim.opt.splitright = true
+  vim.opt.signcolumn = 'yes:1'
+  vim.opt.tabstop = 2
+  vim.opt.softtabstop = 2
+  vim.opt.shiftwidth = 2
+  vim.opt.shiftround = true
+  vim.opt.expandtab = true
+  vim.opt.smartindent = true
+  vim.opt.updatetime = 100
+  vim.opt.inccommand = 'split'
+  vim.opt.listchars = { tab = "»\\ ", space = "_", trail = "·", eol = "¬" }
+  vim.opt.scrolloff = 5
+  vim.opt.completeopt = { 'menuone', 'noselect' }
+  vim.opt.clipboard = 'unnamedplus'
+  vim.opt.termguicolors = true
+  vim.opt.background = 'dark'
+  vim.opt.wildignorecase = true
+  vim.opt.cmdheight = 1 -- `0` hides the command-line when not being used
 
   if vim.env.SSH_CONNECTION then
-    vim.o.clipboard = ''
+    vim.opt.clipboard = ''
     --:set diffopt+=linematch:60 -- TODO: set this when 0.9 comes out
   end
 
