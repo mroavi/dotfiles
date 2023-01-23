@@ -38,11 +38,11 @@ M.setup = function()
     use { 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end, requires = { 'nvim-treesitter/nvim-treesitter' } } -- view treesitter information directly in Neovim
     use { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end } -- run Async Shell Commands and Output to the Quickfix Window
     use { 'mroavi/vim-evanesco' } -- automatically clears search highlight
-    use { '~/repos/slides.vim', config = function() require('mrv.plugins.slides') end, requires = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } } -- presentation slides in vim
 
     -- {{{1
 
     -- Disabled
+    --use { '~/repos/slides.vim', config = function() require('mrv.plugins.slides') end, requires = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } } -- presentation slides in vim
     --use { 'preservim/vim-markdown' } -- syntax highlighting, matching rules and mappings for Markdown and extensions
     --use { 'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end } -- the fastest Neovim colorizer.
     --use { 'dstein64/nvim-scrollview', config = function() require('mrv.plugins.scrollview') end } -- a Neovim plugin that displays (non-interactive) scrollbars
