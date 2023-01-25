@@ -7,9 +7,7 @@ fi
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
-
-export PATH
+export PATH=$HOME/.local/bin:$HOME/bin:$PATH
 
 if [ "$SSH_CONNECTION" ]; then
 
