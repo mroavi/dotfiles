@@ -134,7 +134,7 @@ FILE=$HOME/.local/bin/fasd
 if [ -f "$FILE" ]; then
   echo " fasd is already installed"
 else
-  LOCAL_REPO=~/repos/fasd
+  LOCAL_REPO=$HOME/repos/fasd
   REPO_URL=git@github.com:clvv/fasd.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cd $LOCAL_REPO
