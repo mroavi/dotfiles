@@ -24,40 +24,6 @@ HISTSIZE=50000
 SAVEHIST=10000
 
 # =============================================================================
-## Completion
-# =============================================================================
-
-autoload -U compinit
-
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots) # include hidden files.
-
-# Accept autosuggestions with Ctrl+j
-bindkey '^j' autosuggest-accept
-
-# Auto complete with case insenstivity
-zstyle ':completion:*' menu select=1
-bindkey -M menuselect '' .send-break # break from menu with escape
-
-# Use the vi navigation keys in menu completion
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
-# Defines behavior of 'Tab'
-#bindkey '  ' autosuggest-accept
-#bindkey '  ' complete-word
-
-#setopt noautomenu
-#setopt nomenucomplete
-
-# See: http://zsh.sourceforge.net/Guide/zshguide06.html
-#bindkey '^ ' menu-complete
-#bindkey '^ ' complete-word
-
-# =============================================================================
 ## Plugins
 # =============================================================================
 
@@ -119,6 +85,40 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt.
+
+# =============================================================================
+## Completion
+# =============================================================================
+
+autoload -U compinit
+
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) # include hidden files.
+
+# Accept autosuggestions with Ctrl+j
+bindkey '^j' autosuggest-accept
+
+# Auto complete with case insenstivity
+zstyle ':completion:*' menu select=1
+bindkey -M menuselect '' .send-break # break from menu with escape
+
+# Use the vi navigation keys in menu completion
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# Defines behavior of 'Tab'
+#bindkey '  ' autosuggest-accept
+#bindkey '  ' complete-word
+
+#setopt noautomenu
+#setopt nomenucomplete
+
+# See: http://zsh.sourceforge.net/Guide/zshguide06.html
+#bindkey '^ ' menu-complete
+#bindkey '^ ' complete-word
 
 # =============================================================================
 ## Prompt
