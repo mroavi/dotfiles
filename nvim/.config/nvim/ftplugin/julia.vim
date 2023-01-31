@@ -40,7 +40,7 @@ function! ExecuteBuffer()
 endfunction
 nnoremap <buffer><silent> <Leader>e :call ExecuteBuffer()<CR>
 
-" Restart REPL
+" Restart REPL TODO: not working
 nnoremap <buffer><silent> <Leader>tr :TomuxSend("\bexit()\n")<CR>:sl 50m<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>
 
 " Kill REPL
