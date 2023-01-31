@@ -13,29 +13,29 @@ augroup tomux_send
   "-----------------------------------------------------------------------------
   " `s` to send motion/text-object
   "-----------------------------------------------------------------------------
-  autocmd FileType julia,python,octave nmap <buffer> s <Plug>TomuxMotionSend
-  "autocmd FileType julia,python,octave nmap <silent> s :set opfunc=MySendOperator<Cr>g@
-  autocmd FileType julia,python,octave xmap <buffer> s <Plug>TomuxVisualSend
-  autocmd FileType julia,python,octave omap <buffer> s _
+  autocmd FileType julia,python,lua nmap <buffer> s <Plug>TomuxMotionSend
+  "autocmd FileType julia,python,lua nmap <silent> s :set opfunc=MySendOperator<Cr>g@
+  autocmd FileType julia,python,lua xmap <buffer> s <Plug>TomuxVisualSend
+  autocmd FileType julia,python,lua omap <buffer> s _
 
   "-----------------------------------------------------------------------------
   " Atom-like mappings for sending text (the `\` key is used as helper/hack)
   "-----------------------------------------------------------------------------
-  autocmd FileType julia,python,octave nmap <buffer> \ <Plug>TomuxMotionSend
+  autocmd FileType julia,python,lua nmap <buffer> \ <Plug>TomuxMotionSend
 
   " Ctrl+Enter to send text in visual, normal and insert modes
-  "autocmd FileType julia,python,octave xmap <buffer> <C-Cr> <Plug>TomuxVisualSend
-  "autocmd FileType julia,python,octave nmap <buffer> <C-Cr> \_
-  "autocmd FileType julia,python,octave imap <buffer> <C-Cr> <Esc>\_gi
+  "autocmd FileType julia,python,lua xmap <buffer> <C-Cr> <Plug>TomuxVisualSend
+  "autocmd FileType julia,python,lua nmap <buffer> <C-Cr> \_
+  "autocmd FileType julia,python,lua imap <buffer> <C-Cr> <Esc>\_gi
 
   " Alt+Enter to send cell
-  autocmd FileType julia,python,octave nmap <buffer> <M-Cr> \ic
+  autocmd FileType julia,python,lua nmap <buffer> <M-Cr> \ic
 
   " Ctrl+Shift+Enter to send entire buffer
-  autocmd FileType octave              nmap <buffer> <C-S-Cr> \id
+  autocmd FileType lua              nmap <buffer> <C-S-Cr> \id
 
   " Shift+Enter to send paragraph and jump to next statement
-  autocmd FileType julia,python,octave nmap <silent> <S-Cr> :set opfunc=MySendOperator<Cr>g@ap
+  autocmd FileType julia,python,lua nmap <silent> <S-Cr> :set opfunc=MySendOperator<Cr>g@ap
 
   "-----------------------------------------------------------------------------
   " Convenience mapping to send code that uses Julia's pipe operator (|>)
