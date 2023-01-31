@@ -65,6 +65,7 @@ M.setup = function()
     --use { 'williamboman/mason.nvim', config = function() require('mrv.plugins.mason') end, requires = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' } } -- easily install and manage LSP servers, DAP servers, linters, and formatters
     --use { 'amarakon/nvim-cmp-lua-latex-symbols' } -- nvim-cmp source for LaTeX symbols (100% Lua)
     --use { 'hrsh7th/cmp-emoji' } -- nvim-cmp source for emoji
+    --use { "lukas-reineke/indent-blankline.nvim" } -- indent guides for Neovim
 
     -- TODO: Try these out!
     --use { 'famiu/nvim-reload' } -- plugin to easily reload your Neovim config
