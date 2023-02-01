@@ -23,5 +23,5 @@ function! Echo()
 endfunction
 nnoremap <buffer> <Leader>pr :<C-u>call Echo()<CR>
 
-" Write and execute ( https://vim.fandom.com/wiki/Source_current_file_when_editing_a_script )
-nmap <buffer><silent> <Leader>e :write <Bar> source %<CR>
+" Write and source ( https://vim.fandom.com/wiki/Source_current_file_when_editing_a_script )
+nmap <buffer><silent> <Leader>so :write <Bar> source %<CR>
