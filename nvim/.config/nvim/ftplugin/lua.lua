@@ -22,13 +22,9 @@ vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
 
 vim.g.tomux_use_clipboard = 0
 
--- Start REPL cmd (activate environment found in the current dir or parents)
-vim.b.start_repl_cmd = ""
-
--- Start REPL in a RIGHT split with active buffer as CWD
+-- Split the current pane vertically
 function M.open_right_of()
   vim.cmd[[TomuxCommand("split-window -h -d -c " . expand("%:p:h"))]]
-  vim.cmd[[TomuxSend(b:start_repl_cmd . "\n")]]
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
 
@@ -40,5 +36,12 @@ vim.keymap.set('n', '<Leader>tk', function() M.kill_pane() end, { buffer = true 
 
 -- Run tests
 vim.keymap.set('n', '<Leader>tt', function() vim.cmd[[TomuxSend("busted\n")]] end, { buffer = true })
+
+-- Execute buffer
+function M.execute()
+  vim.cmd.write()
+  vim.cmd[[TomuxSend("lua " . expand('%:p') . "\n")]]
+end
+vim.keymap.set('n', '<Leader>e', function() M.execute() end, { buffer = true })
 
 return M
