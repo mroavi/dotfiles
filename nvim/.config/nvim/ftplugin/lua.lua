@@ -28,7 +28,7 @@ function M.open_right_of()
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
 
--- Kill REPL
+-- Kill pane
 function M.kill_pane()
   vim.cmd[[TomuxCommand("kill-pane -t " . shellescape(b:tomux_config["target_pane"]))]]
 end
@@ -43,5 +43,8 @@ function M.execute()
   vim.cmd[[TomuxSend("lua " . expand('%:p') . "\n")]]
 end
 vim.keymap.set('n', '<Leader>e', function() M.execute() end, { buffer = true })
+
+-- Clear pane
+vim.keymap.set('n', '<Leader>cl', function() vim.cmd[[TomuxSend("clr\n")]] end, { buffer = true })
 
 return M
