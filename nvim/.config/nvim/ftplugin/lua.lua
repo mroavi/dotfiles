@@ -37,7 +37,11 @@ end
 vim.keymap.set('n', '<Leader>tk', function() M.kill_pane() end, { buffer = true })
 
 -- Run tests
-vim.keymap.set('n', '<Leader>tt', function() vim.cmd[[TomuxSend("busted\n")]] end, { buffer = true })
+function M.run_tests()
+  vim.cmd.write()
+  vim.cmd[[TomuxSend("clr\nbusted\n")]]
+end
+vim.keymap.set('n', '<Leader>tt', function() M.run_tests() end, { buffer = true })
 
 -- Execute buffer
 function M.execute()
