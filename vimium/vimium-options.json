@@ -1,5 +1,5 @@
 {
-  "settingsVersion": "1.67",
+  "settingsVersion": "1.67.4",
   "exclusionRules": [
     {
       "pattern": "https?://www.google.com/*",
@@ -56,12 +56,20 @@
     {
       "pattern": "https?://app.gather.town/*",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.foddy.net/*",
+      "passKeys": "qwop"
+    },
+    {
+      "pattern": "https?://asciiflow.com/*",
+      "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp\nmap s LinkHints.activateMode\nmap ' Marks.activateGotoMode\nmap L visitPreviousTab",
+  "keyMappings": "# Insert your preferred key mappings here.\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp\nmap s LinkHints.activateMode\nmap ' Marks.activateGotoMode\nmap <space>l visitPreviousTab\nmap <space>/ Vomnibar.activateTabSelection",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
