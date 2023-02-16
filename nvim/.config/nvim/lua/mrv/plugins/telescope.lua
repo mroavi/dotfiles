@@ -687,7 +687,7 @@ vim.keymap.set("n", "<Leader>a", M.args)
 --vim.keymap.set("n", "<Leader>*", M.fuzzy_star_search)
 -- Vim pickers
 vim.keymap.set("n", "<Leader>b", M.buffers)
-vim.keymap.set("n", "<Leader>L", M.buffer_lines)
+--vim.keymap.set("n", "<Leader>L", M.buffer_lines)
 vim.keymap.set("n", "<Leader>'", M.marks)
 vim.keymap.set("n", "<Leader>H", M.hunks)
 vim.keymap.set("n", "<Leader>f", M.recent_files)
