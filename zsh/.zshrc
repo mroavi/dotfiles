@@ -6,6 +6,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export MANPAGER='nvim +Man!'
 export LANG="en_US.UTF-8"
+export LUA_INIT="@${HOME}/.config/lua/startup.lua"
 # export ARCHFLAGS="-arch x86_64"
 
 if [ "$SSH_CONNECTION" ]; then
