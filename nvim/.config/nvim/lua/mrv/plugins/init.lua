@@ -110,6 +110,8 @@ M.setup = function()
   })
 end
 
+vim.keymap.set("n", "<Leader>L", ":Lazy<CR>")
+
 return M
 
 -- vim:set foldenable foldmethod=marker nowrap:
