@@ -114,8 +114,7 @@ M.setup = function()
 end
 
 -- Hack to customize default close key mapping (https://github.com/folke/lazy.nvim/issues/468)
-local lazy_view_config = require('lazy.view.config')
-lazy_view_config.keys.close = '<Esc>'
+require('lazy.view.config').keys.close = '<Esc>'
 
 vim.keymap.set("n", "<Leader>L", ":Lazy<CR>")
 
