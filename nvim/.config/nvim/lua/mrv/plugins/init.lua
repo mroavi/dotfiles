@@ -34,7 +34,7 @@ M.setup = function()
     { 'tpope/vim-obsession' }, -- continuously updated session files
     { 'mroavi/vim-pasta' }, -- auto format pasted code
     { 'wellle/targets.vim', config = function() require('mrv.plugins.targets') end }, -- vim plugin that provides additional text objects
-    { 'yegappan/mru', config = function() require('mrv.plugins.mru') end }, -- most recently used (MRU) vim plugin
+    { 'yegappan/mru', init = function() require('mrv.plugins.mru') end }, -- most recently used (MRU) vim plugin
     { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end }, -- quickstart configurations for the Nvim LSP client
     { 'mroavi/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end }, -- send text to tmux
     { 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end }, -- displays a popup with possible keybindings of the command you started typing
