@@ -18,7 +18,6 @@ local opts = { ui = { border = 'single' } }
 M.setup = function()
   require('lazy').setup({
 
-    { 'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end }, -- all the lua functions you don't want to write twice (I use it to reload my nvim config)
     { 'tpope/vim-commentary', config = function() require('mrv.plugins.vim-commentary') end }, -- comment stuff out
     { 'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, dependencies = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } }, -- lf file manager for Neovim (in Lua)
     { 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } }, -- find, filter, preview, pick
@@ -73,6 +72,7 @@ M.setup = function()
     --{ 'amarakon/nvim-cmp-lua-latex-symbols' }, -- nvim-cmp source for LaTeX symbols (100% Lua)
     --{ 'hrsh7th/cmp-emoji' }, -- nvim-cmp source for emoji
     --{ "lukas-reineke/indent-blankline.nvim" }, -- indent guides for Neovim
+    --{ 'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end }, -- all the lua functions you don't want to write twice (I use it to reload my nvim config)
 
     -- TODO: Try these out!
     --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
