@@ -13,6 +13,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local opts = { ui = { border = 'single' } }
+
 M.setup = function()
   require('lazy').setup({
 
@@ -107,7 +109,7 @@ M.setup = function()
 
     -- }}}
 
-  })
+  }, opts)
 end
 
 vim.keymap.set("n", "<Leader>L", ":Lazy<CR>")
