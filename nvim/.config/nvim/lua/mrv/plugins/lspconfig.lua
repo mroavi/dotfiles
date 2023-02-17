@@ -7,7 +7,6 @@ local M = {}
 -- ==============================================================================
 
 function M.goto_next() vim.diagnostic.goto_next { wrap = false } end
-
 function M.goto_prev() vim.diagnostic.goto_prev { wrap = false } end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -22,6 +21,16 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
       update_in_insert = false,
       severity_sort = false
     })
+
+-- Hover
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "single" -- use a sharp border with `FloatBorder` highlights
+})
+
+-- Signature help
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = "single" -- use a sharp border with `FloatBorder` highlights
+})
 
 -- Signs
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
