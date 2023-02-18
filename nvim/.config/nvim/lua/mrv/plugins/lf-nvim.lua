@@ -1,5 +1,5 @@
 -- This feature will not work if the plugin is lazy-loaded
-vim.g.lf_netrw = 1
+vim.g.lf_netrw = true
 
 require("lf").setup({
   default_actions = {
@@ -12,7 +12,7 @@ require("lf").setup({
   border = "rounded", -- border kind: single double shadow curved
   escape_quit = false, -- map escape to the quit command (so it doesn't go into a meta normal mode)
   highlights = { -- highlights passed to toggleterm
-    NormalFloat = { guifg = require("tender.colors").green },
+    NormalFloat = { guifg = require("tender.colors").white },
     FloatBorder = { guifg = require("tender.colors").white },
   },
 })
