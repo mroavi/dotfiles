@@ -7,7 +7,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local opts = {
-  ui = { border = 'single' }
+  ui = { border = 'single' },
 }
 
 local plugins = {
