@@ -24,12 +24,12 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 
 -- Hover
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "single" -- use a sharp border with `FloatBorder` highlights
+  border = "rounded",
 })
 
 -- Signature help
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "single" -- use a sharp border with `FloatBorder` highlights
+  border = "rounded",
 })
 
 -- Signs
@@ -41,9 +41,10 @@ end
 
 -- Virtual text prefix
 vim.diagnostic.config({
+  float = { border = "rounded" },
   virtual_text = {
     prefix = '■' -- could be '●', '▎', 'x'
-  }
+  },
 })
 
 -- Enable logging, open the log with :lua vim.cmd('e'..vim.lsp.get_log_path())
