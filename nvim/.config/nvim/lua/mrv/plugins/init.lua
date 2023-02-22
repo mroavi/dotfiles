@@ -38,6 +38,7 @@ local plugins = {
   { 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end, dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- view treesitter information directly in Neovim
   { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end }, -- run Async Shell Commands and Output to the Quickfix Window
   { 'mroavi/vim-evanesco' }, -- automatically clears search highlight
+  { 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } } -- the future of organizing your life in Neovim
 
   -- {{{1
 
