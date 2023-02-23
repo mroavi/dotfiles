@@ -69,6 +69,7 @@ local plugins = {
   --{ "lukas-reineke/indent-blankline.nvim" }, -- indent guides for Neovim
   --{ 'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end }, -- all the lua functions you don't want to write twice (I use it to reload my nvim config)
   --{ 'jackMort/ChatGPT.nvim' , config = function() require('mrv.plugins.chatgpt') end, dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } }, -- plugin for interacting with OpenAI GPT-3 chatbot
+  --{ 'stevearc/oil.nvim' }, -- Neovim file explorer: edit your filesystem like a buffer
 
   -- TODO: Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
