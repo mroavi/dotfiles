@@ -38,7 +38,8 @@ local plugins = {
   { 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end, dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- view treesitter information directly in Neovim
   { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end }, -- run Async Shell Commands and Output to the Quickfix Window
   { 'mroavi/vim-evanesco' }, -- automatically clears search highlight
-  { 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } } -- the future of organizing your life in Neovim
+  { 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } }, -- the future of organizing your life in Neovim
+  { "lukas-reineke/indent-blankline.nvim", config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
 
   -- {{{1
 
@@ -66,7 +67,6 @@ local plugins = {
   --{ 'williamboman/mason.nvim', config = function() require('mrv.plugins.mason') end, dependencies = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' } }, -- easily install and manage LSP servers, DAP servers, linters, and formatters
   --{ 'amarakon/nvim-cmp-lua-latex-symbols' }, -- nvim-cmp source for LaTeX symbols (100% Lua)
   --{ 'hrsh7th/cmp-emoji' }, -- nvim-cmp source for emoji
-  --{ "lukas-reineke/indent-blankline.nvim" }, -- indent guides for Neovim
   --{ 'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end }, -- all the lua functions you don't want to write twice (I use it to reload my nvim config)
   --{ 'jackMort/ChatGPT.nvim' , config = function() require('mrv.plugins.chatgpt') end, dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } }, -- plugin for interacting with OpenAI GPT-3 chatbot
   --{ 'stevearc/oil.nvim' }, -- Neovim file explorer: edit your filesystem like a buffer
@@ -81,7 +81,6 @@ local plugins = {
   --{ 'chipsenkbeil/distant.nvim', }, -- edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
   --{ 'rcarriga/nvim-notify', }, -- a fancy, configurable, notification manager for NeoVim
   --{ 'sainnhe/everforest', config = function() vim.cmd [[ let g:everforest_background = 'hard' | colorscheme everforest ]] end }, -- comfortable & pleasant color scheme for vim
-  --{ 'lukas-reineke/indent-blankline.nvim' }, -- indent guides for Neovim
   --{ 'ldelossa/gh.nvim.git' }, -- Github integration powered by litee.nvim
   --{ 'rbong/vim-flog' }, -- A lightweight and powerful git branch viewer for vim (mrv: potential replacement for gv)
   --{ 'lewis6991/impatient.nvim', config = function() require('impatient') end }, -- improve startup time for Neovim
