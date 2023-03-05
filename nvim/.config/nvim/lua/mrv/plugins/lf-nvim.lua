@@ -12,8 +12,8 @@ require("lf").setup({
   border = "rounded", -- border kind: single double shadow curved
   escape_quit = false, -- map escape to the quit command (so it doesn't go into a meta normal mode)
   highlights = { -- highlights passed to toggleterm
-    NormalFloat = { guifg = require("tender.colors").white },
-    FloatBorder = { guifg = require("tender.colors").white },
+    --NormalFloat = { guifg = require("tender.colors").white },
+    --FloatBorder = { guifg = require("tender.colors").white },
   },
 })
 

@@ -18,7 +18,6 @@ local plugins = {
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('mrv.plugins.gitsigns') end }, -- super fast git decorations implemented purely in lua/teal
   { 'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' } }, -- a completion plugin for neovim coded in Lua
   { 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end },
-  { dir = '~/repos/tender.nvim', config = function() vim.cmd.colorscheme("tender") end }, -- my color scheme
   { 'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end }, -- autopairs for neovim written by lua
   { 'tpope/vim-fugitive', config = function() require('mrv.plugins.fugitive') end }, -- a Git wrapper so awesome, it should be illegal
   { 'tpope/vim-unimpaired' }, -- pairs of handy bracket mappings
@@ -40,6 +39,7 @@ local plugins = {
   { 'mroavi/vim-evanesco' }, -- automatically clears search highlight
   { 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } }, -- the future of organizing your life in Neovim
   { "lukas-reineke/indent-blankline.nvim", config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
+  { 'rose-pine/neovim', name = 'rose-pine', lazy = false, priority = 1000, config = function() require('mrv.plugins.rose-pine') end }
 
   -- {{{1
 
@@ -70,6 +70,7 @@ local plugins = {
   --{ 'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end }, -- all the lua functions you don't want to write twice (I use it to reload my nvim config)
   --{ 'jackMort/ChatGPT.nvim' , config = function() require('mrv.plugins.chatgpt') end, dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } }, -- plugin for interacting with OpenAI GPT-3 chatbot
   --{ 'stevearc/oil.nvim' }, -- Neovim file explorer: edit your filesystem like a buffer
+  --{ dir = '~/repos/tender.nvim', config = function() vim.cmd.colorscheme("tender") end }, -- my color scheme
 
   -- TODO: Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
