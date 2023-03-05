@@ -43,6 +43,10 @@ require('rose-pine').setup({
     -- Blend colours against the "base" background
     CursorLine = { bg = 'foam', blend = 10 },
     StatusLine = { fg = 'foam', bg = 'foam', blend = 10 },
+
+    -- mrv
+    Normal = { fg = 'none', bg = 'none' },
+    SignColumn = { fg = 'none', bg = 'none' },
   }
 })
 
