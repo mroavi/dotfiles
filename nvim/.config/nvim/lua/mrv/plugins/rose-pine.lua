@@ -6,14 +6,14 @@ require('rose-pine').setup({
   bold_vert_split = false,
   dim_nc_background = false,
   disable_background = false,
-  disable_float_background = false,
-  disable_italics = false,
+  disable_float_background = true,
+  disable_italics = true,
 
   --- @usage string hex value or named color from rosepinetheme.com/palette
   groups = {
     background = 'base',
     panel = 'surface',
-    border = 'highlight_med',
+    border = 'highlight_high',
     comment = 'muted',
     link = 'iris',
     punctuation = 'subtle',
@@ -42,7 +42,7 @@ require('rose-pine').setup({
 
     -- Blend colours against the "base" background
     CursorLine = { bg = 'foam', blend = 10 },
-    StatusLine = { fg = 'love', bg = 'love', blend = 10 },
+    StatusLine = { fg = 'foam', bg = 'foam', blend = 10 },
   }
 })
 
