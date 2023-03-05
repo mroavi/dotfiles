@@ -285,41 +285,9 @@ font:
 # Prints out the entire 256 terminal color palette
 # for code ({000..255}) print -P -- "$code: %F{$code}▶ This is color palette%f"
 
-  Tender: &Tender
-    primary:
-      #background: '#1F1F1F'
-      #background: '#252525'
-      background: '#282828'
-      foreground: '#eeeeee'
-    # Normal colors
-    cursor:
-      text:     '#1b2b34'
-      cursor:   "#eeeeee"
-    selection:
-      text:       '0xeeeeee'
-      background: '0x393939'
-    normal:
-      black:   '#282828'
-      red:     '#f43753'
-      green:   '#c9d05c'
-      yellow:  '#ffc24b'
-      blue:    '#b3deef'
-      magenta: '#d3b987'
-      cyan:    '#73cef4'
-      white:   '#eeeeee'
-    # Bright colors
-    bright:
-      black:   '#999999' # used by Julia's REPL stacktrace
-      red:     '#f43753'
-      green:   '#c9d05c'
-      yellow:  '#ffc24b'
-      blue:    '#b3deef'
-      magenta: '#d3b987'
-      cyan:    '#73cef4'
-      white:   '#feffff'
-
-# Sets the current colorscheme
-colors: *Tender
+import:
+  #- ~/.config/alacritty/colors/alacritty.yml
+  - ~/.config/alacritty/colors/pine-rose/pine-rose.yml
 
 # Visual Bell
 #
