@@ -22,10 +22,10 @@ require 'nvim-treesitter.configs'.setup {
 
     -- List of languages that will be disabled
     disable = {
-      "help",
-      "markdown",
-      "latex",
-      "gitcommit",
+      --"help",
+      --"markdown",
+      --"latex",
+      --"gitcommit",
     },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.

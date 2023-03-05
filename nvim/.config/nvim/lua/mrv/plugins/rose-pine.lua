@@ -23,6 +23,10 @@ require('rose-pine').setup({
     info = 'foam',
     warn = 'gold',
 
+    git_add = 'foam',
+    git_change = 'gold',
+    git_delete = 'love',
+
     headings = {
       h1 = 'iris',
       h2 = 'foam',
