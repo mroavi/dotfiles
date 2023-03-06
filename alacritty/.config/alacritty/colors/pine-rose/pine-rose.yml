@@ -1,38 +1,55 @@
+define: &base           "#191724"
+define: &surface        "#1f1d2e"
+define: &overlay        "#26233a"
+define: &muted          "#6e6a86"
+define: &subtle         "#908caa"
+define: &text           "#e0def4"
+define: &love           "#eb6f92"
+define: &gold           "#f6c177"
+define: &rose           "#ebbcba"
+define: &pine           "#31748f"
+define: &foam           "#9ccfd8"
+define: &iris           "#c4a7e7"
+define: &highlight_low  "#21202e"
+define: &highlight_med  "#403d52"
+define: &highlight_high "#524f67"
+
 colors:
   primary:
-    #background: "0x191724"
-    background: "0x1e1e1e"
-    foreground: "0xe0def4"
+    background: *base
+    #background: "0x1e1e1e"
+    #background: *surface
+    foreground: *text
   cursor:
-    text: "0xe0def4"
-    cursor: "0x524f67"
+    text: *text
+    cursor: *highlight_high
   vi_mode_cursor:
-    text: "0xe0def4"
-    cursor: "0x524f67"
+    text: *text
+    cursor: *highlight_high
   line_indicator:
     foreground: None
     background: None
   selection:
-    text: "0xe0def4"
-    background: "0x403d52"
+    text: *text
+    background: *highlight_med
   normal:
-    black: "0x26233a"
-    red: "0xeb6f92"
-    green: "0x31748f"
-    yellow: "0xf6c177"
-    blue: "0x9ccfd8"
-    magenta: "0xc4a7e7"
-    cyan: "0xebbcba"
-    white: "0xe0def4"
+    black: *overlay
+    red: *love
+    green: *pine
+    yellow: *gold
+    blue: *foam
+    magenta: *iris
+    cyan: *rose
+    white: *text
   bright:
-    black: "0x6e6a86"
-    red: "0xeb6f92"
-    green: "0x31748f"
-    yellow: "0xf6c177"
-    blue: "0x9ccfd8"
-    magenta: "0xc4a7e7"
-    cyan: "0xebbcba"
-    white: "0xe0def4"
+    black: *muted
+    red: *love
+    green: *pine
+    yellow: *gold
+    blue: *foam
+    magenta: *iris
+    cyan: *rose
+    white: *text
   hints:
     start:
       foreground: "#908caa"
