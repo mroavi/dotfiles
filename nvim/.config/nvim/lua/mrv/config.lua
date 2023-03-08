@@ -133,6 +133,12 @@ M.setup = function()
     \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
   ]])
 
+  -- Disable highlighting matching parenthesis in insert mode
+  -- https://stackoverflow.com/q/43060468/1706778
+  local match_paren_group = vim.api.nvim_create_augroup("quickfix", { clear = true })
+  vim.api.nvim_create_autocmd("InsertEnter", { pattern = "*", command = "NoMatchParen", group = match_paren_group })
+  vim.api.nvim_create_autocmd("InsertLeave", { pattern = "*", command = "DoMatchParen", group = match_paren_group })
+
   --------------------------------------------------------------------------------
   --- Operators
   --------------------------------------------------------------------------------
