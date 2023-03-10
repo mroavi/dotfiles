@@ -9,3 +9,4 @@ julia/.julia/environments/nvim-lspconfig/Project.toml
 julia/.julia/environments/nvim-lspconfig/bin/
 julia/.julia/environments/nvim-lspconfig/languageserver.so
 julia/.julia/environments/nvim-lspconfig/packagecompiler/
+nvim/.config/nvim/lazy-lock.json
