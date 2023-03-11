@@ -204,13 +204,13 @@ function M.my_git_files()
 end
 
 function M.dotfiles()
-  local opts = {
+  local opts = { cwd = "~/dotfiles" }
+  builtin.find_files {
     find_command = { 'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git', },
     prompt_title = "Dotfiles",
-    cwd = "~/dotfiles",
-    entry_maker = my_make_entry.gen_from_file(),
+    cwd = opts.cwd,
+    entry_maker = my_make_entry.gen_from_file(opts),
   }
-  builtin.find_files(opts)
 end
 
 end
