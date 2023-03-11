@@ -223,8 +223,12 @@ end
 -- Live grep from the current buffer's git dir if any, otherwise, from the current buffer's dir
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
 function M.live_grep()
+  local git_repo_path = git_dir(vim.fn.expand("%:p:h"))
   local opts = {
-    cwd = git_dir(vim.fn.expand("%:p:h")) or utils.buffer_dir(),
+    cwd = git_repo_path or utils.buffer_dir(),
+    prompt_title = git_repo_path and
+        "Live Grep from " .. git_repo_path or
+        "Live Grep from " .. vim.fn.expand("%:p:h"),
   }
   require("telescope.builtin").live_grep(opts)
 end
