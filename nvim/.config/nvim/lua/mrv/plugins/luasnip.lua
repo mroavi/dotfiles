@@ -27,15 +27,20 @@ end, { silent = true })
 
 -- Simple example of a global snippet (type "expand" followed by <Tab> ) (https://www.youtube.com/watch?v=Dn800rlPIho)
 ls.add_snippets("all", { -- available for any filetype
-    ls.parser.parse_snippet("expand", "Hello, World!"),
-  }
-)
+  ls.parser.parse_snippet("expand", "Hello, World!"),
+})
 
 --- julia
 
 ls.add_snippets("julia", {
-    ls.parser.parse_snippet("pr", "println($0)"),
-    ls.parser.parse_snippet("fun", "function $1($2)\n\t$0\nend"),
-    ls.parser.parse_snippet("for", "for $1 in $2\n\t$0\nend"),
-  }
-)
+  ls.parser.parse_snippet("pr", "println($0)"),
+  ls.parser.parse_snippet("fun", "function $1($2)\n\t$0\nend"),
+  ls.parser.parse_snippet("for", "for $1 in $2\n\t$0\nend"),
+})
+
+--- lua
+
+ls.add_snippets("lua", {
+  ls.parser.parse_snippet("pr", "print($0)"),
+  ls.parser.parse_snippet("pp", "vim.pretty_print($0)"),
+})
