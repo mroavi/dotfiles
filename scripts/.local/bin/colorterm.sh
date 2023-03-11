@@ -5,13 +5,13 @@
 # No arguments passed?
 if [ "$#" == 0 ]; then
   # True, then set the default color (the SSH connection was closed)
-  printf '\033]11;#282828\007'
+  printf '\033]11;#191724\007'
   exit 0
 fi
 
 # Otherwise, set the color based on the hostname
 if [ "$1" == "co23" ]; then
-  printf '\033]11;#253320\007'
+  printf '\033]11;#232136\007'
 elif [ "$1" == "hpc" ]; then
   printf '\033]11;#192436\007'
 else
