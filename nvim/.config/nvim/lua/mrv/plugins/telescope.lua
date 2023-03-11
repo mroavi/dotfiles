@@ -41,7 +41,14 @@ require("telescope").setup {
         ["<Esc>"] = actions.close
       },
     },
-  }
+  },
+  pickers = {
+    live_grep = {
+      additional_args = function()
+        return { "--hidden" }
+      end
+    },
+  },
 }
 
 --------------------------------------------------------------------------------
@@ -186,10 +193,10 @@ local function git_dir(dir)
     if in_worktree[1] ~= "true" and in_bare[1] ~= "true" then
       return nil -- not a git repo
     else
-      return git_root -- bare git repo
+      return git_root[1] -- bare git repo
     end
   else
-    return git_root -- normal git repo
+    return git_root[1] -- normal git repo
   end
 end
 
@@ -213,6 +220,13 @@ function M.dotfiles()
   }
 end
 
+-- Live grep from the current buffer's git dir if any, otherwise, from the current buffer's dir
+-- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
+function M.live_grep()
+  local opts = {
+    cwd = git_dir(vim.fn.expand("%:p:h")) or utils.buffer_dir(),
+  }
+  require("telescope.builtin").live_grep(opts)
 end
 
 --------------------------------------------------------------------------------
@@ -692,7 +706,7 @@ end
 
 -- File pickers
 vim.keymap.set("n", "<Leader>o", M.my_git_files)
---vim.keymap.set("n", "<Leader>G", builtin.live_grep)
+vim.keymap.set("n", "<Leader>G", M.live_grep)
 vim.keymap.set("n", "<Leader>.", M.dotfiles)
 vim.keymap.set("n", "<Leader>a", M.args)
 --vim.keymap.set("n", "<Leader>*", M.fuzzy_star_search)
