@@ -98,4 +98,18 @@ function M.toggle_quickfix_window()
   if next(quickfixwin) == nil then vim.cmd("copen") else vim.cmd("cclose") end
 end
 
+-- Return whether the current buffer is inside a git repo
+-- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
+function M.is_git_repo()
+  vim.fn.system("git rev-parse --is-inside-work-tree")
+  return vim.v.shell_error == 0
+end
+
+-- Get the git root dir containing the current buffer
+-- (use `is_git_repo` to ensure whether the current buffer is inside a git repo)
+function M.get_git_root()
+  local dot_git_path = vim.fn.finddir(".git", ".;")
+  return vim.fn.fnamemodify(dot_git_path, ":h")
+end
+
 return M
