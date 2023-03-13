@@ -40,7 +40,7 @@ augroup tomux_send
   "-----------------------------------------------------------------------------
   " Convenience mapping to send code that uses Julia's pipe operator (|>)
   "-----------------------------------------------------------------------------
-  autocmd FileType julia nnoremap <Bar><Bar> :call SendUpToBarChar()<Cr>
+  autocmd FileType julia nnoremap <Bar> :call SendUpToBarChar()<Cr>
 
 augroup END
 
