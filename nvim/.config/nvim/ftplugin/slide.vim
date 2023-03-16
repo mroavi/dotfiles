@@ -9,8 +9,14 @@ nmap <Leader>b :.!toilet -w 200 -f term -F border<Cr>
 let g:markdown_fenced_languages = ['julia', 'html', 'python', 'bash=sh']
 
 "let g:slides_font_size = 20
-let g:slides_cursor_color = '#282828'
-let g:slides_cursor_text_color = '#ffc24b'
+
+" tender color scheme
+"let g:slides_cursor_color = '#282828'
+"let g:slides_cursor_text_color = '#ffc24b'
+
+" pine-rose color scheme
+let g:slides_cursor_color = '#191724'
+let g:slides_cursor_text_color = '#e0def4'
 
 " ---------------------------------------------------------------------------
 " Limelight
