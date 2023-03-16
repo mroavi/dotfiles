@@ -14,7 +14,7 @@ let g:markdown_fenced_languages = ['julia', 'html', 'python', 'bash=sh']
 "let g:slides_cursor_color = '#282828'
 "let g:slides_cursor_text_color = '#ffc24b'
 
-" pine-rose color scheme
+" rose-pine color scheme
 let g:slides_cursor_color = '#191724'
 let g:slides_cursor_text_color = '#e0def4'
 
