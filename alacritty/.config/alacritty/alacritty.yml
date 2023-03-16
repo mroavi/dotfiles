@@ -287,7 +287,7 @@ font:
 
 import:
   #- ~/.config/alacritty/colors/alacritty.yml
-  - ~/.config/alacritty/colors/pine-rose/pine-rose.yml
+  - ~/.config/alacritty/colors/rose-pine/rose-pine.yml
 
 # Visual Bell
 #
