@@ -22,6 +22,7 @@ require 'nvim-treesitter.configs'.setup {
 
     -- List of languages that will be disabled
     disable = {
+      --"julia",
       --"help",
       --"markdown",
       --"latex",
