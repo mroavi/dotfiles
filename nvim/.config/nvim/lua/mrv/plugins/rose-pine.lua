@@ -50,6 +50,7 @@ require('rose-pine').setup({
     -- mrv
     Normal                = { fg = 'none', bg = 'none' },
     SignColumn            = { fg = 'none', bg = 'none' },
+    StatusLineNC          = { fg = 'subtle', bg   = 'surface' },
     gitcommitSummary      = { fg = 'foam', bg = 'none' },
     markdownBlockquote    = { fg = 'subtle' },
     markdownBold          = { fg = 'gold', bg = 'none', bold = true },
