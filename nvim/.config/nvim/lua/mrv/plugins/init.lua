@@ -8,6 +8,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local opts = {
   ui = { border = 'single' },
+  dev = { path = "~/repos" },
 }
 
 local plugins = {
