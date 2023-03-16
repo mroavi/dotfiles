@@ -1,3 +1,5 @@
+-- https://rosepinetheme.com/palette/ingredients
+
 require('rose-pine').setup({
   --- @usage 'auto'|'main'|'moon'|'dawn'
   variant = 'auto',
