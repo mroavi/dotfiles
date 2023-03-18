@@ -34,6 +34,7 @@ pac_pkgs=(
           alacritty
           neovim
           dmenu
+          thunar
           pavucontrol
           zsh
           zsh-autosuggestions
