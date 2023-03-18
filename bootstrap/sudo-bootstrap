@@ -7,17 +7,35 @@ sudo -v # give sudo privileges ahead of time, so that we hopefully only have to 
 
 # Ensure these dirs exist
 mkdir -p ~/.local
-mkdir -p ~/Downloads
+mkdir -p ~/downloads
 mkdir -p ~/repos
 
+# yay
+FILE=/usr/bin/yay
+if [ -f "$FILE" ]; then
+  echo " yay is already installed"
+else
+  echo "Installing yay..."
+  sudo pacman -S --needed git base-devel
+  LOCAL_REPO=$HOME/repos/yay
+  REPO_URL=https://aur.archlinux.org/yay.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cd $LOCAL_REPO
+  makepkg -si
+fi
+
 pac_pkgs=(
+          wget
+          zip
+          unzip
           stow
+          alacritty
           neovim
+          dmenu
           zsh
           zsh-autosuggestions
           zsh-syntax-highlighting
           ripgrep
-          bat
           fasd
           diff-so-fancy
           texlab
@@ -32,30 +50,59 @@ pac_pkgs=(
           okular
           dunst
           bottom
+          bash-language-server
          )
 
 yay_pkgs=(
           tmux
-          bat
-          nerd-fonts-meslo
+          #nerd-fonts-meslo
           ttf-font-awesome-4
           lf
           vidir
           trash-cli
           brave-bin
           dropbox
-          kmonad-bin
           git-open
+          ttf-juliamono
+          ttf-meslo-nerd
          )
 
-yay           -S --needed ${yay_pkgs[@]}
 sudo pacman   -S --needed ${pac_pkgs[@]}
+yay           -S --needed ${yay_pkgs[@]}
+
+# dwm
+FILE=/usr/local/bin/dwm
+if [ -f "$FILE" ]; then
+  echo " dwm is already installed"
+else
+  echo "Installing dwm..."
+  sudo pacman -S --needed xorg xorg-server xorg-xinit libx11 libxinerama libxft webkit2gtk
+  LOCAL_REPO=$HOME/repos/dwm
+  REPO_URL=https://github.com/mroavi/dwm.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cd $LOCAL_REPO
+  sudo make clean install
+fi
+
+# slock
+FILE=/usr/local/bin/slock
+if [ -f "$FILE" ]; then
+  echo " slock is already installed"
+else
+  echo "Installing slock..."
+  LOCAL_REPO=$HOME/repos/slock
+  REPO_URL=https://github.com/mroavi/slock.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cd $LOCAL_REPO
+  git checkout mrv
+  sudo make clean install
+fi
 
 # pure
 echo "Installing pure..."
 mkdir -p ~/.zsh
 LOCAL_REPO=$HOME/.zsh/pure
-REPO_URL=https://github.com/sindresorhus/pure.git
+REPO_URL=https://github.com/mroavi/pure.git
 git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 
 # clangd
@@ -65,7 +112,7 @@ if [ -f "$FILE" ]; then
   echo " clangd is already installed"
 else
   VERSION="13.0.0"
-  cd ~/Downloads/
+  cd ~/downloads/
   filepath="clangd-linux-$VERSION.zip"
   [ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/$VERSION/clangd-linux-$VERSION.zip
   unzip "$filepath"
@@ -82,8 +129,8 @@ else
   bash -ci "$(curl -fsSL https://raw.githubusercontent.com/abelsiqueira/jill/main/jill.sh)"
 fi
 
-# TODO: clone my dwm repo and make install
-# TODO: clone my slock repo and make install
+# # Make zsh the default shell
+# chsh -s $(which zsh)
 
 # Return to original directory
 cd "$currentdir"
