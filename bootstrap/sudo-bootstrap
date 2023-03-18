@@ -47,6 +47,9 @@ pac_pkgs=(
           xbindkeys
           spectacle
           pipewire
+          pipewire-audio
+          pipewire-alsa
+          pipewire-pulse
           bluez
           bluez-utils
           okular
