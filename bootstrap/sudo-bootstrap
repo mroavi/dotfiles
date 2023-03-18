@@ -60,16 +60,16 @@ pac_pkgs=(
 
 yay_pkgs=(
           tmux
-          #nerd-fonts-meslo
-          ttf-font-awesome-4
           lf
           vidir
           trash-cli
           brave-bin
           dropbox
           git-open
+          ttf-font-awesome-4
           ttf-juliamono
           ttf-meslo-nerd
+          ttf-sourcecodepro-nerd
          )
 
 sudo pacman   -S --needed ${pac_pkgs[@]}
