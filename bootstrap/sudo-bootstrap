@@ -38,7 +38,6 @@ pac_pkgs=(
           ripgrep
           fasd
           diff-so-fancy
-          texlab
           z
           fd
           feh
@@ -51,6 +50,8 @@ pac_pkgs=(
           dunst
           bottom
           bash-language-server
+          lua-language-server
+          texlab
          )
 
 yay_pkgs=(
