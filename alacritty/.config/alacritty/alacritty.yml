@@ -118,8 +118,8 @@ font:
 
     #family: monospace
     #family: Hack Nerd Font
-    #family: Source Code Pro
-    family: MesloLGSDZ Nerd FontMono
+    family: Source Code Pro
+    #family: MesloLGSDZ Nerd FontMono
     #family: JetBrainsMono Nerd Font
     #family: DejaVuSansMono Nerd Font
     #family: FiraCode Nerd Font
