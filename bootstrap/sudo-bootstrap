@@ -29,6 +29,7 @@ pac_pkgs=(
           zip
           unzip
           openssh
+          xclip
           stow
           alacritty
           neovim
