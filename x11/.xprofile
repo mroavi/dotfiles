@@ -1,8 +1,5 @@
 #!/bin/bash
 
-## Map caps lock key to escape
-#setxkbmap -option caps:escape
-
 # Map caps lock key to control
 setxkbmap -option caps:ctrl_modifier
 
