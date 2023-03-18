@@ -51,6 +51,7 @@ pac_pkgs=(
           okular
           dunst
           bottom
+          arandr
           bash-language-server
           lua-language-server
           texlab
