@@ -52,6 +52,7 @@ pac_pkgs=(
           pipewire-pulse
           bluez
           bluez-utils
+          lxappearance
           okular
           dunst
           bottom
