@@ -49,16 +49,18 @@ require('rose-pine').setup({
     -- Blend colours against the "base" background
     StatusLine = { fg = 'text', bg = 'text', blend = 10 },
 
-    -- mrv
-    Normal                = { fg = 'none', bg = 'none' },
-    SignColumn            = { fg = 'none', bg = 'none' },
-    StatusLineNC          = { fg = 'subtle', bg   = 'surface' },
-    gitcommitSummary      = { fg = 'foam', bg = 'none' },
-    markdownBlockquote    = { fg = 'subtle' },
-    markdownBold          = { fg = 'gold', bg = 'none', bold = true },
-    markdownCode          = { fg = 'iris', bg = 'surface' },
-    markdownCodeBlock     = { fg = 'foam' },
-    markdownCodeDelimiter = { fg = 'foam' },
+    ---- mrv
+    Normal            = { fg = 'text', bg = 'base' },
+    SignColumn        = { fg = 'none', bg = 'none' },
+    gitcommitSummary  = { fg = 'foam', bg = 'none' },
+    StatusLineNC      = { fg = 'subtle', bg = 'surface' },
+    markdownCode      = { fg = 'iris', bg = 'overlay' },
+    markdownCodeBlock = { fg = 'iris', bg = 'overlay' },
+    markdownCodeDelimiter = { fg = 'muted' },
+    markdownTitle     = { fg = 'foam', bold = true },
+    markdownBold      = { fg = 'rose', bold = true },
+    Conceal           = { fg = 'muted' },
+
   }
 })
 
