@@ -1,10 +1,8 @@
 #!/bin/bash
 # REQUIRES FONT-AWESOME PACKAGE TO WORK PROPERLY
 
-# Source:
+# Sources:
 # https://github.com/linuxdabbler/personal-dot-files/blob/master/scripts/dwm-iconbar
-
-# Other source for scripts:
 # https://github.com/LukeSmithxyz/voidrice/tree/master/.local/bin/statusbar
 
 # Kill all running instances of this script
