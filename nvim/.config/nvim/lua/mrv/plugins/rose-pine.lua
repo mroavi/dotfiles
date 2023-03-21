@@ -50,7 +50,7 @@ require('rose-pine').setup({
     StatusLine = { fg = 'text', bg = 'text', blend = 10 },
 
     ---- mrv
-    Normal            = { fg = 'text', bg = 'base' },
+    Normal            = { fg = 'text', bg = 'none' },
     SignColumn        = { fg = 'none', bg = 'none' },
     gitcommitSummary  = { fg = 'foam', bg = 'none' },
     StatusLineNC      = { fg = 'subtle', bg = 'surface' },
