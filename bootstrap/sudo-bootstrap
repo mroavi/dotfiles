@@ -35,6 +35,7 @@ pac_pkgs=(
           neovim
           dmenu
           thunar
+          viewnior
           pavucontrol
           zsh
           zsh-autosuggestions
