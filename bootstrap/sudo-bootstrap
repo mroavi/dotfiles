@@ -47,7 +47,7 @@ pac_pkgs=(
           fd
           feh
           xbindkeys
-          spectacle
+          flameshot
           pipewire
           pipewire-audio
           pipewire-alsa
