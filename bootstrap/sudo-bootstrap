@@ -36,6 +36,8 @@ pac_pkgs=(
           dmenu
           thunar
           viewnior
+          inkscape
+          gimp
           pavucontrol
           zsh
           zsh-autosuggestions
