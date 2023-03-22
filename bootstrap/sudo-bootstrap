@@ -75,7 +75,6 @@ yay_pkgs=(
           ttf-font-awesome-4
           ttf-juliamono
           ttf-meslo-nerd
-          ttf-sourcecodepro-nerd
          )
 
 sudo pacman   -S --needed ${pac_pkgs[@]}
