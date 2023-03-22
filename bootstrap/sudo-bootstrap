@@ -64,6 +64,11 @@ pac_pkgs=(
           bash-language-server
           lua-language-server
           texlab
+          texlive-core
+          texlive-bin
+          texlive-latexextra
+          texlive-science
+          texlive-fontsextra
          )
 
 yay_pkgs=(
