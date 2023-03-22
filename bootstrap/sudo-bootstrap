@@ -122,21 +122,6 @@ LOCAL_REPO=$HOME/.zsh/pure
 REPO_URL=https://github.com/mroavi/pure.git
 git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 
-# clangd
-echo "Installing clangd..."
-FILE=$HOME/.local/bin/clangd
-if [ -f "$FILE" ]; then
-  echo " clangd is already installed"
-else
-  VERSION="13.0.0"
-  cd ~/downloads/
-  filepath="clangd-linux-$VERSION.zip"
-  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/$VERSION/clangd-linux-$VERSION.zip
-  unzip "$filepath"
-  cp clangd_$VERSION/bin/clangd $HOME/.local/bin
-  cp -r clangd_$VERSION/lib/clang $HOME/.local/lib
-fi
-
 # julia
 echo "Installing julia..."
 FILE=$HOME/.local/bin/julia
