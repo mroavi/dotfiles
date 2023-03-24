@@ -97,9 +97,9 @@
 "brave"
   Mod4+shift + b
 
-# Launch brave browser
-"teams"
-  Mod4+shift + t
+# Launch pavucontrol
+"pavucontrol"
+  Mod4+shift + p
 
 # Launch screen capture gui
 # https://github.com/flameshot-org/flameshot/issues/2496#issuecomment-1144308628
@@ -114,6 +114,10 @@ Mod4 + equal
 # Decrease volume using the keyboard volume keys
 "pactl -- set-sink-volume 0 -3%"
   Mod4 + minus
+
+# lock display
+"slock"
+  control+alt + Delete
 
 # KEYBOARD VOLUME KEYS
 
@@ -131,10 +135,6 @@ Mod4 + equal
 "pactl -- set-sink-volume 0 +3%"
   m:0x0 + c:123
   XF86AudioRaiseVolume 
-
-# lock display
-"slock"
-  control+alt + Delete
 
 # ------------------------------------------------------------------
 # mrv: Running programs in sudo mode:
