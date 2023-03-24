@@ -71,6 +71,7 @@ pac_pkgs=(
           texlive-latexextra
           texlive-science
           texlive-fontsextra
+          texlive-pictures
          )
 
 yay_pkgs=(
