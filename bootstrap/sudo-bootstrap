@@ -58,6 +58,7 @@ pac_pkgs=(
           bluez-utils
           lxappearance            # manage GTK themes
           qt5ct                   # mange QT themes
+          kvantum
           okular
           dunst
           bottom
