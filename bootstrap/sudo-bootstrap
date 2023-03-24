@@ -84,6 +84,7 @@ yay_pkgs=(
           ttf-juliamono
           ttf-meslo-nerd
           catppuccin-gtk-theme-mocha
+          kvantum-theme-catppuccin-git
          )
 
 sudo pacman   -S --needed ${pac_pkgs[@]}
