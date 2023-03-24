@@ -83,6 +83,7 @@ yay_pkgs=(
           ttf-font-awesome-4
           ttf-juliamono
           ttf-meslo-nerd
+          catppuccin-gtk-theme-mocha
          )
 
 sudo pacman   -S --needed ${pac_pkgs[@]}
