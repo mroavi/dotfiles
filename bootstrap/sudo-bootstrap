@@ -56,7 +56,8 @@ pac_pkgs=(
           pipewire-pulse
           bluez
           bluez-utils
-          lxappearance
+          lxappearance            # manage GTK themes
+          qt5ct                   # mange QT themes
           okular
           dunst
           bottom
