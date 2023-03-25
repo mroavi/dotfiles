@@ -40,7 +40,7 @@ local plugins = {
   { 'mroavi/vim-evanesco' }, -- automatically clears search highlight
   { 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } }, -- the future of organizing your life in Neovim
   { "lukas-reineke/indent-blankline.nvim", config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
-  { 'rose-pine/neovim', name = 'rose-pine', lazy = false, priority = 1000, config = function() require('mrv.plugins.rose-pine') end },
+  { "catppuccin/nvim", name = "catppuccin", config = function() require('mrv.plugins.catppuccin') end }, -- soothing pastel theme for (Neo)vim
 
   -- {{{1
 
@@ -72,6 +72,7 @@ local plugins = {
   --{ 'jackMort/ChatGPT.nvim' , config = function() require('mrv.plugins.chatgpt') end, dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } }, -- plugin for interacting with OpenAI GPT-3 chatbot
   --{ 'stevearc/oil.nvim' }, -- Neovim file explorer: edit your filesystem like a buffer
   --{ dir = '~/repos/tender.nvim', config = function() vim.cmd.colorscheme("tender") end }, -- my color scheme
+  --{ 'rose-pine/neovim', name = 'rose-pine', lazy = false, priority = 1000, config = function() require('mrv.plugins.rose-pine') end },
 
   -- TODO: Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
