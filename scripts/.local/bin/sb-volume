@@ -1,4 +1,4 @@
 #!/bin/sh
 
 vol="$(amixer sget Master | awk -F'[][]' '/%/ { print $2 }' | head -n1)"
-echo " 🔊 $vol"
+echo " 🔊 $vol "
