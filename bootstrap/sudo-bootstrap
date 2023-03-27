@@ -120,6 +120,20 @@ else
   sudo make clean install
 fi
 
+# dwmblocks
+FILE=/usr/local/bin/dwmblocks
+if [ -f "$FILE" ]; then
+  echo " dwmblocks is already installed"
+else
+  echo "Installing dwmblocks..."
+  LOCAL_REPO=$HOME/repos/dwmblocks
+  REPO_URL=https://github.com/mroavi/dwmblocks.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cd $LOCAL_REPO
+  git checkout mrv
+  sudo make clean install
+fi
+
 # pure
 echo "Installing pure..."
 mkdir -p ~/.zsh
