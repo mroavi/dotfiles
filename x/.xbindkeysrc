@@ -108,11 +108,11 @@
   Print
 
 # Increase volume using the keyboard volume keys
-"pactl -- set-sink-volume 0 +3%"
+"pactl -- set-sink-volume 0 +3% && pkill -RTMIN+10 dwmblocks"
 Mod4 + equal
 
 # Decrease volume using the keyboard volume keys
-"pactl -- set-sink-volume 0 -3%"
+"pactl -- set-sink-volume 0 -3% && pkill -RTMIN+10 dwmblocks"
   Mod4 + minus
 
 # lock display

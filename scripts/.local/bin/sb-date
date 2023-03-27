@@ -1,0 +1,4 @@
+#!/bin/bash
+
+dte="$(date +"%a %d/%m/%Y %R")"
+echo "$dte"

@@ -14,8 +14,9 @@ xset r rate 260 60
 # feh --bg-scale ~/dotfiles/wallpapers/shifaaz-shamoon-unsplash-1.jpg &
 feh --bg-scale --randomize ~/dotfiles/wallpapers/* &
 
-# Run my dwm bar script
-dwmiconbar &
+## Run my dwm bar script
+#dwmiconbar &
+dwmblocks &
 
 # Launch dropbox
 dropbox &
