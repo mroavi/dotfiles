@@ -1,4 +1,12 @@
 #!/bin/sh
 
-vol="$(pactl list sinks | grep 'Volume: front-left' | awk '{print $5}' | sed 's/%//g')"
-echo " 🔊 $vol "
+# Get the mute status and volume percentage of the default audio sink
+MUTED=$(pactl list sinks | awk '/Mute/ {print $2}')
+VOLUME=$(pactl list sinks | awk '/Volume:/ {print $5}')
+
+# Display the appropriate Unicode character and volume percentage
+if [ "$MUTED" == "yes" ]; then
+    echo -e " \U0001F507 $VOLUME " # 🔇
+else
+    echo -e " \U0001F50A $VOLUME " # 🔊
+fi
