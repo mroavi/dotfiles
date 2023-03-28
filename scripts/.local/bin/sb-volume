@@ -1,4 +1,4 @@
 #!/bin/sh
 
-vol="$(amixer sget Master | awk -F'[][]' '/%/ { print $2 }' | head -n1)"
+vol="$(pactl list sinks | grep 'Volume: front-left' | awk '{print $5}' | sed 's/%//g')"
 echo " 🔊 $vol "
