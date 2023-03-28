@@ -86,6 +86,7 @@ yay_pkgs=(
           ttf-font-awesome-4
           ttf-juliamono
           ttf-meslo-nerd
+          ttf-symbola
           catppuccin-gtk-theme-mocha
           kvantum-theme-catppuccin-git
          )
