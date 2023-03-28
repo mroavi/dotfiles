@@ -43,6 +43,7 @@ pac_pkgs=(
           zsh-autosuggestions
           zsh-syntax-highlighting
           ripgrep
+          fzf
           fasd
           diff-so-fancy
           z
