@@ -1,12 +1,15 @@
-#!/bin/sh
+#!/bin/bash
+
+# Get the active sink
+ACTIVE_SINK=$(pactl info | awk '/Default Sink:/ {print $3}')
 
 # Get the mute status and volume percentage of the default audio sink
-MUTED=$(pactl list sinks | awk '/Mute/ {print $2}')
-VOLUME=$(pactl list sinks | awk '/Volume:/ {print $5}')
+MUTED=$(pactl list sinks | grep -A 7 $ACTIVE_SINK | awk '/Mute:/ {print $2}')
+VOLUME=$(pactl list sinks | grep -A 7 $ACTIVE_SINK | awk '/Volume:/ {print $5}')
 
 # Display the appropriate Unicode character and volume percentage
 if [ "$MUTED" == "yes" ]; then
-    echo -e " \U0001F507 $VOLUME " # 🔇
+  echo -e " \U0001F507 $VOLUME " # 🔇
 else
-    echo -e " \U0001F50A $VOLUME " # 🔊
+  echo -e " \U0001F50A $VOLUME " # 🔊
 fi
