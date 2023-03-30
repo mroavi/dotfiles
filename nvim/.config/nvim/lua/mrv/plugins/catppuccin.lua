@@ -32,6 +32,7 @@ require("catppuccin").setup({
   custom_highlights = function(colors)
     return {
       ["StatusLine"] = { fg = colors.text, bg = colors.surface0, style = {} },
+      ["TelescopeSelection"] = { fg = colors.text, bg = colors.surface0, style = {} },
     }
   end,
   integrations = {
