@@ -130,10 +130,10 @@ do
       table.insert(display_format, { { 1, 3 }, hl_group })
       if pathtofile == "." then
         -- `display` has no path to file (file is in cwd)
-        table.insert(display_format, { { 3 + #pathtofile, #display + 1 }, "SpecialKey" })
+        table.insert(display_format, { { 3 + #pathtofile, #display + 1 }, "Operator" })
       else
         -- `display` does have a path to file
-        table.insert(display_format, { { 4 + #pathtofile + 1, #display + 1 }, "SpecialKey" })
+        table.insert(display_format, { { 4 + #pathtofile + 1, #display + 1 }, "Operator" })
       end
       if hl_group then
         return display, display_format
