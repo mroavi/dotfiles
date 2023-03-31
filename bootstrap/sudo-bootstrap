@@ -57,6 +57,7 @@ pac_pkgs=(
           pipewire-pulse
           bluez
           bluez-utils
+          xf86-input-libinput     # configure touchpad
           lxappearance            # manage GTK themes
           qt5ct                   # mange QT themes
           kvantum
