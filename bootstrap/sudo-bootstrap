@@ -28,6 +28,7 @@ pac_pkgs=(
           wget
           zip
           unzip
+          tar
           openssh
           xclip
           stow
