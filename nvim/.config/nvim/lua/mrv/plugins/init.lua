@@ -20,7 +20,7 @@ local plugins = {
   { 'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' } }, -- a completion plugin for neovim coded in Lua
   { 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end },
   { 'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end }, -- autopairs for neovim written by lua
-  { 'tpope/vim-fugitive', config = function() require('mrv.plugins.fugitive') end }, -- a Git wrapper so awesome, it should be illegal
+  { 'tpope/vim-fugitive', config = function() require('mrv.plugins.fugitive') end, dependencies = { 'tpope/vim-rhubarb' } }, -- a Git wrapper so awesome, it should be illegal
   { 'tpope/vim-unimpaired' }, -- pairs of handy bracket mappings
   { 'tpope/vim-surround' }, -- provides mappings to easily delete, change and add such surroundings in pairs
   { 'tpope/vim-repeat' }, -- enable repeating supported plugin maps with "."
