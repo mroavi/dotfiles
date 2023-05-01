@@ -5,7 +5,7 @@ setlocal spell spelllang=en_us
 setlocal textwidth=80
 
 " Define cell_delimeter
-let b:cell_delimeter = '%%'
+let b:cell_delimeter = '\\section'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-commentary
