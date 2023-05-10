@@ -104,8 +104,9 @@ cmd myopen ${{
 cmd extract ${{
     set -f
     case $f in
+        *.tar.gz) tar xf $f --one-top-level=$(basename $fx .tar.gz);; # mrv: extract to newly created dir
         *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
-        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tgz) tar xzvf $f;;
         *.tar.xz|*.txz) tar xJvf $f;;
         *.zip) unzip $f;;
         *.rar) unrar x $f;;
