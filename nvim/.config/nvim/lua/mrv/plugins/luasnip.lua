@@ -42,5 +42,5 @@ ls.add_snippets("julia", {
 
 ls.add_snippets("lua", {
   ls.parser.parse_snippet("pr", "print($0)"),
-  ls.parser.parse_snippet("pp", "vim.pretty_print($0)"),
+  ls.parser.parse_snippet("pp", "vim.print($0)"),
 })
