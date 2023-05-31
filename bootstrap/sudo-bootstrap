@@ -75,6 +75,10 @@ pac_pkgs=(
           texlive-science
           texlive-fontsextra
           texlive-pictures
+          noto-fonts
+          noto-fonts-cjk
+          noto-fonts-emoji
+          noto-fonts-extra
          )
 
 yay_pkgs=(
