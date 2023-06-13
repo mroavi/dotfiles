@@ -5,7 +5,7 @@ ls.config.set_config {
   history = true, -- allows to jump back into last snippet
 }
 
---require("luasnip/loaders/from_vscode").lazy_load() -- to use existing vs-code style snippets from a plugin
+require("luasnip/loaders/from_vscode").lazy_load() -- to use existing vs-code style snippets from a plugin
 
 -- Expand or jump forward
 vim.keymap.set({ "i", "s" }, "<C-j>", function()
