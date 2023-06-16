@@ -1,5 +1,6 @@
 vim.g.vimtex_compiler_latexmk = {
-  build_dir = "build",
+  aux_dir = "aux",
+  out_dir = "out",
   continuous = true,
 }
 
