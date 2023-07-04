@@ -20,8 +20,7 @@ List of Handy Macros
 --------------------
 
 ```julia
-@edit           <function call/macro call>
-
+@edit  <function call/macro call>
 @debug "Verbose debugging information.  Invisible by default"
 @info  "An informational message"
 @warn  "Something was odd.  You should pay attention"
@@ -29,6 +28,7 @@ List of Handy Macros
 ```
 
 To enable @debug messages, you need to set the JULIA_DEBUG environment var:
+
 ```julia
 julia> ENV["JULIA_DEBUG"] = "all"
 ```
