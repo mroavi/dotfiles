@@ -71,6 +71,7 @@ pac_pkgs=(
           texlab
           texlive-core
           texlive-bin
+          texlive-binextra
           texlive-latexextra
           texlive-science
           texlive-fontsextra
