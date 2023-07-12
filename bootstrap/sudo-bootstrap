@@ -78,6 +78,7 @@ pac_pkgs=(
           texlive-fontsextra
           texlive-pictures
           texlive-plaingeneric    # contains 'listofitems.sty'
+          texlive-luatex
           noto-fonts
           noto-fonts-cjk
           noto-fonts-emoji
