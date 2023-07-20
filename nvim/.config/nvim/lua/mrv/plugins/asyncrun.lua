@@ -12,3 +12,6 @@ local function visual_star_grep()
   vim.cmd("AsyncRun! -strip grep -R -n -F " .. vim.fn.shellescape(visual_selection) .. " .")
 end
 vim.keymap.set('x', '<Leader>*', function() visual_star_grep() end)
+
+-- Example of how I use this plugin to compile and open a pdf:
+--    :AsyncRun -silent ./compile.sh; xdg-open ./paper.pdf
