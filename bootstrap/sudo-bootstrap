@@ -80,6 +80,7 @@ pac_pkgs=(
           texlive-plaingeneric    # contains 'listofitems.sty'
           texlive-luatex
           texlive-bibtexextra
+          texlive-fontutils       # needed by LyX
           noto-fonts
           noto-fonts-cjk
           noto-fonts-emoji
