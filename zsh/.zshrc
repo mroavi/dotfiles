@@ -411,7 +411,7 @@ alias temp="curl wttr.in/Eindhoven"
 # Configuration managers
 alias vol="alsamixer"
 alias audio="pavucontrol"
-alias blue="blueman-manager"
+alias bt="bluetoothctl"
 alias disp="arandr"
 alias appearance="lxappearance"
 alias wifiscan="nmcli dev wifi list"
