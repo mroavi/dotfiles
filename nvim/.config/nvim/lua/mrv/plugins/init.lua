@@ -41,7 +41,8 @@ local plugins = {
   { 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } }, -- the future of organizing your life in Neovim
   { "lukas-reineke/indent-blankline.nvim", config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
   { "catppuccin/nvim", name = "catppuccin", config = function() require('mrv.plugins.catppuccin') end }, -- soothing pastel theme for (Neo)vim
-  { "bennypowers/splitjoin.nvim", config = function() require('mrv.plugins.splitjoin') end }, -- split or join list-like syntax constructs
+  { "echasnovski/mini.splitjoin", config = function() require('mrv.plugins.mini-splitjoin') end  } -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
+
   -- {{{1
 
   -- Disabled
@@ -74,6 +75,7 @@ local plugins = {
   --{ dir = '~/repos/tender.nvim', config = function() vim.cmd.colorscheme("tender") end }, -- my color scheme
   --{ 'rose-pine/neovim', name = 'rose-pine', lazy = false, priority = 1000, config = function() require('mrv.plugins.rose-pine') end },
   --{ 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end },
+  --{ "bennypowers/splitjoin.nvim", config = function() require('mrv.plugins.splitjoin') end }, -- split or join list-like syntax constructs
 
   -- TODO: Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
