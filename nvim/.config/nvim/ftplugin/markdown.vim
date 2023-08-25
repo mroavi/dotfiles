@@ -5,7 +5,7 @@ setlocal spell spelllang=en
 setlocal complete+=kspell
 
 " Maximum width of text that is being inserted
-setlocal textwidth=80
+setlocal textwidth=78
 
 " Align markdown tables
 vnoremap <Leader><Bslash> :EasyAlign*<Bar><Enter>

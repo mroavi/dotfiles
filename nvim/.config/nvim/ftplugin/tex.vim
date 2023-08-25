@@ -2,7 +2,7 @@
 setlocal spell spelllang=en_us
 
 " Maximum width of text that is being inserted
-setlocal textwidth=80
+setlocal textwidth=78
 
 " Define cell_delimeter
 let b:cell_delimeter = 'section{'
