@@ -77,7 +77,7 @@ local plugins = {
   --{ "bennypowers/splitjoin.nvim", config = function() require('mrv.plugins.splitjoin') end }, -- split or join list-like syntax constructs
   --{ 'wellle/targets.vim', config = function() require('mrv.plugins.targets') end }, -- vim plugin that provides additional text objects
 
-  -- TODO: Try these out!
+  -- Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
   --{ 'kassio/neoterm' }, -- wrapper of some vim/neovim's :terminal functions
   --{ 'sindrets/diffview.nvim' }, -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
