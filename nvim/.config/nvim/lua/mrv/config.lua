@@ -102,7 +102,8 @@ M.setup = function()
   vim.api.nvim_create_autocmd("QuickFixCmdPost", { pattern = "vimgrep", command = "cwindow", group = quickfix_group })
   vim.api.nvim_create_autocmd("QuickFixCmdPost", { pattern = "lvimgrep", command = "lwindow", group = quickfix_group })
 
-  -- Close vim if the only window left open is a quickfix window (https://stackoverflow.com/a/7477056/1706778)
+  -- Close vim if the only window left open is a quickfix window
+  -- https://stackoverflow.com/a/7477056/1706778
   vim.api.nvim_create_autocmd("WinEnter", {
     callback = function()
       if vim.fn.winnr('$') == 1 and vim.o.buftype == "quickfix" then
@@ -112,7 +113,8 @@ M.setup = function()
     group = vim.api.nvim_create_augroup("quickfix-close", { clear = true }),
   })
 
-  -- Use ripgrep as grep program (https://phelipetls.github.io/posts/extending-vim-with-ripgrep/)
+  -- Use ripgrep as grep program 
+  -- https://phelipetls.github.io/posts/extending-vim-with-ripgrep/
   if vim.fn.executable("rg") then
     vim.o.grepprg = "rg --vimgrep --smart-case --hidden"
     vim.o.grepformat = "%f:%l:%c:%m"
