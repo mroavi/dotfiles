@@ -40,7 +40,7 @@ local plugins = {
   { 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } }, -- the future of organizing your life in Neovim
   { "lukas-reineke/indent-blankline.nvim", config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
   { "catppuccin/nvim", name = "catppuccin", config = function() require('mrv.plugins.catppuccin') end }, -- soothing pastel theme for (Neo)vim
-  { "echasnovski/mini.splitjoin", config = function() require('mrv.plugins.mini-splitjoin') end  } -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
+  { "echasnovski/mini.splitjoin", config = function() require('mrv.plugins.mini-splitjoin') end } -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
 
   -- {{{1
 
