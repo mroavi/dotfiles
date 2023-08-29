@@ -89,6 +89,7 @@ if not vim.env.SSH_CONNECTION then
   --- lua
   --------------------------------------------------------------------------------
 
+  -- Installation: sudo pacman -S lua-language-server
   require 'lspconfig'.lua_ls.setup {
     settings = {
       Lua = {
