@@ -128,12 +128,6 @@ echo "Installing ripgrep..."
 
 echo "  TODO"
 
-# -----------------------------------------------------------------------------------------
-# https://computingforgeeks.com/bat-cat-command-with-syntax-highlighting-and-git-integration/
-echo "Installing bat..."
-
-echo "  TODO"
-
 ## -----------------------------------------------------------------------------------------
 # https://github.com/clvv/fasd
 echo "Installing fasd..."
