@@ -2,8 +2,6 @@
 " vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" TODO: move to tomux?
-
 let b:serial_port = '/dev/ttyACM0'
 let b:serial_baud = '9600'
 "let b:board = 'arduino:avr:uno'
@@ -13,7 +11,6 @@ let b:board = 'arduino:avr:mega'
 function! OpenRightOf()
   let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
   TomuxCommand("split-window -h -d -c " . expand("%:p:h"))
-  "TomuxSend(b:start_repl_cmd . "\n")
 endfunction
 nnoremap <buffer><silent> <Leader>tl :call OpenRightOf()<CR>
 
@@ -21,7 +18,6 @@ nnoremap <buffer><silent> <Leader>tl :call OpenRightOf()<CR>
 function! OpenDownOf()
   let b:tomux_config = {"socket_name": "default", "target_pane": "{down-of}"}
   TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))
-  "TomuxSend(b:start_repl_cmd . "\n")
 endfunction
 nnoremap <buffer><silent> <Leader>tj :call OpenDownOf()<CR>
 
