@@ -102,7 +102,7 @@ M.setup = function()
   vim.api.nvim_create_autocmd("QuickFixCmdPost", { pattern = "vimgrep", command = "cwindow", group = quickfix_group })
   vim.api.nvim_create_autocmd("QuickFixCmdPost", { pattern = "lvimgrep", command = "lwindow", group = quickfix_group })
 
-  -- Debug related mappings for vim and lua filetypes (https://stackoverflow.com/a/7477056/1706778)
+  -- Close vim if the only window left open is a quickfix window (https://stackoverflow.com/a/7477056/1706778)
   vim.api.nvim_create_autocmd("WinEnter", {
     callback = function()
       if vim.fn.winnr('$') == 1 and vim.o.buftype == "quickfix" then
