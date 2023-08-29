@@ -26,7 +26,6 @@ local plugins = {
   { 'tpope/vim-repeat' }, -- enable repeating supported plugin maps with "."
   { 'tpope/vim-obsession' }, -- continuously updated session files
   { 'mroavi/vim-pasta' }, -- auto format pasted code
-  { 'wellle/targets.vim', config = function() require('mrv.plugins.targets') end }, -- vim plugin that provides additional text objects
   { 'yegappan/mru', init = function() require('mrv.plugins.mru') end }, -- most recently used (MRU) vim plugin
   { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end }, -- quickstart configurations for the Nvim LSP client
   { 'mroavi/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end }, -- send text to tmux
@@ -76,6 +75,7 @@ local plugins = {
   --{ 'rose-pine/neovim', name = 'rose-pine', lazy = false, priority = 1000, config = function() require('mrv.plugins.rose-pine') end },
   --{ 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end },
   --{ "bennypowers/splitjoin.nvim", config = function() require('mrv.plugins.splitjoin') end }, -- split or join list-like syntax constructs
+  --{ 'wellle/targets.vim', config = function() require('mrv.plugins.targets') end }, -- vim plugin that provides additional text objects
 
   -- TODO: Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
