@@ -40,10 +40,10 @@ M.setup = function()
   vim.opt.wildignorecase = true
   vim.opt.cmdheight = 1 -- `0` hides the command-line when not being used
   vim.opt.wildignore:append { 'build/**' }
+  vim.opt.diffopt:append { 'linematch:60' } -- improve diff mode
 
   if vim.env.SSH_CONNECTION then
     vim.opt.clipboard = ''
-    --:set diffopt+=linematch:60 -- TODO: set this when 0.9 comes out
   end
 
   --------------------------------------------------------------------------------
