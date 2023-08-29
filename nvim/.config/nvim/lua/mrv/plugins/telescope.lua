@@ -710,7 +710,8 @@ end
 
 -- File pickers
 vim.keymap.set("n", "<Leader>o", M.my_git_files)
-vim.keymap.set("n", "<Leader>G", M.live_grep)
+vim.keymap.set("n", "<Leader>g", M.live_grep)
+vim.keymap.set("n", "<Leader>G", "<Cmd>lua require('telescope.builtin').live_grep({default_text = vim.fn.expand(\"<cword>\")})<CR>")
 vim.keymap.set("n", "<Leader>.", M.dotfiles)
 vim.keymap.set("n", "<Leader>a", M.args)
 --vim.keymap.set("n", "<Leader>*", M.fuzzy_star_search)
