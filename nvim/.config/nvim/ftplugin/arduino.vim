@@ -2,10 +2,24 @@
 " vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Source: https://arduino.github.io/arduino-cli/0.33/getting-started/
+
+" arduino-cli one-time setup:
+"   arduino-cli config init
+"   arduino-cli core update-index
+"   arduino-cli core install arduino:avr
+"   sudo chmod a+rw /dev/ttyACM0
+"   sudo chmod a+rw /dev/ttyACM1
+
+" Other commads:
+"   arduino-cli board list
+"   arduino-cli core list
+"   arduino-cli sketch new serial-hello-world
+
 let b:serial_port = '/dev/ttyACM0'
 let b:serial_baud = '9600'
-"let b:board = 'arduino:avr:uno'
-let b:board = 'arduino:avr:mega'
+let b:board = 'arduino:avr:uno'
+"let b:board = 'arduino:avr:mega'
 
 " Start REPL in a RIGHT split with active buffer as CWD
 function! OpenRightOf()
@@ -27,9 +41,6 @@ function! KillPane()
 endfunction
 nnoremap <buffer><silent><Leader>tk :call KillPane()<CR>
 
-" Kill screen
-nnoremap <buffer><silent> <Leader>tK :TomuxSend("Ky")<CR>
-
 " Compile
 let b:compile_cmd = ':TomuxSend("arduino-cli compile -b " . b:board . " ' . expand('%:p') . '\n")'
 nnoremap <buffer><silent><expr> <Leader>tc b:compile_cmd . '<CR>'
@@ -38,14 +49,15 @@ nnoremap <buffer><silent><expr> <Leader>tc b:compile_cmd . '<CR>'
 let b:upload_cmd = ':TomuxSend("arduino-cli upload -p " . b:serial_port . " --fqbn " . b:board . " ' . expand('%:p') . '\n")'
 nnoremap <buffer><silent><expr> <Leader>tu b:upload_cmd . '<CR>'
 
-" Start screen and open serial port
+" Start 'screen' and open serial port
 let b:screen_cmd = ':TomuxSend("screen " . b:serial_port . " " . b:serial_baud . "\n")'
 nnoremap <buffer><silent><expr> <Leader>ts b:screen_cmd . '<CR>'
 
-" TODO: not working
-" Compile and upload (p stands for program)
-nmap <buffer><silent> <Leader>tp <Leader>ac<Leader>au
+" Kill 'screen'
+nnoremap <buffer><silent> <Leader>tK :TomuxSend("Ky")<CR>
 
-" TODO: not working
+" Compile and upload (p stands for program)
+nmap <buffer><silent> <Leader>tp <Leader>tc<Leader>tu
+
 " Compile, upload and open serial port
-nmap <buffer><silent> <Leader>tt <Leader>ac<Leader>au<Leader>as
+nmap <buffer><silent> <Leader>tt <Leader>tc<Leader>tu<Leader>ts
