@@ -1,5 +1,3 @@
--- TODO: solve: :Tmuxline vim_statusline_3 Not an editor command
-
 --local vim = vim
 --vim.cmd [[ :Tmuxline vim_statusline_3 ]]
 --vim.cmd [[ TmuxlineSnapshot /home/mroavi/dotfiles/tmux/.config/tmux/tmux.conf.statusline ]]
