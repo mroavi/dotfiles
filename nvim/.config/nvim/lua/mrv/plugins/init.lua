@@ -36,7 +36,6 @@ local plugins = {
   { 'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, build = ':TSUpdate', dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' } }, -- nvim treesitter configurations and abstraction layer
   { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end }, -- run Async Shell Commands and Output to the Quickfix Window
   { 'mroavi/vim-evanesco' }, -- automatically clears search highlight
-  { 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } }, -- the future of organizing your life in Neovim
   { "lukas-reineke/indent-blankline.nvim", config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
   { "catppuccin/nvim", name = "catppuccin", config = function() require('mrv.plugins.catppuccin') end }, -- soothing pastel theme for (Neo)vim
   { "echasnovski/mini.splitjoin", config = function() require('mrv.plugins.mini-splitjoin') end } -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
@@ -75,6 +74,7 @@ local plugins = {
   --{ "bennypowers/splitjoin.nvim", config = function() require('mrv.plugins.splitjoin') end }, -- split or join list-like syntax constructs
   --{ 'wellle/targets.vim', config = function() require('mrv.plugins.targets') end }, -- vim plugin that provides additional text objects
   --{ 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end, dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- view treesitter information directly in Neovim
+  --{ 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } }, -- the future of organizing your life in Neovim
 
   -- Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
