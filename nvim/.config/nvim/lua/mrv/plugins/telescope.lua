@@ -186,10 +186,10 @@ end
 -- If `dir` is inside a git repo, return the git repo's root dir, otherwise, `nil`
 -- Based on: ~/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/builtin/__git.lua
 local function git_dir(dir)
-  local git_root, ret = require 'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--show-toplevel" }, dir)
+  local git_root, ret = utils.get_os_command_output({ "git", "rev-parse", "--show-toplevel" }, dir)
   if ret ~= 0 then
-    local in_worktree = require 'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, dir)
-    local in_bare = require 'telescope.utils'.get_os_command_output({ "git", "rev-parse", "--is-bare-repository" }, dir)
+    local in_worktree = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, dir)
+    local in_bare = utils.get_os_command_output({ "git", "rev-parse", "--is-bare-repository" }, dir)
     if in_worktree[1] ~= "true" and in_bare[1] ~= "true" then
       return nil -- not a git repo
     else
