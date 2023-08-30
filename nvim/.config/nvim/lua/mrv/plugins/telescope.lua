@@ -13,14 +13,26 @@ local action_utils = require "telescope.actions.utils"
 
 local M = {}
 
--- TODO: Improve default configuration by factoring out the most common options of my pickers
 require("telescope").setup {
   defaults = {
-    layout_config = { height = 0.9, width = 0.9 },
-    sorting_strategy = "descending",
-    layout_strategy = "vertical",
+    layout_strategy = "flex",
+    sorting_strategy = "ascending",
     scroll_strategy = "cycle",
     --selection_strategy = "row", -- bug: causes some of the results to be hidden after a sort
+    layout_config = {
+      prompt_position = "top", -- where to place prompt window
+      height = 0.9,
+      width = 0.9,
+      flex = {
+        flip_columns = 120, -- num. of columns threshold for choosing between horizontal and vertical layout
+      },
+      horizontal = {
+        mirror = false, -- flip the results/prompt and preview windows
+      },
+      vertical = {
+        mirror = true,
+      },
+    },
     file_previewer = require 'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require 'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require 'telescope.previewers'.vim_buffer_qflist.new,
@@ -317,12 +329,6 @@ end
 
 function M.args()
   local opts = {
-    layout_strategy = "vertical",
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
     scroll_strategy = "limit",
     entry_maker = my_make_entry.gen_from_file(),
     attach_mappings = function(_, map)
@@ -365,15 +371,7 @@ function M.buffers()
 end
 
 function M.buffer_lines()
-  builtin.current_buffer_fuzzy_find {
-    prompt_title = 'Buffer Lines',
-    layout_strategy = "vertical",
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
-  }
+  builtin.current_buffer_fuzzy_find { prompt_title = 'Buffer Lines' }
 end
 
 function M.help_tags(opts)
@@ -405,12 +403,6 @@ end
 function M.fuzzy_star_search()
   local opts = {
     default_text = vim.fn.expand("<cword>"),
-    layout_strategy = "vertical",
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
     scroll_strategy = "limit",
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
@@ -508,13 +500,6 @@ end
 -- Local marks BUG: https://github.com/neovim/neovim/issues/4295
 function M.marks()
   my_marks_picker {
-    layout_strategy = "vertical",
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
-    scroll_strategy = "cycle",
     entry_maker = make_entry_gen_from_marks(),
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
@@ -577,13 +562,6 @@ end
 
 function M.recent_files()
   my_recent_files_picker {
-    layout_strategy = "vertical",
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
-    scroll_strategy = "cycle",
     entry_maker = my_make_entry.gen_from_file(),
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
@@ -633,13 +611,6 @@ end
 
 function M.hunks()
   my_hunks_picker {
-    layout_strategy = "vertical",
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
-    scroll_strategy = "cycle",
     attach_mappings = function(prompt_bufnr, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
@@ -663,38 +634,16 @@ end
 -------------------------------------------------------------------------------
 
 function M.git_commits()
-  builtin.git_commits {
-    cwd = vim.fn.expand("%:p:h"),
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
-    layout_strategy = "vertical",
-  }
+  builtin.git_commits { cwd = vim.fn.expand("%:p:h") }
 end
 
 function M.git_bcommits()
-  builtin.git_bcommits {
-    cwd = vim.fn.expand("%:p:h"),
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
-    layout_strategy = "vertical",
-  }
+  builtin.git_bcommits { cwd = vim.fn.expand("%:p:h") }
 end
 
 function M.git_status()
   builtin.git_status {
     cwd = vim.fn.expand("%:p:h"),
-    layout_strategy = "vertical",
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
     scroll_strategy = "limit",
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
