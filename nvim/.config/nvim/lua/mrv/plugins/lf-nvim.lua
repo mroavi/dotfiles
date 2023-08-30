@@ -2,6 +2,7 @@
 vim.g.lf_netrw = true
 
 require("lf").setup({
+  default_action = "edit", -- default action when `Lf` opens a file
   default_actions = {
     ["<C-t>"] = "tabedit",
     ["<C-j>"] = "split",
