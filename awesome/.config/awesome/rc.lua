@@ -262,7 +262,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, altkey    }, "o", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
 
-    ---- Master and column manipulation TODO: think of good key mappings for these actions
+    ---- Master and column manipulation
     --awful.key({ modkey, "Shift"            }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
     --          {description = "increase the number of master clients", group = "layout"}),
     --awful.key({ modkey, "Shift"            }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
