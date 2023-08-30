@@ -250,11 +250,5 @@ echo "  TODO"
 # https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 
 # -----------------------------------------------------------------------------------------
-# TODO: clone my dwm repo and make install
-
-# -----------------------------------------------------------------------------------------
-# TODO: clone my slock repo and make install
-
-# -----------------------------------------------------------------------------------------
 # Return to original directory
 cd "$currentdir"
