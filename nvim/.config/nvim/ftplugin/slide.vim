@@ -24,7 +24,7 @@ let g:slides_cursor_text_color = '#e0def4'
 
 nnoremap <silent> <Leader><Leader> :Limelight!!<Cr>
 
-"" TODO: errors if presentation ends while limelight is activated
+"" WARNING: errors if presentation ends while limelight is activated
 "function! s:next_silent()
 "  execute 'try | n | catch | try | silent exe "norm \<C-l>" | catch | | endtry | endtry'
 "endfunction
