@@ -5,7 +5,7 @@ currentdir="$PWD"
 
 # Ensure these dirs exist
 mkdir -p ~/.local
-mkdir -p ~/downloads
+mkdir -p ~/Downloads
 mkdir -p ~/repos
 
 # -----------------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ if [ -f "$FILE" ]; then
   echo " stow is already installed"
 else
   # See INSTALL.md in root dir
-  LOCAL_REPO=~/downloads/stow
+  LOCAL_REPO=~/Downloads/stow
   REPO_URL=https://git.savannah.gnu.org/git/stow.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cd $LOCAL_REPO
@@ -51,7 +51,7 @@ FILE=$HOME/.local/bin/zsh
 if [ -f "$FILE" ]; then
   echo " zsh is already installed"
 else
-  cd ~/downloads
+  cd ~/Downloads
   wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
   mkdir zsh && unxz zsh.tar.xz && tar -xvf zsh.tar -C zsh --strip-components 1
   cd zsh
@@ -144,7 +144,7 @@ FILE=$HOME/.local/bin/lf
 if [ -f "$FILE" ]; then
   echo "lf is already installed"
 else
-  cd ~/downloads/
+  cd ~/Downloads/
   filename="lf.tar.gz"
   wget -O $filename https://github.com/gokcehan/lf/releases/download/r18/lf-linux-amd64.tar.gz
   tar xvzf "$filename" -C $HOME/.local/bin/
@@ -157,7 +157,7 @@ FILE=$HOME/.local/bin/diff-so-fancy
 if [ -f "$FILE" ]; then
   echo "diff-so-fancy is already installed"
 else
-  LOCAL_REPO=~/downloads/diff-so-fancy
+  LOCAL_REPO=~/Downloads/diff-so-fancy
   REPO_URL=git@github.com:so-fancy/diff-so-fancy.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cp $LOCAL_REPO/diff-so-fancy $HOME/.local/bin/
@@ -175,7 +175,7 @@ if [ -f "$FILE" ]; then
   echo " clangd is already installed"
 else
   VERSION="13.0.0"
-  cd ~/downloads/
+  cd ~/Downloads/
   filepath="clangd-linux-$VERSION.zip"
   [ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/$VERSION/clangd-linux-$VERSION.zip
   unzip "$filepath"
@@ -190,7 +190,7 @@ FILE=$HOME/.local/bin/texlab
 if [ -f "$FILE" ]; then
   echo " texlab is already installed"
 else
-  cd ~/downloads/
+  cd ~/Downloads/
   filepath="texlab-x86_64-linux.tar.gz"
   [ -f $filepath ] || curl -fLo "$filepath" https://github.com/latex-lsp/texlab/releases/download/v2.2.0/texlab-x86_64-linux.tar.gz
   tar xvzf "$filepath" -C $HOME/.local/bin/
@@ -199,7 +199,7 @@ fi
 # -----------------------------------------------------------------------------------------
 echo "Installing z..."
 
-LOCAL_REPO=~/downloads/z
+LOCAL_REPO=~/Downloads/z
 REPO_URL=https://github.com/rupa/z.git
 git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 
@@ -210,7 +210,7 @@ FILE=$HOME/.local/bin/fd
 if [ -f "$FILE" ]; then
   echo "  fd is already installed"
 else
-  cd $HOME/downloads/
+  cd $HOME/Downloads/
   tarfile="fd-v8.2.1-x86_64-unknown-linux-gnu.tar.gz"
   [ -f $tarfile ] || curl -fLo "$tarfile" https://github.com/sharkdp/fd/releases/download/v8.2.1/fd-v8.2.1-x86_64-unknown-linux-gnu.tar.gz
   tar xvzf "$tarfile"

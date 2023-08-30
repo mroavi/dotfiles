@@ -7,7 +7,7 @@ sudo -v # give sudo privileges ahead of time, so that we hopefully only have to 
 
 # Ensure these dirs exist
 mkdir -p ~/.local
-mkdir -p ~/downloads
+mkdir -p ~/Downloads
 mkdir -p ~/repos
 
 # yay
