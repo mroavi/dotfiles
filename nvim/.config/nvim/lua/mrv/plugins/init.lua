@@ -67,7 +67,6 @@ local plugins = {
   --{ 'hrsh7th/cmp-emoji' }, -- nvim-cmp source for emoji
   --{ 'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end }, -- all the lua functions you don't want to write twice (I use it to reload my nvim config)
   --{ 'jackMort/ChatGPT.nvim' , config = function() require('mrv.plugins.chatgpt') end, dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } }, -- plugin for interacting with OpenAI GPT-3 chatbot
-  --{ 'stevearc/oil.nvim' }, -- Neovim file explorer: edit your filesystem like a buffer
   --{ dir = '~/repos/tender.nvim', config = function() vim.cmd.colorscheme("tender") end }, -- my color scheme
   --{ 'rose-pine/neovim', name = 'rose-pine', lazy = false, priority = 1000, config = function() require('mrv.plugins.rose-pine') end },
   --{ 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end },
@@ -92,6 +91,8 @@ local plugins = {
   --{ 'tpope/vim-rhubarb' }, -- GitHub extension for fugitive.vim
   --{ 'smjonas/live-command.nvim' }, -- the easiest way to create previewable commands in Neovim
   --{ 'xolox/vim-notes' }, -- easy note taking in Vim
+  --{ tpope/vim-vinegar }, -- combine with netrw to create a delicious salad dressing
+  --{ 'stevearc/oil.nvim' }, -- Neovim file explorer: edit your filesystem like a buffer
 
   -- Abandoned
   --{ 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end }, -- provides insert mode auto-completion for quotes, parens, brackets, etc.
