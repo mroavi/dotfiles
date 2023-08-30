@@ -99,7 +99,7 @@ local opts = {
     -- * an absolute number of cells when > 1
     -- * a percentage of the width / height of the editor when <= 1
     -- * a function that returns the width or the height
-    width = 80, -- width of the Zen window -- TODO: the starting column changes for some slides
+    width = 80, -- width of the Zen window -- WARNING: the starting column changes for some slides
     height = 1, -- height of the Zen window
     -- by default, no options are changed for the Zen window
     -- uncomment any of the options below, or add other vim.wo options you want to apply
@@ -139,7 +139,7 @@ local opts = {
   on_close = on_close_zen_mode,
 }
 
--- TODO: fix the ZenBg highlight color. For some reason it gets darken from #282828 to #262626
+-- WARNING: fix the ZenBg highlight color. For some reason it gets darken from #282828 to #262626
 -- inside config.lua using the `util.darken` function
 require("zen-mode").setup(opts)
 --require("zen-mode").setup()

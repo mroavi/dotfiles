@@ -83,7 +83,7 @@ cmp.setup {
   sources = {
     -- The order of these sources determine their priority in cmp's results
     { name = "path" },
-    { name = 'nvim_lsp' }, -- TODO: slows down `cmp.complete()`
+    { name = 'nvim_lsp' }, -- WARNING: slows down `cmp.complete()`
     { name = 'luasnip' },
     { name = "buffer", keyword_length = 2 },
   },

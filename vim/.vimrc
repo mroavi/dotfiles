@@ -418,7 +418,7 @@ endfunction
 "nnoremap <silent> <S-l> :bnext<CR>
 
 "" Open buffer wildmenu (https://noahfrederick.com/log/vim-wildcharm)
-"" TODO: this clashes with <C-i> (go to next entry in jump list)
+"" WARNING: this clashes with <C-i> (go to next entry in jump list)
 "set wildcharm=<C-z>
 "nnoremap <Tab> :b <C-z><S-Tab>
 
