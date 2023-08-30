@@ -122,12 +122,6 @@ filepath=Hack-for-Powerline-Nerd-Font-bold-italic-complete.ttf
 filepath=Meslo-LG-S-DZ-Regular-Nerd-Font-Complete.ttf
 [ -f $filepath ] || curl -fLo "$filepath" https://github.com/ryanoasis/nerd-fonts/blob/877887cac2d6ccc7354a8d95e8c39fff10bf120b/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete.ttf
 
-# -----------------------------------------------------------------------------------------
-# https://github.com/BurntSushi/ripgrep#installation
-echo "Installing ripgrep..."
-
-echo "  TODO"
-
 ## -----------------------------------------------------------------------------------------
 # https://github.com/clvv/fasd
 echo "Installing fasd..."
@@ -236,12 +230,17 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
-echo "Installing vidir..."
+echo "Installing trash-cli..."
+pip install trash-cli
+
+# -----------------------------------------------------------------------------------------
+# https://github.com/BurntSushi/ripgrep#installation
+echo "Installing ripgrep..."
 
 echo "  TODO"
 
 # -----------------------------------------------------------------------------------------
-echo "Installing trash-cli..."
+echo "Installing vidir..."
 
 echo "  TODO"
 
