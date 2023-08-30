@@ -54,7 +54,6 @@ local plugins = {
   --{ 'vim-pandoc/vim-pandoc-syntax' }, -- pandoc markdown syntax, to be installed alongside vim-pandoc
   --{ 'quarto-dev/quarto-vim', dependencies = { 'vim-pandoc/vim-pandoc-syntax' } }, -- rmarkdown support for vim
   --{ 'akinsho/toggleterm.nvim', config = function() require('mrv.plugins.toggleterm') end }, -- a neovim lua plugin to help easily manage multiple terminal windows
-  --{ 'jose-elias-alvarez/null-ls.nvim', config = function() require('mrv.plugins.null-ls') end }, -- use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
   --{ 'mroavi/lf.vim', config = function() require('mrv.plugins.lf-vim') end }, -- file manager for vim/neovim powered by lf
   --{ 'vladdoster/remember.nvim', config = [[ require('remember') ]] }, -- remembers cursor position
   --{ 'romainl/vim-cool' }, -- disables search highlighting when you are done searching and re-enables it when you search again
