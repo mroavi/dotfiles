@@ -53,6 +53,13 @@ function! OpenDownOf()
 endfunction
 nnoremap <buffer><silent> <Leader>tj :call OpenDownOf()<CR>
 
+" Execute buffer
+function! ExecuteBuffer()
+  write
+  TomuxSend("exec(open(\"" . expand('%:p') . "\").read())\n")
+endfunction
+nnoremap <buffer><silent> <Leader>e :call ExecuteBuffer()<CR>
+
 "" Restart REPL (send first CTRL-c, and then restart)
 function! Restart()
   TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")
@@ -75,15 +82,5 @@ function! KillPane()
 endfunction
 nnoremap <buffer><silent><Leader>tk :call KillPane()<CR>
 
-" Execute buffer
-function! ExecuteBuffer()
-  write
-  TomuxSend("exec(open(\"" . expand('%:p') . "\").read())\n")
-endfunction
-nnoremap <buffer><silent> <Leader>e :call ExecuteBuffer()<CR>
-
 " Clear REPL
 nnoremap <buffer><silent> <Leader>cl :TomuxSend("print(\"\\n\" * 100)\n")<CR>
-
-" Execute file
-nnoremap <buffer><silent><expr> <Leader>e ':w<Bar>:TomuxSend("exec(open(\"' . expand('%:p') . '\").read())\n")<CR>'
