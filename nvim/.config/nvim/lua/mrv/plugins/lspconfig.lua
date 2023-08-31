@@ -183,7 +183,7 @@ if not vim.env.SSH_CONNECTION then
   --- efm
   --------------------------------------------------------------------------------
 
-  ---- Installation: sudo pacman -S efm-langserver
+  -- Installation: go install github.com/mattn/efm-langserver@latest
   --require"lspconfig".efm.setup {
   --  init_options = {documentFormatting = true},
   --  filetypes = {"lua"},
