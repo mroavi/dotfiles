@@ -9,12 +9,19 @@ nnoremap <buffer><Leader>h3 m`0dw :center 80<cr>hhv0r-A<Space><Esc>40A-<Esc>d78<
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-commentary
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " No space between comment character and code
 let b:commentary_format = '#%s'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Make sure to have 'ipython' and 'tk' installed.
+" 'tk' is needed to use the `%paste` magic function. (Source: https://superuser.com/a/549325/1087113)
+" On Arch, you can install these with the following commands:
+"   sudo pacman -S ipython
+"   sudo pacman -S tk
 
 " Default config
 let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
