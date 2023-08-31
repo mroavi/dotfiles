@@ -37,9 +37,6 @@ let b:start_repl_cmd = 'python -m IPython'
 " Exit REPL cmd
 let b:quit_repl_cmd = 'exit()'
 
-" Create a BOTTOM split with active buffer as CWD and start REPL
-nnoremap <buffer><silent><expr> <Leader>tj ':TomuxCommand("split-window -v -d -l 20% -c ' . expand('%:p:h') . '")<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>'
-
 " Start REPL in a RIGHT split with active buffer as CWD
 function! OpenRightOf()
   let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
@@ -56,11 +53,21 @@ function! OpenDownOf()
 endfunction
 nnoremap <buffer><silent> <Leader>tj :call OpenDownOf()<CR>
 
-" Restart REPL (send first CTRL-c, and then restart)
-nnoremap <buffer><silent> <Leader>tr :TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")<CR>:TomuxSend(b:quit_repl_cmd . "\n")<CR>:sl 50m<CR>:TomuxSend(b:start_repl_cmd . "\n")<CR>
+"" Restart REPL (send first CTRL-c, and then restart)
+function! Restart()
+  TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")
+  TomuxSend(b:quit_repl_cmd . "\n")
+  sl 50m
+  TomuxSend(b:start_repl_cmd . "\n")
+endfunction
+nnoremap <buffer><silent> <Leader>tr :call Restart()<CR>
 
 " Quit REPL (send first CTRL-c and then quit)
-nnoremap <buffer><silent> <Leader>tq :TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")<CR>:TomuxSend(b:quit_repl_cmd . "\n")<CR>
+function! Quit()
+  TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")
+  TomuxSend(b:quit_repl_cmd . "\n")
+endfunction
+nnoremap <buffer><silent> <Leader>tq :call Quit()<CR>
 
 " Kill REPL
 function! KillPane()
