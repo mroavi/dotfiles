@@ -42,6 +42,7 @@ nnoremap <buffer><silent><expr> <Leader>tj ':TomuxCommand("split-window -v -d -l
 
 " Start REPL in a RIGHT split with active buffer as CWD
 function! OpenRightOf()
+  let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
   TomuxCommand("split-window -h -d -c " . expand("%:p:h"))
   TomuxSend(b:start_repl_cmd . "\n")
 endfunction
@@ -49,6 +50,7 @@ nnoremap <buffer><silent> <Leader>tl :call OpenRightOf()<CR>
 
 " Start REPL in a BOTTOM split with active buffer as CWD
 function! OpenDownOf()
+  let b:tomux_config = {"socket_name": "default", "target_pane": "{down-of}"}
   TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))
   TomuxSend(b:start_repl_cmd . "\n")
 endfunction
