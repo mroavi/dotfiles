@@ -6,8 +6,6 @@ local M = {}
 --- General
 -- ==============================================================================
 
--- TODO: setup mason according to this video: https://www.youtube.com/watch?v=NL8D8EkphUw
-
 function M.goto_next() vim.diagnostic.goto_next { wrap = false } end
 function M.goto_prev() vim.diagnostic.goto_prev { wrap = false } end
 
@@ -62,7 +60,7 @@ local lspconfig = require 'lspconfig'
 --- julia (LanguageServer.jl)
 --------------------------------------------------------------------------------
 
--- Installation: https://discourse.julialang.org/t/neovim-languageserver-jl/37286/63
+-- Manual installation: https://discourse.julialang.org/t/neovim-languageserver-jl/37286/63
 --    $ julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
 -- Instant startup with PackageCompiler: https://discourse.julialang.org/t/neovim-languageserver-jl/37286/72?u=mroavi
 
@@ -91,7 +89,7 @@ if not vim.env.SSH_CONNECTION then
   --- lua
   --------------------------------------------------------------------------------
 
-  -- Installation: sudo pacman -S lua-language-server
+  -- Manual installation: sudo pacman -S lua-language-server
   require 'lspconfig'.lua_ls.setup {
     settings = {
       Lua = {
@@ -120,7 +118,7 @@ if not vim.env.SSH_CONNECTION then
   --- vim
   --------------------------------------------------------------------------------
 
-  -- Installation: npm install -g vim-language-server
+  -- Manual installation: npm install -g vim-language-server
   lspconfig.vimls.setup {
     capabilities = capabilities,
   }
@@ -129,21 +127,21 @@ if not vim.env.SSH_CONNECTION then
   --- python
   --------------------------------------------------------------------------------
 
-  -- Installation: sudo pacman -S pyright
+  -- Manual installation: sudo pacman -S pyright
   lspconfig.pyright.setup {}
 
   --------------------------------------------------------------------------------
   --- bash
   --------------------------------------------------------------------------------
 
-  -- Installation: npm i -g bash-language-server
+  -- Manual installation: npm i -g bash-language-server
   lspconfig.bashls.setup {}
 
   --------------------------------------------------------------------------------
   --- c
   --------------------------------------------------------------------------------
 
-  -- Installation: see bootstrap in dotfiles
+  -- Manual installation: see bootstrap in dotfiles
   lspconfig.clangd.setup {
     autostart = false,
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
@@ -151,28 +149,28 @@ if not vim.env.SSH_CONNECTION then
   }
 
   -- Use `bear` to generate the `compile_commands.json` file needed by clangd
-  -- Installation: yay -S bear
+  -- Manual installation: yay -S bear
   -- Github page: https://github.com/rizsotto/Bear
 
   --------------------------------------------------------------------------------
   --- texlab
   --------------------------------------------------------------------------------
 
-  -- Installation: sudo pacman -S texlab
+  -- Manual installation: sudo pacman -S texlab
   lspconfig.texlab.setup {}
 
   --------------------------------------------------------------------------------
   --- rust
   --------------------------------------------------------------------------------
 
-  -- Installation: sudo pacman -S rust-analyzer
+  -- Manual installation: sudo pacman -S rust-analyzer
   require 'lspconfig'.rust_analyzer.setup {}
 
   --------------------------------------------------------------------------------
   --- lua-dev (dev setup for init.lua and plugin development)
   --------------------------------------------------------------------------------
 
-  ---- Installation: sudo pacman -S lua-language-server
+  ---- Manual installation: sudo pacman -S lua-language-server
   --local lua_lsp_dir = "/home/mroavi/lsp-servers/lua-language-server/"
   --local luadev = require("lua-dev").setup({
   --  lspconfig = {
@@ -185,7 +183,7 @@ if not vim.env.SSH_CONNECTION then
   --- efm
   --------------------------------------------------------------------------------
 
-  -- Installation: go install github.com/mattn/efm-langserver@latest
+  -- Manual installation: go install github.com/mattn/efm-langserver@latest
   --require"lspconfig".efm.setup {
   --  init_options = {documentFormatting = true},
   --  filetypes = {"lua"},
@@ -209,7 +207,7 @@ if not vim.env.SSH_CONNECTION then
   --- arduino
   --------------------------------------------------------------------------------
 
-  ---- Installation: yay -S arduino-language-server-git
+  ---- Manual installation: yay -S arduino-language-server-git
   --lspconfig.arduino_language_server.setup({
   --  cmd =  {
   --      -- Required
@@ -225,7 +223,7 @@ if not vim.env.SSH_CONNECTION then
   --- cmake
   --------------------------------------------------------------------------------
 
-  ----Installation: pip install cmake-language-server
+  ---- Manual installation: pip install cmake-language-server
   --lspconfig.cmake.setup{}
 
 end

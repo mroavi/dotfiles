@@ -8,4 +8,20 @@ require("mason").setup({
   }
 })
 
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+  -- For a list of all available packages, see: https://mason-registry.dev/registry/list
+  ensure_installed = {
+    "lua_ls",
+    "vim-language-server",
+    "pyright",
+    "bash-language-server",
+    "clangd",
+    "texlab",
+    "rust-analyzer",
+    "efm",
+    "arduino-language-server",
+    "cmake",
+  }
+})
+
+vim.keymap.set("n", "<Leader>M", ":Mason<CR>")
