@@ -66,10 +66,7 @@ pac_pkgs=(
           dunst
           bottom
           arandr
-          bash-language-server
-          lua-language-server
           pkgfile                 # find packages that hold a file (even if the package is not installed)
-          texlab
           texlive-core
           texlive-bin
           texlive-binextra
