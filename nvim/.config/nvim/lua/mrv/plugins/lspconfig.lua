@@ -6,6 +6,8 @@ local M = {}
 --- General
 -- ==============================================================================
 
+-- TODO: setup mason according to this video: https://www.youtube.com/watch?v=NL8D8EkphUw
+
 function M.goto_next() vim.diagnostic.goto_next { wrap = false } end
 function M.goto_prev() vim.diagnostic.goto_prev { wrap = false } end
 
