@@ -12,14 +12,14 @@ require("mason-lspconfig").setup({
   -- For a list of all available packages, see: https://mason-registry.dev/registry/list
   ensure_installed = {
     "lua_ls",
-    "vim-language-server",
+    "vimls",
     "pyright",
-    "bash-language-server",
+    "bashls",
     "clangd",
     "texlab",
-    "rust-analyzer",
+    "rust_analyzer",
     "efm",
-    "arduino-language-server",
+    "arduino_language_server",
     "cmake",
   }
 })
