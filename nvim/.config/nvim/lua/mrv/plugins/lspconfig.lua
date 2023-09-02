@@ -149,7 +149,7 @@ if not vim.env.SSH_CONNECTION then
   }
 
   -- Use `bear` to generate the `compile_commands.json` file needed by clangd
-  -- Manual installation: yay -S bear
+  -- Installation: yay -S bear
   -- Github page: https://github.com/rizsotto/Bear
 
   --------------------------------------------------------------------------------
