@@ -165,38 +165,6 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------
-# LSP servers
-# -----------------------------------------------------------------------------------------
-
-echo "Installing clangd..."
-
-FILE=$HOME/.local/bin/clangd
-if [ -f "$FILE" ]; then
-  echo " clangd is already installed"
-else
-  VERSION="13.0.0"
-  cd ~/Downloads/
-  filepath="clangd-linux-$VERSION.zip"
-  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/clangd/clangd/releases/download/$VERSION/clangd-linux-$VERSION.zip
-  unzip "$filepath"
-  cp clangd_$VERSION/bin/clangd $HOME/.local/bin
-  cp -r clangd_$VERSION/lib/clang $HOME/.local/lib
-fi
-
-# -----------------------------------------------------------------------------------------
-echo "Installing texlab..."
-
-FILE=$HOME/.local/bin/texlab
-if [ -f "$FILE" ]; then
-  echo " texlab is already installed"
-else
-  cd ~/Downloads/
-  filepath="texlab-x86_64-linux.tar.gz"
-  [ -f $filepath ] || curl -fLo "$filepath" https://github.com/latex-lsp/texlab/releases/download/v2.2.0/texlab-x86_64-linux.tar.gz
-  tar xvzf "$filepath" -C $HOME/.local/bin/
-fi
-
-# -----------------------------------------------------------------------------------------
 echo "Installing z..."
 
 LOCAL_REPO=~/Downloads/z
