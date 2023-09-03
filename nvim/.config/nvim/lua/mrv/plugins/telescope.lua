@@ -505,7 +505,7 @@ function M.marks()
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
       -- Custom actions
-      map('i', 'x', function(prompt_bufnr) -- delete selected mark
+      map('i', '<C-x>', function(prompt_bufnr) -- delete selected mark
         local current_picker = action_state.get_current_picker(prompt_bufnr)
         current_picker:delete_selection(function(_)
           local selection_value = action_state.get_selected_entry().value
