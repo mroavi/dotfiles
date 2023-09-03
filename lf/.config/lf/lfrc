@@ -137,10 +137,10 @@ cmd extract ${{
 # -----------------------------------------------------------------------------
 
 # Remove some default mappings
-map d
-map v
-map u
-map e
+map d # default: cut
+map v # default: invert
+map u # default: unselect
+map c # default: clear
 
 # Mappings
 map dd            trash
