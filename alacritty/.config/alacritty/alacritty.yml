@@ -586,6 +586,9 @@ key_bindings:
   - { key: K,       mods: Control|Shift, chars:  "\x1b[27;6;75~"    }
   - { key: H,       mods: Control|Shift, chars:  "\x1b[27;6;72~"    }
   - { key: L,       mods: Control|Shift, chars:  "\x1b[27;6;76~"    }
+  # mrv: Can be used within lf to cd to current directory 
+  # See: https://github.com/gokcehan/lf/issues/631
+  - { key: N,       mods: Control|Shift, action: SpawnNewInstance   }
 
   # I used `alacritty --print-events` to figure out the correct scan code
   # Hack: intercept RightAlt, and send Ctrl+b hex code
