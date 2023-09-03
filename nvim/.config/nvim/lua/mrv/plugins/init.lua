@@ -13,14 +13,14 @@ local opts = {
 
 local plugins = {
 
-  { 'tpope/vim-commentary', config = function() require('mrv.plugins.vim-commentary') end }, -- comment stuff out
+  { 'tpope/vim-commentary', init = function() require('mrv.plugins.vim-commentary') end }, -- comment stuff out
   { 'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, dependencies = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } }, -- lf file manager for Neovim (in Lua)
   { 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } }, -- find, filter, preview, pick
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('mrv.plugins.gitsigns') end }, -- super fast git decorations implemented purely in lua/teal
   { 'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' } }, -- a completion plugin for neovim coded in Lua
   { 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end, dependencies = { 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip' } },
   { 'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end }, -- autopairs for neovim written by lua
-  { 'tpope/vim-fugitive', config = function() require('mrv.plugins.fugitive') end, dependencies = { 'tpope/vim-rhubarb' } }, -- a Git wrapper so awesome, it should be illegal
+  { 'tpope/vim-fugitive', init = function() require('mrv.plugins.fugitive') end, dependencies = { 'tpope/vim-rhubarb' } }, -- a Git wrapper so awesome, it should be illegal
   { 'tpope/vim-unimpaired' }, -- pairs of handy bracket mappings
   { 'tpope/vim-surround' }, -- provides mappings to easily delete, change and add such surroundings in pairs
   { 'tpope/vim-repeat' }, -- enable repeating supported plugin maps with "."
@@ -29,13 +29,11 @@ local plugins = {
   { 'yegappan/mru', init = function() require('mrv.plugins.mru') end }, -- most recently used (MRU) vim plugin
   { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end }, -- quickstart configurations for the Nvim LSP client
   { 'williamboman/mason.nvim', config = function() require('mrv.plugins.mason') end, dependencies = { 'williamboman/mason-lspconfig.nvim' } }, -- easily install and manage LSP servers, DAP servers, linters, and formatters
-  { 'mroavi/vim-tomux', config = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end }, -- send text to tmux
+  { 'mroavi/vim-tomux', init = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end }, -- send text to tmux
   { 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end }, -- displays a popup with possible keybindings of the command you started typing
-  { 'lervag/vimtex', config = function() require('mrv.plugins.vimtex') end }, -- a modern Vim and neovim filetype plugin for LaTeX files.
-  { 'junegunn/vim-easy-align', config = function() require('mrv.plugins.easy-align') end }, -- a Vim alignment plugin
-  { 'junegunn/gv.vim', config = function() require('mrv.plugins.gv') end }, -- a git commit browser in Vim
+  { 'lervag/vimtex', init = function() require('mrv.plugins.vimtex') end }, -- a modern Vim and neovim filetype plugin for LaTeX files.
   { 'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, build = ':TSUpdate', dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' } }, -- nvim treesitter configurations and abstraction layer
-  { 'skywind3000/asyncrun.vim', config = function() require('mrv.plugins.asyncrun') end }, -- run Async Shell Commands and Output to the Quickfix Window
+  { 'skywind3000/asyncrun.vim', init = function() require('mrv.plugins.asyncrun') end }, -- run Async Shell Commands and Output to the Quickfix Window
   { 'mroavi/vim-evanesco' }, -- automatically clears search highlight
   { "lukas-reineke/indent-blankline.nvim", config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
   { "catppuccin/nvim", name = "catppuccin", config = function() require('mrv.plugins.catppuccin') end }, -- soothing pastel theme for (Neo)vim
