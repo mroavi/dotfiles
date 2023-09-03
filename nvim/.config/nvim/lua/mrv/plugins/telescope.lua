@@ -44,9 +44,9 @@ require("telescope").setup {
         ["<C-q>"] = actions.send_to_qflist,
         ["<M-q>"] = actions.send_selected_to_qflist,
         -- Custom actions
-        ["<C-a>"] = function(_) -- add to arglist
+        ["<C-a>"] = function(_) -- add to arglist and remove duplicates
           local selection_path = action_state.get_selected_entry()[1]
-          vim.cmd('$arga ' .. selection_path)
+          vim.cmd('$arga ' .. selection_path .. '| argdedupe')
         end
       },
       n = {

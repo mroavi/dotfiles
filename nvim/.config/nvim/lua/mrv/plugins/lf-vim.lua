@@ -7,7 +7,7 @@ vim.g["lf#action"] = {
   ['<C-t>'] = 'tab split', -- open in tab
   ['<C-j>'] = 'split', -- open in horizontal split
   ['<C-l>'] = 'vsplit', -- open in vertical split
-  ['<C-a>'] = '$arga' -- add to arglist
+  ['<C-a>'] = '$arga | argdedupe' -- add to arglist and remove duplicates
 }
 
 vim.keymap.set("n", "<Leader>/",
