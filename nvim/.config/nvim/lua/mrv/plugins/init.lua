@@ -14,7 +14,7 @@ local opts = {
 local plugins = {
 
   { 'tpope/vim-commentary', init = function() require('mrv.plugins.vim-commentary') end }, -- comment stuff out
-  { 'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, dependencies = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } }, -- lf file manager for Neovim (in Lua)
+  { 'lmburns/lf.nvim', keys = '<Leader>/', config = function() require('mrv.plugins.lf-nvim') end, dependencies = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } }, -- lf file manager for Neovim (in Lua)
   { 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } }, -- find, filter, preview, pick
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('mrv.plugins.gitsigns') end }, -- super fast git decorations implemented purely in lua/teal
   { 'hrsh7th/nvim-cmp', config = function() require('mrv.plugins.cmp') end, dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' } }, -- a completion plugin for neovim coded in Lua
@@ -35,9 +35,11 @@ local plugins = {
   { 'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, build = ':TSUpdate', dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' } }, -- nvim treesitter configurations and abstraction layer
   { 'skywind3000/asyncrun.vim', init = function() require('mrv.plugins.asyncrun') end }, -- run Async Shell Commands and Output to the Quickfix Window
   { 'mroavi/vim-evanesco' }, -- automatically clears search highlight
-  { "lukas-reineke/indent-blankline.nvim", config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
   { "catppuccin/nvim", name = "catppuccin", config = function() require('mrv.plugins.catppuccin') end }, -- soothing pastel theme for (Neo)vim
-  { "echasnovski/mini.splitjoin", config = function() require('mrv.plugins.mini-splitjoin') end } -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
+  { 'junegunn/vim-easy-align', keys = { 'ga', {'ga', mode = 'x' } }, init = function() require('mrv.plugins.easy-align') end }, -- a Vim alignment plugin
+  { "lukas-reineke/indent-blankline.nvim", keys = 'yog', config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
+  { 'junegunn/gv.vim', cmd = 'GV', init = function() require('mrv.plugins.gv') end }, -- a git commit browser in Vim
+  { "echasnovski/mini.splitjoin", keys = 'gS', config = function() require('mrv.plugins.mini-splitjoin') end }, -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
 
   -- {{{1
 
