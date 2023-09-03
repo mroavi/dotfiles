@@ -19,7 +19,7 @@ local plugins = {
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('mrv.plugins.gitsigns') end }, -- super fast git decorations implemented purely in lua/teal
   { 'hrsh7th/nvim-cmp', event = 'InsertEnter', config = function() require('mrv.plugins.cmp') end, dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' } }, -- a completion plugin for neovim coded in Lua
   { 'L3MON4D3/LuaSnip', event = 'InsertEnter', config = function() require('mrv.plugins.luasnip') end, dependencies = { 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip' } },
-  { 'windwp/nvim-autopairs', config = function() require('mrv.plugins.autopairs') end }, -- autopairs for neovim written by lua
+  { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function() require('mrv.plugins.autopairs') end }, -- autopairs for neovim written by lua
   { 'tpope/vim-fugitive', init = function() require('mrv.plugins.fugitive') end, dependencies = { 'tpope/vim-rhubarb' } }, -- a Git wrapper so awesome, it should be illegal
   { 'tpope/vim-unimpaired' }, -- pairs of handy bracket mappings
   { 'tpope/vim-surround' }, -- provides mappings to easily delete, change and add such surroundings in pairs
