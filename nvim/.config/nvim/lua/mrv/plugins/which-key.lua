@@ -18,4 +18,7 @@ require("which-key").setup {
       g = true, -- bindings for prefixed with g
     },
   },
+  window = {
+    border = "single", -- none, single, double, shadow
+  },
 }
