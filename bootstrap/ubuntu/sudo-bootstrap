@@ -10,11 +10,61 @@ mkdir -p ~/.local
 mkdir -p ~/Downloads
 mkdir -p ~/repos
 
-# TODO:
-# - install python3
-# - install python3-venv
-# - install npm
-# - install golang-go
+apt_pkgs=(
+          wget
+          zip
+          unzip
+          tar
+          #openssh
+          xclip
+          stow
+          #alacritty
+          python3
+          python3-venv
+          npm
+          golang-go
+          #neovim
+          #dmenu
+          thunar
+          #viewnior
+          inkscape
+          #gimp
+          #pavucontrol
+          zsh
+          zsh-autosuggestions
+          zsh-syntax-highlighting
+          ripgrep
+          fzf
+          fasd
+          #diff-so-fancy
+          #z
+          #fd
+          #feh
+          #xbindkeys
+          #flameshot
+          #pipewire
+          #pipewire-audio
+          #pipewire-alsa
+          #pipewire-pulse
+          #bluez
+          #bluez-utils
+          #xf86-input-libinput     # configure touchpad
+          #lxappearance            # manage GTK themes
+          #qt5ct                   # mange QT themes
+          #kvantum
+          #okular
+          #dunst
+          #bottom
+          #arandr
+          #pkgfile                 # find packages that hold a file (even if the package is not installed)
+          texlive-full
+          #noto-fonts
+          #noto-fonts-cjk
+          #noto-fonts-emoji
+          #noto-fonts-extra
+         )
+
+sudo apt install ${apt_pkgs[@]}
 
 # pure
 echo "Installing pure..."

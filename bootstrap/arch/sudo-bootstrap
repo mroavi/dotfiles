@@ -33,6 +33,8 @@ pac_pkgs=(
           xclip
           stow
           alacritty
+          npm
+          golang-go
           neovim
           dmenu
           thunar
