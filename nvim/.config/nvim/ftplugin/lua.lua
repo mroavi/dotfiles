@@ -1,7 +1,7 @@
 local vim = vim
 local utils = require('mrv.utils')
 
-M = {}
+local M = {}
 
 ---------------------------------------------------------------------------------
 -- Debug utilities
