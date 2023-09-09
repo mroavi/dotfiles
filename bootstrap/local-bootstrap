@@ -213,9 +213,5 @@ echo "Installing vidir..."
 echo "  TODO"
 
 # -----------------------------------------------------------------------------------------
-# TODO: install LUA server: 
-# https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
-
-# -----------------------------------------------------------------------------------------
 # Return to original directory
 cd "$currentdir"
