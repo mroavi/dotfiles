@@ -660,9 +660,9 @@ end
 
 -- File pickers
 vim.keymap.set("n", "<Leader>o", M.my_git_files)
-vim.keymap.set("n", "<Leader>g", M.live_grep)
-vim.keymap.set('x', '<Leader>g', function() M.live_grep({ default_text = require('mrv.utils').get_visual_selection() }) end)
-vim.keymap.set("n", "<Leader>G", function() M.live_grep({ default_text = vim.fn.expand('<cword>') }) end)
+vim.keymap.set("n", "<Leader>/", M.live_grep)
+vim.keymap.set('x', '<Leader>/', function() M.live_grep({ default_text = require('mrv.utils').get_visual_selection() }) end)
+vim.keymap.set("n", "<Leader>?", function() M.live_grep({ default_text = vim.fn.expand('<cword>') }) end)
 vim.keymap.set("n", "<Leader>.", M.dotfiles)
 vim.keymap.set("n", "<Leader>a", M.args)
 --vim.keymap.set("n", "<Leader>*", M.fuzzy_star_search)
