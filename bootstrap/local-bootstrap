@@ -202,10 +202,20 @@ echo "Installing trash-cli..."
 pip install trash-cli
 
 # -----------------------------------------------------------------------------------------
-# https://github.com/BurntSushi/ripgrep#installation
+# Installs precompiled binary from https://github.com/BurntSushi/ripgrep/releases
 echo "Installing ripgrep..."
 
-echo "  TODO"
+FILE=$HOME/.local/bin/rg
+if [ -f "$FILE" ]; then
+  echo "  ripgrep is already installed"
+else
+  cd $HOME/Downloads/
+  tarfile="ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz"
+  [ -f $tarfile ] || curl -fLo "$tarfile" https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
+  tar xvzf "$tarfile"
+  dirname="${tarfile%.*.*}"
+  cp $dirname/rg $HOME/.local/bin
+fi
 
 # -----------------------------------------------------------------------------------------
 echo "Installing vidir..."
