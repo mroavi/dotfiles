@@ -77,15 +77,15 @@ M.setup = function()
   --vim.keymap.set("n", "<Leader>q", function() my_utils.toggle_quickfix_window() end) -- toggle quickfist window
   --vim.keymap.set("n", "<Leader>z", "<C-z>") -- suspend vim (resume with `fg`)
 
-  -- Debug-related mappings for vim and lua filetypes
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "lua", "vim" },
-    callback = function()
-      vim.keymap.set("n", '<Leader>m', '<Cmd>messages<CR>')
-      vim.keymap.set("n", "<Leader>cl", ":messages clear<CR>")
-    end,
-    group = vim.api.nvim_create_augroup("lua_vim_debug", { clear = true }),
-  })
+  ---- Debug-related mappings for vim and lua filetypes
+  --vim.api.nvim_create_autocmd("FileType", {
+  --  pattern = { "lua", "vim" },
+  --  callback = function()
+  --    vim.keymap.set("n", '<Leader>m', '<Cmd>messages<CR>')
+  --    vim.keymap.set("n", "<Leader>cl", ":messages clear<CR>")
+  --  end,
+  --  group = vim.api.nvim_create_augroup("lua_vim_debug", { clear = true }),
+  --})
 
   --------------------------------------------------------------------------------
   --- Misc
