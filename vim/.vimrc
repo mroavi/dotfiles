@@ -34,6 +34,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'mroavi/vim-evanesco' 
 Plug 'thezeroalpha/vim-lf'
+Plug 'yegappan/mru'
 
 call plug#end()
 
@@ -178,6 +179,12 @@ xmap ga <Plug>(EasyAlign)
 "---------------------------------------------------------------------
 
 nnoremap <Leader>fm <Plug>LfEdit
+
+"---------------------------------------------------------------------
+""" MRU
+"---------------------------------------------------------------------
+
+nnoremap <Leader>rf :MRU<CR>
 
 "---------------------------------------------------------------------
 "" vim-highlightedyank
