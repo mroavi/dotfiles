@@ -26,6 +26,7 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'machakann/vim-highlightedyank'
 Plug 'JuliaEditorSupport/julia-vim'
@@ -84,6 +85,7 @@ set smartindent " intelligently dedent / indent new lines based on rules.
 set incsearch " live incremental searching
 set noshowmatch " no live match highlighting (brief jumping)
 set hlsearch " highlight matches
+set scrolloff=5 " minimal number of screen lines to keep above and below the cursor
 filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
 filetype indent on " enable file type based indentation
@@ -191,6 +193,20 @@ nnoremap <Leader>rf :MRU<CR>
 "---------------------------------------------------------------------
 
 let g:highlightedyank_highlight_duration = 200
+
+"---------------------------------------------------------------------
+"" vim-highlightedyank
+"---------------------------------------------------------------------
+
+cnoreabbrev g    Git
+cnoreabbrev git  Git
+cnoreabbrev gst  Gedit :
+cnoreabbrev gd   Gdiffsplit
+cnoreabbrev ga   Gwrite
+cnoreabbrev gc   Git commit -v
+cnoreabbrev gca  Git commit -v --amend
+cnoreabbrev gp   Git push
+cnoreabbrev gl   Git pull
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Misc
