@@ -31,9 +31,9 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'jpalardy/vim-slime'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'jacoborus/tender.vim'
-Plug 'machakann/vim-highlightedyank'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'mroavi/vim-evanesco' 
+Plug 'thezeroalpha/vim-lf'
 
 call plug#end()
 
@@ -51,41 +51,41 @@ set viminfo=%,<800,'50,/50,:100,h,f1
 "           | + maximum num of lines saved for each register (old name for <, vi6.2)
 "           + save/restore buffer list
 
-set number " show line numbers
-set relativenumber " each line is numbered relative to the cursor’s current position
+" set number " show line numbers
+" set relativenumber " each line is numbered relative to the cursor’s current position
 set title " show file in titlebar
 set noswapfile " they're just annoying. Who likes them?
 "set colorcolumn=80 " highlight column
 set wrap linebreak nolist " avoid breaking lines in the middle of words
-set noshowmode " don't show mode in status bar (taken care of by airline)
-set noruler " don't show cursor position in status bar (taken care of by airline)
+" set noshowmode " don't show mode in status bar (taken care of by airline)
+" set noruler " don't show cursor position in status bar (taken care of by airline)
 set laststatus=2 " always display the status line (see :h laststatus)
 set noshowcmd " don't show partial typed commands in the right side of the status bar
 set cmdheight=1 " limit the cmd line height to one line
 set wildmenu " when entering a command, <Tab> shows possible matches above the command line
-set cursorline " highlight the line that the cursor is currently on
+" set cursorline " highlight the line that the cursor is currently on
 set signcolumn=yes " always show sign column
 set hidden " allows switching from unwritten buffers and remembers the buffer undo history
 set formatoptions-=tc " disable auto-wrap text using textwidth
-"set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
+set clipboard^=unnamed,unnamedplus " sync the unnamed reg with the system and selection clipboards
 set shortmess-=S " show search count message when searching
 set grepprg=rg\ --vimgrep " program to used for the :grep command.
 set grepformat=%f:%l:%c:%m " format to recognize for the :grep command output
 set splitbelow splitright " open a new split at to bottom or to the right of the current one
-filetype on " enable filetype detection
-filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
-set tabstop=4 " number of spaces that a <Tab> in the file counts for
-set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
-set shiftwidth=4 " number of spaces for indents in normal mode
+set tabstop=2 " number of spaces that a <Tab> in the file counts for
+set softtabstop=2 " number of spaces that a <Tab> counts for while performing editing operations
+set shiftwidth=2 " number of spaces for indents in normal mode
 set expandtab " use spaces instead of tabs.
 set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " match indents on new lines.
 set smartindent " intelligently dedent / indent new lines based on rules.
-filetype indent on " enable file type based indentation
 set incsearch " live incremental searching
 set noshowmatch " no live match highlighting (brief jumping)
 set hlsearch " highlight matches
+filetype on " enable filetype detection
+filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
+filetype indent on " enable file type based indentation
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Custom mappings
@@ -145,15 +145,17 @@ nnoremap Y y$
 "---------------------------------------------------------------------
 
 syntax enable
-colorscheme tender
+set termguicolors
+colorscheme catppuccin_mocha
 
 "---------------------------------------------------------------------
 """ vim-gitgutter
 "---------------------------------------------------------------------
 
+set updatetime=100
 let g:gitgutter_map_keys = 0
 nmap <Leader>hs <Plug>(GitGutterStageHunk)
-nmap <Leader>hu <Plug>(GitGutterUndoHunk)
+nmap <Leader>hr <Plug>(GitGutterUndoHunk)
 nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
 nmap <C-j>      <Plug>(GitGutterNextHunk)
 nmap <C-k>      <Plug>(GitGutterPrevHunk)
@@ -170,6 +172,12 @@ let b:commentary_startofline = 1
 
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
+
+"---------------------------------------------------------------------
+""" vim-lf
+"---------------------------------------------------------------------
+
+nnoremap <Leader>fm <Plug>LfEdit
 
 "---------------------------------------------------------------------
 "" vim-highlightedyank
@@ -213,15 +221,6 @@ aug QFClose
   au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
 aug END
 
-" Debug related mappings for vim and lua files
-augroup vim_lua_debug
-  au!
-  " Clear messages
-  au FileType vim,lua nnoremap <buffer> <Leader>cl :messages clear<CR>
-  " Show messages
-  au FileType vim,lua nnoremap <buffer> <Leader>m :messages<CR>
-augroup END
-
 " Automatically open quickfix window after running vimgrep
 augroup quickfix
   autocmd!
@@ -229,21 +228,16 @@ augroup quickfix
   autocmd QuickFixCmdPost lvimgrep lwindow
 augroup END
 
-" Change curosr shape in insert mode (https://stackoverflow.com/a/42118416/1706778)
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-" Reset the cursor on start (for older versions of vim, usually not required)
-augroup myCmds
-  au!
-  autocmd VimEnter * silent !echo -ne "\e[2 q"
-augroup END
-set ttimeout
-set ttimeoutlen=1
-set ttyfast
-
 " Disable automatic comment insertion
 " https://superuser.com/a/271024/1087113
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+" Change curosr shape in insert mode (https://stackoverflow.com/a/42118416/1706778)
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
 
 "--------------------------------------------------------------------
 """ My custom text object for cells
@@ -328,6 +322,24 @@ endfunction
 "=============================================================================
 """ DISABLED (enable when necessary)
 "=============================================================================
+
+" " Debug related mappings for vim and lua files
+" augroup vim_lua_debug
+"   au!
+"   " Clear messages
+"   au FileType vim,lua nnoremap <buffer> <Leader>cl :messages clear<CR>
+"   " Show messages
+"   au FileType vim,lua nnoremap <buffer> <Leader>m :messages<CR>
+" augroup END
+
+" " Reset the cursor on start (for older versions of vim, usually not required)
+" augroup myCmds
+"   au!
+"   autocmd VimEnter * silent !echo -ne "\e[2 q"
+" augroup END
+" set ttimeout
+" set ttimeoutlen=1
+" set ttyfast
 
 "" Redirect the output of a Vim or external command into a scratch buffer
 "" https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
