@@ -21,21 +21,24 @@ endif
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/vim-easy-align'
-Plug 'lervag/vimtex'
 Plug 'tpope/vim-commentary'
+Plug 'thezeroalpha/vim-lf'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'machakann/vim-highlightedyank'
-Plug 'JuliaEditorSupport/julia-vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-obsession'
+Plug 'mroavi/vim-pasta'
+Plug 'yegappan/mru'
 Plug 'jpalardy/vim-slime'
+Plug 'lervag/vimtex'
+Plug 'JuliaEditorSupport/julia-vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'mroavi/vim-evanesco' 
-Plug 'thezeroalpha/vim-lf'
-Plug 'yegappan/mru'
+Plug 'junegunn/vim-easy-align'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
