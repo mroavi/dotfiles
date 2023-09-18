@@ -179,6 +179,7 @@ nnoremap <Leader>fm <Plug>LfEdit
 "---------------------------------------------------------------------
 
 nnoremap <Leader>rf :MRU<CR>
+let g:MRU_Set_Alternate_File = 1
 
 "---------------------------------------------------------------------
 "" vim-highlightedyank
