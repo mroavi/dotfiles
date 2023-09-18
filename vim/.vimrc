@@ -106,9 +106,6 @@ nnoremap <silent> <Leader>l :b#<CR>
 " Change to the directory of the current buffer and print it
 nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" Clear highlight on pressing ESC
-nnoremap <silent> <ESC> :noh<CR><ESC>
-
 " Toggle spelling language
 nnoremap <expr> <F6> ':setlocal spelllang=' . (&spelllang == 'en' ? 'es' : 'en') . '<CR>'
 
@@ -132,15 +129,8 @@ nnoremap <Leader>S :cfdo %s/<C-r>///gc<left><left><left>
 nnoremap <Leader>su :%s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 vnoremap <Leader>su :s//<C-r>=substitute(@/,'\\<\\|\\>\\|\\V','','g')<CR>/g<left><left>
 
-" Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
-function! ToggleQuickFix()
-  if empty(filter(getwininfo(), 'v:val.quickfix')) | copen | else | cclose | endif
-endfunction
-nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
-
 " Make Y behave like other capitals
 nnoremap Y y$
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Plugins
@@ -348,6 +338,15 @@ endfunction
 "=============================================================================
 """ DISABLED (enable when necessary)
 "=============================================================================
+
+" " Toggle quickfix window (https://stackoverflow.com/a/63162084/1706778)
+" function! ToggleQuickFix()
+"   if empty(filter(getwininfo(), 'v:val.quickfix')) | copen | else | cclose | endif
+" endfunction
+" nnoremap <silent> <Leader>q :call ToggleQuickFix()<cr>
+
+" " Clear highlight on pressing ESC
+" nnoremap <silent> <ESC> :noh<CR><ESC>
 
 " " Debug related mappings for vim and lua files
 " augroup vim_lua_debug
