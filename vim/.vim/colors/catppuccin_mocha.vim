@@ -64,7 +64,7 @@ endfunction
 
 
 call s:hi("Normal", "NONE", s:text, s:base, "NONE", "NONE")
-call s:hi("Visual", "NONE", "NONE", s:surface1,"bold", "bold")
+call s:hi("Visual", "NONE", "NONE", s:surface1,"NONE", "NONE")
 call s:hi("Conceal", "NONE", s:overlay1, "NONE", "NONE", "NONE")
 call s:hi("ColorColumn", "NONE", "NONE", s:surface0, "NONE", "NONE")
 call s:hi("Cursor", "NONE", s:base, s:text, "NONE", "NONE")
