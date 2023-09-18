@@ -35,7 +35,6 @@ Plug 'jpalardy/vim-slime'
 Plug 'lervag/vimtex'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'mroavi/vim-evanesco' 
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-highlightedyank'
