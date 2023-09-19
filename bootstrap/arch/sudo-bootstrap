@@ -25,66 +25,66 @@ else
 fi
 
 pac_pkgs=(
-          wget
-          zip
-          unzip
-          tar
-          openssh
-          xclip
-          stow
           alacritty
-          npm
-          golang-go
-          neovim
-          dmenu
-          thunar
-          viewnior
-          inkscape
-          gimp
-          pavucontrol
-          zsh
-          zsh-autosuggestions
-          zsh-syntax-highlighting
-          ripgrep
-          fzf
-          fasd
-          diff-so-fancy
-          z
-          fd
-          feh
-          xbindkeys
-          flameshot
-          pipewire
-          pipewire-audio
-          pipewire-alsa
-          pipewire-pulse
+          arandr
           bluez
           bluez-utils
-          picom
-          xf86-input-libinput     # configure touchpad
-          lxappearance            # manage GTK themes
-          qt5ct                   # mange QT themes
-          kvantum
-          okular
-          dunst
           bottom
-          arandr
-          pkgfile                 # find packages that hold a file (even if the package is not installed)
-          texlive-core
-          texlive-bin
-          texlive-binextra
-          texlive-latexextra
-          texlive-science
-          texlive-fontsextra
-          texlive-pictures
-          texlive-plaingeneric    # contains 'listofitems.sty'
-          texlive-luatex
-          texlive-bibtexextra
-          texlive-fontutils       # needed by LyX
+          diff-so-fancy
+          dmenu
+          dunst
+          fasd
+          fd
+          feh
+          flameshot
+          fzf
+          gimp
+          golang-go
+          inkscape
+          kvantum
+          lxappearance            # manage GTK themes
+          neovim
           noto-fonts
           noto-fonts-cjk
           noto-fonts-emoji
           noto-fonts-extra
+          npm
+          okular
+          openssh
+          pavucontrol
+          picom
+          pipewire
+          pipewire-alsa
+          pipewire-audio
+          pipewire-pulse
+          pkgfile                 # find packages that hold a file (even if the package is not installed)
+          qt5ct                   # mange QT themes
+          ripgrep
+          stow
+          tar
+          texlive-bibtexextra
+          texlive-bin
+          texlive-binextra
+          texlive-core
+          texlive-fontsextra
+          texlive-fontutils       # needed by LyX
+          texlive-latexextra
+          texlive-luatex
+          texlive-pictures
+          texlive-plaingeneric    # contains 'listofitems.sty'
+          texlive-science
+          thunar
+          unzip
+          viewnior
+          wget
+          xbindkeys
+          xclip
+          xf86-input-libinput     # configure touchpad
+          z
+          zip
+          zsh
+          zsh-autosuggestions
+          zsh-syntax-highlighting
          )
 
 yay_pkgs=(
