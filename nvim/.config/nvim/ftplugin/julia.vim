@@ -1,6 +1,3 @@
-" Define cell_delimeter
-let b:cell_delimeter = '##'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-tomux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -60,17 +57,3 @@ nnoremap <buffer><silent> K :TomuxSend("\b?" . expand("<cword>") . "\n\b")<CR>
 
 " Exit any REPL mode
 nnoremap <buffer><silent> <BS> :TomuxSend("\b")<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" julia-vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <buffer><Leader>tf :call julia#toggle_function_blockassign()<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Useful mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Inserts different kinds of headers
-nnoremap <buffer><Leader>h1 m`<S-o># <Esc>78a=<Esc>yyjp``
-nnoremap <buffer><Leader>h2 m`<S-o># <Esc>78a-<Esc>yyjp``
-nnoremap <buffer><Leader>h3 m`0dw :center 80<CR>hhv0r-A<Space><Esc>40A-<Esc>d78<Bar>I#<Space><Esc>``
