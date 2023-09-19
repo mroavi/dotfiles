@@ -32,10 +32,6 @@ picom &
 # https://www.reddit.com/r/linuxquestions/comments/b22z31/comment/eiq44cm/?utm_source=share&utm_medium=web2x&context=3
 xbindkeys &
 
-# # https://askubuntu.com/a/1070660
-# # Currently being run in .xinitrc
-# xscreensaver -no-splash &
-
 # Start ibus
 # https://wiki.archlinux.org/title/IBus
 # It supports Unicode input by typing Ctrl+Shift+u followed by the Unicode
