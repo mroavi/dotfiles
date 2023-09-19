@@ -173,7 +173,7 @@ xmap ga <Plug>(EasyAlign)
 """ vim-lf
 "---------------------------------------------------------------------
 
-nnoremap <Leader>fm <Plug>LfEdit
+nnoremap <Leader>- <Plug>LfEdit
 
 "---------------------------------------------------------------------
 """ MRU
