@@ -1,6 +1,16 @@
 local vim = vim
 local utils = require('mrv.utils')
 
+-- Define cell_delimeter
+vim.b.cell_delimeter = '##'
+
+-- Handy header mappings
+vim.cmd [[
+nnoremap <buffer><Leader>h1 m`<S-o># <Esc>78a=<Esc>yyjp``
+nnoremap <buffer><Leader>h2 m`<S-o># <Esc>78a-<Esc>yyjp``
+nnoremap <buffer><Leader>h3 m`0dw :center 80<cr>hhv0r-A<Space><Esc>40A-<Esc>d78<Bar>I#<Space><Esc>``
+]]
+
 ---------------------------------------------------------------------------------
 -- Debug utilities
 ---------------------------------------------------------------------------------
@@ -9,6 +19,13 @@ local utils = require('mrv.utils')
 local print_fun = 'print'
 --local print_fun = 'vim.print'
 vim.keymap.set('n', '<Leader>pr', function() utils.insert_string(print_fun .. [[('%s = ', %s)]], 'o') end, { buffer = true })
+
+---------------------------------------------------------------------------------
+-- vim-commentary
+---------------------------------------------------------------------------------
+
+-- No space between comment character and code
+vim.b.commentary_format = '#%s'
 
 ---------------------------------------------------------------------------------
 -- vim-tomux
