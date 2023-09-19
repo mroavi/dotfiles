@@ -59,6 +59,7 @@ function M.execute_buffer()
   vim.cmd[[TomuxSend("exec(open(\"" . expand('%:p') . "\").read())\n")]]
 end
 vim.keymap.set('n', '<Leader>e', function() M.execute_buffer() end, { buffer = true })
+--vim.keymap.set('n', '<Leader>e', ":!python %<CR>", { buffer = true }) -- execute the current buffer using a vim cmd
 
 -- Restart interpreter (send first CTRL-c, and then restart)
 function M.restart()
