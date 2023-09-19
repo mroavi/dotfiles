@@ -14,6 +14,7 @@ local opts = {
 local plugins = {
 
   { 'tpope/vim-commentary', init = function() require('mrv.plugins.vim-commentary') end }, -- comment stuff out
+  { 'stevearc/oil.nvim', config = function() require('mrv.plugins.oil') end }, -- neovim file explorer: edit your filesystem like a buffer
   { 'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, dependencies = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } }, -- lf file manager for Neovim (in Lua)
   { 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' } }, -- find, filter, preview, pick
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('mrv.plugins.gitsigns') end }, -- super fast git decorations implemented purely in lua/teal
@@ -92,7 +93,6 @@ local plugins = {
   --{ 'smjonas/live-command.nvim' }, -- the easiest way to create previewable commands in Neovim
   --{ 'xolox/vim-notes' }, -- easy note taking in Vim
   --{ tpope/vim-vinegar }, -- combine with netrw to create a delicious salad dressing
-  --{ 'stevearc/oil.nvim' }, -- Neovim file explorer: edit your filesystem like a buffer
   --{ 'stevearc/dressing.nvim' }, -- Neovim plugin to improve the default vim.ui interfaces
 
   -- Abandoned
