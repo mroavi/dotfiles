@@ -44,7 +44,7 @@ local plugins = {
   -- {{{1
 
   -- Disabled
-  --{ '~/repos/slides.vim', config = function() require('mrv.plugins.slides') end, dependencies = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } }, -- presentation slides in vim
+  --{ 'mroavi/slides.vim', dev = true, config = function() require('mrv.plugins.slides') end, dependencies = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } }, -- presentation slides in vim
   --{ 'NvChad/nvim-colorizer.lua', config = function() require('colorizer').setup() end }, -- the fastest Neovim colorizer.
   --{ 'preservim/vim-markdown' }, -- syntax highlighting, matching rules and mappings for Markdown and extensions
   --{ 'dstein64/nvim-scrollview', config = function() require('mrv.plugins.scrollview') end }, -- a Neovim plugin that displays (non-interactive) scrollbars
