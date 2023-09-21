@@ -31,7 +31,7 @@ require("catppuccin").setup({
   color_overrides = {},
   custom_highlights = function(colors)
     return {
-      ["Normal"] = {fg = colors.text, bg = colors.base, style = {}},
+      --["Normal"] = {fg = colors.text, bg = colors.base, style = {}}, -- uncomment for using 'slides.vim'
       ["StatusLine"] = { fg = colors.text, bg = colors.surface0, style = {} },
       ["TelescopeSelection"] = { fg = colors.text, bg = colors.surface0, style = {} },
     }
