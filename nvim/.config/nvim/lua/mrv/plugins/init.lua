@@ -62,7 +62,6 @@ local plugins = {
   --{ 'junegunn/limelight.vim', config = function() require('mrv.plugins.limelight') end }, -- all the world's indeed a stage and we are merely players
   --{ 'folke/zen-mode.nvim' , config = function() require('mrv.plugins.zen-mode') end }, -- distraction-free coding for Neovim
   --{ 'JuliaEditorSupport/julia-vim', config = function() require('mrv.plugins.julia-vim') end }, -- vim support for Julia
-  --{ 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end, dependencies = { 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip' } },
   --{ 'amarakon/nvim-cmp-lua-latex-symbols' }, -- nvim-cmp source for LaTeX symbols (100% Lua)
   --{ 'hrsh7th/cmp-emoji' }, -- nvim-cmp source for emoji
   --{ 'nvim-lua/plenary.nvim', config = function() require('mrv.plugins.plenary') end }, -- all the lua functions you don't want to write twice (I use it to reload my nvim config)
