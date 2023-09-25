@@ -3,6 +3,29 @@ local utils = require('mrv.utils')
 
 local M = {}
 
+-- Handy header mappings
+
+vim.keymap.set(
+  "n",
+  "<Leader>h1",
+  [[m`<S-o>--=<Esc>77a=<Esc>yyjp``]],
+  { buffer = true, silent = true }
+)
+
+vim.keymap.set(
+  'n',
+  "<Leader>h2",
+  [[m`<S-o>---<Esc>77a-<Esc>yyjp``]],
+  { buffer = true, silent = true }
+)
+
+vim.keymap.set(
+  'n',
+  "<Leader>h3",
+  [[:center 80<CR>hhv0r-A<Space><Esc>40A-<Esc>d76<Bar>I--<Space><Esc>0]],
+  { buffer = true, silent = true }
+)
+
 ---------------------------------------------------------------------------------
 -- Debug utilities
 ---------------------------------------------------------------------------------
