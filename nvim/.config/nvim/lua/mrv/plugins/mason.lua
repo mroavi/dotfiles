@@ -9,9 +9,10 @@ require("mason").setup({
   }
 })
 
+local opts
 
 if not vim.env.SSH_CONNECTION then
-  local opts = {
+  opts = {
     -- For a list of all available packages, see: https://mason-registry.dev/registry/list
     ensure_installed = {
       "lua_ls",
@@ -24,10 +25,11 @@ if not vim.env.SSH_CONNECTION then
       "efm",
       "arduino_language_server",
       "cmake",
+      "emmet_language_server",
     }
   }
 else
-  local opts = {
+  opts = {
     -- For a list of all available packages, see: https://mason-registry.dev/registry/list
     ensure_installed = {
       "lua_ls",
