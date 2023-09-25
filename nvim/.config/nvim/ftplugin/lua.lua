@@ -3,6 +3,9 @@ local utils = require('mrv.utils')
 
 local M = {}
 
+-- Define cell_delimeter
+vim.b.cell_delimeter = '--- '
+
 -- Handy header mappings
 
 vim.keymap.set(
@@ -22,12 +25,12 @@ vim.keymap.set(
 vim.keymap.set(
   'n',
   "<Leader>h3",
-  [[:center 80<CR>hhv0r-A<Space><Esc>40A-<Esc>d76<Bar>I--<Space><Esc>0]],
+  [[:center 80<CR>hhv0r-A<Space><Esc>40A-<Esc>d75<Bar>I---<Space><Esc>0]],
   { buffer = true, silent = true }
 )
 
 ---------------------------------------------------------------------------------
--- Debug utilities
+--- Debug utilities
 ---------------------------------------------------------------------------------
 
 -- Write and source ( https://vim.fandom.com/wiki/Source_current_file_when_editing_a_script )
@@ -41,8 +44,15 @@ vim.keymap.set('n', '<Leader>pr', function() utils.insert_string(print_fun .. [[
 -- Insert dump statement
 vim.keymap.set('n', '<Leader>du', function() utils.insert_string("dump" .. [[('%s = ', %s)]], 'o') end, { buffer = true })
 
+--------------------------------------------------------------------------------
+--- vim-commentary
+--------------------------------------------------------------------------------
+
+-- No space between comment characters and code
+vim.b.commentary_format = '--%s'
+
 ---------------------------------------------------------------------------------
--- vim-tomux
+--- vim-tomux
 ---------------------------------------------------------------------------------
 
 -- Default config
