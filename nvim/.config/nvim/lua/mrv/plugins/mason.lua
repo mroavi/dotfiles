@@ -26,6 +26,8 @@ if not vim.env.SSH_CONNECTION then
       "arduino_language_server",
       "cmake",
       "emmet_language_server",
+      "html",
+      "cssls",
     }
   }
 else
