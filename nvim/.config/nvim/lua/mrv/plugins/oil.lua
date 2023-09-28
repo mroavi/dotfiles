@@ -4,7 +4,7 @@ require("oil").setup({
     show_hidden = true,
   },
   keymaps = {
-    ["<Esc>"] = "actions.close", -- TODO: this closes the oil buffer in visual mode
+    ["<Esc>"] = { callback = "actions.close", mode = "n" },
   }
 })
 
