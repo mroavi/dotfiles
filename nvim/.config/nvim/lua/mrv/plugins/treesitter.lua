@@ -8,6 +8,8 @@ require 'nvim-treesitter.configs'.setup {
     "c",
     "vim",
     "rust",
+    "html",
+    "css",
   },
 
   -- Install languages synchronously (only applied to `ensure_installed`)
