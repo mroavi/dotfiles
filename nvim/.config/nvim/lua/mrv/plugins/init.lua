@@ -39,7 +39,7 @@ local plugins = {
   { 'catppuccin/nvim', name = "catppuccin", config = function() require('mrv.plugins.catppuccin') end }, -- soothing pastel theme for (Neo)vim
   { 'junegunn/vim-easy-align', keys = { 'ga', {'ga', mode = 'x' } }, init = function() require('mrv.plugins.easy-align') end }, -- a Vim alignment plugin
   { 'junegunn/gv.vim', cmd = 'GV', init = function() require('mrv.plugins.gv') end }, -- a git commit browser in Vim
-  { "echasnovski/mini.splitjoin", keys = 'gS', config = function() require('mrv.plugins.mini-splitjoin') end }, -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
+  { 'Wansmer/treesj', config = function() require('mrv.plugins.treesj') end, dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- Neovim plugin for splitting/joining blocks of code
 
   -- {{{1
 
@@ -69,7 +69,6 @@ local plugins = {
   --{ dir = '~/repos/tender.nvim', config = function() vim.cmd.colorscheme("tender") end }, -- my color scheme
   --{ 'rose-pine/neovim', name = 'rose-pine', lazy = false, priority = 1000, config = function() require('mrv.plugins.rose-pine') end },
   --{ 'L3MON4D3/LuaSnip', config = function() require('mrv.plugins.luasnip') end },
-  --{ "bennypowers/splitjoin.nvim", config = function() require('mrv.plugins.splitjoin') end }, -- split or join list-like syntax constructs
   --{ 'wellle/targets.vim', config = function() require('mrv.plugins.targets') end }, -- vim plugin that provides additional text objects
   --{ 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end, dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- view treesitter information directly in Neovim
   --{ 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } }, -- the future of organizing your life in Neovim
@@ -108,6 +107,8 @@ local plugins = {
   --{ 'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end }, -- navigate seamlessly between vim and tmux splits using a set of hotkeys
   --{ 'mcchrish/nnn.vim' }, -- file manager for vim/neovim powered by n³
   --{ 'ojroques/vim-oscyank', config = function() require('mrv.plugins.vim-oscyank') end }, -- a Vim plugin to copy text through SSH with OSC52
+  --{ "echasnovski/mini.splitjoin", keys = 'gS', config = function() require('mrv.plugins.mini-splitjoin') end }, -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
+  --{ "bennypowers/splitjoin.nvim", config = function() require('mrv.plugins.splitjoin') end }, -- split or join list-like syntax constructs
 
   -- }}}
 
