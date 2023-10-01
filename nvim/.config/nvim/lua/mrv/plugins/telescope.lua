@@ -256,7 +256,6 @@ end
 -- - use :$arga to add the current buffer to the end of the arglist
 -- - use :argu[INDEX] to edit file [INDEX] in the list
 -- - Someone else's implementation: https://github.com/sam4llis/telescope-arglist.nvim
--- TODO: remove duplicate filenames from argument list after every addition of an entry
 
 local function new_args_finder(opts)
   opts = opts or {}
