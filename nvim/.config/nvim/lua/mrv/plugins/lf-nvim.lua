@@ -2,7 +2,7 @@ local fn = vim.fn
 local o = vim.o
 
 -- This feature will not work if the plugin is lazy-loaded
-vim.g.lf_netrw = true
+vim.g.lf_netrw = false
 
 require("lf").setup({
   default_action = "edit", -- default action when `Lf` opens a file
