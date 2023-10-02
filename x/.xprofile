@@ -25,8 +25,8 @@ dropbox &
 # Used to fix Teams notification bug (see https://bit.ly/3MezkXY)
 dunst &
 
-# # Launch compositor (used for blur and fading effects)
-picom &
+## Launch compositor (used for blur and fading effects)
+#picom &
 
 # Start xbindkeys 
 # https://www.reddit.com/r/linuxquestions/comments/b22z31/comment/eiq44cm/?utm_source=share&utm_medium=web2x&context=3
