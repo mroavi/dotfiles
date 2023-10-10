@@ -6,19 +6,19 @@ local M = {}
 -- Define cell_delimeter
 vim.b.cell_delimeter = '--- '
 
--- Handy header mappings
+-- Handy heading mappings
 
 vim.keymap.set(
   "n",
   "<Leader>h1",
-  [[m`<S-o>--=<Esc>77a=<Esc>yyjp``]],
+  function() utils.insert_heading("=") end,
   { buffer = true, silent = true }
 )
 
 vim.keymap.set(
-  'n',
+  "n",
   "<Leader>h2",
-  [[m`<S-o>---<Esc>77a-<Esc>yyjp``]],
+  function() utils.insert_heading("-") end,
   { buffer = true, silent = true }
 )
 

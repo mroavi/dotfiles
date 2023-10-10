@@ -1,27 +1,21 @@
 local vim = vim
+local utils = require 'mrv.utils'
 
 local M = {}
 
--- Handy header mappings
+-- Handy heading mappings
 
 vim.keymap.set(
   "n",
   "<Leader>h1",
-  [[m`<S-o>--=<Esc>77a=<Esc>yyjp``]],
+  function() utils.insert_heading("=") end,
   { buffer = true, silent = true }
 )
 
 vim.keymap.set(
-  'n',
+  "n",
   "<Leader>h2",
-  [[m`<S-o>---<Esc>77a-<Esc>yyjp``]],
-  { buffer = true, silent = true }
-)
-
-vim.keymap.set(
-  'n',
-  "<Leader>h3",
-  [[:center 80<CR>hhv0r-A<Space><Esc>35A-<Esc>d77<Bar>I<!--<Space><Esc>A--><Esc>0]],
+  function() utils.insert_heading("-") end,
   { buffer = true, silent = true }
 )
 

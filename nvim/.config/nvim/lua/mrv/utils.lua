@@ -98,4 +98,22 @@ function M.toggle_quickfix_window()
   if next(quickfixwin) == nil then vim.cmd("copen") else vim.cmd("cclose") end
 end
 
+-- Insert a heading made of a given character
+function M.insert_heading(heading_character)
+  -- Get the comment string for the current buffer
+  local comment_template = vim.api.nvim_buf_get_option(0, 'commentstring')
+  -- Calculate the number of characters remaining in the line
+  local available_cols = 80 - vim.fn.col('.')
+  -- Generate the heading line using the given character
+  local generated_heading = string.rep(heading_character, available_cols)
+  -- Fill in the comment template with the generated heading
+  local formatted_comment = string.format(comment_template, generated_heading)
+  -- Insert the heading above the current line
+  vim.cmd [[norm O]]
+  vim.cmd(string.format(":execute 'norm! a%s'", formatted_comment))
+  -- Insert the heading below the current line
+  vim.cmd [[norm jo]]
+  vim.cmd(string.format(":execute 'norm! a%s'", formatted_comment))
+end
+
 return M
