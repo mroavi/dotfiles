@@ -2,9 +2,39 @@ local vim = vim
 
 local M = {}
 
----------------------------------------------------------------------------------
+-- Handy header mappings
+
+vim.keymap.set(
+  "n",
+  "<Leader>h1",
+  [[m`<S-o>--=<Esc>77a=<Esc>yyjp``]],
+  { buffer = true, silent = true }
+)
+
+vim.keymap.set(
+  'n',
+  "<Leader>h2",
+  [[m`<S-o>---<Esc>77a-<Esc>yyjp``]],
+  { buffer = true, silent = true }
+)
+
+vim.keymap.set(
+  'n',
+  "<Leader>h3",
+  [[:center 80<CR>hhv0r-A<Space><Esc>35A-<Esc>d77<Bar>I<!--<Space><Esc>A--><Esc>0]],
+  { buffer = true, silent = true }
+)
+
+vim.keymap.set(
+  'n',
+  "zfit",
+  [[:norm vitkojzf<Cr>]],
+  { buffer = true, silent = true }
+)
+
+------------------------------------------------------------------------------
 -- vim-tomux
----------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 -- Dependency installation:
 -- npm install -g browser-sync
