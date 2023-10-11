@@ -8,7 +8,8 @@ nmap <Leader>b :.!toilet -w 200 -f term -F border<Cr>
 " Enable fenced code block syntax highlighting in sld files
 let g:markdown_fenced_languages = ['julia', 'html', 'python', 'bash=sh']
 
-"let g:slides_font_size = 20
+" Set a custom font size
+let g:slides_font_size = 20
 
 " tender color scheme
 "let g:slides_cursor_color = '#282828'
