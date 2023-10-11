@@ -7,20 +7,8 @@ local M = {}
 vim.b.cell_delimeter = '--- '
 
 -- Handy heading mappings
-
-vim.keymap.set(
-  "n",
-  "<Leader>h1",
-  function() utils.insert_heading("=") end,
-  { buffer = true, silent = true }
-)
-
-vim.keymap.set(
-  "n",
-  "<Leader>h2",
-  function() utils.insert_heading("-") end,
-  { buffer = true, silent = true }
-)
+vim.keymap.set( "n", "<Leader>h1", function() utils.insert_heading("=") end, { buffer = true })
+vim.keymap.set( "n", "<Leader>h2", function() utils.insert_heading("-") end, { buffer = true })
 
 vim.keymap.set(
   'n',
