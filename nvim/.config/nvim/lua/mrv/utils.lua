@@ -100,6 +100,8 @@ end
 
 -- Insert a heading made of a given character
 function M.insert_heading(heading_character)
+  -- Save cursor's position
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   -- Get the comment string for the current buffer
   local comment_template = vim.api.nvim_buf_get_option(0, 'commentstring')
   -- Calculate the number of characters remaining in the line
@@ -114,6 +116,8 @@ function M.insert_heading(heading_character)
   -- Insert the heading below the current line
   vim.cmd [[norm jo]]
   vim.cmd(string.format(":execute 'norm! a%s'", formatted_comment))
+  -- Restore cursor's position
+  vim.api.nvim_win_set_cursor(0, { line, col })
 end
 
 return M
