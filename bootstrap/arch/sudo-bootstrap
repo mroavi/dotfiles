@@ -80,6 +80,7 @@ pac_pkgs=(
           xbindkeys
           xclip
           xf86-input-libinput     # configure touchpad
+          xournalpp               # handwritten notes
           z
           zip
           zsh
