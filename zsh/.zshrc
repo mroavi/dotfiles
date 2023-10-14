@@ -213,7 +213,7 @@ extract () {
 
 # Make sure that sourcing z.sh is placed after the fasd config where z is unaliased
 if [ "$SSH_CONNECTION" ]; then
-  source "$HOME/downloads/z/z.sh"
+  source "$HOME/Downloads/z/z.sh"
 else
   source "/usr/share/z/z.sh"
 fi
