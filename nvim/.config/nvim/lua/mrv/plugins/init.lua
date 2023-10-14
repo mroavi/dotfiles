@@ -40,11 +40,11 @@ local plugins = {
   { 'junegunn/vim-easy-align', keys = { 'ga', {'ga', mode = 'x' } }, init = function() require('mrv.plugins.easy-align') end }, -- a Vim alignment plugin
   { 'junegunn/gv.vim', cmd = 'GV', init = function() require('mrv.plugins.gv') end }, -- a git commit browser in Vim
   { 'Wansmer/treesj', config = function() require('mrv.plugins.treesj') end, dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- Neovim plugin for splitting/joining blocks of code
+  { 'mroavi/slides.vim', dev = true, config = function() require('mrv.plugins.slides') end, dependencies = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } }, -- presentation slides in vim
 
   -- {{{1
 
   -- Disabled
-  --{ 'mroavi/slides.vim', dev = true, config = function() require('mrv.plugins.slides') end, dependencies = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } }, -- presentation slides in vim
   --{ 'NvChad/nvim-colorizer.lua', config = function() require('colorizer').setup() end }, -- the fastest Neovim colorizer.
   --{ 'preservim/vim-markdown' }, -- syntax highlighting, matching rules and mappings for Markdown and extensions
   --{ 'dstein64/nvim-scrollview', config = function() require('mrv.plugins.scrollview') end }, -- a Neovim plugin that displays (non-interactive) scrollbars
