@@ -35,6 +35,8 @@ if [ -f "$zsh_autosuggestions_local_path" ]; then
   source "$zsh_autosuggestions_local_path"
 elif [ -f "$zsh_autosuggestions_system_path" ]; then
   source "$zsh_autosuggestions_system_path"
+else
+  echo "zsh_autosuggestions not found to source"
 fi
 
 zsh_syntax_highlighting_local_path="$HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
@@ -44,6 +46,8 @@ if [ -f "$zsh_syntax_highlighting_local_path" ]; then
   source "$zsh_syntax_highlighting_local_path"
 elif [ -f "$zsh_syntax_highlighting_system_path" ]; then
   source "$zsh_syntax_highlighting_system_path"
+else
+  echo "zsh_syntax_highlighting not found to source"
 fi
 
 #export ZSH="/home/mroavi/.oh-my-zsh"
@@ -229,6 +233,8 @@ if [ -f "$z_local_path" ]; then
   source "$z_local_path"
 elif [ -f "$z_system_path" ]; then
   source "$z_system_path"
+else
+  echo "z not found to source"
 fi
 
 # =============================================================================
