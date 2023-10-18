@@ -156,14 +156,9 @@ LOCAL_REPO=$HOME/.zsh/pure
 REPO_URL=https://github.com/mroavi/pure.git
 git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 
-# julia
+# julia (uses juliaup)
 echo "Installing julia..."
-FILE=$HOME/.local/bin/julia
-if [ -e "$FILE" ]; then
-  echo "  julia is already installed"
-else
-  bash -ci "$(curl -fsSL https://raw.githubusercontent.com/abelsiqueira/jill/main/jill.sh)"
-fi
+curl -fsSL https://install.julialang.org | sh
 
 # # Make zsh the default shell
 # chsh -s $(which zsh)
