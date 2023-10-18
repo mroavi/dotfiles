@@ -503,3 +503,12 @@ alias es='setxkbmap -layout es'
 
 ## Uncomment to profile
 #zprof
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/alarm/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
