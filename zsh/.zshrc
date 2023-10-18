@@ -211,11 +211,14 @@ extract () {
 ## z
 # =============================================================================
 
-# Make sure that sourcing z.sh is placed after the fasd config where z is unaliased
-if [ "$SSH_CONNECTION" ]; then
-  source "$HOME/Downloads/z/z.sh"
-else
-  source "/usr/share/z/z.sh"
+# Important: make sure that sourcing z.sh is placed after the fasd config where z is unaliased
+zsh_local_path="$HOME/Downloads/z/z.sh"
+zsh_system_path="/usr/share/z/z.sh"
+
+if [ -f "$zsh_local_path" ]; then
+  source "$zsh_local_path"
+elif [ -f "$zsh_system_path" ]; then
+  source "$zsh_system_path"
 fi
 
 # =============================================================================
