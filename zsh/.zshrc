@@ -28,12 +28,22 @@ SAVEHIST=10000
 ## Plugins
 # =============================================================================
 
-if [ "$SSH_CONNECTION" ]; then
-  source "$HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-  source "$HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-else
-  source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-  source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+zsh_autosuggestions_local_path="$HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+zsh_autosuggestions_system_path="/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+if [ -f "$zsh_autosuggestions_local_path" ]; then
+  source "$zsh_autosuggestions_local_path"
+elif [ -f "$zsh_autosuggestions_system_path" ]; then
+  source "$zsh_autosuggestions_system_path"
+fi
+
+zsh_syntax_highlighting_local_path="$HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+zsh_syntax_highlighting_system_path="/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+if [ -f "$zsh_syntax_highlighting_local_path" ]; then
+  source "$zsh_syntax_highlighting_local_path"
+elif [ -f "$zsh_syntax_highlighting_system_path" ]; then
+  source "$zsh_syntax_highlighting_system_path"
 fi
 
 #export ZSH="/home/mroavi/.oh-my-zsh"
