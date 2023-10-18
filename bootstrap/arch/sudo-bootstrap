@@ -39,7 +39,7 @@ pac_pkgs=(
           flameshot
           fzf
           gimp
-          golang-go
+          go
           inkscape
           kvantum
           lxappearance            # manage GTK themes
