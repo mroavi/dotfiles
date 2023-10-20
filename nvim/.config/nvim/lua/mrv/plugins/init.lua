@@ -73,6 +73,8 @@ local plugins = {
   --{ 'nvim-treesitter/playground', config = function() require('mrv.plugins.playground') end, dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- view treesitter information directly in Neovim
   --{ 'nvim-neorg/neorg', config = function() require('mrv.plugins.neorg') end, build = ':Neorg sync-parsers', dependencies = { { 'nvim-lua/plenary.nvim' } } }, -- the future of organizing your life in Neovim
   --{ "lukas-reineke/indent-blankline.nvim", config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
+  --{ "echasnovski/mini.splitjoin", keys = 'gS', config = function() require('mrv.plugins.mini-splitjoin') end }, -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
+  --{ "bennypowers/splitjoin.nvim", config = function() require('mrv.plugins.splitjoin') end }, -- split or join list-like syntax constructs
 
   -- Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
@@ -108,8 +110,6 @@ local plugins = {
   --{ 'toranb/tmux-navigator', config = function() require('mrv.plugins.tmux-navigator') end }, -- navigate seamlessly between vim and tmux splits using a set of hotkeys
   --{ 'mcchrish/nnn.vim' }, -- file manager for vim/neovim powered by n³
   --{ 'ojroques/vim-oscyank', config = function() require('mrv.plugins.vim-oscyank') end }, -- a Vim plugin to copy text through SSH with OSC52
-  --{ "echasnovski/mini.splitjoin", keys = 'gS', config = function() require('mrv.plugins.mini-splitjoin') end }, -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
-  --{ "bennypowers/splitjoin.nvim", config = function() require('mrv.plugins.splitjoin') end }, -- split or join list-like syntax constructs
 
   -- }}}
 
