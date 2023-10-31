@@ -39,8 +39,8 @@ else
   echo "zsh_autosuggestions not found to source"
 fi
 
-zsh_syntax_highlighting_local_path="$HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-zsh_syntax_highlighting_system_path="/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+zsh_syntax_highlighting_local_path="$HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+zsh_syntax_highlighting_system_path="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 if [ -f "$zsh_syntax_highlighting_local_path" ]; then
   source "$zsh_syntax_highlighting_local_path"
