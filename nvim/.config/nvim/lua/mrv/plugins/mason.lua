@@ -19,6 +19,7 @@ if not vim.env.SSH_CONNECTION then
       "bashls",
       "clangd",
       "cmake",
+      "csharp_ls",
       "cssls",
       "efm",
       "emmet_language_server",
