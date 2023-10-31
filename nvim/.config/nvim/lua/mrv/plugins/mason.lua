@@ -15,35 +15,35 @@ if not vim.env.SSH_CONNECTION then
   opts = {
     -- For a list of all available packages, see: https://mason-registry.dev/registry/list
     ensure_installed = {
-      "lua_ls",
-      "vimls",
-      "pyright",
+      "arduino_language_server",
       "bashls",
       "clangd",
-      "texlab",
-      "rust_analyzer",
-      "efm",
-      "arduino_language_server",
       "cmake",
+      "cssls",
+      "efm",
       "emmet_language_server",
       "html",
-      "cssls",
+      "lua_ls",
+      "pyright",
+      "rust_analyzer",
+      "texlab",
+      "vimls",
     }
   }
 else
   opts = {
     -- For a list of all available packages, see: https://mason-registry.dev/registry/list
     ensure_installed = {
-      "lua_ls",
-      --"vimls",
-      --"pyright",
+      "arduino_language_server",
       --"bashls",
       --"clangd",
-      "texlab",
-      "rust_analyzer",
-      "efm",
-      "arduino_language_server",
       "cmake",
+      "efm",
+      "lua_ls",
+      --"pyright",
+      "rust_analyzer",
+      "texlab",
+      --"vimls",
     }
   }
 end
