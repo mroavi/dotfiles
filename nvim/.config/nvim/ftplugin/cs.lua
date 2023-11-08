@@ -10,10 +10,16 @@ vim.b.cell_delimeter = '/// '
 --- Debug utilities
 ---------------------------------------------------------------------------------
 
--- Insert print statement
 local print_fun = 'Console.WriteLine'
+
+-- Insert print var statement
 vim.keymap.set('n', '<Leader>pr', function()
   utils.insert_string(print_fun .. [[(\"%s = \" + %s);]], 'o')
+end, { buffer = true })
+
+-- Insert print list statement
+vim.keymap.set('n', '<Leader>pl', function()
+  utils.insert_string([[%s.ForEach(]] .. print_fun .. [[);]], 'o')
 end, { buffer = true })
 
 --------------------------------------------------------------------------------
