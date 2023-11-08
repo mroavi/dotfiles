@@ -13,7 +13,7 @@ vim.b.cell_delimeter = '/// '
 -- Insert print statement
 local print_fun = 'Console.WriteLine'
 vim.keymap.set('n', '<Leader>pr', function()
-  utils.insert_string(print_fun .. [[(\"%s = \" + %s)]], 'o')
+  utils.insert_string(print_fun .. [[(\"%s = \" + %s);]], 'o')
 end, { buffer = true })
 
 --------------------------------------------------------------------------------
