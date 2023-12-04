@@ -255,6 +255,9 @@ set ttimeout
 set ttimeoutlen=1
 set ttyfast
 
+" Exit netrw with escape 
+au FileType netrw nmap <buffer> <Esc> :Rex<Cr>
+
 "--------------------------------------------------------------------
 """ My custom text object for cells
 "--------------------------------------------------------------------
