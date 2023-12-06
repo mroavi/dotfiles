@@ -62,7 +62,7 @@ function M.open_right_of()
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
 
--- Start interpreter in a RIGHT split with active buffer as CWD
+-- Start interpreter in a BOTTOM split with active buffer as CWD
 function M.open_down_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{down-of}" }
   vim.cmd[[TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))]]
