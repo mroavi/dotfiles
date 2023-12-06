@@ -2,7 +2,7 @@ local vim = vim
 local utils = require('mrv.utils')
 
 -- Define cell_delimeter
-vim.b.cell_delimeter = '--|'
+vim.b.cell_delimeter = '-- @block'
 
 --------------------------------------------------------------------------------
 --- vim-commentary
