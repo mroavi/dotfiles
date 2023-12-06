@@ -84,6 +84,10 @@ cmp.setup {
     -- The order of these sources determine their priority in cmp's results
     { name = "path" },
     { name = 'nvim_lsp' }, -- WARNING: slows down `cmp.complete()`
+    --{ name = "nvim_lsp",
+    --  entry_filter = function(entry, ctx)
+    --    return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind() -- filter 'Text' entries from nvim_lsp source
+    --  end },
     { name = 'luasnip' },
     { name = "buffer", keyword_length = 2 },
   },

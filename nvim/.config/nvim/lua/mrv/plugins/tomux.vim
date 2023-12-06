@@ -13,15 +13,15 @@ augroup tomux_send
   "-----------------------------------------------------------------------------
   " `s` to send motion/text-object
   "-----------------------------------------------------------------------------
-  autocmd FileType julia,python,lua nmap <buffer> s <Plug>TomuxMotionSend
+  autocmd FileType julia,python,lua,sql nmap <buffer> s <Plug>TomuxMotionSend
   "autocmd FileType julia,python,lua nmap <silent> s :set opfunc=MySendOperator<Cr>g@
-  autocmd FileType julia,python,lua xmap <buffer> s <Plug>TomuxVisualSend
-  autocmd FileType julia,python,lua omap <buffer> s _
+  autocmd FileType julia,python,lua,sql xmap <buffer> s <Plug>TomuxVisualSend
+  autocmd FileType julia,python,lua,sql omap <buffer> s _
 
   "-----------------------------------------------------------------------------
   " Atom-like mappings for sending text (the `\` key is used as helper/hack)
   "-----------------------------------------------------------------------------
-  autocmd FileType julia,python,lua nmap <buffer> \ <Plug>TomuxMotionSend
+  autocmd FileType julia,python,lua,sql nmap <buffer> \ <Plug>TomuxMotionSend
 
   " Ctrl+Enter to send text in visual, normal and insert modes
   "autocmd FileType julia,python,lua xmap <buffer> <C-Cr> <Plug>TomuxVisualSend
@@ -29,13 +29,13 @@ augroup tomux_send
   "autocmd FileType julia,python,lua imap <buffer> <C-Cr> <Esc>\_gi
 
   " Alt+Enter to send cell
-  autocmd FileType julia,python,lua nmap <buffer> <M-Cr> \ic
+  autocmd FileType julia,python,lua,sql nmap <buffer> <M-Cr> \ic
 
   " Ctrl+Shift+Enter to send entire buffer
   autocmd FileType lua              nmap <buffer> <C-S-Cr> \id
 
   " Shift+Enter to send paragraph and jump to next statement
-  autocmd FileType julia,python,lua nmap <silent> <S-Cr> :set opfunc=MySendOperator<Cr>g@ap
+  autocmd FileType julia,python,lua,sql nmap <silent> <S-Cr> :set opfunc=MySendOperator<Cr>g@ap
 
   "-----------------------------------------------------------------------------
   " Convenience mapping to send code that uses Julia's pipe operator (|>)

@@ -27,6 +27,7 @@ if not vim.env.SSH_CONNECTION then
       "lua_ls",
       "pyright",
       "rust_analyzer",
+      "sqlls",
       "texlab",
       "vimls",
     }
