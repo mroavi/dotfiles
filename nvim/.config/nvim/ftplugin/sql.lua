@@ -34,12 +34,12 @@ function M.open_right_of()
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
 
----- Execute buffer
---function M.execute_buffer()
---  vim.cmd.write()
---  vim.cmd[[TomuxSend("exec(open(\"" . expand('%:p') . "\").read())\n")]]
---end
---vim.keymap.set('n', '<Leader>e', function() M.execute_buffer() end, { buffer = true })
+-- Execute buffer
+function M.execute_buffer()
+  vim.cmd.write()
+  vim.cmd[[TomuxSend("source " . expand('%:p') . "\n")]]
+end
+vim.keymap.set('n', '<Leader>e', function() M.execute_buffer() end, { buffer = true })
 
 -- Clear command line
 function M.clear()
