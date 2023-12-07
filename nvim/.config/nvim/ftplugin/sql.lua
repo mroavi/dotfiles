@@ -26,7 +26,7 @@ vim.b.start_repl_cmd = 'mariadb -u mroavi'
 
 local M = {}
 
--- Start mariadb cmd line in a RIGHT split with active buffer as CWD
+-- Start mariadb command line in a RIGHT split with active buffer as CWD
 function M.open_right_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
   vim.cmd[[TomuxCommand("split-window -h -d -c " . expand("%:p:h"))]]
@@ -40,6 +40,12 @@ vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = t
 --  vim.cmd[[TomuxSend("exec(open(\"" . expand('%:p') . "\").read())\n")]]
 --end
 --vim.keymap.set('n', '<Leader>e', function() M.execute_buffer() end, { buffer = true })
+
+-- Clear command line
+function M.clear()
+  vim.cmd[[TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-l")]]
+end
+vim.keymap.set('n', '<Leader>cl', function() M.clear() end, { buffer = true })
 
 -- Kill pane
 function M.kill_pane()
