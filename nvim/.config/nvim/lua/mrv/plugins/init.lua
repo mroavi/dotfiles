@@ -120,7 +120,7 @@ M.setup = function()
 end
 
 require('lazy.view.config').keys.close = '<Esc>' -- hack (see https://github.com/folke/lazy.nvim/issues/468)
-vim.keymap.set("n", "<Leader>L", ":Lazy<CR>")
+vim.keymap.set("n", "<Leader>pm", ":Lazy<CR>")
 
 return M
 
