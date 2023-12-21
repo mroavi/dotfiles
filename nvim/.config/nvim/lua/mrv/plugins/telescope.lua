@@ -232,6 +232,16 @@ function M.dotfiles()
   }
 end
 
+function M.notes()
+  local opts = { cwd = "~/notes" }
+  builtin.find_files {
+    find_command = { 'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git', },
+    prompt_title = "Notes",
+    cwd = opts.cwd,
+    entry_maker = my_make_entry.gen_from_file(opts),
+  }
+end
+
 -- Live grep from the current buffer's git dir if any, otherwise, from the current buffer's dir
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
 function M.live_grep(opts)
@@ -663,6 +673,7 @@ vim.keymap.set("n", "<Leader>/", M.live_grep)
 vim.keymap.set('x', '<Leader>/', function() M.live_grep({ default_text = require('mrv.utils').get_visual_selection() }) end)
 vim.keymap.set("n", "<Leader>?", function() M.live_grep({ default_text = vim.fn.expand('<cword>') }) end)
 vim.keymap.set("n", "<Leader>.", M.dotfiles)
+vim.keymap.set("n", "<Leader>n", M.notes)
 vim.keymap.set("n", "<Leader>a", M.args)
 --vim.keymap.set("n", "<Leader>*", M.fuzzy_star_search)
 -- Vim pickers
