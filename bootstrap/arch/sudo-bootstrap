@@ -39,6 +39,7 @@ pac_pkgs=(
           flameshot
           fzf
           gimp
+          gnupg
           go
           inkscape
           kvantum
