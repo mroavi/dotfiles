@@ -163,5 +163,8 @@ curl -fsSL https://install.julialang.org | sh
 # # Make zsh the default shell
 # chsh -s $(which zsh)
 
+cd ~/dotfiles
+stow alacritty git julia lf nvim scripts ssh tmux vim x xdg zsh
+
 # Return to original directory
 cd "$currentdir"
