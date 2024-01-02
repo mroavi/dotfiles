@@ -32,6 +32,8 @@ pac_pkgs=(
           bottom
           diff-so-fancy
           dmenu
+          dotnet-runtime
+          dotnet-sdk
           dunst
           fasd
           fd
