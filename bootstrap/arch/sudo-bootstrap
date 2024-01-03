@@ -63,6 +63,7 @@ pac_pkgs=(
           pkgfile                 # find packages that hold a file (even if the package is not installed)
           qt5ct                   # mange QT themes
           ripgrep
+          sof-firmware            # see: https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture#ALSA_firmware
           stow
           tar
           texlive-bibtexextra
