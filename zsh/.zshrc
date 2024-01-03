@@ -437,6 +437,7 @@ alias wifiscan="nmcli dev wifi list"
 
 # Dir bookmarks
 alias d="cd ~/dotfiles"
+alias n="cd ~/notes"
 
 # Git
 alias g='git'
