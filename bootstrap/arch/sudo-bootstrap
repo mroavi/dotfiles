@@ -29,12 +29,12 @@ pac_pkgs=(
           arandr
           bluez
           bluez-utils
-          bottom
+          bottom                  # a graphical process/system monitor for the terminal
           diff-so-fancy
           dmenu
           dotnet-runtime
           dotnet-sdk
-          dunst
+          dunst                   # lightweight and customizable notification daemon
           fasd
           fd
           feh
@@ -44,7 +44,7 @@ pac_pkgs=(
           gnome-keyring
           go
           inkscape
-          kvantum
+          kvantum                 # a Linux SVG-based theme engine for Qt and KDE
           lxappearance            # manage GTK themes
           neovim
           noto-fonts
@@ -52,7 +52,7 @@ pac_pkgs=(
           noto-fonts-emoji
           noto-fonts-extra
           npm
-          okular
+          okular                  # KDE document viewer
           openssh
           pavucontrol
           picom
