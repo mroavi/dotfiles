@@ -79,7 +79,7 @@ pac_pkgs=(
           texlive-science
           thunar
           unzip
-          viewnior
+          viewnior                # fast and elegant image viewer
           wget
           xbindkeys
           xclip
