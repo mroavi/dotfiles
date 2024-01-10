@@ -45,6 +45,7 @@ pac_pkgs=(
           go
           inkscape
           kvantum                 # a Linux SVG-based theme engine for Qt and KDE
+          libreoffice-still
           lxappearance            # manage GTK themes
           neovim
           noto-fonts
