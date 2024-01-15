@@ -40,6 +40,7 @@ pac_pkgs=(
           feh
           flameshot
           fzf
+          galculator
           gimp
           gnome-keyring
           go
