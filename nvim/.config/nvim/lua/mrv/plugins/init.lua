@@ -31,7 +31,6 @@ local plugins = {
   { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end }, -- quickstart configurations for the Nvim LSP client
   { 'williamboman/mason.nvim', config = function() require('mrv.plugins.mason') end, dependencies = { 'williamboman/mason-lspconfig.nvim' } }, -- easily install and manage LSP servers, DAP servers, linters, and formatters
   { 'mroavi/vim-tomux', init = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end }, -- send text to tmux
-  { 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end }, -- displays a popup with possible keybindings of the command you started typing
   { 'lervag/vimtex', ft = 'tex', init = function() require('mrv.plugins.vimtex') end }, -- a modern Vim and neovim filetype plugin for LaTeX files.
   { 'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, build = ':TSUpdate', dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' } }, -- nvim treesitter configurations and abstraction layer
   { 'skywind3000/asyncrun.vim', init = function() require('mrv.plugins.asyncrun') end }, -- run Async Shell Commands and Output to the Quickfix Window
@@ -74,6 +73,7 @@ local plugins = {
   --{ "lukas-reineke/indent-blankline.nvim", config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
   --{ "echasnovski/mini.splitjoin", keys = 'gS', config = function() require('mrv.plugins.mini-splitjoin') end }, -- Neovim Lua plugin to split and join arguments. Part of 'mini.nvim' library.
   --{ "bennypowers/splitjoin.nvim", config = function() require('mrv.plugins.splitjoin') end }, -- split or join list-like syntax constructs
+  --{ 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end }, -- displays a popup with possible keybindings of the command you started typing
   --{ 'mroavi/slides.vim', dev = true, config = function() require('mrv.plugins.slides') end, dependencies = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } }, -- presentation slides in vim
 
   -- Try these out!
