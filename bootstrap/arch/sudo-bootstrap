@@ -80,6 +80,7 @@ pac_pkgs=(
           texlive-plaingeneric    # contains 'listofitems.sty'
           texlive-science
           thunar
+          unrar
           unzip
           viewnior                # fast and elegant image viewer
           wget
