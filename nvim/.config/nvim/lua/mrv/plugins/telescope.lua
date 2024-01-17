@@ -70,12 +70,6 @@ require("telescope").setup {
 local function my_tmux_theme(opts)
   opts = opts or {}
   local theme_opts = {
-    layout_strategy = "vertical",
-    layout_config = {
-      mirror = true,
-      prompt_position = "top",
-    },
-    sorting_strategy = "ascending",
     attach_mappings = function(_, map)
       map('i', 'k', actions.move_selection_previous)
       map('i', 'j', actions.move_selection_next)
