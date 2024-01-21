@@ -26,7 +26,7 @@ fi
 
 pac_pkgs=(
           alacritty
-          arandr
+          arandr                  # another XRandR GUI
           bluez
           bluez-utils
           bottom                  # a graphical process/system monitor for the terminal
