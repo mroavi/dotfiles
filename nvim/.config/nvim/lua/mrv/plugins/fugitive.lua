@@ -8,7 +8,6 @@ command! -complete=file -nargs=* Gdstaged Git diff --staged <args>
 --vim.keymap.set("n", "<C-g>", "<Cmd>keepalt Gedit :<CR>") -- keep the alternate file
 
 -- Emulates the zsh aliases in nvim's command line
-vim.cmd('cnoreabbrev g    Git')
 vim.cmd('cnoreabbrev git  Git')
 vim.cmd('cnoreabbrev gst  Gedit :')
 vim.cmd('cnoreabbrev gd   Gdiffsplit') -- Gdiff is broken
