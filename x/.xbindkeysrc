@@ -95,7 +95,7 @@
 
 # Launch brave browser
 "brave"
-  Mod4+shift + b
+  Mod4 + b
 
 # Launch pavucontrol
 "pavucontrol"
