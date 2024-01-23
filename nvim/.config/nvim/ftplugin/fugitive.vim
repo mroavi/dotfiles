@@ -3,7 +3,8 @@ exe "normal )"
 
 " Support quitting with <Esc>
 "nmap <buffer> <Esc> gq (old approach)
-nnoremap <buffer> <Esc> <Plug>fugitive:gq
+"nnoremap <buffer> <Esc> <Plug>fugitive:gq
+nnoremap <buffer> <Esc> <C-^> 
 
 " Keep alternate file after opening a file with <Cr>
 " https://github.com/tpope/vim-fugitive/issues/2040#issuecomment-1222737090
