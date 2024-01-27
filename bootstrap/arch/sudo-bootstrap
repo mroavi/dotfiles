@@ -27,6 +27,7 @@ fi
 pac_pkgs=(
           alacritty
           arandr                  # another XRandR GUI
+          biber                   # a BibTeX replacement for users of BibLaTeX
           bluez
           bluez-utils
           bottom                  # a graphical process/system monitor for the terminal
