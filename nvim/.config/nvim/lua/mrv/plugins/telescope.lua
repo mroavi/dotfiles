@@ -53,6 +53,9 @@ require("telescope").setup {
         ["<Esc>"] = actions.close
       },
     },
+    file_ignore_patterns = {
+      ".git/"
+    },
   },
   pickers = {
     live_grep = {
