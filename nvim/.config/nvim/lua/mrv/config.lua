@@ -55,7 +55,7 @@ M.setup = function()
   vim.keymap.set("n", "<Leader>cd", ":cd %:p:h<CR>:pwd<CR>") -- change to the dir of the current buffer
   vim.keymap.set("n", "<Leader>su", [[:%s//<C-r>=substitute(@/, '\\<\|\\>\|\\V', '', 'g')<CR>/g<Left><Left>]]) -- substitute all occurrences of the content of the search register with new text
   vim.keymap.set("x", "<Leader>su", [[:s//<C-r>=substitute(@/, '\\<\|\\>\|\\V', '', 'g')<CR>/g<Left><Left>]]) -- https://stackoverflow.com/a/66440706/1706778
-  vim.keymap.set("n", "<Leader>v", ":vimgrep //gj **/*<left><left><left><left><left><left><left><left>") -- grep recursively in current directory and send results to quickfix list
+  vim.keymap.set("n", "<Leader>gr", ":vimgrep //gj **/*<left><left><left><left><left><left><left><left>") -- grep recursively in current directory and send results to quickfix list
   vim.keymap.set("n", "<Leader>S", ":cfdo %s/<C-r>///gc<left><left><left>") -- substitute last searched pattern with the given text inside every file in the quickfix list
   vim.keymap.set("n", "<F6>", "':setlocal spelllang=' . (&spelllang == 'en' ? 'es' : 'en') . '<CR>'", { expr = true }) -- toggle spelling language
   vim.keymap.set("n", "gp", "'`[' . getregtype()[0] . '`]'", { expr = true }) -- select pasted text
