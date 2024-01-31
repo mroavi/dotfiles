@@ -5,7 +5,7 @@
 # No arguments passed?
 if [ "$#" == 0 ]; then
   # True, then set the default color (the SSH connection was closed)
-  printf '\033]11;#191724\007'
+  printf '\033]11;#1E1E2E\007'
   exit 0
 fi
 
