@@ -39,7 +39,7 @@ else
       "arduino_language_server",
       --"bashls",
       --"clangd",
-      "cmake",
+      --"cmake",
       "efm",
       "lua_ls",
       --"pyright",
