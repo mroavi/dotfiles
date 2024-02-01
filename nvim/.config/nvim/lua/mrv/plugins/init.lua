@@ -96,6 +96,7 @@ local plugins = {
   --{ tpope/vim-vinegar }, -- combine with netrw to create a delicious salad dressing
   --{ 'stevearc/dressing.nvim' }, -- Neovim plugin to improve the default vim.ui interfaces
   --{ 'stevearc/conform.nvim' }, -- lightweight yet powerful formatter plugin for Neovim
+  --{ 'nvim-pack/nvim-spectre' }, -- global find and replace tool
 
   -- Abandoned
   --{ 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end }, -- provides insert mode auto-completion for quotes, parens, brackets, etc.
