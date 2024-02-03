@@ -5,6 +5,8 @@ require("oil").setup({
   },
   keymaps = {
     ["<Esc>"] = { callback = "actions.close", mode = "n" },
+    ["<Leader>:"] = { callback = "actions.open_cmdline", mode = "n" },
+    ["<Leader>yy"] = { callback = "actions.copy_entry_path", mode = "n" },
   }
 })
 
