@@ -1,0 +1,6 @@
+# TODO: this file does not seem to have an effect
+defaultIndent: "  "
+modifyLineBreaks:
+  textWrapOptions:
+    columns: 20
+indentPreamble: 1
