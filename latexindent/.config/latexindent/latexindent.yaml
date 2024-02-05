@@ -1,5 +1,4 @@
 defaultIndent: "  "
-# TODO: line breaks not working
 modifyLineBreaks:
   textWrapOptions:
     columns: 20
