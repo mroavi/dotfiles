@@ -10,7 +10,7 @@ modifyLineBreaks:
   preserveBlankLines: 1                 # 0/1
   condenseMultipleBlankLinesInto: 1     # 0/1
   textWrapOptions:
-    columns: 50
+    columns: 79
     comments:
       wrap: 1                           # 0/1
       inheritLeadingSpace: 1            # 0/1
@@ -23,3 +23,11 @@ modifyLineBreaks:
     BodyStartsOnOwnLine: 1              # -1,0,1,2,3,4
     EndStartsOnOwnLine: 1               # -1,0,1,2,3,4
     EndFinishesWithLineBreak: 1         # -1,0,1,2,3,4
+
+# https://latexindentpl.readthedocs.io/en/latest/sec-default-user-local.html#
+specialBeginEnd:
+  inlineMath:
+    begin: (?<!\$)(?<!\\)\$(?!\$) # $ but *not* \$ or $$
+    body: [^$]*?                  # anything *except* $
+    end: (?<!\\)\$(?!\$)          # $ but *not* \$ or $$
+    lookForThis: 0
