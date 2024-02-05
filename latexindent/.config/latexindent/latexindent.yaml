@@ -1,5 +1,25 @@
 defaultIndent: "  "
-modifyLineBreaks:
-  textWrapOptions:
-    columns: 20
+
 indentPreamble: 1
+
+removeTrailingWhitespace:
+    beforeProcessing: 1
+
+# https://latexindentpl.readthedocs.io/en/latest/sec-the-m-switch.html#
+modifyLineBreaks:
+  preserveBlankLines: 1                 # 0/1
+  condenseMultipleBlankLinesInto: 1     # 0/1
+  textWrapOptions:
+    columns: 50
+    comments:
+      wrap: 1                           # 0/1
+      inheritLeadingSpace: 1            # 0/1
+    blocksFollow:
+      other: \\\]|\\item(?:\h|\[)|\\end\{ # regex
+    blocksBeginWith:
+      other: \\                         # regex
+  environments:
+    BeginStartsOnOwnLine: 1             # -1,0,1,2,3,4
+    BodyStartsOnOwnLine: 1              # -1,0,1,2,3,4
+    EndStartsOnOwnLine: 1               # -1,0,1,2,3,4
+    EndFinishesWithLineBreak: 1         # -1,0,1,2,3,4
