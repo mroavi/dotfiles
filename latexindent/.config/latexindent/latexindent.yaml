@@ -10,7 +10,7 @@ modifyLineBreaks:
   preserveBlankLines: 1                 # 0/1
   condenseMultipleBlankLinesInto: 1     # 0/1
   textWrapOptions:
-    columns: 78
+    columns: 79
     comments:
       wrap: 1                           # 0/1
       inheritLeadingSpace: 1            # 0/1
