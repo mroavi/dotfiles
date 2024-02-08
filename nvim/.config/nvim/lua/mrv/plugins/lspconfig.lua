@@ -47,6 +47,9 @@ vim.diagnostic.config({
   },
 })
 
+-- LspInfo window border
+require('lspconfig.ui.windows').default_options.border = 'single'
+
 -- Enable logging, open the log with :lua vim.cmd('e'..vim.lsp.get_log_path())
 -- vim.lsp.set_log_level("debug")
 

@@ -26,6 +26,7 @@ fi
 
 pac_pkgs=(
           alacritty
+          autorandr               # auto-detect the connected display hardware and load the appropriate X11 setup using xrandr
           arandr                  # another XRandR GUI
           biber                   # a BibTeX replacement for users of BibLaTeX
           bluez
@@ -80,7 +81,9 @@ pac_pkgs=(
           texlive-pictures
           texlive-plaingeneric    # contains 'listofitems.sty'
           texlive-science
+          texlive-xetex
           thunar
+          tree
           unrar
           unzip
           viewnior                # fast and elegant image viewer
