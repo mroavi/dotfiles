@@ -112,8 +112,6 @@ require 'lspconfig'.lua_ls.setup {
   },
 }
 
-if not vim.env.SSH_CONNECTION then
-
   --------------------------------------------------------------------------------
   --- vim
   --------------------------------------------------------------------------------
@@ -143,7 +141,7 @@ if not vim.env.SSH_CONNECTION then
 
   -- Manual installation: see bootstrap in dotfiles
   lspconfig.clangd.setup {
-    autostart = false,
+    autostart = true,
     cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
     filetypes = { "c", "cpp", "objc", "objcpp" }
   }
@@ -151,6 +149,8 @@ if not vim.env.SSH_CONNECTION then
   -- Use `bear` to generate the `compile_commands.json` file needed by clangd
   -- Installation: yay -S bear
   -- Github page: https://github.com/rizsotto/Bear
+
+if not vim.env.SSH_CONNECTION then
 
   --------------------------------------------------------------------------------
   --- texlab
