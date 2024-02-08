@@ -38,7 +38,7 @@ else
     ensure_installed = {
       "arduino_language_server",
       --"bashls",
-      --"clangd",
+      "clangd",
       --"cmake",
       "efm",
       "lua_ls",
