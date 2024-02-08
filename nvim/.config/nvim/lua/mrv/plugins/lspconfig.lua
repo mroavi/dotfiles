@@ -115,21 +115,38 @@ require 'lspconfig'.lua_ls.setup {
   },
 }
 
-  --------------------------------------------------------------------------------
-  --- vim
-  --------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--- vim
+--------------------------------------------------------------------------------
 
-  -- Manual installation: npm install -g vim-language-server
-  lspconfig.vimls.setup {
-    capabilities = capabilities,
-  }
+-- Manual installation: npm install -g vim-language-server
+lspconfig.vimls.setup {
+  capabilities = capabilities,
+}
 
-  --------------------------------------------------------------------------------
-  --- python
-  --------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--- python
+--------------------------------------------------------------------------------
 
-  -- Manual installation: sudo pacman -S pyright
-  lspconfig.pyright.setup {}
+-- Manual installation: sudo pacman -S pyright
+lspconfig.pyright.setup {}
+
+--------------------------------------------------------------------------------
+--- c
+--------------------------------------------------------------------------------
+
+-- Manual installation: see bootstrap in dotfiles
+lspconfig.clangd.setup {
+  autostart = true,
+  cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
+  filetypes = { "c", "cpp", "objc", "objcpp" }
+}
+
+-- Use `bear` to generate the `compile_commands.json` file needed by clangd
+-- Installation: yay -S bear
+-- Github page: https://github.com/rizsotto/Bear
+
+if not vim.env.SSH_CONNECTION then
 
   --------------------------------------------------------------------------------
   --- bash
@@ -137,23 +154,6 @@ require 'lspconfig'.lua_ls.setup {
 
   -- Manual installation: npm i -g bash-language-server
   lspconfig.bashls.setup {}
-
-  --------------------------------------------------------------------------------
-  --- c
-  --------------------------------------------------------------------------------
-
-  -- Manual installation: see bootstrap in dotfiles
-  lspconfig.clangd.setup {
-    autostart = true,
-    cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
-    filetypes = { "c", "cpp", "objc", "objcpp" }
-  }
-
-  -- Use `bear` to generate the `compile_commands.json` file needed by clangd
-  -- Installation: yay -S bear
-  -- Github page: https://github.com/rizsotto/Bear
-
-if not vim.env.SSH_CONNECTION then
 
   --------------------------------------------------------------------------------
   --- texlab
