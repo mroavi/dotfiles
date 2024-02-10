@@ -519,5 +519,9 @@ alias es='setxkbmap -layout es'
 #export PATH="$PATH:$HOME/.rvm/bin"
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+if [ ! "$SSH_CONNECTION" ]; then
+  pokemon-colorscripts -r 1 --no-title
+fi
+
 ## Uncomment to profile
 #zprof
