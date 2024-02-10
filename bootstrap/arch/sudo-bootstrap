@@ -113,6 +113,7 @@ yay_pkgs=(
           ttf-symbola
           catppuccin-gtk-theme-mocha
           kvantum-theme-catppuccin-git
+          pokemon-colorscripts-git
          )
 
 sudo pacman   -S --needed ${pac_pkgs[@]}
