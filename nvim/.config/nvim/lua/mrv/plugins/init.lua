@@ -98,6 +98,7 @@ local plugins = {
   --{ 'stevearc/conform.nvim' }, -- lightweight yet powerful formatter plugin for Neovim
   --{ 'nvim-pack/nvim-spectre' }, -- global find and replace tool
   --{ 'kevinhwang91/nvim-ufo' }, -- not UFO in the sky, but an ultra fold in Neovim
+  --{ 'folke/todo-comments.nvim' }, -- highlight, list and search todo comments in your projects
 
   -- Abandoned
   --{ 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end }, -- provides insert mode auto-completion for quotes, parens, brackets, etc.
