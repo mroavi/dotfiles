@@ -114,6 +114,7 @@ yay_pkgs=(
           catppuccin-gtk-theme-mocha
           kvantum-theme-catppuccin-git
           pokemon-colorscripts-git
+          onedrive-abraunegg      # setup instructions: https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md
          )
 
 sudo pacman   -S --needed ${pac_pkgs[@]}
