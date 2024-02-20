@@ -10,13 +10,16 @@
 "   arduino-cli core install arduino:avr
 "   sudo chmod a+rw /dev/ttyACM0
 "   sudo chmod a+rw /dev/ttyACM1
+"   sudo chmod a+rw /dev/ttyUSB0
+"   sudo chmod a+rw /dev/ttyUSB1
 
 " Other commads:
 "   arduino-cli board list
 "   arduino-cli core list
 "   arduino-cli sketch new serial-hello-world
 
-let b:serial_port = '/dev/ttyACM0'
+" CONFIG ME!!!
+let b:serial_port = '/dev/ttyUSB0'
 let b:serial_baud = '9600'
 let b:board = 'arduino:avr:uno'
 "let b:board = 'arduino:avr:mega'
