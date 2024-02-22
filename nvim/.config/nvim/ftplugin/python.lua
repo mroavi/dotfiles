@@ -75,7 +75,7 @@ vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = t
 function M.open_down_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{down-of}" }
   vim.cmd[[TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))]]
-  vim.cmd [[TomuxSend(b:start_repl_cmd . "\n")]]
+  vim.cmd[[TomuxSend(b:start_repl_cmd . "\n")]]
 end
 vim.keymap.set('n', '<Leader>tj', function() M.open_down_of() end, { buffer = true })
 
