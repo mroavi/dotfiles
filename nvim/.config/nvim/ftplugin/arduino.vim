@@ -62,5 +62,5 @@ nnoremap <buffer><silent> <Leader>tK :TomuxSend("Ky")<CR>
 " Compile and upload (p stands for program)
 nmap <buffer><silent> <Leader>tp <Leader>tc<Leader>tu
 
-" Compile, upload and open serial port
-nmap <buffer><silent> <Leader>tt <Leader>tc<Leader>tu<Leader>ts
+" Kill 'screen', Compile, upload and open serial port
+nmap <buffer><silent> <Leader>tt <Leader>tK<Leader>tc<Leader>tu<Leader>ts
