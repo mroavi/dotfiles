@@ -247,17 +247,15 @@ if not vim.env.SSH_CONNECTION then
   --- arduino
   --------------------------------------------------------------------------------
 
-  ---- Manual installation: yay -S arduino-language-server-git
-  --lspconfig.arduino_language_server.setup({
-  --  cmd =  {
-  --      -- Required
-  --      "arduino-language-server",
-  --      "-cli-config", "/home/mroavi/.arduino15/arduino-cli.yaml",
-  --      -- Optional
-  --      "-cli", "/bin/arduino-cli",
-  --      "-clangd", "/bin/clangd"
-  --    }
-  --    })
+  -- Manual installation: yay -S arduino-language-server-git
+  lspconfig.arduino_language_server.setup({
+    cmd = {
+      "arduino-language-server",
+      "-clangd", vim.fn.expand("~/.local/share/nvim/mason/packages/clangd/clangd_17.0.3/bin/clangd"),
+      "-cli", "/bin/arduino-cli",
+      "-cli-config", vim.fn.expand("~/.arduino15/arduino-cli.yaml"),
+    }
+  })
 
   --------------------------------------------------------------------------------
   --- cmake
