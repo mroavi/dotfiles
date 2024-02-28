@@ -8,7 +8,7 @@ vim.keymap.set( "n", "<Leader>h1", function() utils.insert_heading("=") end, { b
 vim.keymap.set( "n", "<Leader>h2", function() utils.insert_heading("-") end, { buffer = true })
 
 -- Fold inner tag
-vim.keymap.set('n', "zfit", [[:norm vitojzf<Cr>]], { buffer = true, silent = true })
+vim.keymap.set('n', "zfit", [[:norm vitkojzf<Cr>]], { buffer = true, silent = true })
 
 ------------------------------------------------------------------------------
 -- vim-tomux
