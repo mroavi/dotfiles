@@ -38,11 +38,19 @@ vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
 
 vim.g.tomux_use_clipboard = 0
 
--- Split the current pane vertically
+-- Split the current window vertically, adding a new pane to the right
 function M.open_right_of()
+  vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
   vim.cmd[[TomuxCommand("split-window -h -d -c " . expand("%:p:h"))]]
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
+
+-- Split the current window horizontally, adding a new pane to the bottom
+function M.open_bottom_of()
+  vim.b.tomux_config = { socket_name = "default", target_pane = "{down-of}" }
+  vim.cmd[[TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))]]
+end
+vim.keymap.set('n', '<Leader>tj', function() M.open_bottom_of() end, { buffer = true })
 
 -- Kill pane
 function M.kill_pane()
