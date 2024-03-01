@@ -195,7 +195,7 @@ if not vim.env.SSH_CONNECTION then
   --- c sharp
   --------------------------------------------------------------------------------
 
-  -- Dependencies: sudo pacman -S dotnet-sdk
+  -- Dependencies: sudo pacman -S dotnet-sdk dotnet-runtime aspnet-runtime
   lspconfig.csharp_ls.setup{
     capabilities = capabilities,
   }
