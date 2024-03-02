@@ -466,6 +466,14 @@ alias en='setxkbmap -layout us -variant altgr-intl'
 alias es='setxkbmap -layout es'
 
 # =============================================================================
+## pyenv
+# =============================================================================
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+# =============================================================================
 ## >>> conda initialize >>> (contents within this block are managed by 'conda init' !!)
 # =============================================================================
 
