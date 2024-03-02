@@ -65,7 +65,6 @@ pac_pkgs=(
           pipewire-audio
           pipewire-pulse
           pkgfile                 # find packages that hold a file (even if the package is not installed)
-          pyenv                   # tool for managing multiple Python versions
           qt5ct                   # mange QT themes
           ripgrep
           sof-firmware            # see: https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture#ALSA_firmware
