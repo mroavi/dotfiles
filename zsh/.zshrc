@@ -373,6 +373,8 @@ alias ssh=color-ssh
 ## fasd
 # =============================================================================
 
+# Database file located at ~/.cache/fasd
+
 eval "$(fasd --init auto)"
 
 unalias a
