@@ -12,6 +12,7 @@ require 'nvim-treesitter.configs'.setup {
     "css",
     "sql",
     "c_sharp",
+    "arduino",
   },
 
   -- Install languages synchronously (only applied to `ensure_installed`)
@@ -31,6 +32,7 @@ require 'nvim-treesitter.configs'.setup {
       --"markdown",
       --"latex",
       --"gitcommit",
+      --"arduino",
     },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
