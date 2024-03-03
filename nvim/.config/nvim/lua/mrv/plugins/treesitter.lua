@@ -11,6 +11,7 @@ require 'nvim-treesitter.configs'.setup {
     "html",
     "css",
     "sql",
+    "c_sharp",
   },
 
   -- Install languages synchronously (only applied to `ensure_installed`)
