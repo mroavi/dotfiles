@@ -101,6 +101,9 @@ require 'lspconfig'.lua_ls.setup {
       diagnostics = {
         -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
+        -- Ignore Lua_LS's noisy `missing-fields` warnings
+        -- See: https://github.com/nvim-lua/kickstart.nvim/issues/543
+        disable = { 'missing-fields' }
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
