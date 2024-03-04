@@ -1,0 +1,39 @@
+{
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "vim.leader": "<Space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<Leader>",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": [
+                "C-w"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "S-k"
+            ],
+            "commands": [
+                ":tabnext"
+            ]
+        },
+        {
+            "before": [
+                "S-j"
+            ],
+            "commands": [
+                ":tabprev"
+            ]
+        },
+    ]
+}
