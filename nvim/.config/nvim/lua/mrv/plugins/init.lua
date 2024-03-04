@@ -99,6 +99,7 @@ local plugins = {
   --{ 'nvim-pack/nvim-spectre' }, -- global find and replace tool
   --{ 'kevinhwang91/nvim-ufo' }, -- not UFO in the sky, but an ultra fold in Neovim
   --{ 'folke/todo-comments.nvim' }, -- highlight, list and search todo comments in your projects
+  --{ 'ray-x/lsp_signature.nvim', config = function() require('mrv.plugins.lsp_signature') end }, -- LSP signature hint as you type
 
   -- Abandoned
   --{ 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end }, -- provides insert mode auto-completion for quotes, parens, brackets, etc.
