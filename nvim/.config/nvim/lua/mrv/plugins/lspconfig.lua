@@ -298,20 +298,20 @@ vim.cmd [[
 -- ==============================================================================
 
 -- See `:h lsp-buf`
-vim.keymap.set("n", "<Leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
-vim.keymap.set("n", "<Leader>d", "<Cmd>lua vim.lsp.buf.definition()<CR>")
-vim.keymap.set("n", "<Leader>u", "<Cmd>lua vim.lsp.buf.references()<CR>")
-vim.keymap.set("n", "<Leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>")
+vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<Leader>d", vim.lsp.buf.definition)
+vim.keymap.set("n", "<Leader>u", vim.lsp.buf.references)
+vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
 if not vim.env.SSH_CONNECTION then
-  vim.keymap.set("n", "<Leader>=", "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>")
+  vim.keymap.set("n", "<Leader>=", function() vim.lsp.buf.format({ async = true }) end)
 else
-  vim.keymap.set("n", "<Leader>=", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
+  vim.keymap.set("n", "<Leader>=", vim.lsp.buf.formatting)
 end
-vim.keymap.set("n", "<Leader>ho", "<Cmd>lua vim.lsp.buf.hover()<CR>")
-vim.keymap.set("n", "<Leader>si", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
+vim.keymap.set("n", "<Leader>ho", vim.lsp.buf.hover)
+vim.keymap.set("n", "<Leader>si", vim.lsp.buf.signature_help)
 -- See `:h lsp-diagnostic`
-vim.keymap.set("n", "]d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_next()<CR>")
-vim.keymap.set("n", "[d", "<Cmd>lua require('mrv.plugins.lspconfig').goto_prev()<CR>")
+vim.keymap.set("n", "]d", function() require('mrv.plugins.lspconfig').goto_next() end)
+vim.keymap.set("n", "[d", function() require('mrv.plugins.lspconfig').goto_prev() end)
 
 local opfunc = "__range_format_opfunc"
 vim.keymap.set('x', 'gf', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
