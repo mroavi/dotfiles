@@ -81,7 +81,7 @@ local plugins = {
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
   --{ 'kassio/neoterm' }, -- wrapper of some vim/neovim's :terminal functions
   --{ 'sindrets/diffview.nvim' }, -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
-  --{ "ray-x/lsp_signature.nvim" }, -- lsp signature hint when you type
+  --{ 'ray-x/lsp_signature.nvim', config = function() require('mrv.plugins.lsp_signature') end }, -- LSP signature hint as you type
   --{ "glepnir/lspsaga.nvim" }, -- a light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
   --{ 'terrortylor/nvim-comment', config = function() require('mrv.plugins.nvim-comment') end }, -- a comment toggler for Neovim, written in Lua
   --{ 'chipsenkbeil/distant.nvim', }, -- edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
@@ -99,7 +99,6 @@ local plugins = {
   --{ 'nvim-pack/nvim-spectre' }, -- global find and replace tool
   --{ 'kevinhwang91/nvim-ufo' }, -- not UFO in the sky, but an ultra fold in Neovim
   --{ 'folke/todo-comments.nvim' }, -- highlight, list and search todo comments in your projects
-  --{ 'ray-x/lsp_signature.nvim', config = function() require('mrv.plugins.lsp_signature') end }, -- LSP signature hint as you type
 
   -- Abandoned
   --{ 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end }, -- provides insert mode auto-completion for quotes, parens, brackets, etc.
