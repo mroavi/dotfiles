@@ -95,7 +95,6 @@ local plugins = {
   --{ 'xolox/vim-notes' }, -- easy note taking in Vim
   --{ tpope/vim-vinegar }, -- combine with netrw to create a delicious salad dressing
   --{ 'stevearc/dressing.nvim' }, -- Neovim plugin to improve the default vim.ui interfaces
-  --{ 'stevearc/conform.nvim' }, -- lightweight yet powerful formatter plugin for Neovim
   --{ 'nvim-pack/nvim-spectre' }, -- global find and replace tool
   --{ 'kevinhwang91/nvim-ufo' }, -- not UFO in the sky, but an ultra fold in Neovim
   --{ 'folke/todo-comments.nvim' }, -- highlight, list and search todo comments in your projects
