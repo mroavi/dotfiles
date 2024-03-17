@@ -33,6 +33,13 @@ function M.make()
 end
 vim.keymap.set('n', '<Leader>tm', function() M.make() end, { buffer = true })
 
+-- Make and execute
+function M.execute()
+  vim.cmd.write()
+  vim.cmd[[TomuxSend("make && ./build/apps/program\n")]] -- WARNING: update the path to the executable
+end
+vim.keymap.set('n', '<Leader>e', function() M.execute() end, { buffer = true })
+
 -- Clean
 function M.clean()
   vim.cmd.write()
