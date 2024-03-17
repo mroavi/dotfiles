@@ -44,3 +44,9 @@ ls.add_snippets("lua", {
   ls.parser.parse_snippet("pr", "print($0)"),
   ls.parser.parse_snippet("pp", "vim.print($0)"),
 })
+
+--- c
+
+ls.add_snippets("c", {
+  ls.parser.parse_snippet("pr", "printf(\"$0\\n\");"),
+})
