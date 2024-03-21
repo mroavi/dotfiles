@@ -188,7 +188,7 @@ function M.find_files(opts)
   opts = opts or {}
   builtin.find_files {
     file_sorter = require 'telescope.sorters'.get_fzy_sorter,
-    cwd = opts.cwd,
+    --cwd = opts.cwd,
     entry_maker = my_make_entry.gen_from_file(opts),
   }
 end
