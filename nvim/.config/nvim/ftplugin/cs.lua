@@ -22,6 +22,11 @@ vim.keymap.set('n', '<Leader>pl', function()
   utils.insert_string([[%s.ForEach(]] .. print_fun .. [[);]], 'o')
 end, { buffer = true })
 
+-- Insert print array statement
+vim.keymap.set('n', '<Leader>pa', function()
+  utils.insert_string([[Array.ForEach(%s, ]] .. print_fun .. [[);]], 'o')
+end, { buffer = true })
+
 --------------------------------------------------------------------------------
 --- vim-commentary
 --------------------------------------------------------------------------------
