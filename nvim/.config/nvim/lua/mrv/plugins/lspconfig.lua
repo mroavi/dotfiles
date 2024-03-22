@@ -195,7 +195,7 @@ if not vim.env.SSH_CONNECTION then
   }
 
   --------------------------------------------------------------------------------
-  --- c sharp
+  --- csharp
   --------------------------------------------------------------------------------
 
   -- Dependencies: sudo pacman -S dotnet-sdk dotnet-runtime aspnet-runtime
