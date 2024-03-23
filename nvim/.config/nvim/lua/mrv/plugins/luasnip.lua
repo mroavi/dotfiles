@@ -50,3 +50,9 @@ ls.add_snippets("lua", {
 ls.add_snippets("c", {
   ls.parser.parse_snippet("pr", "printf(\"$0\\n\");"),
 })
+
+--- csharp
+
+ls.add_snippets("cs", {
+  ls.parser.parse_snippet("pr", "Console.WriteLine($0);"),
+})
