@@ -302,11 +302,7 @@ vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<Leader>d", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>u", vim.lsp.buf.references)
 vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
-if not vim.env.SSH_CONNECTION then
-  vim.keymap.set("n", "<Leader>=", function() vim.lsp.buf.format({ async = true }) end)
-else
-  vim.keymap.set("n", "<Leader>=", vim.lsp.buf.formatting)
-end
+vim.keymap.set("n", "<Leader>=", function() vim.lsp.buf.format({ async = true }) end)
 vim.keymap.set("n", "<Leader>ho", vim.lsp.buf.hover)
 vim.keymap.set("n", "<Leader>si", vim.lsp.buf.signature_help)
 -- See `:h lsp-diagnostic`
