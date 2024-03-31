@@ -248,16 +248,15 @@ function M.notes()
   }
 end
 
--- Live grep from the current buffer's git dir if any, otherwise, from the current buffer's dir
+-- Live grep from the current buffer's git dir if any, otherwise, from vim's current working dir
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
 function M.live_grep(opts)
   opts = opts or {}
   local git_repo_path = git_dir(vim.fn.expand("%:p:h"))
+  local cwd = git_repo_path or vim.fn.getcwd()
   local default_opts = {
-    cwd = git_repo_path or utils.buffer_dir(),
-    prompt_title = git_repo_path and
-        "Live Grep from " .. git_repo_path or
-        "Live Grep from " .. vim.fn.expand("%:p:h"),
+    cwd = cwd,
+    prompt_title = "Live Grep from " .. cwd,
   }
   builtin.live_grep(vim.tbl_deep_extend("force", default_opts, opts))
 end
