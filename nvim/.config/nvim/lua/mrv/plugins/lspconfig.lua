@@ -299,7 +299,7 @@ vim.cmd [[
 
 -- See `:h lsp-buf`
 vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action)
-vim.keymap.set("n", "<Leader>d", vim.lsp.buf.definition)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>u", vim.lsp.buf.references)
 vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "<Leader>=", function() vim.lsp.buf.format({ async = true }) end)
