@@ -29,8 +29,8 @@ local print_fun = 'print'
 --local print_fun = 'vim.print'
 vim.keymap.set('n', '<Leader>pr', function() utils.insert_string(print_fun .. [[('%s = ', %s)]], 'o') end, { buffer = true })
 
--- Insert dump statement
-vim.keymap.set('n', '<Leader>du', function() utils.insert_string("dump" .. [[('%s = ', %s)]], 'o') end, { buffer = true })
+---- Insert dump statement
+--vim.keymap.set('n', '<Leader>du', function() utils.insert_string("dump" .. [[('%s = ', %s)]], 'o') end, { buffer = true })
 
 --------------------------------------------------------------------------------
 --- vim-commentary
