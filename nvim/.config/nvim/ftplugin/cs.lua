@@ -71,6 +71,13 @@ function M.build()
 end
 vim.keymap.set('n', '<Leader>tb', function() M.build() end, { buffer = true })
 
+-- Clean
+function M.clean()
+  vim.cmd.write()
+  vim.cmd[[TomuxSend("dotnet clean\n")]]
+end
+vim.keymap.set('n', '<Leader>tc', function() M.clean() end, { buffer = true })
+
 -- Run
 function M.run()
   vim.cmd.write()
