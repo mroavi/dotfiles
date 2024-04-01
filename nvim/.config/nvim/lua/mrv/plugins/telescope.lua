@@ -54,7 +54,9 @@ require("telescope").setup {
       },
     },
     file_ignore_patterns = {
-      ".git/"
+      ".git/",
+      "bin/",
+      "obj/",
     },
   },
   pickers = {
