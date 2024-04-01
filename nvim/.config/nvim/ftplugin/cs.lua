@@ -50,68 +50,61 @@ vim.g.tomux_use_clipboard = 0
 
 -- Split the current window vertically, adding a new pane to the right
 -- The new pane starts in Vim's current working directory
-function M.open_right_of()
-  vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
-  vim.cmd[[TomuxCommand("split-window -h -d -c " . getcwd())]]
-end
-vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
+vim.keymap.set('n', '<Leader>tl', function()
+    vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+    vim.cmd[[TomuxCommand("split-window -h -d -c " . getcwd())]]
+end, { buffer = true })
 
 -- Split the current window horizontally, adding a new pane to the bottom
 -- The new pane starts in Vim's current working directory
-function M.open_bottom_of()
+vim.keymap.set('n', '<Leader>tj', function()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{down-of}" }
   vim.cmd[[TomuxCommand("split-window -v -d -l 20% -c "  . getcwd())]]
-end
-vim.keymap.set('n', '<Leader>tj', function() M.open_bottom_of() end, { buffer = true })
+end, { buffer = true })
 
 -- Build
-function M.build()
+vim.keymap.set('n', '<Leader>tb', function()
   vim.cmd.write()
   vim.cmd[[TomuxSend("dotnet build\n")]]
-end
-vim.keymap.set('n', '<Leader>tb', function() M.build() end, { buffer = true })
+end, { buffer = true })
 
 -- Clean
-function M.clean()
+vim.keymap.set('n', '<Leader>tc', function()
   vim.cmd.write()
   vim.cmd[[TomuxSend("dotnet clean\n")]]
-end
-vim.keymap.set('n', '<Leader>tc', function() M.clean() end, { buffer = true })
+end, { buffer = true })
 
 -- Run
-function M.run()
+vim.keymap.set('n', '<Leader>tr', function()
   vim.cmd.write()
   vim.cmd[[TomuxSend("dotnet run\n")]]
-end
-vim.keymap.set('n', '<Leader>tr', function() M.run() end, { buffer = true })
+end, { buffer = true })
 
 -- Watch
-function M.watch()
+vim.keymap.set('n', '<Leader>tw', function()
   vim.cmd.write()
   vim.cmd[[TomuxSend("dotnet watch\n")]]
-end
-vim.keymap.set('n', '<Leader>tw', function() M.watch() end, { buffer = true })
+end, { buffer = true })
 
 -- Execute buffer
-function M.execute()
+vim.keymap.set('n', '<Leader>e', function()
   vim.cmd.write()
   vim.cmd[[TomuxSend("dotnet run\n")]]
-end
-vim.keymap.set('n', '<Leader>e', function() M.execute() end, { buffer = true })
+end, { buffer = true })
 
 -- Kill pane
-function M.kill_pane()
+vim.keymap.set('n', '<Leader>tk', function()
   vim.cmd[[TomuxCommand("kill-pane -t " . shellescape(b:tomux_config["target_pane"]))]]
-end
-vim.keymap.set('n', '<Leader>tk', function() M.kill_pane() end, { buffer = true })
+end, { buffer = true })
 
 -- Run tests
-function M.run_tests() vim.cmd.write()
+vim.keymap.set('n', '<Leader>tt', function()
   vim.cmd[[TomuxSend("dotnet test\n")]]
-end
-vim.keymap.set('n', '<Leader>tt', function() M.run_tests() end, { buffer = true })
+end, { buffer = true })
 
 -- Clear pane
-vim.keymap.set('n', '<Leader>cl', function() vim.cmd[[TomuxSend("clr\n")]] end, { buffer = true })
+vim.keymap.set('n', '<Leader>cl', function()
+  vim.cmd [[TomuxSend("clr\n")]]
+end, { buffer = true })
 
 return M
