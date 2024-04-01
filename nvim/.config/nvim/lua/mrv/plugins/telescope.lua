@@ -219,7 +219,7 @@ local function git_dir(dir)
 end
 
 -- Defaults to `find_files` if current buffer is not inside a git repo
-function M.my_git_files()
+function M.my_find_files()
   local opts = { cwd = vim.fn.expand("%:p:h") }
   if git_dir(opts.cwd) then
     M.git_files(opts)
@@ -673,7 +673,7 @@ end
 ---------------------------------------------------------------------------------
 
 -- File pickers
-vim.keymap.set("n", "<Leader>o", M.my_git_files)
+vim.keymap.set("n", "<Leader>o", M.my_find_files)
 vim.keymap.set("n", "<Leader>/", M.live_grep)
 vim.keymap.set('x', '<Leader>/', function() M.live_grep({ default_text = require('mrv.utils').get_visual_selection() }) end)
 vim.keymap.set("n", "<Leader>?", function() M.live_grep({ default_text = vim.fn.expand('<cword>') }) end)
