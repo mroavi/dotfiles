@@ -19,7 +19,7 @@ local print_fun = 'Console.WriteLine'
 
 -- Insert print var statement
 vim.keymap.set('n', '<Leader>pr', function()
-  utils.insert_string(print_fun .. [[(\"%s = \" + %s);]], 'o')
+  utils.insert_string(print_fun .. [[(\"%s = \" + %s); // DEBUG]], 'o')
 end, { buffer = true })
 
 -- Insert print list statement
