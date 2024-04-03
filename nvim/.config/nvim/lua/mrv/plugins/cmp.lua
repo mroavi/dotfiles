@@ -93,5 +93,8 @@ cmp.setup {
   },
   experimental = {
     ghost_text = true, -- use virtual text to preview the completion
-  }
+  },
+  performance = {
+    max_view_entries = 20,
+  },
 }
