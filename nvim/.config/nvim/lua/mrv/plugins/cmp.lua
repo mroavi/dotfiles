@@ -89,12 +89,13 @@ cmp.setup {
     --    return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind() -- filter 'Text' entries from nvim_lsp source
     --  end },
     { name = 'luasnip' },
-    { name = "buffer", keyword_length = 2 },
+    --{ name = "buffer", keyword_length = 2 },
   },
   experimental = {
     ghost_text = true, -- use virtual text to preview the completion
   },
-  performance = {
-    max_view_entries = 20,
-  },
+  ---- Limit number of displayed entries
+  --performance = {
+  --  max_view_entries = 20,
+  --},
 }
