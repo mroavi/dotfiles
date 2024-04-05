@@ -1,8 +1,3 @@
--- TODO: ERROR, WARN, NOTE, and TODO syntax highlighting not working
--- See:
---  https://github.com/catppuccin/nvim/pull/645
---  https://www.reddit.com/r/neovim/comments/14ecf5o/semantic_highlights_messing_with_todo_comments/
-
 require("catppuccin").setup({
   flavour = "mocha", -- latte, frappe, macchiato, mocha
   background = { -- :h background

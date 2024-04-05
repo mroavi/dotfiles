@@ -1,3 +1,5 @@
+-- Run :TSInstall comment to enable syntax highlighting for the words ERROR, WARN, NOTE, and TODO
+
 require 'nvim-treesitter.configs'.setup {
 
   -- One of "all" or a list of languages
