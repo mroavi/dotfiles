@@ -106,7 +106,7 @@ mode = "Vi|~Search"
 
 [window]
 decorations = "none"
-opacity = 1.0
+opacity = 0.85
 
 [window.padding]
 x = 8
