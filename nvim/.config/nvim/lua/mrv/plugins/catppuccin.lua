@@ -51,7 +51,7 @@ require("catppuccin").setup({
 -- Setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
 
--- Mocha palette:
+-- Mocha palette: (source: ~/.local/share/nvim/lazy/catppuccin/lua/catppuccin/palettes/mocha.lua)
 -- rosewater #f5e0dc
 -- flamingo  #f2cdcd
 -- pink      #f5c2e7
