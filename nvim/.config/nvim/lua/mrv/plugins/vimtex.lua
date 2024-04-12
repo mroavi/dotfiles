@@ -14,4 +14,5 @@ vim.g.vimtex_quickfix_ignore_filters = {
   "Overfull",
   --"Missing",
   --"Unknown document class",
+  --"LaTeX Font Warning:",
 }
