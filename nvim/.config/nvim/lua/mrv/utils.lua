@@ -87,8 +87,8 @@ function M.insert_string(str, insert_text_cmd)
     -- Yes, then remove \V from the beginning of the string
     search_reg_clean, num_subs = string.gsub(search_reg, "^\\V(.*)", "%1")
   end
-  vim.print(str)
-  vim.print(string.format(str, search_reg_clean, search_reg_clean))
+  --vim.print(str) -- DEBUG
+  --vim.print(string.format(str, search_reg_clean, search_reg_clean)) -- DEBUG
   vim.cmd([[exe "norm! m`]] .. insert_text_cmd .. string.format(str, search_reg_clean, search_reg_clean) .. [[\<Esc>``"]])
 end
 
