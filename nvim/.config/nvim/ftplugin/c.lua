@@ -1,4 +1,18 @@
 local M = {}
+local utils = require('mrv.utils')
+
+---------------------------------------------------------------------------------
+--- Debug utilities
+---------------------------------------------------------------------------------
+
+local print_fun = 'printf'
+
+-- Insert print var statement, go to next `%`, and go to insert mode
+vim.keymap.set('n', '<Leader>pr', function()
+  utils.insert_string(print_fun .. [[(\"%s = %%\\n\", %s); // DEBUG]], 'o')
+  vim.fn.search("%", "W")
+  vim.api.nvim_feedkeys('a', 'n', false)
+end, { buffer = true })
 
 ---------------------------------------------------------------------------------
 --- vim-tomux
