@@ -21,7 +21,7 @@ vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
 vim.g.tomux_use_clipboard = 0
 
 -- Start REPL cmd
-vim.b.start_repl_cmd = 'sqlcmd -C -S localhost -U sa'
+vim.b.start_repl_cmd = 'sqlcmd -C -S localhost -U sa -Y 16'
 
 local M = {}
 
@@ -32,6 +32,13 @@ function M.open_right_of()
   vim.cmd[[TomuxSend(b:start_repl_cmd . "\n")]]
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
+
+-- Execute buffer
+function M.execute_buffer()
+  vim.cmd.write()
+  vim.cmd[[TomuxSend("GO\n")]]
+end
+vim.keymap.set('n', '<Leader>e', function() M.execute_buffer() end, { buffer = true })
 
 -- Clear command line
 function M.clear()
