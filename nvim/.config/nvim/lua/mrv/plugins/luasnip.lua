@@ -48,7 +48,7 @@ ls.add_snippets("lua", {
 --- c
 
 ls.add_snippets("c", {
-  ls.parser.parse_snippet("pr", "printf(\"$0\\n\");"),
+  ls.parser.parse_snippet("pr", "printf(\"$1\\n\"$0);"),
 })
 
 --- csharp
