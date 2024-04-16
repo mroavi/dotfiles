@@ -20,8 +20,10 @@ vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
 
 vim.g.tomux_use_clipboard = 0
 
--- Start REPL cmd
-vim.b.start_repl_cmd = 'sqlcmd -C -S localhost -U sa -Y 16'
+-- Connect to local server
+--vim.b.start_repl_cmd = 'sqlcmd -C -S localhost -U sa -Y 16' -- local server
+-- Connect to Fonty's server (A VPN connection to `vdi.fhict.nl` using Cisco AnyConnect Secure Mobility Client is required)
+vim.b.start_repl_cmd = 'sqlcmd -C -S mssqlstud.fhict.local -d dbi876217 -U dbi876217' -- fontys' server
 
 local M = {}
 
