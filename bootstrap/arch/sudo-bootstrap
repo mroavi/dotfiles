@@ -47,6 +47,7 @@ pac_pkgs=(
           gnome-keyring
           go
           inkscape
+          ipython
           kvantum                 # a Linux SVG-based theme engine for Qt and KDE
           libreoffice-still
           lxappearance            # manage GTK themes
