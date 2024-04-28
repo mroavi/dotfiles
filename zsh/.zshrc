@@ -395,8 +395,8 @@ alias j='fasd_cd -d'
 # Source: https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh
 # Change working dir in shell to last dir in lf on exit (adapted from ranger).
 
-#lfcd () {
-lf () {
+lfcd () {
+#lf () {
   tmp="$(mktemp)"
   # `command` is needed in case `lfcd` is aliased to `lf`
   command lf -last-dir-path="$tmp" "$@"
