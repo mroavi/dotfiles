@@ -56,7 +56,7 @@ vim.g.tomux_use_clipboard = 1
 vim.b.tomux_clipboard_paste = "%paste -q"
 
 -- Start REPL cmd
-vim.b.start_repl_cmd = 'python -m IPython'
+vim.b.start_repl_cmd = 'source ./venv/bin/activate && ipython'
 
 -- Exit REPL cmd
 vim.b.quit_repl_cmd = 'exit()'
