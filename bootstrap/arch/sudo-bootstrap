@@ -42,6 +42,7 @@ pac_pkgs=(
           feh
           flameshot
           fzf
+          fwupd                   # a simple daemon to allow session software to update device firmware on your local machine
           galculator
           gimp
           gnome-keyring
