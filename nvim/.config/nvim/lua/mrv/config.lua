@@ -34,7 +34,7 @@ M.setup = function()
   vim.opt.listchars = { tab = "»\\ ", space = "_", trail = "·", eol = "¬" }
   vim.opt.scrolloff = 5
   vim.opt.completeopt = { 'menuone', 'noselect' }
-  vim.opt.clipboard = 'unnamedplus'
+  vim.opt.clipboard = 'unnamedplus' -- to be replaced with OSC 52 (https://github.com/neovim/neovim/commit/748bc4d22d35b40f0795015e5d93113b526adf22)
   vim.opt.termguicolors = true
   vim.opt.background = 'dark'
   vim.opt.wildignorecase = true
