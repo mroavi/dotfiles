@@ -13,7 +13,7 @@ local opts = {
 
 local plugins = {
 
-  { 'tpope/vim-commentary' }, -- comment stuff out
+  { 'tpope/vim-commentary' }, -- comment stuff out (builtin nvim gc support comming soon: https://github.com/neovim/neovim/pull/28176)
   { 'stevearc/oil.nvim', config = function() require('mrv.plugins.oil') end }, -- neovim file explorer: edit your filesystem like a buffer
   { 'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, dependencies = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } }, -- lf file manager for Neovim (in Lua)
   { 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'natecraddock/telescope-zf-native.nvim' } }, -- find, filter, preview, pick
