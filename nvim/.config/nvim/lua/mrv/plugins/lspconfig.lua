@@ -312,13 +312,13 @@ vim.cmd [[
 -- ==============================================================================
 
 -- See `:h lsp-buf`
-vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set("n", "crr", vim.lsp.buf.code_action) -- default keymap
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.keymap.set("n", "<Leader>u", vim.lsp.buf.references)
-vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
+vim.keymap.set("n", "gr", vim.lsp.buf.references) -- default keymap
+vim.keymap.set("n", "crn", vim.lsp.buf.rename) -- default keymap
 vim.keymap.set("n", "<Leader>=", function() vim.lsp.buf.format({ async = true }) end)
 vim.keymap.set("n", "<Leader>ho", vim.lsp.buf.hover)
-vim.keymap.set("n", "<Leader>si", vim.lsp.buf.signature_help)
+vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help) -- default keymap
 -- See `:h lsp-diagnostic`
 vim.keymap.set("n", "]d", function() require('mrv.plugins.lspconfig').goto_next() end)
 vim.keymap.set("n", "[d", function() require('mrv.plugins.lspconfig').goto_prev() end)
