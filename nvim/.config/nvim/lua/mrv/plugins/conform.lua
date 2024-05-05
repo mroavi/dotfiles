@@ -1,6 +1,7 @@
 local conform = require("conform")
 
 conform.setup({
+  -- I use Mason to install these formatters
   formatters_by_ft = {
     python = { "black" },
     tex = { "latexindent" },
@@ -13,3 +14,5 @@ conform.setup({
     }
   }
 })
+
+-- No key mapping needed: use `gq` operator to format
