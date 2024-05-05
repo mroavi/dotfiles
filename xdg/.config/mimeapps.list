@@ -1,8 +1,11 @@
+[Added Associations]
+text/html=brave.desktop;
+
 [Default Applications]
-inode/directory=thunar.desktop
 application/pdf=okularApplication_pdf.desktop
-image/gif=viewnior.desktop;gimp.desktop
 image/gif=viewnior.desktop;gimp.desktop
 image/jpeg=viewnior.desktop;gimp.desktop
 image/png=viewnior.desktop;gimp.desktop
 image/svg+xml=brave-browser.desktop
+inode/directory=thunar.desktop
+text/html=brave.desktop;
