@@ -69,7 +69,7 @@ local plugins = {
   --{ 'kassio/neoterm' }, -- wrapper of some vim/neovim's :terminal functions
   --{ 'sindrets/diffview.nvim' }, -- single tabpage interface for easily cycling through diffs for all modified files for any git rev
   --{ 'ray-x/lsp_signature.nvim', config = function() require('mrv.plugins.lsp_signature') end }, -- LSP signature hint as you type
-  --{ 'glepnir/lspsaga.nvim' }, -- a light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
+  --{ 'glepnir/lspsaga.nvim', config = function() require('mrv.plugins.lspsaga') end, dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' } }, -- a light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
   --{ 'terrortylor/nvim-comment', config = function() require('mrv.plugins.nvim-comment') end }, -- a comment toggler for Neovim, written in Lua
   --{ 'chipsenkbeil/distant.nvim', }, -- edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
   --{ 'rcarriga/nvim-notify', }, -- a fancy, configurable, notification manager for NeoVim
