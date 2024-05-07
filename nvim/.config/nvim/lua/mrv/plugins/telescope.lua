@@ -57,6 +57,8 @@ require("telescope").setup {
       ".git/",
       "bin/",
       "obj/",
+      "venv/",
+      "__pycache__/",
     },
   },
   pickers = {
