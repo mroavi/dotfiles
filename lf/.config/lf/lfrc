@@ -20,7 +20,8 @@ set ifs "\n"
 # Options
 # -----------------------------------------------------------------------------
 
-set previewer '~/dotfiles/lf/.config/lf/pv.sh'
+set previewer pistol
+# set previewer '~/dotfiles/lf/.config/lf/pv.sh'
 set preview
 set drawbox
 set icons
