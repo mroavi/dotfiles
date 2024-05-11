@@ -152,6 +152,7 @@ fi
 
 # -----------------------------------------------------------------------------------------
 echo "Installing diff-so-fancy..."
+# TODO: replace with delta
 
 FILE=$HOME/.local/bin/diff-so-fancy
 if [ -f "$FILE" ]; then
@@ -166,6 +167,7 @@ fi
 
 # -----------------------------------------------------------------------------------------
 echo "Installing z..."
+# TODO: replace with zoxide
 
 LOCAL_REPO=~/Downloads/z
 REPO_URL=https://github.com/rupa/z.git
