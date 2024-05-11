@@ -35,9 +35,7 @@ apt_pkgs=(
           zsh-syntax-highlighting
           ripgrep
           fzf
-          fasd
           #delta
-          #z
           #fd
           #feh
           #xbindkeys
@@ -62,6 +60,7 @@ apt_pkgs=(
           #noto-fonts-cjk
           #noto-fonts-emoji
           #noto-fonts-extra
+          zoxide
          )
 
 sudo apt install ${apt_pkgs[@]}

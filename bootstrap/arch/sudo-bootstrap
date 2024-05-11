@@ -37,7 +37,6 @@ pac_pkgs=(
           dotnet-runtime
           dotnet-sdk
           dunst                   # lightweight and customizable notification daemon
-          fasd
           fd
           feh
           flameshot
@@ -94,11 +93,11 @@ pac_pkgs=(
           xclip
           xf86-input-libinput     # configure touchpad
           xournalpp               # handwritten notes
-          z
           zip
           zsh
           zsh-autosuggestions
           zsh-syntax-highlighting
+          zoxide
          )
 
 yay_pkgs=(

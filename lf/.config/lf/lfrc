@@ -71,15 +71,15 @@ cmd mkdir %{{
 
 cmd touch %touch "$1"
 
-# fasd integration
-cmd fasd ${{
-    res="$(fasd -dl | grep -iv cache | fzf 2>/dev/tty | sed 's/\\/\\\\/g;s/"/\\"/g')"
-    if [ -d "$res" ]; then
-      cmd="cd"
-    else
-      cmd="select"
-    fi
-    lf -remote "send $id $cmd \"$res\""
+# zoxide integration
+cmd z %{{
+  result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
+  lf -remote "send $id cd \"$result\""
+}}
+
+cmd zi ${{
+  result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+  lf -remote "send $id cd \"$result\""
 }}
 
 # Open with $EDITOR or xdg-open based on type of file
@@ -162,6 +162,6 @@ map .             set hidden!
 map ~             cd ~
 map <enter>       open
 map o             myopen
-map z             fasd
+map z             zi
 map <backspace2> :clear; unselect
 map e             extract

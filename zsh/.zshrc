@@ -223,22 +223,6 @@ extract () {
 }
 
 # =============================================================================
-## z
-# =============================================================================
-
-# Important: make sure that sourcing z.sh is placed after the fasd config where z is unaliased
-z_local_path="$HOME/Downloads/z/z.sh"
-z_system_path="/usr/share/z/z.sh"
-
-if [ -f "$z_local_path" ]; then
-  source "$z_local_path"
-elif [ -f "$z_system_path" ]; then
-  source "$z_system_path"
-else
-  echo "z not found to source"
-fi
-
-# =============================================================================
 ## FZF
 # =============================================================================
 
@@ -272,6 +256,23 @@ export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-wind
 
 # Add preview to Alt-C
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
+# -----------------------------------------------------------------------------
+## Configure theme
+# -----------------------------------------------------------------------------
+
+fg="#cdd6f4"
+bg="#1e1e2e"
+bg_highlight="#313244"
+purple="#b4befe"
+blue="#89b4fa"
+cyan="#89dceb"
+
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --color=fg:${fg},bg:${bg},hl:${purple},\
+fg+:${fg},bg+:${bg_highlight},hl+:${purple},\
+info:${blue},prompt:${cyan},pointer:${cyan},\
+marker:${cyan},spinner:${cyan},header:${cyan}"
 
 # -----------------------------------------------------------------------------
 ## Integrate with fasd
@@ -371,23 +372,14 @@ compdef _ssh color-ssh=ssh
 alias ssh=color-ssh
 
 # =============================================================================
-## fasd
+## zoxide
 # =============================================================================
 
-# Database file located at ~/.cache/fasd
+# Database file located at ~/.local/share/zoxide/db.zo
 
-eval "$(fasd --init auto)"
+eval "$(zoxide init zsh)"
 
-unalias a
-unalias s
-unalias d
-unalias f
-unalias sd
-unalias sf
-unalias z
-unalias zz
-
-alias j='fasd_cd -d' 
+alias cd="z" 
 
 # =============================================================================
 ## lf
