@@ -36,7 +36,7 @@ apt_pkgs=(
           ripgrep
           fzf
           fasd
-          #diff-so-fancy
+          #delta
           #z
           #fd
           #feh

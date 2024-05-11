@@ -3,15 +3,19 @@
 [user]
   email = mroavi@gmail.com
   name = Martin Roa Villescas
+
 [core]
   editor = nvim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
+
 [format]
   ; https://stackoverflow.com/a/9463536/1706778
   #pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
+
 [log]
   ; date = relative
   ; date = short
+
 [alias]
   ; https://stackoverflow.com/a/9074343/1706778
   lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) %C(blue)%as%C(reset) %C(normal)%s%C(reset) %C(green)- %an%C(reset)%C(red)%d%C(reset)' --all
@@ -19,15 +23,30 @@
   lg3 = log --stat
   lg4 = log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) %C(blue)%>(14)%ar%C(reset) %C(normal)%s%C(reset) %C(green)- %an%C(reset)%C(red)%d%C(reset)' --all
   lg = !"git lg1"
+
 [pull]
   ff = only
 
 [interactive]
-	diffFilter = diff-so-fancy --patch
+  diffFilter = delta --color-only
+
 [init]
-	defaultBranch = main
+  defaultBranch = main
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  # delta detects terminal colors automatically; set one of these to disable auto-detection
+  # dark = true
+  # light = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default

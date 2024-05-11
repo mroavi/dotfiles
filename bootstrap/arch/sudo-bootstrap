@@ -32,7 +32,7 @@ pac_pkgs=(
           bluez
           bluez-utils
           bottom                  # a graphical process/system monitor for the terminal
-          diff-so-fancy
+          delta
           dmenu
           dotnet-runtime
           dotnet-sdk
