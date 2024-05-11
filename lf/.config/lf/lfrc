@@ -165,3 +165,6 @@ map o             myopen
 map z             zi
 map <backspace2> :clear; unselect
 map e             extract
+# Warning: the following two mappings only work when lf is started directly from the terminal
+map <c-o>         jump-prev
+map <tab>         jump-next # <c-i>
