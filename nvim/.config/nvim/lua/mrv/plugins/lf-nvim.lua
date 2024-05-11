@@ -14,8 +14,8 @@ require("lf").setup({
   },
   winblend = 0, -- psuedotransparency level
   border = "rounded", -- border kind: single double shadow curved
-  height = fn.float2nr(fn.round(0.90 * o.lines)), -- height of the *floating* window
-  width = fn.float2nr(fn.round(0.90 * o.columns)), -- width of the *floating* window
+  height = fn.float2nr(fn.round(0.94 * o.lines)), -- height of the *floating* window
+  width = fn.float2nr(fn.round(1.00 * o.columns)), -- width of the *floating* window
   escape_quit = false, -- map escape to the quit command (so it doesn't go into a meta normal mode)
   highlights = { -- highlights passed to toggleterm
     Normal = { link = 'Normal' },
