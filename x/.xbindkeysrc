@@ -82,7 +82,7 @@
 # or
 #   > xbindkeys --multikey
 
-# Focus on the window that opened and pres the keys you want the output for
+# Focus on the window that opened and press the keys you want the output for
 # source: https://www.linux.com/news/start-programs-pro-xbindkeys/
 
 # ------------------------------------------------------------------
@@ -104,8 +104,11 @@
 # Launch screen capture gui
 # https://github.com/flameshot-org/flameshot/issues/2496#issuecomment-1144308628
 "flameshot gui --raw | xclip -sel clip -t image/png"
-  m:0x0 + c:107
   Print
+
+# Take screenshot of current screen (note: update the index of the monitor)
+"flameshot screen -n 0 -c"
+  Shift + Print
 
 # Increase volume using the keyboard volume keys
 "pactl -- set-sink-volume 0 +3% && pkill -RTMIN+10 dwmblocks"
