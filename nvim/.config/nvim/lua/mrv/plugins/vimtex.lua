@@ -12,6 +12,7 @@ vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
 vim.g.vimtex_quickfix_ignore_filters = {
   "Underfull",
   "Overfull",
+  "\\vspace should",
   --"Missing",
   --"Unknown document class",
   --"LaTeX Font Warning:",
