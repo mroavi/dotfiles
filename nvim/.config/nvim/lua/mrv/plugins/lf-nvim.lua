@@ -27,4 +27,4 @@ require("lf").setup({
   },
 })
 
-vim.keymap.set("n", "<Leader>-", ":Lf<CR>")
+vim.keymap.set("n", "<Leader>fm", ":Lf<CR>")
