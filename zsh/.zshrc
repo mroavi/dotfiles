@@ -385,7 +385,6 @@ alias ll='ls -lh'
 alias vpn-tue="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias vpn-fontys="/opt/cisco/anyconnect/bin/vpnui"
 alias pac="sudo pacman"
-#alias bye="systemctl poweroff"
 alias sz="du -h --max-depth=1 ."
 alias temperature="curl wttr.in/Eindhoven"
 
@@ -396,6 +395,8 @@ alias bt="bluetoothctl"
 alias disp="arandr"
 alias appearance="lxappearance"
 alias wifiscan="nmcli dev wifi list"
+alias venv="python -m venv venv && source ./venv/bin/activate"
+alias venvr="python -m venv venv && source ./venv/bin/activate && pip install -r requirements.txt"
 
 # Dir bookmarks
 alias d="cd ~/dotfiles"
