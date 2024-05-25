@@ -85,6 +85,7 @@ pac_pkgs=(
           texlive-xetex
           thunar
           tree
+          luarocks
           unrar
           unzip
           viewnior                # fast and elegant image viewer
