@@ -9,6 +9,7 @@ export LANG="en_US.UTF-8"
 export LUA_INIT="@${HOME}/.config/lua/startup.lua"
 # export ARCHFLAGS="-arch x86_64"
 export BAT_THEME="Catppuccin Mocha"
+export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 if [ "$SSH_CONNECTION" ]; then
   export DISPLAY=:0
