@@ -97,10 +97,6 @@
 "brave"
   Mod4 + b
 
-# Launch win10 virtual machine
-"virsh start win10 && remote-viewer -f -H release-cursor=ctrl+alt spice://127.0.0.1:5900"
-  Mod4 + w
-
 # Launch pavucontrol
 "pavucontrol"
   Mod4+shift + p
