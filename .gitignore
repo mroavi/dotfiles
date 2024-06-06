@@ -1,6 +1,8 @@
 vifm/.config/vifm/vifminfo
 vifm/.config/vifm/colors
 vifm/.config/vifm/scripts
+vim/.vim/autoload/
+vim/.vim/plugged/
 nvim/.config/nvim/plugin
 *.spl
 *.sug
