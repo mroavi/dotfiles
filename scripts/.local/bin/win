@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Source user's profile to ensure all environmental variables are correctly set
+source ~/.zshrc
+
+# Launch win10 virtual machine
+virsh start win10 && remote-viewer -H release-cursor=ctrl+alt,toggle-fullscreen=f11 spice://127.0.0.1:5900
+
+## DEBUG
+#virsh start win10 2>~/vm-error.log && remote-viewer -f -H release-cursor=ctrl+alt spice://127.0.0.1:5900 2>>~/vm-error.log
