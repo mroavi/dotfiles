@@ -16,6 +16,7 @@ require 'nvim-treesitter.configs'.setup {
     "c_sharp",
     "arduino",
     "javascript",
+    "json",
   },
 
   -- Install languages synchronously (only applied to `ensure_installed`)

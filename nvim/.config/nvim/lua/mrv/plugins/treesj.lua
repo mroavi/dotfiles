@@ -1,12 +1,13 @@
 require'treesj'.setup {
   use_default_keymaps = false,
+  max_join_length = 999,
 }
 
 -- Fallback to splitjoin.vim on unsupported languages
 -- https://github.com/Wansmer/treesj/discussions/19
 
 -- Sets mini.splitjoin as default for all files
-require('mini.splitjoin').setup()
+require('mini.splitjoin').setup() -- to run manually, use :lua MiniSplitjoin.toggle()
 
 local langs = require'treesj.langs'['presets']
 
