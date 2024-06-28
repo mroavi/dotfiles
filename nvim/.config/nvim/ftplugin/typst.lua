@@ -1,7 +1,9 @@
 local vim = vim
-local utils = require 'mrv.utils'
 
 local M = {}
+
+vim.opt_local.spell = true
+vim.opt_local.spelllang = "en_us"
 
 -- Open PDF preview
 vim.keymap.set(
@@ -10,6 +12,35 @@ vim.keymap.set(
   "<Cmd>AsyncRun -silent xdg-open ./main.pdf<CR>",
   { buffer = true }
 )
+
+-- General mappings for navigating wrapped lines
+vim.keymap.set('', 'k', 'gk', { silent = true, noremap = true, buffer = true })
+vim.keymap.set('', 'j', 'gj', { silent = true, noremap = true, buffer = true })
+
+-- Normal mode mappings for 'k' and 'j' to behave differently when no count is provided
+-- https://stackoverflow.com/a/21000307/1706778
+vim.keymap.set('n', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end, {expr = true, noremap = true, buffer = true })
+vim.keymap.set('n', 'j', function() return vim.v.count == 0 and 'gj' or 'j' end, {expr = true, noremap = true, buffer = true })
+
+vim.keymap.set('', '0', 'g0', { silent = true, noremap = true, buffer = true })
+vim.keymap.set('', '$', 'g$', { silent = true, noremap = true, buffer = true })
+
+vim.keymap.set('n', 'V', 'g0vg$', { noremap = true, buffer = true })
+vim.keymap.set('n', 'D', 'dg$', { noremap = true, buffer = true })
+vim.keymap.set('n', 'dd', 'g0vg$d', { noremap = false, buffer = true })
+vim.keymap.set('n', 'Y', 'yg$', { noremap = true, buffer = true })
+vim.keymap.set('n', 'yy', 'g0vg$y', { noremap = false, buffer = true })
+vim.keymap.set('n', 'o', 'g$a<Cr><Cr><Up>', { noremap = false, buffer = true })
+vim.keymap.set('n', 'O', 'gkg$a<Cr><Cr><Up>', { noremap = false, buffer = true })
+vim.keymap.set('n', 'A', 'g$a', { noremap = false, buffer = true })
+vim.keymap.set('n', 'I', 'g0i', { noremap = false, buffer = true })
+
+------ Disable automatic text formatting
+--vim.opt_local.formatoptions:remove("t")
+--vim.opt_local.formatoptions:remove("c")
+
+---- Set the column to wrap text at, e.g., 80
+--vim.opt_local.columns = 80
 
 ------------------------------------------------------------------------------
 -- vim-tomux
@@ -28,6 +59,7 @@ function M.open_right_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
   vim.cmd[[TomuxCommand("split-window -h -d -c " . expand("%:p:h"))]]
   vim.cmd[[TomuxSend(b:start_typst . "\n")]]
+  vim.cmd[[AsyncRun -silent xdg-open ./main.pdf]]
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
 
@@ -36,6 +68,7 @@ function M.open_down_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{down-of}" }
   vim.cmd[[TomuxCommand("split-window -v -d -l 10% -c " . expand("%:p:h"))]]
   vim.cmd[[TomuxSend(b:start_typst . "\n")]]
+  vim.cmd[[AsyncRun -silent xdg-open ./main.pdf]]
 end
 vim.keymap.set('n', '<Leader>tj', function() M.open_down_of() end, { buffer = true })
 
