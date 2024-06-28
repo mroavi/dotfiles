@@ -87,6 +87,7 @@ local plugins = {
   --{ 'lukas-reineke/headlines.nvim' }, -- adds horizontal highlights for text filetypes, like markdown, orgmode, and neorg
   --{ 'nvim-pack/nvim-spectre', config = function() require('mrv.plugins.spectre') end }, -- global find and replace tool
   --{ 'homerours/jumper.nvim' }, -- a Neovim plugin for jumping to files and folders.
+  --{ 'OXY2DEV/markview.nvim' }, -- Experimental markdown preview for neovim
 
   -- Abandoned
   --{ 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end }, -- provides insert mode auto-completion for quotes, parens, brackets, etc.
