@@ -106,13 +106,17 @@
 "flameshot gui --raw | xclip -sel clip -t image/png"
   Print
 
+# Take screenshot of activewindow
+"flameshot-region activewindow"
+  Alt + Print
+
 # Take screenshot of current screen (note: update the index of the monitor)
 "flameshot screen -n 0 -c"
   Shift + Print
 
 # Increase volume using the keyboard volume keys
 "pactl -- set-sink-volume 0 +3% && pkill -RTMIN+10 dwmblocks"
-Mod4 + equal
+  Mod4 + equal
 
 # Decrease volume using the keyboard volume keys
 "pactl -- set-sink-volume 0 -3% && pkill -RTMIN+10 dwmblocks"
