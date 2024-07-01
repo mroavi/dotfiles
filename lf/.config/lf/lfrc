@@ -162,6 +162,7 @@ map .             set hidden!
 map ~             cd ~
 map <enter>       open
 map o             myopen
+map gx            myopen
 map z             zi
 map <backspace2> :clear; unselect
 map e             extract
