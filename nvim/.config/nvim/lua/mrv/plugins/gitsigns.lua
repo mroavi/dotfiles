@@ -1,5 +1,5 @@
 require('gitsigns').setup {
-  signs_staged_enable = false, -- mrv: I noticed issues with this new feature
+  signs_staged_enable = true,
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
