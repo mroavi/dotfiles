@@ -40,6 +40,7 @@ local plugins = {
   { 'junegunn/gv.vim', cmd = 'GV', init = function() require('mrv.plugins.gv') end }, -- a git commit browser in Vim
   { 'Wansmer/treesj', config = function() require('mrv.plugins.treesj') end, dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.splitjoin' } }, -- Neovim plugin for splitting/joining blocks of code
   { 'stevearc/conform.nvim', config = function() require('mrv.plugins.conform') end }, -- lightweight yet powerful formatter plugin for Neovim
+  { 'kaarmu/typst.vim' }, -- Vim plugin for Typst
 
   -- {{{1
 
@@ -62,7 +63,6 @@ local plugins = {
   --{ 'lukas-reineke/indent-blankline.nvim', config = function() require('mrv.plugins.indent-blankline') end }, -- indent guides for Neovim
   --{ 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end }, -- displays a popup with possible keybindings of the command you started typing
   --{ 'mroavi/slides.vim', dev = true, config = function() require('mrv.plugins.slides') end, dependencies = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } }, -- presentation slides in vim
-  --{ 'kaarmu/typst.vim' }, -- Vim plugin for Typst
 
   -- Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
