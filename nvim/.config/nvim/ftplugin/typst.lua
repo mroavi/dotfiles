@@ -17,11 +17,6 @@ vim.keymap.set(
 vim.keymap.set('', 'k', 'gk', { silent = true, noremap = true, buffer = true })
 vim.keymap.set('', 'j', 'gj', { silent = true, noremap = true, buffer = true })
 
--- Normal mode mappings for 'k' and 'j' to behave differently when no count is provided
--- https://stackoverflow.com/a/21000307/1706778
-vim.keymap.set('n', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end, {expr = true, noremap = true, buffer = true })
-vim.keymap.set('n', 'j', function() return vim.v.count == 0 and 'gj' or 'j' end, {expr = true, noremap = true, buffer = true })
-
 vim.keymap.set('', '0', 'g0', { silent = true, noremap = true, buffer = true })
 vim.keymap.set('', '$', 'g$', { silent = true, noremap = true, buffer = true })
 
