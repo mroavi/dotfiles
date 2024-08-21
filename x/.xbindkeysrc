@@ -97,10 +97,6 @@
 "brave"
   Mod4 + b
 
-# Launch pavucontrol
-"pavucontrol"
-  Mod4+shift + p
-
 # Launch screen capture gui
 # https://github.com/flameshot-org/flameshot/issues/2496#issuecomment-1144308628
 "flameshot gui --raw | xclip -sel clip -t image/png"
