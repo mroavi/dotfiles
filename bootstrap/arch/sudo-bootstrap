@@ -16,7 +16,7 @@ if [ -f "$FILE" ]; then
   echo " yay is already installed"
 else
   echo "Installing yay..."
-  sudo pacman -S --needed git base-devel
+  sudo pacman -S --noconfirm --needed git base-devel
   LOCAL_REPO=$HOME/repos/yay
   REPO_URL=https://aur.archlinux.org/yay.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
@@ -120,8 +120,8 @@ yay_pkgs=(
           onedrive-abraunegg      # setup instructions: https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md
          )
 
-sudo pacman   -S --needed ${pac_pkgs[@]}
-yay           -S --needed ${yay_pkgs[@]}
+sudo pacman   -S --noconfirm --needed ${pac_pkgs[@]}
+yay           -S --noconfirm --needed ${yay_pkgs[@]}
 
 # dwm
 FILE=/usr/local/bin/dwm
@@ -129,7 +129,7 @@ if [ -f "$FILE" ]; then
   echo " dwm is already installed"
 else
   echo "Installing dwm..."
-  sudo pacman -S --needed xorg xorg-server xorg-xinit libx11 libxinerama libxft webkit2gtk
+  sudo pacman -S --noconfirm --needed xorg xorg-server xorg-xinit libx11 libxinerama libxft webkit2gtk
   LOCAL_REPO=$HOME/repos/dwm
   REPO_URL=https://github.com/mroavi/dwm.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
