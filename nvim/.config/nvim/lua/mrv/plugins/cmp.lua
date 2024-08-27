@@ -94,8 +94,11 @@ cmp.setup {
   experimental = {
     ghost_text = true, -- use virtual text to preview the completion
   },
-  ---- Limit number of displayed entries
-  --performance = {
-  --  max_view_entries = 20,
-  --},
+  performance = {
+    -- Limit number of displayed entries
+    --max_view_entries = 20,
+    -- See: https://www.reddit.com/r/neovim/comments/1f1rxtx/share_a_tip_to_improve_your_experience_in_nvimcmp/
+    debounce = 0, -- default is 60ms
+    throttle = 0, -- default is 30ms
+  },
 }
