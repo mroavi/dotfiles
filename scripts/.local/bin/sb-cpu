@@ -6,4 +6,6 @@ sleep 0.5
 read cpu a b c idle rest < /proc/stat
 total=$((a+b+c+idle))
 cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
-echo "  $cpu% "
+# mrv: prepend '|  ' because this is the first element of the right-aligned
+# section of the status bar.
+echo "|   $cpu% "
