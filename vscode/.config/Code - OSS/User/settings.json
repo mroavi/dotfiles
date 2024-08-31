@@ -13,10 +13,18 @@
         },
         {
             "before": [
-                "C-j"
+                "C-w"
             ],
             "commands": [
-                "workbench.action.terminal.toggleTerminal"
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "<C-b>", "j"
+            ],
+            "commands": [
+                "workbench.action.terminal.focus"
             ]
         },
         {
