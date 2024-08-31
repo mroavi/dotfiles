@@ -1,5 +1,9 @@
 {
+    // IDE
     "workbench.colorTheme": "Catppuccin Mocha",
+    // terminal
+    "terminal.integrated.cursorStyle": "line",
+    // vim
     "vim.leader": "<Space>",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
