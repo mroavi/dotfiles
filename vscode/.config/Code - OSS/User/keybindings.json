@@ -2,12 +2,12 @@
 [
     {
         "key": "ctrl+enter",
-        "command": "python.execInTerminal-icon"
-    },
-    {
-        "key": "ctrl+enter",
         "command": "python.execInTerminal"
     },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen"
+    }
     // Terminal
     {
     "key": "ctrl+b j",
