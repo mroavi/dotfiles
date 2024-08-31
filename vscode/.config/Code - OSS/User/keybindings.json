@@ -7,7 +7,7 @@
     {
         "key": "ctrl+p",
         "command": "workbench.action.quickOpen"
-    }
+    },
     // Terminal
     {
     "key": "ctrl+b j",
