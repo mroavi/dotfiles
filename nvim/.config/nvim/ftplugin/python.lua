@@ -55,10 +55,10 @@ vim.g.tomux_use_clipboard = 1
 -- IPython's "paste" function
 vim.b.tomux_clipboard_paste = "%paste -q"
 
--- Start REPL cmd
-vim.b.start_repl_cmd = 'source ./venv/bin/activate && ipython'
+-- Start interpreter cmd
+vim.b.start_interpreter_cmd = 'ipython'
 
--- Exit REPL cmd
+-- Exit interpreter cmd
 vim.b.quit_repl_cmd = 'exit()'
 
 local M = {}
@@ -67,7 +67,7 @@ local M = {}
 function M.open_right_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
   vim.cmd[[TomuxCommand("split-window -h -d -c " . expand("%:p:h"))]]
-  vim.cmd[[TomuxSend(b:start_repl_cmd . "\n")]]
+  vim.cmd[[TomuxSend(b:start_interpreter_cmd . "\n")]]
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
 
@@ -75,7 +75,7 @@ vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = t
 function M.open_down_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{down-of}" }
   vim.cmd[[TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))]]
-  vim.cmd[[TomuxSend(b:start_repl_cmd . "\n")]]
+  vim.cmd[[TomuxSend(b:start_interpreter_cmd . "\n")]]
 end
 vim.keymap.set('n', '<Leader>tj', function() M.open_down_of() end, { buffer = true })
 
@@ -92,7 +92,7 @@ function M.restart()
   vim.cmd[[TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")]]
   vim.cmd[[TomuxSend(b:quit_repl_cmd . "\n")]]
   vim.cmd[[sl 50m]]
-  vim.cmd[[TomuxSend(b:start_repl_cmd . "\n")]]
+  vim.cmd[[TomuxSend(b:start_interpreter_cmd . "\n")]]
 end
 vim.keymap.set('n', '<Leader>tr', function() M.restart() end, { buffer = true })
 
