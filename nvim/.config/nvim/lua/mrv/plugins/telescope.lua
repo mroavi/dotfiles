@@ -235,7 +235,7 @@ end
 function M.dotfiles()
   local opts = { cwd = "~/dotfiles" }
   builtin.find_files {
-    find_command = { 'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git', },
+    find_command = { 'fd', '--type', 'file', '--hidden', '--no-ignore', '--exclude', '.git', '--exclude', '.vim' },
     prompt_title = "Dotfiles",
     cwd = opts.cwd,
     entry_maker = my_make_entry.gen_from_file(opts),
