@@ -112,7 +112,7 @@ vim.keymap.set('n', '<Leader>tk', function() M.kill_pane() end, { buffer = true 
 -- Run tests
 function M.run_tests()
   vim.cmd.write()
-  vim.cmd[[TomuxSend("!pytest -o markers=task\n")]]
+  vim.cmd[[TomuxSend("pytest -o markers=task\n")]]
 end
 vim.keymap.set('n', '<Leader>tt', function() M.run_tests() end, { buffer = true })
 
