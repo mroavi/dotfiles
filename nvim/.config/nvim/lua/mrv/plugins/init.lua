@@ -9,6 +9,7 @@ vim.opt.rtp:prepend(lazypath)
 local opts = {
   ui = { border = 'single' },
   dev = { path = "~/repos" },
+  rocks = { enabled = false }, -- TEMP: solves lazy/telescope-zf-native.nvim issue. See: https://github.com/natecraddock/telescope-zf-native.nvim/issues/21
 }
 
 local plugins = {
