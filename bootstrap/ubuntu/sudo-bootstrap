@@ -12,6 +12,7 @@ mkdir -p ~/repos
 
 apt_pkgs_base=(
           wget
+          curl
           zip
           unzip
           tar
