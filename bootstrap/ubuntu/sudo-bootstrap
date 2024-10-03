@@ -11,7 +11,6 @@ mkdir -p ~/Downloads
 mkdir -p ~/repos
 
 apt_pkgs_base=(
-          rofi
           dotnet-runtime-8.0
           dotnet-sdk-8.0
           build-essential
