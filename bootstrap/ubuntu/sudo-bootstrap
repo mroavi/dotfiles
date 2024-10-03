@@ -42,8 +42,6 @@ apt_pkgs_extra=(
           inkscape
           #gimp
           #pavucontrol
-          #delta
-          #fd
           #feh
           #xbindkeys
           #flameshot
