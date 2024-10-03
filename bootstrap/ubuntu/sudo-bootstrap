@@ -55,7 +55,7 @@ apt_pkgs=(
           #bottom
           #arandr
           #pkgfile                 # find packages that hold a file (even if the package is not installed)
-          texlive-full
+          #texlive-full            # NOTE: temporarily disabled due to high disk space usage
           #noto-fonts
           #noto-fonts-cjk
           #noto-fonts-emoji
