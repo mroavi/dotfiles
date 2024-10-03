@@ -10,31 +10,38 @@ mkdir -p ~/.local
 mkdir -p ~/Downloads
 mkdir -p ~/repos
 
-apt_pkgs=(
+apt_pkgs_base=(
           wget
           zip
           unzip
           tar
-          #openssh
           xclip
           stow
           #alacritty
           python3
           python3-venv
-          npm
-          golang-go
           #neovim
-          #dmenu
-          thunar
-          #viewnior
-          inkscape
-          #gimp
-          #pavucontrol
           zsh
           zsh-autosuggestions
           zsh-syntax-highlighting
           ripgrep
           fzf
+          #delta
+          #fd
+          zoxide
+         )
+
+
+apt_pkgs_extra=(
+          #openssh
+          npm
+          golang-go
+          #dmenu
+          #thunar
+          #viewnior
+          inkscape
+          #gimp
+          #pavucontrol
           #delta
           #fd
           #feh
@@ -63,7 +70,8 @@ apt_pkgs=(
           zoxide
          )
 
-sudo apt install ${apt_pkgs[@]}
+sudo apt install ${apt_pkgs_base[@]}
+#sudo apt install ${apt_pkgs_extra[@]}
 
 # pure
 echo "Installing pure..."
