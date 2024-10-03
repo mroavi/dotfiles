@@ -31,24 +31,34 @@ SAVEHIST=50000
 ## Plugins
 # =============================================================================
 
+# zsh-autosuggestions paths
 zsh_autosuggestions_local_path="$HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 zsh_autosuggestions_system_path="/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+zsh_autosuggestions_ubuntu_path="/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
+# Check for zsh-autosuggestions and source the appropriate file
 if [ -f "$zsh_autosuggestions_local_path" ]; then
   source "$zsh_autosuggestions_local_path"
 elif [ -f "$zsh_autosuggestions_system_path" ]; then
   source "$zsh_autosuggestions_system_path"
+elif [ -f "$zsh_autosuggestions_ubuntu_path" ]; then
+  source "$zsh_autosuggestions_ubuntu_path"
 else
   echo "zsh_autosuggestions not found to source"
 fi
 
+# zsh-syntax-highlighting paths
 zsh_syntax_highlighting_local_path="$HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 zsh_syntax_highlighting_system_path="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+zsh_syntax_highlighting_ubuntu_path="/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+# Check for zsh-syntax-highlighting and source the appropriate file
 if [ -f "$zsh_syntax_highlighting_local_path" ]; then
   source "$zsh_syntax_highlighting_local_path"
 elif [ -f "$zsh_syntax_highlighting_system_path" ]; then
   source "$zsh_syntax_highlighting_system_path"
+elif [ -f "$zsh_syntax_highlighting_ubuntu_path" ]; then
+  source "$zsh_syntax_highlighting_ubuntu_path"
 else
   echo "zsh_syntax_highlighting not found to source"
 fi
