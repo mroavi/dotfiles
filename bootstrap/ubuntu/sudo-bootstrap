@@ -17,17 +17,17 @@ apt_pkgs_base=(
           tar
           xclip
           stow
-          #alacritty
+          alacritty
           python3
           python3-venv
-          #neovim
+          neovim
           zsh
           zsh-autosuggestions
           zsh-syntax-highlighting
           ripgrep
           fzf
           #delta
-          #fd
+          fd-find
           zoxide
          )
 
@@ -67,7 +67,6 @@ apt_pkgs_extra=(
           #noto-fonts-cjk
           #noto-fonts-emoji
           #noto-fonts-extra
-          zoxide
          )
 
 sudo apt install ${apt_pkgs_base[@]}
