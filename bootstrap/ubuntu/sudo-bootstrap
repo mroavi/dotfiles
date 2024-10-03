@@ -116,6 +116,10 @@ else
   mv nvim.appimage nvim
 fi
 
+# Ubuntu/Debian use `fdfind` to avoid conflicts with `fd`.
+# Create a symlink for compatibility (fd is used by telescope and fzf).
+sudo ln -sf $(which fdfind) /usr/local/bin/fd
+
 # julia (uses juliaup)
 #echo "Installing julia..."
 #curl -fsSL https://install.julialang.org | sh
