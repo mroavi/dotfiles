@@ -198,9 +198,9 @@ if not vim.env.SSH_CONNECTION then
   --- tailwind
   --------------------------------------------------------------------------------
 
-  lspconfig.tailwindcss.setup{
-    capabilities = capabilities,
-  }
+  --lspconfig.tailwindcss.setup{
+  --  capabilities = capabilities,
+  --}
 
   --------------------------------------------------------------------------------
   --- csharp
