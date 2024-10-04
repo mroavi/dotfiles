@@ -194,7 +194,7 @@ if [ -f "$FILE" ]; then
 else
   echo "Installing tmux..."
   mkdir -p ~/.local/bin && cd ~/.local/bin
-  curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/3.3a/tmux.appimage
+  curl -LO curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/3.3a/tmux.appimage
   chmod u+x tmux-3.1b-x86_64.AppImage
   ./tmux-3.1b-x86_64.AppImage --appimage-extract
   ln -s ./squashfs-root/usr/bin/tmux ./tmux
