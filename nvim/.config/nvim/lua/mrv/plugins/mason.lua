@@ -28,6 +28,7 @@ if not vim.env.SSH_CONNECTION then
       "pyright",
       "rust_analyzer",
       "sqlls",
+      "tailwindcss",
       "texlab",
       "vimls",
     }
