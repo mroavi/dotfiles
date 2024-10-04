@@ -64,6 +64,7 @@ apt_pkgs_base=(
           fd-find
           fontconfig      # required to install meslo font family
           gnome-tweaks
+          thunar
           zoxide
          )
 
@@ -72,7 +73,6 @@ apt_pkgs_extra=(
           #openssh
           golang-go
           #dmenu
-          #thunar
           #viewnior
           inkscape
           #gimp
