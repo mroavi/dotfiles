@@ -25,7 +25,6 @@ git config --global user.email "mroavi@gmail.com"
 git config --global user.name "Martin Roa Villescas"
 
 # Clone my notes repo
-echo "Cloning notes repo..."
 LOCAL_REPO=$HOME/notes
 REPO_URL=git@github.com:mroavi/notes.git
 git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
@@ -143,6 +142,7 @@ if [ -f "$FILE" ]; then
   echo " meslo font family is already installed"
 else
   # Source: https://gist.github.com/incogbyte/373f37817742c53891a076391533fe6d
+  echo "Installing meslo font..."
   cd ~
   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
   mkdir -p .local/share/fonts
@@ -155,11 +155,11 @@ else
 fi
 
 # neovim
-echo "Installing nvim..."
 FILE=$HOME/.local/bin/nvim
 if [ -f "$FILE" ]; then
   echo " nvim is already installed"
 else
+  echo "Installing nvim..."
   mkdir -p ~/.local/bin && cd ~/.local/bin
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
@@ -173,36 +173,47 @@ if ! command -v brave-browser &> /dev/null; then
   echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
   sudo apt update
   sudo apt install -y brave-browser
-  echo "Brave Browser installed successfully."
 else
   echo "Brave Browser is already installed."
 fi
 
 # Alacritty (Alacritty is not available on Ubuntu 22.04 base repository)
-echo "Checking if Alacritty is installed..."
+echo "Installing Alacritty..."
 if command -v alacritty &> /dev/null; then
   echo "Alacritty is already installed"
 else
-  echo "Installing Alacritty..."
   sudo apt install -y wget apt-transport-https gnupg2 software-properties-common
   sudo add-apt-repository ppa:aslatter/ppa
   sudo apt update
   sudo apt install -y alacritty
 fi
 
+FILE=$HOME/.local/bin/tmux
+if [ -f "$FILE" ]; then
+  echo " tmux is already installed"
+else
+  echo "Installing tmux..."
+  mkdir -p ~/.local/bin && cd ~/.local/bin
+  curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/3.3a/tmux.appimage
+  chmod u+x tmux-3.1b-x86_64.AppImage
+  ./tmux-3.1b-x86_64.AppImage --appimage-extract
+  ln -s ./squashfs-root/usr/bin/tmux ./tmux
+fi
+
 # pyenv
 if ! command -v pyenv &> /dev/null; then
+  echo "Installing pyenv..."
   curl https://pyenv.run | bash
 else
   echo "pyenv is already installed."
 fi
 
 # pokemon-colorscripts
-echo "Installing pokemon-colorscripts..."
 FILE=/usr/local/bin/pokemon-colorscripts
 if [ -f "$FILE" ]; then
   echo " pokemon-colorscripts is already installed"
 else
+  echo "Installing pokemon-colorscripts..."
   LOCAL_REPO=~/Downloads/pokemon-colorscripts
   REPO_URL=https://gitlab.com/phoneybadger/pokemon-colorscripts.git
   cd $LOCAL_REPO

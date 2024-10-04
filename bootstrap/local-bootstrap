@@ -69,8 +69,9 @@ if [ -f "$FILE" ]; then
   echo " tmux is already installed"
 else
   mkdir -p ~/.local/bin && cd ~/.local/bin
-  # curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/3.2a/tmux.appimage
-  curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/tmux3.1b/tmux-3.1b-x86_64.AppImage
+  #curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/3.2a/tmux.appimage
+  #curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/tmux3.1b/tmux-3.1b-x86_64.AppImage
+  curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/3.3a/tmux.appimage
   chmod u+x tmux-3.1b-x86_64.AppImage
   ./tmux-3.1b-x86_64.AppImage --appimage-extract
   ln -s ./squashfs-root/usr/bin/tmux ./tmux
