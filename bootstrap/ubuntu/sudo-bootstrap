@@ -194,9 +194,9 @@ if [ -f "$FILE" ]; then
 else
   echo "Installing tmux..."
   mkdir -p ~/.local/bin && cd ~/.local/bin
-  curl -LO curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/3.3a/tmux.appimage
-  chmod u+x tmux-3.1b-x86_64.AppImage
-  ./tmux-3.1b-x86_64.AppImage --appimage-extract
+  curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/3.3a/tmux.appimage
+  chmod u+x tmux.appimage
+  ./tmux.appimage --appimage-extract
   ln -s ./squashfs-root/usr/bin/tmux ./tmux
 fi
 
@@ -234,7 +234,7 @@ sudo ln -sf $(which brave-browser) /usr/local/bin/brave
 
 # Create dotfile symlinks with stow
 cd ~/dotfiles
-stow zsh alacritty git lf nvim scripts x picom
+stow zsh alacritty git tmux lf nvim scripts x picom
 
 # Return to original directory
 cd "$currentdir"
