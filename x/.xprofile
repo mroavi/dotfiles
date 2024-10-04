@@ -11,28 +11,36 @@ setxkbmap -layout us -variant altgr-intl
 xset r rate 270 60
 
 # Set a wallpaper
-# feh --bg-scale ~/dotfiles/wallpapers/shifaaz-shamoon-unsplash-1.jpg &
-feh --bg-scale --randomize ~/dotfiles/wallpapers/* &
-
-## Run my dwm bar script
-#dwmiconbar &
-dwmblocks &
-
-# Launch dropbox
-dropbox &
+if grep -q "ID=arch" /etc/os-release; then
+    # Set wallpaper for Arch Linux
+    feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_unix.jpg &
+elif grep -q "ID=ubuntu" /etc/os-release; then
+    # Set wallpaper for Ubuntu
+    feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_ubuntu.jpg &
+else
+    # Default wallpaper if the OS is neither Arch nor Ubuntu
+    feh --bg-scale --randomize ~/dotfiles/wallpapers/* &
+fi
 
 # Launch dunst (https://dunst-project.org/)
 # Used to fix Teams notification bug (see https://bit.ly/3MezkXY)
 dunst &
 
-# Launch compositor (used for blur and fading effects)
-picom &
+# Run if on Arch Linux
+if grep -q "ID=arch" /etc/os-release; then
+  # Launch compositor (used for blur and fading effects)
+  picom &
+  ## Launch dropbox
+  dropbox &
+  ## Run my dwm bar script
+  #dwmiconbar &
+  dwmblocks &
+  # Start ibus
+  # https://wiki.archlinux.org/title/IBus
+  # It supports Unicode input by typing Ctrl+Shift+u followed by the Unicode
+  #ibus-daemon -drxR
+fi
 
 # Start xbindkeys 
 # https://www.reddit.com/r/linuxquestions/comments/b22z31/comment/eiq44cm/?utm_source=share&utm_medium=web2x&context=3
 xbindkeys &
-
-# Start ibus
-# https://wiki.archlinux.org/title/IBus
-# It supports Unicode input by typing Ctrl+Shift+u followed by the Unicode
-ibus-daemon -drxR
