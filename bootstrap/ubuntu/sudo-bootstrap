@@ -234,7 +234,7 @@ sudo ln -sf $(which brave-browser) /usr/local/bin/brave
 
 # Create dotfile symlinks with stow
 cd ~/dotfiles
-stow zsh alacritty git tmux lf nvim scripts x picom
+stow zsh alacritty git tmux nvim scripts x picom
 
 # Return to original directory
 cd "$currentdir"

@@ -181,7 +181,7 @@ curl -fsSL https://install.julialang.org | sh
 
 # Create dotfile symlinks with stow
 cd ~/dotfiles
-stow zsh alacritty git tmux lf nvim scripts x picom xdg vim ssh pistol julia 
+stow zsh alacritty git tmux nvim scripts x picom lf xdg vim ssh pistol julia 
 
 # Return to original directory
 cd "$currentdir"
