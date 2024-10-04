@@ -4,10 +4,10 @@
 source ~/.zshrc
 
 # Launch ubuntu virtual machine
-virsh start ubuntu24.04 && \
+virsh start ubuntu22.04 && \
   remote-viewer \
   --hotkeys release-cursor=ctrl+alt,toggle-fullscreen=f11 \
   spice://127.0.0.1:5900
 
 ## DEBUG
-#virsh start win10 2>~/vm-error.log && remote-viewer -f -H release-cursor=ctrl+alt spice://127.0.0.1:5900 2>>~/vm-error.log
+#virsh start ubuntu22.04 2>~/vm-error.log && remote-viewer -f -H release-cursor=ctrl+alt spice://127.0.0.1:5900 2>>~/vm-error.log
