@@ -13,7 +13,7 @@ xset r rate 270 60
 # Set a wallpaper
 if grep -q "ID=arch" /etc/os-release; then
     # Set wallpaper for Arch Linux
-    feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_unix.jpg &
+    feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_arch.png &
 elif grep -q "ID=ubuntu" /etc/os-release; then
     # Set wallpaper for Ubuntu
     feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_ubuntu.jpg &
