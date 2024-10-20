@@ -13,6 +13,7 @@ export BAT_THEME="Catppuccin Mocha"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 # Check if the operating system is Ubuntu and set TERMINFO to /lib/terminfo if true
+# mrv: I probably added this to resolve tmux issues on Ubuntu
 if [ -f /etc/os-release ] && grep -q 'Ubuntu' /etc/os-release; then export TERMINFO=/lib/terminfo; fi
 
 if [ "$SSH_CONNECTION" ]; then
