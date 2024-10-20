@@ -199,11 +199,15 @@ clr
 # Clear screen with Ctrl-L and leave prompt at the bottom of the terminal
 bindkey -s '^l' 'clr^M'
 
-# Automatically run ls after every cd
+# Automatically run eza or ls after every cd
 # Source: https://stackoverflow.com/a/3964198/1706778
 function chpwd() {
   emulate -L zsh
-  ls -1 --color
+  if command -v eza &> /dev/null; then
+    eza -1 --icons=auto
+  else
+    ls -1 --color
+  fi
 }
 
 # Disable Ctrl-S from freezing Vim
@@ -394,14 +398,22 @@ alias ijulia="julia --project=@. -e \"using IJulia; notebook(dir=pwd())\""
 alias o="xdg-open"
 alias t="tmux"
 alias ta="tmux attach"
-alias l="ls -1"
-alias lsa="ls -lah"
-alias ll='ls -lh'
 alias vpn-tue="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias vpn-fontys="/opt/cisco/anyconnect/bin/vpnui"
 alias pac="sudo pacman"
 alias sz="du -h --max-depth=1 ."
 alias temperature="curl wttr.in/Eindhoven"
+
+# Use eza if installed, fallback to ls otherwise
+if command -v eza &> /dev/null; then
+  alias l="eza -1 --icons=auto"
+  alias lsa="eza -lah --icons=auto"
+  alias ll="eza -lh --icons=auto"
+else
+  alias l="ls -1"
+  alias lsa="ls -lah"
+  alias ll="ls -lh"
+fi
 
 # Configuration managers
 alias vol="alsamixer"
