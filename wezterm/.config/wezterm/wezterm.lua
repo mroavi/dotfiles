@@ -18,5 +18,7 @@ config.window_decorations = "RESIZE"
 
 config.window_background_opacity = 0.8
 
+config.window_close_confirmation = "NeverPrompt"
+
 -- and finally, return the configuration to wezterm
 return config
