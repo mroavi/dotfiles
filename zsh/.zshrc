@@ -511,7 +511,7 @@ eval "$(pyenv virtualenv-init -)"
 #  fi
 #fi
 
-## MRV: rvm increases the zsh startup time considerably
+## mrv: rvm increases the zsh startup time considerably
 ## Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 #export PATH="$PATH:$HOME/.rvm/bin"
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
