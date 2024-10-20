@@ -16,6 +16,12 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
 config.window_close_confirmation = "NeverPrompt"
 
+-- Customize the selection colors
+config.colors = {
+  selection_fg = "#1E1E2E",  -- Color for the selected text (foreground)
+  selection_bg = "#F5E0DC",  -- Color for the selection background
+}
+
 -- Add key binding for CTRL-[ to exit copy mode
 local default_key_tables = wezterm.gui.default_key_tables()
 table.insert(default_key_tables.copy_mode, { key = '[', mods = 'CTRL', action = act.CopyMode 'Close' })
