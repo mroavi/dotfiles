@@ -516,7 +516,8 @@ eval "$(pyenv virtualenv-init -)"
 #export PATH="$PATH:$HOME/.rvm/bin"
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-if [ ! "$SSH_CONNECTION" ]; then
+# Run pokemon-colorscripts if installed
+if command -v pokemon-colorscripts &> /dev/null; then
   pokemon-colorscripts -r 1 --no-title
 fi
 
