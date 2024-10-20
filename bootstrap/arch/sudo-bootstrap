@@ -37,6 +37,7 @@ pac_pkgs=(
           dotnet-runtime
           dotnet-sdk
           dunst                   # lightweight and customizable notification daemon
+          eza
           fd
           feh
           flameshot
