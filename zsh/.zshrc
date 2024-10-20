@@ -277,7 +277,7 @@ info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},heade
 ## Integrate with ripgrep -----------------------------------------------------
 
 # using ripgrep combined with preview
-# usage: rg-fzf <searchTerm>
+# usage: fzf-rg <searchTerm>
 # https://github.com/junegunn/fzf/wiki/examples#searching-file-contents
 fzf-rg() {
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
