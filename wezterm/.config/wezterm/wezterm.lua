@@ -16,7 +16,7 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
 config.window_close_confirmation = "NeverPrompt"
 
--- Customize the selection colors
+-- Customize the copy mode selection colors
 config.colors = {
   selection_fg = "#1E1E2E",  -- Color for the selected text (foreground)
   selection_bg = "#F5E0DC",  -- Color for the selection background
