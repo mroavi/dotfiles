@@ -204,23 +204,23 @@
 # "sudo ~/repos/Halide/mrv/automated-multi-stage-practice.sh"
 #   control+shift+alt + 4
 
-"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/01-a-trivial-but-revealing-example-in-depth.jl"
-  alt + F1
+# "sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/01-a-trivial-but-revealing-example-in-depth.jl"
+#   alt + F1
 
-"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/02-a-trivial-but-revealing-example-in-depth.jl"
-  alt + F2
+# "sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/02-a-trivial-but-revealing-example-in-depth.jl"
+#   alt + F2
 
-"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/03-a-trivial-but-revealing-example-in-depth.jl"
-  alt + F3
+# "sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/03-a-trivial-but-revealing-example-in-depth.jl"
+#   alt + F3
 
-"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/04-dispatch-compile-time.jl"
-  alt + F4
+# "sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/04-dispatch-compile-time.jl"
+#   alt + F4
 
-"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/05-dispatch-runtime.jl"
-  alt + F5
+# "sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/05-dispatch-runtime.jl"
+#   alt + F5
 
-"sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/06-runtime-vs-compile-time-performance-comparison.jl"
-  alt + F6
+# "sudo onthefly ~/Dropbox/tue/phd/fifth-year/presentations/2022-12-16-parse/onthefly/06-runtime-vs-compile-time-performance-comparison.jl"
+#   alt + F6
 
 ##################################
 # End of xbindkeys configuration #
