@@ -35,8 +35,7 @@ if grep -q "ID=arch" /etc/os-release; then
   ## Run my dwm bar script
   #dwmiconbar &
   dwmblocks &
-  # Start ibus
-  # https://wiki.archlinux.org/title/IBus
+  # Start ibus (https://wiki.archlinux.org/title/IBus)
   # It supports Unicode input by typing Ctrl+Shift+u followed by the Unicode
   #ibus-daemon -drxR
 fi
