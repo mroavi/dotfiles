@@ -10,17 +10,19 @@ setxkbmap -layout us -variant altgr-intl
 # https://www.reddit.com/r/i3wm/comments/1yiu36/increase_keyboard_repeat_rate/
 xset r rate 270 60
 
-# Set a wallpaper
-if grep -q "ID=arch" /etc/os-release; then
+# Set a wallpaper based on the OS
+os_id=$(grep -oP '(?<=^ID=).*' /etc/os-release)
+case "$os_id" in
+  arch)
     # Set wallpaper for Arch Linux
-    feh --bg-scale ~/dotfiles/wallpapers/catppuccin-wallpapers_arch.png &
-elif grep -q "ID=ubuntu" /etc/os-release; then
+    feh --bg-scale ~/dotfiles/wallpapers/catppuccin-wallpapers_arch.png &          ;;
+  ubuntu)
     # Set wallpaper for Ubuntu
-    feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_ubuntu.jpg &
-else
+    feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_ubuntu.jpg & ;;
+  *)
     # Default wallpaper if the OS is neither Arch nor Ubuntu
-    feh --bg-scale --randomize ~/dotfiles/wallpapers/* &
-fi
+    feh --bg-scale --randomize ~/dotfiles/wallpapers/* &                           ;;
+esac
 
 # Launch dunst (https://dunst-project.org/)
 # Used to fix Teams notification bug (see https://bit.ly/3MezkXY)
