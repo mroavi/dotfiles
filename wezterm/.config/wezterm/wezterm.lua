@@ -15,6 +15,7 @@ config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
 config.window_close_confirmation = "NeverPrompt"
+config.front_end = "WebGpu"
 
 -- Customize the copy mode selection colors
 config.colors = {
