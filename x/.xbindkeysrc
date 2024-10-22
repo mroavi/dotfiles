@@ -122,6 +122,10 @@
 "slock"
   control+alt + Delete
 
+# Source .xprofile with super+alt keys
+"source ~/.xprofile"
+  Mod4 + Alt_L
+
 # KEYBOARD VOLUME KEYS
 
 # Mute/Unmute using the keyboard volume keys
