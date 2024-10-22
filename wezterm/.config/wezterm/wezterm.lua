@@ -17,6 +17,8 @@ config.window_background_opacity = 0.8
 config.window_close_confirmation = "NeverPrompt"
 config.front_end = "WebGpu"
 
+-- NOTE: Fonts are different compared to other terminals (https://github.com/wez/wezterm/issues/5331)
+
 -- Customize the copy mode selection colors
 config.colors = {
   selection_fg = "#1E1E2E",  -- Color for the selected text (foreground)
