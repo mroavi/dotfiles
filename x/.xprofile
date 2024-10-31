@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# Map caps lock key to control
+# Turn off Caps Lock (if it’s currently on)
+xset -q | grep "Caps Lock:   on" && xdotool key Caps_Lock
+# Remap Caps Lock to function as a Control key
 setxkbmap -option caps:ctrl_modifier
+# To reset Caps Lock to its default behavior, run: `setxkbmap -option`
 
 # Set my default layout
 setxkbmap -layout us -variant altgr-intl
@@ -15,7 +18,8 @@ os_id=$(grep -oP '(?<=^ID=).*' /etc/os-release)
 case "$os_id" in
   arch)
     # Set wallpaper for Arch Linux
-    feh --bg-scale ~/dotfiles/wallpapers/catppuccin-wallpapers_arch.png &          ;;
+    #feh --bg-scale ~/dotfiles/wallpapers/catppuccin-wallpapers_arch.png &          ;;
+    feh --bg-scale ~/dotfiles/wallpapers/the-great-wave-off-kanagawa.png &          ;;
   ubuntu)
     # Set wallpaper for Ubuntu
     feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_ubuntu.jpg & ;;
