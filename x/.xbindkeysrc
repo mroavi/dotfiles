@@ -123,7 +123,7 @@
   control+alt + Delete
 
 # Source .xprofile with super+alt keys
-"source ~/.xprofile"
+"keyboard-config"
   Mod4 + Alt_L
 
 # KEYBOARD VOLUME KEYS
