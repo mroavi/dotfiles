@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Turn off Caps Lock (if it’s currently on)
+xset -q | grep "Caps Lock:   on" && xdotool key Caps_Lock
+# Remap Caps Lock to function as a Control key
+setxkbmap -option caps:ctrl_modifier
+# To reset Caps Lock to its default behavior, run: `setxkbmap -option`
+
+# Set my default layout
+setxkbmap -layout us -variant altgr-intl
+
+# Incrase keyboard repeat rate
+# https://www.reddit.com/r/i3wm/comments/1yiu36/increase_keyboard_repeat_rate/
+xset r rate 270 60
