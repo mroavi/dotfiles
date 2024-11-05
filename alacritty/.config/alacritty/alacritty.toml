@@ -1,3 +1,4 @@
+[general]
 import = ["/home/mroavi/.config/alacritty/colors/catppuccin/catppuccin-mocha.toml"]
 
 [env]
