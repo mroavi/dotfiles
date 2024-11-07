@@ -19,17 +19,13 @@ local print_fun = 'Console.WriteLine'
 
 -- Insert print var statement
 vim.keymap.set('n', '<Leader>pr', function()
-  utils.insert_string(print_fun .. [[($\"%s = {%s}\"); // DEBUG]], 'o')
+  utils.insert_string(print_fun .. [[($\"'%s': {%s}\"); // DEBUG]], 'o')
 end, { buffer = true })
 
--- Insert print list statement
-vim.keymap.set('n', '<Leader>pl', function()
-  utils.insert_string([[%s.ForEach(]] .. print_fun .. [[);]], 'o')
-end, { buffer = true })
-
--- Insert print array statement
-vim.keymap.set('n', '<Leader>pa', function()
-  utils.insert_string([[Array.ForEach(%s, ]] .. print_fun .. [[);]], 'o')
+-- Insert print collection statement
+vim.keymap.set('n', '<Leader>pc', function()
+  --utils.insert_string([[%s.ForEach(]] .. print_fun .. [[);]], 'o') -- excludes the var name
+  utils.insert_string(print_fun .. [[($\"'%s': [{string.Join(\", \", %s)}]\"); // DEBUG]], 'o')
 end, { buffer = true })
 
 --------------------------------------------------------------------------------
