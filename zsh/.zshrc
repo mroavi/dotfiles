@@ -404,6 +404,7 @@ alias vpn-fontys="/opt/cisco/anyconnect/bin/vpnui"
 alias pac="sudo pacman"
 alias sz="du -h --max-depth=1 ."
 alias temperature="curl wttr.in/Eindhoven"
+alias clean-onedrive='find ~/OneDrive/fontys/ -iname "bin" -o -iname "obj" -o -iname ".vs" | xargs rm -rf'
 
 # Use eza if installed, fallback to ls otherwise
 if command -v eza &> /dev/null; then
