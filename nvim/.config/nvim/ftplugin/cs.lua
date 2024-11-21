@@ -70,10 +70,16 @@ vim.keymap.set('n', '<Leader>tc', function()
   vim.cmd[[TomuxSend("dotnet clean\n")]]
 end, { buffer = true })
 
--- Run
-vim.keymap.set('n', '<Leader>tr', function()
+-- Execute (run)
+vim.keymap.set('n', '<Leader>e', function()
   vim.cmd.write()
   vim.cmd[[TomuxSend("dotnet run\n")]]
+end, { buffer = true })
+
+-- Rerun
+vim.keymap.set('n', '<Leader>tr', function()
+  vim.cmd.write()
+  vim.cmd[[TomuxSend("dotnet run\n")]]
 end, { buffer = true })
 
 -- Watch
@@ -82,18 +88,12 @@ vim.keymap.set('n', '<Leader>tw', function()
   vim.cmd[[TomuxSend("dotnet watch\n")]]
 end, { buffer = true })
 
--- Execute buffer
-vim.keymap.set('n', '<Leader>e', function()
-  vim.cmd.write()
-  vim.cmd[[TomuxSend("dotnet run\n")]]
-end, { buffer = true })
-
 -- Kill pane
 vim.keymap.set('n', '<Leader>tk', function()
   vim.cmd[[TomuxCommand("kill-pane -t " . shellescape(b:tomux_config["target_pane"]))]]
 end, { buffer = true })
 
--- Run tests
+-- Test
 vim.keymap.set('n', '<Leader>tt', function()
   vim.cmd[[TomuxSend("dotnet test\n")]]
 end, { buffer = true })
