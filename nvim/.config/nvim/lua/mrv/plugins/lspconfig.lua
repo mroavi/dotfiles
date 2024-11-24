@@ -322,6 +322,7 @@ vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help) -- default keymap
 -- See `:h lsp-diagnostic`
 vim.keymap.set("n", "]d", function() require('mrv.plugins.lspconfig').goto_next() end)
 vim.keymap.set("n", "[d", function() require('mrv.plugins.lspconfig').goto_prev() end)
+vim.keymap.set('n', 'crs', function() vim.cmd('LspStop') end)
 
 local opfunc = "__range_format_opfunc"
 vim.keymap.set('x', 'gf', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
