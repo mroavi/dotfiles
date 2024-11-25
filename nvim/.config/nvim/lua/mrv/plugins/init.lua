@@ -89,6 +89,8 @@ local plugins = {
   --{ 'nvim-pack/nvim-spectre', config = function() require('mrv.plugins.spectre') end }, -- global find and replace tool
   --{ 'homerours/jumper.nvim' }, -- a Neovim plugin for jumping to files and folders.
   --{ 'OXY2DEV/markview.nvim' }, -- Experimental markdown preview for neovim
+  --{ 'rachartier/tiny-inline-diagnostic.nvim' }, -- A Neovim plugin that display prettier diagnostic messages.
+  --{ 'ColinKennedy/cursor-text-objects.nvim' }, -- Use [ and ] to enhance all of your Neovim text-objects and text-operators!
 
   -- Abandoned
   --{ 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end }, -- provides insert mode auto-completion for quotes, parens, brackets, etc.
