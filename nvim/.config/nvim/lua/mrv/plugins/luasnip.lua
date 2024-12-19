@@ -7,19 +7,10 @@ ls.config.set_config {
 
 require("luasnip/loaders/from_vscode").lazy_load() -- to use existing vs-code style snippets from a plugin
 
--- Expand or jump forward
-vim.keymap.set({ "i", "s" }, "<C-j>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  end
-end, { silent = true })
+vim.keymap.set({"i"}, "<C-k>", function() ls.expand() end, {silent = true})
 
--- Jump backward
-vim.keymap.set({ "i", "s" }, "<C-k>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
-end, { silent = true })
+-- Key mappings for jumping forward and backward in snippets 
+-- are now handled by the `blink.cmp` plugin (Tab and S-Tab).
 
 --------------------------------------------------------------------------------
 -- Custom snippets
