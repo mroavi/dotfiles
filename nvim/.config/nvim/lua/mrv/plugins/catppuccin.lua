@@ -35,7 +35,6 @@ require("catppuccin").setup({
       ["StatusLine"] = { fg = colors.text, bg = colors.surface0, style = {} },
       ["TelescopeSelection"] = { fg = colors.text, bg = colors.surface0, style = {} },
       ["Folded"] = {fg = colors.overlay0 },
-      ["NormalFloat"] = { fg = colors.text, bg = colors.mantle },
       ["BlinkCmpGhostText"] = { fg = colors.overlay1, bg = colors.none, style = { "italic" } },
     }
   end,
