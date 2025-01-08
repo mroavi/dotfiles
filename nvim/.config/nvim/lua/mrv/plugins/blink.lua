@@ -14,7 +14,7 @@ require("blink.cmp").setup({
   completion = {
     menu = {
       auto_show = false,
-      border = 'single',
+      border = 'rounded',
       --draw = {
       --  columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
       --},
@@ -23,7 +23,7 @@ require("blink.cmp").setup({
       auto_show = false,
       --auto_show_delay_ms = 0,
       window = {
-        border = 'single',
+        border = 'rounded',
       }
     },
     -- Displays a preview of the selected item on the current line
@@ -46,5 +46,10 @@ require("blink.cmp").setup({
     nerd_font_variant = 'mono'
   },
   -- experimental signature help support
-  signature = { enabled = true },
+  signature = {
+    enabled = true,
+    window = {
+      border = 'rounded',
+    },
+  },
 })
