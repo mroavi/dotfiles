@@ -50,3 +50,5 @@
 
 [diff]
   colorMoved = default
+[credential]
+	helper = cache
