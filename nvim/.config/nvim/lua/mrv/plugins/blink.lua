@@ -15,9 +15,9 @@ require("blink.cmp").setup({
     menu = {
       auto_show = false,
       border = 'single',
-      --  draw = {
-      --    columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
-      --  },
+      --draw = {
+      --  columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+      --},
     },
     documentation = {
       auto_show = false,
