@@ -2,7 +2,7 @@ require("blink.cmp").setup({
   keymap = {
     preset = 'default',
     ['<C-e>'] = { 'hide' },
-    ['<C-y>'] = { 'select_and_accept' },
+    ['<C-j>'] = { 'select_and_accept' },
     ['<C-p>'] = { 'show', 'select_prev', 'fallback' },
     ['<C-n>'] = { 'show', 'select_next', 'fallback' },
     ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
