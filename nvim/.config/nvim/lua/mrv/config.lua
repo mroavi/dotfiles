@@ -70,6 +70,7 @@ M.setup = function()
   vim.keymap.set("n", "<C-w>k", "<C-w>W", { silent = true }) -- go to the prev window
   vim.keymap.set("n", "<Leader>id", ":r!date '+\\%F'<CR>") -- insert current date
   for i=1,9 do vim.keymap.set("n", "<Leader>" .. i, function() vim.cmd('argu!' .. i) end) end -- edit ith entry in the argument list 
+  vim.keymap.set('n', '<Leader>ifn', my_utils.add_filename_to_top)
   --vim.keymap.set("n", "<ESC>", ":noh<CR><ESC>", { silent = true }) -- clear highlight
   --vim.keymap.set("n", "*", [[:let @/ = '\<'.expand('<cword>').'\>' | :set hlsearch | norm wb<Cr>]], { silent = true, noremap = false}) -- make star `*` command stay on current word
   --vim.keymap.set("n", "<Leader>J", ":split<CR>") -- create a horizontal split

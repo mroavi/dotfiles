@@ -120,4 +120,20 @@ function M.insert_heading(heading_character)
   vim.api.nvim_win_set_cursor(0, { line, col })
 end
 
+-- Function to add the filename to the top of the current buffer
+function M.add_filename_to_top()
+    -- Get the name of the current file
+    local filename = vim.fn.expand('%:t')
+    -- Get the current commentstring and format it
+    local commentstring = vim.bo.commentstring
+    if commentstring == "" then
+        -- Default fallback if commentstring is not set
+        commentstring = "// %s"
+    end
+    -- Format the comment with the filename
+    local comment_line = string.format(commentstring, "File: " .. filename)
+    -- Add the comment to the top of the file
+    vim.api.nvim_buf_set_lines(0, 0, 0, false, { comment_line, "" })
+end
+
 return M
