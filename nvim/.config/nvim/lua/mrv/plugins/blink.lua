@@ -40,6 +40,7 @@ require("blink.cmp").setup({
   -- elsewhere in your config, without redefining it, via `opts_extend`
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer' },
+    cmdline = {}, -- disable cmdline completions
   },
   appearance = {
     -- Sets the fallback highlight groups to nvim-cmp's highlight groups
