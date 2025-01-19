@@ -218,7 +218,7 @@ if not vim.env.SSH_CONNECTION then
   lspconfig.sqlls.setup{}
 
   --------------------------------------------------------------------------------
-  --- typst
+  --- typst (TODO: this LSP server has been deprecated in favor of tinymist)
   --------------------------------------------------------------------------------
 
   --lspconfig.typst_lsp.setup{}
