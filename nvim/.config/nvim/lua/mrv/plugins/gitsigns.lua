@@ -6,13 +6,13 @@ require('gitsigns').setup {
     -- Navigation
     vim.keymap.set('n', '<C-j>', function()
       if vim.wo.diff then return '<C-j>' end
-      vim.schedule(function() gs.next_hunk({wrap = false}) end)
+      vim.schedule(function() gs.next_hunk({ wrap = false }) end)
       return '<Ignore>'
     end, { expr = true })
 
     vim.keymap.set('n', '<C-k>', function()
       if vim.wo.diff then return '<C-k>' end
-      vim.schedule(function() gs.prev_hunk({wrap = false}) end)
+      vim.schedule(function() gs.prev_hunk({ wrap = false }) end)
       return '<Ignore>'
     end, { expr = true })
 
