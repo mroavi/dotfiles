@@ -14,19 +14,14 @@ setxkbmap -layout us -variant altgr-intl
 xset r rate 270 60
 
 # Set a wallpaper based on the OS
-os_id=$(grep -oP '(?<=^ID=).*' /etc/os-release)
-case "$os_id" in
-  arch)
-    # Set wallpaper for Arch Linux
-    #feh --bg-scale ~/dotfiles/wallpapers/catppuccin-wallpapers_arch.png &          ;;
-    feh --bg-scale ~/dotfiles/wallpapers/the-great-wave-off-kanagawa.png &          ;;
-  ubuntu)
-    # Set wallpaper for Ubuntu
-    feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_ubuntu.jpg & ;;
-  *)
-    # Default wallpaper if the OS is neither Arch nor Ubuntu
-    feh --bg-scale --randomize ~/dotfiles/wallpapers/* &                           ;;
-esac
+if [ -d "$HOME/dotfiles/wallpapers" ]; then
+  os_id=$(grep -oP '(?<=^ID=).*' /etc/os-release)
+  case "$os_id" in
+    arch) feh --bg-scale ~/dotfiles/wallpapers/the-great-wave-off-kanagawa.png & ;;
+    ubuntu) feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_ubuntu.jpg & ;;
+    *) feh --bg-scale --randomize ~/dotfiles/wallpapers/* & ;;
+  esac
+fi
 
 # Launch dunst (https://dunst-project.org/)
 # Used to fix Teams notification bug (see https://bit.ly/3MezkXY)
