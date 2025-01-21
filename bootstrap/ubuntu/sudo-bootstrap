@@ -65,6 +65,8 @@ apt_pkgs_base=(
           fontconfig      # required to install meslo font family
           gnome-tweaks
           thunar
+          xorg
+          xinit
           zoxide
          )
 
@@ -98,8 +100,8 @@ apt_pkgs_extra=(
           #noto-fonts-extra
          )
 
-sudo apt install ${apt_pkgs_base[@]}
-#sudo apt install ${apt_pkgs_extra[@]}
+sudo apt install -y ${apt_pkgs_base[@]}
+#sudo apt install -y ${apt_pkgs_extra[@]}
 
 # dwm
 FILE=/usr/local/bin/dwm
@@ -107,7 +109,7 @@ if [ -f "$FILE" ]; then
   echo " dwm is already installed"
 else
   echo "Installing dwm..."
-  sudo pacman -S --noconfirm --needed xorg xorg-server xorg-xinit libx11 libxinerama libxft webkit2gtk
+  sudo apt install -y libx11-dev libxft-dev libxinerama-dev build-essential sharutils suckless-tools
   LOCAL_REPO=$HOME/repos/dwm
   REPO_URL=https://github.com/mroavi/dwm.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
@@ -160,13 +162,14 @@ if [ -f "$FILE" ]; then
   echo " nvim is already installed"
 else
   echo "Installing nvim..."
+  sudo apt install -y ninja-build gettext cmake curl build-essential
   mkdir -p ~/.local/bin && cd ~/.local/bin
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
   mv nvim.appimage nvim
 fi
 
-# Install Brave browser
+# brave
 if ! command -v brave-browser &> /dev/null; then
   echo "Installing brave..."
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -216,6 +219,7 @@ else
   echo "Installing pokemon-colorscripts..."
   LOCAL_REPO=~/Downloads/pokemon-colorscripts
   REPO_URL=https://gitlab.com/phoneybadger/pokemon-colorscripts.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cd $LOCAL_REPO
   sudo ./install.sh
 fi
