@@ -11,12 +11,6 @@ export LUA_INIT="@${HOME}/.config/lua/startup.lua"
 export BAT_THEME="Catppuccin Mocha"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
-# Turn off Caps Lock (if it’s currently on)
-xset -q | grep "Caps Lock:   on" && xdotool key Caps_Lock
-# Remap Caps Lock to function as a Control key
-setxkbmap -option caps:ctrl_modifier
-# To reset Caps Lock to its default behavior, run: `setxkbmap -option`
-
 # Set my default layout
 setxkbmap -layout us -variant altgr-intl
 
