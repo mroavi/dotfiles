@@ -182,12 +182,18 @@ echo "Installing Alacritty..."
 if command -v alacritty &> /dev/null; then
   echo "Alacritty is already installed"
 else
-  sudo apt install -y wget apt-transport-https gnupg2 software-properties-common
-  sudo add-apt-repository ppa:aslatter/ppa
-  sudo apt update
-  sudo apt install -y alacritty
+  # Old
+  #sudo apt install -y wget apt-transport-https gnupg2 software-properties-common
+  #sudo add-apt-repository ppa:aslatter/ppa
+  #sudo apt update
+  #sudo apt install -y alacritty
+  # New
+  sudo apt install cargo
+  sudo apt install -y cmake g++ pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
+  cargo install --locked alacritty
 fi
 
+# tmux
 FILE=$HOME/.local/bin/tmux
 if [ -f "$FILE" ]; then
   echo " tmux is already installed"
