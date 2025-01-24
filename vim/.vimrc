@@ -92,6 +92,9 @@ filetype on " enable filetype detection
 filetype plugin on " load custom settings based on the filtype. See ~/.vim/ftplugin
 filetype indent on " enable file type based indentation
 
+" Disable netrw directory history to prevent the creation of .netrwhist files
+let g:netrw_dirhistfile = ''
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Custom mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
