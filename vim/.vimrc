@@ -307,24 +307,24 @@ onoremap <silent> id :<C-u>normal! ggVG<cr>
 """ Execute motion/textobject of code
 "-----------------------------------------------------------------------------
 
-" Works for Lua and Vim (:h map-operator)
-" - https://vi.stackexchange.com/a/5497/27039
-" - https://vi.stackexchange.com/a/25507/27039
-" Interface Lua function that gets the row and col of the '<' and '>' marks
-lua function _G.buf_sel_start() return vim.api.nvim_buf_get_mark(0, '<')[1] end
-lua function _G.buf_sel_end() return vim.api.nvim_buf_get_mark(0, '>')[1] end
-
-" Function that gets executed after the motion is finished
-function! SourceOperator(type)
-  " Yank the text covered by the motion/textobject
-  silent exe 'normal! `[v`]Vy'    
-  " Make a range with the selection start and end row numbers with 'source'
-  let @z = v:lua.buf_sel_start() . "," . v:lua.buf_sel_end() . "source"
-  " Execute content of the z register
-  @z
-  " Restore the view of the current window (mainly to remember the cursor pos)
-  call winrestview(g:view)
-endfunction
+"" Works for Lua and Vim (:h map-operator)
+"" - https://vi.stackexchange.com/a/5497/27039
+"" - https://vi.stackexchange.com/a/25507/27039
+"" Interface Lua function that gets the row and col of the '<' and '>' marks
+"lua function _G.buf_sel_start() return vim.api.nvim_buf_get_mark(0, '<')[1] end
+"lua function _G.buf_sel_end() return vim.api.nvim_buf_get_mark(0, '>')[1] end
+"
+"" Function that gets executed after the motion is finished
+"function! SourceOperator(type)
+"  " Yank the text covered by the motion/textobject
+"  silent exe 'normal! `[v`]Vy'    
+"  " Make a range with the selection start and end row numbers with 'source'
+"  let @z = v:lua.buf_sel_start() . "," . v:lua.buf_sel_end() . "source"
+"  " Execute content of the z register
+"  @z
+"  " Restore the view of the current window (mainly to remember the cursor pos)
+"  call winrestview(g:view)
+"endfunction
 
 " augroup vim_lua_execute
 "   au!
