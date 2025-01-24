@@ -477,25 +477,6 @@ fi
 #}
 #compctl -K _pip_completion pip
 
-# =============================================================================
-## Start tmux automatically (if running interactively)
-# =============================================================================
-
-#if [ ! "$SSH_CONNECTION" ]; then
-#  # https://unix.stackexchange.com/a/113768/184227
-#  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#    #exec tmux a
-#    exec tmux
-#  fi
-#fi
-
-#if [ "$SSH_CONNECTION" ]; then
-#  # https://unix.stackexchange.com/a/552619/184227
-#  if [[ -z $TMUX ]] && [[ -n $SSH_TTY ]]; then
-#    exec tmux new-session -A -s ssh
-#  fi
-#fi
-
 ## mrv: rvm increases the zsh startup time considerably
 ## Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 #export PATH="$PATH:$HOME/.rvm/bin"
