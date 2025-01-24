@@ -458,7 +458,14 @@ eval "$(pyenv virtualenv-init -)"
 ## ros2
 # =============================================================================
 
+# Source ROS setup file if it exists
 [ -f /opt/ros/humble/setup.zsh ] && source /opt/ros/humble/setup.zsh
+
+# Check if inside a distrobox container
+if [ -n "$CONTAINER_ID" ]; then
+  # Change the Pure prompt symbol to indicate a distrobox container
+  export PURE_PROMPT_SYMBOL="📦"
+fi
 
 # =============================================================================
 ## >>> conda initialize >>> (contents within this block are managed by 'conda init' !!)
