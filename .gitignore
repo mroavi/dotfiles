@@ -3,6 +3,7 @@ vifm/.config/vifm/colors
 vifm/.config/vifm/scripts
 vim/.vim/autoload/
 vim/.vim/plugged/
+vim/.vim/.netrwhist
 nvim/.config/nvim/plugin
 *.spl
 *.sug
