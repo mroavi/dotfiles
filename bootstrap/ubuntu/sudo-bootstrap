@@ -102,11 +102,10 @@ sudo apt install -y ${apt_pkgs_base[@]}
 #sudo apt install -y ${apt_pkgs_extra[@]}
 
 # dwm
-FILE=/usr/local/bin/dwm
-if [ -f "$FILE" ]; then
+echo "Installing dwm..."
+if command -v dwm &>/dev/null; then
   echo " dwm is already installed"
 else
-  echo "Installing dwm..."
   sudo apt install -y libx11-dev libxft-dev libxinerama-dev build-essential sharutils suckless-tools
   LOCAL_REPO=$HOME/repos/dwm
   REPO_URL=https://github.com/mroavi/dwm.git
@@ -116,11 +115,10 @@ else
 fi
 
 # dwmblocks
-FILE=/usr/local/bin/dwmblocks
-if [ -f "$FILE" ]; then
+echo "Installing dwmblocks..."
+if command -v dwmblocks &>/dev/null; then
   echo " dwmblocks is already installed"
 else
-  echo "Installing dwmblocks..."
   LOCAL_REPO=$HOME/repos/dwmblocks
   REPO_URL=https://github.com/mroavi/dwmblocks.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
@@ -137,52 +135,54 @@ REPO_URL=https://github.com/mroavi/pure.git
 git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 
 # meslo font family
+echo "Installing meslo font..."
 FILE="$HOME/.local/share/fonts/Meslo LG L Bold Italic Nerd Font Complete Mono.ttf"
 if [ -f "$FILE" ]; then
   echo " meslo font family is already installed"
 else
   # Source: https://gist.github.com/incogbyte/373f37817742c53891a076391533fe6d
-  echo "Installing meslo font..."
-  cd ~
+  cd $HOME
   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
   mkdir -p .local/share/fonts
   unzip Meslo.zip -d .local/share/fonts
   cd .local/share/fonts
   rm *Windows*
-  cd ~
+  cd $HOME
   rm Meslo.zip
   fc-cache -fv
+  echo "  meslo font family has been successfully installed"
 fi
 
 # neovim
-FILE=$HOME/.local/bin/nvim
-if [ -f "$FILE" ]; then
+echo "Installing nvim..."
+if command -v nvim &>/dev/null; then
   echo " nvim is already installed"
 else
-  echo "Installing nvim..."
   sudo apt install -y ninja-build gettext cmake curl build-essential
   sudo apt install -y fuse libfuse2 python3-pynvim xclip
   mkdir -p ~/.local/bin && cd ~/.local/bin
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
   mv nvim.appimage nvim
+  echo "  nvim has been successfully installed"
 fi
 
 # brave
+echo "Installing brave..."
 if ! command -v brave-browser &> /dev/null; then
-  echo "Installing brave..."
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
   echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
   sudo apt update
   sudo apt install -y brave-browser
+  echo "  brave has been successfully installed"
 else
-  echo "Brave Browser is already installed."
+  echo "  brave is already installed."
 fi
 
 # Alacritty (Alacritty is not available on Ubuntu 22.04 base repository)
-echo "Installing Alacritty..."
+echo "Installing alacritty..."
 if command -v alacritty &> /dev/null; then
-  echo "Alacritty is already installed"
+  echo "  alacritty is already installed"
 else
   # Old
   #sudo apt install -y wget apt-transport-https gnupg2 software-properties-common
@@ -193,40 +193,44 @@ else
   sudo apt install cargo
   sudo apt install -y cmake g++ pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
   cargo install --locked alacritty
+  echo "  alacritty has been successfully installed"
 fi
 
 # tmux
-FILE=$HOME/.local/bin/tmux
-if [ -f "$FILE" ]; then
-  echo " tmux is already installed"
+echo "Installing tmux..."
+if command -v tmux &>/dev/null; then
+  echo "  tmux is already installed"
 else
-  echo "Installing tmux..."
   mkdir -p ~/.local/bin && cd ~/.local/bin
   curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/3.3a/tmux.appimage
   chmod u+x tmux.appimage
   ./tmux.appimage --appimage-extract
-  ln -s ./squashfs-root/usr/bin/tmux ./tmux
+  rm tmux.appimage
+  ln -sf "$(pwd)/squashfs-root/usr/bin/tmux" "$HOME/.local/bin/tmux"
+  echo "  tmux has been successfully installed"
 fi
 
 # pyenv
+echo "Installing pyenv..."
 if ! command -v pyenv &> /dev/null; then
-  echo "Installing pyenv..."
   curl https://pyenv.run | bash
+  echo "  pyenv has been successfully installed"
 else
-  echo "pyenv is already installed."
+  echo "  pyenv is already installed."
 fi
 
 # pokemon-colorscripts
+echo "Installing pokemon-colorscripts..."
 FILE=/usr/local/bin/pokemon-colorscripts
 if [ -f "$FILE" ]; then
   echo " pokemon-colorscripts is already installed"
 else
-  echo "Installing pokemon-colorscripts..."
   LOCAL_REPO=~/Downloads/pokemon-colorscripts
   REPO_URL=https://gitlab.com/phoneybadger/pokemon-colorscripts.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cd $LOCAL_REPO
   sudo ./install.sh
+  echo "  pokemon-colorscripts is already installed."
 fi
 
 # julia (uses juliaup)
