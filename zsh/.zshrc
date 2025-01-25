@@ -463,6 +463,7 @@ if [ -n "$CONTAINER_ID" ]; then
   export PURE_PROMPT_SYMBOL="📦"
 fi
 
+# ---------------------------------------------------------------------------
 # Enable autocompletion for ROS 2 and Colcon
 # This approach fixes the problem described in:
 # https://answers.ros.org/question/417373/
@@ -485,6 +486,7 @@ source_install_setup_and_fix_autocomplete() {
 
 # Enable autocompletion initially
 _enable_ros2_colcon_autocomplete
+# ---------------------------------------------------------------------------
 
 # =============================================================================
 ## pip zsh completion start (generated with `pip completion -z`)
