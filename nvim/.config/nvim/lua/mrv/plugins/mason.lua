@@ -24,6 +24,7 @@ if not vim.env.SSH_CONNECTION then
       "efm",
       "emmet_language_server",
       "html",
+      "lemminx",
       "lua_ls",
       "pyright",
       "rust_analyzer",
