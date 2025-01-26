@@ -3,7 +3,6 @@
 #zmodload zsh/zprof
 
 if [ "$SSH_CONNECTION" ]; then
-  export DISPLAY=:0
   # Used to run Tamaki's tool
   export JAVA_HOME=/home/20180043/jdk
   export PATH="$JAVA_HOME/bin:$PATH"
