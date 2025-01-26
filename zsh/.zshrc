@@ -335,8 +335,8 @@ fzf-pacman-list() {
 
 color-ssh() {
   trap "colorterm.sh" INT EXIT
-  colorterm.sh "$*"
-  ssh "$*"
+  colorterm.sh "$@"
+  ssh "$@"
 }
 compdef _ssh color-ssh=ssh
 alias ssh=color-ssh
