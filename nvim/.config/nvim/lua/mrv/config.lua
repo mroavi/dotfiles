@@ -42,10 +42,6 @@ M.setup = function()
   vim.opt.wildignore:append { 'build/**' }
   vim.opt.diffopt:append { 'linematch:60' } -- improve diff mode
 
-  if vim.env.SSH_CONNECTION then
-    vim.opt.clipboard = ''
-  end
-
   --------------------------------------------------------------------------------
   --- Mappings
   --------------------------------------------------------------------------------
