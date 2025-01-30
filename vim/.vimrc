@@ -248,7 +248,7 @@ augroup END
 " https://superuser.com/a/271024/1087113
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
-" Change curosr shape in insert mode (https://stackoverflow.com/a/42118416/1706778)
+" Change cursor shape in insert mode (https://stackoverflow.com/a/42118416/1706778)
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 set ttimeout
