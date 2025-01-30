@@ -231,9 +231,12 @@ extract () {
 ## FZF
 # =============================================================================
 
-# Enable optional FZF key-bindings (https://wiki.archlinux.org/title/Fzf)
+# Enable optional FZF key-bindings in arch (https://wiki.archlinux.org/title/Fzf)
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+# Enable optional FZF key-bindings in Ubuntu
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 # Use fd as backend
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
