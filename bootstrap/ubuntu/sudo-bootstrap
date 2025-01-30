@@ -160,10 +160,11 @@ if command -v nvim &>/dev/null; then
 else
   sudo apt install -y ninja-build gettext cmake curl build-essential
   sudo apt install -y fuse libfuse2 python3-pynvim xclip
-  mkdir -p ~/.local/bin && cd ~/.local/bin
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-  chmod u+x nvim.appimage
-  mv nvim.appimage nvim
+  mkdir -p ~/.local/bin
+  temp_file=$(mktemp)
+  curl -Lo "$temp_file" https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  mv "$temp_file" ~/.local/bin/nvim
+  chmod u+x ~/.local/bin/nvim
   echo "  nvim has been successfully installed"
 fi
 
