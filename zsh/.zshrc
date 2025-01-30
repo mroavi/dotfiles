@@ -457,7 +457,8 @@ eval "$(pyenv virtualenv-init -)"
 # =============================================================================
 
 # Source ROS setup file if it exists
-[ -f /opt/ros/humble/setup.zsh ] && source /opt/ros/humble/setup.zsh
+#[ -f /opt/ros/humble/setup.zsh ] && source /opt/ros/humble/setup.zsh
+[ -f /opt/ros/foxy/setup.zsh ] && source /opt/ros/foxy/setup.zsh
 
 # Check if inside a distrobox container
 if [ -n "$CONTAINER_ID" ]; then
@@ -465,30 +466,30 @@ if [ -n "$CONTAINER_ID" ]; then
   export PURE_PROMPT_SYMBOL="📦"
 fi
 
-# ---------------------------------------------------------------------------
-# Enable autocompletion for ROS 2 and Colcon
-# This approach fixes the problem described in:
-# https://answers.ros.org/question/417373/
-_enable_ros2_colcon_autocomplete() {
-  if command -v register-python-argcomplete3 &> /dev/null; then
-    eval "$(register-python-argcomplete3 ros2)"
-    eval "$(register-python-argcomplete3 colcon)"
-  fi
-}
+## ---------------------------------------------------------------------------
+## Enable autocompletion for Humble ROS 2 and Colcon
+## This approach fixes the problem described in:
+## https://answers.ros.org/question/417373/
+#_enable_ros2_colcon_autocomplete() {
+#  if command -v register-python-argcomplete3 &> /dev/null; then
+#    eval "$(register-python-argcomplete3 ros2)"
+#    eval "$(register-python-argcomplete3 colcon)"
+#  fi
+#}
 
-# Function to source install/setup.zsh and restore autocompletion
-source_install_setup_and_fix_autocomplete() {
-  if [ -f install/setup.zsh ]; then
-    source install/setup.zsh
-    _enable_ros2_colcon_autocomplete
-  else
-    echo "install/setup.zsh not found in the current directory."
-  fi
-}
+## Function to source install/setup.zsh and restore autocompletion
+#source_install_setup_and_fix_autocomplete() {
+#  if [ -f install/setup.zsh ]; then
+#    source install/setup.zsh
+#    _enable_ros2_colcon_autocomplete
+#  else
+#    echo "install/setup.zsh not found in the current directory."
+#  fi
+#}
 
-# Enable autocompletion initially
-_enable_ros2_colcon_autocomplete
-# ---------------------------------------------------------------------------
+## Enable autocompletion initially
+#_enable_ros2_colcon_autocomplete
+## ---------------------------------------------------------------------------
 
 # =============================================================================
 ## pip zsh completion start (generated with `pip completion -z`)
