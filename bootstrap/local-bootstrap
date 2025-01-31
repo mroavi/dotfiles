@@ -16,7 +16,7 @@ if [ -f "$FILE" ]; then
   echo " stow is already installed"
 else
   # See INSTALL.md in root dir
-  LOCAL_REPO=~/Downloads/stow
+  LOCAL_REPO=~/repos/stow
   REPO_URL=https://git.savannah.gnu.org/git/stow.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cd $LOCAL_REPO
@@ -159,7 +159,7 @@ FILE=$HOME/.local/bin/diff-so-fancy
 if [ -f "$FILE" ]; then
   echo "diff-so-fancy is already installed"
 else
-  LOCAL_REPO=~/Downloads/diff-so-fancy
+  LOCAL_REPO=~/repos/diff-so-fancy
   REPO_URL=git@github.com:so-fancy/diff-so-fancy.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cp $LOCAL_REPO/diff-so-fancy $HOME/.local/bin/
