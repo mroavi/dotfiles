@@ -231,7 +231,7 @@ else
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cd $LOCAL_REPO
   sudo ./install.sh
-  echo "  pokemon-colorscripts is already installed."
+  echo "  pokemon-colorscripts has been successfully installed."
 fi
 
 # julia (uses juliaup)
