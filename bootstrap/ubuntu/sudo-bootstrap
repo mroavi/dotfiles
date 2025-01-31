@@ -226,7 +226,7 @@ FILE=/usr/local/bin/pokemon-colorscripts
 if [ -f "$FILE" ]; then
   echo " pokemon-colorscripts is already installed"
 else
-  LOCAL_REPO=~/Downloads/pokemon-colorscripts
+  LOCAL_REPO=~/repos/pokemon-colorscripts
   REPO_URL=https://gitlab.com/phoneybadger/pokemon-colorscripts.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
   cd $LOCAL_REPO
