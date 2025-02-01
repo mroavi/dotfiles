@@ -198,17 +198,19 @@ else
 fi
 
 # tmux
-echo "Installing tmux..."
 if command -v tmux &>/dev/null; then
   echo "  tmux is already installed"
 else
-  mkdir -p ~/.local/bin && cd ~/.local/bin
-  curl -LO https://github.com/nelsonenzo/tmux-appimage/releases/download/3.3a/tmux.appimage
-  chmod u+x tmux.appimage
-  ./tmux.appimage --appimage-extract
-  rm tmux.appimage
-  ln -sf "$(pwd)/squashfs-root/usr/bin/tmux" "$HOME/.local/bin/tmux"
-  echo "  tmux has been successfully installed"
+  INSTALL_DIR="$HOME/.local/bin"
+  TMUX_APPIMAGE="$INSTALL_DIR/tmux.appimage"
+  mkdir -p "$INSTALL_DIR"
+  curl -Lo "$TMUX_APPIMAGE" https://github.com/nelsonenzo/tmux-appimage/releases/download/3.3a/tmux.appimage
+  chmod u+x "$TMUX_APPIMAGE"
+  "$TMUX_APPIMAGE" --appimage-extract &>/dev/null
+  rm "$TMUX_APPIMAGE"
+  ln -sf "$INSTALL_DIR/squashfs-root/usr/bin/tmux" "$INSTALL_DIR/tmux"
+  rm -rf "$INSTALL_DIR/squashfs-root"
+  echo "  tmux has been successfully installed to $INSTALL_DIR"
 fi
 
 # pyenv
