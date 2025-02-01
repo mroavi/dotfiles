@@ -132,7 +132,11 @@ lspconfig.vimls.setup {
 --------------------------------------------------------------------------------
 
 -- Manual installation: sudo pacman -S pyright
-lspconfig.pyright.setup {}
+--lspconfig.pyright.setup {}
+
+--require'lspconfig'.pylsp.setup{}
+
+require'lspconfig'.jedi_language_server.setup{}
 
 --------------------------------------------------------------------------------
 --- c
