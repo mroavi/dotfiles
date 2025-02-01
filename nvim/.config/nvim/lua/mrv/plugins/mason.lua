@@ -17,7 +17,7 @@ if not vim.env.SSH_CONNECTION then
     ensure_installed = {
       "arduino_language_server",
       "bashls",
-      "clangd",
+      --"clangd",
       "cmake",
       "csharp_ls",
       "cssls",
@@ -40,7 +40,7 @@ else
     ensure_installed = {
       "arduino_language_server",
       --"bashls",
-      "clangd",
+      --"clangd",
       --"cmake",
       "efm",
       "lua_ls",
