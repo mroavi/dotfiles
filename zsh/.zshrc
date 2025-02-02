@@ -16,6 +16,11 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=50000
 
+setopt HIST_EXPIRE_DUPS_FIRST # expire duplicate entries first when trimming history
+setopt HIST_IGNORE_ALL_DUPS # delete old recorded entry if new entry is a duplicate
+setopt HIST_FIND_NO_DUPS # ignore duplicates when searching through history (e.g., with Ctrl+R)
+setopt HIST_REDUCE_BLANKS # remove superfluous blanks before recording entry
+
 # =============================================================================
 ## Plugins
 # =============================================================================
