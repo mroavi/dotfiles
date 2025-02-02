@@ -107,7 +107,7 @@ mode = "Vi|~Search"
 
 [window]
 decorations = "none"
-opacity = 0.85
+opacity = 0.90
 startup_mode = "Maximized" # no effect on systems using DWM
 
 [window.padding]
