@@ -201,6 +201,7 @@ function M.git_files(opts)
   opts = opts or {}
   builtin.git_files {
     cwd = opts.cwd,
+    show_untracked = true,
     --entry_maker = my_make_entry.gen_from_file(opts), -- TODO: buggy
   }
 end
