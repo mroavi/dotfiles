@@ -208,6 +208,7 @@ end
 -- If `dir` is inside a git repo, return the git repo's root dir, otherwise, `nil`
 -- Based on: ~/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/builtin/__git.lua
 local function git_dir(dir)
+  -- TODO: `utils.get_os_command_output` errors when invoked while the current buffer's filetype is "oil"
   local git_root, ret = utils.get_os_command_output({ "git", "rev-parse", "--show-toplevel" }, dir)
   if ret ~= 0 then
     local in_worktree = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, dir)
