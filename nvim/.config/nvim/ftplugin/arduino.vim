@@ -34,7 +34,8 @@ let b:commentary_format = '//%s'
 "   arduino-cli sketch new serial-hello-world
 
 " CONFIG ME!!!
-let b:serial_port = '/dev/ttyUSB0'
+"let b:serial_port = '/dev/ttyUSB0'
+let b:serial_port = '/dev/ttyACM0'
 let b:serial_baud = '9600'
 let b:board = 'arduino:avr:uno'
 "let b:board = 'arduino:avr:mega'
