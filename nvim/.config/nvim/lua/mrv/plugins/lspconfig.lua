@@ -1,3 +1,6 @@
+-- Documentation for all configs can be found at:
+--  https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+
 local my_utils = require 'mrv.utils'
 
 local M = {}
