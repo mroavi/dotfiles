@@ -395,7 +395,7 @@ alias ta="tmux attach"
 alias vpn-tue="sudo openconnect --authgroup '2: Tunnel TU/e traffic' --background --pid-file /var/run/tuevpn.pid https://vpn2.tue.nl"
 alias vpn-fontys="/opt/cisco/anyconnect/bin/vpnui"
 alias pac="sudo pacman"
-alias sz="du -h --max-depth=1 ."
+alias sz="sudo du -h --max-depth=1 . | sort -hr"
 alias temperature="curl wttr.in/Eindhoven"
 alias clean-onedrive='find ~/OneDrive/fontys/ -iname "bin" -o -iname "obj" -o -iname ".vs" | xargs rm -rf'
 
