@@ -12,6 +12,7 @@ conform.setup({
     python = { "black" },
     tex = { "latexindent" },
     json = { "prettier" },
+    arduino = { "clang-format" },
   },
   -- Override/add to the default values of formatters
   formatters = {
