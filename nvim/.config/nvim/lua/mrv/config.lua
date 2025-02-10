@@ -67,6 +67,7 @@ M.setup = function()
   vim.keymap.set("n", "<Leader>id", ":r!date '+\\%F'<CR>") -- insert current date
   for i=1,9 do vim.keymap.set("n", "<Leader>" .. i, function() vim.cmd('argu!' .. i) end) end -- edit ith entry in the argument list 
   vim.keymap.set('n', '<Leader>ifn', my_utils.add_filename_to_top)
+  vim.keymap.set('i', '<F5>', '<C-r>=expand("%:t")<CR>', { silent = true }) -- insert current buffer name in insert mode
   --vim.keymap.set("n", "<ESC>", ":noh<CR><ESC>", { silent = true }) -- clear highlight
   --vim.keymap.set("n", "*", [[:let @/ = '\<'.expand('<cword>').'\>' | :set hlsearch | norm wb<Cr>]], { silent = true, noremap = false}) -- make star `*` command stay on current word
   --vim.keymap.set("n", "<Leader>J", ":split<CR>") -- create a horizontal split
