@@ -17,7 +17,6 @@ nnoremap <buffer><Leader>h3 m`0dw :center 80<cr>hhv0r-A<Space><Esc>40A-<Esc>d78<
 
 -- Insert print statement
 local print_fun = 'print'
---local print_fun = 'vim.print'
 vim.keymap.set('n', '<Leader>pr', function() utils.insert_string(print_fun .. [[('%s = ', %s)]], 'o') end, { buffer = true })
 
 -------------------------------------------------------------------------------
