@@ -272,6 +272,7 @@ if not vim.env.SSH_CONNECTION then
   --------------------------------------------------------------------------------
 
   -- Manual installation: yay -S arduino-language-server-git
+  -- WARNING: This LSP is broken. See https://github.com/arduino/arduino-language-server/issues/202
   lspconfig.arduino_language_server.setup({
     cmd = {
       "arduino-language-server",
