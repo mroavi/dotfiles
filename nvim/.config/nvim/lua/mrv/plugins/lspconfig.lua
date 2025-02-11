@@ -225,10 +225,10 @@ if not vim.env.SSH_CONNECTION then
   lspconfig.sqlls.setup{}
 
   --------------------------------------------------------------------------------
-  --- typst (TODO: this LSP server has been deprecated in favor of tinymist)
+  --- typst
   --------------------------------------------------------------------------------
 
-  --lspconfig.typst_lsp.setup{}
+  --lspconfig.tinymist.setup{}
 
   --------------------------------------------------------------------------------
   --- lua-dev (dev setup for init.lua and plugin development)
