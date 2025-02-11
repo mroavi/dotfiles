@@ -13,22 +13,22 @@ vim.keymap.set(
   { buffer = true }
 )
 
--- General mappings for navigating wrapped lines
-vim.keymap.set('', 'k', 'gk', { silent = true, noremap = true, buffer = true })
-vim.keymap.set('', 'j', 'gj', { silent = true, noremap = true, buffer = true })
+---- General mappings for navigating wrapped lines
+--vim.keymap.set('', 'k', 'gk', { silent = true, noremap = true, buffer = true })
+--vim.keymap.set('', 'j', 'gj', { silent = true, noremap = true, buffer = true })
 
-vim.keymap.set('', '0', 'g0', { silent = true, noremap = true, buffer = true })
-vim.keymap.set('', '$', 'g$', { silent = true, noremap = true, buffer = true })
+--vim.keymap.set('', '0', 'g0', { silent = true, noremap = true, buffer = true })
+--vim.keymap.set('', '$', 'g$', { silent = true, noremap = true, buffer = true })
 
-vim.keymap.set('n', 'V', 'g0vg$', { noremap = true, buffer = true })
-vim.keymap.set('n', 'D', 'dg$', { noremap = true, buffer = true })
-vim.keymap.set('n', 'dd', 'g0vg$d', { noremap = false, buffer = true })
-vim.keymap.set('n', 'Y', 'yg$', { noremap = true, buffer = true })
-vim.keymap.set('n', 'yy', 'g0vg$y', { noremap = false, buffer = true })
-vim.keymap.set('n', 'o', 'g$a<Cr><Cr><Up>', { noremap = false, buffer = true })
-vim.keymap.set('n', 'O', 'gkg$a<Cr><Cr><Up>', { noremap = false, buffer = true })
-vim.keymap.set('n', 'A', 'g$a', { noremap = false, buffer = true })
-vim.keymap.set('n', 'I', 'g0i', { noremap = false, buffer = true })
+--vim.keymap.set('n', 'V', 'g0vg$', { noremap = true, buffer = true })
+--vim.keymap.set('n', 'D', 'dg$', { noremap = true, buffer = true })
+--vim.keymap.set('n', 'dd', 'g0vg$d', { noremap = false, buffer = true })
+--vim.keymap.set('n', 'Y', 'yg$', { noremap = true, buffer = true })
+--vim.keymap.set('n', 'yy', 'g0vg$y', { noremap = false, buffer = true })
+--vim.keymap.set('n', 'o', 'g$a<Cr><Cr><Up>', { noremap = false, buffer = true })
+--vim.keymap.set('n', 'O', 'gkg$a<Cr><Cr><Up>', { noremap = false, buffer = true })
+--vim.keymap.set('n', 'A', 'g$a', { noremap = false, buffer = true })
+--vim.keymap.set('n', 'I', 'g0i', { noremap = false, buffer = true })
 
 ------ Disable automatic text formatting
 --vim.opt_local.formatoptions:remove("t")
