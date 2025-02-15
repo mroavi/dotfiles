@@ -4,6 +4,9 @@ local utils = require('mrv.utils')
 -- No space between comment character and code
 vim.b.commentary_format = '//%s'
 
+-- Extend Arduino filetype to use C++ snippets in LuaSnip
+require("luasnip").filetype_extend("arduino", {"cpp"})
+
 -------------------------------------------------------------------------------
 -- conform
 -------------------------------------------------------------------------------
@@ -65,7 +68,7 @@ end, { buffer = true })
 -- Default config
 vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
 
-vim.b.serial_port = '/dev/ttyUSB0'
+vim.b.serial_port = '/dev/ttyUSB1'
 --vim.b.serial_port = '/dev/ttyACM0'
 
 --vim.b.serial_baud = '9600'
@@ -133,8 +136,11 @@ vim.keymap.set('n', '<Leader>tp', function() M.compile_and_upload() end, { buffe
 -- Kill 'screen', Compile, upload and open serial port
 function M.kill_compile_and_upload()
   M.kill_screen()
+  vim.cmd("sleep 100m")
   M.compile()
+  vim.cmd("sleep 100m")
   M.upload()
+  M.start_screen()
 end
 vim.keymap.set('n', '<Leader>tt', function() M.kill_compile_and_upload() end, { buffer = true })
 
