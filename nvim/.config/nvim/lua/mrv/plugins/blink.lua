@@ -39,8 +39,13 @@ require("blink.cmp").setup({
   -- default list of enabled providers defined so that you can extend it
   -- elsewhere in your config, without redefining it, via `opts_extend`
   sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer' },
-    cmdline = {}, -- disable cmdline completions
+    default = { 'lsp', 'path', 'snippets' },
+    per_filetype = {
+      lua = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+  },
+  cmdline = {
+    enabled = false,
   },
   appearance = {
     -- Sets the fallback highlight groups to nvim-cmp's highlight groups
