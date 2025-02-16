@@ -21,8 +21,8 @@ require("telescope").setup {
     --selection_strategy = "row", -- bug: causes some of the results to be hidden after a sort
     layout_config = {
       prompt_position = "top", -- where to place prompt window
-      height = 0.9,
-      width = 0.9,
+      height = 0.96,
+      width = 0.96,
       flex = {
         flip_columns = 120, -- num. of columns threshold for choosing between horizontal and vertical layout
       },
