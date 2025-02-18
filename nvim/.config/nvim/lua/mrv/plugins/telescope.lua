@@ -679,7 +679,7 @@ end
 ---------------------------------------------------------------------------------
 
 -- File pickers
-vim.keymap.set("n", "<Leader>ff", M.my_find_files)
+vim.keymap.set("n", "<Leader>o", M.my_find_files)
 vim.keymap.set("n", "<Leader>/", M.live_grep)
 vim.keymap.set('x', '<Leader>/', function() M.live_grep({ default_text = require('mrv.utils').get_visual_selection() }) end)
 vim.keymap.set("n", "<Leader>?", function() M.live_grep({ default_text = vim.fn.expand('<cword>') }) end)
@@ -692,8 +692,7 @@ vim.keymap.set("n", "<Leader>b", M.buffers)
 --vim.keymap.set("n", "<Leader>L", M.buffer_lines)
 vim.keymap.set("n", "<Leader>'", M.marks)
 vim.keymap.set("n", "<Leader>H", M.hunks)
-vim.keymap.set("n", "<Leader>fo", M.recent_files)
---vim.keymap.set("n", "<C-p>",     M.recent_files)
+vim.keymap.set("n", "<C-p>",     M.recent_files)
 vim.keymap.set("n", "<Leader>ch", builtin.command_history)
 vim.keymap.set("n", "<Leader>k", M.help_tags)
 vim.keymap.set('x', '<Leader>k', function() M.help_tags({ default_text = require('mrv.utils').get_visual_selection() }) end)
