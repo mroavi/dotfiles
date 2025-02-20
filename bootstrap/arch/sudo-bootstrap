@@ -110,6 +110,7 @@ yay_pkgs=(
           brave-bin
           dropbox
           git-open
+          tio                           # a serial device I/O tool
           ttf-font-awesome-4
           ttf-juliamono
           ttf-meslo-nerd
