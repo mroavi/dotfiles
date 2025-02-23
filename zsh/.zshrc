@@ -57,13 +57,6 @@ else
   echo "zsh_syntax_highlighting not found to source"
 fi
 
-#export ZSH="/home/mroavi/.oh-my-zsh"
-#plugins=(
-#  zsh-autosuggestions
-#  zsh-syntax-highlighting
-#)
-#source $ZSH/oh-my-zsh.sh
-
 # =============================================================================
 ## Colors
 # =============================================================================
