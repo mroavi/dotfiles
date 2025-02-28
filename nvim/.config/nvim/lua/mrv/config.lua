@@ -65,6 +65,7 @@ M.setup = function()
   vim.keymap.set("n", "<C-w>j", "<C-w>w", { silent = true }) -- go to the next window
   vim.keymap.set("n", "<C-w>k", "<C-w>W", { silent = true }) -- go to the prev window
   vim.keymap.set("n", "<Leader>id", ":r!date '+\\%F'<CR>") -- insert current date
+  vim.keymap.set("i", "<C-d>", function() local date = os.date("%F") vim.api.nvim_put({ date }, "", true, true) end, { noremap = true, silent = true })
   for i=1,9 do vim.keymap.set("n", "<Leader>" .. i, function() vim.cmd('argu!' .. i) end) end -- edit ith entry in the argument list 
   vim.keymap.set('n', '<Leader>ifn', my_utils.add_filename_to_top)
   vim.keymap.set('i', '<F5>', '<C-r>=expand("%:t")<CR>', { silent = true }) -- insert current buffer name in insert mode
