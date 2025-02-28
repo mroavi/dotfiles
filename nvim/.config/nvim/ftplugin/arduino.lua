@@ -69,14 +69,16 @@ end, { buffer = true })
 vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
 
 vim.b.serial_port = '/dev/ttyUSB0'
+--vim.b.serial_port = '/dev/ttyUSB1'
 --vim.b.serial_port = '/dev/ttyACM0'
+--vim.b.serial_port = '/dev/ttyACM1'
 
 --vim.b.serial_baud = '9600'
 vim.b.serial_baud = '115200'
 
---vim.b.board = 'arduino:avr:uno'
+vim.b.board = 'arduino:avr:uno'
 --vim.b.board = 'arduino:avr:mega'
-vim.b.board = 'esp32:esp32:esp32'
+--vim.b.board = 'esp32:esp32:esp32'
 
 local M = {}
 
