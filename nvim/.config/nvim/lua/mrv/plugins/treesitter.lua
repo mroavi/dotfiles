@@ -4,19 +4,20 @@ require 'nvim-treesitter.configs'.setup {
 
   -- One of "all" or a list of languages
   ensure_installed = {
+    "arduino",
+    "c",
+    "c_sharp",
+    "cpp",
+    "css",
+    "html",
+    "javascript",
+    "json",
     "julia",
     "lua",
     "python",
-    "c",
-    "vim",
     "rust",
-    "html",
-    "css",
     "sql",
-    "c_sharp",
-    "arduino",
-    "javascript",
-    "json",
+    "vim",
   },
 
   -- Install languages synchronously (only applied to `ensure_installed`)
