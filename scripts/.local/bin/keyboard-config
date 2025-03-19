@@ -12,6 +12,3 @@ setxkbmap -layout us -variant altgr-intl
 # Incrase keyboard repeat rate
 # https://www.reddit.com/r/i3wm/comments/1yiu36/increase_keyboard_repeat_rate/
 xset r rate 270 60
-
-# Remap keycode 94 (bottom-left backslash key in my RK84) to Shift_L
-xmodmap -e "keycode 94 = Shift_L"
