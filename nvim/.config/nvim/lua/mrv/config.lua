@@ -9,7 +9,7 @@ M.setup = function()
   --------------------------------------------------------------------------------
 
   vim.g.mapleader = ' '
-  vim.g.markdown_fenced_languages = {'html', 'python', 'bash=sh', 'cs'}
+  --vim.g.markdown_fenced_languages = {'html', 'python', 'bash=sh', 'cs'}
 
   vim.opt.shada = { '<10', "'99", '/99', ':99', 'h', 'f1' } -- :help sd
   vim.opt.number = false
