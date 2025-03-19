@@ -465,6 +465,15 @@ if [ -n "$CONTAINER_ID" ]; then
   export PURE_PROMPT_SYMBOL="📦"
 fi
 
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/mroavi/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
+
 ## ---------------------------------------------------------------------------
 ## Enable autocompletion for Humble ROS 2 and Colcon
 ## This approach fixes the problem described in:
