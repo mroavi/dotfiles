@@ -47,6 +47,12 @@ require 'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 
+  indent = {
+    enable = true,
+    -- List of filetypes for which treesitter-based indentation is disabled
+    --disable = { "python", "yaml" },
+  },
+
   -- Incremental selection based on the named nodes from the grammar
   incremental_selection = {
     enable = true,
