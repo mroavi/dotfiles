@@ -34,7 +34,7 @@ if grep -q "ID=arch" /etc/os-release; then
   dwmblocks &
   # Start ibus (https://wiki.archlinux.org/title/IBus)
   # It supports Unicode input by typing Ctrl+Shift+u followed by the Unicode
-  #ibus-daemon -drxR
+  ibus-daemon -drxR
 fi
 
 # Start xbindkeys 
