@@ -1,3 +1,6 @@
+-- TODO: Refactor LSP config for Neovim 0.11 and after using the new syntax:
+-- - https://www.reddit.com/r/neovim/comments/1jn6eib/blink_neovim_011/
+
 -- Documentation for all configs can be found at:
 --  https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
