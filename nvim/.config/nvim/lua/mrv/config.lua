@@ -55,7 +55,7 @@ M.setup = function()
   vim.keymap.set("n", "<Leader>S", ":cfdo %s/<C-r>///gc<left><left><left>") -- replace the last searched pattern (from the `/` register) with the provided text in each file in the quickfix list
   vim.keymap.set("n", "<F6>", "':setlocal spelllang=' . (&spelllang == 'en' ? 'es' : 'en') . '<CR>'", { expr = true }) -- toggle spelling language
   vim.keymap.set("n", "gp", "'`[' . getregtype()[0] . '`]'", { expr = true }) -- select pasted text
-  vim.keymap.set("n", "<C-s>", ":call search('\\w\\>', 'c')<CR>a<C-X><C-S>") -- spelling completion in normal mode (https://stackoverflow.com/a/25777332/1706778)
+  vim.keymap.set("n", "<C-s>", ":call search('\\w\\>', 'c')<CR>a<C-X><C-S><C-N>") -- spelling completion in normal mode (https://stackoverflow.com/a/25777332/1706778)
   vim.keymap.set("n", "k", "(v:count > 1 ? \"m'\" . v:count : '') . 'k'", { expr = true }) -- add line movements preceded by a count greater than 1 to the jump list
   vim.keymap.set("n", "j", "(v:count > 1 ? \"m'\" . v:count : '') . 'j'", { expr = true }) -- add line movements preceded by a count greater than 1 to the jump list
   vim.keymap.set("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", { expr = true }) -- make Ctrl-u and Ctrl-d scroll 1/3 of the window height
