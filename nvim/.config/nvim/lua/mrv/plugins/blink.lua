@@ -1,4 +1,5 @@
 -- For more configuration details about blink.nvim, check out:
+-- Docs: https://cmp.saghen.dev/ 
 -- YouTube: https://www.youtube.com/@linkarzu (great tutorials!)
 -- Blink.nvim config: https://github.com/linkarzu/dotfiles-latest/blob/main/neovim/neobean/lua/plugins/blink-cmp.lua
 -- Reddit thread: https://www.reddit.com/r/neovim/comments/1hwxaot/blinkcmp_updates_remove_luasnip_emoji_and/
