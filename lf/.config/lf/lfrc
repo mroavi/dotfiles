@@ -102,7 +102,7 @@ cmd myopen ${{
     esac
 }}
 
-# extract the current file with the right command
+# Extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
 cmd extract ${{
     set -f
@@ -115,6 +115,16 @@ cmd extract ${{
         *.rar) unrar x $f;;
         *.7z) 7z x $f;;
     esac
+}}
+
+# Compress the selected directory into a zip file
+cmd compress ${{
+  set -f
+  if [ -d "$f" ]; then
+    zip -r "${f%/}.zip" "$f"
+  else
+    echo "$f is not a directory"
+  fi
 }}
 
 # # compress current file or selected files with tar and gunzip
@@ -166,6 +176,7 @@ map gx            myopen
 map z             zi
 map <backspace2> :clear; unselect
 map e             extract
+map c             compress
 # Warning: the following two mappings only work when lf is started directly from the terminal
 map <c-o>         jump-prev
 map <tab>         jump-next # <c-i>
