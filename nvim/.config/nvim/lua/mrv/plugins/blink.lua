@@ -34,7 +34,7 @@ require("blink.cmp").setup({
     },
     -- Displays a preview of the selected item on the current line
     ghost_text = {
-      enabled = true,
+      enabled = false,
     },
   },
   -- default list of enabled providers defined so that you can extend it
