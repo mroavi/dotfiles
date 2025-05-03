@@ -329,7 +329,7 @@ vim.cmd [[
 -- ==============================================================================
 
 -- See `:h lsp-buf`
-vim.keymap.set("n", "crr", vim.lsp.buf.code_action) -- default keymap
+vim.keymap.set("n", "crr", vim.lsp.buf.code_action) -- default keymap (TODO: v0.11 updates these keymaps)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "gr", vim.lsp.buf.references) -- default keymap
 vim.keymap.set("n", "crn", vim.lsp.buf.rename) -- default keymap
