@@ -50,7 +50,12 @@ require 'nvim-treesitter.configs'.setup {
   indent = {
     enable = true,
     -- List of filetypes for which treesitter-based indentation is disabled
-    --disable = { "python", "yaml" },
+    disable = {
+      "markdown",
+      --"python",
+      --"yaml",
+      "arduino",
+    },
   },
 
   -- Incremental selection based on the named nodes from the grammar
