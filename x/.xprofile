@@ -2,9 +2,6 @@
 
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
-# Set my default layout
-setxkbmap -layout us -variant altgr-intl
-
 # Increase keyboard repeat rate
 # https://www.reddit.com/r/i3wm/comments/1yiu36/increase_keyboard_repeat_rate/
 xset r rate 270 60
