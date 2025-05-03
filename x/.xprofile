@@ -27,8 +27,6 @@ dunst &
 if grep -q "ID=arch" /etc/os-release; then
   # Launch compositor (used for blur and fading effects)
   picom &
-  ## Launch dropbox
-  dropbox &
   ## Run my dwm bar script
   #dwmiconbar &
   dwmblocks &

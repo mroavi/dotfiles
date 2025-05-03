@@ -108,7 +108,6 @@ yay_pkgs=(
           vidir
           trash-cli
           brave-bin
-          dropbox
           git-open
           tio                           # a serial device I/O tool
           ttf-font-awesome-4
