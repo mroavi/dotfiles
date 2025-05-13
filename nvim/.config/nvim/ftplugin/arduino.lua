@@ -79,6 +79,7 @@ vim.b.serial_baud = '115200'
 vim.b.board = 'arduino:avr:uno'
 --vim.b.board = 'arduino:avr:mega'
 --vim.b.board = 'esp32:esp32:esp32'
+--vim.b.board = 'arduino:renesas_uno:unor4wifi'
 
 local M = {}
 
