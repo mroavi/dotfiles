@@ -30,7 +30,7 @@ local plugins = {
   { 'mroavi/vim-pasta' }, -- auto format pasted code
   { 'yegappan/mru', init = function() require('mrv.plugins.mru') end }, -- most recently used (MRU) vim plugin
   { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end }, -- quickstart configurations for the Nvim LSP client
-  { 'mason-org/mason.nvim', config = function() require('mrv.plugins.mason') end, dependencies = { 'mason-org/mason-lspconfig.nvim' } }, -- easily install and manage LSP servers, DAP servers, linters, and formatters
+  { 'mason-org/mason.nvim', config = function() require('mrv.plugins.mason') end, dependencies = { 'mason-org/mason-lspconfig.nvim', version = "^1.0.0" }, version = "^1.0.0" }, -- easily install and manage LSP servers, DAP servers, linters, and formatters
   { 'mroavi/vim-tomux', init = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end }, -- send text to tmux
   { 'lervag/vimtex', init = function() require('mrv.plugins.vimtex') end }, -- a modern Vim and neovim filetype plugin for LaTeX files.
   { 'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, build = ':TSUpdate', dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' } }, -- nvim treesitter configurations and abstraction layer
