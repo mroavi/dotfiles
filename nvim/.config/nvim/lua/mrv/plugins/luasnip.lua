@@ -47,3 +47,9 @@ ls.add_snippets("c", {
 ls.add_snippets("cs", {
   ls.parser.parse_snippet("pr", "Console.WriteLine($0);"),
 })
+
+--- java
+
+ls.add_snippets("java", {
+  ls.parser.parse_snippet("pr", "System.out.println($0);"),
+})
