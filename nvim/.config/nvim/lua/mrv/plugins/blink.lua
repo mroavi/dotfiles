@@ -47,6 +47,7 @@ require("blink.cmp").setup({
   -- default list of enabled providers defined so that you can extend it
   -- elsewhere in your config, without redefining it, via `opts_extend`
   sources = {
+    min_keyword_length = 2,
     default = { 'lsp', 'path', 'snippets' },
     per_filetype = {
       lua = { 'lsp', 'path', 'snippets', 'buffer' },
