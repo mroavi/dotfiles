@@ -34,8 +34,15 @@ require("blink.cmp").setup({
     },
     -- Displays a preview of the selected item on the current line
     ghost_text = {
-      enabled = false,
-    },
+      enabled = function()
+        local allowed_filetypes = {
+          lua = true,
+          cs = true,
+          java = true,
+        }
+        return allowed_filetypes[vim.bo.filetype] or false
+      end
+    }
   },
   -- default list of enabled providers defined so that you can extend it
   -- elsewhere in your config, without redefining it, via `opts_extend`
