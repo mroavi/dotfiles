@@ -13,6 +13,30 @@ local action_utils = require "telescope.actions.utils"
 
 local M = {}
 
+local ignore_patterns = {
+  -- Version control
+  ".git/",
+  -- Python
+  "venv/",
+  "__pycache__/",
+  -- C# / .NET
+  "bin/",
+  "obj/",
+  -- Java build outputs
+  "build/",
+  "out/",
+  "target/",
+  "%.class$",
+  "%.jar$",
+  -- IDE and tool configs
+  "^.idea/",
+  "^.vscode/",
+  "^.gradle/",
+  "%.iml$",
+  -- System files
+  "%.DS_Store",
+}
+
 require("telescope").setup {
   defaults = {
     layout_strategy = "flex",
@@ -53,13 +77,7 @@ require("telescope").setup {
         ["<Esc>"] = actions.close
       },
     },
-    file_ignore_patterns = {
-      ".git/",
-      "bin/",
-      "obj/",
-      "venv/",
-      "__pycache__/",
-    },
+    file_ignore_patterns = ignore_patterns,
   },
   pickers = {
     live_grep = {
