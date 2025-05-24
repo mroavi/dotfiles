@@ -335,14 +335,20 @@ vim.cmd [[
 --- Mappings
 -- ==============================================================================
 
+-- GLOBAL DEFAULTS
+-- grr gra grn gri i_CTRL-S
+-- Some keymaps are created unconditionally when Nvim starts:
+-- "grn" is mapped in Normal mode to |vim.lsp.buf.rename()|
+-- "gra" is mapped in Normal and Visual mode to |vim.lsp.buf.code_action()|
+-- "grr" is mapped in Normal mode to |vim.lsp.buf.references()|
+-- "gri" is mapped in Normal mode to |vim.lsp.buf.implementation()|
+-- "gO" is mapped in Normal mode to |vim.lsp.buf.document_symbol()|
+-- CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
+
 -- See `:h lsp-buf`
-vim.keymap.set("n", "crr", vim.lsp.buf.code_action) -- default keymap (TODO: v0.11 updates these keymaps)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.keymap.set("n", "gr", vim.lsp.buf.references) -- default keymap
-vim.keymap.set("n", "crn", vim.lsp.buf.rename) -- default keymap
 vim.keymap.set("n", "<Leader>=", function() vim.lsp.buf.format({ async = true }) end)
 vim.keymap.set("n", "<Leader>ho", vim.lsp.buf.hover)
-vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help) -- default keymap
 -- See `:h lsp-diagnostic`
 vim.keymap.set("n", "]d", function() require('mrv.plugins.lspconfig').goto_next() end)
 vim.keymap.set("n", "[d", function() require('mrv.plugins.lspconfig').goto_prev() end)
