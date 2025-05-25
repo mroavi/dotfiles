@@ -50,19 +50,19 @@ end, { buffer = true })
 -- Build
 vim.keymap.set('n', '<Leader>tb', function()
   vim.cmd.write()
-  vim.cmd [[TomuxSend("gradle build\n")]]
+  vim.cmd [[TomuxSend("./gradlew build\n")]]
 end, { buffer = true })
 
 -- Run (execute)
 vim.keymap.set('n', '<Leader>e', function()
   vim.cmd.write()
-  vim.cmd [[TomuxSend("gradle run\n")]]
+  vim.cmd [[TomuxSend("./gradlew run\n")]]
 end, { buffer = true })
 
 -- Clean
 vim.keymap.set('n', '<Leader>tc', function()
   vim.cmd.write()
-  vim.cmd [[TomuxSend("gradle clean\n")]]
+  vim.cmd [[TomuxSend("./gradlew clean\n")]]
 end, { buffer = true })
 
 -- Test
