@@ -10,6 +10,7 @@ require 'nvim-treesitter.configs'.setup {
     "cpp",
     "css",
     "html",
+    "java",
     "javascript",
     "json",
     "julia",
