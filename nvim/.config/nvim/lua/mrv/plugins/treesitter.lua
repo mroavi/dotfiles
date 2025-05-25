@@ -55,7 +55,7 @@ require 'nvim-treesitter.configs'.setup {
       "markdown",
       --"python",
       --"yaml",
-      "arduino",
+      --"arduino",
     },
   },
 
