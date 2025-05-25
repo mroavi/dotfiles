@@ -13,6 +13,7 @@ require("luasnip").filetype_extend("arduino", {"cpp"})
 
 -- Install `clang-format` with Mason
 
+-- Enable formatting using the gq operator
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 ---------------------------------------------------------------------------------
