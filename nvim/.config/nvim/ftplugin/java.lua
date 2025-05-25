@@ -19,6 +19,15 @@ vim.keymap.set('n', '<Leader>pr', function()
   utils.insert_string(print_fun .. [[(\"'%s': \" + %s); // DEBUG]], 'o')
 end, { buffer = true })
 
+-------------------------------------------------------------------------------
+-- conform
+-------------------------------------------------------------------------------
+
+-- Install `google-java-format` with Mason
+
+-- Enable formatting using the gq operator
+vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
 ---------------------------------------------------------------------------------
 --- vim-tomux
 ---------------------------------------------------------------------------------

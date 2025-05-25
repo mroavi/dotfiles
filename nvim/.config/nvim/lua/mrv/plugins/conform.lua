@@ -13,6 +13,7 @@ conform.setup({
     tex = { "latexindent" },
     json = { "prettier" },
     arduino = { "clang-format" },
+    java = { "google-java-format" }
   },
   -- Override/add to the default values of formatters
   formatters = {
