@@ -13,7 +13,8 @@ vim.o.shiftwidth = 4
 --- Debug utilities
 ---------------------------------------------------------------------------------
 
-local print_fun = 'System.out.println'
+--local print_fun = 'System.out.println'
+local print_fun = 'logger.debug'
 
 vim.keymap.set('n', '<Leader>pr', function()
   utils.insert_string(print_fun .. [[(\"'%s': \" + %s); // DEBUG]], 'o')
