@@ -348,7 +348,7 @@ vim.cmd [[
 -- CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
 
 -- See `:h lsp-buf`
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "grd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>=", function() vim.lsp.buf.format({ async = true }) end)
 vim.keymap.set("n", "<Leader>ho", vim.lsp.buf.hover)
 -- See `:h lsp-diagnostic`
