@@ -66,7 +66,7 @@ end, { buffer = true })
 -- Run (execute)
 vim.keymap.set('n', '<Leader>e', function()
   vim.cmd.write()
-  vim.cmd [[TomuxSend("./gradlew run\n")]]
+  vim.cmd [[TomuxSend("./gradlew bootRun\n")]]
 end, { buffer = true })
 
 -- Clean
