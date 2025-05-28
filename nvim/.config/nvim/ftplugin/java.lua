@@ -5,16 +5,16 @@ local utils = require('mrv.utils')
 vim.b.cell_delimeter = '/// '
 
 -- Use 4 spaces for indentation
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
 
 ---------------------------------------------------------------------------------
 --- Debug utilities
 ---------------------------------------------------------------------------------
 
---local print_fun = 'System.out.println'
-local print_fun = 'logger.debug'
+local print_fun = 'System.out.println'
+--local print_fun = 'LOGGER.info'
 
 vim.keymap.set('n', '<Leader>pr', function()
   utils.insert_string(print_fun .. [[(\"'%s': \" + %s); // DEBUG]], 'o')
