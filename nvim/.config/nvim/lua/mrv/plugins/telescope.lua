@@ -718,9 +718,10 @@ vim.keymap.set("n", "<Leader>K", function() M.help_tags({ default_text = vim.fn.
 --vim.keymap.set("n", "<Leader>ma", builtin.keymaps)
 vim.keymap.set("n", "<Leader>hi", builtin.highlights)
 -- LSP pickers
-vim.keymap.set("n", "<Leader>d", builtin.diagnostics)
+vim.keymap.set("n", "<Leader>di", builtin.diagnostics)
+vim.keymap.set("n", "grr", builtin.lsp_references	)
 --vim.keymap.set("n", "<Leader>ds", builtin.lsp_document_symbols)
-vim.keymap.set("n", "<Leader>sy", builtin.lsp_workspace_symbols)
+--vim.keymap.set("n", "<Leader>sy", builtin.lsp_workspace_symbols)
 -- Git pickers
 vim.keymap.set("n", "<Leader>co", M.git_commits)
 vim.keymap.set("n", "<Leader>cb", M.git_bcommits)
