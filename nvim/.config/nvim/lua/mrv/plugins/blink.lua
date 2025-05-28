@@ -38,7 +38,7 @@ require("blink.cmp").setup({
         local allowed_filetypes = {
           lua = true,
           cs = true,
-          java = true,
+          java = false,
         }
         return allowed_filetypes[vim.bo.filetype] or false
       end
