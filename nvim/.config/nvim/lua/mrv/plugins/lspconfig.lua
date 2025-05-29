@@ -307,6 +307,12 @@ if not vim.env.SSH_CONNECTION then
   -- jdtls must be started manually per project using `require('jdtls').start_or_attach(config)`
   -- See: https://github.com/mfussenegger/nvim-jdtls
 
+  --------------------------------------------------------------------------------
+  --- typescript
+  --------------------------------------------------------------------------------
+
+  lspconfig.ts_ls.setup{}
+
 end
 
 -- ==============================================================================

@@ -32,6 +32,7 @@ if not vim.env.SSH_CONNECTION then
       "sqlls",
       "tailwindcss",
       "texlab",
+      "ts_ls",
       "vimls",
     }
   }
