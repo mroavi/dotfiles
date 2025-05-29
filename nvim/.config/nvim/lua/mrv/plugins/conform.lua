@@ -13,7 +13,9 @@ conform.setup({
     tex = { "latexindent" },
     json = { "prettier" },
     arduino = { "clang-format" },
-    java = { "google-java-format" }
+    java = { "google-java-format" },
+    javascript = { "prettier" },
+    typescript = { "prettier" },
   },
   -- Override/add to the default values of formatters
   formatters = {
