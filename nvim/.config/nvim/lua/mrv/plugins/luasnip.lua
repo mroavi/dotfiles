@@ -53,3 +53,9 @@ ls.add_snippets("cs", {
 ls.add_snippets("java", {
   ls.parser.parse_snippet("pr", "System.out.println($0);"),
 })
+
+--- javascript
+
+ls.add_snippets("javascript", {
+  ls.parser.parse_snippet("pr", "console.log($0);"),
+})
