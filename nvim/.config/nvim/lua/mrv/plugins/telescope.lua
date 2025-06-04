@@ -22,12 +22,20 @@ local ignore_patterns = {
   -- C# / .NET
   "bin/",
   "obj/",
-  -- Java build outputs
+  -- Java
   "build/",
   "out/",
   "target/",
   "%.class$",
   "%.jar$",
+  -- Node.js / React
+  "node_modules/",
+  "dist/",
+  ".next/",
+  "coverage/",
+  "%.log$",
+  "%.env",
+  "%.env%..*",
   -- IDE and tool configs
   "^.idea/",
   "^.vscode/",
@@ -35,6 +43,8 @@ local ignore_patterns = {
   "%.iml$",
   -- System files
   "%.DS_Store",
+  "%.swp$",
+  "%.tmp$",
 }
 
 require("telescope").setup {
