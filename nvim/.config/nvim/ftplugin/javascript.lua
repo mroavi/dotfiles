@@ -1,6 +1,9 @@
 local vim = vim
 local utils = require('mrv.utils')
 
+-- No space between comment character and code
+vim.b.commentary_format = '//%s'
+
 ---------------------------------------------------------------------------------
 --- Debug utilities
 ---------------------------------------------------------------------------------
