@@ -6,8 +6,8 @@ require 'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "arduino",
     "c",
-    "c_sharp",
     "cpp",
+    "c_sharp",
     "css",
     "html",
     "java",
@@ -18,6 +18,8 @@ require 'nvim-treesitter.configs'.setup {
     "python",
     "rust",
     "sql",
+    "tsx", -- also supports .jsx files
+    "typescript",
     "vim",
   },
 
