@@ -7,15 +7,6 @@ vim.b.commentary_format = '//%s'
 -- Extend Arduino filetype to use C++ snippets in LuaSnip
 require("luasnip").filetype_extend("arduino", {"cpp"})
 
--------------------------------------------------------------------------------
--- conform
--------------------------------------------------------------------------------
-
--- Install `clang-format` with Mason
-
--- Enable formatting using the gq operator
-vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-
 ---------------------------------------------------------------------------------
 --- cmp
 ---------------------------------------------------------------------------------

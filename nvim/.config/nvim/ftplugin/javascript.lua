@@ -19,15 +19,6 @@ end, { buffer = true })
 -- Use :write instead of :update to force BrowserSync to reload and run the JS code
 vim.keymap.set("n", "<Leader>w", ":write<CR>", { buffer = true })
 
--------------------------------------------------------------------------------
--- conform
--------------------------------------------------------------------------------
-
--- Install `prettier` with Mason
-
--- Enable formatting using the gq operator
-vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-
 ---------------------------------------------------------------------------------
 --- vim-tomux
 ---------------------------------------------------------------------------------

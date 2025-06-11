@@ -5,6 +5,9 @@
 --  vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 -- Based on: https://youtu.be/6pAG3BHurdM?si=TAoMywJVwhL15c39
 
+-- TODO: Auto-install formatters using mason-tool-installer.nvim
+-- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
+
 local conform = require("conform")
 
 conform.setup({
@@ -15,8 +18,9 @@ conform.setup({
     arduino = { "clang-format" },
     java = { "google-java-format" },
     javascript = { "prettier" },
-    typescript = { "prettier" },
     javascriptreact = { "prettier" },
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
     json = { "prettier" },
   },
   -- Override/add to the default values of formatters
@@ -29,3 +33,26 @@ conform.setup({
 })
 
 vim.keymap.set("n", "<Leader>C", ":ConformInfo<CR>")
+
+-- Ensure Conform is used for `gq` even after LSP attaches
+local conform_filetypes = {
+	javascript = true,
+	javascriptreact = true,
+	typescript = true,
+	typescriptreact = true,
+	json = true,
+	tex = true, -- for `latexindent`: pacman -S libxcrypt-compat if libcrypt.so.1 error
+	python = true,
+	java = true,
+	arduino = true,
+}
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local buf = args.buf
+		local ft = vim.bo[buf].filetype
+		if conform_filetypes[ft] then
+			vim.bo[buf].formatexpr = "v:lua.require'conform'.formatexpr()"
+		end
+	end,
+})
