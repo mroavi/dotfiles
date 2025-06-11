@@ -9,16 +9,3 @@ function! AdjustWindowHeight(minheight, maxheight)
 endfunction
 au FileType qf call AdjustWindowHeight(3, 10)
 ]])
-
--------------------------------------------------------------------------------
--- conform
--------------------------------------------------------------------------------
-
--- Install `latexindent` with Mason
-
--- https://stackoverflow.com/a/71455879
--- To fix: `dlopen: libcrypt.so.1: cannot open shared object file` run
---  pac -S libxcrypt-compat
-
--- Enable formatting using the gq operator
-vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
