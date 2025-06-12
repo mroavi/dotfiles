@@ -17,42 +17,16 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Configure diagnostic options
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      virtual_text = false,
-      signs = false,
-      underline = true,
-      update_in_insert = false,
-      severity_sort = false
-    })
-
--- Hover
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})
-
--- Signature help
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
-})
-
--- Signs
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
--- Virtual text prefix
 vim.diagnostic.config({
-  float = { border = "rounded" },
   virtual_text = {
     prefix = '■' -- could be '●', '▎', 'x'
   },
+  signs = false,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+  float = { border = "rounded" },
 })
-
--- LspInfo window border
-require('lspconfig.ui.windows').default_options.border = 'single'
 
 -- Enable logging, open the log with :lua vim.cmd('e'..vim.lsp.get_log_path())
 -- vim.lsp.set_log_level("debug")
