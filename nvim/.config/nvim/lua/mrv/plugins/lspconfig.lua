@@ -324,7 +324,10 @@ vim.cmd [[
 -- "gO" is mapped in Normal mode to |vim.lsp.buf.document_symbol()|
 -- CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
 
--- "]d" / "[d" → jump to next/prev diagnostic. See *[d-default* for help.
+-- Override ]d / [d to jump and show the diagnostic float automatically ('float' opens the popup).
+-- See :h vim.diagnostic.jump()
+vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end)
+vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end)
 
 -- See `:h lsp-buf`
 vim.keymap.set("n", "grd", vim.lsp.buf.definition)
