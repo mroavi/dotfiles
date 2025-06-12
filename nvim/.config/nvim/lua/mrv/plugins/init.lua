@@ -24,7 +24,7 @@ local plugins = {
   { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function() require('mrv.plugins.autopairs') end }, -- autopairs for neovim written by lua
   { 'tpope/vim-fugitive', init = function() require('mrv.plugins.fugitive') end, dependencies = { 'tpope/vim-rhubarb' } }, -- a Git wrapper so awesome, it should be illegal
   { 'tpope/vim-unimpaired' }, -- pairs of handy bracket mappings
-  { 'tpope/vim-surround' }, -- provides mappings to easily delete, change and add such surroundings in pairs
+  { 'kylechui/nvim-surround', version = '^3.0.0', event = 'VeryLazy', config = function() require("nvim-surround").setup() end },
   { 'tpope/vim-repeat' }, -- enable repeating supported plugin maps with "."
   { 'tpope/vim-obsession' }, -- continuously updated session files
   { 'mroavi/vim-pasta' }, -- auto format pasted code
