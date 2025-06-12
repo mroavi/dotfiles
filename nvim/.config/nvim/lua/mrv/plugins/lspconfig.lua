@@ -13,9 +13,6 @@ local M = {}
 --- General
 -- ==============================================================================
 
-function M.goto_next() vim.diagnostic.goto_next { wrap = false } end
-function M.goto_prev() vim.diagnostic.goto_prev { wrap = false } end
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -353,14 +350,13 @@ vim.cmd [[
 -- "gO" is mapped in Normal mode to |vim.lsp.buf.document_symbol()|
 -- CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
 
+-- "]d" / "[d" → jump to next/prev diagnostic. See *[d-default* for help.
+
 -- See `:h lsp-buf`
 vim.keymap.set("n", "grd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>=", function() vim.lsp.buf.format({ async = true }) end)
 vim.keymap.set("n", "<Leader>ho", vim.lsp.buf.hover)
--- See `:h lsp-diagnostic`
-vim.keymap.set("n", "]d", function() require('mrv.plugins.lspconfig').goto_next() end)
-vim.keymap.set("n", "[d", function() require('mrv.plugins.lspconfig').goto_prev() end)
-vim.keymap.set('n', 'crs', function() vim.cmd('LspStop') end)
+vim.keymap.set('n', 'grs', function() vim.cmd('LspStop') end)
 
 local opfunc = "__range_format_opfunc"
 vim.keymap.set('x', 'gf', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
