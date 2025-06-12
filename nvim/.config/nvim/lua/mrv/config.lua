@@ -41,6 +41,7 @@ M.setup = function()
   vim.opt.cmdheight = 1 -- `0` hides the command-line when not being used
   vim.opt.wildignore:append { 'build/**' }
   vim.opt.diffopt:append { 'linematch:60' } -- improve diff mode
+  vim.opt.winborder = "rounded" -- an option to control the default border of all floating windows
 
   --------------------------------------------------------------------------------
   --- Mappings
