@@ -22,6 +22,7 @@ conform.setup({
     tex = { "latexindent" },
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
+    yaml = { "prettier" },
   },
   -- Override/add to the default values of formatters
   formatters = {
@@ -34,7 +35,10 @@ conform.setup({
 
 vim.keymap.set("n", "<Leader>C", ":ConformInfo<CR>")
 
+-------------------------------------------------------------------------------
 -- Ensure Conform is used for `gq` even after LSP attaches
+-------------------------------------------------------------------------------
+
 local conform_filetypes = {
   arduino = true,
   javascriptreact = true,
@@ -45,6 +49,7 @@ local conform_filetypes = {
   tex = true, -- for `latexindent`: pacman -S libxcrypt-compat if libcrypt.so.1 error
   typescriptreact = true,
   typescript = true,
+  yaml = true,
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -57,7 +62,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-------------------------------------------------------------------------------
 -- Autoformat-on-save only for these filetypes
+-------------------------------------------------------------------------------
+
 local autoformat_filetypes = {
   javascriptreact = true,
   javascript = true,

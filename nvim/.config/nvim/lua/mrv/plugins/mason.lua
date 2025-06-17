@@ -34,6 +34,7 @@ if not vim.env.SSH_CONNECTION then
       "texlab",
       "ts_ls",
       "vimls",
+      "yamlls",
     }
   }
 else
