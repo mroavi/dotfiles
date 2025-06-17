@@ -69,7 +69,7 @@ require 'lspconfig'.julials.setup({
 --------------------------------------------------------------------------------
 
 -- Manual installation: sudo pacman -S lua-language-server
-require 'lspconfig'.lua_ls.setup {
+lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       runtime = {
@@ -114,7 +114,7 @@ lspconfig.vimls.setup {
 
 --require'lspconfig'.pylsp.setup{}
 
-require'lspconfig'.jedi_language_server.setup{}
+lspconfig.jedi_language_server.setup{}
 
 --------------------------------------------------------------------------------
 --- c
@@ -290,7 +290,7 @@ if not vim.env.SSH_CONNECTION then
 
   -- Config based on: https://www.arthurkoziel.com/json-schemas-in-neovim/
 
-  require('lspconfig').yamlls.setup {
+  lspconfig.yamlls.setup {
     settings = {
       yaml = {
         validate = true,
