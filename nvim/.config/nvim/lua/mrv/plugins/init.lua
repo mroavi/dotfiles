@@ -17,7 +17,7 @@ local plugins = {
   { 'tpope/vim-commentary' }, -- comment stuff out (builtin nvim gc support comming soon: https://github.com/neovim/neovim/pull/28176)
   { 'stevearc/oil.nvim', config = function() require('mrv.plugins.oil') end }, -- neovim file explorer: edit your filesystem like a buffer
   { 'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, dependencies = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } }, -- lf file manager for Neovim (in Lua)
-  { 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'natecraddock/telescope-zf-native.nvim' } }, -- find, filter, preview, pick
+  { 'ibhagwan/fzf-lua', config = function() require('mrv.plugins.fzf-lua') end, dependencies = { "nvim-tree/nvim-web-devicons" } }, -- improved fzf.vim written in lua
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('mrv.plugins.gitsigns') end }, -- super fast git decorations implemented purely in lua/teal
   { 'L3MON4D3/LuaSnip', event = 'InsertEnter', config = function() require('mrv.plugins.luasnip') end, dependencies = { 'rafamadriz/friendly-snippets' } },
   { 'saghen/blink.cmp', lazy = false, dependencies = { 'rafamadriz/friendly-snippets', { 'L3MON4D3/LuaSnip', version = 'v2.*' } }, version = 'v0.*', config = function() require('mrv.plugins.blink') end }, -- performant, batteries-included completion plugin for Neovim
@@ -65,6 +65,7 @@ local plugins = {
   --{ 'folke/which-key.nvim', config = function() require('mrv.plugins.which-key') end }, -- displays a popup with possible keybindings of the command you started typing
   --{ 'mroavi/slides.vim', dev = true, config = function() require('mrv.plugins.slides') end, dependencies = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } }, -- presentation slides in vim
   --{ 'kaarmu/typst.vim' }, -- Vim plugin for Typst
+  --{ 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'natecraddock/telescope-zf-native.nvim' } }, -- find, filter, preview, pick
 
   -- Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
