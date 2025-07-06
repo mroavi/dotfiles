@@ -93,6 +93,8 @@ local plugins = {
   --{ 'OXY2DEV/markview.nvim' }, -- Experimental markdown preview for neovim
   --{ 'rachartier/tiny-inline-diagnostic.nvim' }, -- A Neovim plugin that display prettier diagnostic messages.
   --{ 'ColinKennedy/cursor-text-objects.nvim' }, -- Use [ and ] to enhance all of your Neovim text-objects and text-operators!
+  --{ 'inhesrom/remote-ssh.nvim' } -- support for working with remote files in Neovim via SSH, SCP, or rsync protocols
+  --{ 'MagicDuck/grug-far.nvim' } find and replace plugin for neovim
 
   -- Abandoned
   --{ 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end }, -- provides insert mode auto-completion for quotes, parens, brackets, etc.
