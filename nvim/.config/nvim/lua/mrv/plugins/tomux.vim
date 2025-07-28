@@ -18,24 +18,24 @@ augroup tomux_send
   autocmd FileType julia,python,lua,sql xmap <buffer> s <Plug>TomuxVisualSend
   autocmd FileType julia,python,lua,sql omap <buffer> s _
 
-  "-----------------------------------------------------------------------------
-  " Atom-like mappings for sending text (the `\` key is used as helper/hack)
-  "-----------------------------------------------------------------------------
-  autocmd FileType julia,python,lua,sql nmap <buffer> \ <Plug>TomuxMotionSend
+  ""-----------------------------------------------------------------------------
+  "" Atom-like mappings for sending text (the `\` key is used as helper/hack)
+  ""-----------------------------------------------------------------------------
+  "autocmd FileType julia,python,lua,sql nmap <buffer> \ <Plug>TomuxMotionSend
 
-  " Ctrl+Enter to send text in visual, normal and insert modes
-  "autocmd FileType julia,python,lua xmap <buffer> <C-Cr> <Plug>TomuxVisualSend
-  "autocmd FileType julia,python,lua nmap <buffer> <C-Cr> \_
-  "autocmd FileType julia,python,lua imap <buffer> <C-Cr> <Esc>\_gi
+  "" Ctrl+Enter to send text in visual, normal and insert modes
+  ""autocmd FileType julia,python,lua xmap <buffer> <C-Cr> <Plug>TomuxVisualSend
+  ""autocmd FileType julia,python,lua nmap <buffer> <C-Cr> \_
+  ""autocmd FileType julia,python,lua imap <buffer> <C-Cr> <Esc>\_gi
 
-  " Alt+Enter to send cell
-  autocmd FileType julia,python,lua,sql nmap <buffer> <M-Cr> \ic
+  "" Alt+Enter to send cell
+  "autocmd FileType julia,python,lua,sql nmap <buffer> <M-Cr> \ic
 
-  " Ctrl+Shift+Enter to send entire buffer
-  autocmd FileType lua              nmap <buffer> <C-S-Cr> \id
+  "" Ctrl+Shift+Enter to send entire buffer
+  "autocmd FileType lua              nmap <buffer> <C-S-Cr> \id
 
-  " Shift+Enter to send paragraph and jump to next statement
-  autocmd FileType julia,python,lua,sql nmap <silent> <S-Cr> :set opfunc=MySendOperator<Cr>g@ap
+  "" Shift+Enter to send paragraph and jump to next statement
+  "autocmd FileType julia,python,lua,sql nmap <silent> <S-Cr> :set opfunc=MySendOperator<Cr>g@ap
 
   "-----------------------------------------------------------------------------
   " Convenience mapping to send code that uses Julia's pipe operator (|>)
