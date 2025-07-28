@@ -42,6 +42,7 @@ local plugins = {
   { 'junegunn/gv.vim', cmd = 'GV', init = function() require('mrv.plugins.gv') end }, -- a git commit browser in Vim
   { 'Wansmer/treesj', config = function() require('mrv.plugins.treesj') end, dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.splitjoin' } }, -- Neovim plugin for splitting/joining blocks of code
   { 'stevearc/conform.nvim', config = function() require('mrv.plugins.conform') end }, -- lightweight yet powerful formatter plugin for Neovim
+  { 'MagicDuck/grug-far.nvim', config = function() require('mrv.plugins.grug-far') end } -- find and replace plugin for neovim
 
   -- {{{1
 
@@ -94,7 +95,6 @@ local plugins = {
   --{ 'rachartier/tiny-inline-diagnostic.nvim' }, -- A Neovim plugin that display prettier diagnostic messages.
   --{ 'ColinKennedy/cursor-text-objects.nvim' }, -- Use [ and ] to enhance all of your Neovim text-objects and text-operators!
   --{ 'inhesrom/remote-ssh.nvim' } -- support for working with remote files in Neovim via SSH, SCP, or rsync protocols
-  --{ 'MagicDuck/grug-far.nvim' } find and replace plugin for neovim
 
   -- Abandoned
   --{ 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end }, -- provides insert mode auto-completion for quotes, parens, brackets, etc.
