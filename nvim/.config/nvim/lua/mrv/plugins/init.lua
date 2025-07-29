@@ -15,7 +15,7 @@ local opts = {
 local plugins = {
 
   { 'tpope/vim-commentary' }, -- comment stuff out (builtin nvim gc support comming soon: https://github.com/neovim/neovim/pull/28176)
-  { 'stevearc/oil.nvim', config = function() require('mrv.plugins.oil') end }, -- neovim file explorer: edit your filesystem like a buffer
+  { 'stevearc/oil.nvim', config = function() require('mrv.plugins.oil') end, dependencies = { "MagicDuck/grug-far.nvim" } }, -- neovim file explorer: edit your filesystem like a buffer
   { 'lmburns/lf.nvim', config = function() require('mrv.plugins.lf-nvim') end, dependencies = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } }, -- lf file manager for Neovim (in Lua)
   { 'ibhagwan/fzf-lua', config = function() require('mrv.plugins.fzf-lua') end, dependencies = { "nvim-tree/nvim-web-devicons" } }, -- improved fzf.vim written in lua
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('mrv.plugins.gitsigns') end }, -- super fast git decorations implemented purely in lua/teal
