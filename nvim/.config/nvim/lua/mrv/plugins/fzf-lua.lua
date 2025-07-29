@@ -46,6 +46,7 @@ vim.keymap.set("n", "<Leader>?", fzf.grep_cword)
 vim.keymap.set("x", '<Leader>/', fzf.grep_visual)
 
 vim.keymap.set("n", "<Leader>k", fzf.helptags)
+vim.keymap.set("n", "<Leader>K", fzf.keymaps)
 
 vim.keymap.set("n", "grr", fzf.lsp_references	)
 
