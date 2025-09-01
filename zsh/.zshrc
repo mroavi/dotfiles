@@ -406,6 +406,11 @@ alias venvr="python -m venv venv && source ./venv/bin/activate && pip install -r
 # Dir bookmarks
 alias d="cd ~/dotfiles"
 alias n="cd ~/notes"
+# Temp
+alias te="cd ~/OneDrive/fontys/teaching/2025-nj"
+alias fsd="cd ~/OneDrive/fontys/teaching/2025-nj/ma-fsd-ma-fsd3"
+alias in="cd ~/OneDrive/fontys/teaching/2025-nj/ma-id"
+alias iv="cd ~/OneDrive/fontys/teaching/2025-nj/av-iv-av-iv1"
 
 # Git
 alias g='git'
