@@ -1,6 +1,14 @@
 local M = {}
 local utils = require('mrv.utils')
 
+vim.b.cell_delimeter = '///'
+
+-- Automatically write before make (:h make)
+vim.opt_local.autowrite = true
+
+-- Do not re-indent after entering a colon (:) (https://stackoverflow.com/q/19320747/1706778)
+vim.opt_local.cinkeys:remove(':')
+
 ---------------------------------------------------------------------------------
 --- Debug utilities
 ---------------------------------------------------------------------------------
@@ -13,6 +21,13 @@ vim.keymap.set('n', '<Leader>pr', function()
   vim.fn.search("%", "W")
   vim.api.nvim_feedkeys('a', 'n', false)
 end, { buffer = true })
+
+--------------------------------------------------------------------------------
+--- vim-commentary
+--------------------------------------------------------------------------------
+
+-- No space between comment characters and code
+vim.b.commentary_format = '//%s'
 
 ---------------------------------------------------------------------------------
 --- vim-tomux
