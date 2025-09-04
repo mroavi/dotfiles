@@ -121,7 +121,7 @@ cmd extract ${{
 cmd compress ${{
   set -f
   if [ -d "$f" ]; then
-    zip -r "${f%/}.zip" "$f"
+    (cd "$(dirname "$f")" && zip -r "$(basename "$f").zip" "$(basename "$f")" -x "*/.*")
   else
     echo "$f is not a directory"
   fi
