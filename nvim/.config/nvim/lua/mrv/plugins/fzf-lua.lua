@@ -28,7 +28,11 @@ function M.my_find_files()
   local buf_dir = vim.fn.expand("%:p:h")
   local git_root = get_git_root(buf_dir)
   if git_root then
-    fzf.git_files({ cwd = git_root })
+    fzf.git_files({
+      cwd = git_root,
+      -- Show tracked + untracked, but keep ignored hidden
+      cmd = "git ls-files --cached --others --exclude-standard",
+    })
   else
     fzf.files({ cwd = buf_dir })
   end
