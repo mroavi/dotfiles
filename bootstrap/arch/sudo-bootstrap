@@ -60,6 +60,7 @@ pac_pkgs=(
           npm
           okular                  # KDE document viewer
           openssh
+          pass
           pavucontrol
           picom
           pipewire
