@@ -223,6 +223,9 @@ extract () {
 ## FZF
 # =============================================================================
 
+# Enable fzf if installed manually (~/.fzf/install)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Enable optional FZF key-bindings in arch (https://wiki.archlinux.org/title/Fzf)
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
