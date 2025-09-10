@@ -9,15 +9,16 @@ require("mason").setup({
   }
 })
 
-local opts
+local arch = vim.loop.os_uname().machine
+local is_ssh = vim.env.SSH_CONNECTION ~= nil
 
-if not vim.env.SSH_CONNECTION then
-  opts = {
-    -- For a list of all available packages, see: https://mason-registry.dev/registry/list
-    ensure_installed = {
+-- Explicit lists per arch + env
+local server_matrix = {
+  x86_64 = {
+    local_ = {
       "arduino_language_server",
       "bashls",
-      --"clangd",
+      "clangd",
       "cmake",
       "csharp_ls",
       "cssls",
@@ -35,25 +36,34 @@ if not vim.env.SSH_CONNECTION then
       "ts_ls",
       "vimls",
       "yamlls",
-    }
-  }
-else
-  opts = {
-    -- For a list of all available packages, see: https://mason-registry.dev/registry/list
-    ensure_installed = {
+    },
+    ssh = {
+    },
+  },
+  aarch64 = {
+    local_ = {
       "arduino_language_server",
-      --"bashls",
-      --"clangd",
-      --"cmake",
       "efm",
+      "jdtls",
       "lua_ls",
-      --"pyright",
       "rust_analyzer",
       "texlab",
-      --"vimls",
-    }
-  }
-end
+      -- put ARM-only servers here if needed
+    },
+    ssh = {
+    },
+  },
+}
+
+-- pick the right list
+local env_key = is_ssh and "ssh" or "local_"
+local ensure_installed = server_matrix[arch]
+    and server_matrix[arch][env_key]
+    or {}
+
+local opts = {
+  ensure_installed = ensure_installed,
+}
 
 require("mason-lspconfig").setup(opts)
 
