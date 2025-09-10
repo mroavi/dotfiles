@@ -57,7 +57,7 @@ apt_pkgs_base=(
           zsh-autosuggestions
           zsh-syntax-highlighting
           ripgrep
-          fzf
+          #fzf            # too old, better build from source
           #delta
           fd-find
           fontconfig      # required to install meslo font family
@@ -197,6 +197,7 @@ else
 fi
 
 # tmux
+# TODO: this approach failed, better to build from source and install
 if command -v tmux &>/dev/null; then
   echo "  tmux is already installed"
 else
