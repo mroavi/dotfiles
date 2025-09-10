@@ -158,11 +158,23 @@ echo "Installing nvim..."
 if command -v nvim &>/dev/null; then
   echo " nvim is already installed"
 else
-  sudo apt install -y ninja-build gettext cmake curl build-essential
-  sudo apt install -y fuse libfuse2 python3-pynvim xclip
+  sudo apt install -y curl xclip python3-pynvim
   mkdir -p ~/.local/bin
   temp_file=$(mktemp)
-  curl -Lo "$temp_file" https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  # Detect architecture and choose the right AppImage
+  ARCH=$(uname -m)
+  case "$ARCH" in
+    x86_64)
+      NVIM_URL="https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage"
+      ;;
+    aarch64|arm64)
+      NVIM_URL="https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.appimage"
+      ;;
+    *)
+      echo "Unsupported architecture: $ARCH"
+      exit 1
+      ;;
+  esac
   mv "$temp_file" ~/.local/bin/nvim
   chmod u+x ~/.local/bin/nvim
   echo "  nvim has been successfully installed"
