@@ -236,6 +236,19 @@ else
   echo "  pokemon-colorscripts has been successfully installed."
 fi
 
+# lf
+echo "Installing lf..."
+if ! command -v lf &> /dev/null; then
+  # Update the URL below with the correct architecture
+  curl -LO https://github.com/gokcehan/lf/releases/latest/download/lf-linux-arm64.tar.gz
+  tar -xzf lf-linux-arm64.tar.gz
+  mkdir -p ~/.local
+  mv lf ~/.local/bin
+  rm lf-linux-arm64.tar.gz
+else
+  echo "  lf is already installed."
+fi
+
 # julia (uses juliaup)
 #echo "Installing julia..."
 #curl -fsSL https://install.julialang.org | sh
