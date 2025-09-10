@@ -158,7 +158,7 @@ echo "Installing nvim..."
 if command -v nvim &>/dev/null; then
   echo " nvim is already installed"
 else
-  sudo apt install -y curl xclip python3-pynvim
+  sudo apt install -y curl xclip python3-pynvim fuse libfuse2 
   mkdir -p ~/.local/bin
   temp_file=$(mktemp)
   # Detect architecture and choose the right AppImage
@@ -175,6 +175,7 @@ else
       exit 1
       ;;
   esac
+  curl -Lo "$temp_file" $NVIM_URL
   mv "$temp_file" ~/.local/bin/nvim
   chmod u+x ~/.local/bin/nvim
   echo "  nvim has been successfully installed"
