@@ -2,12 +2,6 @@
 ## See https://stevenvanbael.com/profiling-zsh-startup
 #zmodload zsh/zprof
 
-if [ "$SSH_CONNECTION" ]; then
-  # Used to run Tamaki's tool
-  export JAVA_HOME=/home/20180043/jdk
-  export PATH="$JAVA_HOME/bin:$PATH"
-fi
-
 # =============================================================================
 ## History
 # =============================================================================
