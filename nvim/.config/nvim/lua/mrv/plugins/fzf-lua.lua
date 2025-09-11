@@ -4,7 +4,13 @@ local fzf = require("fzf-lua")
 fzf.setup({
   winopts = {
     height = 0.96,
-    width  = 0.96,
+    preview = {
+      layout       = "flex",    -- "flex" auto-switches between horizontal and vertical
+      horizontal   = "right:50%", -- when enough width
+      vertical     = "down:40%", -- when not enough width
+      flip_columns = 120,       -- threshold to switch layout
+    },
+    width = 0.96,
   },
   keymap = {
     fzf = {
