@@ -54,9 +54,10 @@ vim.keymap.set('n', '<Leader>tb', function()
   vim.cmd [[TomuxSend("./gradlew build\n")]]
 end, { buffer = true })
 
--- Run (execute)
+-- Run (send first CTRL-c and then execute)
 vim.keymap.set('n', '<Leader>e', function()
   vim.cmd.write()
+  vim.cmd[[TomuxCommand("send-keys -t " . shellescape(b:tomux_config["target_pane"]) . " C-c")]]
   vim.cmd [[TomuxSend("./gradlew bootRun\n")]]
 end, { buffer = true })
 
