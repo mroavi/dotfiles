@@ -1,8 +1,10 @@
 -- Reminder:
 -- After installing a formatter using Mason and setting it up with Conform,
--- don't forget to enable the 'gq' operator for formatting. Add the following
--- line inside `ftplugin/<filetype>.lua`:
---  vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+-- the 'gq' operator will automatically be enabled for supported filetypes
+-- whenever an LSP attaches. This is handled by the LspAttach autocmd in
+-- your config, which sets:
+--   vim.bo[buf].formatexpr = "v:lua.require'conform'.formatexpr()"
+-- No need to add it manually inside `ftplugin/<filetype>.lua`.
 -- Based on: https://youtu.be/6pAG3BHurdM?si=TAoMywJVwhL15c39
 
 -- TODO: Auto-install formatters using mason-tool-installer.nvim
@@ -14,6 +16,7 @@ conform.setup({
   -- I use Mason to install these formatters
   formatters_by_ft = {
     arduino = { "clang-format" },
+    bib = { "bibtex-tidy" },
     java = { "google-java-format" },
     javascript = { "prettier" },
     javascriptreact = { "prettier" },
@@ -29,8 +32,31 @@ conform.setup({
     latexindent = {
       -- Prepend the ``-m`` (modifylinebreaks) switch
       prepend_args = { "-m" },
-    }
-  }
+    },
+    ["bibtex-tidy"] = {
+      prepend_args = {
+        "--no-modify",
+        "--curly",
+        "--numeric",
+        "--months",
+        "--space=2",
+        "--no-align",
+        "--no-blank-lines",
+        "--no-sort",
+        "--duplicates",
+        "--no-merge",
+        "--escape",
+        "--sort-fields",
+        "--no-strip-comments",
+        "--trailing-commas",
+        "--encode-urls",
+        "--no-tidy-comments",
+        "--remove-empty-fields",
+        "--remove-dupe-fields",
+        "--wrap=80",
+      },
+    },
+  },
 })
 
 vim.keymap.set("n", "<Leader>C", ":ConformInfo<CR>")
@@ -41,6 +67,7 @@ vim.keymap.set("n", "<Leader>C", ":ConformInfo<CR>")
 
 local conform_filetypes = {
   arduino = true,
+  bib = true,
   javascriptreact = true,
   javascript = true,
   java = true,
@@ -71,6 +98,7 @@ local autoformat_filetypes = {
   javascript = true,
   typescriptreact = true,
   typescript = true,
+  java = true,
 }
 
 vim.api.nvim_create_autocmd("BufWritePre", {
