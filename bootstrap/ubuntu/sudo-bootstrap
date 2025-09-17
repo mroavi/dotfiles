@@ -158,7 +158,7 @@ echo "Installing nvim..."
 if command -v nvim &>/dev/null; then
   echo " nvim is already installed"
 else
-  sudo apt install -y ninja-build gettext cmake curl build-essential
+  #sudo apt install -y ninja-build gettext cmake curl build-essential
   sudo apt install -y fuse libfuse2 python3-pynvim xclip
   mkdir -p ~/.local/bin
   curl -Lo ~/.local/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
