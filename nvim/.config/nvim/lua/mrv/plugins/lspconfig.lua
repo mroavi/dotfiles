@@ -48,7 +48,7 @@ local lspconfig = require 'lspconfig'
 -- Based on Fredrik's config:
 -- https://github.com/fredrikekre/.dotfiles/blob/2c141f6b574af1faae2ac718bce3bbe1152f083b/.config/nvim/init.vim#L74
 local REVISE_LANGUAGESERVER = false -- configure me!
-require 'lspconfig'.julials.setup({
+lspconfig.julials.setup({
   on_new_config = function(new_config, _)
     if REVISE_LANGUAGESERVER then
       -- Use a setup that uses Revise to debug LanguageServer.jl
@@ -56,7 +56,7 @@ require 'lspconfig'.julials.setup({
     else
       -- Use the julia bin generated with PackageCompiler to remove startup time
       local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
-      if require 'lspconfig'.util.path.is_file(julia) then
+      if lspconfig.util.path.is_file(julia) then
         new_config.cmd[1] = julia
       end
     end
