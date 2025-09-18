@@ -106,16 +106,15 @@ git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 
 # neovim
 echo "Installing nvim..."
-if command -v nvim &>/dev/null; then
-  echo " nvim is already installed"
+if [ -x "$HOME/.local/bin/nvim" ]; then
+  echo " nvim is already installed in ~/.local/bin"
 else
-  #sudo apt install -y ninja-build gettext cmake curl build-essential
+  sudo apt remove -y neovim || true
   sudo apt install -y fuse libfuse2 python3-pynvim xclip
   mkdir -p ~/.local/bin
-  curl -Lo ~/.local/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-  #curl -Lo ~/.local/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.appimage
+  curl -Lo ~/.local/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.appimage
   chmod u+x ~/.local/bin/nvim
-  echo "  nvim has been successfully installed"
+  echo " nvim has been successfully installed"
 fi
 
 # tmux
