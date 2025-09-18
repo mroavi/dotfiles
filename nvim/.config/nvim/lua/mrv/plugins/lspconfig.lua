@@ -48,7 +48,7 @@ local lspconfig = require 'lspconfig'
 -- Based on Fredrik's config:
 -- https://github.com/fredrikekre/.dotfiles/blob/2c141f6b574af1faae2ac718bce3bbe1152f083b/.config/nvim/init.vim#L74
 local REVISE_LANGUAGESERVER = false -- configure me!
-lspconfig.julials.setup({
+vim.lsp.config("julials", {
   on_new_config = function(new_config, _)
     if REVISE_LANGUAGESERVER then
       -- Use a setup that uses Revise to debug LanguageServer.jl
@@ -69,7 +69,7 @@ lspconfig.julials.setup({
 --------------------------------------------------------------------------------
 
 -- Manual installation: sudo pacman -S lua-language-server
-lspconfig.lua_ls.setup {
+vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
       runtime = {
@@ -94,38 +94,38 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
+})
 
 --------------------------------------------------------------------------------
 --- vim
 --------------------------------------------------------------------------------
 
 -- Manual installation: npm install -g vim-language-server
-lspconfig.vimls.setup {
+vim.lsp.config("vimls", {
   capabilities = capabilities,
-}
+})
 
 --------------------------------------------------------------------------------
 --- python
 --------------------------------------------------------------------------------
 
 -- Manual installation: sudo pacman -S pyright
---lspconfig.pyright.setup {}
+--vim.lsp.config("pyright", {})
 
---require'lspconfig'.pylsp.setup{}
+--vim.lsp.config("pylsp", {})
 
-lspconfig.jedi_language_server.setup{}
+vim.lsp.config("jedi_language_server", {})
 
 --------------------------------------------------------------------------------
 --- c
 --------------------------------------------------------------------------------
 
 -- Manual installation: see bootstrap in dotfiles
-lspconfig.clangd.setup {
+vim.lsp.config("clangd", {
   autostart = true,
   cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
   filetypes = { "c", "cpp", "objc", "objcpp" }
-}
+})
 
 -- Use `bear` to generate the `compile_commands.json` file needed by clangd
 -- Installation: yay -S bear
@@ -138,72 +138,72 @@ if not vim.env.SSH_CONNECTION then
   --------------------------------------------------------------------------------
 
   -- Manual installation: npm i -g bash-language-server
-  lspconfig.bashls.setup {}
+  vim.lsp.config("bashls", {})
 
   --------------------------------------------------------------------------------
   --- texlab
   --------------------------------------------------------------------------------
 
   -- Manual installation: sudo pacman -S texlab
-  lspconfig.texlab.setup {}
+  vim.lsp.config("texlab", {})
 
   --------------------------------------------------------------------------------
   --- rust
   --------------------------------------------------------------------------------
 
   -- Manual installation: sudo pacman -S rust-analyzer
-  lspconfig.rust_analyzer.setup {}
+  vim.lsp.config("rust_analyzer", {})
 
   --------------------------------------------------------------------------------
   --- emmet
   --------------------------------------------------------------------------------
 
-  lspconfig.emmet_language_server.setup {}
+  vim.lsp.config("emmet_language_server", {})
 
   --------------------------------------------------------------------------------
   --- html
   --------------------------------------------------------------------------------
 
-  lspconfig.html.setup {
+  vim.lsp.config("html", {
     capabilities = capabilities,
-  }
+  })
 
   --------------------------------------------------------------------------------
   --- css
   --------------------------------------------------------------------------------
 
-  lspconfig.cssls.setup {
+  vim.lsp.config("cssls", {
     capabilities = capabilities,
-  }
+  })
 
   --------------------------------------------------------------------------------
   --- tailwind
   --------------------------------------------------------------------------------
 
-  --lspconfig.tailwindcss.setup{
+  --vim.lsp.config("tailwindcss", {
   --  capabilities = capabilities,
-  --}
+  --})
 
   --------------------------------------------------------------------------------
   --- csharp
   --------------------------------------------------------------------------------
 
   -- Dependencies: sudo pacman -S dotnet-sdk dotnet-runtime aspnet-runtime
-  lspconfig.csharp_ls.setup{
+  vim.lsp.config("csharp_ls", {
     capabilities = capabilities,
-  }
+  })
 
   --------------------------------------------------------------------------------
   --- sql
   --------------------------------------------------------------------------------
 
-  lspconfig.sqlls.setup{}
+  vim.lsp.config("sqlls", {})
 
   --------------------------------------------------------------------------------
   --- typst
   --------------------------------------------------------------------------------
 
-  --lspconfig.tinymist.setup{}
+  --vim.lsp.config("tinymist", {})
 
   --------------------------------------------------------------------------------
   --- lua-dev (dev setup for init.lua and plugin development)
@@ -222,8 +222,8 @@ if not vim.env.SSH_CONNECTION then
   --- efm
   --------------------------------------------------------------------------------
 
-  -- Manual installation: go install github.com/mattn/efm-langserver@latest
-  --require"lspconfig".efm.setup {
+  ---- Manual installation: go install github.com/mattn/efm-langserver@latest
+  --vim.lsp.config("lspconfig", {
   --  init_options = {documentFormatting = true},
   --  filetypes = {"lua"},
   --  settings = {
@@ -240,7 +240,7 @@ if not vim.env.SSH_CONNECTION then
   --      }
   --    }
   --  }
-  --}
+  --})
 
   --------------------------------------------------------------------------------
   --- arduino
@@ -248,7 +248,7 @@ if not vim.env.SSH_CONNECTION then
 
   -- Manual installation: yay -S arduino-language-server-git
   -- WARNING: This LSP is broken. See https://github.com/arduino/arduino-language-server/issues/202
-  lspconfig.arduino_language_server.setup({
+  vim.lsp.config("arduino_language_server", {
     cmd = {
       "arduino-language-server",
       "-clangd", vim.fn.expand("~/.local/share/nvim/mason/packages/clangd/clangd_20.1.0/bin/clangd"), -- WARNING: this path may change after updating clangd
@@ -261,14 +261,14 @@ if not vim.env.SSH_CONNECTION then
   --- lemminx
   --------------------------------------------------------------------------------
 
-  lspconfig.lemminx.setup{}
+  vim.lsp.config("lemminx", {})
 
   --------------------------------------------------------------------------------
   --- cmake
   --------------------------------------------------------------------------------
 
   ---- Manual installation: pip install cmake-language-server
-  --lspconfig.cmake.setup{}
+  --vim.lsp.config("cmake", {})
 
   --------------------------------------------------------------------------------
   --- java
@@ -282,7 +282,7 @@ if not vim.env.SSH_CONNECTION then
   --- typescript
   --------------------------------------------------------------------------------
 
-  lspconfig.ts_ls.setup{}
+  --vim.lsp.config("ts_ls", {})
 
   --------------------------------------------------------------------------------
   --- yaml
@@ -290,7 +290,7 @@ if not vim.env.SSH_CONNECTION then
 
   -- Config based on: https://www.arthurkoziel.com/json-schemas-in-neovim/
 
-  lspconfig.yamlls.setup {
+  vim.lsp.config("yamlls", {
     settings = {
       yaml = {
         validate = true,
@@ -314,7 +314,7 @@ if not vim.env.SSH_CONNECTION then
         }
       }
     }
-  }
+  })
 
 end
 
