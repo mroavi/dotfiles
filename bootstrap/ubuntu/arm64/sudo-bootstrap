@@ -183,7 +183,7 @@ sudo ln -sf $(which brave-browser) /usr/local/bin/brave
 
 # Create dotfile symlinks with stow
 cd ~/dotfiles
-stow zsh alacritty git tmux nvim scripts x picom
+stow zsh git tmux nvim
 
 ## dwm
 #echo "Installing dwm..."
