@@ -1,0 +1,264 @@
+#!/bin/bash
+
+# Save current directory
+currentdir="$PWD"
+
+# Authorize sudo once to avoid repeated prompts
+sudo -v 
+
+# Ensure these dirs exist
+mkdir -p ~/.local
+mkdir -p ~/Downloads
+mkdir -p ~/repos
+
+# Generate an SSH key if not done already
+KEY_PATH="$HOME/.ssh/id_ed25519"
+if [ -f "$KEY_PATH" ]; then
+    echo "SSH key already exists at $KEY_PATH"
+else
+    ssh-keygen -t ed25519 -C "mroavi@gmail.com"
+    echo "SSH key generated and stored at $KEY_PATH"
+fi
+
+# Clone my notes repo
+LOCAL_REPO=$HOME/notes
+REPO_URL=git@github.com:mroavi/notes.git
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+
+apt_pkgs_base=(
+          build-essential
+          curl
+          #delta
+          fd-find
+          #fzf            # too old, better build from source
+          network-manager
+          npm             # required to install several neovim lsps
+          python3-pip
+          python3-venv
+          ripgrep
+          stow
+          tar
+          unzip
+          wget
+          xclip
+          zip
+          zoxide
+          zsh
+          zsh-autosuggestions
+          zsh-syntax-highlighting
+         )
+
+apt_pkgs_extra=(
+          #alacritty     # not available on Ubuntu 22.04 base repository
+          #arandr
+          bat
+          #bluez
+          #bluez-utils
+          #bottom
+          #dmenu
+          dotnet-runtime-8.0
+          dotnet-sdk-8.0
+          dunst
+          feh
+          flameshot
+          fontconfig      # required to install meslo font family
+          #gimp
+          gnome-tweaks
+          golang-go
+          inkscape
+          #kvantum
+          #lxappearance            # manage GTK themes
+          #noto-fonts
+          #noto-fonts-cjk
+          #noto-fonts-emoji
+          #noto-fonts-extra
+          #okular
+          #openssh
+          #pavucontrol
+          picom
+          #pipewire
+          #pipewire-alsa
+          #pipewire-audio
+          #pipewire-pulse
+          #pkgfile                 # find packages that hold a file (even if the package is not installed)
+          python3
+          qemu-guest-agent
+          #qt5ct                   # mange QT themes
+          spice-vdagent
+          #texlive-full            # NOTE: temporarily disabled due to high disk space usage
+          thunar
+          #viewnior
+          xbindkeys
+          #xf86-input-libinput     # configure touchpad
+          xinit
+          xorg
+         )
+
+sudo apt install -y ${apt_pkgs_base[@]}
+#sudo apt install -y ${apt_pkgs_extra[@]}
+
+# pure
+echo "Installing pure..."
+mkdir -p ~/.zsh
+LOCAL_REPO=$HOME/.zsh/pure
+REPO_URL=https://github.com/mroavi/pure.git
+git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+
+# neovim
+echo "Installing nvim..."
+if command -v nvim &>/dev/null; then
+  echo " nvim is already installed"
+else
+  #sudo apt install -y ninja-build gettext cmake curl build-essential
+  sudo apt install -y fuse libfuse2 python3-pynvim xclip
+  mkdir -p ~/.local/bin
+  curl -Lo ~/.local/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  #curl -Lo ~/.local/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.appimage
+  chmod u+x ~/.local/bin/nvim
+  echo "  nvim has been successfully installed"
+fi
+
+# tmux
+if command -v tmux &>/dev/null; then
+  echo "tmux is already installed"
+else
+  echo "Installing tmux..."
+  mkdir -p ~/.local/src
+  LOCAL_REPO=$HOME/.local/src/tmux
+  REPO_URL=https://github.com/tmux/tmux.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cd "$LOCAL_REPO"
+  sh autogen.sh
+  ./configure && make
+  sudo make install
+fi
+
+# pyenv
+echo "Installing pyenv..."
+if ! command -v pyenv &> /dev/null; then
+  curl https://pyenv.run | bash
+  echo "  pyenv has been successfully installed"
+else
+  echo "  pyenv is already installed."
+fi
+
+# pokemon-colorscripts
+echo "Installing pokemon-colorscripts..."
+FILE=/usr/local/bin/pokemon-colorscripts
+if [ -f "$FILE" ]; then
+  echo " pokemon-colorscripts is already installed"
+else
+  LOCAL_REPO=~/repos/pokemon-colorscripts
+  REPO_URL=https://gitlab.com/phoneybadger/pokemon-colorscripts.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+  cd $LOCAL_REPO
+  sudo ./install.sh
+  echo "  pokemon-colorscripts has been successfully installed."
+fi
+
+# lf
+echo "Installing lf..."
+if ! command -v lf &> /dev/null; then
+  # Update the URL below with the correct architecture
+  curl -LO https://github.com/gokcehan/lf/releases/latest/download/lf-linux-arm64.tar.gz
+  tar -xzf lf-linux-arm64.tar.gz
+  mkdir -p ~/.local
+  mv lf ~/.local/bin
+  rm lf-linux-arm64.tar.gz
+else
+  echo "  lf is already installed."
+fi
+
+# julia (uses juliaup)
+#echo "Installing julia..."
+#curl -fsSL https://install.julialang.org | sh
+
+# Symlink fd-find (fdfind) to fd
+sudo ln -sf $(which fdfind) /usr/local/bin/fd
+# Symlink brave-browser to brave
+sudo ln -sf $(which brave-browser) /usr/local/bin/brave
+
+# # Make zsh the default shell
+# chsh -s $(which zsh)
+
+# Create dotfile symlinks with stow
+cd ~/dotfiles
+stow zsh alacritty git tmux nvim scripts x picom
+
+## dwm
+#echo "Installing dwm..."
+#if command -v dwm &>/dev/null; then
+#  echo " dwm is already installed"
+#else
+#  sudo apt install -y libx11-dev libxft-dev libxinerama-dev build-essential sharutils suckless-tools
+#  LOCAL_REPO=$HOME/repos/dwm
+#  REPO_URL=https://github.com/mroavi/dwm.git
+#  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+#  cd $LOCAL_REPO
+#  sudo make clean install
+#fi
+
+## dwmblocks
+#echo "Installing dwmblocks..."
+#if command -v dwmblocks &>/dev/null; then
+#  echo " dwmblocks is already installed"
+#else
+#  LOCAL_REPO=$HOME/repos/dwmblocks
+#  REPO_URL=https://github.com/mroavi/dwmblocks.git
+#  git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
+#  cd $LOCAL_REPO
+#  git checkout mrv
+#  sudo make clean install
+#fi
+
+## brave
+#echo "Installing brave..."
+#if ! command -v brave-browser &> /dev/null; then
+#  sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+#  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+#  sudo apt update
+#  sudo apt install -y brave-browser
+#  echo "  brave has been successfully installed"
+#else
+#  echo "  brave is already installed."
+#fi
+
+## Alacritty (Alacritty is not available on Ubuntu 22.04 base repository)
+#echo "Installing alacritty..."
+#if command -v alacritty &> /dev/null; then
+#  echo "  alacritty is already installed"
+#else
+#  # Old
+#  #sudo apt install -y wget apt-transport-https gnupg2 software-properties-common
+#  #sudo add-apt-repository ppa:aslatter/ppa
+#  #sudo apt update
+#  #sudo apt install -y alacritty
+#  # New
+#  sudo apt install cargo
+#  sudo apt install -y cmake g++ pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
+#  cargo install --locked alacritty
+#  echo "  alacritty has been successfully installed"
+#fi
+
+## meslo font family
+#echo "Installing meslo font..."
+#FILE="$HOME/.local/share/fonts/Meslo LG L Bold Italic Nerd Font Complete Mono.ttf"
+#if [ -f "$FILE" ]; then
+#  echo " meslo font family is already installed"
+#else
+#  # Source: https://gist.github.com/incogbyte/373f37817742c53891a076391533fe6d
+#  cd $HOME
+#  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
+#  mkdir -p .local/share/fonts
+#  unzip Meslo.zip -d .local/share/fonts
+#  cd .local/share/fonts
+#  rm *Windows*
+#  cd $HOME
+#  rm Meslo.zip
+#  fc-cache -fv
+#  echo "  meslo font family has been successfully installed"
+#fi
+
+
+# Return to original directory
+cd "$currentdir"
