@@ -3,7 +3,13 @@
 # Save current directory
 currentdir="$PWD"
 
-sudo -v # give sudo privileges ahead of time, so that we hopefully only have to enter a password once
+# Authorize sudo once to avoid repeated prompts
+sudo -v 
+
+# Update and upgrade system first
+sudo apt update && sudo apt upgrade -y
+sudo apt autoremove -y
+sudo apt clean
 
 # Ensure these dirs exist
 mkdir -p ~/.local
@@ -178,8 +184,8 @@ git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 echo "Installing julia..."
 curl -fsSL https://install.julialang.org | sh
 
-# # Make zsh the default shell
-# chsh -s $(which zsh)
+# Make zsh the default shell
+#chsh -s $(which zsh) "$USER"
 
 # Create dotfile symlinks with stow
 cd ~/dotfiles

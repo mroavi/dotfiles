@@ -6,6 +6,11 @@ currentdir="$PWD"
 # Authorize sudo once to avoid repeated prompts
 sudo -v 
 
+# Update and upgrade system first
+sudo apt update && sudo apt upgrade -y
+sudo apt autoremove -y
+sudo apt clean
+
 # Ensure these dirs exist
 mkdir -p ~/.local
 mkdir -p ~/Downloads
@@ -19,10 +24,6 @@ else
     ssh-keygen -t ed25519 -C "mroavi@gmail.com"
     echo "SSH key generated and stored at $KEY_PATH"
 fi
-
-# Configure Git username and email
-git config --global user.email "mroavi@gmail.com"
-git config --global user.name "Martin Roa Villescas"
 
 # Clone my notes repo
 LOCAL_REPO=$HOME/notes
@@ -258,8 +259,8 @@ sudo ln -sf $(which fdfind) /usr/local/bin/fd
 # Symlink brave-browser to brave
 sudo ln -sf $(which brave-browser) /usr/local/bin/brave
 
-# # Make zsh the default shell
-# chsh -s $(which zsh)
+# Make zsh the default shell
+chsh -s $(which zsh) "$USER"
 
 # Create dotfile symlinks with stow
 cd ~/dotfiles
