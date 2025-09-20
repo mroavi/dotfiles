@@ -60,6 +60,8 @@ end, { buffer = true })
 -- Default config
 vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
 
+vim.g.tomux_use_clipboard = 0
+
 vim.b.serial_port = '/dev/ttyUSB0'
 --vim.b.serial_port = '/dev/ttyUSB1'
 --vim.b.serial_port = '/dev/ttyACM0'
@@ -75,17 +77,16 @@ vim.b.board = 'arduino:avr:uno'
 
 local M = {}
 
--- Start interpreter in a RIGHT split with active buffer as CWD
-function M.open_right_of()
+-- Open a pane to the right, starting in the current buffer's directory
+vim.keymap.set('n', '<Leader>tl', function()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
-  vim.cmd [[TomuxCommand("split-window -h -d -c " . expand("%:p:h"))]]
-end
-vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
+  vim.cmd([[TomuxCommand("split-window -h -d -c '" . expand('%:p:h') . "'")]])
+end, { buffer = true })
 
--- Start interpreter in a BOTTOM split with active buffer as CWD
+-- Open a pane below, starting in the current buffer's directory
 function M.open_down_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{down-of}" }
-  vim.cmd [[TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))]]
+  vim.cmd [[TomuxCommand("split-window -v -d -l 20% -c '" . expand("%:p:h") . "'")]]
 end
 vim.keymap.set('n', '<Leader>tj', function() M.open_down_of() end, { buffer = true })
 

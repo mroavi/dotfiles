@@ -48,9 +48,9 @@ vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
 
 vim.g.tomux_use_clipboard = 0
 
--- Split the current pane vertically
+-- Open a pane to the right, starting in the current buffer's directory
 function M.open_right_of()
-  vim.cmd[[TomuxCommand("split-window -h -d -c " . expand("%:p:h"))]]
+  vim.cmd([[TomuxCommand("split-window -h -d -c '" . expand('%:p:h') . "'")]])
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
 

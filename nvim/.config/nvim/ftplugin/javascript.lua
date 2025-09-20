@@ -28,18 +28,16 @@ vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
 
 vim.g.tomux_use_clipboard = 0
 
--- Split the current window vertically, adding a new pane to the right
--- The new pane starts in Vim's current working directory
+-- Open a pane to the right, starting in Neovim's current working directory
 vim.keymap.set('n', '<Leader>tl', function()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
-  vim.cmd [[TomuxCommand("split-window -h -d -c " . getcwd())]]
+  vim.cmd([[TomuxCommand("split-window -h -d -c '" . getcwd() . "'")]])
 end, { buffer = true })
 
--- Split the current window horizontally, adding a new pane to the bottom
--- The new pane starts in Vim's current working directory
+-- Open a pane below, starting in Neovim's current working directory
 vim.keymap.set('n', '<Leader>tj', function()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{down-of}" }
-  vim.cmd [[TomuxCommand("split-window -v -d -l 20% -c "  . getcwd())]]
+  vim.cmd([[TomuxCommand("split-window -v -d -l 20% -c '" . getcwd() . "'")]])
 end, { buffer = true })
 
 -- Kill pane

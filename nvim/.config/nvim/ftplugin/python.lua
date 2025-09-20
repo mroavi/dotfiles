@@ -53,19 +53,21 @@ vim.b.quit_repl_cmd = 'exit()'
 
 local M = {}
 
--- Start interpreter in a RIGHT split with active buffer as CWD
+-- Open a pane to the right, starting in the current buffer's directory,
+-- and start the interpreter
 function M.open_right_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
-  vim.cmd[[TomuxCommand("split-window -h -d -c " . expand("%:p:h"))]]
-  vim.cmd[[TomuxSend(b:start_interpreter_cmd . "\n")]]
+  vim.cmd([[TomuxCommand("split-window -h -d -c '" . expand('%:p:h') . "'")]])
+  vim.cmd([[TomuxSend(b:start_interpreter_cmd . "\n")]])
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
 
--- Start interpreter in a BOTTOM split with active buffer as CWD
+-- Open a pane below, starting in the current buffer's directory,
+-- and start the interpreter
 function M.open_down_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{down-of}" }
-  vim.cmd[[TomuxCommand("split-window -v -d -l 20% -c " . expand("%:p:h"))]]
-  vim.cmd[[TomuxSend(b:start_interpreter_cmd . "\n")]]
+  vim.cmd([[TomuxCommand("split-window -v -d -l 20% -c '" . expand('%:p:h') . "'")]])
+  vim.cmd([[TomuxSend(b:start_interpreter_cmd . "\n")]])
 end
 vim.keymap.set('n', '<Leader>tj', function() M.open_down_of() end, { buffer = true })
 
