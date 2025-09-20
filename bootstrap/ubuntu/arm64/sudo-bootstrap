@@ -173,6 +173,15 @@ else
   echo "  lf is already installed."
 fi
 
+# fzf
+echo "Installing fzf..."
+if ! command -v fzf &> /dev/null; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install --all
+else
+  echo "  fzf is already installed."
+fi
+
 # julia (uses juliaup)
 #echo "Installing julia..."
 #curl -fsSL https://install.julialang.org | sh
