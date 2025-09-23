@@ -116,7 +116,6 @@ yay_pkgs=(
           trash-cli
           brave-bin
           git-open
-          tio                           # a serial device I/O tool
           ttf-font-awesome-4
           ttf-juliamono
           ttf-meslo-nerd
@@ -184,15 +183,20 @@ git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 echo "Installing julia..."
 curl -fsSL https://install.julialang.org | sh
 
-# tio zsh completion
-echo "Installing tio zsh completion..."
-COMPLETION_FILE=~/.zsh/completions/_tio
-if [ ! -f "$COMPLETION_FILE" ]; then
-  mkdir -p ~/.zsh/completions
-  curl -fsSL -o "$COMPLETION_FILE" \
-    https://raw.githubusercontent.com/tio/tio/master/src/bash-completion/tio.in
+# tio
+if command -v tio &>/dev/null; then
+  echo "tio is already installed"
 else
-  echo "  tio zsh completion already installed."
+  echo "Installing tio..."
+  sudo apt install -y libglib2.0-dev liblua5.2-dev meson
+  mkdir -p ~/.local/src
+  LOCAL_REPO=$HOME/.local/src/tio
+  REPO_URL=https://github.com/tio/tio.git
+  git clone "$REPO_URL" "$LOCAL_REPO" 2>/dev/null || git -C "$LOCAL_REPO" pull
+  cd "$LOCAL_REPO"
+  meson setup build -Dbashcompletiondir=/usr/share/bash-completion/completions
+  meson compile -C build
+  sudo meson install -C build
 fi
 
 # Make zsh the default shell

@@ -538,8 +538,8 @@ export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 # =============================================================================
 
 # Enable Bash-style completions for tio
-if [ -f ~/.zsh/completions/_tio ]; then
+if [ -f /usr/share/bash-completion/completions/tio ]; then
   autoload -U bashcompinit
   bashcompinit
-  source ~/.zsh/completions/_tio
+  source /usr/share/bash-completion/completions/tio
 fi
