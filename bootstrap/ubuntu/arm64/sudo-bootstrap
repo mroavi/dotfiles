@@ -47,7 +47,7 @@ apt_pkgs_base=(
           wget
           xclip
           zip
-          zoxide
+          # zoxide         # may not work on all Ubuntu distros — see one-liner install below
           zsh
           zsh-autosuggestions
           zsh-syntax-highlighting
@@ -196,6 +196,14 @@ else
   meson setup build -Dbashcompletiondir=/usr/share/bash-completion/completions
   meson compile -C build
   sudo meson install -C build
+fi
+
+# zoxide
+if command -v zoxide &>/dev/null; then
+  echo "zoxide is already installed"
+else
+  echo "Installing zoxide..."
+  curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 fi
 
 # julia (uses juliaup)
