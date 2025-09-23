@@ -62,9 +62,9 @@ vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
 
 vim.g.tomux_use_clipboard = 0
 
-vim.b.serial_port = '/dev/ttyUSB0'
+--vim.b.serial_port = '/dev/ttyUSB0'
 --vim.b.serial_port = '/dev/ttyUSB1'
---vim.b.serial_port = '/dev/ttyACM0'
+vim.b.serial_port = '/dev/ttyACM0'
 --vim.b.serial_port = '/dev/ttyACM1'
 
 --vim.b.serial_baud = '9600'
@@ -110,17 +110,17 @@ function M.upload()
 end
 vim.keymap.set('n', '<Leader>tu', function() M.upload() end, { buffer = true })
 
--- Start 'screen' and open serial port
-function M.start_screen()
-  vim.cmd [[TomuxSend("screen " . b:serial_port . " " . b:serial_baud . " " . "\n")]]
+-- Start 'tio' and open serial port
+function M.start_tio()
+  vim.cmd([[TomuxSend("tio -b " . b:serial_baud . " " . b:serial_port . "\n")]])
 end
-vim.keymap.set('n', '<Leader>ts', function() M.start_screen() end, { buffer = true })
+vim.keymap.set('n', '<Leader>ts', function() M.start_tio() end, { buffer = true })
 
--- Kill 'screen'
-function M.kill_screen()
-  vim.cmd [[TomuxSend("Ky")]]
+-- Kill 'tio' (send Ctrl+t q)
+function M.kill_tio()
+  vim.cmd [[TomuxSend("q")]]
 end
-vim.keymap.set('n', '<Leader>tK', function() M.kill_screen() end, { buffer = true })
+vim.keymap.set('n', '<Leader>tK', function() M.kill_tio() end, { buffer = true })
 
 -- Compile and upload (p stands for program)
 function M.compile_and_upload()
@@ -129,14 +129,14 @@ function M.compile_and_upload()
 end
 vim.keymap.set('n', '<Leader>tp', function() M.compile_and_upload() end, { buffer = true })
 
--- Kill 'screen', Compile, upload and open serial port
+-- Kill 'tio', Compile, upload and open serial port
 function M.kill_compile_and_upload()
-  M.kill_screen()
+  M.kill_tio()
   vim.cmd("sleep 100m")
   M.compile()
   vim.cmd("sleep 100m")
   M.upload()
-  M.start_screen()
+  M.start_tio()
 end
 vim.keymap.set('n', '<Leader>tt', function() M.kill_compile_and_upload() end, { buffer = true })
 
