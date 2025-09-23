@@ -43,6 +43,7 @@ apt_pkgs_base=(
           ripgrep
           stow
           tar
+          tio
           unzip
           wget
           xclip
