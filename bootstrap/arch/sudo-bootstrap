@@ -7,9 +7,7 @@ currentdir="$PWD"
 sudo -v 
 
 # Update and upgrade system first
-sudo apt update && sudo apt upgrade -y
-sudo apt autoremove -y
-sudo apt clean
+sudo pacman -Syu --noconfirm
 
 # Ensure these dirs exist
 mkdir -p ~/.local
@@ -136,7 +134,7 @@ if [ -f "$FILE" ]; then
   echo " dwm is already installed"
 else
   echo "Installing dwm..."
-  sudo pacman -S --noconfirm --needed xorg xorg-server xorg-xinit libx11 libxinerama libxft webkit2gtk
+  sudo pacman -S --noconfirm libglib2.0-dev liblua5.2-dev meson
   LOCAL_REPO=$HOME/repos/dwm
   REPO_URL=https://github.com/mroavi/dwm.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
@@ -188,7 +186,7 @@ if command -v tio &>/dev/null; then
   echo "tio is already installed"
 else
   echo "Installing tio..."
-  sudo apt install -y libglib2.0-dev liblua5.2-dev meson
+  sudo pacman -S libglib2.0-dev liblua5.2-dev meson
   mkdir -p ~/.local/src
   LOCAL_REPO=$HOME/.local/src/tio
   REPO_URL=https://github.com/tio/tio.git
