@@ -532,3 +532,14 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+
+# =============================================================================
+## tio
+# =============================================================================
+
+# Enable Bash-style completions for tio
+if [ -f ~/.zsh/completions/_tio ]; then
+  autoload -U bashcompinit
+  bashcompinit
+  source ~/.zsh/completions/_tio
+fi

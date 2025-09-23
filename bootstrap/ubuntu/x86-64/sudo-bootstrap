@@ -250,6 +250,17 @@ else
   echo "  lf is already installed."
 fi
 
+# tio zsh completion
+echo "Installing tio zsh completion..."
+COMPLETION_FILE=~/.zsh/completions/_tio
+if [ ! -f "$COMPLETION_FILE" ]; then
+  mkdir -p ~/.zsh/completions
+  curl -fsSL -o "$COMPLETION_FILE" \
+    https://raw.githubusercontent.com/tio/tio/master/src/bash-completion/tio.in
+else
+  echo "  tio zsh completion already installed."
+fi
+
 # julia (uses juliaup)
 #echo "Installing julia..."
 #curl -fsSL https://install.julialang.org | sh

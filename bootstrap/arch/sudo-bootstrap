@@ -184,6 +184,17 @@ git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
 echo "Installing julia..."
 curl -fsSL https://install.julialang.org | sh
 
+# tio zsh completion
+echo "Installing tio zsh completion..."
+COMPLETION_FILE=~/.zsh/completions/_tio
+if [ ! -f "$COMPLETION_FILE" ]; then
+  mkdir -p ~/.zsh/completions
+  curl -fsSL -o "$COMPLETION_FILE" \
+    https://raw.githubusercontent.com/tio/tio/master/src/bash-completion/tio.in
+else
+  echo "  tio zsh completion already installed."
+fi
+
 # Make zsh the default shell
 #chsh -s $(which zsh) "$USER"
 
