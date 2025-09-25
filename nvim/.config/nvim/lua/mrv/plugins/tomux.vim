@@ -13,10 +13,10 @@ augroup tomux_send
   "-----------------------------------------------------------------------------
   " `s` to send motion/text-object
   "-----------------------------------------------------------------------------
-  autocmd FileType julia,python,lua,sql nmap <buffer> s <Plug>TomuxMotionSend
+  autocmd FileType julia,python,lua,sql,javascript nmap <buffer> s <Plug>TomuxMotionSend
   "autocmd FileType julia,python,lua nmap <silent> s :set opfunc=MySendOperator<Cr>g@
-  autocmd FileType julia,python,lua,sql xmap <buffer> s <Plug>TomuxVisualSend
-  autocmd FileType julia,python,lua,sql omap <buffer> s _
+  autocmd FileType julia,python,lua,sql,javascript xmap <buffer> s <Plug>TomuxVisualSend
+  autocmd FileType julia,python,lua,sql,javascript omap <buffer> s _
 
   ""-----------------------------------------------------------------------------
   "" Atom-like mappings for sending text (the `\` key is used as helper/hack)
