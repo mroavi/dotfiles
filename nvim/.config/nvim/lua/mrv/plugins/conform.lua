@@ -16,7 +16,9 @@ conform.setup({
   -- I use Mason to install these formatters
   formatters_by_ft = {
     arduino = { "clang-format" },
+    css = { "prettier" },
     bib = { "bibtex-tidy" },
+    html = { "prettier" },
     java = { "google-java-format" },
     javascript = { "prettier" },
     javascriptreact = { "prettier" },
@@ -67,7 +69,9 @@ vim.keymap.set("n", "<Leader>C", ":ConformInfo<CR>")
 
 local conform_filetypes = {
   arduino = true,
+  css = true,
   bib = true,
+  html = true,
   javascriptreact = true,
   javascript = true,
   java = true,
@@ -79,7 +83,7 @@ local conform_filetypes = {
   yaml = true,
 }
 
-vim.api.nvim_create_autocmd("LspAttach", {
+vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
     local buf = args.buf
     local ft = vim.bo[buf].filetype
