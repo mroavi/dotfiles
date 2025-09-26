@@ -5,8 +5,8 @@ export EDITOR="$VISUAL"
 export TERMINFO=/lib/terminfo
 export MANPAGER='nvim +Man!'
 export LANG="en_US.UTF-8"
-export LUA_INIT="@${HOME}/.config/lua/startup.lua"
-# export ARCHFLAGS="-arch x86_64"
+#export LUA_INIT="@${HOME}/.config/lua/startup.lua"
+#export ARCHFLAGS="-arch x86_64"
 export BAT_THEME="Catppuccin Mocha"
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 
