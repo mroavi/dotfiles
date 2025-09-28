@@ -7,3 +7,4 @@
 
 require('mrv.config').setup()
 require('mrv.plugins').setup()
+require('mrv.lsp')
