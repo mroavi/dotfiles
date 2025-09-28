@@ -35,9 +35,9 @@ if [ -f "$FILE" ]; then
   echo " nvim is already installed"
 else
   mkdir -p ~/.local/bin && cd ~/.local/bin
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  curl -fLo ~/.local/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
   #curl -LO https://github.com/neovim/neovim/releases/download/v0.7.2/nvim.appimage
-  chmod u+x nvim.appimage
+  chmod u+x nvim
   mv nvim.appimage nvim
 fi
 pip3 install pynvim

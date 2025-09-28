@@ -117,7 +117,7 @@ else
   sudo apt remove -y neovim || true
   sudo apt install -y fuse libfuse2 python3-pynvim xclip
   mkdir -p ~/.local/bin
-  curl -Lo ~/.local/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.appimage
+  curl -fLo ~/.local/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.appimage
   chmod u+x ~/.local/bin/nvim
   echo " nvim has been successfully installed"
 fi
@@ -127,14 +127,15 @@ if command -v tmux &>/dev/null; then
   echo "tmux is already installed"
 else
   echo "Installing tmux..."
+  sudo apt update && sudo apt install -y build-essential bison pkg-config libevent-dev libncurses-dev
   mkdir -p ~/.local/src
   LOCAL_REPO=$HOME/.local/src/tmux
   REPO_URL=https://github.com/tmux/tmux.git
   git clone "$REPO_URL" "$LOCAL_REPO" 2> /dev/null || git -C "$LOCAL_REPO" pull
-  cd "$LOCAL_REPO"
-  sh autogen.sh
-  ./configure && make
-  sudo make install
+  sh "$LOCAL_REPO/autogen.sh"
+  "$LOCAL_REPO/configure"
+  make -C "$LOCAL_REPO"
+  sudo make -C "$LOCAL_REPO" install
 fi
 
 # pyenv
