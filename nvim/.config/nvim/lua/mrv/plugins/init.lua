@@ -29,6 +29,7 @@ local plugins = {
   { 'tpope/vim-obsession' }, -- continuously updated session files
   { 'mroavi/vim-pasta' }, -- auto format pasted code
   { 'yegappan/mru', init = function() require('mrv.plugins.mru') end }, -- most recently used (MRU) vim plugin
+  { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end }, -- quickstart configurations for the Nvim LSP client
   { 'mfussenegger/nvim-jdtls' }, -- extensions for the built-in LSP support in Neovim for eclipse.jdt.ls
   { 'mason-org/mason.nvim', config = function() require('mrv.plugins.mason') end, dependencies = { 'mason-org/mason-lspconfig.nvim', version = "^1.0.0" }, version = "^1.0.0" }, -- easily install and manage LSP servers, DAP servers, linters, and formatters
   { 'mroavi/vim-tomux', init = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end }, -- send text to tmux
@@ -66,7 +67,6 @@ local plugins = {
   --{ 'mroavi/slides.vim', dev = true, config = function() require('mrv.plugins.slides') end, dependencies = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } }, -- presentation slides in vim
   --{ 'kaarmu/typst.vim' }, -- Vim plugin for Typst
   --{ 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'natecraddock/telescope-zf-native.nvim' } }, -- find, filter, preview, pick
-  --{ 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end }, -- quickstart configurations for the Nvim LSP client
 
   -- Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
