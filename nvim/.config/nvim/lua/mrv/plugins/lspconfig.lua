@@ -371,4 +371,6 @@ local opfunc = "__range_format_opfunc"
 vim.keymap.set('x', 'gf', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
 vim.keymap.set('n', 'gf', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
 
+vim.keymap.set("n", "<Leader>L", ":LspInfo<CR>")
+
 return M
