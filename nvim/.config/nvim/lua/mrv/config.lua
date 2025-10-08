@@ -12,6 +12,12 @@ M.setup = function()
   vim.g.maplocalleader = '\\'
   --vim.g.markdown_fenced_languages = {'html', 'python', 'bash=sh', 'cs'}
 
+  -- Disable unused external language providers to improve startup time
+  vim.g.loaded_python3_provider = 0
+  vim.g.loaded_node_provider = 0
+  vim.g.loaded_perl_provider = 0
+  vim.g.loaded_ruby_provider = 0
+
   vim.opt.shada = { '<10', "'99", '/99', ':99', 'h', 'f1' } -- :help sd
   vim.opt.number = false
   vim.opt.relativenumber = false
