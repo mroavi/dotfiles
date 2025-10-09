@@ -33,8 +33,8 @@ local server_matrix = {
       "sqlls",
       "tailwindcss",
       "texlab",
-      "ts_ls",
       "vimls",
+      "vtsls",
       "yamlls",
     },
     ssh = {

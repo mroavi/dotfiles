@@ -7,6 +7,7 @@ vim.lsp.enable(
     "clangd",
     "jedi_language_server",
     "lua_ls",
+    "vtsls",
   }
 )
 
