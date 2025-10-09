@@ -59,3 +59,11 @@ ls.add_snippets("java", {
 ls.add_snippets("javascript", {
   ls.parser.parse_snippet("pr", "console.log($0);"),
 })
+
+-- react
+
+for _, ft in ipairs({ "typescriptreact", "javascriptreact" }) do
+  ls.add_snippets(ft, {
+    ls.parser.parse_snippet("<", "<$1 />$0"),
+  })
+end
