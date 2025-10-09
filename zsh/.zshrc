@@ -450,8 +450,6 @@ eval "$(pyenv virtualenv-init -)"
 # Source ROS setup file if it exists
 #[ -f /opt/ros/humble/setup.zsh ] && source /opt/ros/humble/setup.zsh
 [ -f /opt/ros/foxy/setup.zsh ] && source /opt/ros/foxy/setup.zsh
-[ -f ~/dev_ws/install/setup.zsh ] && source ~/dev_ws/install/setup.zsh # temp
-[ -f ~/robot_ws/install/setup.zsh ] && source ~/robot_ws/install/setup.zsh # temp
 
 # Check if inside a distrobox container
 if [ -n "$CONTAINER_ID" ]; then
