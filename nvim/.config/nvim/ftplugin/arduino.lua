@@ -74,6 +74,7 @@ vim.b.board = 'arduino:avr:uno'
 --vim.b.board = 'arduino:avr:mega'
 --vim.b.board = 'esp32:esp32:esp32'
 --vim.b.board = 'arduino:renesas_uno:unor4wifi'
+--vim.b.board = 'esp32:esp32:m5stack_fire'
 
 local M = {}
 
@@ -99,14 +100,14 @@ vim.keymap.set('n', '<Leader>tk', function() M.kill_pane() end, { buffer = true 
 -- Compile
 function M.compile()
   vim.cmd.write()
-  vim.cmd([[TomuxSend("arduino-cli compile -b " . b:board . " '" . expand('%:p') . "'\n")]])
+  vim.cmd([[TomuxSend("arduino-cli compile -b " . b:board . " '" . expand('%:.') . "'\n")]])
 end
 vim.keymap.set('n', '<Leader>tc', function() M.compile() end, { buffer = true })
 
 -- Upload
 function M.upload()
   vim.cmd.write()
-  vim.cmd([[TomuxSend("arduino-cli upload -p " . b:serial_port . " --fqbn " . b:board . " '" . expand('%:p') . "'\n")]])
+  vim.cmd([[TomuxSend("arduino-cli upload -p " . b:serial_port . " --fqbn " . b:board . " '" . expand('%:.') . "'\n")]])
 end
 vim.keymap.set('n', '<Leader>tu', function() M.upload() end, { buffer = true })
 
