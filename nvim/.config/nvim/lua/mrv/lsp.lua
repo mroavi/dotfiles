@@ -5,6 +5,7 @@ local my_utils = require 'mrv.utils'
 vim.lsp.enable(
   {
     "clangd",
+    "emmet_language_server",
     "jedi_language_server",
     "lua_ls",
     "vtsls",
