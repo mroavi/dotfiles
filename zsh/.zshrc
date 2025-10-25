@@ -546,11 +546,16 @@ if [ -f /usr/share/bash-completion/completions/tio ]; then
 fi
 
 ## TEMP: temporary setup section for easier demos using ROS2 and Distrobox
-#[ -f ~/robot_ws/install/setup.zsh ] && source ~/robot_ws/install/setup.zsh
-#if [ -n "$CONTAINER_ID" ]; then
-#  # Inside a distrobox container
-#  [ -f ~/dev_ws/install/setup.zsh ] && source ~/dev_ws/install/setup.zsh
+#if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ]; then
+#  # Inside an SSH connection
+#  [ -f ~/robot_ws/install/setup.zsh ] && source ~/robot_ws/install/setup.zsh
 #else
-#  # Not inside a container — start one
-#  distrobox enter ubuntu20-box
+#  # Not inside SSH
+#  if [ -n "$CONTAINER_ID" ]; then
+#    # Inside a distrobox container
+#    [ -f ~/dev_ws/install/setup.zsh ] && source ~/dev_ws/install/setup.zsh
+#  else
+#    # Not inside a container — start one
+#    distrobox enter ubuntu20-box
+#  fi
 #fi
