@@ -8,6 +8,7 @@ vim.lsp.enable(
     "emmet_language_server",
     "jedi_language_server",
     "lua_ls",
+    "texlab",
     "vtsls",
   }
 )
