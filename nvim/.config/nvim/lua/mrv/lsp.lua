@@ -10,6 +10,7 @@ vim.lsp.enable(
     "lua_ls",
     "texlab",
     "vtsls",
+    "jdtls",
   }
 )
 
