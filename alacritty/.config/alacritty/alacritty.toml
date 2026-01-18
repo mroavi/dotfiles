@@ -1,5 +1,7 @@
 [general]
 import = ["/home/mroavi/.config/alacritty/colors/catppuccin/catppuccin-mocha.toml"]
+# import = ["/home/mroavi/.config/alacritty/colors/rose-pine/rose-pine.toml"]
+# import = ["/home/mroavi/.config/alacritty/themes/themes/ubuntu.toml"]
 
 [env]
 TERM = "xterm-256color"
