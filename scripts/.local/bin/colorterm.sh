@@ -10,13 +10,11 @@ if [ "$#" == 0 ]; then
 fi
 
 # Otherwise, set the color based on the hostname
-if [ "$1" == "raspi" ]; then
-  printf '\033]11;#192436\007'
-elif [ "$1" == "co23" ]; then
-  printf '\033]11;#232136\007'
-elif [ "$1" == "hpc" ]; then
-  printf '\033]11;#1F2A3B\007'
+if [ "$1" == "merlin" ]; then
+  printf '\033]11;#3A1414\007'
+elif [ "$1" == "panterita" ]; then
+  printf '\033]11;#0F2F1F\007'
 else
   # Other hostname
-  printf '\033]11;#331C1F\007'
+  printf '\033]11;#1C2433\007'
 fi
