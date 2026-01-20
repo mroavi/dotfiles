@@ -123,6 +123,7 @@ yay_pkgs=(
           pistol-git
           pokemon-colorscripts-git
           onedrive-abraunegg      # setup instructions: https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md
+          slides
          )
 
 sudo pacman   -S --noconfirm --needed ${pac_pkgs[@]}
