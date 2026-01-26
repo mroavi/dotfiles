@@ -1,10 +1,10 @@
 -- Reminder:
--- After installing a formatter using Mason and setting it up with Conform,
--- the 'gq' operator will automatically be enabled for supported filetypes
--- whenever an LSP attaches. This is handled by the LspAttach autocmd in
--- your config, which sets:
+-- After installing a formatter using Mason and setting it up with Conform, you
+-- need to add the filetype to the `conform_filetypes` table below to enable
+-- the 'gq' operator for that filetype. The FileType autocmd will then
+-- automatically set:
 --   vim.bo[buf].formatexpr = "v:lua.require'conform'.formatexpr()"
--- No need to add it manually inside `ftplugin/<filetype>.lua`.
+-- for those filetypes.
 -- Based on: https://youtu.be/6pAG3BHurdM?si=TAoMywJVwhL15c39
 
 -- TODO: Auto-install formatters using mason-tool-installer.nvim
