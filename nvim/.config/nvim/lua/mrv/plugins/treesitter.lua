@@ -9,6 +9,7 @@ require 'nvim-treesitter.configs'.setup {
     "cpp",
     "c_sharp",
     "css",
+    "dockerfile",
     "html",
     "java",
     "javascript",
