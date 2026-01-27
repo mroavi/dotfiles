@@ -134,6 +134,43 @@ local config = {
       format = {
         enabled = false,
       },
+      completion = {
+        favoriteStaticMembers = {
+          "org.junit.jupiter.api.Assertions.*",
+          "org.mockito.Mockito.*",
+          "org.mockito.ArgumentMatchers.*",
+          "org.mockito.Answers.*"
+        },
+        filteredTypes = {
+          "com.sun.*",
+          "io.micrometer.shaded.*",
+          "java.awt.*",
+          "jdk.*",
+          "sun.*",
+        },
+        importOrder = {
+          "java",
+          "javax",
+          "jakarta",
+          "org",
+          "com",
+        },
+      },
+      sources = {
+        organizeImports = {
+          starThreshold = 9999,
+          staticStarThreshold = 9999,
+        },
+      },
+      codeGeneration = {
+        toString = {
+          template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+        },
+        useBlocks = true,
+      },
+      configuration = {
+        runtimes = {},
+      },
     },
   },
 
@@ -141,6 +178,8 @@ local config = {
     -- malicious.` warning using the solution from:
     -- https://github.com/mfussenegger/nvim-jdtls/discussions/249#discussioncomment-3159367
   init_options = {
+    bundles = {},
+    extendedClientCapabilities = extendedClientCapabilities,
     settings = {
       java = {
         implementationsCodeLens = { enabled = true },
