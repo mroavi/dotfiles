@@ -36,6 +36,7 @@ require 'nvim-treesitter.configs'.setup {
 
     -- List of languages that will be disabled
     disable = {
+      "dockerfile",
       --"julia",
       --"help",
       --"markdown",
