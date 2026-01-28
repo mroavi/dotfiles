@@ -13,3 +13,15 @@ julia/.julia/environments/nvim-lspconfig/bin/
 julia/.julia/environments/nvim-lspconfig/languageserver.so
 julia/.julia/environments/nvim-lspconfig/packagecompiler/
 nvim/.config/nvim/lazy-lock.json
+
+# Sensitive files
+*.key
+*.pem
+*.p12
+*.pfx
+.env*
+*secret*
+*credential*
+id_rsa*
+id_ed25519*
+*.gpg
