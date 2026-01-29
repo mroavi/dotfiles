@@ -58,7 +58,7 @@ apt_pkgs_base=(
           zsh-autosuggestions
           zsh-syntax-highlighting
           ripgrep
-          #fzf            # too old, better build from source
+          fzf
           #delta
           fd-find
           fontconfig      # required to install meslo font family
