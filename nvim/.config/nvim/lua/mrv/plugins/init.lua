@@ -34,7 +34,7 @@ local plugins = {
   { 'mason-org/mason.nvim', config = function() require('mrv.plugins.mason') end, dependencies = { 'mason-org/mason-lspconfig.nvim', version = "^1.0.0" }, version = "^1.0.0" }, -- easily install and manage LSP servers, DAP servers, linters, and formatters
   { 'mroavi/vim-tomux', init = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end }, -- send text to tmux
   { 'lervag/vimtex', init = function() require('mrv.plugins.vimtex') end }, -- a modern Vim and neovim filetype plugin for LaTeX files.
-  { 'nvim-treesitter/nvim-treesitter', config = function() require('mrv.plugins.treesitter') end, build = ':TSUpdate' }, -- nvim treesitter configurations and abstraction layer
+  { 'nvim-treesitter/nvim-treesitter', branch = 'master', config = function() require('mrv.plugins.treesitter') end, build = ':TSUpdate' }, -- nvim treesitter configurations and abstraction layer
   --{ 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main', config = function() require('mrv.plugins.treesitter-textobjects') end }, -- syntax aware text-objects, select, move, swap, and peek support
   { 'skywind3000/asyncrun.vim', init = function() require('mrv.plugins.asyncrun') end }, -- run Async Shell Commands and Output to the Quickfix Window
   { 'mroavi/vim-evanesco' }, -- automatically clears search highlight
