@@ -36,11 +36,6 @@ chars = "\u001B[27;6;9~"
 key = "Tab"
 mods = "Control|Shift"
 
-# [[keyboard.bindings]]
-# chars = "\u001B[13;2u"
-# key = "Return"
-# mods = "Shift"
-
 [[keyboard.bindings]]
 chars = "\u001B[13;5u"
 key = "Return"
@@ -106,6 +101,12 @@ mods = "Control"
 action = "ToggleViMode"
 key = "Return"
 mode = "Vi|~Search"
+
+# Shift+Enter for Claude Code multiline input
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001b\r"
 
 [window]
 decorations = "none"
