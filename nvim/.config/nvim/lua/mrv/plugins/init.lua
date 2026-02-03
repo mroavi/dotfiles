@@ -68,6 +68,7 @@ local plugins = {
   --{ 'mroavi/slides.vim', dev = true, config = function() require('mrv.plugins.slides') end, dependencies = { 'edluffy/hologram.nvim', 'junegunn/limelight.vim', 'tpope/vim-obsession' } }, -- presentation slides in vim
   --{ 'kaarmu/typst.vim' }, -- Vim plugin for Typst
   --{ 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'natecraddock/telescope-zf-native.nvim' } }, -- find, filter, preview, pick
+  --{ 'Maxteabag/sqlit.nvim', config = function() require('mrv.plugins.sqlit') end }, -- A user friendly TUI for SQL databases. Written in python. Supports SQL server, Mysql, PostreSQL, SQLite, Turso and more.
 
   -- Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
