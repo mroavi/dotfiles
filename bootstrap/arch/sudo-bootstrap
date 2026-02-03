@@ -124,6 +124,7 @@ yay_pkgs=(
           pokemon-colorscripts-git
           onedrive-abraunegg      # setup instructions: https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md
           slides
+          sqlit
          )
 
 sudo pacman   -S --noconfirm --needed ${pac_pkgs[@]}
