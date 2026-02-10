@@ -97,6 +97,7 @@ local plugins = {
   --{ 'rachartier/tiny-inline-diagnostic.nvim' }, -- A Neovim plugin that display prettier diagnostic messages.
   --{ 'ColinKennedy/cursor-text-objects.nvim' }, -- Use [ and ] to enhance all of your Neovim text-objects and text-operators!
   --{ 'inhesrom/remote-ssh.nvim' } -- support for working with remote files in Neovim via SSH, SCP, or rsync protocols
+  --{ 'nemanjamalesija/smart-paste.nvim' } -- context-aware paste indentation for Neovim. Pasted code lands at the correct indent level, every time, in every language
 
   -- Abandoned
   --{ 'raimondi/delimitmate', config = function() require('mrv.plugins.delimitmate') end }, -- provides insert mode auto-completion for quotes, parens, brackets, etc.
