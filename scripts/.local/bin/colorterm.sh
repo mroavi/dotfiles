@@ -11,10 +11,10 @@ fi
 
 # Otherwise, set the color based on the hostname
 if [ "$1" == "jetson-1" ]; then
-  printf '\033]11;#3A1414\007'
+  printf '\033]11;#1C2433\007'
 elif [ "$1" == "jetson-2" ]; then
   printf '\033]11;#0F2F1F\007'
 else
   # Other hostname
-  printf '\033]11;#1C2433\007'
+  printf '\033]11;#3A1414\007'
 fi
