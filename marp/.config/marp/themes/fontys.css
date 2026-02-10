@@ -1,0 +1,129 @@
+/*
+* @theme fontys
+* @auto-scaling true
+*/
+
+@import 'default';
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap'); */
+
+/* Base section styling */
+section {
+ background-color: #FFFFFF;
+ color: #333333;
+ /* font-family: 'Roboto', sans-serif; */
+}
+
+/* Heading styles */
+h1 {
+ color: #663366;
+ font-size: 44pt;
+ font-weight: bold;
+ margin-bottom: 0.5em;
+}
+
+h2 {
+ color: #663366;
+ font-size: 28pt;
+ font-weight: bold;
+ margin-top: 1em;
+ margin-bottom: 0.5em;
+}
+
+/* Title slide variant */
+section.title {
+ background-color: #663366;
+ color: #e0d6e0;
+}
+
+section.title h1 {
+ color: #FFFFFF;
+ font-size: 52pt;
+}
+
+section.title p {
+ color: #e0d6e0;
+ font-size: 20pt;
+}
+
+section.title strong {
+ color: #e0d6e0;
+}
+
+/* Dark slide variant */
+section.dark {
+ background-color: #663366;
+ color: #e0d6e0;
+}
+
+section.dark h1 {
+ color: #FFFFFF;
+}
+
+/* Logo in top-right corner */
+section::before {
+ content: '';
+ position: absolute;
+ top: 30px;
+ right: 40px;
+ width: 120px;
+ height: auto;
+ background-image: url('./images/fontys-logo.svg');
+ background-size: contain;
+ background-repeat: no-repeat;
+ z-index: 0;
+ aspect-ratio: 768 / 464;
+}
+
+/* White logo on title and dark slides */
+section.title::before {
+ display: block;
+ background-image: url('./images/fontys-logo-white.svg');
+}
+
+section.dark::before {
+ background-image: url('./images/fontys-logo-white.svg');
+}
+
+/* Two-column layout utility */
+.columns {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 2em;
+ align-items: start;
+}
+
+.columns.align-center {
+ align-items: center;
+}
+
+.columns.align-bottom {
+ align-items: end;
+}
+
+/* Highlight box utility */
+.highlight {
+ background-color: #e0d6e0;
+ padding: 0.2em 0.5em;
+ border-radius: 4px;
+ color: #663366;
+ font-weight: bold;
+}
+
+/* Link styling */
+a {
+ color: #0076E0;
+}
+
+/* Strong/bold accent */
+strong {
+ color: #663366;
+}
+
+/* List styling */
+ul {
+ margin-left: 1em;
+}
+
+li {
+ margin-bottom: 0.5em;
+}
