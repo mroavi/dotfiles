@@ -9,6 +9,7 @@ export LANG="en_US.UTF-8"
 #export ARCHFLAGS="-arch x86_64"
 export BAT_THEME="Catppuccin Mocha"
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+export PATH=/home/mroavi/.opencode/bin:$PATH
 
 if [ "$SSH_CONNECTION" ]; then
   # Used to run Tamaki's tool
@@ -16,3 +17,4 @@ if [ "$SSH_CONNECTION" ]; then
   export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
+. "$HOME/.cargo/env"
