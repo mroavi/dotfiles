@@ -30,7 +30,8 @@ vim.diagnostic.config({
   float = { border = "rounded" },
 })
 
--- Enable logging, open the log with :lua vim.cmd('e'..vim.lsp.get_log_path())
+-- Enable logging. Open the log with:
+--   :lua vim.cmd('e' .. vim.lsp.get_log_path())
 -- vim.lsp.set_log_level("debug")
 
 
