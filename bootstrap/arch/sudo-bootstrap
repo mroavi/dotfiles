@@ -61,7 +61,6 @@ pac_pkgs=(
           noto-fonts-cjk
           noto-fonts-emoji
           noto-fonts-extra
-          npm
           okular                  # KDE document viewer
           openssh
           pass
@@ -197,6 +196,14 @@ else
   meson setup build -Dbashcompletiondir=/usr/share/bash-completion/completions
   meson compile -C build
   sudo meson install -C build
+fi
+
+# fnm
+if command -v fnm &>/dev/null; then
+  echo "fnm is already installed"
+else
+  echo "Installing fnm..."
+  curl -fsSL https://fnm.vercel.app/install | bash
 fi
 
 # Make zsh the default shell

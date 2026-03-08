@@ -545,6 +545,16 @@ if [ -f /usr/share/bash-completion/completions/tio ]; then
   source /usr/share/bash-completion/completions/tio
 fi
 
+# =============================================================================
+## fnm
+# =============================================================================
+
+FNM_PATH="/home/mroavi/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
 ## TEMP: temporary setup section for easier demos using ROS2 and Distrobox
 #if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ]; then
 #  # Inside an SSH connection
