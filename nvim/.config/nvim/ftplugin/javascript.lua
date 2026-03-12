@@ -9,7 +9,8 @@ vim.b.commentary_format = '//%s'
 ---------------------------------------------------------------------------------
 
 vim.keymap.set('n', '<Leader>pr', function()
-  utils.insert_string([[console.log(\"'%s': \" + %s); // DEBUG]], 'o')
+  --utils.insert_string([[console.log(\"'%s': \" + %s); // DEBUG]], 'o')
+  utils.insert_string([[console.log(%s);]], 'o')
 end, { buffer = true })
 
 vim.keymap.set('n', '<Leader>pt', function()
