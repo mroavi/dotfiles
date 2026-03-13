@@ -29,6 +29,7 @@ vim.g.tomux_use_clipboard = 0
 function M.open_right_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
   vim.cmd([[TomuxCommand("split-window -h -d -c '" . expand('%:p:h') . "'")]])
+  --vim.cmd([[TomuxSend("brave --new-window &\n")]])
   vim.cmd([[TomuxSend(b:start_browser_sync_cmd . "\n")]])
 end
 vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = true })
@@ -37,6 +38,7 @@ vim.keymap.set('n', '<Leader>tl', function() M.open_right_of() end, { buffer = t
 function M.open_down_of()
   vim.b.tomux_config = { socket_name = "default", target_pane = "{down-of}" }
   vim.cmd([[TomuxCommand("split-window -v -d -l 10% -c '" . expand('%:p:h') . "'")]])
+  --vim.cmd([[TomuxSend("brave --new-window &\n")]])
   vim.cmd([[TomuxSend(b:start_browser_sync_cmd . "\n")]])
 end
 vim.keymap.set('n', '<Leader>tj', function() M.open_down_of() end, { buffer = true })
