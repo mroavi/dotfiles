@@ -28,7 +28,7 @@ local plugins = {
   { 'tpope/vim-repeat' }, -- enable repeating supported plugin maps with "."
   { 'tpope/vim-obsession' }, -- continuously updated session files
   { 'mroavi/vim-pasta' }, -- auto format pasted code
-  { 'yegappan/mru', init = function() require('mrv.plugins.mru') end }, -- most recently used (MRU) vim plugin
+  { 'yegappan/mru', dependencies = { 'junegunn/fzf', 'junegunn/fzf.vim' }, init = function() require('mrv.plugins.mru') end },
   { 'neovim/nvim-lspconfig', config = function() require('mrv.plugins.lspconfig') end }, -- quickstart configurations for the Nvim LSP client
   { 'mfussenegger/nvim-jdtls' }, -- extensions for the built-in LSP support in Neovim for eclipse.jdt.ls
   { 'mason-org/mason.nvim', config = function() require('mrv.plugins.mason') end, dependencies = { 'mason-org/mason-lspconfig.nvim', version = "^1.0.0" }, version = "^1.0.0" }, -- easily install and manage LSP servers, DAP servers, linters, and formatters

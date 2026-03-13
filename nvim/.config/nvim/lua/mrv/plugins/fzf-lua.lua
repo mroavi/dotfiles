@@ -48,7 +48,7 @@ vim.keymap.set("n", "<Leader>o", M.my_find_files)
 
 vim.keymap.set("n", "<Leader>.", function() fzf.files({ cwd = "~/dotfiles" }) end)
 vim.keymap.set("n", "<Leader>n", function() fzf.files({ cwd = "~/notes" }) end)
-vim.keymap.set("n", "<C-p>", fzf.oldfiles)
+--vim.keymap.set("n", "<C-p>", fzf.oldfiles)
 vim.keymap.set("n", "<Leader>a", fzf.args)
 
 vim.keymap.set("n", "<Leader>/", fzf.live_grep)
