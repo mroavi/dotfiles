@@ -1,0 +1,14 @@
+return {
+  settings = {
+    javascript = {
+      suggest = {
+        autoImports = true,
+      },
+    },
+    typescript = {
+      suggest = {
+        autoImports = true,
+      },
+    },
+  },
+}
