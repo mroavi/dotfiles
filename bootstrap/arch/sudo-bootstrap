@@ -71,6 +71,7 @@ pac_pkgs=(
           pipewire-audio
           pipewire-pulse
           pkgfile                 # find packages that hold a file (even if the package is not installed)
+          presenterm
           qt5ct                   # mange QT themes
           ripgrep
           sof-firmware            # see: https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture#ALSA_firmware
@@ -122,7 +123,6 @@ yay_pkgs=(
           pistol-git
           pokemon-colorscripts-git
           onedrive-abraunegg      # setup instructions: https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md
-          slides
           sqlit
          )
 
