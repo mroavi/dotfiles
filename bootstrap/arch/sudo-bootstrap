@@ -56,6 +56,7 @@ pac_pkgs=(
           kvantum                 # a Linux SVG-based theme engine for Qt and KDE
           libreoffice-still
           lxappearance            # manage GTK themes
+          mermaid-cli
           neovim
           noto-fonts
           noto-fonts-cjk
@@ -72,6 +73,7 @@ pac_pkgs=(
           pipewire-pulse
           pkgfile                 # find packages that hold a file (even if the package is not installed)
           presenterm
+          python-weasyprint       # dependency for presenterm to create PDF presentations
           qt5ct                   # mange QT themes
           ripgrep
           sof-firmware            # see: https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture#ALSA_firmware
