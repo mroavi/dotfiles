@@ -1,5 +1,5 @@
 -- Manual installation: sudo pacman -S lua-language-server
-vim.lsp.config("lua_ls", {
+return {
   settings = {
     Lua = {
       runtime = {
@@ -24,5 +24,4 @@ vim.lsp.config("lua_ls", {
       },
     },
   },
-})
-
+}
