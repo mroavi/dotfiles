@@ -555,6 +555,13 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
+# bun completions
+[ -s "/home/mroavi/.bun/_bun" ] && source "/home/mroavi/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 ## TEMP: temporary setup section for easier demos using ROS2 and Distrobox
 #if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ]; then
 #  # Inside an SSH connection
