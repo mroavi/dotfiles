@@ -93,6 +93,7 @@ pac_pkgs=(
           texlive-xetex
           thunar
           tree
+          tree-sitter-cli
           luarocks
           unrar
           unzip
