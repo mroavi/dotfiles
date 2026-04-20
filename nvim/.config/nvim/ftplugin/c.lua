@@ -53,25 +53,25 @@ end, { buffer = true })
 
 -- Make
 vim.keymap.set('n', '<Leader>tm', function()
-  vim.cmd.write()
+  vim.cmd.update()
   vim.cmd [[TomuxSend("make\n")]]
 end, { buffer = true })
 
 -- Make and execute
 vim.keymap.set('n', '<Leader>e', function()
-  vim.cmd.write()
+  vim.cmd.update()
   vim.cmd [[TomuxSend("make && ./build/apps/program\n")]] -- WARNING: update the path to the executable
 end, { buffer = true })
 
 -- Test
 vim.keymap.set('n', '<Leader>tt', function()
-  vim.cmd.write()
+  vim.cmd.update()
   vim.cmd [[TomuxSend("make && bash peak-mem-usage.sh\n")]] -- WARNING: update command as needed
 end, { buffer = true })
 
 -- Clean
 vim.keymap.set('n', '<Leader>tc', function()
-  vim.cmd.write()
+  vim.cmd.update()
   vim.cmd [[TomuxSend("make clean\n")]]
 end, { buffer = true })
 
