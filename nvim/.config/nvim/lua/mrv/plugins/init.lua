@@ -34,7 +34,6 @@ local plugins = {
   { 'mroavi/vim-tomux', init = function() vim.cmd("exe 'source ~/.config/nvim/lua/mrv/plugins/tomux.vim'") end }, -- send text to tmux
   { 'lervag/vimtex', init = function() require('mrv.plugins.vimtex') end }, -- a modern Vim and neovim filetype plugin for LaTeX files.
   { 'nvim-treesitter/nvim-treesitter', branch = 'main', config = function() require('mrv.plugins.treesitter') end, build = ':TSUpdate' }, -- nvim treesitter configurations and abstraction layer
-  --{ 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main', config = function() require('mrv.plugins.treesitter-textobjects') end }, -- syntax aware text-objects, select, move, swap, and peek support
   { 'skywind3000/asyncrun.vim', init = function() require('mrv.plugins.asyncrun') end }, -- run Async Shell Commands and Output to the Quickfix Window
   { 'mroavi/vim-evanesco' }, -- automatically clears search highlight
   { 'catppuccin/nvim', name = "catppuccin", config = function() require('mrv.plugins.catppuccin') end }, -- soothing pastel theme for (Neo)vim
@@ -68,6 +67,7 @@ local plugins = {
   --{ 'kaarmu/typst.vim' }, -- Vim plugin for Typst
   --{ 'nvim-telescope/telescope.nvim', config = function() require('mrv.plugins.telescope') end, dependencies = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'natecraddock/telescope-zf-native.nvim' } }, -- find, filter, preview, pick
   --{ 'Maxteabag/sqlit.nvim', config = function() require('mrv.plugins.sqlit') end }, -- A user friendly TUI for SQL databases. Written in python. Supports SQL server, Mysql, PostreSQL, SQLite, Turso and more.
+  --{ 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main', config = function() require('mrv.plugins.treesitter-textobjects') end }, -- syntax aware text-objects, select, move, swap, and peek support
 
   -- Try these out!
   --{ 'famiu/nvim-reload' }, -- plugin to easily reload your Neovim config
