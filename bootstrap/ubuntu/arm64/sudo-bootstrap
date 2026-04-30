@@ -214,7 +214,7 @@ fi
 # Symlink fd-find (fdfind) to fd
 sudo ln -sf $(which fdfind) /usr/local/bin/fd
 # Symlink brave-browser to brave
-sudo ln -sf $(which brave-browser) /usr/local/bin/brave
+#sudo ln -sf $(which brave-browser) /usr/local/bin/brave
 
 # Make zsh the default shell
 chsh -s $(which zsh) "$USER"
