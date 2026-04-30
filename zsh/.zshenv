@@ -19,5 +19,3 @@ if [ "$SSH_CONNECTION" ]; then
   export JAVA_HOME=/home/20180043/jdk
   export PATH="$JAVA_HOME/bin:$PATH"
 fi
-
-. "$HOME/.cargo/env"
