@@ -76,6 +76,7 @@ vim.b.board = 'arduino:avr:uno'
 --vim.b.board = 'arduino:renesas_uno:unor4wifi'
 --vim.b.board = 'esp32:esp32:m5stack_fire'
 --vim.b.board = 'esp32:esp32:dfrobot_beetle_esp32c3:CDCOnBoot=cdc'
+--vim.b.board = 'esp32:esp32:esp32p4'
 
 local M = {}
 
