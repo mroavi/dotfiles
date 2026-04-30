@@ -1,5 +1,4 @@
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export TERMINFO=/lib/terminfo
@@ -10,6 +9,10 @@ export LANG="en_US.UTF-8"
 export BAT_THEME="Catppuccin Mocha"
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 export PATH=/home/mroavi/.opencode/bin:$PATH
+
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
 
 if [ "$SSH_CONNECTION" ]; then
   # Used to run Tamaki's tool
