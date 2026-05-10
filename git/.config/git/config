@@ -52,3 +52,5 @@
   colorMoved = default
 [credential]
 	helper = cache
+[push]
+	autoSetupRemote = true
