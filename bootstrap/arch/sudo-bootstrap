@@ -113,7 +113,6 @@ pac_pkgs=(
 yay_pkgs=(
           tmux
           lf
-          vidir
           trash-cli
           brave-bin
           git-open
@@ -121,8 +120,8 @@ yay_pkgs=(
           ttf-juliamono
           ttf-meslo-nerd
           ttf-symbola
-          catppuccin-gtk-theme-mocha
-          kvantum-theme-catppuccin-git
+          #catppuccin-gtk-theme-mocha
+          #kvantum-theme-catppuccin-git
           pistol-git
           pokemon-colorscripts-git
           onedrive-abraunegg      # setup instructions: https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md
