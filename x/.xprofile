@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Fix for xdg-desktop-portal file dialogs (e.g. Brave's "Save image as..."):
+# without a display manager, systemd --user and dbus don't inherit DISPLAY,
+# so portal backends spawn without a display and silently fail. Import the
+# graphical env vars so backends can find the X server.
+export XDG_SESSION_TYPE=x11
+export XDG_CURRENT_DESKTOP=dwm
+systemctl --user import-environment DISPLAY XAUTHORITY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 # Increase keyboard repeat rate
