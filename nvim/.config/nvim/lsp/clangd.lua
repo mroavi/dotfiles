@@ -13,3 +13,8 @@ return {
 --   cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 -- and then symlink the generated file into the project root:
 --   ln -s build/compile_commands.json compile_commands.json
+--
+-- For PlatformIO projects, use the built-in target instead:
+--   pio run -t compiledb
+-- This generates `compile_commands.json` in the project root. Re-run it
+-- whenever sources or `platformio.ini` change.
