@@ -83,7 +83,8 @@ vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = t
 vim.keymap.set("n", "grd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>=", function() vim.lsp.buf.format({ async = true }) end)
 vim.keymap.set("n", "<Leader>ho", vim.lsp.buf.hover)
-vim.keymap.set('n', 'grs', function() vim.cmd('LspStop') end)
+vim.keymap.set('n', 'grs', vim.lsp.buf.signature_help)
+--vim.keymap.set('n', 'grs', function() vim.cmd('LspStop') end)
 
 local opfunc = "__range_format_opfunc"
 vim.keymap.set('x', 'gf', string.format("v:lua.require('mrv.utils').operator(v:true, '%s')", opfunc), { expr = true })
