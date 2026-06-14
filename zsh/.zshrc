@@ -556,6 +556,17 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
+# =============================================================================
+# pnpm
+# =============================================================================
+
+export PNPM_HOME="/home/mroavi/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
 # bun completions
 [ -s "/home/mroavi/.bun/_bun" ] && source "/home/mroavi/.bun/_bun"
 
