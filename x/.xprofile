@@ -19,7 +19,7 @@ xset r rate 270 60
 if [ -d "$HOME/dotfiles/wallpapers" ]; then
   os_id=$(grep -oP '(?<=^ID=).*' /etc/os-release)
   case "$os_id" in
-    arch) feh --bg-scale ~/dotfiles/wallpapers/the-great-wave-off-kanagawa.png & ;;
+    arch) feh --bg-scale ~/dotfiles/wallpapers/catppuccin-wallpapers_arch.png & ;;
     ubuntu) feh --bg-scale ~/dotfiles/wallpapers/wallpaperflare.com_wallpaper_ubuntu.jpg & ;;
     *) feh --bg-scale --randomize ~/dotfiles/wallpapers/* & ;;
   esac
