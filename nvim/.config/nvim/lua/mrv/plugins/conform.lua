@@ -16,6 +16,8 @@ conform.setup({
   -- I use Mason to install these formatters
   formatters_by_ft = {
     arduino = { "clang-format" },
+    c = { "clang-format" },
+    cpp = { "clang-format" },
     css = { "prettier" },
     bib = { "bibtex-tidy" },
     html = { "prettier" },
@@ -31,6 +33,9 @@ conform.setup({
   },
   -- Override/add to the default values of formatters
   formatters = {
+    ["clang-format"] = {
+      prepend_args = { "--style=LLVM" },
+    },
     latexindent = {
       -- Prepend the ``-m`` (modifylinebreaks) switch
       prepend_args = { "-m" },
@@ -67,27 +72,10 @@ vim.keymap.set("n", "<Leader>C", ":ConformInfo<CR>")
 -- Ensure Conform is used for `gq` even after LSP attaches
 -------------------------------------------------------------------------------
 
-local conform_filetypes = {
-  arduino = true,
-  css = true,
-  bib = true,
-  html = true,
-  javascriptreact = true,
-  javascript = true,
-  java = true,
-  json = true,
-  python = true,
-  tex = true, -- for `latexindent`: pacman -S libxcrypt-compat if libcrypt.so.1 error
-  typescriptreact = true,
-  typescript = true,
-  yaml = true,
-}
-
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
     local buf = args.buf
-    local ft = vim.bo[buf].filetype
-    if conform_filetypes[ft] then
+    if #conform.list_formatters(buf) > 0 then
       vim.bo[buf].formatexpr = "v:lua.require'conform'.formatexpr()"
     end
   end,
@@ -103,6 +91,7 @@ local autoformat_filetypes = {
   typescriptreact = true,
   typescript = true,
   java = true,
+  c = true,
 }
 
 vim.api.nvim_create_autocmd("BufWritePre", {

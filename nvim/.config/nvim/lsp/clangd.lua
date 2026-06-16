@@ -4,11 +4,13 @@
 -- `cmd`/`filetypes`. A `vim.lsp.config()` call outranks any `lsp/`
 -- file, so we set our overrides through it instead.
 vim.lsp.config('clangd', {
-  cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
+  cmd = { "clangd", "--background-index" },
   filetypes = { "c", "cpp", "objc", "objcpp" },
 })
 return {}
 
+-- Formatting is handled by conform (clang-format) with --fallback-style=LLVM.
+--
 -- Use `bear` to generate the `compile_commands.json` file needed by clangd
 -- when the project does NOT use CMake.
 -- Installation: yay -S bear
