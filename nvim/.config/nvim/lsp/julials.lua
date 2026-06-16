@@ -2,9 +2,6 @@
 
 local lspconfig = require 'lspconfig'
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 -- Manual installation: https://discourse.julialang.org/t/neovim-languageserver-jl/37286/63
 --    $ julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
 -- Instant startup with PackageCompiler: https://discourse.julialang.org/t/neovim-languageserver-jl/37286/72?u=mroavi
@@ -26,5 +23,4 @@ return {
       end
     end
   end,
-  capabilities = capabilities,
 }

@@ -15,8 +15,8 @@ vim.lsp.enable(
   }
 )
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- Completion capabilities are provided globally by blink.cmp, which registers
+-- them on `vim.lsp.config('*')`, so individual servers don't need to set them.
 
 -- Configure diagnostic options
 vim.diagnostic.config({
