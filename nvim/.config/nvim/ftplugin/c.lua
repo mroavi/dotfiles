@@ -41,8 +41,11 @@ vim.g.tomux_use_clipboard = 0
 
 -- Build profiles: each action is { key, cmd }. The key is the <Leader>-mapping
 -- that triggers the command.
-local profile = 'pio'
+local profile = 'temp'
 local profiles = {
+  temp = {
+    all     = { '<Leader>e',  'gcc hello.c -o hello && ./hello'}
+  },
   make = {
     build = { '<Leader>tm', 'make' },
     run   = { '<Leader>e',  'make && ./build/apps/program' },
