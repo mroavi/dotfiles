@@ -1,8 +1,13 @@
-return {
-  autostart = true,
+-- nvim-lspconfig also ships an `lsp/clangd.lua`, and it sits later on
+-- the runtimepath than this file. A plain `return {...}` here is
+-- tier-2 config and would be overridden by lspconfig's
+-- `cmd`/`filetypes`. A `vim.lsp.config()` call outranks any `lsp/`
+-- file, so we set our overrides through it instead.
+vim.lsp.config('clangd', {
   cmd = { "clangd", "--background-index", "--fallback-style=LLVM" },
-  filetypes = { "c", "cpp", "objc", "objcpp" }
-}
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+})
+return {}
 
 -- Use `bear` to generate the `compile_commands.json` file needed by clangd
 -- when the project does NOT use CMake.

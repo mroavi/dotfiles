@@ -2,6 +2,14 @@ local M = {}
 
 local my_utils = require 'mrv.utils'
 
+-- nvim-lspconfig ships sensible defaults for a bunch of servers. Our
+-- lsp/<name>.lua files build on those defaults and either:
+--   * override cmd / filetypes / root_markers -> vim.lsp.config(name, {...}); return {}
+--     (lspconfig's defaults load later on the runtimepath, so a plain `return`
+--     would lose; a vim.lsp.config() call outranks it)
+--   * add nested settings.* that lspconfig doesn't set -> plain `return {...}`
+--     (these deep-merge on top of the defaults instead of conflicting)
+
 vim.lsp.enable(
   {
     "clangd",
