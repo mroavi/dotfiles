@@ -56,7 +56,7 @@ end
 -- Repeat breaks if the opfunc is set to a lua func (https://github.com/neovim/neovim/issues/17503)
 vim.cmd [[
   function! __range_format_opfunc(motion_type) abort
-    return v:lua.require('mrv.plugins.lspconfig').range_format_opfunc(a:motion_type)
+    return v:lua.require('mrv.lsp').range_format_opfunc(a:motion_type)
   endfunction
 ]]
 
