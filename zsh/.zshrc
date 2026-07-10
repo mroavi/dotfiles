@@ -608,7 +608,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 #unset __conda_setup
 ## <<< conda initialize <<<
 
-
 ## >>> mamba initialize >>>
 ## !! Contents within this block are managed by 'mamba shell init' !!
 #export MAMBA_EXE='/home/mroavi/miniforge3/bin/mamba';
@@ -621,3 +620,12 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 #fi
 #unset __mamba_setup
 ## <<< mamba initialize <<<
+
+# =============================================================================
+# theme-academic-cv
+# =============================================================================
+
+## Used to build and deploy my theme-academic-cv
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
