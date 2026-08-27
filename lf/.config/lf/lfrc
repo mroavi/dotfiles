@@ -175,7 +175,8 @@ map <enter>       open
 map o             myopen
 map gx            myopen
 map z             zi
-map <backspace2> :clear; unselect
+# map <backspace2> :clear; unselect
+map <backspace>   :clear; unselect
 map e             extract
 map c             compress
 # Warning: the following two mappings only work when lf is started directly from the terminal
