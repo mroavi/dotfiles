@@ -168,6 +168,7 @@ map r             rename
 map R             $printf '%s\n' $fx | vidir -
 map V             toggle
 map <esc>         quit
+map <c-[>         quit
 map .             set hidden!
 map ~             cd ~
 map <enter>       open
