@@ -44,7 +44,7 @@ vim.g.tomux_use_clipboard = 0
 local profile = 'temp'
 local profiles = {
   temp = {
-    all     = { '<Leader>e',  'gcc hello.c -o hello && ./hello'}
+    all     = { '<Leader>e',  'gcc main.c -o out && ./out'}
   },
   make = {
     build = { '<Leader>tm', 'make' },
