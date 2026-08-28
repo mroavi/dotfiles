@@ -92,6 +92,7 @@ local autoformat_filetypes = {
   typescript = true,
   java = true,
   c = true,
+  cpp = true,
 }
 
 vim.api.nvim_create_autocmd("BufWritePre", {
