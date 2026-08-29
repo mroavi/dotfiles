@@ -376,6 +376,7 @@ alias fm="lf"
 alias vpn-tue="eduvpn-gui"
 alias vpn-fontys="/opt/cisco/secureclient/bin/vpnui"
 alias pac="sudo pacman"
+alias stm32cubemx="GDK_SCALE=2 command stm32cubemx"
 alias sz="sudo du -h --max-depth=1 . | sort -hr"
 alias temperature="curl wttr.in/Eindhoven"
 alias clean-onedrive='find ~/OneDrive/fontys/ -iname "bin" -o -iname "obj" -o -iname ".vs" | xargs rm -rf'
