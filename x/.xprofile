@@ -11,6 +11,11 @@ dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_SESSION_TYPE
 
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
+# Fix Java/Swing GUIs (e.g. STM32CubeMX) under non-reparenting WMs like dwm:
+# AWT miscalculates window geometry, so panels render blank and popup menus
+# appear offset from the widget that opened them.
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # Load Xresources (fonts, DPI, xterm theme). Must run BEFORE dwm/dwmblocks/
 # dmenu start: Xft reads DPI from the resource manager once, at client startup.
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
