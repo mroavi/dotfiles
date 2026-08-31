@@ -111,7 +111,7 @@ chars = "\u001b\r"
 
 [window]
 decorations = "none"
-opacity = 0.90
+opacity = 0.98
 startup_mode = "Maximized" # no effect on systems using DWM
 
 [window.padding]
