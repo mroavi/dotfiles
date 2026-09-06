@@ -44,7 +44,7 @@ vim.b.commentary_format = '--%s'
 ---------------------------------------------------------------------------------
 
 -- Default config
-vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
 
 vim.g.tomux_use_clipboard = 0
 

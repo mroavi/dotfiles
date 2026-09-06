@@ -58,7 +58,7 @@ end, { buffer = true })
 -- CONFIG ME!!!
 
 -- Default config
-vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
 
 vim.g.tomux_use_clipboard = 0
 
@@ -82,7 +82,7 @@ local M = {}
 
 -- Open a pane to the right, starting in the current buffer's directory
 vim.keymap.set('n', '<Leader>tl', function()
-  vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+  vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
   vim.cmd([[TomuxCommand("split-window -h -d -c '" . expand('%:p:h') . "'")]])
 end, { buffer = true })
 

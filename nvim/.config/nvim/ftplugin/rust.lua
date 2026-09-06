@@ -14,7 +14,7 @@ vim.opt_local.iskeyword:append('!')
 vim.g.tomux_use_clipboard = 0
 
 -- Default config
-vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
 
 -- Compile and run
 vim.keymap.set('n', '<Leader>e', function()
@@ -36,7 +36,7 @@ end, { buffer = true })
 
 -- Open a pane to the right, starting in the ACTIVE BUFFER's directory
 vim.keymap.set('n', '<Leader>tl', function()
-  vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+  vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
   vim.cmd([[TomuxCommand("split-window -h -d -c " . shellescape(expand("%:p:h"))) ]])
 end, { buffer = true })
 

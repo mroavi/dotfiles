@@ -6,7 +6,7 @@
 setlocal iskeyword+=!
 
 " Default config
-let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
+let b:tomux_config = {"socket_name": "default", "target_pane": "{bottom-right}"}
 
 " Julia's "paste" function
 let b:tomux_clipboard_paste = 'include_string(Main, clipboard(), "' .. expand('%:p') .. '")'
@@ -16,7 +16,7 @@ let b:start_repl_cmd = 'julia --project=@.'
 
 " Start REPL in a RIGHT split with active buffer as CWD
 function! OpenRightOf()
-  let b:tomux_config = {"socket_name": "default", "target_pane": "{right-of}"}
+  let b:tomux_config = {"socket_name": "default", "target_pane": "{bottom-right}"}
   TomuxCommand("split-window -h -d -c " . expand("%:p:h"))
   TomuxSend(b:start_repl_cmd . "\n")
 endfunction

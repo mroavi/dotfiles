@@ -15,7 +15,7 @@ vim.b.commentary_format = '--%s'
 ---------------------------------------------------------------------------------
 
 -- Default config
-vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
 
 vim.g.tomux_use_clipboard = 0
 
@@ -27,7 +27,7 @@ local M = {}
 
 -- Start mariadb command line in a RIGHT split with active buffer as CWD
 function M.open_right_of()
-  vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+  vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
   vim.cmd[[TomuxCommand("split-window -h -d -c " . expand("%:p:h"))]]
   vim.cmd[[TomuxSend(b:start_repl_cmd . "\n")]]
 end

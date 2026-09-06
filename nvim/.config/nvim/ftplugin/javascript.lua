@@ -25,7 +25,7 @@ vim.keymap.set("n", "<Leader>w", ":write<CR>", { buffer = true })
 ---------------------------------------------------------------------------------
 
 -- Default config
-vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
 
 vim.g.tomux_use_clipboard = 0
 
@@ -34,7 +34,7 @@ vim.g.tomux_use_clipboard = 0
 
 -- Open a pane to the right, starting in Neovim's current working directory
 vim.keymap.set('n', '<Leader>tl', function()
-  vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+  vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
   vim.cmd([[TomuxCommand("split-window -h -d -c '" . getcwd() . "'")]])
   --vim.cmd([[TomuxSend(b:start_interpreter_cmd . "\n")]])
 end, { buffer = true })

@@ -45,13 +45,13 @@ vim.keymap.set(
 vim.b.start_typst = "typst watch main.typ main.pdf"
 
 -- Default config
-vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
 
 vim.g.tomux_use_clipboard = 0
 
 -- Open a pane to the right, starting in the current buffer's directory, and start Typst
 function M.open_right_of()
-  vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+  vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
   vim.cmd([[TomuxCommand("split-window -h -d -c '" . expand('%:p:h') . "'")]])
   vim.cmd([[TomuxSend(b:start_typst . "\n")]])
   vim.cmd([[AsyncRun -silent xdg-open ./main.pdf]])

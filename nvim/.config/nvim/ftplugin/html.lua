@@ -21,13 +21,13 @@ vim.keymap.set('n', "zfit", [[:norm vitkojzf<Cr>]], { buffer = true, silent = tr
 vim.b.start_browser_sync_cmd = "browser-sync start --server --files '**/*.html, **/*.css, **/*.js' --no-notify"
 
 -- Default config
-vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
 
 vim.g.tomux_use_clipboard = 0
 
 -- Split the current pane vertically and start 'browser-sync'
 function M.open_right_of()
-  vim.b.tomux_config = { socket_name = "default", target_pane = "{right-of}" }
+  vim.b.tomux_config = { socket_name = "default", target_pane = "{bottom-right}" }
   vim.cmd([[TomuxCommand("split-window -h -d -c '" . expand('%:p:h') . "'")]])
   --vim.cmd([[TomuxSend("brave --new-window &\n")]])
   vim.cmd([[TomuxSend(b:start_browser_sync_cmd . "\n")]])
