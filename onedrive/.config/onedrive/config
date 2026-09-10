@@ -2,10 +2,10 @@
 sync_dir = "~/OneDrive"
 
 # Skip unwanted directories (Java, C#, Python, IDEs, Node.js)
-skip_dir = "build|out|target|bin|obj|.vs|.idea|.gradle|.vscode|__pycache__|venv|node_modules"
+skip_dir = "build|out|target|bin|obj|.vs|.idea|.gradle|.vscode|__pycache__|venv|node_modules|.pio|.cache"
 
 # Skip unwanted files (compiled, temp, editor junk)
-skip_file = "~*|.~*|*.tmp|*.class|*.jar|*.user|*.suo|*.swp|.*.swp|.*.swo"
+skip_file = "~*|.~*|*.tmp|*.class|*.jar|*.user|*.suo|*.swp|.*.swp|.*.swo|compile_commands.json"
 
 # Do not treat skip_dir as strict full path matches
 skip_dir_strict_match = "false"
