@@ -68,8 +68,8 @@ M.setup = function()
   vim.keymap.set("n", "j", "(v:count > 1 ? \"m'\" . v:count : '') . 'j'", { expr = true }) -- add line movements preceded by a count greater than 1 to the jump list
   vim.keymap.set("n", "<C-d>", "(winheight(0) / 3) . '<C-d>'", { expr = true }) -- make Ctrl-u and Ctrl-d scroll 1/3 of the window height
   vim.keymap.set("n", "<C-u>", "(winheight(0) / 3) . '<C-u>'", { expr = true }) -- https://neovim.discourse.group/t/how-to-make-ctrl-d-and-ctrl-u-scroll-1-3-of-window-height/859
-  vim.keymap.set('n', '<M-j>', function() my_utils.go_to_next_delim(vim.b.cell_delimeter) end) -- jump to the next cell delimeter
-  vim.keymap.set('n', '<M-k>', function() my_utils.go_to_prev_delim(vim.b.cell_delimeter) end) -- jump to the prev cell delimeter
+  --vim.keymap.set('n', '<M-j>', function() my_utils.go_to_next_delim(vim.b.cell_delimeter) end) -- jump to the next cell delimeter
+  --vim.keymap.set('n', '<M-k>', function() my_utils.go_to_prev_delim(vim.b.cell_delimeter) end) -- jump to the prev cell delimeter
   vim.keymap.set("n", "<C-w>j", "<C-w>w", { silent = true }) -- go to the next window
   vim.keymap.set("n", "<C-w>k", "<C-w>W", { silent = true }) -- go to the prev window
   vim.keymap.set("n", "<Leader>id", ":r!date '+\\%F'<CR>") -- insert current date
