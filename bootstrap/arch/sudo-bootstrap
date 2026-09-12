@@ -53,6 +53,7 @@ pac_pkgs=(
           go
           inkscape
           ipython
+          keyd                    # key remapping daemon (dual-role keys and layers)
           kvantum                 # a Linux SVG-based theme engine for Qt and KDE
           libreoffice-still
           lxappearance            # manage GTK themes
@@ -210,6 +211,11 @@ fi
 
 # Make zsh the default shell
 #chsh -s $(which zsh) "$USER"
+
+# keyd
+echo "Setting up keyd..."
+sudo ln -sfn ~/dotfiles/keyd/default.conf /etc/keyd/default.conf
+sudo systemctl enable --now keyd
 
 # Create dotfile symlinks with stow
 cd ~/dotfiles
