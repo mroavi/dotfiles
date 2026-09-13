@@ -102,6 +102,10 @@
 "flameshot gui --raw | xclip -sel clip -t image/png"
   Print
 
+# Same command as above
+"flameshot gui --raw | xclip -sel clip -t image/png"
+  Mod4 + p
+
 # Take screenshot of activewindow
 "flameshot-region activewindow"
   Alt + Print
@@ -121,6 +125,10 @@
 # lock display
 "slock"
   control+alt + Delete
+
+# Same command as above
+"slock"
+  Mod4 + s
 
 # Source .xprofile with super+alt keys
 "keyboard-config"
