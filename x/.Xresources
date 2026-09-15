@@ -13,6 +13,7 @@
 ! Consumers: dwm + dmenu (Xft at client startup), GTK apps, and Alacritty
 ! (winit reads Xft.dpi for its X11 scale factor). Changes need a client
 ! restart -- for the dwm bar, a full dwm restart.
+! Xft.dpi: 96
 Xft.dpi: 144
 
 ! ---- Font rendering ----
