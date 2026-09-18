@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Stop the hotspot started with hotspot-up and remove its virtual interface.
+# The WiFi connection itself stays up.
+
+con=Hotspot
+ap=ap0
+
+# Ask for the password once, and stop if that fails (repeated sudo failures
+# lock the account for a while)
+sudo -v || { echo "hotspot-down: sudo failed" >&2; exit 1; }
+
+if nmcli -t -f NAME con show --active | grep -qx "$con"; then
+  sudo nmcli con down "$con"
+fi
+
+if iw dev "$ap" info >/dev/null 2>&1; then
+  sudo iw dev "$ap" del
+fi
+
+# Remove the Docker firewall rules added by hotspot-up
+if sudo iptables -L DOCKER-USER -n >/dev/null 2>&1; then
+  while sudo iptables -D DOCKER-USER -i "$ap" -j ACCEPT 2>/dev/null; do :; done
+  while sudo iptables -D DOCKER-USER -o "$ap" -m state --state RELATED,ESTABLISHED -j ACCEPT 2>/dev/null; do :; done
+fi
+
+echo "hotspot-down: hotspot stopped"

@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# Start a WiFi hotspot while staying connected to WiFi. The hotspot runs on a
+# virtual AP interface on the same card, so the card must support a client and
+# an AP interface at the same time (on the same channel).
+#
+# One-time setup: a NetworkManager connection named "Hotspot" bound to ap0
+# (see notes/arch/WiFi hotspot while connected to WiFi.md).
+
+set -e
+
+con=Hotspot
+ap=ap0
+
+die() { echo "hotspot-up: $*" >&2; exit 1; }
+
+for cmd in nmcli iw ip; do
+  command -v "$cmd" >/dev/null || die "'$cmd' not found"
+done
+
+nmcli -t -f NAME con show | grep -qx "$con" \
+  || die "no NetworkManager connection named '$con' (do the one-time setup first)"
+
+if nmcli -t -f NAME con show --active | grep -qx "$con"; then
+  echo "hotspot-up: '$con' is already running"
+  exit 0
+fi
+
+# The WiFi interface the laptop is connected with (e.g. wlp0s20f3)
+wifi=$(nmcli -t -f DEVICE,TYPE,STATE dev \
+  | awk -F: -v ap="$ap" '$2 == "wifi" && $3 == "connected" && $1 != ap { print $1; exit }')
+[ -n "$wifi" ] || die "not connected to a WiFi network"
+
+# The card must allow a client (managed) and an AP interface at the same time
+phy=phy$(iw dev "$wifi" info | awk '/wiphy/ { print $2 }')
+iw phy "$phy" info \
+  | awk '/valid interface combinations/ { f = 1; next } f && /^\t[^\t]/ { f = 0 } f' \
+  | grep '\*' | grep -E '[{,] managed[ ,]' | grep -qE '[{,] AP[ ,]' \
+  || die "this WiFi card can't run a hotspot while connected to WiFi"
+
+# Ask for the password once, and stop if that fails (repeated sudo failures
+# lock the account for a while)
+sudo -v || die "sudo failed"
+
+# The hotspot must use the same channel as the WiFi connection
+chan=$(iw dev "$wifi" info | awk '/channel/ { print $2; exit }')
+[ -n "$chan" ] || die "couldn't read the channel of $wifi"
+if [ "$chan" -gt 14 ]; then
+  die "$wifi is on 5 GHz channel $chan; lock the WiFi connection to 2.4 GHz first:
+  sudo nmcli con modify <connection> 802-11-wireless.band bg"
+fi
+if [ "$(nmcli -g 802-11-wireless.channel con show "$con")" != "$chan" ]; then
+  echo "hotspot-up: setting '$con' to channel $chan"
+  sudo nmcli con modify "$con" 802-11-wireless.channel "$chan"
+fi
+
+# Wait until NetworkManager lists $ap (optionally in a given state)
+wait_for_ap() {
+  for _ in $(seq 20); do
+    state=$(nmcli -t -f DEVICE,STATE dev | awk -F: -v ap="$ap" '$1 == ap { print $2 }')
+    if [ -n "$state" ] && { [ -z "$1" ] || [ "$state" = "$1" ]; }; then
+      return 0
+    fi
+    sleep 0.5
+  done
+  die "$ap didn't become ready (state: ${state:-missing})"
+}
+
+# Start from a fresh interface (a leftover one may be stuck)
+if iw dev "$ap" info >/dev/null 2>&1; then
+  sudo iw dev "$ap" del
+fi
+
+# Create the AP interface. NetworkManager must not take it over before it's up
+# in AP mode, or wpa_supplicant fails with "couldn't grab this interface".
+sudo iw dev "$wifi" interface add "$ap" type __ap
+wait_for_ap
+sudo nmcli dev set "$ap" managed no
+sudo iw dev "$ap" set type __ap
+sudo ip link set "$ap" up
+sudo nmcli dev set "$ap" managed yes
+wait_for_ap disconnected
+
+sudo nmcli con up "$con"
+
+# Docker sets the FORWARD chain to DROP; let the hotspot traffic through
+if sudo iptables -L DOCKER-USER -n >/dev/null 2>&1; then
+  sudo iptables -C DOCKER-USER -i "$ap" -j ACCEPT 2>/dev/null \
+    || sudo iptables -I DOCKER-USER -i "$ap" -j ACCEPT
+  sudo iptables -C DOCKER-USER -o "$ap" -m state --state RELATED,ESTABLISHED -j ACCEPT 2>/dev/null \
+    || sudo iptables -I DOCKER-USER -o "$ap" -m state --state RELATED,ESTABLISHED -j ACCEPT
+fi
+
+echo "hotspot-up: '$con' is running on channel $chan"
