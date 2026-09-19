@@ -68,16 +68,6 @@ local profiles = {
     test  = { '<Leader>tt', 'cmake --build build && ctest --test-dir build' },
     clean = { '<Leader>tc', 'cmake --build build --target clean' },
   },
-  -- STM32CubeMX-generated CMake project, flashed with OpenOCD.
-  -- Run from the project root (where CMakePresets.json lives).
-  stm32 = {
-    configure = { '<Leader>tC', 'cmake --preset Debug' },
-    build     = { '<Leader>tb', 'cmake --build --preset Debug' },
-    flash     = { '<Leader>tf', "openocd -f board/st_nucleo_f3.cfg -c 'program build/Debug/GPIO_IOToggle.elf verify reset exit'" },
-    all       = { '<Leader>e',  "cmake --build --preset Debug && openocd -f board/st_nucleo_f3.cfg -c 'program build/Debug/GPIO_IOToggle.elf verify reset exit'" },
-    monitor   = { '<Leader>ts', 'tio -b 38400 /dev/ttyACM0' },
-    clean     = { '<Leader>tc', 'cmake --build --preset Debug --target clean' },
-  },
 }
 local active = profiles[profile]
 
