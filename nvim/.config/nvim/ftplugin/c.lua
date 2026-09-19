@@ -41,7 +41,7 @@ vim.g.tomux_use_clipboard = 0
 
 -- Build profiles: each action is { key, cmd }. The key is the <Leader>-mapping
 -- that triggers the command.
-local profile = 'stm32'
+local profile = 'pio'
 local profiles = {
   temp = {
     all     = { '<Leader>e',  'gcc main.c -o out && ./out'}
