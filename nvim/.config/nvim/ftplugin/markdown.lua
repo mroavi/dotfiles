@@ -1,40 +1,34 @@
--- I define build_and_open as a global function (_G.build_and_open) rather than
--- encapsulating it in a module (M) because this file's location is not
--- included in Neovim's runtime paths by default.
-function _G.build_and_open()
-  local build_cmd = { 'bash', '-c', 'source build.sh' }
-  vim.fn.jobstart(build_cmd, {
-    on_exit = function(job_id, exit_code, event)
-      print("Build finished with exit code: " .. exit_code)
-      -- Check if the PDF is already open by running 'lsof' on it.
-      local pdf_status = vim.fn.systemlist("lsof ./main.pdf")
-      if #pdf_status == 0 then
-        print("PDF not open. Launching it...")
-        vim.fn.jobstart({ 'xdg-open', './main.pdf' })
-      else
-        print("PDF is already open.")
-      end
-    end,
-  })
+-- Build the PDF for pandoc documents that keep a build.sh next to the source.
+-- The key below is only mapped when such a script is actually there, so it
+-- stays unbound in ordinary markdown files.
+
+local dir = vim.fn.expand('%:p:h')
+
+if vim.fn.filereadable(dir .. '/build.sh') == 0 then
+  return
 end
 
--- Global flag to track activation
-_G.build_on_save = false
+vim.keymap.set('n', '<Leader>e', function()
+  vim.notify('Building main.pdf ...', vim.log.levels.INFO)
 
--- Auto-run function after saving the file, but only if _G.build_on_save is true
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "main.md",  -- Change this to match your file
-  callback = function()
-    if _G.build_on_save then
-      build_and_open()
-    end
-  end,
-})
+  -- Asynchronous, so the editor stays usable while pandoc and LuaLaTeX run.
+  -- cwd matters: build.sh refers to main.md and images/ relatively.
+  vim.system({ 'bash', 'build.sh' }, { cwd = dir, text = true }, function(obj)
+    vim.schedule(function()
+      if obj.code ~= 0 then
+        local output = obj.stderr ~= '' and obj.stderr or obj.stdout
+        vim.notify('Build failed (' .. obj.code .. ')\n' .. output, vim.log.levels.ERROR)
+        return
+      end
 
--- Keybinding using a function
-vim.keymap.set('n', '<LocalLeader>ll', function()
-  _G.build_on_save = true
-  print("Auto-build enabled. Running build process...")
-  vim.notify("Auto-build enabled. Running build process...", vim.log.levels.INFO)
-  build_and_open()
-end, { noremap = true })
+      vim.notify('Build finished', vim.log.levels.INFO)
+
+      -- Okular reloads the file by itself, so only launch a viewer when no
+      -- process holds main.pdf yet.
+      local pdf = dir .. '/main.pdf'
+      if #vim.fn.systemlist({ 'lsof', pdf }) == 0 then
+        vim.system({ 'xdg-open', pdf }, { detach = true })
+      end
+    end)
+  end)
+end, { buffer = true, desc = 'Build PDF with build.sh' })
