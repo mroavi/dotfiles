@@ -42,6 +42,7 @@ require("catppuccin").setup({
       ["TelescopeSelection"] = { fg = colors.text, bg = colors.surface0, style = {} },
       ["Folded"] = {fg = colors.overlay0 },
       ["BlinkCmpGhostText"] = { fg = colors.overlay1, bg = colors.none, style = { "italic" } },
+      ["@comment.debug"] = { fg = colors.base, bg = colors.peach, style = {} },
     }
   end,
   default_integrations = true,
