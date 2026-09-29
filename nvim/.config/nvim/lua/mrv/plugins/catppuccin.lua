@@ -17,7 +17,7 @@ require("catppuccin").setup({
     percentage = 0.15, -- percentage of the shade to apply to the inactive window
   },
   no_italic = false, -- force no italic
-  no_bold = true, -- force no bold
+  no_bold = false, -- force no bold
   no_underline = false, -- force no underline
   styles = { -- handles the styles of general hi groups (see `:h highlight-args`):
     comments = { "italic" }, -- change the style of comments
@@ -43,6 +43,7 @@ require("catppuccin").setup({
       ["Folded"] = {fg = colors.overlay0 },
       ["BlinkCmpGhostText"] = { fg = colors.overlay1, bg = colors.none, style = { "italic" } },
       ["@comment.debug"] = { fg = colors.base, bg = colors.peach, style = {} },
+      ["@markup.strong"] = { fg = colors.text, style = { "bold" } }, -- default red clashes with H1
     }
   end,
   default_integrations = true,
