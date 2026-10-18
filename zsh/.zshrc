@@ -466,6 +466,8 @@ fi
 
 path=('/home/mroavi/.juliaup/bin' $path)
 export PATH
+# Tab completion for juliaup and julia channel selection
+[ -f "/home/mroavi/.julia/juliaup/completions/zsh.zsh" ] && source "/home/mroavi/.julia/juliaup/completions/zsh.zsh"
 
 # <<< juliaup initialize <<<
 
