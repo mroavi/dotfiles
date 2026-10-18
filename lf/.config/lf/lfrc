@@ -88,7 +88,7 @@ cmd zi ${{
 # meaning that this command is only used if lf is opened from the terminal
 cmd open ${{
     case $(file --mime-type $f -b) in
-        text/*) $EDITOR $fx;;
+        text/*|inode/x-empty) $EDITOR $fx;;
         *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
     esac
 }}
@@ -98,7 +98,7 @@ cmd open ${{
 # (redefined)) and use `l` or `Enter` to open text files
 cmd myopen ${{
     case $(file --mime-type $f -b) in
-        text/*) $EDITOR $fx;;
+        text/*|inode/x-empty) $EDITOR $fx;;
         *) for f in $fx; do setsid xdg-open $f > /dev/null 2> /dev/null & done;;
     esac
 }}
