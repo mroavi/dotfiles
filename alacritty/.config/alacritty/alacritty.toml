@@ -82,6 +82,14 @@ chars = "\u001B[27;6;76~"
 key = "L"
 mods = "Control|Shift"
 
+# Always send a plain Esc for Ctrl+[, even when an app (e.g. lf via tcell v3)
+# enables the kitty keyboard protocol, which would report it as a distinct key
+[[keyboard.bindings]]
+chars = "\u001B"
+key = "["
+mode = "~Vi|~Search"
+mods = "Control"
+
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "N"
