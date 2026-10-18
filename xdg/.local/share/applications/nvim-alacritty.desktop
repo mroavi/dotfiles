@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim (Alacritty)
+Comment=Open text files in Neovim inside a new Alacritty window
+Exec=alacritty -e nvim %F
+Terminal=false
+MimeType=text/plain;text/markdown;text/x-python;text/x-shellscript;application/x-shellscript;text/x-csrc;text/x-chdr;text/x-c++src;text/x-c++hdr;text/x-lua;text/julia;application/json;application/toml;application/yaml;text/x-tex;text/x-bibtex;text/csv;text/x-log;application/xml;
