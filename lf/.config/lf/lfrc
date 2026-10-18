@@ -199,3 +199,8 @@ map c             compress
 # Warning: the following two mappings only work when lf is started directly from the terminal
 map <c-o>         jump-prev
 map <tab>         jump-next # <c-i>
+
+# Make <esc> also cancel piping (%) commands waiting for input, e.g. the
+# compress prompt (lf ignores cmd-escape there; only <c-c> interrupts).
+# The trailing `echo` clears the "process interrupt" message.
+cmap <esc> :cmd-escape; cmd-interrupt; echo
