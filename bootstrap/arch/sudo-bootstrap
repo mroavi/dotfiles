@@ -67,6 +67,7 @@ pac_pkgs=(
           openssh
           pass
           pavucontrol
+          perl-file-mimeinfo      # better file type detection for xdg-open
           picom
           pipewire
           pipewire-alsa
