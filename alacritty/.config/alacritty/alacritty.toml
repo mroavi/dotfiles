@@ -52,7 +52,8 @@ key = "["
 mode = "~Vi|~Search"
 mods = "Control"
 
-# Open a new window in the current directory (e.g. lf's)
+# Open a new window in the working directory of the running program (e.g. the
+# shell's current dir or the folder lf is showing; inside tmux, tmux's start dir)
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "N"
