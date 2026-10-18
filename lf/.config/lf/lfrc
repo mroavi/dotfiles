@@ -118,14 +118,30 @@ cmd extract ${{
     esac
 }}
 
-# Compress the selected directory into a zip file
-cmd compress ${{
+# Zip the selected files/dirs (or the one under the cursor). A single item is
+# zipped to <item>.zip next to it; multiple items prompt in the statline for an
+# archive name and are zipped into the current directory.
+# Hidden files inside directories are excluded.
+cmd compress %{{
   set -f
-  if [ -d "$f" ]; then
-    (cd "$(dirname "$f")" && zip -r "$(basename "$f").zip" "$(basename "$f")" -x "*/.*")
+  [ -n "$fx" ] || exit 0
+  if [ "$(printf '%s\n' "$fx" | wc -l)" -gt 1 ]; then
+    printf 'compress: '
+    read -r name
+    name="${name%.zip}"
+    [ -n "$name" ] || exit 0
+    items="$(for p in $fx; do printf '%s\n' "${p#"$PWD"/}"; done)"
   else
-    echo "$f is not a directory"
+    cd "$(dirname "$fx")"
+    name="$(basename "$fx")"
+    items="$name"
   fi
+  if [ -e "$name.zip" ]; then
+    printf '%s.zip already exists' "$name"
+    exit 0
+  fi
+  zip -qr "$name.zip" $items -x "*/.*"
+  lf -remote "send $id select \"$PWD/$name.zip\""
 }}
 
 # # compress current file or selected files with tar and gunzip
