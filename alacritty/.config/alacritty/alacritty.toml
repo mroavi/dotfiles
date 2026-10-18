@@ -22,11 +22,8 @@ style = "Italic"
 [font.normal]
 family = "MesloLGSDZ Nerd FontMono"
 
-[[keyboard.bindings]]
-action = "Paste"
-key = "P"
-mods = "Control|Shift"
-
+# Ctrl+Shift+{J,K,H,L}: resize tmux panes (tmux.conf); send xterm codes so
+# tmux can tell them apart from Ctrl+{J,K,H,L}
 [[keyboard.bindings]]
 chars = "\u001B[27;6;74~"
 key = "J"
@@ -55,11 +52,13 @@ key = "["
 mode = "~Vi|~Search"
 mods = "Control"
 
+# Open a new window in the current directory (e.g. lf's)
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "N"
 mods = "Control|Shift"
 
+# Leave Alacritty's vi mode with Esc, Ctrl+[ or Enter
 [[keyboard.bindings]]
 action = "ToggleViMode"
 key = "Escape"
