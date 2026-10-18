@@ -58,6 +58,7 @@ pac_pkgs=(
           libreoffice-still
           lxappearance            # manage GTK themes
           mermaid-cli
+          mpv                     # minimal, keyboard-driven media player
           neovim
           noto-fonts
           noto-fonts-cjk
