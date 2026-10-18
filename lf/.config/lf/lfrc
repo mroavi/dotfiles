@@ -52,24 +52,25 @@ cmd fzf-restore ${{
 
 # Creates a file with the argument as name and selects it
 cmd touch %{{
-    touch -- "$*"
-    lf -remote "send $id select \"$*\""
+    name="$(IFS=' '; printf '%s' "$*")"  # "$*" alone would join with newlines (ifs)
+    touch -- "$name"
+    lf -remote "send $id select \"$name\""
 }}
 
 # Creates a file with the argument as name and opens it
 cmd v %{{
-    touch -- "$*"
-    lf -remote "send $id select \"$*\""
+    name="$(IFS=' '; printf '%s' "$*")"  # "$*" alone would join with newlines (ifs)
+    touch -- "$name"
+    lf -remote "send $id select \"$name\""
     lf -remote "send $id open"
 }}
 
 # Creates a directory and selects it
 cmd mkdir %{{
-    mkdir -p -- "$*"
-    lf -remote "send $id select \"$*\""
+    name="$(IFS=' '; printf '%s' "$*")"  # "$*" alone would join with newlines (ifs)
+    mkdir -p -- "$name"
+    lf -remote "send $id select \"$name\""
 }}
-
-cmd touch %touch "$1"
 
 # zoxide integration
 cmd z %{{
