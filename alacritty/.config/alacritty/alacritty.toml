@@ -28,41 +28,6 @@ key = "P"
 mods = "Control|Shift"
 
 [[keyboard.bindings]]
-chars = "\u001B[27;5;9~"
-key = "Tab"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;6;9~"
-key = "Tab"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001B[13;5u"
-key = "Return"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;6;13~"
-key = "Return"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;6;87~"
-key = "W"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;6;83~"
-key = "S"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;6;86~"
-key = "V"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
 chars = "\u001B[27;6;74~"
 key = "J"
 mods = "Control|Shift"
@@ -117,6 +82,44 @@ key = "Return"
 mods = "Shift"
 chars = "\u001b\r"
 
+# Unused: apps now request extended keys themselves (kitty keyboard protocol). {{{
+# Ctrl+Shift+V falls back to the default Paste action.
+# [[keyboard.bindings]]
+# chars = "\u001B[27;5;9~"
+# key = "Tab"
+# mods = "Control"
+
+# [[keyboard.bindings]]
+# chars = "\u001B[27;6;9~"
+# key = "Tab"
+# mods = "Control|Shift"
+
+# [[keyboard.bindings]]
+# chars = "\u001B[13;5u"
+# key = "Return"
+# mods = "Control"
+
+# [[keyboard.bindings]]
+# chars = "\u001B[27;6;13~"
+# key = "Return"
+# mods = "Control|Shift"
+
+# [[keyboard.bindings]]
+# chars = "\u001B[27;6;87~"
+# key = "W"
+# mods = "Control|Shift"
+
+# [[keyboard.bindings]]
+# chars = "\u001B[27;6;83~"
+# key = "S"
+# mods = "Control|Shift"
+
+# [[keyboard.bindings]]
+# chars = "\u001B[27;6;86~"
+# key = "V"
+# mods = "Control|Shift"
+# }}}
+
 [window]
 decorations = "none"
 opacity = 0.98
@@ -129,3 +132,5 @@ y = 16
 [window.dimensions]
 columns = 140 # no effect on systems using DWM
 lines = 40 # no effect on systems using DWM
+
+# vim:set foldenable foldmethod=marker nowrap:
