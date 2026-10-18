@@ -180,6 +180,8 @@ bindkey -s '^l' 'clr^M'
 # Automatically run eza or ls after every cd
 # Source: https://stackoverflow.com/a/3964198/1706778
 function chpwd() {
+  # Only in a real terminal; in non-interactive shells (e.g. Claude Code) eza waits on stdin and hangs
+  [[ -t 0 && -t 1 ]] || return
   emulate -L zsh
   if command -v eza &> /dev/null; then
     eza -1 --icons=auto
