@@ -1,11 +1,53 @@
 # Sync root directory
 sync_dir = "~/OneDrive"
 
-# Skip unwanted directories (Java, C#, Python, IDEs, Node.js)
-skip_dir = "build|out|target|bin|obj|.vs|.idea|.gradle|.vscode|__pycache__|venv|node_modules|.pio|.cache"
-
-# Skip unwanted files (compiled, temp, editor junk)
-skip_file = "~*|.~*|*.tmp|*.class|*.jar|*.user|*.suo|*.swp|.*.swp|.*.swo|compile_commands.json"
-
 # Do not treat skip_dir as strict full path matches
 skip_dir_strict_match = "false"
+
+# skip_dir and skip_file can be repeated; all lines are combined.
+# After changing them, run: onedrive --resync --sync
+
+# Client defaults (temp, lock and partial download files)
+skip_file = "~*|.~*|*.tmp|*.partial"
+
+# General build output
+skip_dir = "build|out"
+
+# Git
+skip_dir = ".git"
+
+# LaTeX
+skip_dir = "aux"
+
+# C# / .NET / Visual Studio
+skip_dir = "bin|obj|.vs"
+skip_file = "*.user|*.suo"
+
+# Java (Maven, Gradle)
+skip_dir = "target|.gradle"
+skip_file = "*.class|*.jar"
+
+# C / C++ (CMake, clangd)
+skip_dir = ".cache"
+skip_file = "compile_commands.json"
+
+# Python
+skip_dir = "__pycache__|venv"
+
+# Node.js
+skip_dir = "node_modules"
+
+# PlatformIO
+skip_dir = ".pio"
+
+# KiCad (local history and restore backups)
+skip_dir = ".history|_restore_backup_*"
+
+# Vim
+skip_file = "*.swp|.*.swo"
+
+# JetBrains IDEs
+skip_dir = ".idea"
+
+# VS Code
+skip_dir = ".vscode"
