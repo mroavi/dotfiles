@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Webots' launcher only disables Qt HiDPI scaling on i3/MATE; on dwm the 3D view renders wrong.
+# Run the real webots (the next one in PATH that isn't this wrapper) as if on MATE.
+self=$(readlink -f "$0")
+IFS=:
+for dir in $PATH; do
+  if [ -x "$dir/webots" ] && [ "$(readlink -f "$dir/webots")" != "$self" ]; then
+    XDG_CURRENT_DESKTOP=MATE exec "$dir/webots" "$@"
+  fi
+done
+echo "webots: not installed" >&2
+exit 1

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Shrink KiCad's GTK fonts on this HiDPI setup.
+# Run the real kicad (the next one in PATH that isn't this wrapper).
+self=$(readlink -f "$0")
+IFS=:
+for dir in $PATH; do
+  if [ -x "$dir/kicad" ] && [ "$(readlink -f "$dir/kicad")" != "$self" ]; then
+    GDK_DPI_SCALE=0.8 exec "$dir/kicad" "$@"
+  fi
+done
+echo "kicad: not installed" >&2
+exit 1
